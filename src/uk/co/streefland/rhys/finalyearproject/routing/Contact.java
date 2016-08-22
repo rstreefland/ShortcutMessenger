@@ -1,4 +1,6 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.routing;
+
+import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 /**
  * Keeps information about the contacts of the node. Contacts are stored in buckets in the routing table

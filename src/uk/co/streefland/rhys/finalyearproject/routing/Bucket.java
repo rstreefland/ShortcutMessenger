@@ -1,4 +1,7 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.routing;
+
+import uk.co.streefland.rhys.finalyearproject.main.Configuration;
+import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -184,8 +187,8 @@ public class Bucket {
         {
             /**
              * If the contact is already in the bucket, lets update that we've seen it
-             * We need to remove and re-add the contact to get the Sorted Set to update sort order
-             */
+                * We need to remove and re-add the contact to get the Sorted Set to update sort order
+                */
             Contact tmp = this.removeFromReplacementCache(c.getNode());
             tmp.setSeenNow();
             this.replacementCache.add(tmp);
@@ -215,6 +218,11 @@ public class Bucket {
 
         /* We got here means this element does not exist */
         throw new NoSuchElementException("Node does not exist in the replacement cache. ");
+    }
+
+    public synchronized int numContacts()
+    {
+        return this.contacts.size();
     }
 
     @Override

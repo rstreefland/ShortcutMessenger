@@ -1,7 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.test;
 
-import uk.co.streefland.rhys.finalyearproject.main.Node;
-import uk.co.streefland.rhys.finalyearproject.main.NodeId;
+import uk.co.streefland.rhys.finalyearproject.node.Node;
+import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;

@@ -1,9 +1,10 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.node;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Random;
@@ -72,6 +73,14 @@ public class NodeId implements Serializable {
 
     public byte[] getIdBytes() {
         return idBytes;
+    }
+
+    /**
+     * @return The BigInteger representation of the key
+     */
+    public BigInteger getInt()
+    {
+        return new BigInteger(1, this.getIdBytes());
     }
 
     public int getFirstSetBitIndex() {

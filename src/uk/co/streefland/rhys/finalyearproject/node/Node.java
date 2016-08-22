@@ -1,4 +1,4 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.node;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;

@@ -1,6 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.test;
 
-import uk.co.streefland.rhys.finalyearproject.main.NodeId;
+import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 
 /**
  * Created by Rhys on 08/07/2016.
