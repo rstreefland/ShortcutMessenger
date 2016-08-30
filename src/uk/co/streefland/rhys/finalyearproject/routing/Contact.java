@@ -7,7 +7,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
  *
  * Contacts are used instead of nodes because more information is needed than just the node information such as last seen time
  */
-public class Contact {
+public class Contact implements Comparable<Contact> {
     private final Node n;
     private long lastSeen;
 
@@ -89,7 +89,7 @@ public class Contact {
         this.staleCount = 0;
     }
 
-    //@Override
+    @Override
     public int compareTo(Contact o)
     {
         if (this.getNode().equals(o.getNode()))

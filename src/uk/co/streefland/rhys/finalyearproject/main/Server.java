@@ -1,5 +1,9 @@
 package uk.co.streefland.rhys.finalyearproject.main;
 
+import com.sun.xml.internal.bind.v2.TODO;
+import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.message.MessageFactory;
+import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.*;
@@ -20,16 +24,22 @@ public class Server {
     /* Basic Kad Objects */
     private final transient Configuration config;
 
+    private final Node localNode;
+    private final MessageFactory messageFactory;
+
     /* Server Objects */
     private final DatagramSocket socket;
     private transient boolean isRunning = true;
-    //private final Map<Integer, Receiver> receivers;
     private final Timer timer = new Timer(true);      // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
+    private final Map<Integer, Receiver> receivers = new HashMap<>();
 
-    public Server(int udpPort, Configuration config) throws SocketException {
+    public Server(int udpPort, MessageFactory messageFactory, Node localNode, Configuration config) throws SocketException
+    {
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
+        this.localNode = localNode;
+        this.messageFactory = messageFactory;
 
         /* Start listening for incoming requests in a new thread */
         this.startListener();
@@ -50,71 +60,202 @@ public class Server {
     /**
      * Listen for incoming messages in a separate thread
      */
-    private void listen() {
-        System.out.println("Listener is running");
-        try {
-            while (isRunning) {
-                try {
-                    receivePacket();
-                } catch (IOException e) {
+    private void listen()
+    {
+        try
+        {
+            while (isRunning)
+            {
+                try
+                {
+                    /* Wait for a packet */
+                    byte[] buffer = new byte[DATAGRAM_BUFFER_SIZE];
+                    DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+                    socket.receive(packet);
+
+                    /* We've received a packet, now handle it */
+                    try (ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
+                         DataInputStream din = new DataInputStream(bin))
+                    {
+
+                        /* Read in the conversation Id to know which handler to handle this response */
+                        int comm = din.readInt();
+                        byte messCode = din.readByte();
+
+                        Message msg = messageFactory.createMessage(messCode, din);
+                        din.close();
+
+                        /* Get a receiver for this message */
+                        Receiver receiver;
+                        if (this.receivers.containsKey(comm))
+                        {
+                            /* If there is a reciever in the receivers to handle this */
+                            synchronized (this)
+                            {
+                                receiver = this.receivers.remove(comm);
+                                TimerTask task = (TimerTask) tasks.remove(comm);
+                                if (task != null)
+                                {
+                                    task.cancel();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            /* There is currently no receivers, try to get one */
+                            receiver = messageFactory.createReceiver(messCode, this);
+                        }
+
+                        /* Invoke the receiver */
+                        if (receiver != null)
+                        {
+                            receiver.receive(msg, comm);
+                        }
+                    }
+                }
+                catch (IOException e)
+                {
                     //this.isRunning = false;
                     System.err.println("Server ran into a problem in listener method. Message: " + e.getMessage());
                 }
             }
-            System.out.println("Listener has stopped running");
-        } finally {
-            if (!socket.isClosed()) {
+        }
+        finally
+        {
+            if (!socket.isClosed())
+            {
                 socket.close();
             }
             this.isRunning = false;
         }
     }
 
-    private void sendMessage() throws IOException {
+    /**
+     * Method called to reply to a message received
+     *
+     * @param to   The Node to send the reply to
+     * @param msg  The reply message
+     * @param comm The communication ID - the one received
+     *
+     * @throws java.io.IOException
+     */
+    public synchronized void reply(Node to, Message msg, int comm) throws IOException
+    {
+        if (!isRunning)
+        {
+            throw new IllegalStateException("Kad Server is not running.");
+        }
+        sendMessage(to, msg, comm);
+    }
 
-        System.out.println("Please enter IP to connect to:");
-        Scanner sc = new Scanner(System.in);
-        String ip = sc.nextLine();
+    public synchronized int sendMessage(Node to, Message msg, Receiver recv) throws IOException
+    {
+        if (!isRunning)
+        {
+            throw new IOException(this.localNode + " - Kad Server is not running.");
+        }
 
-        DatagramSocket clientSocket = new DatagramSocket();
+        /* Generate a random communication ID */
+        int communicationId = new Random().nextInt();
 
+        /* If we have a receiver */
+        if (recv != null)
+        {
+            try
+            {
+                /* Setup the receiver to handle message response */
+                receivers.put(communicationId, recv);
+                TimerTask task = new TimeoutTask(communicationId, recv);
+                timer.schedule(task, this.config.responseTimeout());
+                tasks.put(communicationId, task);
+            }
+            catch (IllegalStateException ex)
+            {
+                /* The timer is already cancelled so we cannot do anything here really */
+            }
+        }
 
-        while (true) {
-            sc = new Scanner(System.in);
-            String message = sc.nextLine();
+        /* Send the message */
+        sendMessage(to, msg, communicationId);
 
-            byte[] buffer;
-            buffer = message.getBytes();
-            DatagramPacket packet = buildPacket(message, ip , 9001);
-            clientSocket.send(packet);
-            //clientSocket.close();
+        return communicationId;
+    }
+
+    /**
+     * Internal sendMessage method called by the public sendMessage method after a communicationId is generated
+     */
+    private void sendMessage(Node destination, Message msg, int commmunicationId) throws IOException
+    {
+        /* Use a try-with resource to auto-close streams after usage */
+        try (ByteArrayOutputStream bout = new ByteArrayOutputStream(); DataOutputStream dout = new DataOutputStream(bout))
+        {
+            /* Setup the message for transmission */
+            dout.writeInt(commmunicationId);
+            dout.writeByte(msg.code());
+            msg.toStream(dout);
+            dout.close();
+
+            byte[] data = bout.toByteArray();
+
+            if (data.length > DATAGRAM_BUFFER_SIZE) {
+                // TODO: split large message into smaller datagram packets
+                throw new IOException("Message is too big");
+            }
+
+            /* Everything is good, now create the packet and send it */
+            DatagramPacket pkt = new DatagramPacket(data, 0, data.length);
+            pkt.setSocketAddress(destination.getSocketAddress());
+            socket.send(pkt);
         }
     }
 
-    private DatagramPacket buildPacket(String message, String host, int port) throws IOException {
-        // Create a byte array from a string
-        ByteArrayOutputStream byteOut = new ByteArrayOutputStream();
-        DataOutputStream dataOut = new DataOutputStream(byteOut);
-        dataOut.writeBytes(message);
-        byte[] data = byteOut.toByteArray();
-        //Return the new object with the byte array payload
-        return new DatagramPacket(data, data.length, InetAddress.getByName(host), port);
+    /**
+     * Task that gets called by a separate thread if a timeout for a receiver occurs.
+     * When a reply arrives this task must be canceled using the <code>cancel()</code>
+     * method inherited from <code>TimerTask</code>. In this case the caller is
+     * responsible for removing the task from the <code>tasks</code> map.
+     * */
+    class TimeoutTask extends TimerTask
+    {
+
+        private final int communicationId;
+        private final Receiver recv;
+
+        public TimeoutTask(int communicationId, Receiver recv)
+        {
+            this.communicationId = communicationId;
+            this.recv = recv;
+        }
+
+        @Override
+        public void run()
+        {
+            if (!Server.this.isRunning)
+            {
+                return;
+            }
+
+            try
+            {
+                unregister(communicationId);
+                recv.timeout(communicationId);
+            }
+            catch (IOException e)
+            {
+                System.err.println("Cannot unregister a receiver. Message: " + e.getMessage());
+            }
+        }
     }
 
-    private void receivePacket() throws IOException {
-        byte buffer[] = new byte[DATAGRAM_BUFFER_SIZE];
-        DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-        socket.receive(packet);
-
-        // Convert the byte array read from network into a string
-        ByteArrayInputStream byteIn = new ByteArrayInputStream(packet.getData(), 0, packet.getLength());
-        BufferedReader dataIn = new BufferedReader(new InputStreamReader(byteIn));
-
-        // Read in data from a standard format
-        String message = "";
-        while ((message = dataIn.readLine()) != null) {
-            System.out.println("Message from " + packet.getAddress().getCanonicalHostName() + ": " + message);
-        }
+    /**
+     * Remove a conversation receiver
+     *
+     * @param communicationId The id of this conversation
+     */
+    private synchronized void unregister(int communicationId)
+    {
+        receivers.remove(communicationId);
+        this.tasks.remove(communicationId);
     }
 
     /**
@@ -126,24 +267,15 @@ public class Server {
         timer.cancel();
     }
 
+    public void printReceivers()
+    {
+        for (Integer r : this.receivers.keySet())
+        {
+            System.out.println("Receiver for comm: " + r + "; Receiver: " + this.receivers.get(r));
+        }
+    }
+
     public boolean isRunning() {
         return this.isRunning;
     }
-
-    public static void main(String[] args) {
-        try {
-            Server server = new Server(9001, new Configuration());
-            //Server server2 = new Server(9001, new Configuration());
-
-
-            server.sendMessage();
-        } catch (SocketException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
-
 }

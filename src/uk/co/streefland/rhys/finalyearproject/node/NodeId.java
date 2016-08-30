@@ -31,10 +31,11 @@ public class NodeId implements Serializable {
         }
     }
 
-    public NodeId(byte[] id) {
+    public NodeId(byte[] idBytes) {
         if (idBytes.length != BYTES_LENGTH) {
             throw new IllegalArgumentException("Data needs to be " + BYTES_LENGTH + " characters long");
         }
+        this.idBytes = idBytes;
     }
 
     public NodeId(DataInputStream in) throws IOException
