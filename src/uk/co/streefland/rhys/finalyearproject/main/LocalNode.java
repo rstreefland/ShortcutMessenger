@@ -78,6 +78,10 @@ public class LocalNode {
         return messageFactory;
     }
 
+    public LocalNode getLocalNode() {
+        return this;
+    }
+
     public Node getNode() {
         return localNode;
     }

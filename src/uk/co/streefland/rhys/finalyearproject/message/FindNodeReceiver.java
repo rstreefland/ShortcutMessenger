@@ -9,19 +9,19 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Receives a NodeLookupMessage and sends a NodeReplyMessage as reply with the K-Closest nodes to the ID sent.
+ * Receives a FindNodeMessage and sends a NodeReplyMessage as reply with the K-Closest nodes to the ID sent.
  *
  * @author Joshua Kissoon
  * @created 20140219
  */
-public class NodeLookupReceiver implements Receiver
+public class FindNodeReceiver implements Receiver
 {
 
     private final Server server;
     private final LocalNode localNode;
     private final Configuration config;
 
-    public NodeLookupReceiver(Server server, LocalNode local, Configuration config)
+    public FindNodeReceiver(Server server, LocalNode local, Configuration config)
     {
         this.server = server;
         this.localNode = local;
@@ -29,7 +29,7 @@ public class NodeLookupReceiver implements Receiver
     }
 
     /**
-     * Handle receiving a NodeLookupMessage
+     * Handle receiving a FindNodeMessage
      * Find the set of K nodes closest to the lookup ID and return them
      *
      * @param comm
@@ -39,7 +39,7 @@ public class NodeLookupReceiver implements Receiver
     @Override
     public void receive(Message incoming, int comm) throws IOException
     {
-        NodeLookupMessage msg = (NodeLookupMessage) incoming;
+        FindNodeMessage msg = (FindNodeMessage) incoming;
 
         Node origin = msg.getOrigin();
 
@@ -49,7 +49,7 @@ public class NodeLookupReceiver implements Receiver
         /* Find nodes closest to the LookupId */
         List<Node> nodes = this.localNode.getRoutingTable().findClosest(msg.getLookupId(), this.config.k());
 
-        /* Respond to the NodeLookupMessage */
+        /* Respond to the FindNodeMessage */
       //  Message reply = new NodeReplyMessage(this.localNode.getNode(), nodes);
         // TODO: 30/08/2016  add the nodereplymessage functionality
 

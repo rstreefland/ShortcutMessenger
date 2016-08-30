@@ -13,7 +13,7 @@ import java.io.IOException;
  * @author Joshua Kissoon
  * @created 20140218
  */
-public class NodeLookupMessage implements Message
+public class FindNodeMessage implements Message
 {
 
     private Node origin;
@@ -22,18 +22,18 @@ public class NodeLookupMessage implements Message
     public static final byte CODE = 0x05;
 
     /**
-     * A new NodeLookupMessage to find nodes
+     * A new FindNodeMessage to find nodes
      *
      * @param origin The Node from which the message is coming from
      * @param lookup The key for which to lookup nodes for
      */
-    public NodeLookupMessage(Node origin, NodeId lookup)
+    public FindNodeMessage(Node origin, NodeId lookup)
     {
         this.origin = origin;
         this.lookupId = lookup;
     }
 
-    public NodeLookupMessage(DataInputStream in) throws IOException
+    public FindNodeMessage(DataInputStream in) throws IOException
     {
         this.fromStream(in);
     }
@@ -71,6 +71,6 @@ public class NodeLookupMessage implements Message
     @Override
     public String toString()
     {
-        return "NodeLookupMessage[origin=" + origin + ",lookup=" + lookupId + "]";
+        return "FindNodeMessage[origin=" + origin + ",lookup=" + lookupId + "]";
     }
 }

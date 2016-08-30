@@ -77,15 +77,15 @@ public class ConnectOperation implements Operation, Receiver {
             }
 
             /* Perform lookup for our own ID to get nodes close to us */
-           // Operation lookup = new NodeLookupOperation(this.server, this.localNode, this.localNode.getNode().getNodeId(), this.config);
-           // lookup.execute();
+            Operation findNode = new FindNodeOperation(this.server, this.localNode, this.localNode.getNode().getNodeId(), this.config);
+            findNode.execute();
 
             /**
              * Refresh buckets to get a good routing table
              * After the above lookup operation, K nodes will be in our routing table,
              * Now we try to populate all of our buckets.
              */
-           // new BucketRefreshOperation(this.server, this.localNode, this.config).execute();
+            new BucketRefreshOperation(this.server, this.localNode, this.config).execute();
         }
         catch (InterruptedException e)
         {

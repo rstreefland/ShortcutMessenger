@@ -1,6 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
+import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.node.NodeId;
@@ -18,10 +19,10 @@ public class BucketRefreshOperation implements Operation
 {
 
     private final Server server;
-    private final Node localNode;
+    private final LocalNode localNode;
     private final Configuration config;
 
-    public BucketRefreshOperation(Server server, Node localNode, Configuration config)
+    public BucketRefreshOperation(Server server, LocalNode localNode, Configuration config)
     {
         this.server = server;
         this.localNode = localNode;
@@ -41,7 +42,7 @@ public class BucketRefreshOperation implements Operation
     @Override
     public synchronized void execute() throws IOException
     {
-        /*
+
         for (int i = 1; i < NodeId.ID_LENGTH; i++)
         {
             // Construct a NodeId that is i bits away from the current node Id
@@ -55,16 +56,16 @@ public class BucketRefreshOperation implements Operation
                 {
                     try
                     {
-                        new NodeLookupOperation(server, localNode, current, BucketRefreshOperation.this.config).execute();
+                        new FindNodeOperation(server, localNode, current, BucketRefreshOperation.this.config).execute();
                     }
                     catch (IOException e)
                     {
-                        //System.err.println("Bucket Refresh Operation Failed. Msg: " + e.getMessage());
+                        System.err.println("Bucket Refresh Operation Failed. Msg: " + e.getMessage());
                     }
                 }
             }.start();
 
 
-        } */
+        }
     }
 }
