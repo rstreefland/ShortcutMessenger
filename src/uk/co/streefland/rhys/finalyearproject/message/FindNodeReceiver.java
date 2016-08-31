@@ -50,13 +50,13 @@ public class FindNodeReceiver implements Receiver
         List<Node> nodes = this.localNode.getRoutingTable().findClosest(msg.getLookupId(), this.config.k());
 
         /* Respond to the FindNodeMessage */
-      //  Message reply = new NodeReplyMessage(this.localNode.getNode(), nodes);
+        Message reply = new NodeReplyMessage(this.localNode.getNode(), nodes);
         // TODO: 30/08/2016  add the nodereplymessage functionality
 
         if (this.server.isRunning())
         {
             /* Let the Server send the reply */
-         //  this.server.reply(origin, reply, comm);
+            this.server.reply(origin, reply, comm);
         }
     }
 

@@ -18,6 +18,8 @@ public class NodeConnectionTest
     {
         try
         {
+            long startTime = System.currentTimeMillis();
+
             /* Setting up 2 Kad networks */
             LocalNode kad1 = new LocalNode("JoshuaK", new NodeId("ASF45678947584567467"), 7574);
             System.out.println("Created Node Kad 1: " + kad1.getNode().getNodeId());
@@ -62,6 +64,12 @@ public class NodeConnectionTest
             System.out.println(kad3.getRoutingTable());
             System.out.println("\n\nKad 4: " + kad4.getNode().getNodeId() + " Routing Table: ");
             System.out.println(kad4.getRoutingTable());
+
+            long endTime = System.currentTimeMillis();
+
+            long duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.
+
+            System.out.println("DURATION: " + duration + "ms");
         }
         catch (IOException e)
         {

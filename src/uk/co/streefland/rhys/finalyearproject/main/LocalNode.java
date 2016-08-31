@@ -6,6 +6,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
+import uk.co.streefland.rhys.finalyearproject.operation.RefreshOperation;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
 import java.io.IOException;
@@ -31,7 +32,7 @@ public class LocalNode {
 
     /* Timer used to execute refresh operations */
     private transient Timer refreshOperationTimer;
-    private transient TimerTask refreshOperationTTask;
+    private transient RefreshOperation refreshOperation;
 
     /* Factories */
     private final transient MessageFactory messageFactory;
@@ -46,7 +47,8 @@ public class LocalNode {
         this.routingTable = routingTable;
         this.messageFactory = new MessageFactory(this, this.config);
         this.server = new Server(udpPort, this.messageFactory, this.localNode, this.config);
-        //this.startRefreshOperation();
+
+        this.startRefreshOperation();
     }
 
     public LocalNode(String ownerId, NodeId defaultId, int udpPort) throws IOException {
@@ -58,6 +60,22 @@ public class LocalNode {
 
         this.messageFactory = new MessageFactory(this, this.config);
         this.server = new Server(udpPort, this.messageFactory, this.localNode, this.config);
+
+        this.startRefreshOperation();
+    }
+
+    public final void startRefreshOperation()
+    {
+        this.refreshOperation = new RefreshOperation(this.server, this, this.config);
+
+        this.refreshOperationTimer = new Timer(true);
+        this.refreshOperationTimer.schedule(this.refreshOperation, this.config.restoreInterval(), this.config.restoreInterval());
+    }
+
+    public void stopRefreshOperation() {
+        refreshOperation.cancel();
+        refreshOperationTimer.cancel();
+        refreshOperationTimer.purge();
     }
 
     public synchronized final void bootstrap(Node n) throws IOException

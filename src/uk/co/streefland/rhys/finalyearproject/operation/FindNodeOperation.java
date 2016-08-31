@@ -22,17 +22,17 @@ import java.util.*;
 public class FindNodeOperation implements Operation, Receiver {
 
     //flags
-    private static final int NOTQUERIED = 1;
-    private static final int AWAITINGRESPONSE = 2;
-    private static final int QUERIED = 3;
-    private static final int FAILED = 4;
+    private static final String NOTQUERIED = "1";
+    private static final String AWAITINGRESPONSE = "2";
+    private static final String QUERIED = "3";
+    private static final String FAILED = "4";
 
     private final Server server;
     private final LocalNode localNode;
     private final Configuration config;
 
     private final Message lookupMessage;        // Message sent to each peer
-    private final Map<Node, Integer> nodes;
+    private final Map<Node, String> nodes;
 
     /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
@@ -135,7 +135,7 @@ public class FindNodeOperation implements Operation, Receiver {
      * @param status The status of the nodes to return
      * @return The K closest nodes to the target lookupId given that have the specified status
      */
-    private List<Node> getClosestNodes(Integer status) {
+    private List<Node> getClosestNodes(String status) {
         List<Node> closestNodes = new ArrayList<>(this.config.k());
         int remainingSpaces = this.config.k();
 
@@ -155,7 +155,7 @@ public class FindNodeOperation implements Operation, Receiver {
     private List<Node> getFailedNodes() {
         List<Node> failedNodes = new ArrayList<>();
 
-        for (Map.Entry<Node, Integer> e : this.nodes.entrySet()) {
+        for (Map.Entry<Node, String> e : this.nodes.entrySet()) {
             if (e.getValue().equals(FAILED)) {
                 failedNodes.add(e.getKey());
             }
@@ -171,6 +171,12 @@ public class FindNodeOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
+        if (!(incoming instanceof NodeReplyMessage))
+        {
+            /* Not sure why we get a message of a different type here... @todo Figure it out. */
+            return;
+        }
+
         /* We receive a NodeReplyMessage with a set of nodes, read this message */
         NodeReplyMessage msg = (NodeReplyMessage) incoming;
 
@@ -186,6 +192,7 @@ public class FindNodeOperation implements Operation, Receiver {
 
         /* Add the received nodes to our nodes list to query */
         this.addNodes(msg.getNodes());
+        //this.iterativeQueryNodes();
     }
 
     /**
@@ -206,5 +213,7 @@ public class FindNodeOperation implements Operation, Receiver {
         this.nodes.put(n, FAILED);
         this.localNode.getRoutingTable().setUnresponsiveContact(n);
         this.messagesInTransit.remove(communicationId);
+
+       // this.iterativeQueryNodes();
     }
 }
