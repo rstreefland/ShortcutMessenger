@@ -9,5 +9,5 @@ public interface Operation {
      *
      * @throws
      */
-    public void execute() throws IOException;
+    void execute() throws IOException;
 }

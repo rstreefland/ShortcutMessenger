@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -46,7 +47,7 @@ public class BucketRefreshOperation implements Operation
         for (int i = 1; i < NodeId.ID_LENGTH; i++)
         {
             // Construct a NodeId that is i bits away from the current node Id
-            final NodeId current = this.localNode.getNode().getNodeId().generateNodeIdByDistance(i);
+            final NodeId current = this.localNode.getNode().getNodeId().generateNodeIdUsingDistance(i);
 
             // Run the Node Lookup Operation, each in a different thread to speed up things
             new Thread()

@@ -67,9 +67,14 @@ public class NodeConnectionTest
 
             long endTime = System.currentTimeMillis();
 
-            long duration = (endTime - startTime);  //divide by 1000000 to get milliseconds.
+            long duration = (endTime - startTime);
 
             System.out.println("DURATION: " + duration + "ms");
+
+           // kad1.shutdown();
+           // kad2.shutdown();
+           // kad3.shutdown();
+           // kad4.shutdown();
         }
         catch (IOException e)
         {

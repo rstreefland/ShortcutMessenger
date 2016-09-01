@@ -1,8 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.main;
 
-import com.sun.xml.internal.bind.v2.TODO;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
-import uk.co.streefland.rhys.finalyearproject.message.MessageFactory;
+import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
@@ -11,42 +10,33 @@ import java.net.*;
 import java.util.*;
 
 /**
- * The server that handles sending and receiving messages between nodes on the Kad Network
- *
- * @author Joshua Kissoon
- * @created 20140215
+ * UDP server that handles sending and receiving messages as UDP packets between nodes on the network
  */
 public class Server {
 
-    /* Maximum size of a Datagram Packet */
-    private static final int DATAGRAM_BUFFER_SIZE = 64 * 1024;      // 64KB
-
-    /* Basic Kad Objects */
-    private final transient Configuration config;
-
+    private final Configuration config;
     private final Node localNode;
-    private final MessageFactory messageFactory;
+    private final MessageHandler messageHandler;
 
     /* Server Objects */
     private final DatagramSocket socket;
-    private transient boolean isRunning = true;
-    private final Timer timer = new Timer(true);      // Schedule future tasks
+    private boolean isRunning = true;
+    private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
 
-    public Server(int udpPort, MessageFactory messageFactory, Node localNode, Configuration config) throws SocketException
-    {
+    public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
         this.localNode = localNode;
-        this.messageFactory = messageFactory;
+        this.messageHandler = messageHandler;
 
         /* Start listening for incoming requests in a new thread */
-        this.startListener();
+        startListener();
     }
 
     /**
-     * Starts the listener to listen for incoming messages
+     * Starts the listener thread to listen for incoming messages
      */
     private void startListener() {
         new Thread() {
@@ -58,72 +48,56 @@ public class Server {
     }
 
     /**
-     * Listen for incoming messages in a separate thread
+     * Listens for incoming messages over UDP
      */
-    private void listen()
-    {
-        try
-        {
-            while (isRunning)
-            {
-                try
-                {
-                    /* Wait for a packet */
-                    byte[] buffer = new byte[DATAGRAM_BUFFER_SIZE];
+    private void listen() {
+        try {
+            while (isRunning) {
+                try {
+                    /* Wait for a packet*/
+                    byte[] buffer = new byte[config.getPacketSize()];
                     DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                     socket.receive(packet);
 
-                    /* We've received a packet, now handle it */
+                    /* Handle the received packet */
                     try (ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
-                         DataInputStream din = new DataInputStream(bin))
-                    {
+                         DataInputStream din = new DataInputStream(bin)) {
 
-                        /* Read in the conversation Id to know which handler to handle this response */
-                        int comm = din.readInt();
-                        byte messCode = din.readByte();
+                        /* Read the communicationId and messageCode */
+                        int communicationId = din.readInt();
+                        byte messageCode = din.readByte();
 
-                        Message msg = messageFactory.createMessage(messCode, din);
+                        /* Create the message and close the input stream */
+                        Message msg = messageHandler.createMessage(messageCode, din);
                         din.close();
 
-                        /* Get a receiver for this message */
+                        /* Check if a receiver already exists and create one if not */
                         Receiver receiver;
-                        if (this.receivers.containsKey(comm))
-                        {
-                            /* If there is a reciever in the receivers to handle this */
-                            synchronized (this)
-                            {
-                                receiver = this.receivers.remove(comm);
-                                TimerTask task = (TimerTask) tasks.remove(comm);
-                                if (task != null)
-                                {
+                        if (this.receivers.containsKey(communicationId)) {
+                            /* If there is a reciever in the receivers list to handle this */
+                            synchronized (this) {
+                                receiver = this.receivers.remove(communicationId);
+                                TimerTask task = tasks.remove(communicationId);
+                                if (task != null) {
                                     task.cancel();
                                 }
                             }
-                        }
-                        else
-                        {
+                        } else {
                             /* There is currently no receivers, try to get one */
-                            receiver = messageFactory.createReceiver(messCode, this);
+                            receiver = messageHandler.createReceiver(messageCode, this);
                         }
 
                         /* Invoke the receiver */
-                        if (receiver != null)
-                        {
-                            receiver.receive(msg, comm);
+                        if (receiver != null) {
+                            receiver.receive(msg, communicationId);
                         }
                     }
-                }
-                catch (IOException e)
-                {
-                    //this.isRunning = false;
+                } catch (IOException e) {
                     System.err.println("Server ran into a problem in listener method. Message: " + e.getMessage());
                 }
             }
-        }
-        finally
-        {
-            if (!socket.isClosed())
-            {
+        } finally {
+            if (!socket.isClosed()) {
                 socket.close();
             }
             this.isRunning = false;
@@ -131,78 +105,81 @@ public class Server {
     }
 
     /**
-     * Method called to reply to a message received
+     * Replies to a received message
      *
-     * @param to   The Node to send the reply to
+     * @param destination   The destination node
      * @param msg  The reply message
-     * @param comm The communication ID - the one received
-     *
+     * @param communicationId The communication ID that was received
      * @throws java.io.IOException
      */
-    public synchronized void reply(Node to, Message msg, int comm) throws IOException
-    {
-        if (!isRunning)
-        {
-            throw new IllegalStateException("Kad Server is not running.");
+    public synchronized void reply(Node destination, Message msg, int communicationId) throws IOException {
+        if (!isRunning) {
+            throw new IllegalStateException("Server is not running.");
         }
-        sendMessage(to, msg, comm);
+        sendMessage(destination, msg, communicationId);
     }
 
-    public synchronized int sendMessage(Node to, Message msg, Receiver recv) throws IOException
-    {
-        if (!isRunning)
-        {
-            throw new IOException(this.localNode + " - Kad Server is not running.");
+    /**
+     * Sends a message
+     *
+     * @param destination The destination node
+     * @param msg The message
+     * @param recv The receiver for the reply
+     * @return The communicationId of the message
+     * @throws IOException
+     */
+    public synchronized int sendMessage(Node destination, Message msg, Receiver recv) throws IOException {
+        if (!isRunning) {
+            throw new IOException(this.localNode + "- Server is not running.");
         }
 
         /* Generate a random communication ID */
         int communicationId = new Random().nextInt();
 
-        /* If we have a receiver */
-        if (recv != null)
-        {
-            try
-            {
+        /* If a receiver exists */
+        if (recv != null) {
+            try {
                 /* Setup the receiver to handle message response */
                 receivers.put(communicationId, recv);
                 TimerTask task = new TimeoutTask(communicationId, recv);
-                timer.schedule(task, this.config.responseTimeout());
+                timer.schedule(task, this.config.getResponseTimeout());
                 tasks.put(communicationId, task);
-            }
-            catch (IllegalStateException ex)
-            {
-                /* The timer is already cancelled so we cannot do anything here really */
+            } catch (IllegalStateException ex) {
             }
         }
 
-        /* Send the message */
-        sendMessage(to, msg, communicationId);
+        /* Send the message using the private method below */
+        sendMessage(destination, msg, communicationId);
 
         return communicationId;
     }
 
     /**
      * Internal sendMessage method called by the public sendMessage method after a communicationId is generated
+     *
+     * @param destination The destination node
+     * @param msg   The message
+     * @param communicationId The communicationId of the message
+     * @throws IOException
      */
-    private void sendMessage(Node destination, Message msg, int commmunicationId) throws IOException
-    {
-        /* Use a try-with resource to auto-close streams after usage */
-        try (ByteArrayOutputStream bout = new ByteArrayOutputStream(); DataOutputStream dout = new DataOutputStream(bout))
-        {
+    private void sendMessage(Node destination, Message msg, int communicationId) throws IOException {
+
+        try (ByteArrayOutputStream bout = new ByteArrayOutputStream(); DataOutputStream dout = new DataOutputStream(bout)) {
+
             /* Setup the message for transmission */
-            dout.writeInt(commmunicationId);
+            dout.writeInt(communicationId);
             dout.writeByte(msg.code());
             msg.toStream(dout);
             dout.close();
 
             byte[] data = bout.toByteArray();
 
-            if (data.length > DATAGRAM_BUFFER_SIZE) {
+            if (data.length > config.getPacketSize()) {
                 // TODO: split large message into smaller datagram packets
                 throw new IOException("Message is too big");
             }
 
-            /* Everything is good, now create the packet and send it */
+            /* Create the packet and send it */
             DatagramPacket pkt = new DatagramPacket(data, 0, data.length);
             pkt.setSocketAddress(destination.getSocketAddress());
             socket.send(pkt);
@@ -214,34 +191,27 @@ public class Server {
      * When a reply arrives this task must be canceled using the <code>cancel()</code>
      * method inherited from <code>TimerTask</code>. In this case the caller is
      * responsible for removing the task from the <code>tasks</code> map.
-     * */
-    class TimeoutTask extends TimerTask
-    {
+     */
+    class TimeoutTask extends TimerTask {
 
         private final int communicationId;
         private final Receiver recv;
 
-        public TimeoutTask(int communicationId, Receiver recv)
-        {
+        public TimeoutTask(int communicationId, Receiver recv) {
             this.communicationId = communicationId;
             this.recv = recv;
         }
 
         @Override
-        public void run()
-        {
-            if (!Server.this.isRunning)
-            {
+        public void run() {
+            if (!Server.this.isRunning) {
                 return;
             }
 
-            try
-            {
+            try {
                 unregister(communicationId);
                 recv.timeout(communicationId);
-            }
-            catch (IOException e)
-            {
+            } catch (IOException e) {
                 System.err.println("Cannot unregister a receiver. Message: " + e.getMessage());
             }
         }
@@ -252,8 +222,7 @@ public class Server {
      *
      * @param communicationId The id of this conversation
      */
-    private synchronized void unregister(int communicationId)
-    {
+    private synchronized void unregister(int communicationId) {
         receivers.remove(communicationId);
         this.tasks.remove(communicationId);
     }
@@ -265,14 +234,6 @@ public class Server {
         this.isRunning = false;
         this.socket.close();
         timer.cancel();
-    }
-
-    public void printReceivers()
-    {
-        for (Integer r : this.receivers.keySet())
-        {
-            System.out.println("Receiver for comm: " + r + "; Receiver: " + this.receivers.get(r));
-        }
     }
 
     public boolean isRunning() {

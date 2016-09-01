@@ -8,69 +8,51 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * A message sent to other nodes requesting the K-Closest nodes to a key sent in this message.
- *
- * @author Joshua Kissoon
- * @created 20140218
+ * Provides a NodeId to a remote node and requests the K closest nodes to that NodeId in return
  */
-public class FindNodeMessage implements Message
-{
+public class FindNodeMessage implements Message {
 
     private Node origin;
     private NodeId lookupId;
 
     public static final byte CODE = 0x05;
 
-    /**
-     * A new FindNodeMessage to find nodes
-     *
-     * @param origin The Node from which the message is coming from
-     * @param lookup The key for which to lookup nodes for
-     */
-    public FindNodeMessage(Node origin, NodeId lookup)
-    {
+    public FindNodeMessage(Node origin, NodeId lookup) {
         this.origin = origin;
         this.lookupId = lookup;
     }
 
-    public FindNodeMessage(DataInputStream in) throws IOException
-    {
+    public FindNodeMessage(DataInputStream in) throws IOException {
         this.fromStream(in);
     }
 
     @Override
-    public final void fromStream(DataInputStream in) throws IOException
-    {
+    public final void fromStream(DataInputStream in) throws IOException {
         this.origin = new Node(in);
         this.lookupId = new NodeId(in);
     }
 
     @Override
-    public void toStream(DataOutputStream out) throws IOException
-    {
+    public void toStream(DataOutputStream out) throws IOException {
         this.origin.toStream(out);
         this.lookupId.toStream(out);
     }
 
-    public Node getOrigin()
-    {
+    public Node getOrigin() {
         return this.origin;
     }
 
-    public NodeId getLookupId()
-    {
+    public NodeId getLookupId() {
         return this.lookupId;
     }
 
     @Override
-    public byte code()
-    {
+    public byte code() {
         return CODE;
     }
 
     @Override
-    public String toString()
-    {
+    public String toString() {
         return "FindNodeMessage[origin=" + origin + ",lookup=" + lookupId + "]";
     }
 }

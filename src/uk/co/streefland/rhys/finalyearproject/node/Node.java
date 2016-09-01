@@ -1,5 +1,8 @@
 package uk.co.streefland.rhys.finalyearproject.node;
 
+import uk.co.streefland.rhys.finalyearproject.main.Configuration;
+import uk.co.streefland.rhys.finalyearproject.message.Streamable;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -8,45 +11,41 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 /**
- * Created by Rhys on 07/07/2016.
+ * Node class that represents each node on the network. Stores the NodeId, InetAddress, and port.
  */
-public class Node implements  Serializable {
+public class Node implements Streamable, Serializable {
 
     private NodeId nodeId;
     private InetAddress inetAddress;
     private int port;
-    private final String strRepresentation;
 
     public Node(NodeId nid, InetAddress ip, int port) {
         this.nodeId = nid;
         this.inetAddress = ip;
         this.port = port;
-        this.strRepresentation = this.nodeId.toString();
     }
 
     public Node(DataInputStream in) throws IOException
     {
-        this.fromStream(in);
-        this.strRepresentation = this.nodeId.toString();
+        fromStream(in);
     }
 
-    public void setInetAddress(InetAddress ip) {
-        this.inetAddress = ip;
-    }
-
-    public NodeId getNodeId() {
-       return this.nodeId;
-    }
-
-    /**
-     * Create a SocketAddress for this node
-     */
-    public InetSocketAddress getSocketAddress()
+    @Override
+    public final void fromStream(DataInputStream in) throws IOException
     {
-        return new InetSocketAddress(this.inetAddress, this.port);
+        /* Load the NodeId */
+        this.nodeId = new NodeId(in);
+
+        /* Load the IP Address */
+        byte[] ip = new byte[4];
+        in.readFully(ip);
+        this.inetAddress = InetAddress.getByAddress(ip);
+
+        /* Read in the port */
+        this.port = in.readInt();
     }
 
-    //@Override
+    @Override
     public void toStream(DataOutputStream out) throws IOException
     {
          /* Add the NodeId to the stream */
@@ -64,21 +63,6 @@ public class Node implements  Serializable {
         out.writeInt(port);
     }
 
-    //@Override
-    public final void fromStream(DataInputStream in) throws IOException
-    {
-        /* Load the NodeId */
-        this.nodeId = new NodeId(in);
-
-        /* Load the IP Address */
-        byte[] ip = new byte[4];
-        in.readFully(ip);
-        this.inetAddress = InetAddress.getByAddress(ip);
-
-        /* Read in the port */
-        this.port = in.readInt();
-    }
-
     @Override
     public boolean equals(Object o)
     {
@@ -94,16 +78,38 @@ public class Node implements  Serializable {
         return false;
     }
 
+    public void setInetAddress(InetAddress ip) {
+        this.inetAddress = ip;
+    }
+
+    /**
+     * Returns the InetSocketAddress for the InetAddress and port for the node
+     */
+    public InetSocketAddress getSocketAddress()
+    {
+        return new InetSocketAddress(this.inetAddress, this.port);
+    }
+
+    public NodeId getNodeId() {
+        return this.nodeId;
+    }
+
+    /**
+     * Returns the hashcode of the Node's NodeId
+     */
     @Override
     public int hashCode()
     {
-        return this.getNodeId().hashCode();
+        return getNodeId().hashCode();
     }
 
+    /**
+     * Returns the HEX representation of the Node's NodeId as a string
+     */
     @Override
     public String toString()
     {
-        return this.getNodeId().toString();
+        return getNodeId().toString();
     }
 
 }

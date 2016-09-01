@@ -11,16 +11,20 @@ public class NodeIdTest {
         System.out.println("NODE ID TESTING :)");
 
         NodeId nodeId = new NodeId();
+        NodeId nodeId2 = nodeId.generateNodeIdUsingDistance(160);
 
         System.out.println("\nBytes: " + nodeId.getIdBytes().toString());
 
         System.out.println("\nHashcode: " + nodeId.hashCode());
 
-        System.out.println("\nHex Representation: " + nodeId.toString());
+        System.out.println("\nString Representation: " + nodeId.toString());
 
         System.out.println("\nBinary Representation: " + nodeId.toBinary());
 
-        System.out.println("\nIndex of first set bit: " + nodeId.getFirstSetBitIndex());
+        System.out.println("\nIndex of first set bit: " + nodeId.getFirstSetBitLocation());
 
+        System.out.println("Binary Representation: " +nodeId2.toBinary());
+
+        System.out.println("DistanceNEW = " +nodeId.getDistance(nodeId2));
     }
 }

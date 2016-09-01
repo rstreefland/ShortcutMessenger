@@ -1,88 +1,52 @@
 package uk.co.streefland.rhys.finalyearproject.main;
 
-import java.io.File;
-
 /**
- * Created by Rhys on 22/08/2016.
+ * Stores the configuration constants and variables for the other classes
  */
 public class Configuration {
-    private final static long RESTORE_INTERVAL = 60 * 1000; // in milliseconds
-    private final static long RESPONSE_TIMEOUT = 2000;
-    private final static long OPERATION_TIMEOUT = 2000;
-    private final static int CONCURRENCY = 10;
-    private final static int K = 5;
-    private final static int RCSIZE = 3;
-    private final static int STALE = 1;
-    private final static String LOCAL_FOLDER = "kademlia";
+    /* Constants */
+    private final int K = 5; // maximum number of contacts per bucket
+    private final int MAX_CONCURRENCY = 3; // maximum number of concurrent connection
+    private final int PACKET_SIZE = 64 * 1024;  // maximum UDP packet size = 64KB
 
-    private final static boolean IS_TESTING = true;
+    /* Settings the program can change if needs be */
+    private long operationTimeout = 2000;  // timeout for operation completion
+    private long responseTimeout = 2000; // timeout waiting for response
+    private long refreshInterval = 60 * 1000; // refresh interval in milliseconds
 
-    /**
-     * Default constructor to support Gson Serialization
-     */
-    public Configuration()
-    {
-
-    }
-
-    public long restoreInterval()
-    {
-        return RESTORE_INTERVAL;
-    }
-
-    public long responseTimeout()
-    {
-        return RESPONSE_TIMEOUT;
-    }
-
-    public long operationTimeout()
-    {
-        return OPERATION_TIMEOUT;
-    }
-
-    public int maxConcurrentMessagesTransiting()
-    {
-        return CONCURRENCY;
-    }
-
-    public int k()
-    {
+    public int getK() {
         return K;
     }
 
-    public int replacementCacheSize()
-    {
-        return RCSIZE;
+    public int getMaxConcurrency() {
+        return MAX_CONCURRENCY;
     }
 
-    public int stale()
-    {
-        return STALE;
+    public int getPacketSize() {
+        return PACKET_SIZE;
     }
 
-    public String getNodeDataFolder(String ownerId)
-    {
-        /* Setup the main storage folder if it doesn't exist */
-        String path = System.getProperty("user.home") + File.separator + Configuration.LOCAL_FOLDER;
-        File folder = new File(path);
-        if (!folder.isDirectory())
-        {
-            folder.mkdir();
-        }
-
-        /* Setup subfolder for this owner if it doesn't exist */
-        File ownerFolder = new File(folder + File.separator + ownerId);
-        if (!ownerFolder.isDirectory())
-        {
-            ownerFolder.mkdir();
-        }
-
-        /* Return the path */
-        return ownerFolder.toString();
+    public long getOperationTimeout() {
+        return operationTimeout;
     }
 
-    public boolean isTesting()
-    {
-        return IS_TESTING;
+    public void setOperationTimeout(long operationTimeout) {
+        this.operationTimeout = operationTimeout;
+    }
+
+    public long getResponseTimeout() {
+        return responseTimeout;
+    }
+
+    public void setResponseTimeout(long responseTimeout) {
+        this.responseTimeout = responseTimeout;
+    }
+
+    public long getRefreshInterval() {
+        return refreshInterval;
+    }
+
+    public void setRefreshInterval(long refreshInterval) {
+        this.refreshInterval = refreshInterval;
     }
 }

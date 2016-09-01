@@ -12,7 +12,7 @@ public class Peer {
             try {
                 ObjectInputStream objectInput = new ObjectInputStream(socket.getInputStream());
                 try {
-                    Object object =(TestNode) objectInput.readObject();
+                    Object object = objectInput.readObject();
                     TestNode node = (TestNode) object;
                     System.out.println(node.toString());
                 } catch (ClassNotFoundException e) {

@@ -7,17 +7,18 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * Created by Rhys on 30/08/2016.
+ * Acknowledgement message sent in reply to an incoming ConnectMessage by the ConnectReceiver
  */
-public class AcknowledgeMessage implements Message {
+public class AcknowledgeConnectMessage implements Message {
+
     private Node origin;
     public static final byte CODE = 0x01;
 
-    public AcknowledgeMessage(Node origin) {
+    public AcknowledgeConnectMessage(Node origin) {
         this.origin = origin;
     }
 
-    public AcknowledgeMessage(DataInputStream in) throws IOException {
+    public AcknowledgeConnectMessage(DataInputStream in) throws IOException {
         this.fromStream(in);
     }
 
@@ -41,8 +42,7 @@ public class AcknowledgeMessage implements Message {
     }
 
     @Override
-    public String toString()
-    {
-        return "AcknowledgeMessage[origin=" + origin.getNodeId() + "]";
+    public String toString() {
+        return "AcknowledgeConnectMessage[origin=" + origin.getNodeId() + "]";
     }
 }

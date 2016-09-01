@@ -1,4 +1,6 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.irrelevant;
+
+import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 
 import java.io.*;
 import java.net.DatagramPacket;

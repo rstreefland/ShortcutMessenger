@@ -1,11 +1,9 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
-import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeConnectMessage;
 import uk.co.streefland.rhys.finalyearproject.message.ConnectMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
@@ -58,7 +56,7 @@ public class ConnectOperation implements Operation, Receiver {
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 50;     // We re-check every 300 milliseconds
-            while (totalTimeWaited < this.config.operationTimeout())
+            while (totalTimeWaited < this.config.getOperationTimeout())
             {
                 if (error)
                 {
@@ -94,7 +92,7 @@ public class ConnectOperation implements Operation, Receiver {
     }
 
     /**
-     * Receives an AcknowledgeMessage from the bootstrap node.
+     * Receives an AcknowledgeConnectMessage from the bootstrap node.
      *
      * @param comm
      */
@@ -102,7 +100,7 @@ public class ConnectOperation implements Operation, Receiver {
     public synchronized void receive(Message incoming, int comm)
     {
         /* The incoming message will be an acknowledgement message */
-        AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
+        AcknowledgeConnectMessage msg = (AcknowledgeConnectMessage) incoming;
 
         /* The bootstrap node has responded, insert it into our space */
         this.localNode.getRoutingTable().insert(this.bootstrapNode);

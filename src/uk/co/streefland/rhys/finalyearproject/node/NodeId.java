@@ -1,21 +1,23 @@
 package uk.co.streefland.rhys.finalyearproject.node;
 
+import uk.co.streefland.rhys.finalyearproject.message.Streamable;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Arrays;
-import java.util.BitSet;
 import java.util.Random;
 
 /**
  * Created by Rhys on 07/07/2016.
  */
-public class NodeId implements Serializable {
+public class NodeId implements Streamable, Serializable {
 
-    public final transient static int ID_LENGTH = 160;
-    public final transient static int BYTES_LENGTH = ID_LENGTH / 8;
+    public static final int ID_LENGTH = 160;   // Length of NodeId im bits
+    public static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of NodeId in bytes
+
     private byte[] idBytes;
 
     public NodeId() {
@@ -38,9 +40,20 @@ public class NodeId implements Serializable {
         this.idBytes = idBytes;
     }
 
-    public NodeId(DataInputStream in) throws IOException
-    {
+    public NodeId(DataInputStream in) throws IOException {
         this.fromStream(in);
+    }
+
+    @Override
+    public void toStream(DataOutputStream out) throws IOException {
+        out.write(this.getIdBytes());
+    }
+
+    @Override
+    public final void fromStream(DataInputStream in) throws IOException {
+        byte[] input = new byte[BYTES_LENGTH];
+        in.readFully(input);
+        this.idBytes = input;
     }
 
     @Override
@@ -55,21 +68,74 @@ public class NodeId implements Serializable {
         if (obj instanceof NodeId) {
             NodeId nid = (NodeId) obj;
             return this.hashCode() == nid.hashCode();
+        } else {
+            return false;
         }
-        return false;
     }
 
-    public NodeId xor(NodeId nodeId) {
+    private NodeId xor(NodeId nodeId) {
         byte[] nodeIdBytes = nodeId.getIdBytes();
         byte[] result = new byte[BYTES_LENGTH];
 
         for (int i = 0; i < BYTES_LENGTH; i++) {
-            result[i] = (byte) (this.idBytes[i] ^ nodeIdBytes[i]);
+            result[i] = (byte) (idBytes[i] ^ nodeIdBytes[i]);
         }
 
-        NodeId resultNodeId = new NodeId(result);
+        return new NodeId(result);
+    }
 
-        return resultNodeId;
+    public NodeId generateNodeIdUsingDistance(int distance) {
+        byte[] newNodeIdBytes = idBytes.clone();
+
+        int bitsToFlip = distance;
+
+        /* For each byte in byte array */
+        for (int i = newNodeIdBytes.length-1; i >= 0; i--) {
+
+            for (int j = 0; j <= 7; j++) {
+
+                if (bitsToFlip > 0) {
+                    if ((newNodeIdBytes[i] >> j & 1) == 1) {
+                        newNodeIdBytes[i] &= ~(1 << j); // clear the bit
+                    } else {
+                        newNodeIdBytes[i] |= (1 << j); // set the bit
+                    }
+                    bitsToFlip--;
+                } else {
+                    return new NodeId(newNodeIdBytes);
+                }
+            }
+        }
+        return new NodeId(newNodeIdBytes);
+    }
+
+    public int getFirstSetBitLocation() {
+        int currentBit = 0;
+
+        /* For each byte in byte array */
+        for (int i = 0; i < idBytes.length; i++) {
+            if (idBytes[i] == 0) {
+                currentBit += 8; // save unnecessary processing if all bits are empty in the byte
+            } else {
+                for (int j = 7; j >= 0; j--) {
+                /* If bit is set return the currentBit value */
+                    if ((idBytes[i] >> j & 1) == 1) {
+                        return currentBit;
+                    }
+                    currentBit++;   // Increment the current bit
+                }
+            }
+        }
+        return currentBit;
+    }
+
+    public int getDistance(NodeId otherNode) {
+        /**
+         * Compute the xor of this and to
+         * Get the index i of the first set bit of the xor returned NodeId
+         * The distance between them is ID_LENGTH - i
+         */
+        return ID_LENGTH - xor(otherNode).getFirstSetBitLocation();
     }
 
     public byte[] getIdBytes() {
@@ -79,89 +145,17 @@ public class NodeId implements Serializable {
     /**
      * @return The BigInteger representation of the key
      */
-    public BigInteger getInt()
-    {
-        return new BigInteger(1, this.getIdBytes());
+    public BigInteger getInt() {
+        return new BigInteger(1, getIdBytes());
     }
 
-    public int getFirstSetBitIndex() {
-        int prefixLength = 0;
 
-        for (byte b : this.idBytes) {
-            if (b == 0) {
-                prefixLength += 8;
-            } else {
-                int count = 0;
-                for (int i = 7; i >= 0; i--) {
-                    boolean a = (b & (1 << i)) == 0;
-                    if (a) {
-                        count++;
-                    } else {
-                        break;   // Reset the count if we encounter a non-zero number
-                    }
-                }
-
-                /* Add the count of MSB 0s to the prefix length */
-                prefixLength += count;
-
-                /* Break here since we've now covered the MSB 0s */
-                break;
-            }
+    public String toBinary() {
+        String output = "";
+        for (byte b : idBytes) {
+            output = output + " " + (Integer.toBinaryString(b & 255 | 256).substring(1));
         }
-        return prefixLength;
-    }
-
-    public int getDistance(NodeId otherNode) {
-        /**
-         * Compute the xor of this and to
-         * Get the index i of the first set bit of the xor returned NodeId
-         * The distance between them is ID_LENGTH - i
-         */
-        return ID_LENGTH - this.xor(otherNode).getFirstSetBitIndex();
-    }
-
-    public NodeId generateNodeIdByDistance(int distance) {
-        byte result[] = new byte[BYTES_LENGTH];
-
-        // distance = ID-LENGTH - prefixLength
-        int numberByteZeroes = (ID_LENGTH - distance) / 8;
-        int numberBitZeroes = 8 - (distance % 8);
-
-        // Fill byte zeroes
-        for (int i = 0; i < numberByteZeroes; i++) {
-            result[i] = 0;
-        }
-
-        // Fill bit zeroes
-        BitSet bits = new BitSet(8);
-        bits.set(0, 8);
-
-        for (int i = 0; i < numberBitZeroes; i++) {
-            /* Shift 1 zero into the start of the value */
-            bits.clear(i);
-        }
-
-        bits.flip(0, 8);        // Flip the bits since they're in reverse order
-        result[numberByteZeroes] = bits.toByteArray()[0];
-
-        /* Set the remaining bytes to Maximum value */
-        for (int i = numberByteZeroes + 1; i < result.length; i++) {
-            result[i] = Byte.MAX_VALUE;
-        }
-
-        return this.xor(new NodeId(result));
-    }
-
-    //@Override
-    public void toStream(DataOutputStream out) throws IOException {
-        out.write(this.getIdBytes());
-    }
-
-    //@Override
-    public final void fromStream(DataInputStream in) throws IOException {
-        byte[] input = new byte[BYTES_LENGTH];
-        in.readFully(input);
-        this.idBytes = input;
+        return output;
     }
 
     @Override
@@ -175,20 +169,4 @@ public class NodeId implements Serializable {
         }
         return new String(hexChars);
     }
-
-    public String toBinary() {
-        String output = "";
-        for (byte b : idBytes) {
-            output = output + " " + (Integer.toBinaryString(b & 255 | 256).substring(1));
-        }
-        return output;
-    }
-
-    /* SLOWER TO HEX METHOD
-    @Override
-    public String toString() {
-        // Returns the hex format of this NodeId
-        BigInteger bi = new BigInteger(1, this.idBytes);
-        return String.format("%0" + (this.idBytes.length << 1) + "X", bi);
-    } */
 }

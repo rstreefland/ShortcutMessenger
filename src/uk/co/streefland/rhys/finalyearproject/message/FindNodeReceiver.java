@@ -9,20 +9,15 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Receives a FindNodeMessage and sends a NodeReplyMessage as reply with the K-Closest nodes to the ID sent.
- *
- * @author Joshua Kissoon
- * @created 20140219
+ * Receives a FindNodeMessage and sends a FindNodeReplyMessage as a reply with the K closest nodes to the NodeId provided
  */
-public class FindNodeReceiver implements Receiver
-{
+public class FindNodeReceiver implements Receiver {
 
     private final Server server;
     private final LocalNode localNode;
     private final Configuration config;
 
-    public FindNodeReceiver(Server server, LocalNode local, Configuration config)
-    {
+    public FindNodeReceiver(Server server, LocalNode local, Configuration config) {
         this.server = server;
         this.localNode = local;
         this.config = config;
@@ -32,43 +27,38 @@ public class FindNodeReceiver implements Receiver
      * Handle receiving a FindNodeMessage
      * Find the set of K nodes closest to the lookup ID and return them
      *
-     * @param comm
-     *
+     * @param incoming
+     * @param communicationId
      * @throws IOException
      */
     @Override
-    public void receive(Message incoming, int comm) throws IOException
-    {
+    public void receive(Message incoming, int communicationId) throws IOException {
         FindNodeMessage msg = (FindNodeMessage) incoming;
 
         Node origin = msg.getOrigin();
 
-        /* Update the local space by inserting the origin node. */
+        /* Insert origin into local routing table */
         this.localNode.getRoutingTable().insert(origin);
 
-        /* Find nodes closest to the LookupId */
-        List<Node> nodes = this.localNode.getRoutingTable().findClosest(msg.getLookupId(), this.config.k());
+        /* Find nodes closest to the NodeId in local routing table */
+        List<Node> nodes = this.localNode.getRoutingTable().findClosest(msg.getLookupId(), this.config.getK());
 
-        /* Respond to the FindNodeMessage */
-        Message reply = new NodeReplyMessage(this.localNode.getNode(), nodes);
-        // TODO: 30/08/2016  add the nodereplymessage functionality
+        /* Create the FindNodeReplyMessage */
+        Message reply = new FindNodeReplyMessage(this.localNode.getNode(), nodes);
 
-        if (this.server.isRunning())
-        {
-            /* Let the Server send the reply */
-            this.server.reply(origin, reply, comm);
+        /* The server sends the reply */
+        if (this.server.isRunning()) {
+            this.server.reply(origin, reply, communicationId);
         }
     }
 
     /**
      * We don't need to do anything here
      *
-     * @param comm
-     *
+     * @param communicationId
      * @throws IOException
      */
     @Override
-    public void timeout(int comm) throws IOException
-    {
+    public void timeout(int communicationId) throws IOException {
     }
 }

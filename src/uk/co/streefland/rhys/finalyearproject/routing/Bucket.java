@@ -45,11 +45,11 @@ public class Bucket {
             this.contacts.add(tmp);
         } else {
             /* If the bucket is filled,  put the contacts in the replacement cache */
-            if (contacts.size() >= this.config.k()) {
+            if (contacts.size() >= this.config.getK()) {
                 /* If the cache is empty, we check if any contacts are stale and replace the most stale one */
                 Contact mostStale = null;
                 for (Contact tmp : this.contacts) {
-                    if (tmp.staleCount() >= this.config.stale()) {
+                    if (tmp.staleCount() >= 1) {
                         /* Contact is stale */
                         if (mostStale == null) {
                             mostStale = tmp;
@@ -193,7 +193,7 @@ public class Bucket {
             tmp.setSeenNow();
             this.replacementCache.add(tmp);
         }
-        else if (this.replacementCache.size() > this.config.k())
+        else if (this.replacementCache.size() > this.config.getK())
         {
             /* if our cache is filled, we remove the least recently seen contact */
             this.replacementCache.remove(this.replacementCache.last());

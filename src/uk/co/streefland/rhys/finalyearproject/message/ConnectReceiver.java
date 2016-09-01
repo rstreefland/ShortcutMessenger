@@ -6,9 +6,10 @@ import uk.co.streefland.rhys.finalyearproject.main.Server;
 import java.io.IOException;
 
 /**
- * Created by Rhys on 30/08/2016.
+ * Receives and handles a ConnectMessage from another node
  */
 public class ConnectReceiver implements Receiver {
+
     private final Server server;
     private final LocalNode localNode;
 
@@ -18,36 +19,33 @@ public class ConnectReceiver implements Receiver {
     }
 
     /**
-     * Handle receiving a ConnectMessage
+     * Handles an incoming ConnectMessage
      *
-     * @param comm
-     *
+     * @param communicationId
      * @throws java.io.IOException
      */
     @Override
-    public void receive(Message incoming, int comm) throws IOException
-    {
-        ConnectMessage mess = (ConnectMessage) incoming;
+    public void receive(Message incoming, int communicationId) throws IOException {
 
-        /* Update the local space by inserting the origin node. */
-        this.localNode.getRoutingTable().insert(mess.getOrigin());
+        ConnectMessage message = (ConnectMessage) incoming;
 
-        /* Respond to the connect request */
-        AcknowledgeMessage msg = new AcknowledgeMessage(this.localNode.getNode());
+        /* Update the local routing table inserting the origin node. */
+        this.localNode.getRoutingTable().insert(message.getOrigin());
 
-        /* Reply to the connect message with an Acknowledgement */
-        this.server.reply(mess.getOrigin(), msg, comm);
+        /* Create the AcknowledgeConnectMessage */
+        AcknowledgeConnectMessage msg = new AcknowledgeConnectMessage(this.localNode.getNode());
+
+        /* Reply to the origin with the AcknowledgeConnectMessage */
+        this.server.reply(message.getOrigin(), msg, communicationId);
     }
 
     /**
-     * We don't need to do anything here
+     * Nothing to be done here
      *
-     * @param comm
-     *
+     * @param communicationId
      * @throws java.io.IOException
      */
     @Override
-    public void timeout(int comm) throws IOException
-    {
+    public void timeout(int communicationId) throws IOException {
     }
 }

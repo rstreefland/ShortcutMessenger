@@ -4,8 +4,8 @@ import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
 import uk.co.streefland.rhys.finalyearproject.message.FindNodeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.FindNodeReplyMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
-import uk.co.streefland.rhys.finalyearproject.message.NodeReplyMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
@@ -80,7 +80,7 @@ public class FindNodeOperation implements Operation, Receiver {
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;     // We re-check every n milliseconds
-            while (totalTimeWaited < this.config.operationTimeout()) {
+            while (totalTimeWaited < this.config.getOperationTimeout()) {
                 if (!this.iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -107,7 +107,7 @@ public class FindNodeOperation implements Operation, Receiver {
     }
 
     private boolean iterativeQueryNodes() throws IOException {
-        if (this.config.maxConcurrentMessagesTransiting() <= this.messagesInTransit.size()) {
+        if (this.config.getMaxConcurrency() <= this.messagesInTransit.size()) {
             return false;
         }
 
@@ -118,7 +118,7 @@ public class FindNodeOperation implements Operation, Receiver {
             return true;
         }
 
-        for (int i = 0; (this.messagesInTransit.size() < this.config.maxConcurrentMessagesTransiting()) && (i < notQueried.size()); i++) {
+        for (int i = 0; (this.messagesInTransit.size() < this.config.getMaxConcurrency()) && (i < notQueried.size()); i++) {
             Node n = notQueried.get(i);
 
             int communicationId = server.sendMessage(n, lookupMessage, this);
@@ -136,8 +136,8 @@ public class FindNodeOperation implements Operation, Receiver {
      * @return The K closest nodes to the target lookupId given that have the specified status
      */
     private List<Node> getClosestNodes(String status) {
-        List<Node> closestNodes = new ArrayList<>(this.config.k());
-        int remainingSpaces = this.config.k();
+        List<Node> closestNodes = new ArrayList<>(this.config.getK());
+        int remainingSpaces = this.config.getK();
 
         for (Map.Entry e : this.nodes.entrySet()) {
             if (status.equals(e.getValue())) {
@@ -165,20 +165,20 @@ public class FindNodeOperation implements Operation, Receiver {
     }
 
     /**
-     * Receive and handle the incoming NodeReplyMessage
+     * Receive and handle the incoming FindNodeReplyMessage
      *
      * @throws IOException
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
-        if (!(incoming instanceof NodeReplyMessage))
+        if (!(incoming instanceof FindNodeReplyMessage))
         {
             /* Not sure why we get a message of a different type here... @todo Figure it out. */
             return;
         }
 
-        /* We receive a NodeReplyMessage with a set of nodes, read this message */
-        NodeReplyMessage msg = (NodeReplyMessage) incoming;
+        /* We receive a FindNodeReplyMessage with a set of nodes, read this message */
+        FindNodeReplyMessage msg = (FindNodeReplyMessage) incoming;
 
         /* Add the origin node to our routing table */
         Node origin = msg.getOrigin();

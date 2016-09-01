@@ -12,16 +12,14 @@ import java.util.Comparator;
  * @author Joshua Kissoon
  * @since 20140322
  */
-public class KeyComparator implements Comparator<Node>
-{
+public class KeyComparator implements Comparator<Node> {
 
     private final BigInteger key;
 
     /**
      * @param key The NodeId relative to which the distance should be measured.
      */
-    public KeyComparator(NodeId key)
-    {
+    public KeyComparator(NodeId key) {
         this.key = key.getInt();
     }
 
@@ -34,8 +32,7 @@ public class KeyComparator implements Comparator<Node>
      * @param n2 Node 2 to compare distance from the key
      */
     @Override
-    public int compare(Node n1, Node n2)
-    {
+    public int compare(Node n1, Node n2) {
         BigInteger b1 = n1.getNodeId().getInt();
         BigInteger b2 = n2.getNodeId().getInt();
 
