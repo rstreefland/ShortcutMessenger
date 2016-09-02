@@ -34,22 +34,22 @@ public class Node implements Streamable, Serializable {
     public final void fromStream(DataInputStream in) throws IOException
     {
         /* Read the NodeId */
-        this.nodeId = new NodeId(in);
+        nodeId = new NodeId(in);
 
         /* Read the IP Address */
         byte[] ip = new byte[4];
         in.readFully(ip);
-        this.inetAddress = InetAddress.getByAddress(ip);
+        inetAddress = InetAddress.getByAddress(ip);
 
         /* Read the port */
-        this.port = in.readInt();
+        port = in.readInt();
     }
 
     @Override
     public void toStream(DataOutputStream out) throws IOException
     {
          /* Add the NodeId to the stream */
-        this.nodeId.toStream(out);
+        nodeId.toStream(out);
 
         /* Add the Node's IP address to the stream */
         byte[] a = inetAddress.getAddress();
@@ -73,7 +73,7 @@ public class Node implements Streamable, Serializable {
             {
                 return true;
             }
-            return this.getNodeId().equals(n.getNodeId());
+            return getNodeId().equals(n.getNodeId());
         }
         return false;
     }
@@ -87,11 +87,11 @@ public class Node implements Streamable, Serializable {
      */
     public InetSocketAddress getSocketAddress()
     {
-        return new InetSocketAddress(this.inetAddress, this.port);
+        return new InetSocketAddress(inetAddress, port);
     }
 
     public NodeId getNodeId() {
-        return this.nodeId;
+        return nodeId;
     }
 
     /**

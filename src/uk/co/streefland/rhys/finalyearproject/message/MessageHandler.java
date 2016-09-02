@@ -30,7 +30,7 @@ public class MessageHandler {
             case FindNodeReplyMessage.CODE:
                 return new FindNodeReplyMessage(in);
             default:
-                System.out.println(this.localNode + " - No Message handler found for message. Code: " + code);
+                System.out.println(localNode + " - No Message handler found for message. Code: " + code);
                 //return new SimpleMessage(in); todo is this required?
                 return null;
         }
@@ -39,9 +39,9 @@ public class MessageHandler {
     public Receiver createReceiver(byte code, Server server) {
         switch (code) {
             case ConnectMessage.CODE:
-                return new ConnectReceiver(server, this.localNode);
+                return new ConnectReceiver(server, localNode);
             case FindNodeMessage.CODE:
-                return new FindNodeReceiver(server, this.localNode, this.config);
+                return new FindNodeReceiver(server, localNode, config);
             default:
                 System.out.println("No receiver found for message. Code: " + code);
                 //return new SimpleReceiver(); todo is this required?

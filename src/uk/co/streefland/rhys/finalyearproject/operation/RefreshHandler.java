@@ -27,7 +27,7 @@ public class RefreshHandler extends TimerTask {
         /* Run BucketRefreshOperation to refresh the buckets */
         try {
             System.out.println("I have REFRESHED!");
-            new BucketRefreshOperation(this.server, this.localNode, this.config).execute();
+            new BucketRefreshOperation(server, localNode, config).execute();
         } catch (IOException e) {
             e.printStackTrace();
         }

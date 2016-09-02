@@ -29,7 +29,7 @@ public class RoutingTable {
         }
 
         /* Inset the local node */
-        this.insert(localNode);
+        insert(localNode);
     }
 
     /**
@@ -39,7 +39,7 @@ public class RoutingTable {
      * @return Integer The bucket id in which the given node should be placed.
      */
     public final int getBucketId(NodeId nodeId) {
-        int bucketId = this.localNode.getNodeId().getDistance(nodeId) - 1;
+        int bucketId = localNode.getNodeId().getDistance(nodeId) - 1;
 
         /* If we are trying to insert a node into it's own routing table, then the bucket ID will be -1, so let's just keep it in bucket 0 */
         return bucketId < 0 ? 0 : bucketId;
@@ -54,7 +54,7 @@ public class RoutingTable {
      */
     public synchronized final List<Node> findClosest(NodeId target, int numNodesRequired) {
         TreeSet<Node> sortedSet = new TreeSet<>(new KeyComparator(target));
-        sortedSet.addAll(this.getAllNodes());
+        sortedSet.addAll(getAllNodes());
 
         List<Node> closest = new ArrayList<>(numNodesRequired);
 
@@ -75,7 +75,7 @@ public class RoutingTable {
      * @param c The contact to add
      */
     public synchronized final void insert(Contact c) {
-        this.buckets[this.getBucketId(c.getNode().getNodeId())].insert(c);
+        buckets[getBucketId(c.getNode().getNodeId())].insert(c);
     }
 
     /**
@@ -84,7 +84,7 @@ public class RoutingTable {
      * @param n The node to add
      */
     public synchronized final void insert(Node n) {
-        this.buckets[this.getBucketId(n.getNodeId())].insert(n);
+        buckets[getBucketId(n.getNodeId())].insert(n);
     }
 
     /**
@@ -93,7 +93,7 @@ public class RoutingTable {
     public synchronized final List<Node> getAllNodes() {
         List<Node> nodes = new ArrayList<>();
 
-        for (Bucket b : this.buckets) {
+        for (Bucket b : buckets) {
             for (Contact c : b.getContacts()) {
                 nodes.add(c.getNode());
             }
@@ -108,7 +108,7 @@ public class RoutingTable {
     public final List<Contact> getAllContacts() {
         List<Contact> contacts = new ArrayList<>();
 
-        for (Bucket b : this.buckets) {
+        for (Bucket b : buckets) {
             contacts.addAll(b.getContacts());
         }
 
@@ -119,7 +119,7 @@ public class RoutingTable {
      * @return Bucket[] All buckets stored in this RoutingTable
      */
     public final Bucket[] getBuckets() {
-        return this.buckets;
+        return buckets;
     }
 
     /**
@@ -128,7 +128,7 @@ public class RoutingTable {
      * @param buckets
      */
     public final void setBuckets(Bucket[] buckets) {
-        this.buckets = buckets;
+        buckets = buckets;
     }
 
     /**
@@ -141,7 +141,7 @@ public class RoutingTable {
             return;
         }
         for (Node n : contacts) {
-            this.setUnresponsiveContact(n);
+            setUnresponsiveContact(n);
         }
     }
 
@@ -151,17 +151,17 @@ public class RoutingTable {
      * @param n The unresponsive node
      */
     public synchronized void setUnresponsiveContact(Node n) {
-        int bucketId = this.getBucketId(n.getNodeId());
+        int bucketId = getBucketId(n.getNodeId());
 
         /* Remove the contact from the bucket */
-        this.buckets[bucketId].removeContact(n);
+        buckets[bucketId].removeContact(n);
     }
 
     @Override
     public synchronized final String toString() {
         StringBuilder sb = new StringBuilder("\nPrinting Routing Table Started ***************** \n");
         int totalContacts = 0;
-        for (Bucket b : this.buckets) {
+        for (Bucket b : buckets) {
             if (b.getNumberOfContacts() > 0) {
                 totalContacts += b.getNumberOfContacts();
                 sb.append("# nodes in Bucket with depth ");

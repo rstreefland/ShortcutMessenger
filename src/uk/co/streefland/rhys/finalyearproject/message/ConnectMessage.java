@@ -25,7 +25,7 @@ public class ConnectMessage implements Message {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
-        this.origin = new Node(in);
+        origin = new Node(in);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class ConnectMessage implements Message {
     }
 
     public Node getOrigin() {
-        return this.origin;
+        return origin;
     }
 
     @Override

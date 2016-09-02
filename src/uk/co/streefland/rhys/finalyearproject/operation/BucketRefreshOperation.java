@@ -32,7 +32,7 @@ public class BucketRefreshOperation implements Operation {
 
         for (int i = 1; i < NodeId.ID_LENGTH; i++) {
             /* Generate a NodeId that is n bits away from the current nodeId */
-            final NodeId current = this.localNode.getNode().getNodeId().generateNodeIdUsingDistance(i);
+            final NodeId current = localNode.getNode().getNodeId().generateNodeIdUsingDistance(i);
 
             /* Run FindNodeOperation in a different thread */
             new Thread() {

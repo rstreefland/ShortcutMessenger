@@ -28,22 +28,22 @@ public class FindNodeMessage implements Message {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
-        this.origin = new Node(in);
-        this.lookupId = new NodeId(in);
+        origin = new Node(in);
+        lookupId = new NodeId(in);
     }
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
-        this.origin.toStream(out);
-        this.lookupId.toStream(out);
+        origin.toStream(out);
+        lookupId.toStream(out);
     }
 
     public Node getOrigin() {
-        return this.origin;
+        return origin;
     }
 
     public NodeId getLookupId() {
-        return this.lookupId;
+        return lookupId;
     }
 
     @Override

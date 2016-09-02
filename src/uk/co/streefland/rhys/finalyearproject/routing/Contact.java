@@ -19,7 +19,7 @@ public class Contact implements Comparable<Contact> {
     @Override
     public boolean equals(Object c) {
         if (c instanceof Contact) {
-            return ((Contact) c).getNode().equals(this.getNode());
+            return ((Contact) c).getNode().equals(getNode());
         }
 
         return false;
@@ -27,7 +27,7 @@ public class Contact implements Comparable<Contact> {
 
     @Override
     public int compareTo(Contact o) {
-        if (this.getNode().equals(o.getNode())) {
+        if (getNode().equals(o.getNode())) {
             return 0;
         }
 
@@ -38,7 +38,7 @@ public class Contact implements Comparable<Contact> {
      * Updates the last seen timestamp for this contact
      */
     public void setSeenNow() {
-        this.lastSeen = System.currentTimeMillis() / 1000L;
+        lastSeen = System.currentTimeMillis() / 1000L;
     }
 
     public void incrementStaleCount() {
@@ -46,23 +46,23 @@ public class Contact implements Comparable<Contact> {
     }
 
     public void resetStaleCount() {
-        this.staleCount = 0;
+        staleCount = 0;
     }
 
     public Node getNode() {
-        return this.node;
+        return node;
     }
 
     public long getLastSeen() {
-        return this.lastSeen;
+        return lastSeen;
     }
 
     public int getStaleCount() {
-        return this.staleCount;
+        return staleCount;
     }
 
     @Override
     public int hashCode() {
-        return this.getNode().hashCode();
+        return getNode().hashCode();
     }
 }

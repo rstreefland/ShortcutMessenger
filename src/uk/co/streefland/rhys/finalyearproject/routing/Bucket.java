@@ -76,7 +76,7 @@ public class Bucket {
      * @param node The node to insert into the bucket
      */
     public synchronized void insert(Node node) {
-        this.insert(new Contact(node));
+        insert(new Contact(node));
     }
 
     /**
@@ -87,20 +87,20 @@ public class Bucket {
      */
     public synchronized boolean removeContact(Contact contact) {
         /* If the contact does not exist, then we failed to remove it */
-        if (!this.contacts.contains(contact)) {
+        if (!contacts.contains(contact)) {
             return false;
         }
 
         /* Contact exist, lets remove it only if our replacement cache has a replacement */
-        if (!this.replacementCache.isEmpty()) {
+        if (!replacementCache.isEmpty()) {
             /* Replace the contact with one from the replacement cache */
-            this.contacts.remove(contact);
-            Contact replacement = this.replacementCache.first();
-            this.contacts.add(replacement);
-            this.replacementCache.remove(replacement);
+            contacts.remove(contact);
+            Contact replacement = replacementCache.first();
+            contacts.add(replacement);
+            replacementCache.remove(replacement);
         } else {
             /* There is no replacement, just increment the contact's stale count */
-            this.getContact(contact.getNode()).incrementStaleCount();
+            getContact(contact.getNode()).incrementStaleCount();
         }
 
         return true;
@@ -113,7 +113,7 @@ public class Bucket {
      * @return Returns false if the contact doesn't exist.
      */
     public synchronized boolean removeContact(Node node) {
-        return this.removeContact(new Contact(node));
+        return removeContact(new Contact(node));
     }
 
     /**
@@ -123,9 +123,9 @@ public class Bucket {
      * @return The contact removed
      */
     private synchronized Contact removeContactForce(Node node) {
-        for (Contact contact : this.contacts) {
+        for (Contact contact : contacts) {
             if (contact.getNode().equals(node)) {
-                this.contacts.remove(contact);
+                contacts.remove(contact);
                 return contact;
             }
         }
@@ -139,17 +139,17 @@ public class Bucket {
      */
     private synchronized void insertIntoReplacementCache(Contact c) {
 
-        if (this.replacementCache.contains(c)) {
+        if (replacementCache.contains(c)) {
             /* Update the last seen time if this contact is already in our replacement cache */
-            Contact tmp = this.removeFromReplacementCache(c.getNode());
+            Contact tmp = removeFromReplacementCache(c.getNode());
             tmp.setSeenNow();
-            this.replacementCache.add(tmp);
-        } else if (this.replacementCache.size() > this.config.getK()) {
+            replacementCache.add(tmp);
+        } else if (replacementCache.size() > config.getK()) {
             /* If the cache is filled, remove the least recently seen contact */
-            this.replacementCache.remove(this.replacementCache.last());
-            this.replacementCache.add(c);
+            replacementCache.remove(replacementCache.last());
+            replacementCache.add(c);
         } else {
-            this.replacementCache.add(c);
+            replacementCache.add(c);
         }
     }
 
@@ -159,9 +159,9 @@ public class Bucket {
      * @return The contact removed from the replacement cache
      */
     private synchronized Contact removeFromReplacementCache(Node node) {
-        for (Contact contact : this.replacementCache) {
+        for (Contact contact : replacementCache) {
             if (contact.getNode().equals(node)) {
-                this.replacementCache.remove(contact);
+                replacementCache.remove(contact);
                 return contact;
             }
         }
@@ -174,7 +174,7 @@ public class Bucket {
      * Returns a specific contact in the bucket based on the provided node
      */
     private synchronized Contact getContact(Node n) {
-        for (Contact c : this.contacts) {
+        for (Contact c : contacts) {
             if (c.getNode().equals(n)) {
                 return c;
             }
@@ -189,11 +189,11 @@ public class Bucket {
      * @return
      */
     public synchronized int getNumberOfContacts() {
-        return this.contacts.size();
+        return contacts.size();
     }
 
     public synchronized int getDepth() {
-        return this.depth;
+        return depth;
     }
 
     /**
@@ -204,12 +204,12 @@ public class Bucket {
         final ArrayList<Contact> list = new ArrayList<>();
 
         /* If we have no contacts, return the blank arraylist */
-        if (this.contacts.isEmpty()) {
+        if (contacts.isEmpty()) {
             return list;
         }
 
         /* We have contacts, lets copy put them into the arraylist and return */
-        for (Contact c : this.contacts) {
+        for (Contact c : contacts) {
             list.add(c);
         }
 
@@ -219,9 +219,9 @@ public class Bucket {
     @Override
     public synchronized String toString() {
         StringBuilder sb = new StringBuilder("Bucket at depth: ");
-        sb.append(this.depth);
+        sb.append(depth);
         sb.append("\n Nodes: \n");
-        for (Contact n : this.contacts) {
+        for (Contact n : contacts) {
             sb.append("Node: ");
             sb.append(n.getNode().getNodeId().toString());
             sb.append(" (stale: ");

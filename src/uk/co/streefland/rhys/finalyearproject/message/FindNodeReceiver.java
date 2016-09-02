@@ -38,17 +38,17 @@ public class FindNodeReceiver implements Receiver {
         Node origin = msg.getOrigin();
 
         /* Insert origin into local routing table */
-        this.localNode.getRoutingTable().insert(origin);
+        localNode.getRoutingTable().insert(origin);
 
         /* Find nodes closest to the NodeId in local routing table */
-        List<Node> nodes = this.localNode.getRoutingTable().findClosest(msg.getLookupId(), this.config.getK());
+        List<Node> nodes = localNode.getRoutingTable().findClosest(msg.getLookupId(), config.getK());
 
         /* Create the FindNodeReplyMessage */
-        Message reply = new FindNodeReplyMessage(this.localNode.getNode(), nodes);
+        Message reply = new FindNodeReplyMessage(localNode.getNode(), nodes);
 
         /* The server sends the reply */
-        if (this.server.isRunning()) {
-            this.server.reply(origin, reply, communicationId);
+        if (server.isRunning()) {
+            server.reply(origin, reply, communicationId);
         }
     }
 

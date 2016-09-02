@@ -40,17 +40,17 @@ public class ConnectOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
         try {
             /* Contact the bootstrap node */
-            this.error = true;
-            this.attempts = 0;
+            error = true;
+            attempts = 0;
 
             /* Construct a connect message and send it to the bootstrap node */
-            Message m = new ConnectMessage(this.localNode.getNode());
-            server.sendMessage(this.bootstrapNode, m, this);
+            Message m = new ConnectMessage(localNode.getNode());
+            server.sendMessage(bootstrapNode, m, this);
 
             /* If we haven't finished,  wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 50;
-            while (totalTimeWaited < this.config.getOperationTimeout()) {
+            while (totalTimeWaited < config.getOperationTimeout()) {
                 if (error) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -64,11 +64,11 @@ public class ConnectOperation implements Operation, Receiver {
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
-            Operation findNode = new FindNodeOperation(this.server, this.localNode, this.localNode.getNode().getNodeId(), this.config);
+            Operation findNode = new FindNodeOperation(server, localNode, localNode.getNode().getNodeId(), config);
             findNode.execute();
 
             /* Refresh buckets to update the rest of the routing table */
-            new BucketRefreshOperation(this.server, this.localNode, this.config).execute();
+            new BucketRefreshOperation(server, localNode, config).execute();
         } catch (InterruptedException e) {
             System.err.println("Connect operation was interrupted. ");
         }
@@ -85,7 +85,7 @@ public class ConnectOperation implements Operation, Receiver {
         AcknowledgeConnectMessage msg = (AcknowledgeConnectMessage) incoming;
 
         /* The target node has responded, insert it into the routing table */
-        this.localNode.getRoutingTable().insert(this.bootstrapNode);
+        localNode.getRoutingTable().insert(bootstrapNode);
 
         /* We got a response, so error is false */
         error = false;
@@ -103,12 +103,11 @@ public class ConnectOperation implements Operation, Receiver {
     @Override
     public synchronized void timeout(int communicationId) throws IOException {
         /* If our attempts are less than the maxConnectionAttempts setting - try to send the message again */
-        if (this.attempts < config.getMaxConnectionAttempts()) {
-            this.server.sendMessage(this.bootstrapNode, new ConnectMessage(this.localNode.getNode()), this);
+        if (attempts < config.getMaxConnectionAttempts()) {
+            server.sendMessage(bootstrapNode, new ConnectMessage(localNode.getNode()), this);
         } else {
             /* Do nothing, wake up any waiting thread */
             notify();
         }
     }
-
 }

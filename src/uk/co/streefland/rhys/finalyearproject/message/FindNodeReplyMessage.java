@@ -29,15 +29,15 @@ public class FindNodeReplyMessage implements Message {
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
         /* Read in the origin */
-        this.origin = new Node(in);
+        origin = new Node(in);
 
         /* Get the number of incoming nodes */
         int len = in.readInt();
-        this.nodes = new ArrayList<>(len);
+        nodes = new ArrayList<>(len);
 
         /* Read in all nodes */
         for (int i = 0; i < len; i++) {
-            this.nodes.add(new Node(in));
+            nodes.add(new Node(in));
         }
     }
 
@@ -47,18 +47,18 @@ public class FindNodeReplyMessage implements Message {
         origin.toStream(out);
 
         /* Write the number of nodes and the nodes to the stream */
-        out.writeInt(this.nodes.size());
-        for (Node node : this.nodes) {
+        out.writeInt(nodes.size());
+        for (Node node : nodes) {
             node.toStream(out);
         }
     }
 
     public List<Node> getNodes() {
-        return this.nodes;
+        return nodes;
     }
 
     public Node getOrigin() {
-        return this.origin;
+        return origin;
     }
 
     @Override

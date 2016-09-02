@@ -73,10 +73,10 @@ public class Server {
 
                         /* Check if a receiver already exists and create one if not */
                         Receiver receiver;
-                        if (this.receivers.containsKey(communicationId)) {
-                            /* If there is a reciever in the receivers list to handle this */
+                        if (receivers.containsKey(communicationId)) {
+                            /* If there is a receiver in the receivers list to handle this */
                             synchronized (this) {
-                                receiver = this.receivers.remove(communicationId);
+                                receiver = receivers.remove(communicationId);
                                 TimerTask task = tasks.remove(communicationId);
                                 if (task != null) {
                                     task.cancel();
@@ -100,7 +100,7 @@ public class Server {
             if (!socket.isClosed()) {
                 socket.close();
             }
-            this.isRunning = false;
+            isRunning = false;
         }
     }
 
@@ -130,7 +130,7 @@ public class Server {
      */
     public synchronized int sendMessage(Node destination, Message msg, Receiver recv) throws IOException {
         if (!isRunning) {
-            throw new IOException(this.localNode + "- Server is not running.");
+            throw new IOException(localNode + "- Server is not running.");
         }
 
         /* Generate a random communication ID */
@@ -142,7 +142,7 @@ public class Server {
                 /* Setup the receiver to handle message response */
                 receivers.put(communicationId, recv);
                 TimerTask task = new TimeoutTask(communicationId, recv);
-                timer.schedule(task, this.config.getResponseTimeout());
+                timer.schedule(task, config.getResponseTimeout());
                 tasks.put(communicationId, task);
             } catch (IllegalStateException ex) {
             }
@@ -223,15 +223,15 @@ public class Server {
      */
     private synchronized void unregister(int communicationId) {
         receivers.remove(communicationId);
-        this.tasks.remove(communicationId);
+        tasks.remove(communicationId);
     }
 
     /**
      * Stops listening and shuts down the server
      */
     public synchronized void shutdown() {
-        this.isRunning = false;
-        this.socket.close();
+        isRunning = false;
+        socket.close();
         timer.cancel();
     }
 

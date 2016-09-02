@@ -24,7 +24,7 @@ public class AcknowledgeConnectMessage implements Message {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
-        this.origin = new Node(in);
+        origin = new Node(in);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class AcknowledgeConnectMessage implements Message {
     }
 
     public Node getOrigin() {
-        return this.origin;
+        return origin;
     }
 
     @Override

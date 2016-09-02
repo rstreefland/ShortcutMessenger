@@ -46,20 +46,20 @@ public class NodeId implements Streamable, Serializable {
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
-        out.write(this.getIdBytes());
+        out.write(getIdBytes());
     }
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
         byte[] input = new byte[BYTES_LENGTH];
         in.readFully(input);
-        this.idBytes = input;
+        idBytes = input;
     }
 
     @Override
     public int hashCode() {
         int hash = 4;
-        hash = 37 * hash + Arrays.hashCode(this.idBytes);
+        hash = 37 * hash + Arrays.hashCode(idBytes);
         return hash;
     }
 

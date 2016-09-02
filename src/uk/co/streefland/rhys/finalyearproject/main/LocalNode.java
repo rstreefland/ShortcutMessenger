@@ -63,11 +63,11 @@ public class LocalNode {
      */
     private void startRefreshOperation() {
         /* Create the refresh operation */
-        this.refreshHandler = new RefreshHandler(this.server, this, this.config);
+        refreshHandler = new RefreshHandler(server, this, config);
 
         /* Create the timer and schedule it using the interval defined in Configuration.java  */
-        this.refreshOperationTimer = new Timer(true);
-        this.refreshOperationTimer.schedule(this.refreshHandler, this.config.getRefreshInterval(), this.config.getRefreshInterval());
+        refreshOperationTimer = new Timer(true);
+        refreshOperationTimer.schedule(refreshHandler, config.getRefreshInterval(), config.getRefreshInterval());
     }
 
     /**
@@ -86,7 +86,7 @@ public class LocalNode {
      * @throws IOException
      */
     public synchronized final void bootstrap(Node node) throws IOException {
-        Operation connect = new ConnectOperation(this.server, this, node, this.config);
+        Operation connect = new ConnectOperation(server, this, node, config);
         connect.execute();
     }
 

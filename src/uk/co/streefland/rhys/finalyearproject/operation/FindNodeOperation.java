@@ -61,16 +61,16 @@ public class FindNodeOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
         try {
             /* Set the local node as already asked */
-            nodes.put(this.localNode.getNode(), QUERIED);
+            nodes.put(localNode.getNode(), QUERIED);
 
             /* Insert all nodes because some nodes may fail to respond. */
-            this.addNodes(this.localNode.getRoutingTable().getAllNodes());
+            addNodes(localNode.getRoutingTable().getAllNodes());
 
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;     // We re-check every n milliseconds
-            while (totalTimeWaited < this.config.getOperationTimeout()) {
-                if (!this.iterativeQueryNodes()) {
+            while (totalTimeWaited < config.getOperationTimeout()) {
+                if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
                 } else {
@@ -79,7 +79,7 @@ public class FindNodeOperation implements Operation, Receiver {
             }
 
             /* Now after we've finished, we would have an idea of offline nodes, lets update our routing table */
-            this.localNode.getRoutingTable().setUnresponsiveContacts(this.getFailedNodes());
+            localNode.getRoutingTable().setUnresponsiveContacts(getFailedNodes());
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -105,27 +105,26 @@ public class FindNodeOperation implements Operation, Receiver {
      */
     private boolean iterativeQueryNodes() throws IOException {
         /* Maximum number of messages already in transit */
-        if (this.config.getMaxConcurrency() <= this.messagesInTransit.size()) {
+        if (config.getMaxConcurrency() <= messagesInTransit.size()) {
             return false;
         }
 
-        List<Node> notQueried = this.getClosestNodes(NOT_QUERIED);
+        List<Node> notQueried = getClosestNodes(NOT_QUERIED);
 
         /* No not queried nodes nor any messages in transit - finish */
-        if (notQueried.isEmpty() && this.messagesInTransit.isEmpty()) {
+        if (notQueried.isEmpty() && messagesInTransit.isEmpty()) {
             return true;
         }
 
         /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
-        for (int i = 0; (this.messagesInTransit.size() < this.config.getMaxConcurrency()) && (i < notQueried.size()); i++) {
+        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < notQueried.size()); i++) {
             Node n = notQueried.get(i);
 
             int communicationId = server.sendMessage(n, lookupMessage, this);
 
-            this.nodes.put(n, AWAITING_RESPONSE);
-            this.messagesInTransit.put(communicationId, n);
+            nodes.put(n, AWAITING_RESPONSE);
+            messagesInTransit.put(communicationId, n);
         }
-
         return false;
     }
 
@@ -134,10 +133,10 @@ public class FindNodeOperation implements Operation, Receiver {
      * @return The K closest nodes to the target lookupId given that have the specified status
      */
     private List<Node> getClosestNodes(String status) {
-        List<Node> closestNodes = new ArrayList<>(this.config.getK());
-        int remainingSpaces = this.config.getK();
+        List<Node> closestNodes = new ArrayList<>(config.getK());
+        int remainingSpaces = config.getK();
 
-        for (Map.Entry e : this.nodes.entrySet()) {
+        for (Map.Entry e : nodes.entrySet()) {
             if (status.equals(e.getValue())) {
                 /* Found node with the required status, now add it */
                 closestNodes.add((Node) e.getKey());
@@ -156,7 +155,7 @@ public class FindNodeOperation implements Operation, Receiver {
     private List<Node> getFailedNodes() {
         List<Node> failedNodes = new ArrayList<>();
 
-        for (Map.Entry<Node, String> e : this.nodes.entrySet()) {
+        for (Map.Entry<Node, String> e : nodes.entrySet()) {
             if (e.getValue().equals(FAILED)) {
                 failedNodes.add(e.getKey());
             }
@@ -183,16 +182,16 @@ public class FindNodeOperation implements Operation, Receiver {
 
         /* Add the origin node to our routing table */
         Node origin = msg.getOrigin();
-        this.localNode.getRoutingTable().insert(origin);
+        localNode.getRoutingTable().insert(origin);
 
         /* Set that we've completed ASKing the origin node */
-        this.nodes.put(origin, QUERIED);
+        nodes.put(origin, QUERIED);
 
         /* Remove this msg from messagesTransiting since it's completed now */
-        this.messagesInTransit.remove(communicationId);
+        messagesInTransit.remove(communicationId);
 
         /* Add the received nodes to our nodes list to query */
-        this.addNodes(msg.getNodes());
+        addNodes(msg.getNodes());
     }
 
     /**
@@ -203,15 +202,15 @@ public class FindNodeOperation implements Operation, Receiver {
     @Override
     public synchronized void timeout(int communicationId) throws IOException {
         /* Get the node associated with this communication */
-        Node n = this.messagesInTransit.get(communicationId);
+        Node n = messagesInTransit.get(communicationId);
 
         if (n == null) {
             return;
         }
 
         /* Mark this node as failed and inform the routing table that it is unresponsive */
-        this.nodes.put(n, FAILED);
-        this.localNode.getRoutingTable().setUnresponsiveContact(n);
-        this.messagesInTransit.remove(communicationId);
+        nodes.put(n, FAILED);
+        localNode.getRoutingTable().setUnresponsiveContact(n);
+        messagesInTransit.remove(communicationId);
     }
 }
