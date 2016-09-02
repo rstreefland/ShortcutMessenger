@@ -12,11 +12,9 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import java.io.IOException;
 
 /**
- * Created by Rhys on 30/08/2016.
+ * Bootstraps the LocalNode to a network by connecting it to another Node and retrieving a list of Nodes from that Node
  */
 public class ConnectOperation implements Operation, Receiver {
-
-    public static final int MAX_CONNECT_ATTEMPTS = 5;
 
     private final Server server;
     private final LocalNode localNode;
@@ -26,98 +24,89 @@ public class ConnectOperation implements Operation, Receiver {
     private int attempts;
     private boolean error;
 
-    /**
-     * @param server    The message server used to send/receive messages
-     * @param localNode     The local node
-     * @param bootstrap Node to use to bootstrap the local node onto the network
-     * @param config
-     */
-    public ConnectOperation(Server server, LocalNode localNode, Node bootstrap, Configuration config)
-    {
+    public ConnectOperation(Server server, LocalNode localNode, Node bootstrap, Configuration config) {
         this.server = server;
         this.localNode = localNode;
         this.bootstrapNode = bootstrap;
         this.config = config;
     }
 
+    /**
+     * Send the connect message to the target node and wait for a reply. Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
+     *
+     * @throws IOException
+     */
     @Override
-    public synchronized void execute() throws IOException
-    {
-        try
-        {
+    public synchronized void execute() throws IOException {
+        try {
             /* Contact the bootstrap node */
             this.error = true;
             this.attempts = 0;
-            Message m = new ConnectMessage(this.localNode.getNode());
 
-            /* Send a connect message to the bootstrap node */
+            /* Construct a connect message and send it to the bootstrap node */
+            Message m = new ConnectMessage(this.localNode.getNode());
             server.sendMessage(this.bootstrapNode, m, this);
 
-            /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
+            /* If we haven't finished,  wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
-            int timeInterval = 50;     // We re-check every 300 milliseconds
-            while (totalTimeWaited < this.config.getOperationTimeout())
-            {
-                if (error)
-                {
+            int timeInterval = 50;
+            while (totalTimeWaited < this.config.getOperationTimeout()) {
+                if (error) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
-                }
-                else
-                {
+                } else {
                     break;
                 }
             }
-            if (error)
-            {
-                /* If we still haven't received any responses by then, do a routing timeout */
+            if (error) {
+                /* If we still haven't received any responses by then, timeout with error */
                 throw new IOException("ConnectOperation: Bootstrap node did not respond: " + bootstrapNode);
             }
 
-            /* Perform lookup for our own ID to get nodes close to us */
+            /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
             Operation findNode = new FindNodeOperation(this.server, this.localNode, this.localNode.getNode().getNodeId(), this.config);
             findNode.execute();
 
-            /**
-             * Refresh buckets to get a good routing table
-             * After the above lookup operation, K nodes will be in our routing table,
-             * Now we try to populate all of our buckets.
-             */
+            /* Refresh buckets to update the rest of the routing table */
             new BucketRefreshOperation(this.server, this.localNode, this.config).execute();
-        }
-        catch (InterruptedException e)
-        {
+        } catch (InterruptedException e) {
             System.err.println("Connect operation was interrupted. ");
         }
     }
 
     /**
-     * Receives an AcknowledgeConnectMessage from the bootstrap node.
+     * Receives an AcknowledgeConnectMessage from the target node
      *
-     * @param comm
+     * @param communicationId
      */
     @Override
-    public synchronized void receive(Message incoming, int comm)
-    {
-        /* The incoming message will be an acknowledgement message */
+    public synchronized void receive(Message incoming, int communicationId) {
+        /* The incoming message is an acknowledgement message */
         AcknowledgeConnectMessage msg = (AcknowledgeConnectMessage) incoming;
 
-        /* The bootstrap node has responded, insert it into our space */
+        /* The target node has responded, insert it into the routing table */
         this.localNode.getRoutingTable().insert(this.bootstrapNode);
 
-        /* We got a response, so the error is false */
+        /* We got a response, so error is false */
         error = false;
 
         /* Wake up any waiting thread */
         notify();
     }
 
+    /**
+     * Runs if the two second timeout occurs. Sends the message again if attempts < maxConnectionAttempts (5)
+     *
+     * @param communicationId
+     * @throws IOException
+     */
     @Override
-    public synchronized void timeout(int comm) throws IOException {
-        if (this.attempts < MAX_CONNECT_ATTEMPTS) {
+    public synchronized void timeout(int communicationId) throws IOException {
+        /* If our attempts are less than the maxConnectionAttempts setting - try to send the message again */
+        if (this.attempts < config.getMaxConnectionAttempts()) {
             this.server.sendMessage(this.bootstrapNode, new ConnectMessage(this.localNode.getNode()), this);
         } else {
-            /* We just exit, so notify all other threads that are possibly waiting */
+            /* Do nothing, wake up any waiting thread */
             notify();
         }
     }

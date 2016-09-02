@@ -5,7 +5,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
-import uk.co.streefland.rhys.finalyearproject.operation.RefreshOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class LocalNode {
 
     /* Objects for refresh operation */
     private Timer refreshOperationTimer;
-    private RefreshOperation refreshOperation;
+    private RefreshHandler refreshHandler;
 
     /* MessageHandler object to create and receive messages */
     private final MessageHandler messageHandler;
@@ -63,18 +63,18 @@ public class LocalNode {
      */
     private void startRefreshOperation() {
         /* Create the refresh operation */
-        this.refreshOperation = new RefreshOperation(this.server, this, this.config);
+        this.refreshHandler = new RefreshHandler(this.server, this, this.config);
 
         /* Create the timer and schedule it using the interval defined in Configuration.java  */
         this.refreshOperationTimer = new Timer(true);
-        this.refreshOperationTimer.schedule(this.refreshOperation, this.config.getRefreshInterval(), this.config.getRefreshInterval());
+        this.refreshOperationTimer.schedule(this.refreshHandler, this.config.getRefreshInterval(), this.config.getRefreshInterval());
     }
 
     /**
      * Stops and cleans up the automatic refresh operation
      */
     private void stopRefreshOperation() {
-        refreshOperation.cancel();
+        refreshHandler.cancel();
         refreshOperationTimer.cancel();
         refreshOperationTimer.purge();
     }

@@ -1,7 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
 /**
- * Interface for every message to implement
+ * Interface that every message should implement to ensure consistency
  */
 public interface Message extends Streamable {
 

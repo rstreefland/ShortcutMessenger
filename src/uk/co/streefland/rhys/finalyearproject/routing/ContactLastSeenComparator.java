@@ -30,7 +30,7 @@ public class ContactLastSeenComparator implements Comparator<Contact>
         else
         {
             /* We may have 2 different contacts with same last seen values so we can't return 0 here */
-            return c1.lastSeen() > c2.lastSeen() ? 1 : -1;
+            return c1.getLastSeen() > c2.getLastSeen() ? 1 : -1;
         }
     }
 }

@@ -188,9 +188,8 @@ public class Server {
 
     /**
      * Task that gets called by a separate thread if a timeout for a receiver occurs.
-     * When a reply arrives this task must be canceled using the <code>cancel()</code>
-     * method inherited from <code>TimerTask</code>. In this case the caller is
-     * responsible for removing the task from the <code>tasks</code> map.
+     * When a reply arrives this task must be canceled using the cancel()
+     * method inherited from TimerTask
      */
     class TimeoutTask extends TimerTask {
 

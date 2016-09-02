@@ -8,31 +8,23 @@ import java.io.IOException;
 import java.util.TimerTask;
 
 /**
- * An operation that handles refreshing the entire Kademlia Systems including buckets and content
- *
- * @author Joshua Kissoon
- * @since 20140306
+ * Handles refreshing the buckets stored in the routing table. Will eventually also handle refreshing the data stored in the DHT
  */
-public class RefreshOperation extends TimerTask
-{
+public class RefreshHandler extends TimerTask {
 
     private final Server server;
     private final LocalNode localNode;
-    //private final KademliaDHT dht;
     private final Configuration config;
 
-    public RefreshOperation(Server server, LocalNode localNode, Configuration config)
-    {
+    public RefreshHandler(Server server, LocalNode localNode, Configuration config) {
         this.server = server;
         this.localNode = localNode;
-        //this.dht = dht;
         this.config = config;
     }
 
     @Override
-    public void run()
-    {
-        /* Run our BucketRefreshOperation to refresh buckets */
+    public void run() {
+        /* Run BucketRefreshOperation to refresh the buckets */
         try {
             System.out.println("I have REFRESHED!");
             new BucketRefreshOperation(this.server, this.localNode, this.config).execute();
@@ -40,7 +32,6 @@ public class RefreshOperation extends TimerTask
             e.printStackTrace();
         }
 
-        /* After buckets have been refreshed, we refresh content */
-        //new ContentRefreshOperation(this.server, this.localNode, this.dht, this.config).execute();
+        // TODO: 02/09/2016  we'll need to refresh any data stored in the DHT as well once that functionality has been implemented
     }
 }

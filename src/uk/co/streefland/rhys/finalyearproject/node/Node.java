@@ -33,15 +33,15 @@ public class Node implements Streamable, Serializable {
     @Override
     public final void fromStream(DataInputStream in) throws IOException
     {
-        /* Load the NodeId */
+        /* Read the NodeId */
         this.nodeId = new NodeId(in);
 
-        /* Load the IP Address */
+        /* Read the IP Address */
         byte[] ip = new byte[4];
         in.readFully(ip);
         this.inetAddress = InetAddress.getByAddress(ip);
 
-        /* Read in the port */
+        /* Read the port */
         this.port = in.readInt();
     }
 

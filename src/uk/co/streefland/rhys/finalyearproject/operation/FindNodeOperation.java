@@ -15,15 +15,15 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Finds the K closest nodes to a specified identifier
- * The algorithm terminates when it has gotten responses from the K closest nodes it has seen.
+ * Finds the K closest nodes to a specified NodeId
+ * Terminates when it has responses from the K closest nodes it has seen.
  * Nodes that fail to respond are removed from consideration
  */
 public class FindNodeOperation implements Operation, Receiver {
 
-    //flags
-    private static final String NOTQUERIED = "1";
-    private static final String AWAITINGRESPONSE = "2";
+    // Flags that represent Node state
+    private static final String NOT_QUERIED = "1";
+    private static final String AWAITING_RESPONSE = "2";
     private static final String QUERIED = "3";
     private static final String FAILED = "4";
 
@@ -40,12 +40,6 @@ public class FindNodeOperation implements Operation, Receiver {
     /* Used to sort nodes */
     private final Comparator comparator;
 
-    /**
-     * @param server    KadServer used for communication
-     * @param localNode The local node making the communication
-     * @param lookupId  The ID for which to find nodes close to
-     * @param config
-     */
     public FindNodeOperation(Server server, LocalNode localNode, NodeId lookupId, Configuration config) {
         this.server = server;
         this.localNode = localNode;
@@ -54,15 +48,13 @@ public class FindNodeOperation implements Operation, Receiver {
         this.lookupMessage = new FindNodeMessage(localNode.getNode(), lookupId);
         this.messagesInTransit = new HashMap<>();
 
-        /**
-         * We initialize a TreeMap to store nodes.
-         * This map will be sorted by which nodes are closest to the lookupId
-         */
+        /* Initialise a TreeMap that is sorted by which nodes are closest to the lookupId */
         this.comparator = new KeyComparator(lookupId);
         this.nodes = new TreeMap(this.comparator);
     }
 
     /**
+     * Runs the find node operation
      * @throws IOException
      */
     @Override
@@ -71,10 +63,7 @@ public class FindNodeOperation implements Operation, Receiver {
             /* Set the local node as already asked */
             nodes.put(this.localNode.getNode(), QUERIED);
 
-            /**
-             * We add all nodes here instead of the K-Closest because there may be the case that the K-Closest are offline
-             * - The operation takes care of looking at the K-Closest.
-             */
+            /* Insert all nodes because some nodes may fail to respond. */
             this.addNodes(this.localNode.getRoutingTable().getAllNodes());
 
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
@@ -97,37 +86,46 @@ public class FindNodeOperation implements Operation, Receiver {
         }
     }
 
+    /**
+     * Inserts the nodes into the TreeMap if they're not already present
+     * @param list The list of nodes to insert
+     */
     private void addNodes(List<Node> list) {
         for (Node node : list) {
-            /* If this node is not in the list, add the node */
             if (!nodes.containsKey(node)) {
-                nodes.put(node, NOTQUERIED);
+                nodes.put(node, NOT_QUERIED);
             }
         }
     }
 
+    /**
+     * Sends a message to every not queried node. Maintains a maximum of config.getMaxConcurrency() active messages in transit
+     * @return false if algorithm isn't finished, true if algorithm has finished
+     * @throws IOException
+     */
     private boolean iterativeQueryNodes() throws IOException {
+        /* Maximum number of messages already in transit */
         if (this.config.getMaxConcurrency() <= this.messagesInTransit.size()) {
             return false;
         }
 
-        List<Node> notQueried = this.getClosestNodes(NOTQUERIED);
+        List<Node> notQueried = this.getClosestNodes(NOT_QUERIED);
 
+        /* No not queried nodes nor any messages in transit - finish */
         if (notQueried.isEmpty() && this.messagesInTransit.isEmpty()) {
-            /* We have no unasked nodes nor any messages in transit, we're finished! */
             return true;
         }
 
+        /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
         for (int i = 0; (this.messagesInTransit.size() < this.config.getMaxConcurrency()) && (i < notQueried.size()); i++) {
             Node n = notQueried.get(i);
 
             int communicationId = server.sendMessage(n, lookupMessage, this);
 
-            this.nodes.put(n, AWAITINGRESPONSE);
+            this.nodes.put(n, AWAITING_RESPONSE);
             this.messagesInTransit.put(communicationId, n);
         }
 
-        /* We're not finished as yet, return false */
         return false;
     }
 
@@ -141,7 +139,7 @@ public class FindNodeOperation implements Operation, Receiver {
 
         for (Map.Entry e : this.nodes.entrySet()) {
             if (status.equals(e.getValue())) {
-                /* We got one with the required status, now add it */
+                /* Found node with the required status, now add it */
                 closestNodes.add((Node) e.getKey());
                 if (--remainingSpaces == 0) {
                     break;
@@ -152,6 +150,9 @@ public class FindNodeOperation implements Operation, Receiver {
         return closestNodes;
     }
 
+    /**
+     * @return A list of failed nodes
+     */
     private List<Node> getFailedNodes() {
         List<Node> failedNodes = new ArrayList<>();
 
@@ -171,13 +172,13 @@ public class FindNodeOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
-        if (!(incoming instanceof FindNodeReplyMessage))
-        {
-            /* Not sure why we get a message of a different type here... @todo Figure it out. */
+        if (!(incoming instanceof FindNodeReplyMessage)) {
+            System.out.println("INCOMING MESSAGE WAS A DIFFERENT TYPE");
+            /* Not sure why we get a message of a different type here... todo Figure it out. */
             return;
         }
 
-        /* We receive a FindNodeReplyMessage with a set of nodes, read this message */
+        /* Read the FindNodeReplyMessage */
         FindNodeReplyMessage msg = (FindNodeReplyMessage) incoming;
 
         /* Add the origin node to our routing table */
@@ -192,11 +193,10 @@ public class FindNodeOperation implements Operation, Receiver {
 
         /* Add the received nodes to our nodes list to query */
         this.addNodes(msg.getNodes());
-        //this.iterativeQueryNodes();
     }
 
     /**
-     * A node does not respond or a packet was lost, we set this node as failed
+     * A node did not respond or a packet was lost, set this node as failed
      *
      * @throws IOException
      */
@@ -213,7 +213,5 @@ public class FindNodeOperation implements Operation, Receiver {
         this.nodes.put(n, FAILED);
         this.localNode.getRoutingTable().setUnresponsiveContact(n);
         this.messagesInTransit.remove(communicationId);
-
-       // this.iterativeQueryNodes();
     }
 }
