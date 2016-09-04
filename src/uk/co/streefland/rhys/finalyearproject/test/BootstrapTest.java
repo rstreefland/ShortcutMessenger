@@ -15,10 +15,10 @@ public class BootstrapTest {
 
         try {
             LocalNode node1 = new LocalNode("rhys", new NodeId("ASF45678947584567467"), 7574);
-            LocalNode node2 = new LocalNode("gareth", new NodeId("ASERTKJDHGVHERJHGFLK"), 7572);
+            LocalNode node2 = new LocalNode("gareth", new NodeId(), 7572);
             LocalNode node3 = new LocalNode("peter", new NodeId("L7ER1KJ7HGVHERJHGFLA"), 7573);
             LocalNode node4 = new LocalNode("petersdf", new NodeId("P7ED1KJ7HGVHERJHGFLA"), 7575);
-            LocalNode node5 = new LocalNode("peter232", new NodeId("A7ER2KJ7HGVHERJHGFLA"), 7576);
+            LocalNode node5 = new LocalNode("peter232", new NodeId(), 7576);
 
             node2.bootstrap(node1.getNode());
 
@@ -28,17 +28,11 @@ public class BootstrapTest {
 
             node5.bootstrap(node1.getNode());
 
-            System.out.println("here1");
-
             System.out.println(node1.getRoutingTable());
             System.out.println(node5.getRoutingTable());
-
-            System.out.println("here2");
-
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

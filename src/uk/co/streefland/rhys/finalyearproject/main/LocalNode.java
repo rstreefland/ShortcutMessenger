@@ -1,11 +1,14 @@
 package uk.co.streefland.rhys.finalyearproject.main;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler;
+import uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
 import java.io.IOException;
@@ -16,6 +19,8 @@ import java.util.Timer;
  * Represents the local node on the network. This class ties together all of the functionality of the other classes
  */
 public class LocalNode {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final String ownerId;
     private final int port;
@@ -42,7 +47,7 @@ public class LocalNode {
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(port, messageHandler, localNode, config);
 
-        startRefreshOperation();
+        startRefreshOperation(); // TODO: 03/09/2016  re-enable once you've figured out what the hell is going on
     }
 
     public LocalNode(String ownerId, NodeId defaultId, int port) throws IOException {
@@ -55,7 +60,7 @@ public class LocalNode {
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(port, messageHandler, localNode, config);
 
-        startRefreshOperation();
+        startRefreshOperation(); // TODO: 03/09/2016  re-enable once you've figured out what the hell is going on
     }
 
     /**
@@ -86,8 +91,15 @@ public class LocalNode {
      * @throws IOException
      */
     public synchronized final void bootstrap(Node node) throws IOException {
+        logger.info("Bootstrapping localnode {} to node {}", localNode.toString(), node.toString());
         Operation connect = new ConnectOperation(server, this, node, config);
         connect.execute();
+    }
+
+    public synchronized final void message(Node node, String message) throws IOException {
+        logger.info("Sending message to all known nodes");
+        Operation sendMessage = new TextMessageOperation(server, this, config, message);
+        sendMessage.execute();
     }
 
     /**

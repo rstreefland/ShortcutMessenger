@@ -16,10 +16,10 @@ import java.io.IOException;
  */
 public class ConnectOperation implements Operation, Receiver {
 
-    private final Server server;
-    private final LocalNode localNode;
-    private final Node bootstrapNode;
-    private final Configuration config;
+    private Server server;
+    private LocalNode localNode;
+    private Node bootstrapNode;
+    private Configuration config;
 
     private int attempts;
     private boolean error;
@@ -38,7 +38,7 @@ public class ConnectOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
-        try {
+            try {
             /* Contact the bootstrap node */
             error = true;
             attempts = 0;
@@ -60,7 +60,7 @@ public class ConnectOperation implements Operation, Receiver {
             }
             if (error) {
                 /* If we still haven't received any responses by then, timeout with error */
-                throw new IOException("ConnectOperation: Bootstrap node did not respond: " + bootstrapNode);
+                throw new IOException("TextMessageOperation: Bootstrap node did not respond: " + bootstrapNode);
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
@@ -83,6 +83,9 @@ public class ConnectOperation implements Operation, Receiver {
     public synchronized void receive(Message incoming, int communicationId) {
         /* The incoming message is an acknowledgement message */
         AcknowledgeConnectMessage msg = (AcknowledgeConnectMessage) incoming;
+
+        /* Update the node so we have the correct nodeId */
+        bootstrapNode = msg.getOrigin();
 
         /* The target node has responded, insert it into the routing table */
         localNode.getRoutingTable().insert(bootstrapNode);

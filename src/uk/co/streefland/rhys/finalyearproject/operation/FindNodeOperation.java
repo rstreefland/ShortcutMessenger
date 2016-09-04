@@ -172,7 +172,9 @@ public class FindNodeOperation implements Operation, Receiver {
     @Override
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
         if (!(incoming instanceof FindNodeReplyMessage)) {
+
             System.out.println("INCOMING MESSAGE WAS A DIFFERENT TYPE");
+            System.out.println(incoming.getClass().toString());
             /* Not sure why we get a message of a different type here... todo Figure it out. */
             return;
         }

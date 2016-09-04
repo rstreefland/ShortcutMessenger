@@ -1,9 +1,12 @@
 package uk.co.streefland.rhys.finalyearproject.main;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
+import uk.co.streefland.rhys.finalyearproject.test.LoggingTest;
 
 import java.io.*;
 import java.net.*;
@@ -13,6 +16,8 @@ import java.util.*;
  * UDP server that handles sending and receiving messages as UDP packets between nodes on the network
  */
 public class Server {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final Configuration config;
     private final Node localNode;
@@ -42,6 +47,7 @@ public class Server {
         new Thread() {
             @Override
             public void run() {
+                logger.info("Starting server");
                 listen();
             }
         }.start();
@@ -52,6 +58,7 @@ public class Server {
      */
     private void listen() {
         try {
+            logger.info("Server is running");
             while (isRunning) {
                 try {
                     /* Wait for a packet*/
@@ -67,6 +74,7 @@ public class Server {
                         int communicationId = din.readInt();
                         byte messageCode = din.readByte();
 
+                        logger.debug("Message code is {}", messageCode);
                         /* Create the message and close the input stream */
                         Message msg = messageHandler.createMessage(messageCode, din);
                         din.close();
@@ -84,6 +92,7 @@ public class Server {
                             }
                         } else {
                             /* There is currently no receivers, try to get one */
+                            logger.debug("No receiver exists, creating one using code {}", messageCode);
                             receiver = messageHandler.createReceiver(messageCode, this);
                         }
 
