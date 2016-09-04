@@ -16,20 +16,21 @@ import java.util.*;
 public class TextMessageOperation implements Operation, Receiver {
 
     // Flags that represent Node state
-    private static final String NOT_QUERIED = "1";
-    private static final String AWAITING_RESPONSE = "2";
-    private static final String QUERIED = "3";
+    private static final String NOT_MESSAGED = "1";
+    private static final String AWAITING_ACK = "2";
+    private static final String MESSAGED = "3";
     private static final String FAILED = "4";
 
     private Server server;
     private LocalNode localNode;
     private Configuration config;
 
-    private final Message message;        // Message sent to each peer
-    private List<Node> nodes;
+    private Message message;        // Message sent to each peer
+    private Map<Node, String> nodes;
+    private Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
-    //private final Map<Integer, Node> messagesInTransit;
+    private Map<Integer, Node> messagesInTransit;
 
     /* Used to sort nodes */
     //private final Comparator comparator;
@@ -40,9 +41,10 @@ public class TextMessageOperation implements Operation, Receiver {
         this.config = config;
 
         this.message = new TextMessage(localNode.getNode(), message);
+        this.nodes = new HashMap<>();
+        this.attempts = new HashMap<>();
 
-       // this.messagesInTransit = new HashMap<>();
-
+        this.messagesInTransit = new HashMap<>();
     }
 
     /**
@@ -53,10 +55,13 @@ public class TextMessageOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
         try {
-            /* Set the local node as already asked */
-            //nodes.put(localNode.getNode(), QUERIED);
 
-            nodes = localNode.getRoutingTable().getAllNodes();
+            /* Set the local node as already messaged because we don't want to message the local node */
+            nodes.put(localNode.getNode(), MESSAGED);
+            attempts.put(localNode.getNode(), 0);
+
+            /* add all nodes todo change this so the user can select who they want to send a message to */
+            addNodes(localNode.getRoutingTable().getAllNodes());
 
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
@@ -78,40 +83,73 @@ public class TextMessageOperation implements Operation, Receiver {
         }
     }
 
+    /**
+     * Inserts the nodes into the HashMap if they're not already present
+     * @param list The list of nodes to insert
+     */
+    private void addNodes(List<Node> list) {
+        for (Node node : list) {
+            if (!nodes.containsKey(node)) {
+                nodes.put(node, NOT_MESSAGED);
+            }
+
+            if (!attempts.containsKey(node)) {
+                attempts.put(node, 0);
+            }
+        }
+    }
+
     private boolean iterativeMessagesNodes() throws IOException {
         /* Maximum number of messages already in transit */
-        //if (config.getMaxConcurrency() <= messagesInTransit.size()) {
-        //    return false;
-        //}
+        if (config.getMaxConcurrency() <= messagesInTransit.size()) {
+            return false;
+        }
 
-        //List<Node> notQueried = getClosestNodes(NOT_QUERIED);
+        List<Node> toMessage = new ArrayList<>();
 
-        /* No not queried nodes nor any messages in transit - finish */
-       // if (notQueried.isEmpty() && messagesInTransit.isEmpty()) {
-        //    return true;
-        //}
+        for (Map.Entry<Node, String> e: nodes.entrySet()) {
+            if (e.getValue().equals(NOT_MESSAGED) || e.getValue().equals(AWAITING_ACK) || e.getValue().equals(FAILED)) {
+                if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
+                    toMessage.add(e.getKey());
+                }
+            }
+        }
+
+        /* No not messaged nodes nor any messages in transit - finish */
+        if (toMessage.isEmpty() && messagesInTransit.isEmpty()) {
+            return true;
+        }
 
         /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
-        //for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < notQueried.size()); i++) {
-        for (int i = 0; i < nodes.size(); i++) {
+        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toMessage.size()); i++) {
 
-            int communicationId = server.sendMessage(nodes.get(i), message, this);
+            int communicationId = server.sendMessage(toMessage.get(i), message, this);
 
-            //nodes.put(n, AWAITING_RESPONSE);
-            //messagesInTransit.put(communicationId, n);
+            nodes.put(toMessage.get(i), AWAITING_ACK);
+            attempts.put(toMessage.get(i), attempts.get(toMessage.get(i)) + 1);
+            messagesInTransit.put(communicationId, toMessage.get(i));
         }
         return true;
     }
 
-
     /**
-     * Receives an AcknowledgeConnectMessage from the target node
+     * Receives an AcknowledgeMessage from the target node
      *
      * @param communicationId
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
-        // sweet fa at the moment
+
+        /* Read the AcknowledgeMessage */
+        AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
+
+        System.out.println("ACK received from " + msg.getOrigin().getSocketAddress().getHostName());
+
+        /* Update the hashmap to show that we've finished messaging this node */
+        nodes.put(msg.getOrigin(), MESSAGED);
+
+         /* Remove this msg from messagesTransiting since it's completed now */
+        messagesInTransit.remove(communicationId);
 
         notify();
     }
@@ -124,13 +162,17 @@ public class TextMessageOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void timeout(int communicationId) throws IOException {
-        /* If our attempts are less than the maxConnectionAttempts setting - try to send the message again */
-       // if (attempts < config.getMaxConnectionAttempts()) {
-        //    server.sendMessage(bootstrapNode, new ConnectMessage(localNode.getNode()), this);
-       // } else {
-        //    /* Do nothing, wake up any waiting thread */
-            notify();
-       // }
+        /* Get the node associated with this communication */
+        Node n = messagesInTransit.get(communicationId);
+
+        if (n == null) {
+            return;
+        }
+
+        /* Mark this node as failed and inform the routing table that it is unresponsive */
+        nodes.put(n, FAILED);
+        attempts.put(n, attempts.get(n) + 1);
+        messagesInTransit.remove(communicationId);
     }
 }
 

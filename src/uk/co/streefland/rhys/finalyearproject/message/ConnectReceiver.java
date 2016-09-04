@@ -32,10 +32,10 @@ public class ConnectReceiver implements Receiver {
         /* Update the local routing table inserting the origin node. */
         localNode.getRoutingTable().insert(message.getOrigin());
 
-        /* Create the AcknowledgeConnectMessage */
-        AcknowledgeConnectMessage msg = new AcknowledgeConnectMessage(localNode.getNode());
+        /* Create the AcknowledgeMessage */
+        AcknowledgeMessage msg = new AcknowledgeMessage(localNode.getNode());
 
-        /* Reply to the origin with the AcknowledgeConnectMessage */
+        /* Reply to the origin with the AcknowledgeMessage */
         server.reply(message.getOrigin(), msg, communicationId);
     }
 

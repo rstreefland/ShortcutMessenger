@@ -3,7 +3,6 @@ package uk.co.streefland.rhys.finalyearproject.message;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
-import uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -22,8 +21,8 @@ public class MessageHandler {
 
     public Message createMessage(byte code, DataInputStream in) throws IOException {
         switch (code) {
-            case AcknowledgeConnectMessage.CODE:
-                return new AcknowledgeConnectMessage(in);
+            case AcknowledgeMessage.CODE:
+                return new AcknowledgeMessage(in);
             case ConnectMessage.CODE:
                 return new ConnectMessage(in);
             case FindNodeMessage.CODE:

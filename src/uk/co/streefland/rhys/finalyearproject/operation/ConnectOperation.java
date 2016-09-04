@@ -3,7 +3,7 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
-import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeConnectMessage;
+import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.ConnectMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
@@ -40,8 +40,8 @@ public class ConnectOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
             try {
             /* Contact the bootstrap node */
-            error = true;
-            attempts = 0;
+                error = true;
+                attempts = 0;
 
             /* Construct a connect message and send it to the bootstrap node */
             Message m = new ConnectMessage(localNode.getNode());
@@ -75,14 +75,14 @@ public class ConnectOperation implements Operation, Receiver {
     }
 
     /**
-     * Receives an AcknowledgeConnectMessage from the target node
+     * Receives an AcknowledgeMessage from the target node
      *
      * @param communicationId
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
         /* The incoming message is an acknowledgement message */
-        AcknowledgeConnectMessage msg = (AcknowledgeConnectMessage) incoming;
+        AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
         /* Update the node so we have the correct nodeId */
         bootstrapNode = msg.getOrigin();

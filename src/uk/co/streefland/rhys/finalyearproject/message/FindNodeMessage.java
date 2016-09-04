@@ -15,7 +15,7 @@ public class FindNodeMessage implements Message {
     private Node origin;
     private NodeId lookupId;
 
-    public static final byte CODE = 0x05;
+    public static final byte CODE = 0x03;
 
     public FindNodeMessage(Node origin, NodeId lookup) {
         this.origin = origin;

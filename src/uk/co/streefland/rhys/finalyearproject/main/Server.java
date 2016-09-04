@@ -74,7 +74,7 @@ public class Server {
                         int communicationId = din.readInt();
                         byte messageCode = din.readByte();
 
-                        logger.debug("Message code is {}", messageCode);
+                        logger.debug("Incoming message code is {}", messageCode);
                         /* Create the message and close the input stream */
                         Message msg = messageHandler.createMessage(messageCode, din);
                         din.close();

@@ -11,7 +11,7 @@ public class TextMessage implements Message {
 
     Node origin;
     String message;
-    public static final byte CODE = 0x03;
+    public static final byte CODE = 0x05;
 
     public TextMessage(Node origin, String message) {
         this.origin = origin;

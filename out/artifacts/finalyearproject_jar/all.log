@@ -1,0 +1,59 @@
+2016-09-04 16:18:13.508 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:18:13.511 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:18:20.450 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:18:20.453 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode D98DF4A039CB3FED87E1F0B40542C55DFF814313 to node CDFCC53201B27A8A6C57A982A7C93396FF1EE177
+2016-09-04 16:18:20.529 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:18:20.531 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:31:56.183 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:31:56.183 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:32:02.392 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:32:02.392 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode B0F8594A0BF5878D3A75C84E67FFEC2E590599D8 to node 9B0C8190DD6E6DD1CFDEEE681E79D388B3215D0C
+2016-09-04 16:32:02.470 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:32:02.470 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:32:15.995 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:47:12.687 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:47:12.687 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:47:21.751 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:47:21.751 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode B14653AD1AB0B5C8381C8BDC3B94059C7A3D5F98 to node 7B0BCF88D379807F25E8ABB166D9BD82ACA0C736
+2016-09-04 16:47:21.829 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:47:21.829 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:47:26.431 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:47:30.971 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:48:08.567 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:48:09.596 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:49:09.953 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:49:10.920 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:49:51.218 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:49:51.218 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:49:55.679 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:49:55.679 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 566ECC5252B0BB60BD749D88D362F9B877A12382 to node A0E7373EC2798C384A0BFCCE7FDF8201A7B8D56F
+2016-09-04 16:49:55.757 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:49:55.757 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:51:58.065 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:51:58.065 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:52:01.762 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:52:01.762 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 2B7C8A71875E44F4F3A47B484F262B618E252D0A to node DB793F4FF4F73CAAA5B574DC801AFF6D2DFAB978
+2016-09-04 16:52:01.840 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:52:01.855 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:52:24.588 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:52:24.588 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:52:27.833 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:52:27.833 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 53839697BB134F255C21FA9A58928BDBD64E8C85 to node 473824D663465B501A83CFB759E92B94343EBD83
+2016-09-04 16:52:27.911 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:52:27.926 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:54:13.588 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:54:13.604 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:54:29.516 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:54:29.516 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode DEBF69B39E8414D5AB91B12973FEE1096C0D7855 to node 87777B3F591D7B5198B6EFAE622645E6F9D3B291
+2016-09-04 16:54:29.594 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:54:29.609 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:54:37.207 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:57:32.491 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
+2016-09-04 16:57:32.493 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
+2016-09-04 16:57:41.692 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-04 16:57:41.694 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 713EABF40C1B62D40ED4C8A15F38343E4AF174F0 to node 6846554C16D2C6D24A6EFB4D3D8C957707B477EE
+2016-09-04 16:57:41.773 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-04 16:57:41.775 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 16:58:24.313 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 17:01:36.228 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-04 17:03:11.765 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes

@@ -14,7 +14,7 @@ import java.util.List;
 public class FindNodeReplyMessage implements Message {
 
     private Node origin;
-    public static final byte CODE = 0x06;
+    public static final byte CODE = 0x04;
     private List<Node> nodes;
 
     public FindNodeReplyMessage(Node origin, List<Node> nodes) {

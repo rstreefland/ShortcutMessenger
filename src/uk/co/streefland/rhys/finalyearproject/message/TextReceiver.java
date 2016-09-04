@@ -35,11 +35,14 @@ public class TextReceiver implements Receiver {
 
         System.out.println("Message received from " + origin.getSocketAddress().getHostName() + " : " + msg.getMessage());
 
+        /* Create the AcknowledgeMessage */
+        Message ack = new AcknowledgeMessage(localNode.getNode());
+
         /* The server sends the reply */
         if (server.isRunning()) {
-            //server.reply(origin, reply, communicationId);
-        }
+            server.reply(origin, ack, communicationId);
     }
+}
 
     /**
      * We don't need to do anything here
