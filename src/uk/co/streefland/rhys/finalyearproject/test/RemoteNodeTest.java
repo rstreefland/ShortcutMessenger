@@ -47,13 +47,12 @@ public class RemoteNodeTest {
             System.out.println(localNode.getRoutingTable());
 
             while(true) {
+
                 message = sc.nextLine();
                 if (message != null) {
-                    localNode.message(localNode.getNode(), message);
+                    localNode.message(message, localNode.getRoutingTable().getAllNodes());
                 }
             }
-
-
 
         } catch (IOException e) {
             e.printStackTrace();

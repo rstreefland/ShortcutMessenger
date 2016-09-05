@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -20,6 +22,8 @@ import java.util.*;
  * Nodes that fail to respond are removed from consideration
  */
 public class FindNodeOperation implements Operation, Receiver {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // Flags that represent Node state
     private static final String NOT_QUERIED = "1";
@@ -173,9 +177,10 @@ public class FindNodeOperation implements Operation, Receiver {
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
         if (!(incoming instanceof FindNodeReplyMessage)) {
 
-            System.out.println("INCOMING MESSAGE WAS A DIFFERENT TYPE");
-            System.out.println(incoming.getClass().toString());
-            /* Not sure why we get a message of a different type here... todo Figure it out. */
+            logger.warn("Incoming message was of a different type");
+            logger.warn("{}", incoming.getClass().toString());
+
+            /* I know why this is happening - fix in progress*/
             return;
         }
 

@@ -21,17 +21,13 @@ public class LocalNodeTest {
 
             LocalNode localNode = new LocalNode("bleh1", new NodeId(), 1234);
 
-            System.out.println(localNode.getRoutingTable());
-
-            //node1.message(node1.getNode(), "bleh");
-
             String message;
             Scanner sc = new Scanner(System.in);
 
             while(true) {
                 message = sc.nextLine();
                 if (message != null) {
-                    localNode.message(localNode.getNode(), message);
+                    localNode.message(message, localNode.getRoutingTable().getAllNodes());
                 }
             }
 

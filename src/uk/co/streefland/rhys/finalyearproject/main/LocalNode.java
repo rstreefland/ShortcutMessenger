@@ -13,6 +13,7 @@ import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.List;
 import java.util.Timer;
 
 /**
@@ -96,10 +97,12 @@ public class LocalNode {
         connect.execute();
     }
 
-    public synchronized final void message(Node node, String message) throws IOException {
-        logger.info("Sending message to all known nodes");
-        Operation sendMessage = new TextMessageOperation(server, this, config, message);
-        sendMessage.execute();
+    public synchronized final void message(String message, List<Node> targetNodes) throws IOException {
+        if (!message.isEmpty()) {
+            logger.info("Sending message to specified nodes");
+            Operation sendMessage = new TextMessageOperation(server, this, config, message, targetNodes);
+            sendMessage.execute();
+        }
     }
 
     /**

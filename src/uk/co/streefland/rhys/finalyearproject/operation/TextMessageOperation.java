@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -14,6 +16,8 @@ import java.util.*;
  * Created by Rhys on 03/09/2016.
  */
 public class TextMessageOperation implements Operation, Receiver {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     // Flags that represent Node state
     private static final String NOT_MESSAGED = "1";
@@ -32,10 +36,7 @@ public class TextMessageOperation implements Operation, Receiver {
     /* Tracks messages in transit and awaiting reply */
     private Map<Integer, Node> messagesInTransit;
 
-    /* Used to sort nodes */
-    //private final Comparator comparator;
-
-    public TextMessageOperation(Server server, LocalNode localNode, Configuration config, String message) {
+    public TextMessageOperation(Server server, LocalNode localNode, Configuration config, String message, List<Node> targetNodes) {
         this.server = server;
         this.localNode = localNode;
         this.config = config;
@@ -45,6 +46,13 @@ public class TextMessageOperation implements Operation, Receiver {
         this.attempts = new HashMap<>();
 
         this.messagesInTransit = new HashMap<>();
+
+        /* Set the local node as already messaged because we don't want to message the local node */
+        nodes.put(localNode.getNode(), MESSAGED);
+        attempts.put(localNode.getNode(), 0);
+
+        /* Add the target nodes to the HashMaps */
+        addNodes(targetNodes);
     }
 
     /**
@@ -55,13 +63,6 @@ public class TextMessageOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
         try {
-
-            /* Set the local node as already messaged because we don't want to message the local node */
-            nodes.put(localNode.getNode(), MESSAGED);
-            attempts.put(localNode.getNode(), 0);
-
-            /* add all nodes todo change this so the user can select who they want to send a message to */
-            addNodes(localNode.getRoutingTable().getAllNodes());
 
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
@@ -143,7 +144,7 @@ public class TextMessageOperation implements Operation, Receiver {
         /* Read the AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        System.out.println("ACK received from " + msg.getOrigin().getSocketAddress().getHostName());
+        logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), MESSAGED);

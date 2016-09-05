@@ -1,8 +1,6 @@
-2016-09-04 17:01:58.915 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server$1 - Starting server
-2016-09-04 17:01:58.918 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is running
-2016-09-04 17:02:07.485 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.21 using port 1234
-2016-09-04 17:02:07.486 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 5BDE4813557EDA7DF1EFB96AD748E73E233FEA2E to node 50627373768EA778F3ACD3203049CB3C80BEA93D
-2016-09-04 17:02:09.614 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
-2016-09-04 17:02:09.614 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
-2016-09-04 17:02:18.675 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
-2016-09-04 17:02:21.902 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to all known nodes
+2016-09-05 13:17:14.708 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 13:17:14.724 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 1234
+2016-09-05 13:17:30.301 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: B4987834F3DB42E3DE74943DA468DBE55707DF10
+2016-09-05 13:18:14.755 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:19:14.740 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:20:14.743 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed

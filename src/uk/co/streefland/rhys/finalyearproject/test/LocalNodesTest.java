@@ -44,7 +44,6 @@ public class LocalNodesTest {
             long duration = (endTime - startTime);
             System.out.println("DURATION: " + duration + "ms");
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }

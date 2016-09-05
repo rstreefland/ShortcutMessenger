@@ -75,6 +75,14 @@ public class RoutingTable {
      * @param c The contact to add
      */
     public synchronized final void insert(Contact c) {
+        for (Node existingNode : getAllNodes()) {
+            if (c.getNode().getSocketAddress().equals((existingNode.getSocketAddress()))) {
+                /* Get the bucket of the node */
+                int bucketId = getBucketId(existingNode.getNodeId());
+                /* Remove the contact from the bucket */
+                buckets[bucketId].removeContact(existingNode, true);
+            }
+        }
         buckets[getBucketId(c.getNode().getNodeId())].insert(c);
     }
 
@@ -84,6 +92,14 @@ public class RoutingTable {
      * @param n The node to add
      */
     public synchronized final void insert(Node n) {
+        for (Node existingNode : getAllNodes()) {
+            if (n.getSocketAddress().equals(existingNode.getSocketAddress())) {
+                /* Get the bucket of the node */
+                int bucketId = getBucketId(existingNode.getNodeId());
+                /* Remove the node from the bucket */
+                buckets[bucketId].removeContact(existingNode, true);
+            }
+        }
         buckets[getBucketId(n.getNodeId())].insert(n);
     }
 
@@ -154,20 +170,16 @@ public class RoutingTable {
         int bucketId = getBucketId(n.getNodeId());
 
         /* Remove the contact from the bucket */
-        buckets[bucketId].removeContact(n);
+        buckets[bucketId].removeContact(n, false);
     }
 
     @Override
     public synchronized final String toString() {
-        StringBuilder sb = new StringBuilder("\nPrinting Routing Table Started ***************** \n");
+        StringBuilder sb = new StringBuilder("\n****** Routing Table ******\n");
         int totalContacts = 0;
         for (Bucket b : buckets) {
             if (b.getNumberOfContacts() > 0) {
                 totalContacts += b.getNumberOfContacts();
-                sb.append("# nodes in Bucket with depth ");
-                sb.append(b.getDepth());
-                sb.append(": ");
-                sb.append(b.getNumberOfContacts());
                 sb.append("\n");
                 sb.append(b.toString());
                 sb.append("\n");
@@ -176,10 +188,9 @@ public class RoutingTable {
 
         sb.append("\nTotal Contacts: ");
         sb.append(totalContacts);
-        sb.append("\n\n");
+        sb.append("\n");
 
-        sb.append("Printing Routing Table Ended ******************** ");
-
+        sb.append("****** Routing Table Ended ******");
         return sb.toString();
     }
 }

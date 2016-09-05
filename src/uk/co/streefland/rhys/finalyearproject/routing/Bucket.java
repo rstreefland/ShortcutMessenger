@@ -83,26 +83,31 @@ public class Bucket {
      * Removes a contact from the bucket only if the replacement cache has a contact to replace it with. Else increments the contacts stale count
      *
      * @param contact The contact to remove from the bucket
+     * @param force If true, remove the contact immediately without checking for a replacement in the replacement cache
      * @return Returns false if the contact doesn't exist.
      */
-    public synchronized boolean removeContact(Contact contact) {
+    public synchronized boolean removeContact(Contact contact, boolean force) {
+        if (force == true) {
+            removeContactForce(contact.getNode());
+        } else {
+
         /* If the contact does not exist, then we failed to remove it */
-        if (!contacts.contains(contact)) {
-            return false;
-        }
+            if (!contacts.contains(contact)) {
+                return false;
+            }
 
         /* Contact exist, lets remove it only if our replacement cache has a replacement */
-        if (!replacementCache.isEmpty()) {
+            if (!replacementCache.isEmpty()) {
             /* Replace the contact with one from the replacement cache */
-            contacts.remove(contact);
-            Contact replacement = replacementCache.first();
-            contacts.add(replacement);
-            replacementCache.remove(replacement);
-        } else {
+                contacts.remove(contact);
+                Contact replacement = replacementCache.first();
+                contacts.add(replacement);
+                replacementCache.remove(replacement);
+            } else {
             /* There is no replacement, just increment the contact's stale count */
-            getContact(contact.getNode()).incrementStaleCount();
+                getContact(contact.getNode()).incrementStaleCount();
+            }
         }
-
         return true;
     }
 
@@ -112,8 +117,8 @@ public class Bucket {
      * @param node The node of the contact to remove from the bucket
      * @return Returns false if the contact doesn't exist.
      */
-    public synchronized boolean removeContact(Node node) {
-        return removeContact(new Contact(node));
+    public synchronized boolean removeContact(Node node, boolean force) {
+        return removeContact(new Contact(node), force);
     }
 
     /**
@@ -218,8 +223,10 @@ public class Bucket {
 
     @Override
     public synchronized String toString() {
-        StringBuilder sb = new StringBuilder("Bucket at depth: ");
+        StringBuilder sb = new StringBuilder("Number of nodes in bucket with depth: ");
         sb.append(depth);
+        sb.append(": ");
+        sb.append(getNumberOfContacts());
         sb.append("\n Nodes: \n");
         for (Contact n : contacts) {
             sb.append("Node: ");

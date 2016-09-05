@@ -44,10 +44,10 @@ public class Server {
      * Starts the listener thread to listen for incoming messages
      */
     private void startListener() {
+        logger.info("Starting server");
         new Thread() {
             @Override
             public void run() {
-                logger.info("Starting server");
                 listen();
             }
         }.start();
@@ -58,7 +58,7 @@ public class Server {
      */
     private void listen() {
         try {
-            logger.info("Server is running");
+            logger.info("Server is listening on port {}", socket.getLocalPort());
             while (isRunning) {
                 try {
                     /* Wait for a packet*/

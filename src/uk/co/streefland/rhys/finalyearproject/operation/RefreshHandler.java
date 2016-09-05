@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -11,6 +13,8 @@ import java.util.TimerTask;
  * Handles refreshing the buckets stored in the routing table. Will eventually also handle refreshing the data stored in the DHT
  */
 public class RefreshHandler extends TimerTask {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final Server server;
     private final LocalNode localNode;
@@ -26,9 +30,10 @@ public class RefreshHandler extends TimerTask {
     public void run() {
         /* Run BucketRefreshOperation to refresh the buckets */
         try {
-            System.out.println("I have REFRESHED!");
             new BucketRefreshOperation(server, localNode, config).execute();
+            logger.info("Routing table was refreshed");
         } catch (IOException e) {
+            logger.error("Routing table refresh failed");
             e.printStackTrace();
         }
 
