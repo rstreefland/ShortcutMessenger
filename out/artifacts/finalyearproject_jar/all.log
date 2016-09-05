@@ -183,3 +183,206 @@ Printing Routing Table Ended ********************
 2016-09-05 13:18:04.510 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
 2016-09-05 13:18:04.510 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode B4987834F3DB42E3DE74943DA468DBE55707DF10 to node A35C69FA136EECDF87171545F402CFFFDAFC9B4E
 2016-09-05 13:18:04.619 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-05 13:42:07.981 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 13:42:07.997 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 1234
+2016-09-05 13:42:13.098 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-05 13:42:13.114 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode C4C9EF501495F4B69EB1761ED8CCC2A3C3B23855 to node 60CA62878954C829C78A37B2EBD116D9DC49B36D
+2016-09-05 13:42:13.192 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-05 13:42:26.187 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 88F9CCF4A0FD7521446DB74FCD1D2EAA65B1D029
+2016-09-05 13:43:08.042 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:43:23.002 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 13:43:23.018 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from rhys-pc
+2016-09-05 13:44:08.055 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:45:08.084 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:46:08.082 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:47:08.095 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:48:08.093 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:49:08.137 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:50:08.135 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:51:08.148 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:52:08.146 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:53:08.175 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:54:08.188 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:55:08.201 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:56:08.215 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:57:08.228 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:58:08.257 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 13:59:08.254 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:00:08.252 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:01:08.281 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:02:08.279 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:03:08.292 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:04:08.305 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:05:08.319 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:06:08.332 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:07:08.345 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:08:08.359 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:09:08.372 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:10:08.401 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:11:08.399 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:12:08.412 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:13:08.425 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:14:08.438 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:15:08.452 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:16:08.465 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:17:08.478 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:18:08.492 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:19:08.505 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:20:08.518 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:21:08.532 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:22:08.545 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:23:08.558 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:24:08.572 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:25:08.585 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 14:26:08.598 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:12:53.955 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:13:54.265 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:14:53.857 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:15:54.167 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:16:53.899 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:17:53.866 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:18:53.910 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:19:53.892 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:20:53.906 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:21:53.919 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:22:53.932 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:23:53.946 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:24:53.959 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:25:53.972 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:26:53.985 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:27:53.999 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:28:54.012 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:29:54.025 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:30:54.039 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:31:54.052 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:32:54.065 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:33:54.079 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:34:54.092 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:35:54.105 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:36:54.118 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:37:54.132 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:38:54.145 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:39:54.158 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:40:54.172 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:41:54.185 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:42:54.198 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:43:54.227 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:44:54.225 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:45:54.238 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:46:54.252 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:47:54.265 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:48:54.278 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 15:49:54.291 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 16:59:29.018 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-05 16:59:29.034 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 16:59:29.034 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 16:59:38.644 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 1234
+2016-09-05 16:59:38.644 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 45F04A0BA06FA99CC72B8D27C1CAA14238AF7D89 to node 5A90B3F623F7F5B2F7AD40EDB42A8CF0B67AD7DE
+2016-09-05 16:59:55.292 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-05 16:59:55.307 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 16:59:55.307 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 16:59:59.972 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 12345
+2016-09-05 16:59:59.987 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode D5988450C4DEEF8949E636DC0719CC8CC4C80FC4 to node 428DD7FE991241BB4EA9E007A0DA4666DE2E3E6E
+2016-09-05 17:00:55.368 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 17:02:01.392 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-05 17:02:01.407 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 17:02:01.407 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 17:02:08.583 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 12345
+2016-09-05 17:02:08.583 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 4A61643FA1A2DD18BB0CBBBE4D08420A2F80D2BD to node 669744EDA550D84B70EFDFACD41CBACC37BE0A26
+2016-09-05 17:02:08.661 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-05 17:02:24.714 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 17:02:24.761 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from rhys-pc
+2016-09-05 17:02:54.026 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 17:02:54.042 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from rhys-pc
+2016-09-05 17:03:01.452 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 17:04:01.450 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 17:04:05.131 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 17:04:11.543 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 17:04:13.025 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 18:19:30.549 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-05 18:19:30.565 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 18:19:30.581 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 18:19:36.867 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 12345
+2016-09-05 18:19:36.867 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 5698075F7A04A348CA493DB00EDAEC0065A508F3 to node B8A183D4D077800BD9847E33FDABF3C1584D43AD
+2016-09-05 18:20:30.625 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:21:30.654 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:22:44.213 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-05 18:22:44.229 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 18:22:44.229 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 18:22:50.547 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 12345
+2016-09-05 18:22:50.547 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 1C25C209222792C77629F943C5F7901B72C2A0CC to node 1D00AEBD5B48B0873973E7031C9962C03BBA784E
+2016-09-05 18:22:50.640 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-05 18:23:44.289 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:24:44.287 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:25:44.284 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:25:47.763 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 18:26:44.313 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:27:44.326 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:28:44.324 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:29:44.353 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:29:58.268 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 18:29:58.284 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from rhys-pc
+2016-09-05 18:30:44.351 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:31:44.364 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:32:44.396 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:33:44.951 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:34:44.387 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:35:44.416 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:36:44.429 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:37:44.427 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:38:44.441 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:39:44.454 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:40:44.467 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:41:44.480 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 18:42:44.494 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:08:24.471 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:09:24.473 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:10:24.486 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:11:24.515 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:12:24.528 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:13:24.557 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:14:24.555 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:15:24.552 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:16:24.566 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:17:24.595 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:18:24.592 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:19:24.621 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:20:24.666 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:21:24.648 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:22:24.661 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:23:24.659 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:24:24.672 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:25:47.090 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-05 19:25:47.106 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 19:25:47.106 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 19:25:53.018 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 12345
+2016-09-05 19:25:53.018 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode D15F8A7673CCBB57A2E52262BD19B82097693FE2 to node A3E2FB278F03480DDD0912053764E49272167730
+2016-09-05 19:25:53.143 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-05 19:26:47.197 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:27:47.163 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:29:27.069 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-05 19:29:27.085 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 19:29:27.085 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 19:29:32.123 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.10 using port 12345
+2016-09-05 19:29:32.123 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 81F60AC24992BB2732A8409ACB8C2D984299E42F to node 1BD74D8D5348ED8B99812C03AF95906B61DDB82C
+2016-09-05 19:29:32.248 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-05 19:29:59.080 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:29:59.096 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from rhys-pc
+2016-09-05 19:30:27.129 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:31:27.158 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:31:38.546 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:31:38.562 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from rhys-pc
+2016-09-05 19:32:27.187 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:33:27.200 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:34:27.182 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:35:27.211 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:36:27.209 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:37:27.203 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:38:27.232 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:39:27.261 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:40:27.259 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:41:27.256 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:42:27.301 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:43:27.283 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:44:27.312 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:45:27.310 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed

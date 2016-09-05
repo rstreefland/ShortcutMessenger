@@ -3,6 +3,7 @@ package uk.co.streefland.rhys.finalyearproject.routing;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -11,18 +12,18 @@ import java.util.TreeSet;
 /**
  * A bucket in the Routing Table
  */
-public class Bucket {
+public class Bucket implements Serializable {
 
     /* Depth of the bucket in the RoutingTable*/
     private final int depth;
 
     /* Contacts stored in this bucket */
-    private final TreeSet<Contact> contacts = new TreeSet<>();
+    private TreeSet<Contact> contacts = new TreeSet<>();
 
     /* A set of recently seen contacts that can replace any contact that is unresponsive in the main set */
-    private final TreeSet<Contact> replacementCache = new TreeSet<>();
+    private TreeSet<Contact> replacementCache = new TreeSet<>();
 
-    private final Configuration config;
+    private transient Configuration config;
 
     public Bucket(int depth, Configuration config) {
         this.depth = depth;
@@ -219,6 +220,10 @@ public class Bucket {
         }
 
         return list;
+    }
+
+    public void setConfig(Configuration config) {
+        this.config = config;
     }
 
     @Override

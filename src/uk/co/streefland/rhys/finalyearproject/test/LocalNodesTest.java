@@ -19,18 +19,18 @@ public class LocalNodesTest {
         try {
             long startTime = System.currentTimeMillis();
 
-            LocalNode node1 = new LocalNode("bleh1", new NodeId(), 8001);
-            LocalNode node2 = new LocalNode("bleh2", new NodeId(), 8002);
+            LocalNode node1 = new LocalNode(new NodeId(), 8001);
+            LocalNode node2 = new LocalNode(new NodeId(), 8002);
 
             logger.info("Connecting node1 and node2");
             node1.bootstrap(node2.getNode());
 
-            LocalNode node3 = new LocalNode("bleh3", new NodeId(), 8003);
+            LocalNode node3 = new LocalNode(new NodeId(), 8003);
 
             logger.info("Connecting node3 and node 2");
             node3.bootstrap(node2.getNode());
 
-            LocalNode node4 = new LocalNode("bleh4", new NodeId(), 8004);
+            LocalNode node4 = new LocalNode(new NodeId(), 8004);
 
             logger.info("Connecting node4 and node 2");
             node4.bootstrap(node2.getNode());

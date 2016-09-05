@@ -19,7 +19,7 @@ public class RemoveNodesTest {
         Logger logger = LoggerFactory.getLogger(RemoveNodesTest.class);
 
         try {
-            LocalNode localNode = new LocalNode("bleh1", new NodeId(), 8001);
+            LocalNode localNode = new LocalNode();
 
             Node node1 = new Node(new NodeId(), InetAddress.getByName("127.0.0.1"), 1234);
             Node node2 = new Node(new NodeId(), InetAddress.getByName("127.0.0.1"), 1234);

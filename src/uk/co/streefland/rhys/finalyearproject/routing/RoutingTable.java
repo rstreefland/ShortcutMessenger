@@ -5,6 +5,7 @@ import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
@@ -12,10 +13,10 @@ import java.util.TreeSet;
 /**
  * The routing table that contains all of the buckets containing all of the contacts known to the LocalNode
  */
-public class RoutingTable {
+public class RoutingTable implements Serializable {
 
-    private final Node localNode;
-    private transient Bucket[] buckets;
+    private Node localNode;
+    private Bucket[] buckets;
     private transient Configuration config;
 
     public RoutingTable(Node localNode, Configuration config) {
@@ -71,6 +72,8 @@ public class RoutingTable {
 
     /**
      * Inserts a contact into to the routing table based on how far it is from LocalNode.
+     * If the new contact has socketAddress that matches one of an existing contact then the
+     * old contact is removed from the routing table before inserting the new contact
      *
      * @param c The contact to add
      */
@@ -79,7 +82,7 @@ public class RoutingTable {
             if (c.getNode().getSocketAddress().equals((existingNode.getSocketAddress()))) {
                 /* Get the bucket of the node */
                 int bucketId = getBucketId(existingNode.getNodeId());
-                /* Remove the contact from the bucket */
+                /* Force remove the contact from the bucket */
                 buckets[bucketId].removeContact(existingNode, true);
             }
         }
@@ -92,15 +95,7 @@ public class RoutingTable {
      * @param n The node to add
      */
     public synchronized final void insert(Node n) {
-        for (Node existingNode : getAllNodes()) {
-            if (n.getSocketAddress().equals(existingNode.getSocketAddress())) {
-                /* Get the bucket of the node */
-                int bucketId = getBucketId(existingNode.getNodeId());
-                /* Remove the node from the bucket */
-                buckets[bucketId].removeContact(existingNode, true);
-            }
-        }
-        buckets[getBucketId(n.getNodeId())].insert(n);
+        insert(new Contact(n));
     }
 
     /**
@@ -173,16 +168,23 @@ public class RoutingTable {
         buckets[bucketId].removeContact(n, false);
     }
 
+    public void updateConfigurationObjects(Configuration newConfig) {
+        this.config = newConfig;
+
+        for (Bucket bucket : buckets) {
+            bucket.setConfig(config);
+        }
+    }
+
     @Override
     public synchronized final String toString() {
-        StringBuilder sb = new StringBuilder("\n****** Routing Table ******\n");
+        StringBuilder sb = new StringBuilder("\n****** Routing Table ******");
         int totalContacts = 0;
         for (Bucket b : buckets) {
             if (b.getNumberOfContacts() > 0) {
                 totalContacts += b.getNumberOfContacts();
                 sb.append("\n");
                 sb.append(b.toString());
-                sb.append("\n");
             }
         }
 
@@ -190,7 +192,7 @@ public class RoutingTable {
         sb.append(totalContacts);
         sb.append("\n");
 
-        sb.append("****** Routing Table Ended ******");
+        sb.append("****** Routing Table Ended ******\n");
         return sb.toString();
     }
 }

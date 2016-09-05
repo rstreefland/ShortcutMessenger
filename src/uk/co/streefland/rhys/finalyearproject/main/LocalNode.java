@@ -10,6 +10,7 @@ import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
+import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -23,13 +24,11 @@ public class LocalNode {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final String ownerId;
-    private final int port;
-
     private Configuration config;
-    private final Node localNode;
+    private Node localNode;
     private RoutingTable routingTable;
     private final Server server;
+    private final StorageHandler storageHandler;
 
     /* Objects for refresh operation */
     private Timer refreshOperationTimer;
@@ -38,30 +37,67 @@ public class LocalNode {
     /* MessageHandler object to create and receive messages */
     private final MessageHandler messageHandler;
 
-    public LocalNode(String ownerId, Node localNode, int port, RoutingTable routingTable, Configuration config) throws IOException {
-        this.ownerId = ownerId;
-        this.port = port;
+    /* for prod - loads from file if possible */
+    public LocalNode() throws IOException {
+        this.config = new Configuration();
+        this.storageHandler = new StorageHandler(config);
 
-        this.config = config;
-        this.localNode = localNode;
-        this.routingTable = routingTable;
+        readExistingState();
+
         this.messageHandler = new MessageHandler(this, config);
-        this.server = new Server(port, messageHandler, localNode, config);
+        this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
-        startRefreshOperation(); // TODO: 03/09/2016  re-enable once you've figured out what the hell is going on
+        startRefreshOperation();
     }
 
-    public LocalNode(String ownerId, NodeId defaultId, int port) throws IOException {
-        this.ownerId = ownerId;
+    /* for testing - doesn't load from file */
+    public LocalNode(NodeId defaultId, int port) throws IOException {
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
-        this.port = port;
         this.config = new Configuration();
+        this.storageHandler = new StorageHandler(config);
         this.routingTable = new RoutingTable(localNode, config);
 
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(port, messageHandler, localNode, config);
 
-        startRefreshOperation(); // TODO: 03/09/2016  re-enable once you've figured out what the hell is going on
+        startRefreshOperation();
+    }
+
+    private void readExistingState() throws IOException {
+        if (storageHandler.doesSavedStateExist() == true) {
+            logger.info("Saved state found - attempting to read ");
+
+            storageHandler.load();
+
+            Node newLocalNode = storageHandler.getLocalNode();
+
+            if (newLocalNode != null) {
+                logger.info("Local node read successfully");
+                localNode = newLocalNode;
+            } else {
+                logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
+                localNode = new Node(new NodeId(), InetAddress.getLocalHost(), config.getPort());
+            }
+
+            RoutingTable newRoutingTable = storageHandler.getRoutingTable();
+
+            if (newRoutingTable != null) {
+                logger.info("Routing table read successfully");
+                routingTable = newRoutingTable;
+                routingTable.updateConfigurationObjects(config);
+            } else {
+                logger.warn("Failed to read routing table from saved state - defaulting to creating a new routing table");
+                routingTable = new RoutingTable(localNode, config);
+            }
+        } else {
+            logger.info("Saved state not found");
+            localNode = new Node(new NodeId(), InetAddress.getLocalHost(), config.getPort());
+            routingTable = new RoutingTable(localNode, config);
+        }
+    }
+
+    private void saveState() {
+        storageHandler.save(localNode, routingTable);
     }
 
     /**
@@ -98,7 +134,7 @@ public class LocalNode {
     }
 
     public synchronized final void message(String message, List<Node> targetNodes) throws IOException {
-        if (!message.isEmpty()) {
+        if (!message.isEmpty() || message.equals("exit")) { // TODO: 05/09/2016  remove the exit check once you have some kind of a user interface
             logger.info("Sending message to specified nodes");
             Operation sendMessage = new TextMessageOperation(server, this, config, message, targetNodes);
             sendMessage.execute();
@@ -108,21 +144,16 @@ public class LocalNode {
     /**
      * Shuts down the server cleanly
      */
-    public void shutdown()
-    {
+    public void shutdown() {
         /* Shut down the server */
         server.shutdown();
         stopRefreshOperation();
-
-        // TODO: 31/08/2016 You'll want to save the state of the system to file here
+        saveState();
+        logger.info("Server shut down successfully");
     }
 
     public Configuration getConfig() {
         return config;
-    }
-
-    public int getPort() {
-        return port;
     }
 
     public MessageHandler getMessageHandler() {
@@ -143,9 +174,5 @@ public class LocalNode {
 
     public Server getServer() {
         return server;
-    }
-
-    public String getOwnerId() {
-        return ownerId;
     }
 }

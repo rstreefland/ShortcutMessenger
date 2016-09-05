@@ -1,6 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.node;
 
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.message.Streamable;
 
 import java.io.DataInputStream;

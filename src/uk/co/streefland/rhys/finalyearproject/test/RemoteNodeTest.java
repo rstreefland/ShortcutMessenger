@@ -28,7 +28,7 @@ public class RemoteNodeTest {
         String message;
 
         try {
-            LocalNode localNode = new LocalNode("bleh", new NodeId(), 1234);
+            LocalNode localNode = new LocalNode();
 
             System.out.println("What IP would you like to connect to?");
             ip = sc.nextLine();

@@ -19,17 +19,19 @@ public class LocalNodeTest {
 
         try {
 
-            LocalNode localNode = new LocalNode("bleh1", new NodeId(), 1234);
+            LocalNode localNode = new LocalNode();
 
             String message;
             Scanner sc = new Scanner(System.in);
 
-            while(true) {
+            do  {
                 message = sc.nextLine();
                 if (message != null) {
                     localNode.message(message, localNode.getRoutingTable().getAllNodes());
                 }
-            }
+            } while(!message.equals("exit"));
+
+            localNode.shutdown();
 
         } catch (IOException e) {
             e.printStackTrace();

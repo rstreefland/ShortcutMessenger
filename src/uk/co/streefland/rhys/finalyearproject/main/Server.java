@@ -57,67 +57,64 @@ public class Server {
      * Listens for incoming messages over UDP
      */
     private void listen() {
-        try {
-            logger.info("Server is listening on port {}", socket.getLocalPort());
-            while (isRunning) {
-                try {
+        logger.info("Server is listening on port {}", socket.getLocalPort());
+        while (isRunning == true) {
+            try {
                     /* Wait for a packet*/
-                    byte[] buffer = new byte[config.getPacketSize()];
-                    DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
-                    socket.receive(packet);
+                byte[] buffer = new byte[config.getPacketSize()];
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
+                socket.receive(packet);
 
                     /* Handle the received packet */
-                    try (ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
-                         DataInputStream din = new DataInputStream(bin)) {
+                try (ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
+                     DataInputStream din = new DataInputStream(bin)) {
 
                         /* Read the communicationId and messageCode */
-                        int communicationId = din.readInt();
-                        byte messageCode = din.readByte();
+                    int communicationId = din.readInt();
+                    byte messageCode = din.readByte();
 
-                        logger.debug("Incoming message code is {}", messageCode);
+                    logger.debug("Incoming message code is {}", messageCode);
                         /* Create the message and close the input stream */
-                        Message msg = messageHandler.createMessage(messageCode, din);
-                        din.close();
+                    Message msg = messageHandler.createMessage(messageCode, din);
+                    din.close();
 
                         /* Check if a receiver already exists and create one if not */
-                        Receiver receiver;
-                        if (receivers.containsKey(communicationId)) {
+                    Receiver receiver;
+                    if (receivers.containsKey(communicationId)) {
                             /* If there is a receiver in the receivers list to handle this */
-                            synchronized (this) {
-                                receiver = receivers.remove(communicationId);
-                                TimerTask task = tasks.remove(communicationId);
-                                if (task != null) {
-                                    task.cancel();
-                                }
+                        synchronized (this) {
+                            receiver = receivers.remove(communicationId);
+                            TimerTask task = tasks.remove(communicationId);
+                            if (task != null) {
+                                task.cancel();
                             }
-                        } else {
-                            /* There is currently no receivers, try to get one */
-                            logger.debug("No receiver exists, creating one using code {}", messageCode);
-                            receiver = messageHandler.createReceiver(messageCode, this);
                         }
+                    } else {
+                            /* There is currently no receivers, try to get one */
+                        logger.debug("No receiver exists, creating one using code {}", messageCode);
+                        receiver = messageHandler.createReceiver(messageCode, this);
+                    }
 
                         /* Invoke the receiver */
-                        if (receiver != null) {
-                            receiver.receive(msg, communicationId);
-                        }
+                    if (receiver != null) {
+                        receiver.receive(msg, communicationId);
                     }
-                } catch (IOException e) {
-                    System.err.println("Server ran into a problem in listener method. Message: " + e.getMessage());
+                }
+            } catch (IOException e) {
+                if (isRunning == true) {
+                    System.err.println("The listener method encountered an error:  " + e.getMessage());
                 }
             }
-        } finally {
-            if (!socket.isClosed()) {
-                socket.close();
-            }
-            isRunning = false;
         }
+
+        logger.debug("Shutdown command received - listener thread stopping");
     }
 
     /**
      * Replies to a received message
      *
-     * @param destination   The destination node
-     * @param msg  The reply message
+     * @param destination     The destination node
+     * @param msg             The reply message
      * @param communicationId The communication ID that was received
      * @throws java.io.IOException
      */
@@ -132,8 +129,8 @@ public class Server {
      * Sends a message
      *
      * @param destination The destination node
-     * @param msg The message
-     * @param recv The receiver for the reply
+     * @param msg         The message
+     * @param recv        The receiver for the reply
      * @return The communicationId of the message
      * @throws IOException
      */
@@ -166,8 +163,8 @@ public class Server {
     /**
      * Internal sendMessage method called by the public sendMessage method after a communicationId is generated
      *
-     * @param destination The destination node
-     * @param msg   The message
+     * @param destination     The destination node
+     * @param msg             The message
      * @param communicationId The communicationId of the message
      * @throws IOException
      */
@@ -239,6 +236,8 @@ public class Server {
      * Stops listening and shuts down the server
      */
     public synchronized void shutdown() {
+        logger.info("Shutting down server");
+
         isRunning = false;
         socket.close();
         timer.cancel();

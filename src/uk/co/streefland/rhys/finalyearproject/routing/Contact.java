@@ -2,12 +2,14 @@ package uk.co.streefland.rhys.finalyearproject.routing;
 
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
+import java.io.Serializable;
+
 /**
  * Stores information about the contacts of the node. Contacts are stored in buckets in the routing table
  */
-public class Contact implements Comparable<Contact> {
+public class Contact implements Comparable<Contact>, Serializable {
 
-    private final Node node;
+    private Node node;
     private long lastSeen;
     private int staleCount;
 

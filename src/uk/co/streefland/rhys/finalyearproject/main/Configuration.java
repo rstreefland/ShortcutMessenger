@@ -4,12 +4,15 @@ package uk.co.streefland.rhys.finalyearproject.main;
  * Stores the configuration constants and variables for the other classes
  */
 public class Configuration {
+
     /* Constants */
     private final int K = 20; // maximum number of contacts per bucket
     private final int MAX_CONCURRENCY = 3; // maximum number of concurrent connection
     private final int PACKET_SIZE = 64 * 1024;  // maximum UDP packet size = 64KB
+    private final String filePath = "savedstate.ser";
 
     /* Settings the program can change if needs be */
+    private int port = 12345;
     public int maxConnectionAttempts = 5;
     private long operationTimeout = 2000;  // timeout for operation completion
     private long responseTimeout = 2000; // timeout waiting for response
@@ -25,6 +28,18 @@ public class Configuration {
 
     public int getPacketSize() {
         return PACKET_SIZE;
+    }
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     public int getMaxConnectionAttempts() {

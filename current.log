@@ -1,6 +1,116 @@
-2016-09-05 13:17:14.708 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
-2016-09-05 13:17:14.724 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 1234
-2016-09-05 13:17:30.301 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: B4987834F3DB42E3DE74943DA468DBE55707DF10
-2016-09-05 13:18:14.755 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-05 13:19:14.740 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-05 13:20:14.743 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:36:39.054 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-05 19:36:39.113 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-05 19:36:39.113 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-05 19:36:39.119 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-05 19:36:39.122 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-05 19:37:39.153 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:37:54.824 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:37:54.836 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:37:57.173 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:37:57.178 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:37:59.498 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:37:59.503 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:00.433 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:00.437 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:00.794 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:00.799 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:00.946 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:00.950 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:01.234 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:01.237 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:01.461 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:01.467 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:01.768 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:01.773 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:02.027 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:02.032 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:02.281 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:02.287 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:02.526 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:02.531 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:02.763 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:02.768 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:03.034 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:03.039 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:03.242 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:03.247 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:03.496 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:03.500 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:03.743 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:03.748 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:03.967 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:03.972 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:04.183 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:04.188 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:04.411 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:04.416 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:04.604 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:04.609 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:04.854 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:04.859 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:05.101 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:05.107 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:05.367 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:05.372 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:05.628 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:05.632 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:05.874 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:05.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:06.114 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:06.119 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:06.342 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:06.346 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:06.530 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:06.535 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:06.737 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:06.742 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:06.965 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:06.970 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:07.215 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:07.220 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:07.486 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:07.491 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:07.766 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:07.771 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:08.022 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:08.027 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:08.255 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:08.260 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:08.478 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:08.482 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:08.716 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:08.721 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:08.985 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:08.990 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:09.263 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:09.267 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:09.541 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:09.545 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:09.816 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:09.821 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:10.063 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:10.067 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:10.290 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:10.294 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:10.542 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:10.547 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:10.792 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:10.797 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:11.033 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:11.038 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:11.274 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:11.279 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:11.550 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:11.554 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:11.815 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:11.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:12.063 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-05 19:38:12.068 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-05 19:38:39.143 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:39:39.141 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:40:39.140 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:41:39.141 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:42:39.141 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:43:39.145 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:44:39.140 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-05 19:45:39.150 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
