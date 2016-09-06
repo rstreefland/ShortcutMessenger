@@ -33,10 +33,11 @@ public class ConnectReceiver implements Receiver {
 
         ConnectMessage message = (ConnectMessage) incoming;
 
-        logger.info("A new node has bootstrapped to this node; nodeID: {}", message.getOrigin().toString());
-
         /* Update the local routing table inserting the origin node. */
-        localNode.getRoutingTable().insert(message.getOrigin());
+        if (localNode.getRoutingTable().insert(message.getOrigin()) == true) {
+            /* only print the message if this is the first time that we've seen this node */
+            logger.info("A new node has bootstrapped to this node; nodeID: {}", message.getOrigin().toString());
+        }
 
         logger.debug("New routing table: \n {}", localNode.getRoutingTable().toString());
 

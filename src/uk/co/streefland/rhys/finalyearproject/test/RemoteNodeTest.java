@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.test;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.exceptions.BootstrapException;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.node.NodeId;
@@ -21,7 +22,6 @@ public class RemoteNodeTest {
         Scanner sc = new Scanner(System.in);
 
         Node destination;
-        InetAddress inetAddress;
         String localIp;
         String remoteIp;
 
@@ -53,6 +53,9 @@ public class RemoteNodeTest {
 
             localNode.shutdown();
 
+        } catch (BootstrapException e) {
+            System.out.println("I FAILS IN THE COMM DEPARTMENT");
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }

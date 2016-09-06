@@ -86,7 +86,7 @@ public class FindNodeOperation implements Operation, Receiver {
             localNode.getRoutingTable().setUnresponsiveContacts(getFailedNodes());
 
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            logger.error("Find node operation was interrupted: {} " + e.getMessage());
         }
     }
 

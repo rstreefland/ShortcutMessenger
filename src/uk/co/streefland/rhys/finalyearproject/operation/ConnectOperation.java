@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.exceptions.BootstrapException;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -50,6 +51,7 @@ public class ConnectOperation implements Operation, Receiver {
             /* Construct a connect message and send it to the bootstrap node */
             Message m = new ConnectMessage(localNode.getNode());
             server.sendMessage(bootstrapNode, m, this);
+            attempts++;
 
             /* If we haven't finished,  wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
@@ -64,7 +66,7 @@ public class ConnectOperation implements Operation, Receiver {
             }
             if (error) {
                 /* If we still haven't received any responses by then, timeout with error */
-                throw new IOException("ConnectOperation: target node did not respond: " + bootstrapNode);
+                throw new BootstrapException("ConnectOperation: target node did not respond within the configured time period : " + bootstrapNode);
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
@@ -112,6 +114,7 @@ public class ConnectOperation implements Operation, Receiver {
         /* If our attempts are less than the maxConnectionAttempts setting - try to send the message again */
         if (attempts < config.getMaxConnectionAttempts()) {
             server.sendMessage(bootstrapNode, new ConnectMessage(localNode.getNode()), this);
+            attempts++;
         } else {
             /* Do nothing, wake up any waiting thread */
             notify();

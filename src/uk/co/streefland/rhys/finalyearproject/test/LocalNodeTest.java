@@ -37,6 +37,7 @@ public class LocalNodeTest {
             localNode.shutdown();
 
         } catch (IOException e) {
+            System.out.println("I caught an exception here - you'll want to move it");
             e.printStackTrace();
         }
     }

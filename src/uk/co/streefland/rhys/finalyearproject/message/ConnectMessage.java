@@ -47,4 +47,3 @@ public class ConnectMessage implements Message {
         return origin;
     }
 }
-4

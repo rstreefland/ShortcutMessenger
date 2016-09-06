@@ -60,7 +60,6 @@ public class TextMessageOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
-
         try {
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
@@ -73,10 +72,11 @@ public class TextMessageOperation implements Operation, Receiver {
                     break;
                 }
             }
-
         } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace();
+            logger.error("TextMessageOperation was interrupted unexpectedly: {}", e);
         }
+
     }
 
     /**
@@ -156,7 +156,7 @@ public class TextMessageOperation implements Operation, Receiver {
      * @throws IOException
      */
     @Override
-    public synchronized void timeout(int communicationId) throws IOException {
+    public synchronized void timeout(int communicationId) {
         /* Get the node associated with this communication */
         Node n = messagesInTransit.get(communicationId);
 

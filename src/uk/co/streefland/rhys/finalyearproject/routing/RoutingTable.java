@@ -39,26 +39,32 @@ public class RoutingTable implements Serializable {
      * old contact is removed from the routing table before inserting the new contact
      *
      * @param c The contact to add
+     * @return returns true if the inserted contact is a contact that we've never seen before
      */
-    public synchronized final void insert(Contact c) {
+    public synchronized final boolean insert(Contact c) {
+
         for (Node existingNode : getAllNodes()) {
             if (c.getNode().getSocketAddress().equals((existingNode.getSocketAddress()))) {
                 /* Get the bucket of the node */
                 int bucketId = getBucketId(existingNode.getNodeId());
                 /* Force remove the contact from the bucket */
                 buckets[bucketId].removeContact(existingNode, true);
+                buckets[getBucketId(c.getNode().getNodeId())].insert(c);
+                return false;
             }
         }
         buckets[getBucketId(c.getNode().getNodeId())].insert(c);
+        return true;
     }
 
     /**
      * Inserts a node into to the routing table based on how far it is from LocalNode.
      *
      * @param n The node to add
+     * @return returns true if the inserted node is a node that we've never seen before
      */
-    public synchronized final void insert(Node n) {
-        insert(new Contact(n));
+    public synchronized final boolean insert(Node n) {
+        return insert(new Contact(n));
     }
 
     /**

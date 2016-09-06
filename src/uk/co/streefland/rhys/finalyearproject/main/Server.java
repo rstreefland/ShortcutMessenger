@@ -79,31 +79,37 @@ public class Server {
                     Message msg = messageHandler.createMessage(messageCode, din);
                     din.close();
 
-                    /* Check if a receiver already exists and create one if not */
-                    Receiver receiver;
-                    if (receivers.containsKey(communicationId)) {
+                    /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
+                    if (packet.getSocketAddress().equals(msg.getOrigin().getSocketAddress())) {
+
+                        /* Check if a receiver already exists and create one if not */
+                        Receiver receiver;
+                        if (receivers.containsKey(communicationId)) {
                         /* If there is a receiver in the receivers list to handle this */
-                        synchronized (this) {
-                            receiver = receivers.remove(communicationId);
-                            TimerTask task = tasks.remove(communicationId);
-                            if (task != null) {
-                                task.cancel();
+                            synchronized (this) {
+                                receiver = receivers.remove(communicationId);
+                                TimerTask task = tasks.remove(communicationId);
+                                if (task != null) {
+                                    task.cancel();
+                                }
                             }
+                        } else {
+                        /* There is currently no receivers, try to get one */
+                            logger.debug("No receiver exists, creating one using code {}", messageCode);
+                            receiver = messageHandler.createReceiver(messageCode, this);
+                        }
+
+                        /* Invoke the receiver */
+                        if (receiver != null) {
+                            receiver.receive(msg, communicationId);
                         }
                     } else {
-                        /* There is currently no receivers, try to get one */
-                        logger.debug("No receiver exists, creating one using code {}", messageCode);
-                        receiver = messageHandler.createReceiver(messageCode, this);
-                    }
-
-                    /* Invoke the receiver */
-                    if (receiver != null) {
-                        receiver.receive(msg, communicationId);
+                        logger.debug("Remote node has IP address mismatch - ignoring message");
                     }
                 }
             } catch (IOException e) {
                 if (isRunning == true) {
-                    logger.error("The listener thread encountered an error: {}", e.getMessage());
+                    logger.error("The listener thread encountered an error: {}", e);
                 }
             }
         }
@@ -115,8 +121,8 @@ public class Server {
      * Sends a message
      *
      * @param destination The destination node
-     * @param msg The message
-     * @param recv The receiver for the reply
+     * @param msg         The message
+     * @param recv        The receiver for the reply
      * @return The communicationId of the message
      * @throws IOException
      */
@@ -130,14 +136,11 @@ public class Server {
 
         /* If a receiver exists */
         if (recv != null) {
-            try {
-                /* Setup the receiver to handle message response */
-                receivers.put(communicationId, recv);
-                TimerTask task = new TimeoutTask(communicationId, recv);
-                timer.schedule(task, config.getResponseTimeout());
-                tasks.put(communicationId, task);
-            } catch (IllegalStateException ex) {
-            }
+            /* Setup the receiver to handle message response */
+            receivers.put(communicationId, recv);
+            TimerTask task = new TimeoutTask(communicationId, recv);
+            timer.schedule(task, config.getResponseTimeout());
+            tasks.put(communicationId, task);
         }
 
         /* Send the message using the private method below */
@@ -149,40 +152,40 @@ public class Server {
     /**
      * Internal sendMessage method called by the public sendMessage method after a communicationId is generated
      *
-     * @param destination The destination node
-     * @param msg The message
+     * @param destination     The destination node
+     * @param msg             The message
      * @param communicationId The communicationId of the message
      * @throws IOException
      */
     private void sendMessage(Node destination, Message msg, int communicationId) throws IOException {
 
-        try (ByteArrayOutputStream bout = new ByteArrayOutputStream(); DataOutputStream dout = new DataOutputStream(bout)) {
+        ByteArrayOutputStream bout = new ByteArrayOutputStream();
+        DataOutputStream dout = new DataOutputStream(bout);
 
             /* Setup the message for transmission */
-            dout.writeInt(communicationId);
-            dout.writeByte(msg.getCode());
-            msg.toStream(dout);
-            dout.close();
+        dout.writeInt(communicationId);
+        dout.writeByte(msg.getCode());
+        msg.toStream(dout);
+        dout.close();
 
-            byte[] data = bout.toByteArray();
+        byte[] data = bout.toByteArray();
 
-            if (data.length > config.getPacketSize()) {
-                // TODO: split large message into smaller datagram packets
-                throw new IOException("Message is too big");
-            }
+        if (data.length > config.getPacketSize()) {
+            // TODO: split large message into smaller datagram packets
+            throw new IllegalStateException("Message is too large");
+        }
 
             /* Create the packet and send it */
-            DatagramPacket pkt = new DatagramPacket(data, 0, data.length);
-            pkt.setSocketAddress(destination.getSocketAddress());
-            socket.send(pkt);
-        }
+        DatagramPacket pkt = new DatagramPacket(data, 0, data.length);
+        pkt.setSocketAddress(destination.getSocketAddress());
+        socket.send(pkt);
     }
 
     /**
      * Replies to a received message
      *
-     * @param destination The destination node
-     * @param msg The reply message
+     * @param destination     The destination node
+     * @param msg             The reply message
      * @param communicationId The communication ID that was received
      * @throws java.io.IOException
      */
