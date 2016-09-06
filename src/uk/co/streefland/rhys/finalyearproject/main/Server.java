@@ -25,10 +25,10 @@ public class Server {
 
     /* Server Objects */
     private final DatagramSocket socket;
-    private boolean isRunning = true;
     private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
+    private boolean isRunning = true;
 
     public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
         this.config = config;
@@ -60,28 +60,29 @@ public class Server {
         logger.info("Server is listening on port {}", socket.getLocalPort());
         while (isRunning == true) {
             try {
-                    /* Wait for a packet*/
+                /* Wait for a packet*/
                 byte[] buffer = new byte[config.getPacketSize()];
                 DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 socket.receive(packet);
 
-                    /* Handle the received packet */
+                /* Handle the received packet */
                 try (ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
                      DataInputStream din = new DataInputStream(bin)) {
 
-                        /* Read the communicationId and messageCode */
+                    /* Read the communicationId and messageCode */
                     int communicationId = din.readInt();
                     byte messageCode = din.readByte();
 
                     logger.debug("Incoming message code is {}", messageCode);
-                        /* Create the message and close the input stream */
+
+                    /* Create the message and close the input stream */
                     Message msg = messageHandler.createMessage(messageCode, din);
                     din.close();
 
-                        /* Check if a receiver already exists and create one if not */
+                    /* Check if a receiver already exists and create one if not */
                     Receiver receiver;
                     if (receivers.containsKey(communicationId)) {
-                            /* If there is a receiver in the receivers list to handle this */
+                        /* If there is a receiver in the receivers list to handle this */
                         synchronized (this) {
                             receiver = receivers.remove(communicationId);
                             TimerTask task = tasks.remove(communicationId);
@@ -90,19 +91,19 @@ public class Server {
                             }
                         }
                     } else {
-                            /* There is currently no receivers, try to get one */
+                        /* There is currently no receivers, try to get one */
                         logger.debug("No receiver exists, creating one using code {}", messageCode);
                         receiver = messageHandler.createReceiver(messageCode, this);
                     }
 
-                        /* Invoke the receiver */
+                    /* Invoke the receiver */
                     if (receiver != null) {
                         receiver.receive(msg, communicationId);
                     }
                 }
             } catch (IOException e) {
                 if (isRunning == true) {
-                    System.err.println("The listener method encountered an error:  " + e.getMessage());
+                    logger.error("The listener thread encountered an error: {}", e.getMessage());
                 }
             }
         }
@@ -111,32 +112,17 @@ public class Server {
     }
 
     /**
-     * Replies to a received message
-     *
-     * @param destination     The destination node
-     * @param msg             The reply message
-     * @param communicationId The communication ID that was received
-     * @throws java.io.IOException
-     */
-    public synchronized void reply(Node destination, Message msg, int communicationId) throws IOException {
-        if (!isRunning) {
-            throw new IllegalStateException("Server is not running.");
-        }
-        sendMessage(destination, msg, communicationId);
-    }
-
-    /**
      * Sends a message
      *
      * @param destination The destination node
-     * @param msg         The message
-     * @param recv        The receiver for the reply
+     * @param msg The message
+     * @param recv The receiver for the reply
      * @return The communicationId of the message
      * @throws IOException
      */
     public synchronized int sendMessage(Node destination, Message msg, Receiver recv) throws IOException {
         if (!isRunning) {
-            throw new IOException(localNode + "- Server is not running.");
+            throw new IllegalStateException("Server is not running");
         }
 
         /* Generate a random communication ID */
@@ -163,8 +149,8 @@ public class Server {
     /**
      * Internal sendMessage method called by the public sendMessage method after a communicationId is generated
      *
-     * @param destination     The destination node
-     * @param msg             The message
+     * @param destination The destination node
+     * @param msg The message
      * @param communicationId The communicationId of the message
      * @throws IOException
      */
@@ -174,7 +160,7 @@ public class Server {
 
             /* Setup the message for transmission */
             dout.writeInt(communicationId);
-            dout.writeByte(msg.code());
+            dout.writeByte(msg.getCode());
             msg.toStream(dout);
             dout.close();
 
@@ -190,6 +176,46 @@ public class Server {
             pkt.setSocketAddress(destination.getSocketAddress());
             socket.send(pkt);
         }
+    }
+
+    /**
+     * Replies to a received message
+     *
+     * @param destination The destination node
+     * @param msg The reply message
+     * @param communicationId The communication ID that was received
+     * @throws java.io.IOException
+     */
+    public synchronized void reply(Node destination, Message msg, int communicationId) throws IOException {
+        if (!isRunning) {
+            throw new IllegalStateException("Server is not running");
+        }
+        sendMessage(destination, msg, communicationId);
+    }
+
+    /**
+     * Remove a conversation receiver
+     *
+     * @param communicationId The id of this conversation
+     */
+    private synchronized void unregister(int communicationId) {
+        receivers.remove(communicationId);
+        tasks.remove(communicationId);
+    }
+
+    /**
+     * Stops listening and shuts down the server in a clean manner
+     */
+    public synchronized void shutdown() {
+        logger.info("Shutting down server");
+
+        isRunning = false;
+        socket.close();
+        timer.cancel();
+    }
+
+    public boolean isRunning() {
+        return this.isRunning;
     }
 
     /**
@@ -220,30 +246,5 @@ public class Server {
                 System.err.println("Cannot unregister a receiver. Message: " + e.getMessage());
             }
         }
-    }
-
-    /**
-     * Remove a conversation receiver
-     *
-     * @param communicationId The id of this conversation
-     */
-    private synchronized void unregister(int communicationId) {
-        receivers.remove(communicationId);
-        tasks.remove(communicationId);
-    }
-
-    /**
-     * Stops listening and shuts down the server
-     */
-    public synchronized void shutdown() {
-        logger.info("Shutting down server");
-
-        isRunning = false;
-        socket.close();
-        timer.cancel();
-    }
-
-    public boolean isRunning() {
-        return this.isRunning;
     }
 }

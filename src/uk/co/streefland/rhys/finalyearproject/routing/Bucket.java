@@ -36,7 +36,6 @@ public class Bucket implements Serializable {
      * @param contact The contact to insert into the bucket
      */
     public synchronized void insert(Contact contact) {
-
         /* If contact is already in bucket */
         if (contacts.contains(contact)) {
             Contact newContact = removeContactForce(contact.getNode()); /* Remove from the TreeSet */
@@ -176,6 +175,25 @@ public class Bucket implements Serializable {
         throw new NoSuchElementException("Node does not exist in the replacement cache. ");
     }
 
+    @Override
+    public synchronized String toString() {
+        StringBuilder sb = new StringBuilder("Number of nodes in bucket with depth: ");
+        sb.append(depth);
+        sb.append(": ");
+        sb.append(getNumberOfContacts());
+        sb.append("\n Nodes: \n");
+        for (Contact n : contacts) {
+            sb.append("Node: ");
+            sb.append(n.getNode().getNodeId().toString());
+            sb.append(" (stale: ");
+            sb.append(n.getStaleCount());
+            sb.append(")");
+            sb.append("\n");
+        }
+
+        return sb.toString();
+    }
+
     /**
      * Returns a specific contact in the bucket based on the provided node
      */
@@ -224,24 +242,5 @@ public class Bucket implements Serializable {
 
     public void setConfig(Configuration config) {
         this.config = config;
-    }
-
-    @Override
-    public synchronized String toString() {
-        StringBuilder sb = new StringBuilder("Number of nodes in bucket with depth: ");
-        sb.append(depth);
-        sb.append(": ");
-        sb.append(getNumberOfContacts());
-        sb.append("\n Nodes: \n");
-        for (Contact n : contacts) {
-            sb.append("Node: ");
-            sb.append(n.getNode().getNodeId().toString());
-            sb.append(" (stale: ");
-            sb.append(n.getStaleCount());
-            sb.append(")");
-            sb.append("\n");
-        }
-
-        return sb.toString();
     }
 }

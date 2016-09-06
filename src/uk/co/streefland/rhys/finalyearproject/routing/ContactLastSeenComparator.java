@@ -5,10 +5,7 @@ import uk.co.streefland.rhys.finalyearproject.routing.Contact;
 import java.util.Comparator;
 
 /**
- * A Comparator to compare 2 contacts by their last seen time
- *
- * @author Joshua Kissoon
- * @since 20140426
+ * Compares contacts by their last seen time
  */
 public class ContactLastSeenComparator implements Comparator<Contact>
 {

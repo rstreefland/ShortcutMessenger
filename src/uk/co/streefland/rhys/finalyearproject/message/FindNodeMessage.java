@@ -27,15 +27,25 @@ public class FindNodeMessage implements Message {
     }
 
     @Override
+    public void toStream(DataOutputStream out) throws IOException {
+        origin.toStream(out);
+        lookupId.toStream(out);
+    }
+
+    @Override
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
         lookupId = new NodeId(in);
     }
 
     @Override
-    public void toStream(DataOutputStream out) throws IOException {
-        origin.toStream(out);
-        lookupId.toStream(out);
+    public String toString() {
+        return "FindNodeMessage[origin=" + origin + ",lookup=" + lookupId + "]";
+    }
+
+    @Override
+    public byte getCode() {
+        return CODE;
     }
 
     public Node getOrigin() {
@@ -44,15 +54,5 @@ public class FindNodeMessage implements Message {
 
     public NodeId getLookupId() {
         return lookupId;
-    }
-
-    @Override
-    public byte code() {
-        return CODE;
-    }
-
-    @Override
-    public String toString() {
-        return "FindNodeMessage[origin=" + origin + ",lookup=" + lookupId + "]";
     }
 }

@@ -33,7 +33,7 @@ public class RefreshHandler extends TimerTask {
             new BucketRefreshOperation(server, localNode, config).execute();
             logger.info("Routing table was refreshed");
         } catch (IOException e) {
-            logger.error("Routing table refresh failed");
+            logger.error("Routing table refresh failed: {}", e.getMessage());
             e.printStackTrace();
         }
 

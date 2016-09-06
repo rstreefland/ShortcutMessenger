@@ -53,7 +53,7 @@ public class FindNodeReceiver implements Receiver {
     }
 
     /**
-     * We don't need to do anything here
+     * Nothing to be done here
      *
      * @param communicationId
      * @throws IOException

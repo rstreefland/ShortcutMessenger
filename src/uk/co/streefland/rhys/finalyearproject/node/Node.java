@@ -10,7 +10,7 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 /**
- * Node class that represents each node on the network. Stores the NodeId, InetAddress, and port.
+ * Represents each individual node on the network. Stores the NodeId, InetAddress, and port.
  */
 public class Node implements Streamable, Serializable {
 
@@ -27,21 +27,6 @@ public class Node implements Streamable, Serializable {
     public Node(DataInputStream in) throws IOException
     {
         fromStream(in);
-    }
-
-    @Override
-    public final void fromStream(DataInputStream in) throws IOException
-    {
-        /* Read the NodeId */
-        nodeId = new NodeId(in);
-
-        /* Read the IP Address */
-        byte[] ip = new byte[4];
-        in.readFully(ip);
-        inetAddress = InetAddress.getByAddress(ip);
-
-        /* Read the port */
-        port = in.readInt();
     }
 
     @Override
@@ -63,6 +48,21 @@ public class Node implements Streamable, Serializable {
     }
 
     @Override
+    public final void fromStream(DataInputStream in) throws IOException
+    {
+        /* Read the NodeId */
+        nodeId = new NodeId(in);
+
+        /* Read the IP Address */
+        byte[] ip = new byte[4];
+        in.readFully(ip);
+        inetAddress = InetAddress.getByAddress(ip);
+
+        /* Read the port */
+        port = in.readInt();
+    }
+
+    @Override
     public boolean equals(Object o)
     {
         if (o instanceof Node)
@@ -77,8 +77,19 @@ public class Node implements Streamable, Serializable {
         return false;
     }
 
-    public void setInetAddress(InetAddress ip) {
-        this.inetAddress = ip;
+    @Override
+    public int hashCode()
+    {
+        return getNodeId().hashCode();
+    }
+
+    /**
+     * Returns the HEX representation of the NodeId as a string
+     */
+    @Override
+    public String toString()
+    {
+        return getNodeId().toString();
     }
 
     /**
@@ -92,24 +103,5 @@ public class Node implements Streamable, Serializable {
     public NodeId getNodeId() {
         return nodeId;
     }
-
-    /**
-     * Returns the hashcode of the Node's NodeId
-     */
-    @Override
-    public int hashCode()
-    {
-        return getNodeId().hashCode();
-    }
-
-    /**
-     * Returns the HEX representation of the Node's NodeId as a string
-     */
-    @Override
-    public String toString()
-    {
-        return getNodeId().toString();
-    }
-
 }
 

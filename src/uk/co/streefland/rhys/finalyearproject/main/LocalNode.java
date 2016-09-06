@@ -37,20 +37,34 @@ public class LocalNode {
     /* MessageHandler object to create and receive messages */
     private final MessageHandler messageHandler;
 
-    /* for prod - loads from file if possible */
-    public LocalNode() throws IOException {
+    /**
+     * This constructor is the main constructor and attempts to read the localNode and routingTable objects from a file.
+     * It creates new objects if they cannot be loaded from the file.
+     *
+     * @throws IOException
+     */
+    public LocalNode(String localIp) throws IOException {
         this.config = new Configuration();
         this.storageHandler = new StorageHandler(config);
 
-        readExistingState();
+        /* Read localNode and routingTable from file if possible; else create new objects */
+        readState(localIp);
 
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
+        /* Start the automatic refresh operation that runs every 60 seconds */
         startRefreshOperation();
     }
 
-    /* for testing - doesn't load from file */
+    /**
+     * This constructor exists for tests that create multiple nodes with different ports on the local machine.
+     * It doesn't load any existing configuration from a file
+     *
+     * @param defaultId The nodeId of the localNode
+     * @param port The port the server should listen on
+     * @throws IOException
+     */
     public LocalNode(NodeId defaultId, int port) throws IOException {
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
         this.config = new Configuration();
@@ -60,15 +74,24 @@ public class LocalNode {
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(port, messageHandler, localNode, config);
 
+        /* Start the automatic refresh operation that runs every 60 seconds */
         startRefreshOperation();
     }
 
-    private void readExistingState() throws IOException {
+    /**
+     * If a saved state file exists then it will read the localNode and routingTable objects from that file.
+     * If it cannot read these objects from the file it will create new objects
+     *
+     * @throws IOException
+     */
+    private void readState(String localIp) throws IOException {
         if (storageHandler.doesSavedStateExist() == true) {
             logger.info("Saved state found - attempting to read ");
 
+            /* Read objects from file */
             storageHandler.load();
 
+            /* Get localNode object from storageHandler */
             Node newLocalNode = storageHandler.getLocalNode();
 
             if (newLocalNode != null) {
@@ -76,9 +99,10 @@ public class LocalNode {
                 localNode = newLocalNode;
             } else {
                 logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
-                localNode = new Node(new NodeId(), InetAddress.getLocalHost(), config.getPort());
+                localNode = new Node(new NodeId(), InetAddress.getByName(localIp), config.getPort());
             }
 
+            /* Get routingTable object from storageHandler */
             RoutingTable newRoutingTable = storageHandler.getRoutingTable();
 
             if (newRoutingTable != null) {
@@ -91,11 +115,14 @@ public class LocalNode {
             }
         } else {
             logger.info("Saved state not found");
-            localNode = new Node(new NodeId(), InetAddress.getLocalHost(), config.getPort());
+            localNode = new Node(new NodeId(), InetAddress.getByName(localIp), config.getPort());
             routingTable = new RoutingTable(localNode, config);
         }
     }
 
+    /**
+     * Saves the localNode and routingTable objects to a file using the StorageHandler class
+     */
     private void saveState() {
         storageHandler.save(localNode, routingTable);
     }
@@ -133,8 +160,14 @@ public class LocalNode {
         connect.execute();
     }
 
+    /**
+     * Sends a broadcast message to the specified nodes
+     * @param message The text message to broadcast
+     * @param targetNodes The nodes that should receive the message
+     * @throws IOException
+     */
     public synchronized final void message(String message, List<Node> targetNodes) throws IOException {
-        if (!message.isEmpty() || message.equals("exit")) { // TODO: 05/09/2016  remove the exit check once you have some kind of a user interface
+        if (!message.isEmpty() && !message.equals("exit")) { // TODO: 05/09/2016  remove the exit check once you have some kind of a user interface
             logger.info("Sending message to specified nodes");
             Operation sendMessage = new TextMessageOperation(server, this, config, message, targetNodes);
             sendMessage.execute();
@@ -145,10 +178,10 @@ public class LocalNode {
      * Shuts down the server cleanly
      */
     public void shutdown() {
-        /* Shut down the server */
-        server.shutdown();
-        stopRefreshOperation();
-        saveState();
+
+        server.shutdown();  // Shut down the listener
+        stopRefreshOperation(); // Stop the automatic refresh timer
+        saveState(); // Save the localNode and routingTable objects to file
         logger.info("Server shut down successfully");
     }
 

@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -16,6 +18,8 @@ import java.util.TreeMap;
  * Refreshes all buckets within the RoutingTable
  */
 public class BucketRefreshOperation implements Operation {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final Server server;
     private final LocalNode localNode;
@@ -46,7 +50,7 @@ public class BucketRefreshOperation implements Operation {
                     try {
                         new FindNodeOperation(server, localNode, current, config).execute();
                     } catch (IOException e) {
-                        System.err.println("Bucket Refresh Operation Failed. Msg: " + e.getMessage());
+                        logger.error("Bucket refresh failed with error: {}", e.getMessage());
                     }
                 }
             }.start();

@@ -11,11 +11,9 @@ import java.io.*;
 import java.util.List;
 
 /**
- * Created by Rhys on 03/09/2016.
+ * Receives a TextMessage
  */
 public class TextReceiver implements Receiver {
-
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final Server server;
     private final LocalNode localNode;
@@ -45,7 +43,7 @@ public class TextReceiver implements Receiver {
 }
 
     /**
-     * We don't need to do anything here
+     * Nothing to be done here
      *
      * @param communicationId
      * @throws IOException

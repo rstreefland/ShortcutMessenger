@@ -14,8 +14,9 @@ import java.util.List;
 public class FindNodeReplyMessage implements Message {
 
     private Node origin;
-    public static final byte CODE = 0x04;
     private List<Node> nodes;
+
+    public static final byte CODE = 0x04;
 
     public FindNodeReplyMessage(Node origin, List<Node> nodes) {
         this.origin = origin;
@@ -24,6 +25,18 @@ public class FindNodeReplyMessage implements Message {
 
     public FindNodeReplyMessage(DataInputStream in) throws IOException {
         this.fromStream(in);
+    }
+
+    @Override
+    public void toStream(DataOutputStream out) throws IOException {
+        /* Add the origin node to the stream */
+        origin.toStream(out);
+
+        /* Write the number of nodes and the nodes to the stream */
+        out.writeInt(nodes.size());
+        for (Node node : nodes) {
+            node.toStream(out);
+        }
     }
 
     @Override
@@ -42,32 +55,20 @@ public class FindNodeReplyMessage implements Message {
     }
 
     @Override
-    public void toStream(DataOutputStream out) throws IOException {
-        /* Add the origin node to the stream */
-        origin.toStream(out);
-
-        /* Write the number of nodes and the nodes to the stream */
-        out.writeInt(nodes.size());
-        for (Node node : nodes) {
-            node.toStream(out);
-        }
+    public String toString() {
+        return "FindNodeReplyMessage[origin NodeId=" + origin.getNodeId() + "]";
     }
 
-    public List<Node> getNodes() {
-        return nodes;
+    @Override
+    public byte getCode() {
+        return CODE;
     }
 
     public Node getOrigin() {
         return origin;
     }
 
-    @Override
-    public byte code() {
-        return CODE;
-    }
-
-    @Override
-    public String toString() {
-        return "FindNodeReplyMessage[origin NodeId=" + origin.getNodeId() + "]";
+    public List<Node> getNodes() {
+        return nodes;
     }
 }

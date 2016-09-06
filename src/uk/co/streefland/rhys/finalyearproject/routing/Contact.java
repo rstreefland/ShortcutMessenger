@@ -51,6 +51,11 @@ public class Contact implements Comparable<Contact>, Serializable {
         staleCount = 0;
     }
 
+    @Override
+    public int hashCode() {
+        return getNode().hashCode();
+    }
+
     public Node getNode() {
         return node;
     }
@@ -63,8 +68,5 @@ public class Contact implements Comparable<Contact>, Serializable {
         return staleCount;
     }
 
-    @Override
-    public int hashCode() {
-        return getNode().hashCode();
-    }
+
 }

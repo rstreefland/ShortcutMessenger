@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -15,6 +17,8 @@ import java.io.IOException;
  * Bootstraps the LocalNode to a network by connecting it to another Node and retrieving a list of Nodes from that Node
  */
 public class ConnectOperation implements Operation, Receiver {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Server server;
     private LocalNode localNode;
@@ -60,7 +64,7 @@ public class ConnectOperation implements Operation, Receiver {
             }
             if (error) {
                 /* If we still haven't received any responses by then, timeout with error */
-                throw new IOException("TextMessageOperation: Bootstrap node did not respond: " + bootstrapNode);
+                throw new IOException("ConnectOperation: target node did not respond: " + bootstrapNode);
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
@@ -70,7 +74,7 @@ public class ConnectOperation implements Operation, Receiver {
             /* Refresh buckets to update the rest of the routing table */
             new BucketRefreshOperation(server, localNode, config).execute();
         } catch (InterruptedException e) {
-            System.err.println("Connect operation was interrupted. ");
+            logger.error("Connect operation was interrupted: {} " + e.getMessage());
         }
     }
 

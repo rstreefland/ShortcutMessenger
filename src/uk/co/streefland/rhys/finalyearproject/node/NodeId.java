@@ -56,23 +56,6 @@ public class NodeId implements Streamable, Serializable {
         idBytes = input;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 4;
-        hash = 37 * hash + Arrays.hashCode(idBytes);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof NodeId) {
-            NodeId nid = (NodeId) obj;
-            return this.hashCode() == nid.hashCode();
-        } else {
-            return false;
-        }
-    }
-
     /**
      * Performs the XOR operation on this NodeId and another NodeId provided as the parameter. Used to calculate the distance from one NodeId to another
      *
@@ -125,6 +108,7 @@ public class NodeId implements Streamable, Serializable {
         return new NodeId(newNodeIdBytes); // impossible to reach this
     }
 
+
     public int getFirstSetBitLocation() {
         int currentBit = 0;
 
@@ -157,15 +141,21 @@ public class NodeId implements Streamable, Serializable {
         return ID_LENGTH - xor(otherNode).getFirstSetBitLocation();
     }
 
-    public byte[] getIdBytes() {
-        return idBytes;
+    @Override
+    public int hashCode() {
+        int hash = 4;
+        hash = 37 * hash + Arrays.hashCode(idBytes);
+        return hash;
     }
 
-    /**
-     * @return The BigInteger representation of the key
-     */
-    public BigInteger getInt() {
-        return new BigInteger(1, getIdBytes());
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof NodeId) {
+            NodeId nid = (NodeId) obj;
+            return this.hashCode() == nid.hashCode();
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -197,4 +187,17 @@ public class NodeId implements Streamable, Serializable {
         }
         return new String(hexChars);
     }
+
+    public byte[] getIdBytes() {
+        return idBytes;
+    }
+
+    /**
+     * @return The BigInteger representation of the key
+     */
+    public BigInteger getInt() {
+        return new BigInteger(1, getIdBytes());
+    }
+
+
 }

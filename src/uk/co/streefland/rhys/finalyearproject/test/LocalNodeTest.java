@@ -17,12 +17,15 @@ public class LocalNodeTest {
 
         Logger logger = LoggerFactory.getLogger(LocalNodeTest.class);
 
+        Scanner sc = new Scanner(System.in);
+        String message;
+
         try {
 
-            LocalNode localNode = new LocalNode();
+            System.out.println("Please enter the IP of the local machine");
+            String ip = sc.nextLine();
 
-            String message;
-            Scanner sc = new Scanner(System.in);
+            LocalNode localNode = new LocalNode(ip);
 
             do  {
                 message = sc.nextLine();

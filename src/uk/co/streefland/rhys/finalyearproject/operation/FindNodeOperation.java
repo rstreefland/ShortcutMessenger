@@ -25,7 +25,7 @@ public class FindNodeOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    // Flags that represent Node state
+    /* Flags that represent Node states */
     private static final String NOT_QUERIED = "1";
     private static final String AWAITING_RESPONSE = "2";
     private static final String QUERIED = "3";

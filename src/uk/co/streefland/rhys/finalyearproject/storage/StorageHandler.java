@@ -15,13 +15,17 @@ public class StorageHandler {
     Node localNode;
     RoutingTable routingTable;
 
-
     public StorageHandler(Configuration config) {
         this.config = config;
         this.localNode = null;
         this.routingTable = null;
     }
 
+    /**
+     * Save the provided objects to the file specified in the Configuration class
+     * @param localNode The Node object to write to file
+     * @param routingTable The RoutingTable object to write to file
+     */
     public void save(Node localNode, RoutingTable routingTable) {
         FileOutputStream fout;
         ObjectOutputStream oos;
@@ -38,6 +42,9 @@ public class StorageHandler {
         }
     }
 
+    /**
+     * Reads the Node and RoutingTable objects from the file specified in the Configuration class.
+     */
     public void load() {
         FileInputStream fis;
         ObjectInputStream ois;
@@ -56,6 +63,9 @@ public class StorageHandler {
         }
     }
 
+    /**
+     * @return True if the file exists, false if not
+     */
     public boolean doesSavedStateExist() {
         File f = new File(config.getFilePath());
         if (f.exists() && !f.isDirectory()) {
@@ -65,10 +75,16 @@ public class StorageHandler {
         }
     }
 
+    /**
+     * @return The Node object that was read from file by the load() method
+     */
     public Node getLocalNode() {
         return localNode;
     }
 
+    /**
+     * @return The RoutingTable object that was read from file by the load() method
+     */
     public RoutingTable getRoutingTable() {
         return routingTable;
     }

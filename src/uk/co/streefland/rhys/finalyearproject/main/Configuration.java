@@ -13,7 +13,7 @@ public class Configuration {
 
     /* Settings the program can change if needs be */
     private int port = 12345;
-    public int maxConnectionAttempts = 5;
+    private int maxConnectionAttempts = 5;
     private long operationTimeout = 2000;  // timeout for operation completion
     private long responseTimeout = 2000; // timeout waiting for response
     private long refreshInterval = 60 * 1000; // refresh interval in milliseconds

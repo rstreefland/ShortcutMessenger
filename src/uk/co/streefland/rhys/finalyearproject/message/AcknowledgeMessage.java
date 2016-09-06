@@ -12,6 +12,7 @@ import java.io.IOException;
 public class AcknowledgeMessage implements Message {
 
     private Node origin;
+
     public static final byte CODE = 0x01;
 
     public AcknowledgeMessage(Node origin) {
@@ -23,26 +24,26 @@ public class AcknowledgeMessage implements Message {
     }
 
     @Override
+    public void toStream(DataOutputStream out) throws IOException {
+        origin.toStream(out);
+    }
+
+    @Override
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
     }
 
     @Override
-    public void toStream(DataOutputStream out) throws IOException {
-        origin.toStream(out);
+    public String toString() {
+        return "AcknowledgeMessage[origin=" + origin.getNodeId() + "]";
+    }
+
+    @Override
+    public byte getCode() {
+        return CODE;
     }
 
     public Node getOrigin() {
         return origin;
-    }
-
-    @Override
-    public byte code() {
-        return CODE;
-    }
-
-    @Override
-    public String toString() {
-        return "AcknowledgeMessage[origin=" + origin.getNodeId() + "]";
     }
 }

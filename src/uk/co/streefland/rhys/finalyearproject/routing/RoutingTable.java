@@ -34,16 +34,31 @@ public class RoutingTable implements Serializable {
     }
 
     /**
-     * Calculate the bucket ID in which a given node should be placed based on the distance from the local node
+     * Inserts a contact into to the routing table based on how far it is from LocalNode.
+     * If the new contact has socketAddress that matches one of an existing contact then the
+     * old contact is removed from the routing table before inserting the new contact
      *
-     * @param nodeId The target NodeId
-     * @return Integer The bucket id in which the given node should be placed.
+     * @param c The contact to add
      */
-    public final int getBucketId(NodeId nodeId) {
-        int bucketId = localNode.getNodeId().getDistance(nodeId) - 1;
+    public synchronized final void insert(Contact c) {
+        for (Node existingNode : getAllNodes()) {
+            if (c.getNode().getSocketAddress().equals((existingNode.getSocketAddress()))) {
+                /* Get the bucket of the node */
+                int bucketId = getBucketId(existingNode.getNodeId());
+                /* Force remove the contact from the bucket */
+                buckets[bucketId].removeContact(existingNode, true);
+            }
+        }
+        buckets[getBucketId(c.getNode().getNodeId())].insert(c);
+    }
 
-        /* If we are trying to insert a node into it's own routing table, then the bucket ID will be -1, so let's just keep it in bucket 0 */
-        return bucketId < 0 ? 0 : bucketId;
+    /**
+     * Inserts a node into to the routing table based on how far it is from LocalNode.
+     *
+     * @param n The node to add
+     */
+    public synchronized final void insert(Node n) {
+        insert(new Contact(n));
     }
 
     /**
@@ -71,31 +86,36 @@ public class RoutingTable implements Serializable {
     }
 
     /**
-     * Inserts a contact into to the routing table based on how far it is from LocalNode.
-     * If the new contact has socketAddress that matches one of an existing contact then the
-     * old contact is removed from the routing table before inserting the new contact
-     *
-     * @param c The contact to add
+     * Updates the configuration object for this routing table and all of its buckets.
+     * This is required when the routing table is loaded from a file.
+     * @param newConfig
      */
-    public synchronized final void insert(Contact c) {
-        for (Node existingNode : getAllNodes()) {
-            if (c.getNode().getSocketAddress().equals((existingNode.getSocketAddress()))) {
-                /* Get the bucket of the node */
-                int bucketId = getBucketId(existingNode.getNodeId());
-                /* Force remove the contact from the bucket */
-                buckets[bucketId].removeContact(existingNode, true);
-            }
+    public void updateConfigurationObjects(Configuration newConfig) {
+        this.config = newConfig;
+
+        for (Bucket bucket : buckets) {
+            bucket.setConfig(config);
         }
-        buckets[getBucketId(c.getNode().getNodeId())].insert(c);
     }
 
-    /**
-     * Inserts a node into to the routing table based on how far it is from LocalNode.
-     *
-     * @param n The node to add
-     */
-    public synchronized final void insert(Node n) {
-        insert(new Contact(n));
+    @Override
+    public synchronized final String toString() {
+        StringBuilder sb = new StringBuilder("\n****** Routing Table ******");
+        int totalContacts = 0;
+        for (Bucket b : buckets) {
+            if (b.getNumberOfContacts() > 0) {
+                totalContacts += b.getNumberOfContacts();
+                sb.append("\n");
+                sb.append(b.toString());
+            }
+        }
+
+        sb.append("\nTotal Contacts: ");
+        sb.append(totalContacts);
+        sb.append("\n");
+
+        sb.append("****** Routing Table Ended ******\n");
+        return sb.toString();
     }
 
     /**
@@ -127,6 +147,19 @@ public class RoutingTable implements Serializable {
     }
 
     /**
+     * Calculate the bucket ID in which a given node should be placed based on the distance from the local node
+     *
+     * @param nodeId The target NodeId
+     * @return Integer The bucket id in which the given node should be placed.
+     */
+    public final int getBucketId(NodeId nodeId) {
+        int bucketId = localNode.getNodeId().getDistance(nodeId) - 1;
+
+        /* If we are trying to insert a node into it's own routing table, then the bucket ID will be -1, so let's just keep it in bucket 0 */
+        return bucketId < 0 ? 0 : bucketId;
+    }
+
+    /**
      * @return Bucket[] All buckets stored in this RoutingTable
      */
     public final Bucket[] getBuckets() {
@@ -145,20 +178,6 @@ public class RoutingTable implements Serializable {
     /**
      * Method used by operations to notify the routing table of any contacts that have been unresponsive.
      *
-     * @param contacts The set of unresponsive contacts
-     */
-    public void setUnresponsiveContacts(List<Node> contacts) {
-        if (contacts.isEmpty()) {
-            return;
-        }
-        for (Node n : contacts) {
-            setUnresponsiveContact(n);
-        }
-    }
-
-    /**
-     * Method used by operations to notify the routing table of any contacts that have been unresponsive.
-     *
      * @param n The unresponsive node
      */
     public synchronized void setUnresponsiveContact(Node n) {
@@ -168,31 +187,17 @@ public class RoutingTable implements Serializable {
         buckets[bucketId].removeContact(n, false);
     }
 
-    public void updateConfigurationObjects(Configuration newConfig) {
-        this.config = newConfig;
-
-        for (Bucket bucket : buckets) {
-            bucket.setConfig(config);
+    /**
+     * Method used by operations to notify the routing table of any contacts that have been unresponsive.
+     *
+     * @param contacts The set of unresponsive contacts
+     */
+    public void setUnresponsiveContacts(List<Node> contacts) {
+        if (contacts.isEmpty()) {
+            return;
         }
-    }
-
-    @Override
-    public synchronized final String toString() {
-        StringBuilder sb = new StringBuilder("\n****** Routing Table ******");
-        int totalContacts = 0;
-        for (Bucket b : buckets) {
-            if (b.getNumberOfContacts() > 0) {
-                totalContacts += b.getNumberOfContacts();
-                sb.append("\n");
-                sb.append(b.toString());
-            }
+        for (Node n : contacts) {
+            setUnresponsiveContact(n);
         }
-
-        sb.append("\nTotal Contacts: ");
-        sb.append(totalContacts);
-        sb.append("\n");
-
-        sb.append("****** Routing Table Ended ******\n");
-        return sb.toString();
     }
 }

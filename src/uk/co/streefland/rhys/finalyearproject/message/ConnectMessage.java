@@ -24,22 +24,13 @@ public class ConnectMessage implements Message {
     }
 
     @Override
-    public final void fromStream(DataInputStream in) throws IOException {
-        origin = new Node(in);
-    }
-
-    @Override
     public void toStream(DataOutputStream out) throws IOException {
         origin.toStream(out);
     }
 
-    public Node getOrigin() {
-        return origin;
-    }
-
     @Override
-    public byte code() {
-        return CODE;
+    public final void fromStream(DataInputStream in) throws IOException {
+        origin = new Node(in);
     }
 
     @Override
@@ -47,5 +38,13 @@ public class ConnectMessage implements Message {
         return "ConnectMessage[origin NodeId=" + origin.getNodeId() + "]";
     }
 
+    @Override
+    public byte getCode() {
+        return CODE;
+    }
 
+    public Node getOrigin() {
+        return origin;
+    }
 }
+4

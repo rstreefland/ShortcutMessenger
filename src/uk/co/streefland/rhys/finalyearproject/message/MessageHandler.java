@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
@@ -11,6 +13,9 @@ import java.io.IOException;
  * Handles creating messages and receivers for incoming and outgoing messages
  */
 public class MessageHandler {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private final LocalNode localNode;
     private final Configuration config;
 
@@ -32,8 +37,7 @@ public class MessageHandler {
             case TextMessage.CODE:
                 return new TextMessage(in);
             default:
-                System.out.println(localNode + " - No Message handler found for message. Code: " + code);
-                //return new SimpleMessage(in); todo is this required?
+                logger.error("No message type found for message code: {}", code);
                 return null;
         }
     }
@@ -47,8 +51,7 @@ public class MessageHandler {
             case TextMessage.CODE:
                 return new TextReceiver(server,localNode, config);
             default:
-                System.out.println("No receiver found for message. Code: " + code);
-                //return new SimpleReceiver(); todo is this required?
+                logger.error("No receiver type found for message code: {}", code);
                 return null;
         }
     }

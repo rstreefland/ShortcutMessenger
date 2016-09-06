@@ -8,9 +8,6 @@ import java.util.Comparator;
 
 /**
  * A Comparator to compare 2 keys to a given key
- *
- * @author Joshua Kissoon
- * @since 20140322
  */
 public class KeyComparator implements Comparator<Node> {
 
@@ -24,8 +21,7 @@ public class KeyComparator implements Comparator<Node> {
     }
 
     /**
-     * Compare two objects which must both be of type <code>Node</code>
-     * and determine which is closest to the identifier specified in the
+     * Compare two objects and determine which is closest to the NodeId specified in the
      * constructor.
      *
      * @param n1 Node 1 to compare distance from the key

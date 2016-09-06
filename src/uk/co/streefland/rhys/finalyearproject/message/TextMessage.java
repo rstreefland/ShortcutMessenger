@@ -5,12 +5,13 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import java.io.*;
 
 /**
- * Created by Rhys on 03/09/2016.
+ * A simple broadcast message - for testing purposes only
  */
 public class TextMessage implements Message {
 
     Node origin;
     String message;
+
     public static final byte CODE = 0x05;
 
     public TextMessage(Node origin, String message) {
@@ -34,21 +35,21 @@ public class TextMessage implements Message {
         out.writeUTF(message);
     }
 
-    public String getMessage() {
-        return message;
+    @Override
+    public String toString() {
+        return "TextMessage[origin NodeId=" + origin.getNodeId() + "]";
+    }
+
+    @Override
+    public byte getCode() {
+        return CODE;
     }
 
     public Node getOrigin() {
         return origin;
     }
 
-    @Override
-    public byte code() {
-        return CODE;
-    }
-
-    @Override
-    public String toString() {
-        return "TextMessage[origin NodeId=" + origin.getNodeId() + "]";
+    public String getMessage() {
+        return message;
     }
 }

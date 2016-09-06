@@ -22,37 +22,36 @@ public class RemoteNodeTest {
 
         Node destination;
         InetAddress inetAddress;
-        String ip;
-        int port;
+        String localIp;
+        String remoteIp;
 
         String message;
 
         try {
-            LocalNode localNode = new LocalNode();
+            System.out.println("Please enter the IP of the local machine");
+            localIp = sc.nextLine();
+
+            LocalNode localNode = new LocalNode(localIp);
 
             System.out.println("What IP would you like to connect to?");
-            ip = sc.nextLine();
+            remoteIp = sc.nextLine();
 
-            System.out.println("What port would you like to connect to?");
-            port = sc.nextInt();
+            destination = new Node(new NodeId(), InetAddress.getByName(remoteIp), 12345);
 
-            inetAddress = InetAddress.getByName(ip);
-
-            destination = new Node(new NodeId(), inetAddress, port);
-
-            logger.info("Connecting to node at {} using port {}", ip, port);
+            logger.info("Connecting to node at {} using port {}", remoteIp, 12345);
             localNode.bootstrap(destination);
 
             logger.info("Printing routing table");
             System.out.println(localNode.getRoutingTable());
 
-            while(true) {
-
+            do  {
                 message = sc.nextLine();
                 if (message != null) {
                     localNode.message(message, localNode.getRoutingTable().getAllNodes());
                 }
-            }
+            } while(!message.equals("exit"));
+
+            localNode.shutdown();
 
         } catch (IOException e) {
             e.printStackTrace();

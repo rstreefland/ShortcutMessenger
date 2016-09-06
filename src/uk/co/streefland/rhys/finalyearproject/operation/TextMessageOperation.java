@@ -19,14 +19,13 @@ public class TextMessageOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    // Flags that represent Node state
+    /* Flags that represent Node states */
     private static final String NOT_MESSAGED = "1";
     private static final String AWAITING_ACK = "2";
     private static final String MESSAGED = "3";
     private static final String FAILED = "4";
 
     private Server server;
-    private LocalNode localNode;
     private Configuration config;
 
     private Message message;        // Message sent to each peer
@@ -38,7 +37,6 @@ public class TextMessageOperation implements Operation, Receiver {
 
     public TextMessageOperation(Server server, LocalNode localNode, Configuration config, String message, List<Node> targetNodes) {
         this.server = server;
-        this.localNode = localNode;
         this.config = config;
 
         this.message = new TextMessage(localNode.getNode(), message);
@@ -62,8 +60,8 @@ public class TextMessageOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
-        try {
 
+        try {
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;     // We re-check every n milliseconds
@@ -75,9 +73,6 @@ public class TextMessageOperation implements Operation, Receiver {
                     break;
                 }
             }
-
-            /* Now after we've finished, we would have an idea of offline nodes, lets update our routing table */
-            //localNode.getRoutingTable().setUnresponsiveContacts(getFailedNodes());
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
@@ -140,7 +135,6 @@ public class TextMessageOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
-
         /* Read the AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
