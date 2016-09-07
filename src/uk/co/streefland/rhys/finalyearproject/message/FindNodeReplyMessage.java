@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Responds to a FindNodeMessage with a list of the K closest nodes to the provided NodeId
+ * Responds to a FindNodeMessage with a list of the K closest nodes to the provided KeyId
  */
 public class FindNodeReplyMessage implements Message {
 
@@ -56,7 +56,7 @@ public class FindNodeReplyMessage implements Message {
 
     @Override
     public String toString() {
-        return "FindNodeReplyMessage[origin NodeId=" + origin.getNodeId() + "]";
+        return "FindNodeReplyMessage[origin KeyId=" + origin.getNodeId() + "]";
     }
 
     @Override

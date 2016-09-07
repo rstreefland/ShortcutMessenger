@@ -2,45 +2,59 @@ package uk.co.streefland.rhys.finalyearproject.node;
 
 import uk.co.streefland.rhys.finalyearproject.message.Streamable;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.Random;
 
 /**
- * The NodeId class stores and represents the 160 bit key that identifies every node on the network.
+ * The KeyId class stores and represents the 160 bit key that identifies every node on the network.
  */
-public class NodeId implements Streamable, Serializable {
+public class KeyId implements Streamable, Serializable {
 
-    public static final int ID_LENGTH = 160;   // Length of NodeId im bits
-    public static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of NodeId in bytes
+    public static final int ID_LENGTH = 160;   // Length of KeyId im bits
+    public static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of KeyId in bytes
 
     private byte[] idBytes;
 
-    public NodeId() {
+    public KeyId() {
         idBytes = new byte[BYTES_LENGTH];
         new Random().nextBytes(idBytes);
     }
 
-    public NodeId(String id) {
-        idBytes = id.getBytes();
+    public KeyId(String id) {
+
+        /* Calculate SHA1 digest of input string - this creates a 160 bit byte array */
+        MessageDigest digest = null;
+        byte[] digestBytes = null;
+
+        try {
+            digest = MessageDigest.getInstance("SHA-1");
+            digest.update(id.getBytes("utf8"));
+            digestBytes = digest.digest();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
+        idBytes = digestBytes;
 
         if (idBytes.length != BYTES_LENGTH) {
             throw new IllegalArgumentException("Data needs to be " + BYTES_LENGTH + " characters long");
         }
     }
 
-    public NodeId(byte[] idBytes) {
+    public KeyId(byte[] idBytes) {
         if (idBytes.length != BYTES_LENGTH) {
             throw new IllegalArgumentException("Data needs to be " + BYTES_LENGTH + " characters long");
         }
         this.idBytes = idBytes;
     }
 
-    public NodeId(DataInputStream in) throws IOException {
+    public KeyId(DataInputStream in) throws IOException {
         this.fromStream(in);
     }
 
@@ -57,12 +71,12 @@ public class NodeId implements Streamable, Serializable {
     }
 
     /**
-     * Performs the XOR operation on this NodeId and another NodeId provided as the parameter. Used to calculate the distance from one NodeId to another
+     * Performs the XOR operation on this KeyId and another KeyId provided as the parameter. Used to calculate the distance from one KeyId to another
      *
-     * @param nodeId The nodeId to be XOR'ed with the current NodeId
-     * @return A NodeId object created with the XOR'ed array
+     * @param nodeId The nodeId to be XOR'ed with the current KeyId
+     * @return A KeyId object created with the XOR'ed array
      */
-    private NodeId xor(NodeId nodeId) {
+    private KeyId xor(KeyId nodeId) {
         byte[] nodeIdBytes = nodeId.getIdBytes();
         byte[] result = new byte[BYTES_LENGTH];
 
@@ -71,16 +85,16 @@ public class NodeId implements Streamable, Serializable {
             result[i] = (byte) (idBytes[i] ^ nodeIdBytes[i]);
         }
 
-        return new NodeId(result);
+        return new KeyId(result);
     }
 
     /**
-     * Generates a NodeId that is a certain distance away (in bits) from this NodeId
+     * Generates a KeyId that is a certain distance away (in bits) from this KeyId
      *
      * @param distance the distance in bits
-     * @return A NodeId object which is distance bits away from this NodeId
+     * @return A KeyId object which is distance bits away from this KeyId
      */
-    public NodeId generateNodeIdUsingDistance(int distance) {
+    public KeyId generateNodeIdUsingDistance(int distance) {
 
         byte[] newNodeIdBytes = idBytes.clone(); // Clone the byte array so we don't modify it
 
@@ -100,12 +114,12 @@ public class NodeId implements Streamable, Serializable {
                     }
                     bitsToFlip--;
                 } else {
-                    /* No bits left to flip - return the array as a new NodeId object */
-                    return new NodeId(newNodeIdBytes);
+                    /* No bits left to flip - return the array as a new KeyId object */
+                    return new KeyId(newNodeIdBytes);
                 }
             }
         }
-        return new NodeId(newNodeIdBytes); // impossible to reach this
+        return new KeyId(newNodeIdBytes); // impossible to reach this
     }
 
 
@@ -136,8 +150,8 @@ public class NodeId implements Streamable, Serializable {
      * @param otherNode The nodeId you would like to calculate the distance relative to
      * @return The distance in bits between the two nodes
      */
-    public int getDistance(NodeId otherNode) {
-        /* Gets the first set bit of the NodeId generated by the XOR method and subtracts it from ID_LENGTH (160)*/
+    public int getDistance(KeyId otherNode) {
+        /* Gets the first set bit of the KeyId generated by the XOR method and subtracts it from ID_LENGTH (160)*/
         return ID_LENGTH - xor(otherNode).getFirstSetBitLocation();
     }
 
@@ -150,8 +164,8 @@ public class NodeId implements Streamable, Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (obj instanceof NodeId) {
-            NodeId nid = (NodeId) obj;
+        if (obj instanceof KeyId) {
+            KeyId nid = (KeyId) obj;
             return this.hashCode() == nid.hashCode();
         } else {
             return false;
@@ -159,9 +173,9 @@ public class NodeId implements Streamable, Serializable {
     }
 
     /**
-     * Returns the binary representation of the NodeId byte array split into the individual bytes. Very helpful for debugging
+     * Returns the binary representation of the KeyId byte array split into the individual bytes. Very helpful for debugging
      *
-     * @return The binary representation of the NodeId byte array
+     * @return The binary representation of the KeyId byte array
      */
     public String toBinary() {
         String output = "";
@@ -172,9 +186,9 @@ public class NodeId implements Streamable, Serializable {
     }
 
     /**
-     * Returns the hex representation of the NodeId in a string
+     * Returns the hex representation of the KeyId in a string
      *
-     * @return hex representation of the NodeId in a string
+     * @return hex representation of the KeyId in a string
      */
     @Override
     public String toString() {

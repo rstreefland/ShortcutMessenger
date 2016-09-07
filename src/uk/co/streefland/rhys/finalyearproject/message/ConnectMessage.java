@@ -35,7 +35,7 @@ public class ConnectMessage implements Message {
 
     @Override
     public String toString() {
-        return "ConnectMessage[origin NodeId=" + origin.getNodeId() + "]";
+        return "ConnectMessage[origin KeyId=" + origin.getNodeId() + "]";
     }
 
     @Override

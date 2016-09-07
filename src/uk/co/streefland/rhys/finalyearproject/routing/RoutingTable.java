@@ -3,7 +3,7 @@ package uk.co.streefland.rhys.finalyearproject.routing;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -24,8 +24,8 @@ public class RoutingTable implements Serializable {
         this.config = config;
 
         /* Initialise all of the buckets to a specific depth */
-        this.buckets = new Bucket[NodeId.ID_LENGTH];
-        for (int i = 0; i < NodeId.ID_LENGTH; i++) {
+        this.buckets = new Bucket[KeyId.ID_LENGTH];
+        for (int i = 0; i < KeyId.ID_LENGTH; i++) {
             buckets[i] = new Bucket(i, this.config);
         }
 
@@ -68,13 +68,13 @@ public class RoutingTable implements Serializable {
     }
 
     /**
-     * Find the closest set of contacts to a given NodeId
+     * Find the closest set of contacts to a given KeyId
      *
-     * @param target           The target NodeId
+     * @param target           The target KeyId
      * @param numNodesRequired The number of contacts to return
-     * @return List A List of contacts closest to the target NodeId
+     * @return List A List of contacts closest to the target KeyId
      */
-    public synchronized final List<Node> findClosest(NodeId target, int numNodesRequired) {
+    public synchronized final List<Node> findClosest(KeyId target, int numNodesRequired) {
         TreeSet<Node> sortedSet = new TreeSet<>(new KeyComparator(target));
         sortedSet.addAll(getAllNodes());
 
@@ -155,10 +155,10 @@ public class RoutingTable implements Serializable {
     /**
      * Calculate the bucket ID in which a given node should be placed based on the distance from the local node
      *
-     * @param nodeId The target NodeId
+     * @param nodeId The target KeyId
      * @return Integer The bucket id in which the given node should be placed.
      */
-    public final int getBucketId(NodeId nodeId) {
+    public final int getBucketId(KeyId nodeId) {
         int bucketId = localNode.getNodeId().getDistance(nodeId) - 1;
 
         /* If we are trying to insert a node into it's own routing table, then the bucket ID will be -1, so let's just keep it in bucket 0 */

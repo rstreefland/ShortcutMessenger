@@ -5,8 +5,8 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.exceptions.BootstrapException;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
 import java.io.IOException;
@@ -56,7 +56,7 @@ public class RemoteNodeTest {
                     System.out.println("What IP would you like to connect to?");
                     remoteIp = sc.nextLine();
 
-                    destination = new Node(new NodeId(), InetAddress.getByName(remoteIp), 12345);
+                    destination = new Node(new KeyId(), InetAddress.getByName(remoteIp), 12345);
 
                     logger.info("Connecting to node at {} using port {}", remoteIp, 12345);
                     localNode.bootstrap(destination);

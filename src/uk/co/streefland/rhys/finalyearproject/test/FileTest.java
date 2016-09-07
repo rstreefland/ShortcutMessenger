@@ -3,8 +3,8 @@ package uk.co.streefland.rhys.finalyearproject.test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
 import java.net.InetAddress;
@@ -31,13 +31,13 @@ public class FileTest {
         } else {
             logger.info("No existing configuration found - creating a new node");
             try {
-                node = new Node(new NodeId(), InetAddress.getByName("192.168.0.10"), 1234);
+                node = new Node(new KeyId(), InetAddress.getByName("192.168.0.10"), 1234);
             } catch (UnknownHostException e) {
                 e.printStackTrace();
             }
         }
 
-        logger.info("NodeId is {}", node.getNodeId());
+        logger.info("KeyId is {}", node.getNodeId());
 
         //storageHandler.save();
 

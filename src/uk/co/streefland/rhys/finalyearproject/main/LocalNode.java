@@ -2,10 +2,9 @@ package uk.co.streefland.rhys.finalyearproject.main;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.exceptions.BootstrapException;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler;
@@ -66,7 +65,7 @@ public class LocalNode {
      * @param port The port the server should listen on
      * @throws IOException
      */
-    public LocalNode(NodeId defaultId, int port) throws IOException {
+    public LocalNode(KeyId defaultId, int port) throws IOException {
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
         this.config = new Configuration();
         this.storageHandler = new StorageHandler(config);
@@ -100,7 +99,7 @@ public class LocalNode {
                 localNode = newLocalNode;
             } else {
                 logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
-                localNode = new Node(new NodeId(), InetAddress.getByName(localIp), config.getPort());
+                localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
             }
 
             /* Get routingTable object from storageHandler */
@@ -116,7 +115,7 @@ public class LocalNode {
             }
         } else {
             logger.info("Saved state not found");
-            localNode = new Node(new NodeId(), InetAddress.getByName(localIp), config.getPort());
+            localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
             routingTable = new RoutingTable(localNode, config);
         }
     }

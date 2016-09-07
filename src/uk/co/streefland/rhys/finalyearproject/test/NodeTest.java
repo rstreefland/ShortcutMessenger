@@ -1,7 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.test;
 
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -13,8 +13,8 @@ public class NodeTest {
 
     public static void main(String[] args) throws UnknownHostException {
 
-        NodeId nodeId1 = new NodeId();
-        NodeId nodeId2 = new NodeId();
+        KeyId nodeId1 = new KeyId();
+        KeyId nodeId2 = new KeyId();
 
         InetAddress inet1 = InetAddress.getByName("127.0.0.1");
         InetAddress inet2 = InetAddress.getByName("127.0.0.2");

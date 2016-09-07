@@ -10,15 +10,15 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 
 /**
- * Represents each individual node on the network. Stores the NodeId, InetAddress, and port.
+ * Represents each individual node on the network. Stores the KeyId, InetAddress, and port.
  */
 public class Node implements Streamable, Serializable {
 
-    private NodeId nodeId;
+    private KeyId nodeId;
     private InetAddress inetAddress;
     private int port;
 
-    public Node(NodeId nid, InetAddress ip, int port) {
+    public Node(KeyId nid, InetAddress ip, int port) {
         this.nodeId = nid;
         this.inetAddress = ip;
         this.port = port;
@@ -32,7 +32,7 @@ public class Node implements Streamable, Serializable {
     @Override
     public void toStream(DataOutputStream out) throws IOException
     {
-         /* Add the NodeId to the stream */
+         /* Add the KeyId to the stream */
         nodeId.toStream(out);
 
         /* Add the Node's IP address to the stream */
@@ -50,8 +50,8 @@ public class Node implements Streamable, Serializable {
     @Override
     public final void fromStream(DataInputStream in) throws IOException
     {
-        /* Read the NodeId */
-        nodeId = new NodeId(in);
+        /* Read the KeyId */
+        nodeId = new KeyId(in);
 
         /* Read the IP Address */
         byte[] ip = new byte[4];
@@ -84,7 +84,7 @@ public class Node implements Streamable, Serializable {
     }
 
     /**
-     * Returns the HEX representation of the NodeId as a string
+     * Returns the HEX representation of the KeyId as a string
      */
     @Override
     public String toString()
@@ -100,7 +100,7 @@ public class Node implements Streamable, Serializable {
         return new InetSocketAddress(inetAddress, port);
     }
 
-    public NodeId getNodeId() {
+    public KeyId getNodeId() {
         return nodeId;
     }
 }

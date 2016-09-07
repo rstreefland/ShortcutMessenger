@@ -11,13 +11,13 @@ import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
 import java.io.IOException;
 import java.util.*;
 
 /**
- * Finds the K closest nodes to a specified NodeId
+ * Finds the K closest nodes to a specified KeyId
  * Terminates when it has responses from the K closest nodes it has seen.
  * Nodes that fail to respond are removed from consideration
  */
@@ -44,7 +44,7 @@ public class FindNodeOperation implements Operation, Receiver {
     /* Used to sort nodes */
     private final Comparator comparator;
 
-    public FindNodeOperation(Server server, LocalNode localNode, NodeId lookupId, Configuration config) {
+    public FindNodeOperation(Server server, LocalNode localNode, KeyId lookupId, Configuration config) {
         this.server = server;
         this.localNode = localNode;
         this.config = config;

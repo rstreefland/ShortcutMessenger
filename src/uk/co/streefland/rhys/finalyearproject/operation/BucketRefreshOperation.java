@@ -5,14 +5,9 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
-import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
-import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
 import java.io.IOException;
-import java.util.Comparator;
-import java.util.Map;
-import java.util.TreeMap;
 
 /**
  * Refreshes all buckets within the RoutingTable
@@ -39,9 +34,9 @@ public class BucketRefreshOperation implements Operation {
     @Override
     public synchronized void execute() throws IOException {
 
-        for (int i = 1; i < NodeId.ID_LENGTH; i++) {
-            /* Generate a NodeId that is n bits away from the current nodeId */
-            final NodeId current = localNode.getNode().getNodeId().generateNodeIdUsingDistance(i);
+        for (int i = 1; i < KeyId.ID_LENGTH; i++) {
+            /* Generate a KeyId that is n bits away from the current nodeId */
+            final KeyId current = localNode.getNode().getNodeId().generateNodeIdUsingDistance(i);
 
             /* Run FindNodeOperation in a different thread */
             new Thread() {

@@ -4,7 +4,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
 import java.io.IOException;

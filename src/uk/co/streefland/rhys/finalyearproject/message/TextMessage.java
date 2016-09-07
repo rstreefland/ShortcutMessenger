@@ -37,7 +37,7 @@ public class TextMessage implements Message {
 
     @Override
     public String toString() {
-        return "TextMessage[origin NodeId=" + origin.getNodeId() + "]";
+        return "TextMessage[origin KeyId=" + origin.getNodeId() + "]";
     }
 
     @Override

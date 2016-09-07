@@ -1,8 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.node;
 
-import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
-
 import java.math.BigInteger;
 import java.util.Comparator;
 
@@ -14,14 +11,14 @@ public class KeyComparator implements Comparator<Node> {
     private final BigInteger key;
 
     /**
-     * @param key The NodeId relative to which the distance should be measured.
+     * @param key The KeyId relative to which the distance should be measured.
      */
-    public KeyComparator(NodeId key) {
+    public KeyComparator(KeyId key) {
         this.key = key.getInt();
     }
 
     /**
-     * Compare two objects and determine which is closest to the NodeId specified in the
+     * Compare two objects and determine which is closest to the KeyId specified in the
      * constructor.
      *
      * @param n1 Node 1 to compare distance from the key

@@ -1,23 +1,23 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.node.NodeId;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * Provides a NodeId to a remote node and requests the K closest nodes to that NodeId in return
+ * Provides a KeyId to a remote node and requests the K closest nodes to that KeyId in return
  */
 public class FindNodeMessage implements Message {
 
     private Node origin;
-    private NodeId lookupId;
+    private KeyId lookupId;
 
     public static final byte CODE = 0x03;
 
-    public FindNodeMessage(Node origin, NodeId lookup) {
+    public FindNodeMessage(Node origin, KeyId lookup) {
         this.origin = origin;
         this.lookupId = lookup;
     }
@@ -35,7 +35,7 @@ public class FindNodeMessage implements Message {
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
-        lookupId = new NodeId(in);
+        lookupId = new KeyId(in);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class FindNodeMessage implements Message {
         return origin;
     }
 
-    public NodeId getLookupId() {
+    public KeyId getLookupId() {
         return lookupId;
     }
 }
