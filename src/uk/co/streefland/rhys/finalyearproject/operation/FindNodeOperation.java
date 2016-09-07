@@ -191,7 +191,7 @@ public class FindNodeOperation implements Operation, Receiver {
         Node origin = msg.getOrigin();
         localNode.getRoutingTable().insert(origin);
 
-        /* Set that we've completed ASKing the origin node */
+        /* Set that we've completed ASKing the origin nodse */
         nodes.put(origin, QUERIED);
 
         /* Remove this msg from messagesTransiting since it's completed now */

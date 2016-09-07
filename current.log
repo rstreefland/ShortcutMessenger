@@ -1,30 +1,10 @@
-2016-09-06 20:05:53.638 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
-2016-09-06 20:05:53.713 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
-2016-09-06 20:05:53.714 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
-2016-09-06 20:05:53.724 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
-2016-09-06 20:05:53.730 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
-2016-09-06 20:05:57.568 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:05:58.623 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:05:59.426 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
-2016-09-06 20:06:02.773 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:06:02.793 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:06:04.296 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
-2016-09-06 20:06:08.381 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:06:08.396 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:06:09.828 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:06:09.860 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:06:09.913 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
-2016-09-06 20:06:11.374 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:06:11.404 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:06:11.442 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
-2016-09-06 20:06:12.636 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:06:12.654 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:06:12.968 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
-2016-09-06 20:06:13.958 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:06:13.979 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:06:14.497 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
-2016-09-06 20:06:15.021 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
-2016-09-06 20:06:15.035 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
-2016-09-06 20:06:16.027 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 1
-2016-09-06 20:06:16.310 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Shutting down server
-2016-09-06 20:06:16.344 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Server shut down successfully
+2016-09-06 20:47:46.018 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-06 20:47:46.036 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-06 20:47:46.041 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-06 20:47:53.106 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-06 20:47:53.107 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode F47A8E8DEFF1617023032264473425370800C6C3 to node BB1DCA51C051EC02724639817DA1DD3126C2BCB4
+2016-09-06 20:47:53.240 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
+2016-09-06 20:47:55.952 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-06 20:47:58.136 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 1
+2016-09-06 20:48:03.912 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-06 20:48:05.448 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35

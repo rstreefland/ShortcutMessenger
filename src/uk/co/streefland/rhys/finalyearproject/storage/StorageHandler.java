@@ -68,11 +68,7 @@ public class StorageHandler {
      */
     public boolean doesSavedStateExist() {
         File f = new File(config.getFilePath());
-        if (f.exists() && !f.isDirectory()) {
-            return true;
-        } else {
-            return false;
-        }
+        return f.exists() && !f.isDirectory();
     }
 
     /**

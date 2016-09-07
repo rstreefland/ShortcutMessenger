@@ -2,8 +2,10 @@ package uk.co.streefland.rhys.finalyearproject.test;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.node.NodeId;
+import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -17,13 +19,21 @@ public class LocalNodeTest {
 
         Logger logger = LoggerFactory.getLogger(LocalNodeTest.class);
 
+        Configuration config = new Configuration();
+        StorageHandler storageHandler = new StorageHandler(config);
+
         Scanner sc = new Scanner(System.in);
+        String ip;
         String message;
 
         try {
 
-            System.out.println("Please enter the IP of the local machine");
-            String ip = sc.nextLine();
+            if (storageHandler.doesSavedStateExist() == false) {
+                System.out.println("Please enter the local IP of the local machine");
+                ip = sc.nextLine();
+            } else {
+                ip = null;
+            }
 
             LocalNode localNode = new LocalNode(ip);
 
@@ -37,7 +47,6 @@ public class LocalNodeTest {
             localNode.shutdown();
 
         } catch (IOException e) {
-            System.out.println("I caught an exception here - you'll want to move it");
             e.printStackTrace();
         }
     }
