@@ -1,11 +1,11 @@
-2016-09-07 19:29:34.605 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
-2016-09-07 19:29:34.719 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
-2016-09-07 19:29:34.720 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
-2016-09-07 19:29:34.730 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
-2016-09-07 19:29:34.735 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
-2016-09-07 19:29:44.472 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
-2016-09-07 19:30:10.200 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
-2016-09-07 19:30:35.004 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-07 19:31:34.847 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-07 19:32:34.826 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-07 19:33:34.829 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 16:04:39.730 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-08 16:04:39.948 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-08 16:04:39.949 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-08 16:04:39.977 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-08 16:04:40.030 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-08 16:05:00.840 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-08 16:05:21.100 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 02F66F41D8C9ABEC6FA0F697AECBC39A7FFBDF13
+2016-09-08 16:05:35.631 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-08 16:05:40.117 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 16:06:30.319 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: testtest
+2016-09-08 16:06:40.121 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed

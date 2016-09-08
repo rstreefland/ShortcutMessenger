@@ -104,7 +104,7 @@ public class TextMessageOperation implements Operation, Receiver {
         List<Node> toMessage = new ArrayList<>();
 
         for (Map.Entry<Node, String> e: nodes.entrySet()) {
-            if (e.getValue().equals(NOT_MESSAGED) || e.getValue().equals(AWAITING_ACK) || e.getValue().equals(FAILED)) {
+            if (e.getValue().equals(NOT_MESSAGED) || e.getValue().equals(FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
                     toMessage.add(e.getKey());
                 }

@@ -15,8 +15,6 @@ import java.io.IOException;
  */
 public class StoreUserReceiver implements Receiver {
 
-
-
     private final Server server;
     private final LocalNode localNode;
     private final Configuration config;

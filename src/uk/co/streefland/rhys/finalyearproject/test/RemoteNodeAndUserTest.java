@@ -3,7 +3,6 @@ package uk.co.streefland.rhys.finalyearproject.test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.exceptions.BootstrapException;
-import uk.co.streefland.rhys.finalyearproject.exceptions.UserAccountException;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.User;
@@ -78,7 +77,9 @@ public class RemoteNodeAndUserTest {
 
                 User user = new User(username, password);
 
-                localNode.getUsers().registerUser(user);
+                if (localNode.getUsers().registerUser(user)) {
+                    logger.error("USER ALREADY EXISTS");
+                }
 
             } while(!password.equals("exit"));
 
@@ -86,8 +87,6 @@ public class RemoteNodeAndUserTest {
 
         } catch (BootstrapException e) {
             e.printStackTrace();
-        } catch (UserAccountException e) {
-            logger.error(e);
         } catch (IOException e) {
             e.printStackTrace();
         }

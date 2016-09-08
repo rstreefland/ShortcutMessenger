@@ -40,9 +40,10 @@ public class Users {
         this.users = new ArrayList<>();
     }
 
-    public void registerUser(User user) throws IOException {
+    public boolean registerUser(User user) throws IOException {
         RegisterUserOperation operation = new RegisterUserOperation(server, localNode, config, user);
         operation.execute();
+        return operation.isError();
     }
 
     public void loginUser() {

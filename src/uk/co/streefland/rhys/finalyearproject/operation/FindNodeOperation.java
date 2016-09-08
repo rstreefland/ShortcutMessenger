@@ -63,13 +63,13 @@ public class FindNodeOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
+        /* Set the local node as already asked */
+        nodes.put(localNode.getNode(), QUERIED);
+
+        /* Insert all nodes because some nodes may fail to respond. */
+        addNodes(localNode.getRoutingTable().getAllNodes());
+
         try {
-            /* Set the local node as already asked */
-            nodes.put(localNode.getNode(), QUERIED);
-
-            /* Insert all nodes because some nodes may fail to respond. */
-            addNodes(localNode.getRoutingTable().getAllNodes());
-
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;     // We re-check every n milliseconds
@@ -204,7 +204,8 @@ public class FindNodeOperation implements Operation, Receiver {
         /* Add the received nodes to our nodes list to query */
         addNodes(msg.getNodes());
 
-        // TODO: 07/09/2016 ADD THE ITERATIVE QUERY BACK HERE - new nodes need to be queried
+        /* Run the lookup against the new nodes */
+        iterativeQueryNodes();
     }
 
     /**
@@ -226,6 +227,7 @@ public class FindNodeOperation implements Operation, Receiver {
         localNode.getRoutingTable().setUnresponsiveContact(n);
         messagesInTransit.remove(communicationId);
 
-        // TODO: 07/09/2016 ADD THE ITERATIVE QUERY BACK HERE???????
+        /* Run the lookup again */
+        iterativeQueryNodes();
     }
 }

@@ -2,7 +2,6 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.exceptions.UserAccountException;
 import uk.co.streefland.rhys.finalyearproject.main.*;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
@@ -42,6 +41,7 @@ public class RegisterUserOperation implements Operation, Receiver {
     private Map<Integer, Node> messagesInTransit;
 
     private boolean error;
+    private boolean storeUserOnLocalNode;
 
     public RegisterUserOperation(Server server, LocalNode localNode, Configuration config, User user) {
         this.server = server;
@@ -62,6 +62,7 @@ public class RegisterUserOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
 
         error = false;
+        storeUserOnLocalNode = false;
 
         FindNodeOperation operation = new FindNodeOperation(server, localNode, user.getUserId(), config);
         operation.execute();
@@ -88,20 +89,21 @@ public class RegisterUserOperation implements Operation, Receiver {
 
         while (messagesInTransit.size() > 0) {
             try {
-
                 wait(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
 
-        if (error) {
-            throw new UserAccountException("User already exists on the network - terminating");
+        /* Add the user to our localStorage once we know that it doesn't exist already on any other nodes */
+        if (!error && storeUserOnLocalNode) {
+            localNode.getUsers().addUser(user);
         }
     }
 
     /**
      * Inserts the nodes into the HashMap if they're not already present
+     *
      * @param list The list of nodes to insert
      */
     private void addNodes(List<Node> list) {
@@ -122,10 +124,10 @@ public class RegisterUserOperation implements Operation, Receiver {
             return false;
         }
 
-        List<Node> toQuery= new ArrayList<>();
+        List<Node> toQuery = new ArrayList<>();
 
-        for (Map.Entry<Node, String> e: nodes.entrySet()) {
-            if (e.getValue().equals(NOT_QUERIED) || e.getValue().equals(AWAITING_ACK) || e.getValue().equals(FAILED)) {
+        for (Map.Entry<Node, String> e : nodes.entrySet()) {
+            if (e.getValue().equals(NOT_QUERIED) || e.getValue().equals(FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
                     toQuery.add(e.getKey());
                 }
@@ -142,7 +144,9 @@ public class RegisterUserOperation implements Operation, Receiver {
 
             if (toQuery.get(i).equals(localNode.getNode())) {
 
-                localNode.getUsers().addUser(user);
+                /* Can only store user on local node once we know that it doesn't already exist on another node.
+                 * So, we set this flag and handle this once we know for sure that the user doesn't already exist on another node */
+                storeUserOnLocalNode = true;
                 nodes.put(toQuery.get(i), QUERIED);
             } else {
 
@@ -162,7 +166,7 @@ public class RegisterUserOperation implements Operation, Receiver {
      * @param communicationId
      */
     @Override
-    public synchronized void receive(Message incoming, int communicationId) throws UserAccountException {
+    public synchronized void receive(Message incoming, int communicationId) {
         /* Read the AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
@@ -177,8 +181,6 @@ public class RegisterUserOperation implements Operation, Receiver {
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
-
-        notify();
     }
 
     /**
@@ -200,6 +202,10 @@ public class RegisterUserOperation implements Operation, Receiver {
         nodes.put(n, FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
+    }
+
+    public boolean isError() {
+        return error;
     }
 }
 
