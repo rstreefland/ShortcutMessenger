@@ -110,7 +110,7 @@ public class Server {
                 }
             } catch (IOException e) {
                 if (isRunning == true) {
-                    logger.error("The listener thread encountered an error: {}", e);
+                    logger.error("The listener thread encountered an error:", e);
                 }
             }
         }

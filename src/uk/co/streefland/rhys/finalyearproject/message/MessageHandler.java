@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.main.Configuration;
 import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.main.Server;
+import uk.co.streefland.rhys.finalyearproject.main.Users;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -36,6 +37,8 @@ public class MessageHandler {
                 return new FindNodeReplyMessage(in);
             case TextMessage.CODE:
                 return new TextMessage(in);
+            case StoreUserMessage.CODE:
+                return new StoreUserMessage(in);
             default:
                 logger.error("No message type found for message code: {}", code);
                 return null;
@@ -50,6 +53,8 @@ public class MessageHandler {
                 return new FindNodeReceiver(server, localNode, config);
             case TextMessage.CODE:
                 return new TextReceiver(server,localNode, config);
+            case StoreUserMessage.CODE:
+                return new StoreUserReceiver(server, localNode, config);
             default:
                 logger.error("No receiver type found for message code: {}", code);
                 return null;

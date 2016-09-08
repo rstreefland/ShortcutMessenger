@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest
+Main-Class: uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndU
+ serTest
 

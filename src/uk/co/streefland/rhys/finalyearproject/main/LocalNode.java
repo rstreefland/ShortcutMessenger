@@ -29,6 +29,7 @@ public class LocalNode {
     private RoutingTable routingTable;
     private final Server server;
     private final StorageHandler storageHandler;
+    private Users users;
 
     /* Objects for refresh operation */
     private Timer refreshOperationTimer;
@@ -52,6 +53,7 @@ public class LocalNode {
 
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
+        this.users = new Users(server, this, config);
 
         /* Start the automatic refresh operation that runs every 60 seconds */
         startRefreshOperation();
@@ -73,6 +75,7 @@ public class LocalNode {
 
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(port, messageHandler, localNode, config);
+        this.users = new Users(server, this, config);
 
         /* Start the automatic refresh operation that runs every 60 seconds */
         startRefreshOperation();
@@ -199,6 +202,10 @@ public class LocalNode {
 
     public Node getNode() {
         return localNode;
+    }
+
+    public Users getUsers() {
+        return users;
     }
 
     public RoutingTable getRoutingTable() {

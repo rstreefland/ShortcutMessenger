@@ -2,31 +2,37 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
-import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.main.Server;
-import uk.co.streefland.rhys.finalyearproject.message.*;
-import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
+import uk.co.streefland.rhys.finalyearproject.exceptions.UserAccountException;
+import uk.co.streefland.rhys.finalyearproject.main.*;
+import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.message.StoreUserMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Rhys on 03/09/2016.
  */
-public class TextMessageOperation implements Operation, Receiver {
+public class RegisterUserOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* Flags that represent Node states */
-    private static final String NOT_MESSAGED = "1";
+    private static final String NOT_QUERIED = "1";
     private static final String AWAITING_ACK = "2";
-    private static final String MESSAGED = "3";
+    private static final String QUERIED = "3";
     private static final String FAILED = "4";
 
     private Server server;
     private Configuration config;
+    private LocalNode localNode;
+    private User user;
 
     private Message message;        // Message sent to each peer
     private Map<Node, String> nodes;
@@ -35,22 +41,16 @@ public class TextMessageOperation implements Operation, Receiver {
     /* Tracks messages in transit and awaiting reply */
     private Map<Integer, Node> messagesInTransit;
 
-    public TextMessageOperation(Server server, LocalNode localNode, Configuration config, String message, List<Node> targetNodes) {
+    private boolean error;
+
+    public RegisterUserOperation(Server server, LocalNode localNode, Configuration config, User user) {
         this.server = server;
         this.config = config;
-
-        this.message = new TextMessage(localNode.getNode(), message);
+        this.localNode = localNode;
+        this.user = user;
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
-
         this.messagesInTransit = new HashMap<>();
-
-        /* Set the local node as already messaged because we don't want to message the local node */
-        nodes.put(localNode.getNode(), MESSAGED);
-        attempts.put(localNode.getNode(), 0);
-
-        /* Add the target nodes to the HashMaps */
-        addNodes(targetNodes);
     }
 
     /**
@@ -60,12 +60,21 @@ public class TextMessageOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
+
+        error = false;
+
+        FindNodeOperation operation = new FindNodeOperation(server, localNode, user.getUserId(), config);
+        operation.execute();
+        addNodes(operation.getClosestNodes());
+
+        message = new StoreUserMessage(localNode.getNode(), user);
+
         try {
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;     // We re-check every n milliseconds
             while (totalTimeWaited < config.getOperationTimeout()) {
-                if (!iterativeMessagesNodes()) {
+                if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
                 } else {
@@ -74,9 +83,21 @@ public class TextMessageOperation implements Operation, Receiver {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-            logger.error("TextMessageOperation was interrupted unexpectedly: {}", e);
+            logger.error("RegisterUserOperation was interrupted unexpectedly: {}", e);
         }
 
+        while (messagesInTransit.size() > 0) {
+            try {
+
+                wait(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        if (error) {
+            throw new UserAccountException("User already exists on the network - terminating");
+        }
     }
 
     /**
@@ -86,7 +107,7 @@ public class TextMessageOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, NOT_MESSAGED);
+                nodes.put(node, NOT_QUERIED);
             }
 
             if (!attempts.containsKey(node)) {
@@ -95,35 +116,42 @@ public class TextMessageOperation implements Operation, Receiver {
         }
     }
 
-    private boolean iterativeMessagesNodes() throws IOException {
+    private boolean iterativeQueryNodes() throws IOException {
         /* Maximum number of messages already in transit */
         if (config.getMaxConcurrency() <= messagesInTransit.size()) {
             return false;
         }
 
-        List<Node> toMessage = new ArrayList<>();
+        List<Node> toQuery= new ArrayList<>();
 
         for (Map.Entry<Node, String> e: nodes.entrySet()) {
-            if (e.getValue().equals(NOT_MESSAGED) || e.getValue().equals(AWAITING_ACK) || e.getValue().equals(FAILED)) {
+            if (e.getValue().equals(NOT_QUERIED) || e.getValue().equals(AWAITING_ACK) || e.getValue().equals(FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
-                    toMessage.add(e.getKey());
+                    toQuery.add(e.getKey());
                 }
             }
         }
 
         /* No not messaged nodes nor any messages in transit - finish */
-        if (toMessage.isEmpty() && messagesInTransit.isEmpty()) {
+        if (toQuery.isEmpty() && messagesInTransit.isEmpty()) {
             return true;
         }
 
         /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
-        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toMessage.size()); i++) {
+        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toQuery.size()); i++) {
 
-            int communicationId = server.sendMessage(toMessage.get(i), message, this);
+            if (toQuery.get(i).equals(localNode.getNode())) {
 
-            nodes.put(toMessage.get(i), AWAITING_ACK);
-            attempts.put(toMessage.get(i), attempts.get(toMessage.get(i)) + 1);
-            messagesInTransit.put(communicationId, toMessage.get(i));
+                localNode.getUsers().addUser(user);
+                nodes.put(toQuery.get(i), QUERIED);
+            } else {
+
+                int communicationId = server.sendMessage(toQuery.get(i), message, this);
+
+                nodes.put(toQuery.get(i), AWAITING_ACK);
+                attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
+                messagesInTransit.put(communicationId, toQuery.get(i));
+            }
         }
         return true;
     }
@@ -134,14 +162,18 @@ public class TextMessageOperation implements Operation, Receiver {
      * @param communicationId
      */
     @Override
-    public synchronized void receive(Message incoming, int communicationId) {
+    public synchronized void receive(Message incoming, int communicationId) throws UserAccountException {
         /* Read the AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
         logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
+        if (msg.getOperationSuccessful() == false) {
+            error = true;
+        }
+
         /* Update the hashmap to show that we've finished messaging this node */
-        nodes.put(msg.getOrigin(), MESSAGED);
+        nodes.put(msg.getOrigin(), QUERIED);
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);

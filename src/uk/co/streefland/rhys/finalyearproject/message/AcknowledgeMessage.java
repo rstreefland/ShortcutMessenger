@@ -12,11 +12,13 @@ import java.io.IOException;
 public class AcknowledgeMessage implements Message {
 
     private Node origin;
+    private boolean operationSuccessful;
 
     public static final byte CODE = 0x01;
 
-    public AcknowledgeMessage(Node origin) {
+    public AcknowledgeMessage(Node origin, boolean operationSuccessful) {
         this.origin = origin;
+        this.operationSuccessful = operationSuccessful;
     }
 
     public AcknowledgeMessage(DataInputStream in) throws IOException {
@@ -26,11 +28,13 @@ public class AcknowledgeMessage implements Message {
     @Override
     public void toStream(DataOutputStream out) throws IOException {
         origin.toStream(out);
+        out.writeBoolean(operationSuccessful);
     }
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
+        operationSuccessful = in.readBoolean();
     }
 
     @Override
@@ -45,5 +49,9 @@ public class AcknowledgeMessage implements Message {
 
     public Node getOrigin() {
         return origin;
+    }
+
+    public boolean getOperationSuccessful() {
+        return operationSuccessful;
     }
 }

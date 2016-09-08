@@ -153,6 +153,10 @@ public class FindNodeOperation implements Operation, Receiver {
         return closestNodes;
     }
 
+    public List<Node> getClosestNodes() {
+        return getClosestNodes(QUERIED);
+    }
+
     /**
      * @return A list of failed nodes
      */
@@ -199,6 +203,8 @@ public class FindNodeOperation implements Operation, Receiver {
 
         /* Add the received nodes to our nodes list to query */
         addNodes(msg.getNodes());
+
+        // TODO: 07/09/2016 ADD THE ITERATIVE QUERY BACK HERE - new nodes need to be queried
     }
 
     /**
@@ -219,5 +225,7 @@ public class FindNodeOperation implements Operation, Receiver {
         nodes.put(n, FAILED);
         localNode.getRoutingTable().setUnresponsiveContact(n);
         messagesInTransit.remove(communicationId);
+
+        // TODO: 07/09/2016 ADD THE ITERATIVE QUERY BACK HERE???????
     }
 }

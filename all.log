@@ -106,3 +106,1666 @@
 2016-09-06 20:47:58.136 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 1
 2016-09-06 20:48:03.912 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
 2016-09-06 20:48:05.448 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-07 15:53:51.121 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 15:53:51.237 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 15:53:51.241 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 15:59:49.353 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 15:59:49.381 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 15:59:49.388 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:00:16.141 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:00:16.173 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:00:16.178 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:00:20.367 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:00:20.368 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode C1BDF09D519068B56F920DA5D7AEF34C7BDB35A0 to node 4319334449F9ED47BB48EEBE97F88036E730A5FF
+2016-09-07 16:00:20.577 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:01:16.265 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:02:16.250 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:02:50.144 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:02:50.171 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:02:50.175 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:02:54.470 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:02:54.471 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 2503C09592E675320B276057A81691B2CE80EDCD to node 8985F073DA61996151DF89EF7B71CA482CFBBE8A
+2016-09-07 16:02:54.649 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:04:19.731 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:04:19.769 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:04:19.774 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:04:24.170 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:04:24.171 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 2AA6DFC4622A3B3C73CF7C42089D5151F9CBF67B to node 7F7EF429725E9322242F3DF63F597611F8846FA8
+2016-09-07 16:04:24.312 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:05:19.905 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:05:43.379 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:05:43.409 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:05:43.414 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:05:48.705 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:05:48.705 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode BE46D240411577BC12F52F083982236E34559F14 to node 4C647A9C48F2DFE7FBDF26BB860019A361E75C78
+2016-09-07 16:05:48.880 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:06:54.821 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:08:00.952 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:09:00.816 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:10:01.785 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:10:01.820 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:10:01.825 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:10:05.770 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:10:05.771 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 80F977B3BDAB9D6C14D734C719DB5B6B0EE12CFC to node A9C5DA6555A47882771E21EA99B770B3FE42E943
+2016-09-07 16:10:05.926 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:11:04.370 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:11:04.409 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:11:04.415 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:12:04.584 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:12:09.197 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:12:09.198 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 1BD1EAC15349C007140FAF3FB78CB8DD202BC60B to node FCFF33901B0FBF4DDF0C7D7B41B658BC14046064
+2016-09-07 16:12:09.471 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:12:36.153 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:12:36.182 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:12:36.188 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:12:44.545 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:12:44.548 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode BD5ACCF87C5020BE3F94F024939B2467547C93E6 to node 8C0A789B848F92C193035222223E50BF240605C6
+2016-09-07 16:13:13.117 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:13:13.140 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:13:13.148 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:13:16.450 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:13:16.451 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 40EC20CFC1960A61893B20E4D3B41FCA23ACBCCF to node FC53CDB950FE45B797CFE7F5FAC41D7F6DCD8E3D
+2016-09-07 16:13:16.586 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:13:47.824 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:13:47.863 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:13:47.868 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:13:53.091 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.035 using port 12345
+2016-09-07 16:13:53.092 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode F3AA0ACA019F98B69ABA9B9B9955EA071C24EA6D to node 93DC61F240BD8041585DEC6CEF7F660DCD783F26
+2016-09-07 16:13:53.224 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:15:04.043 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:16:57.133 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:17:46.862 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:17:46.880 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:17:46.884 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:17:53.488 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
+2016-09-07 16:17:53.490 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode DE925A588BDD87D7464D5C3823C9237F22B62ED2 to node 48505229BC51D240694DD95B94A99077A1E6F579
+2016-09-07 16:17:53.630 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 16:18:46.962 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:19:46.944 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:22:25.369 [Thread-601] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.369 [Thread-602] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.316 [Thread-584] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.442 [Thread-616] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.428 [Thread-611] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.448 [Thread-618] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.369 [Thread-603] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.402 [Thread-605] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.404 [Thread-609] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.368 [Thread-600] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.437 [Thread-615] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.301 [Thread-563] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.282 [Thread-525] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.301 [Thread-564] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.279 [Thread-544] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.477 [Thread-621] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.278 [Thread-483] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.429 [Thread-613] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.290 [Thread-557] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.322 [Thread-589] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.281 [Thread-526] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.233 [Thread-503] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.206 [Thread-514] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.305 [Thread-572] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.244 [Thread-533] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.255 [Thread-537] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.280 [Thread-540] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.302 [Thread-565] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.210 [Thread-510] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.284 [Thread-552] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.280 [Thread-536] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.211 [Thread-509] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.283 [Thread-519] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.405 [Thread-610] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.299 [Thread-558] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.304 [Thread-570] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.265 [Thread-488] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.286 [Thread-523] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.435 [Thread-614] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.488 [Thread-623] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.313 [Thread-582] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.445 [Thread-617] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.429 [Thread-612] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.580 [Thread-635] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.280 [Thread-539] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.279 [Thread-541] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.280 [Thread-542] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.583 [Thread-639] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.583 [Thread-638] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.582 [Thread-637] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.581 [Thread-636] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.579 [Thread-632] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.580 [Thread-634] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.579 [Thread-633] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.576 [Thread-631] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.575 [Thread-630] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.575 [Thread-629] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.205 [Thread-482] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.573 [Thread-628] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.369 [Thread-604] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.279 [Thread-548] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.248 [Thread-534] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.211 [Thread-521] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.243 [Thread-501] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.209 [Thread-513] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.259 [Thread-538] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.277 [Thread-481] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.205 [Thread-515] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.317 [Thread-587] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.301 [Thread-562] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.287 [Thread-553] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.273 [Thread-550] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.210 [Thread-511] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.315 [Thread-585] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.268 [Thread-549] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.287 [Thread-554] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.568 [Thread-627] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.303 [Thread-569] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.277 [Thread-484] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.276 [Thread-486] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.353 [Thread-597] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.265 [Thread-546] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.348 [Thread-593] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.264 [Thread-489] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.347 [Thread-592] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.210 [Thread-512] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.263 [Thread-490] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.288 [Thread-556] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.287 [Thread-555] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.266 [Thread-547] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.262 [Thread-491] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.304 [Thread-571] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.553 [Thread-626] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.234 [Thread-508] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.263 [Thread-545] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.349 [Thread-594] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.261 [Thread-492] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.281 [Thread-532] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.298 [Thread-559] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.261 [Thread-493] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.312 [Thread-581] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.258 [Thread-494] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.252 [Thread-495] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.303 [Thread-566] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.210 [Thread-518] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.301 [Thread-561] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.300 [Thread-560] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.251 [Thread-496] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.249 [Thread-497] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.349 [Thread-595] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.547 [Thread-625] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.321 [Thread-588] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.305 [Thread-574] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.242 [Thread-506] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.249 [Thread-535] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.244 [Thread-500] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.346 [Thread-591] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.241 [Thread-505] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.282 [Thread-527] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.241 [Thread-531] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.239 [Thread-530] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.308 [Thread-579] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.305 [Thread-573] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.236 [Thread-529] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.355 [Thread-598] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.309 [Thread-580] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.345 [Thread-590] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.205 [Thread-516] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.306 [Thread-575] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.303 [Thread-567] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.353 [Thread-596] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.282 [Thread-520] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.277 [Thread-485] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.281 [Thread-528] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.303 [Thread-568] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.345 [Thread-522] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.278 [Thread-551] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.315 [Thread-583] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.279 [Thread-543] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.474 [Thread-620] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.402 [Thread-606] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.368 [Thread-599] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.307 [Thread-577] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.403 [Thread-607] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.403 [Thread-608] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.469 [Thread-619] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.307 [Thread-576] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.315 [Thread-586] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.583 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:22:25.247 [Thread-498] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.267 [Thread-487] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.240 [Thread-502] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.237 [Thread-504] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.282 [Thread-524] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.237 [Thread-507] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.205 [Thread-517] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.245 [Thread-499] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.514 [Thread-624] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.480 [Thread-622] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:22:25.307 [Thread-578] ERROR uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1 - Bucket refresh failed with error: {}
+java.io.IOException: Network is unreachable
+	at java.net.PlainDatagramSocketImpl.send(Native Method) ~[?:1.8.0_74]
+	at java.net.DatagramSocket.send(DatagramSocket.java:693) ~[?:1.8.0_74]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:182) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Server.sendMessage(Server.java:148) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.iterativeQueryNodes(FindNodeOperation.java:127) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation.execute(FindNodeOperation.java:77) ~[finalyearproject/:?]
+	at uk.co.streefland.rhys.finalyearproject.operation.BucketRefreshOperation$1.run(BucketRefreshOperation.java:46) [finalyearproject/:?]
+2016-09-07 16:23:25.264 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:30:33.620 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-07 16:30:33.662 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:30:33.671 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:31:01.330 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 5C8D799CFBEDB8EAFC27AF2861375DB5B8B0D898
+2016-09-07 16:31:11.738 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.StoreUserReceiver - New user added to users: rhys
+2016-09-07 16:31:33.755 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:31:55.706 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.StoreUserReceiver - New user added to users: rhys
+2016-09-07 16:32:33.780 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:33:33.848 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:34:23.321 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Shutting down server
+2016-09-07 16:34:23.437 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Server shut down successfully
+2016-09-07 16:34:50.312 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:34:50.415 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:34:50.415 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:34:50.456 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:34:50.469 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:35:13.396 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.StoreUserReceiver - New user added to users: rhys
+2016-09-07 16:35:24.736 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.StoreUserReceiver - New user added to users: rhys
+2016-09-07 16:35:50.598 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:36:50.580 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:37:50.528 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:38:25.129 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:38:25.219 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:38:25.221 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:38:25.246 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:38:25.252 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:39:02.446 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 16:39:48.143 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:39:48.287 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:39:48.288 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:39:48.334 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:39:48.341 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:40:22.076 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 16:41:11.041 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:41:11.166 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:41:11.166 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:41:11.216 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:41:11.227 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:42:02.660 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 16:42:10.118 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:42:10.247 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:42:10.248 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:42:10.287 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:42:10.294 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:42:25.021 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 16:43:21.679 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 16:43:35.957 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:44:03.297 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:44:03.377 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:44:03.378 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:44:03.392 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:44:03.397 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:44:10.857 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 16:44:22.138 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 16:45:03.669 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:46:03.554 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:46:17.699 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:46:17.850 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:46:17.852 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:46:17.890 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:46:17.896 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:46:26.400 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 16:46:31.632 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 16:47:18.122 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 16:47:40.925 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 16:47:41.099 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 16:47:41.100 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 16:47:41.114 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 16:47:41.117 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 16:47:51.166 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 16:47:56.655 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 18:57:32.960 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 18:57:33.122 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 18:57:33.123 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 18:57:33.148 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 18:57:33.154 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 18:57:51.653 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 18:57:56.651 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 18:58:33.284 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 18:59:33.232 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:00:33.279 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:01:33.266 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:02:33.244 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:03:33.259 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:07:08.352 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:07:08.478 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:07:08.478 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:07:08.517 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:07:08.531 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:07:23.351 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:07:34.854 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: gareth
+2016-09-07 19:07:47.086 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:08:08.671 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:08:12.637 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: hjjg''''
+2016-09-07 19:08:14.528 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: 
+2016-09-07 19:08:22.746 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:09:08.625 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:10:08.608 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:11:08.659 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:12:08.626 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:12:52.818 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:12:52.895 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:12:52.895 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:12:52.914 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:12:52.918 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:13:02.724 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:13:09.923 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:13:53.075 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:14:53.066 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:15:52.988 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:16:53.012 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:17:52.964 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:18:52.995 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:24:02.157 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:24:02.265 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:24:02.266 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:24:02.283 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:24:02.294 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:24:12.635 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:24:21.316 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:24:33.842 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:25:02.446 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:25:30.098 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:25:30.158 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:25:30.159 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:25:30.174 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:25:30.178 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:25:37.375 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:25:43.575 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:26:30.334 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:27:11.338 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:27:11.451 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:27:11.451 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:27:11.463 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:27:11.468 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:27:21.119 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:28:11.655 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:28:40.872 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:28:40.934 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:28:40.935 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:28:40.947 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:28:40.951 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:28:47.697 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:29:34.605 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:29:34.719 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:29:34.720 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:29:34.730 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:29:34.735 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:29:44.472 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:30:10.200 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:30:35.004 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:31:34.847 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:32:34.826 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:33:34.829 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed

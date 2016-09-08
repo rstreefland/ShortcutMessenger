@@ -3,10 +3,10 @@
     <output-path>$PROJECT_DIR$/out/artifacts/finalyearproject_jar</output-path>
     <root id="archive" name="finalyearproject.jar">
       <element id="module-output" name="finalyearproject" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-slf4j-impl-2.6.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-core-2.6.2.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-api-2.6.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-slf4j-impl-2.6.2.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/lib/slf4j-api-1.7.21.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/log4j-api-2.6.2.jar" path-in-jar="/" />
     </root>
   </artifact>
 </component>

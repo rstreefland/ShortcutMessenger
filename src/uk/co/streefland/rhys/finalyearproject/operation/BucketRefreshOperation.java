@@ -45,7 +45,7 @@ public class BucketRefreshOperation implements Operation {
                     try {
                         new FindNodeOperation(server, localNode, current, config).execute();
                     } catch (IOException e) {
-                        logger.error("Bucket refresh failed with error: {}", e);
+                        logger.error("Bucket refresh failed with error:", e);
                     }
                 }
             }.start();

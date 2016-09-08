@@ -42,7 +42,7 @@ public class ConnectReceiver implements Receiver {
         logger.debug("New routing table: \n {}", localNode.getRoutingTable().toString());
 
         /* Create the AcknowledgeMessage */
-        AcknowledgeMessage msg = new AcknowledgeMessage(localNode.getNode());
+        AcknowledgeMessage msg = new AcknowledgeMessage(localNode.getNode(), true);
 
         /* Reply to the origin with the AcknowledgeMessage */
         server.reply(message.getOrigin(), msg, communicationId);

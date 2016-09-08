@@ -1,4 +1,21 @@
-2016-09-06 20:48:23.895 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
-2016-09-06 20:48:23.926 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
-2016-09-06 20:48:23.926 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeTest - Printing routing table
-2016-09-06 20:48:23.958 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:29:39.788 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-07 19:29:40.272 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-07 19:29:40.288 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-07 19:29:40.288 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-07 19:29:40.303 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-07 19:29:40.334 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-07 19:29:44.656 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-07 19:29:44.656 [main] WARN  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - IM HERE
+2016-09-07 19:29:46.824 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-07 19:30:10.395 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-07 19:30:10.395 [main] WARN  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - IM HERE
+2016-09-07 19:30:11.924 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-07 19:30:11.924 [main] ERROR uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - USER account already exists on network
+uk.co.streefland.rhys.finalyearproject.exceptions.UserAccountException: User already exists on the network - terminating
+	at uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation.execute(RegisterUserOperation.java:99) ~[finalyearproject.jar:?]
+	at uk.co.streefland.rhys.finalyearproject.main.Users.registerUser(Users.java:45) ~[finalyearproject.jar:?]
+	at uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest.main(RemoteNodeAndUserTest.java:81) [finalyearproject.jar:?]
+2016-09-07 19:30:40.346 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:31:40.451 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:32:40.401 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-07 19:33:40.412 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
