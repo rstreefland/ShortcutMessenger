@@ -6,7 +6,7 @@ package uk.co.streefland.rhys.finalyearproject.main;
 public class Configuration {
 
     /* Constants */
-    private final int K = 20; // maximum number of contacts per bucket
+    private final int K = 5; // maximum number of contacts per bucket (kademlia specifies 20 but I'm sticking with 5 for now because it's better to test for a small network)
     private final int MAX_CONCURRENCY = 3; // maximum number of concurrent connection
     private final int PACKET_SIZE = 64 * 1024;  // maximum UDP packet size = 64KB
     private final String filePath = "savedstate.ser";
@@ -14,8 +14,8 @@ public class Configuration {
     /* Settings the program can change if needs be */
     private int port = 12345;
     private int maxConnectionAttempts = 5;
-    private long operationTimeout = 2000;  // timeout for operation completion
-    private long responseTimeout = 2000; // timeout waiting for response
+    private long operationTimeout = 2000;  // timeout for operation completion (2 seconds)
+    private long responseTimeout = 2000; // timeout waiting for response (2 seconds)
     private long refreshInterval = 60 * 1000; // refresh interval in milliseconds
 
     public int getK() {

@@ -29,16 +29,14 @@ public class TextReceiver implements Receiver {
     public void receive(Message incoming, int communicationId) throws IOException {
         TextMessage msg = (TextMessage) incoming;
 
-        Node origin = msg.getOrigin();
-
-        System.out.println("Message received from " + origin.getSocketAddress().getHostName() + " : " + msg.getMessage());
+        System.out.println("Message received:" + msg.getMessage());
 
         /* Create the AcknowledgeMessage */
         Message ack = new AcknowledgeMessage(localNode.getNode(), true);
 
         /* The server sends the reply */
         if (server.isRunning()) {
-            server.reply(origin, ack, communicationId);
+            server.reply(msg.getOrigin(), ack, communicationId);
     }
 }
 

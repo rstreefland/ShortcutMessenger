@@ -1,11 +1,80 @@
-2016-09-08 16:04:39.730 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
-2016-09-08 16:04:39.948 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
-2016-09-08 16:04:39.949 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
-2016-09-08 16:04:39.977 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
-2016-09-08 16:04:40.030 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
-2016-09-08 16:05:00.840 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
-2016-09-08 16:05:21.100 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 02F66F41D8C9ABEC6FA0F697AECBC39A7FFBDF13
-2016-09-08 16:05:35.631 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
-2016-09-08 16:05:40.117 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 16:06:30.319 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: testtest
-2016-09-08 16:06:40.121 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:01:56.201 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state found - attempting to read 
+2016-09-08 18:01:56.297 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Local node read successfully
+2016-09-08 18:01:56.311 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Routing table read successfully
+2016-09-08 18:01:56.321 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-08 18:01:56.327 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-08 18:02:56.412 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:02:57.731 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
+2016-09-08 18:03:04.288 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: kljesf
+2016-09-08 18:03:07.247 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sdflj
+2016-09-08 18:03:09.900 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sd,f,n
+2016-09-08 18:03:12.571 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sdfklj
+2016-09-08 18:03:16.835 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: kj
+2016-09-08 18:03:29.679 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: hg
+2016-09-08 18:03:40.402 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: iyf
+2016-09-08 18:03:43.072 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: kyjug#
+2016-09-08 18:03:56.395 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:04:56.477 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:05:56.409 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:06:56.392 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:07:56.410 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:08:56.376 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:09:56.383 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:10:56.386 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:11:56.393 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 18:12:17.167 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:17.241 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:17.269 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:18.775 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:18.780 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:18.794 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:19.724 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:19.732 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:19.777 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:21.860 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:21.863 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:21.873 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:23.172 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:23.177 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:23.181 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:25.900 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:25.907 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:25.909 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:29.427 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:29.432 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:29.442 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:32.339 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:32.343 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:32.366 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:33.813 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:33.825 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:33.862 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:35.331 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:35.335 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:35.364 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:36.724 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:36.731 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:36.749 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:37.820 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:37.826 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:37.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:38.707 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:38.713 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:38.723 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:39.596 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:39.610 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:39.648 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:40.428 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:40.432 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:40.456 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:41.492 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:41.499 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:41.501 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:42.355 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:42.359 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:42.364 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:43.332 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Sending message to specified nodes
+2016-09-08 18:12:43.336 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-08 18:12:43.422 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-08 18:12:44.683 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Shutting down server
+2016-09-08 18:12:44.721 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Server shut down successfully

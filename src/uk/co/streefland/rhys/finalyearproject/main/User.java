@@ -55,6 +55,12 @@ public class User implements Serializable, Streamable {
         out.write(passwordHash);
 
         out.write(passwordSalt);
+
+        out.writeInt(associatedNodes.size());
+
+        for (Node node : associatedNodes) {
+            node.toStream(out);
+        }
     }
 
     @Override
@@ -66,10 +72,16 @@ public class User implements Serializable, Streamable {
         userName = in.readUTF();
 
         passwordHash = new byte[16];
-        in.read(passwordHash);
+        in.readFully(passwordHash);
 
         passwordSalt = new byte[16];
-        in.read(passwordHash);
+        in.readFully(passwordHash);
+
+        int associatedNodesSize = in.readInt();
+
+        for (int i = 0; i < associatedNodesSize; i++) {
+            associatedNodes.add(new Node(in));
+        }
     }
 
     private byte[] generateSalt() {

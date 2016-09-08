@@ -31,11 +31,19 @@ public class Server {
     private final Map<Integer, Receiver> receivers = new HashMap<>();
     private boolean isRunning = true;
 
+    private byte[] buffer;
+    DatagramPacket packet;
+    ByteArrayInputStream bin;
+    DataInputStream din;
+
     public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
         this.localNode = localNode;
         this.messageHandler = messageHandler;
+
+        buffer = new byte[config.getPacketSize()];
+        packet = new DatagramPacket(buffer, buffer.length);
 
         /* Start listening for incoming requests in a new thread */
         startListener();
@@ -62,52 +70,50 @@ public class Server {
         while (isRunning == true) {
             try {
                 /* Wait for a packet*/
-                byte[] buffer = new byte[config.getPacketSize()];
-                DatagramPacket packet = new DatagramPacket(buffer, buffer.length);
                 socket.receive(packet);
 
                 /* Handle the received packet */
-                try (ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
-                     DataInputStream din = new DataInputStream(bin)) {
+                bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
+                din = new DataInputStream(bin);
 
                     /* Read the communicationId and messageCode */
-                    int communicationId = din.readInt();
-                    byte messageCode = din.readByte();
+                int communicationId = din.readInt();
+                byte messageCode = din.readByte();
 
-                    logger.debug("Incoming message code is {}", messageCode);
+                logger.debug("Incoming message code is {}", messageCode);
 
-                    /* Create the message and close the input stream */
-                    Message msg = messageHandler.createMessage(messageCode, din);
-                    din.close();
+                /* Create the message and close the input stream */
+                Message msg = messageHandler.createMessage(messageCode, din);
+                din.close();
 
-                    /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
-                    if (packet.getSocketAddress().equals(msg.getOrigin().getSocketAddress())) {
+                /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
+                if (packet.getSocketAddress().equals(msg.getOrigin().getSocketAddress())) {
 
-                        /* Check if a receiver already exists and create one if not */
-                        Receiver receiver;
-                        if (receivers.containsKey(communicationId)) {
+                    /* Check if a receiver already exists and create one if not */
+                    Receiver receiver;
+                    if (receivers.containsKey(communicationId)) {
                         /* If there is a receiver in the receivers list to handle this */
-                            synchronized (this) {
-                                receiver = receivers.remove(communicationId);
-                                TimerTask task = tasks.remove(communicationId);
-                                if (task != null) {
-                                    task.cancel();
-                                }
+                        synchronized (this) {
+                            receiver = receivers.remove(communicationId);
+                            TimerTask task = tasks.remove(communicationId);
+                            if (task != null) {
+                                task.cancel();
                             }
-                        } else {
-                        /* There is currently no receivers, try to get one */
-                            logger.debug("No receiver exists, creating one using code {}", messageCode);
-                            receiver = messageHandler.createReceiver(messageCode, this);
-                        }
-
-                        /* Invoke the receiver */
-                        if (receiver != null) {
-                            receiver.receive(msg, communicationId);
                         }
                     } else {
-                        logger.debug("Remote node has IP address mismatch - ignoring message");
+                        /* There is currently no receivers, try to get one */
+                        logger.debug("No receiver exists, creating one using code {}", messageCode);
+                        receiver = messageHandler.createReceiver(messageCode, this);
                     }
+
+                    /* Invoke the receiver */
+                    if (receiver != null) {
+                        receiver.receive(msg, communicationId);
+                    }
+                } else {
+                    logger.debug("Remote node has IP address mismatch - ignoring message");
                 }
+
             } catch (IOException e) {
                 if (isRunning == true) {
                     logger.error("The listener thread encountered an error:", e);
@@ -163,7 +169,7 @@ public class Server {
         ByteArrayOutputStream bout = new ByteArrayOutputStream();
         DataOutputStream dout = new DataOutputStream(bout);
 
-            /* Setup the message for transmission */
+        /* Setup the message for transmission */
         dout.writeInt(communicationId);
         dout.writeByte(msg.getCode());
         msg.toStream(dout);
