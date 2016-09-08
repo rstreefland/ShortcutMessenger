@@ -7,11 +7,14 @@ import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
+import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * UDP server that handles sending and receiving messages as UDP packets between nodes on the network
@@ -32,9 +35,10 @@ public class Server {
     private boolean isRunning = true;
 
     private byte[] buffer;
-    DatagramPacket packet;
-    ByteArrayInputStream bin;
-    DataInputStream din;
+    private DatagramPacket packet;
+    private ByteArrayInputStream bin;
+    private DataInputStream din;
+    //private ExecutorService pool;
 
     public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
         this.config = config;
@@ -44,6 +48,7 @@ public class Server {
 
         buffer = new byte[config.getPacketSize()];
         packet = new DatagramPacket(buffer, buffer.length);
+        //pool = Executors.newFixedThreadPool(10);
 
         /* Start listening for incoming requests in a new thread */
         startListener();
@@ -113,7 +118,6 @@ public class Server {
                 } else {
                     logger.debug("Remote node has IP address mismatch - ignoring message");
                 }
-
             } catch (IOException e) {
                 if (isRunning == true) {
                     logger.error("The listener thread encountered an error:", e);

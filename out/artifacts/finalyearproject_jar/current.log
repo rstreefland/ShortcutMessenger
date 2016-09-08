@@ -1,40 +1,20 @@
-2016-09-08 18:02:31.958 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
-2016-09-08 18:02:32.005 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
-2016-09-08 18:02:32.021 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
-2016-09-08 18:02:39.987 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.35 using port 12345
-2016-09-08 18:02:40.002 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode 4BD3219DA50853DCDF022C508D065B34924449C8 to node 17F8F2D77F06E2793DE68A81BB2C7FD9535E5DCF
-2016-09-08 18:02:40.210 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
-2016-09-08 18:02:59.738 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:00.307 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:00.323 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: rhys
-2016-09-08 18:03:05.370 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:05.386 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:05.856 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: kljesf
-2016-09-08 18:03:08.324 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:08.342 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:08.824 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sdflj
-2016-09-08 18:03:10.983 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:10.998 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:11.468 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sd,f,n
-2016-09-08 18:03:13.660 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:13.676 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:14.152 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sdfklj
-2016-09-08 18:03:17.909 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:17.925 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:18.413 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: kj
-2016-09-08 18:03:31.616 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:31.722 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:32.061 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 18:03:32.132 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: hg
-2016-09-08 18:03:41.469 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:41.500 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:41.974 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: iyf
-2016-09-08 18:03:44.139 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 18:03:44.154 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-08 18:03:44.651 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: kyjug#
-2016-09-08 18:04:32.045 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 18:05:32.060 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 18:06:32.065 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 18:07:32.073 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 18:08:32.099 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 18:09:32.077 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 20:22:56.343 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
+2016-09-08 20:22:56.375 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
+2016-09-08 20:22:56.390 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
+2016-09-08 20:23:00.820 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.21 using port 12345
+2016-09-08 20:23:00.820 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode F7DFBEDDAFA0DBCE30138A6E9DBC508913615A48 to node B7C12932EFAFA05007CF1F94EC2F10DE25EC0F8E
+2016-09-08 20:23:02.880 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-08 20:23:10.352 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-08 20:23:10.352 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sd
+2016-09-08 20:23:16.623 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-08 20:23:16.623 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: ada
+2016-09-08 20:23:52.190 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-08 20:23:52.206 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
+2016-09-08 20:23:56.386 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-08 20:23:56.433 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-08 20:24:00.255 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-08 20:24:01.784 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-08 20:24:14.154 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 2B67090803383FFED20F59B7F6D7D0B41CAC92F8
+2016-09-08 20:24:21.424 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: khgyufki
+2016-09-08 20:24:25.339 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: hdtyh
+2016-09-08 20:24:30.035 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: khgyjufj

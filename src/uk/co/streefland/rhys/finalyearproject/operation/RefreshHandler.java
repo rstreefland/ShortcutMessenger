@@ -33,7 +33,15 @@ public class RefreshHandler extends TimerTask {
             new BucketRefreshOperation(server, localNode, config).execute();
             logger.info("Routing table was refreshed");
         } catch (IOException e) {
-            logger.error("Routing table refresh failed: {}", e);
+            logger.error("Routing table refresh failed:", e);
+        }
+
+        /* Run UserRefreshOperation to refresh the user database */
+        try {
+            new UserRefreshOperation(server, localNode, config).execute();
+            logger.info("User database was refreshed");
+        } catch (IOException e) {
+            logger.error("User database refresh failed:", e);
         }
 
         // TODO: 02/09/2016  we'll need to refresh any data stored in the DHT as well once that functionality has been implemented

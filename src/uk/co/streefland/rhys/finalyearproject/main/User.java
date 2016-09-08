@@ -79,6 +79,8 @@ public class User implements Serializable, Streamable {
 
         int associatedNodesSize = in.readInt();
 
+        associatedNodes = new ArrayList<>();
+
         for (int i = 0; i < associatedNodesSize; i++) {
             associatedNodes.add(new Node(in));
         }
