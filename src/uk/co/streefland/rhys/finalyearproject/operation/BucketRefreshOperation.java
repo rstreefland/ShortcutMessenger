@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
-import uk.co.streefland.rhys.finalyearproject.core.User;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
 import java.io.IOException;
 
@@ -33,17 +33,18 @@ public class BucketRefreshOperation implements Operation {
      */
     @Override
     public synchronized void execute() throws IOException {
+        for (int i = 1; i < KeyId.ID_LENGTH; i++) {
+            /* Generate a KeyId that is n bits away from the current nodeId */
+            final KeyId current = localNode.getNode().getNodeId().generateNodeIdUsingDistance(i);
 
-        for (User currentUser : localNode.getUsers().getUsers()) {
-            /* Run RegisterUserOperation in a different thread */
+            /* Run FindNodeOperation in a different thread */
             new Thread() {
                 @Override
                 public void run() {
                     try {
-                        new RegisterUserOperation(server, localNode, config, currentUser).execute();
-
+                        new FindNodeOperation(server, localNode, current, config).execute();
                     } catch (IOException e) {
-                        logger.error("User refresh failed with error:", e);
+                        logger.error("Bucket refresh failed with error:", e);
                     }
                 }
             }.start();

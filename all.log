@@ -16270,3 +16270,295 @@ java.io.IOException: Host is down
 2016-09-09 19:24:24.254 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
 2016-09-09 19:24:24.310 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
 2016-09-09 19:24:24.376 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:30:42.569 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 3
+2016-09-09 19:30:42.572 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-09 19:30:42.640 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-09 19:30:42.640 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-09 19:30:42.652 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-09 19:30:42.657 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-09 19:30:48.489 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:31:16.341 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-09 19:31:23.459 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: uog
+2016-09-09 19:31:29.731 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:31:29.781 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:31:42.673 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:31:42.809 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:31:42.822 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:31:42.829 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:32:42.659 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:32:42.726 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:32:42.788 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:32:42.790 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:33:30.266 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: 2
+2016-09-09 19:33:42.659 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:33:42.703 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:33:42.707 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:33:42.711 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:33:42.715 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:33:42.717 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:33:42.721 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:33:42.756 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:34:22.020 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-09-09 19:34:42.661 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:34:42.675 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:34:42.677 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:34:42.680 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:34:42.683 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:34:42.706 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:34:42.707 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:34:42.710 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:34:42.712 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:34:42.737 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:35:10.129 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:10.153 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:10.181 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:11.553 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:11.563 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:11.569 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:12.514 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:12.521 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:12.523 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:12.863 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:12.870 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:12.885 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:13.105 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:13.109 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:13.126 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:13.373 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:13.378 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:13.407 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:13.593 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:13.596 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:13.629 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:13.833 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:13.837 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:13.840 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:14.057 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:14.063 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:14.067 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:14.304 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:14.339 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:14.536 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:14.546 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:14.777 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:14.808 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:15.008 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:15.028 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:15.208 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:15.236 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:15.400 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:15.423 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:15.626 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:15.665 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:17.432 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:20.208 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:20.214 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:20.220 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:20.424 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:20.433 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:20.436 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:20.681 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:20.684 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:20.780 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:20.928 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:20.934 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:20.941 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:21.153 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:21.157 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:21.181 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:21.372 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:21.378 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:21.391 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:21.617 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:21.622 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:21.625 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:21.834 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:21.842 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:21.843 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:22.051 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:22.060 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:22.080 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:22.280 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:22.290 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:22.291 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:22.498 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:22.507 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:22.509 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:22.710 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:22.717 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:22.723 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:22.960 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:22.965 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:22.992 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:23.122 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:23.126 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:23.133 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:23.504 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:23.508 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:23.513 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:23.848 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:23.853 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:23.857 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:24.147 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:24.153 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:24.155 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:24.362 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:24.371 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:24.373 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:24.656 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:24.662 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:24.665 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:24.921 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:24.925 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:24.931 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:25.160 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:25.164 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:25.197 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:25.352 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:25.356 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:25.395 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:25.568 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:25.573 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:25.584 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:25.825 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:25.828 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:25.837 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:26.080 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:26.084 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:26.098 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:26.336 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:26.339 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:26.365 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:26.586 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:26.590 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:26.601 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:26.872 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:26.875 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:26.887 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:27.144 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:27.147 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:27.190 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:27.444 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:27.447 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:27.461 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:27.690 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:27.693 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:27.772 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:27.960 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:27.964 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:27.967 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:28.265 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:28.268 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:28.271 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:28.569 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:28.574 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:28.578 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:28.840 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:28.844 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:28.849 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:29.128 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:29.131 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:29.146 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:29.434 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:29.437 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:29.443 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:29.696 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:29.700 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:29.719 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:30.040 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:30.043 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:30.053 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:30.337 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:30.340 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:30.348 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:30.600 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:30.603 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:30.610 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:30.928 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:30.931 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:30.984 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:31.168 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:31.171 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:31.196 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:31.352 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:31.355 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:31.385 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:31.594 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:31.598 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:31.616 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:31.885 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:31.889 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:31.900 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:32.193 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:32.196 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:32.253 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:32.512 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:32.516 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:32.519 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:32.801 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:32.805 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:32.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:33.080 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:33.083 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:33.090 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:33.611 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:33.616 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:33.625 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:33.906 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:33.910 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:33.917 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:34.224 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:34.228 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:34.252 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:34.536 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:34.539 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:34.557 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:34.840 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:34.843 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:34.845 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:35.128 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:35.132 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:35.137 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:35.400 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:35.403 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:35.436 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:35.664 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:35.668 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:35.682 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:35.929 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:35.934 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:35.940 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:36.195 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:36.200 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:36.222 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:36.528 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:36.533 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:36.555 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:36.848 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:36.853 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:36.861 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:37.153 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:37.157 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:37.161 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:37.432 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:37.436 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:37.451 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:37.689 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:37.692 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:37.707 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:38.000 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:38.003 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:38.013 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:38.364 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:35:38.367 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:38.387 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:42.661 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:35:42.689 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:42.690 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:42.692 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:42.693 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:35:42.706 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:42.707 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:35:42.709 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:42.711 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35
+2016-09-09 19:35:42.712 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.35

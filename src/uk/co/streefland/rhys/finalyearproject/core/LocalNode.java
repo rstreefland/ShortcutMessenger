@@ -22,7 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "2";
+    public static final String BUILD_NUMBER = "5";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
