@@ -1,6 +1,28 @@
-2016-09-09 17:40:35.956 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
-2016-09-09 17:40:36.026 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
-2016-09-09 17:40:36.028 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
-2016-09-09 17:40:36.060 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-09-09 17:40:36.064 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-09-09 17:41:13.055 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 4E16BC190DCE7366FDAF7D8744F11EDE9D0D7828 to node 47F92EDE6010EE616A1B6F48D4F9C9FE66655CB4
+2016-09-09 19:20:24.117 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 2
+2016-09-09 19:20:24.120 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-09 19:20:24.210 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-09 19:20:24.211 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-09 19:20:24.231 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-09 19:20:24.239 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-09 19:21:24.252 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:21:24.307 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:22:24.249 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:22:24.284 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:22:38.542 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 270A9ED102F9EAF26F218982331F1863631ECD7D
+2016-09-09 19:22:53.404 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-09 19:23:13.946 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:23:14.031 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:23:15.038 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:23:15.098 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:23:16.013 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:23:16.053 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:23:18.236 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:23:18.312 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:23:19.101 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:23:19.184 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.0.20
+2016-09-09 19:23:24.255 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:23:24.298 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:23:24.434 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20
+2016-09-09 19:24:24.254 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:24:24.310 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:24:24.376 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.0.20

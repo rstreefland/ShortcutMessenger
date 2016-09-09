@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.cli;
 
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
@@ -77,16 +78,35 @@ public class Main {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             if (error) {
                 System.out.println("Could not bootstrap to the specified IP - please try again\n");
             }
-
         } while (error);
     }
 
     private static void register() {
 
+        boolean error = false;
+
+        do {
+            System.out.println("Please enter a username:");
+            String username = sc.nextLine();
+
+            System.out.println("Please enter a password:");
+            String password = sc.nextLine();
+
+            User user = new User(username, password);
+
+            try {
+                error = (localNode.getUsers().registerUser(user));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (error) {
+                System.out.println("User already exists - please choose a different username\n");
+            }
+        } while (error);
     }
 
     private static void login() {
@@ -95,10 +115,18 @@ public class Main {
 
     private static void broadcast() {
 
+        System.out.println("Please enter a message to broadcast:");
+        String message = sc.nextLine();
+
+        try {
+            localNode.message(message, localNode.getRoutingTable().getAllNodes());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void routingTable() {
-
+        System.out.println(localNode.getRoutingTable());
     }
 
     private static void exit() {

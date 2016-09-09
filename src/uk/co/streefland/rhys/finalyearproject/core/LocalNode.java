@@ -22,6 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
+    public static final String BUILD_NUMBER = "2";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -45,6 +46,7 @@ public class LocalNode {
      * @throws IOException
      */
     public LocalNode(String localIp) throws IOException {
+        logger.info("FinalYearProject build " + BUILD_NUMBER);
 
         this.config = new Configuration();
         this.storageHandler = new StorageHandler(config);
@@ -69,6 +71,7 @@ public class LocalNode {
      * @throws IOException
      */
     public LocalNode(KeyId defaultId, int port) throws IOException {
+        logger.info("FinalYearProject build " + BUILD_NUMBER);
 
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
         this.config = new Configuration();
