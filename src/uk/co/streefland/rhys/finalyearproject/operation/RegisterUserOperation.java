@@ -2,7 +2,10 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.main.*;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.Server;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
@@ -204,7 +207,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         messagesInTransit.remove(communicationId);
     }
 
-    public boolean isError() {
+    public synchronized boolean isError() {
         return error;
     }
 }

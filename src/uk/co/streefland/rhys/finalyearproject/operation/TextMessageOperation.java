@@ -2,15 +2,20 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
-import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.main.Server;
-import uk.co.streefland.rhys.finalyearproject.message.*;
-import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.Server;
+import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Rhys on 03/09/2016.

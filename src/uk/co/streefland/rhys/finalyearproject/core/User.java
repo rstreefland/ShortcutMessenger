@@ -1,5 +1,7 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.Streamable;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
@@ -10,18 +12,21 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
-import java.net.InetAddress;
-import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created by Rhys on 07/09/2016.
  */
 public class User implements Serializable, Streamable {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private KeyId userId;
     private String userName;
@@ -110,7 +115,7 @@ public class User implements Serializable, Streamable {
 
         long end = System.currentTimeMillis();
         long difference = end-start;
-        System.out.println("Hashing password took: " + difference + "ms");
+        logger.debug("Hashing password took: " + difference + "ms");
         return passwordHash;
     }
 

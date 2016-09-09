@@ -1,4 +1,4 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,14 +7,11 @@ import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
-import javax.xml.crypto.Data;
 import java.io.*;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * UDP server that handles sending and receiving messages as UDP packets between nodes on the network
@@ -38,7 +35,8 @@ public class Server {
     private DatagramPacket packet;
     private ByteArrayInputStream bin;
     private DataInputStream din;
-    //private ExecutorService pool;
+    private int communicationId;
+    private byte messageCode;
 
     public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
         this.config = config;
@@ -48,7 +46,6 @@ public class Server {
 
         buffer = new byte[config.getPacketSize()];
         packet = new DatagramPacket(buffer, buffer.length);
-        //pool = Executors.newFixedThreadPool(10);
 
         /* Start listening for incoming requests in a new thread */
         startListener();
@@ -81,9 +78,9 @@ public class Server {
                 bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
                 din = new DataInputStream(bin);
 
-                    /* Read the communicationId and messageCode */
-                int communicationId = din.readInt();
-                byte messageCode = din.readByte();
+                /* Read the communicationId and messageCode */
+                communicationId = din.readInt();
+                messageCode = din.readByte();
 
                 logger.debug("Incoming message code is {}", messageCode);
 

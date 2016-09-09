@@ -1,6 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.test;
 
-import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
 import java.io.IOException;

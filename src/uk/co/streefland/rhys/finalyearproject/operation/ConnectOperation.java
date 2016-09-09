@@ -2,10 +2,9 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.exceptions.BootstrapException;
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
-import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.main.Server;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.ConnectMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
@@ -64,9 +63,10 @@ public class ConnectOperation implements Operation, Receiver {
                     break;
                 }
             }
+
+            /* Replaced the exception because we don't need unnecessary exceptions */
             if (error) {
-                /* If we still haven't received any responses by then, timeout with error */
-                throw new BootstrapException("ConnectOperation: target node did not respond within the configured time period : " + bootstrapNode);
+                return;
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
@@ -119,5 +119,9 @@ public class ConnectOperation implements Operation, Receiver {
             /* Do nothing, wake up any waiting thread */
             notify();
         }
+    }
+
+    public synchronized boolean isError() {
+        return error;
     }
 }

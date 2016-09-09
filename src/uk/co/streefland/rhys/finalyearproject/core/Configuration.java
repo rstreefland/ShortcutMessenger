@@ -1,4 +1,4 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.core;
 
 /**
  * Stores the configuration constants and variables for the other classes

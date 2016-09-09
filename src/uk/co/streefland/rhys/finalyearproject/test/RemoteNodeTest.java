@@ -2,9 +2,8 @@ package uk.co.streefland.rhys.finalyearproject.test;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.exceptions.BootstrapException;
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
-import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
@@ -75,8 +74,7 @@ public class RemoteNodeTest {
 
             localNode.shutdown();
 
-        } catch (BootstrapException e) {
-            e.printStackTrace();
+
         } catch (IOException e) {
             e.printStackTrace();
         }

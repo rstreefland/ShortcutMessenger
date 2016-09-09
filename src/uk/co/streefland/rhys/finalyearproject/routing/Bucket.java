@@ -1,6 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.routing;
 
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.Serializable;
@@ -20,7 +20,7 @@ public class Bucket implements Serializable {
     /* Contacts stored in this bucket */
     private TreeSet<Contact> contacts = new TreeSet<>();
 
-    /* A set of recently seen contacts that can replace any contact that is unresponsive in the main set */
+    /* A set of recently seen contacts that can replace any contact that is unresponsive in the core set */
     private TreeSet<Contact> replacementCache = new TreeSet<>();
 
     private transient Configuration config;

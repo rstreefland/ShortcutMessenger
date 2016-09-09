@@ -1,6 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
-import uk.co.streefland.rhys.finalyearproject.main.User;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;

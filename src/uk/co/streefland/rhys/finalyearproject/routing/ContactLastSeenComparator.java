@@ -1,7 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.routing;
 
-import uk.co.streefland.rhys.finalyearproject.routing.Contact;
-
 import java.util.Comparator;
 
 /**

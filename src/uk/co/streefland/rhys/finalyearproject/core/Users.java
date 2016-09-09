@@ -1,23 +1,12 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import sun.jvm.hotspot.asm.Register;
-import uk.co.streefland.rhys.finalyearproject.node.KeyId;
-import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
 import java.io.IOException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Created by Rhys on 07/09/2016.
@@ -58,7 +47,7 @@ public class Users {
     public boolean addUser(User newUser) {
         for (User user: users) {
             if (user.getUserName().equals(newUser.getUserName())) {
-                logger.info("User with the same name exists - discarding");
+                logger.debug("User with the same name exists - discarding");
                 return false;
             }
         }

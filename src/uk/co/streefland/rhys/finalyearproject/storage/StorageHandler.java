@@ -1,6 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.storage;
 
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 

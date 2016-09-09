@@ -2,7 +2,6 @@ package uk.co.streefland.rhys.finalyearproject.message;
 
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
-import java.io.DataInput;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;

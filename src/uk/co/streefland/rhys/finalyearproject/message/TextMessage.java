@@ -2,7 +2,9 @@ package uk.co.streefland.rhys.finalyearproject.message;
 
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
-import java.io.*;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
 
 /**
  * A simple broadcast message - for testing purposes only

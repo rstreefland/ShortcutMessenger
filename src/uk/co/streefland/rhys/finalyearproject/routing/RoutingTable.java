@@ -1,9 +1,9 @@
 package uk.co.streefland.rhys.finalyearproject.routing;
 
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
-import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.Serializable;
 import java.util.ArrayList;

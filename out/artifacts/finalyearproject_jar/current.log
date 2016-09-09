@@ -1,20 +1,104 @@
-2016-09-08 20:22:56.343 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Saved state not found
-2016-09-08 20:22:56.375 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Starting server
-2016-09-08 20:22:56.390 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Server - Server is listening on port 12345
-2016-09-08 20:23:00.820 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.21 using port 12345
-2016-09-08 20:23:00.820 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.LocalNode - Bootstrapping localnode F7DFBEDDAFA0DBCE30138A6E9DBC508913615A48 to node B7C12932EFAFA05007CF1F94EC2F10DE25EC0F8E
-2016-09-08 20:23:02.880 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
-2016-09-08 20:23:10.352 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 20:23:10.352 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: sd
-2016-09-08 20:23:16.623 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 20:23:16.623 [main] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: ada
-2016-09-08 20:23:52.190 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
-2016-09-08 20:23:52.206 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - User with the same name exists - discarding
-2016-09-08 20:23:56.386 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-08 20:23:56.433 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
-2016-09-08 20:24:00.255 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 20:24:01.784 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
-2016-09-08 20:24:14.154 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 2B67090803383FFED20F59B7F6D7D0B41CAC92F8
-2016-09-08 20:24:21.424 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: khgyufki
-2016-09-08 20:24:25.339 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: hdtyh
-2016-09-08 20:24:30.035 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.main.Users - New user added to users: khgyjufj
+2016-09-09 16:24:46.275 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-09 16:24:46.306 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-09 16:24:46.338 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-09 16:24:49.458 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Connecting to node at 192.168.0.21 using port 12345
+2016-09-09 16:24:49.458 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 91003A703FD143A35D97BF9A1F2B29E49AD3071E to node C02D6D0F2FB410F0FFF65B8C66D84E060A7D22A8
+2016-09-09 16:24:49.536 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.RemoteNodeAndUserTest - Printing routing table
+2016-09-09 16:25:10.125 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-09 16:25:10.125 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-09 16:25:46.572 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 16:25:46.854 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 16:25:48.809 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-09 16:25:48.809 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.809 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.809 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.809 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.825 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.825 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.825 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.825 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.840 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.840 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.840 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.840 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.856 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.856 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.856 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.856 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.872 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.872 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.872 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.903 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.903 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.918 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.918 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.918 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.918 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.934 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.934 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.934 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.950 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.950 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.950 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.950 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.950 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.965 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.965 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.965 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.965 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.965 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.981 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.981 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.981 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.981 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.981 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.997 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.997 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:48.997 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.012 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.012 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.012 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.012 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.012 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.028 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.028 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.044 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.044 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.044 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.044 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.059 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.059 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.059 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.059 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.059 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.075 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.075 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.075 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.075 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.091 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.091 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.091 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.091 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.106 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.106 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.106 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.106 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.106 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.122 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.122 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.122 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.122 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.122 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.122 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.137 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.137 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.137 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.137 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.153 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.153 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.169 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:25:49.169 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-09 16:26:31.579 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-09 16:26:31.595 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: kjjkhkj
+2016-09-09 16:26:46.716 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 16:26:46.794 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed

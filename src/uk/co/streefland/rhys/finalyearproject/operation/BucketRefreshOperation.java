@@ -2,11 +2,10 @@ package uk.co.streefland.rhys.finalyearproject.operation;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.main.Configuration;
-import uk.co.streefland.rhys.finalyearproject.main.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.main.Server;
-import uk.co.streefland.rhys.finalyearproject.main.User;
-import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.Server;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 
 import java.io.IOException;
 

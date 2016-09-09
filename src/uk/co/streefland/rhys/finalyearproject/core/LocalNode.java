@@ -1,4 +1,4 @@
-package uk.co.streefland.rhys.finalyearproject.main;
+package uk.co.streefland.rhys.finalyearproject.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,12 +39,13 @@ public class LocalNode {
     private final MessageHandler messageHandler;
 
     /**
-     * This constructor is the main constructor and attempts to read the localNode and routingTable objects from a file.
+     * This constructor is the core constructor and attempts to read the localNode and routingTable objects from a file.
      * It creates new objects if they cannot be loaded from the file.
      *
      * @throws IOException
      */
     public LocalNode(String localIp) throws IOException {
+
         this.config = new Configuration();
         this.storageHandler = new StorageHandler(config);
 
@@ -68,6 +69,7 @@ public class LocalNode {
      * @throws IOException
      */
     public LocalNode(KeyId defaultId, int port) throws IOException {
+
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
         this.config = new Configuration();
         this.storageHandler = new StorageHandler(config);
@@ -157,10 +159,11 @@ public class LocalNode {
      * @param node The target node
      * @throws IOException
      */
-    public synchronized final void bootstrap(Node node) throws IOException {
+    public final boolean bootstrap(Node node) throws IOException {
         logger.info("Bootstrapping localnode {} to node {}", localNode.toString(), node.toString());
-        Operation connect = new ConnectOperation(server, this, node, config);
+        ConnectOperation connect = new ConnectOperation(server, this, node, config);
         connect.execute();
+        return connect.isError();
     }
 
     /**
@@ -169,7 +172,7 @@ public class LocalNode {
      * @param targetNodes The nodes that should receive the message
      * @throws IOException
      */
-    public synchronized final void message(String message, List<Node> targetNodes) throws IOException {
+    public final void message(String message, List<Node> targetNodes) throws IOException {
         if (!message.isEmpty() && !message.equals("exit")) { // TODO: 05/09/2016  remove the exit check once you have some kind of a user interface
             logger.info("Sending message to specified nodes");
             Operation sendMessage = new TextMessageOperation(server, this, config, message, targetNodes);

@@ -1,6 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.test;
 
-import uk.co.streefland.rhys.finalyearproject.main.User;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 
 import java.util.Scanner;
 
