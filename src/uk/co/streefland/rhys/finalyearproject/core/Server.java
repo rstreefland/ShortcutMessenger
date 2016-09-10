@@ -12,6 +12,9 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
 import java.util.*;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * UDP server that handles sending and receiving messages as UDP packets between nodes on the network
@@ -37,6 +40,9 @@ public class Server {
     private DataInputStream din;
     private int communicationId;
     private byte messageCode;
+
+    /* Cached threadPool so we can run receivers in parallel */
+    ExecutorService threadPool = Executors.newCachedThreadPool();
 
     public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
         this.config = config;
@@ -108,9 +114,10 @@ public class Server {
                         receiver = messageHandler.createReceiver(messageCode, this);
                     }
 
-                    /* Invoke the receiver */
+                    /* Start the ReceiverTask on a thread in the cached threadPool*/
+                    /* This is done so the computation for each receiver doesn't block the listener thread */
                     if (receiver != null) {
-                        receiver.receive(msg, communicationId);
+                        threadPool.execute(new ReceiverTask(receiver, msg, communicationId));
                     }
                 } else {
                     logger.debug("Remote node has IP address mismatch - ignoring message");
@@ -221,6 +228,7 @@ public class Server {
         logger.info("Shutting down server");
 
         isRunning = false;
+        threadPool.shutdownNow();  // shut down any running threads in the threadPool
         socket.close();
         timer.cancel();
     }

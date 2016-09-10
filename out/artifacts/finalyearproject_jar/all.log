@@ -18199,3 +18199,539 @@ java.io.EOFException
 2016-09-09 19:47:19.595 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
 2016-09-09 19:47:19.611 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
 2016-09-09 19:47:19.627 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-09 19:54:43.745 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 5
+2016-09-09 19:54:43.760 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-09 19:54:43.792 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-09 19:54:43.823 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-09 19:54:48.971 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 96BC7F9041661D536F7BF31C08EF8324933D2563 to node BB24D7AC5F8C363EF834C8D4D4884A6E432935DD
+2016-09-09 19:55:14.024 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-09 19:55:14.024 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-09 19:55:16.644 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-09-09 19:55:16.644 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: uog
+2016-09-09 19:55:16.722 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: 2
+2016-09-09 19:55:34.865 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-09 19:55:34.943 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-stream
+2016-09-09 19:55:34.943 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: sdf
+2016-09-09 19:55:37.454 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-09 19:55:38.999 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYSSAIR
+2016-09-09 19:55:38.999 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from rhys-stream
+2016-09-09 19:55:43.975 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:55:44.178 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-09 19:55:46.112 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-09 19:55:46.112 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-stream
+2016-09-09 19:55:47.766 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-09 19:55:47.812 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-stream
+2016-09-09 19:55:47.859 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-stream
+2016-09-09 19:56:44.001 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-09 19:56:44.033 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:35:38.985 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 10
+2016-09-10 11:35:39.001 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-10 11:35:39.063 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:35:39.063 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:35:43.868 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode EE975A37E4509EE687DB3B6BEC0052DC9440B98C to node 530ADF7B14FF3E1D1793529B29F34852B74434F0
+2016-09-10 11:36:49.750 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 12
+2016-09-10 11:36:49.750 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-10 11:36:49.765 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:36:49.781 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:36:51.403 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-09-10 11:36:51.653 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-09-10 11:36:54.261 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 12
+2016-09-10 11:36:54.261 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-10 11:36:54.776 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-10 11:36:54.776 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-10 11:36:54.776 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:36:54.791 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:37:04.448 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 0E9116C774025FDA31BEEDAA507A267C1F10F65B to node C55CD6FE7D7045C5960859075DF3E8FC0C1670DC
+2016-09-10 11:37:54.864 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:37:54.864 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:38:52.695 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 12
+2016-09-10 11:38:52.710 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-10 11:38:53.147 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-10 11:38:53.147 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-10 11:38:53.163 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:38:53.178 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:39:06.796 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 0E9116C774025FDA31BEEDAA507A267C1F10F65B to node 86D885D357899544AA6077A09D9FF8BF9BBD4BA2
+2016-09-10 11:39:53.470 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:39:53.485 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:39:55.529 [Thread-543] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:39:55.529 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-10 11:40:53.358 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:40:53.561 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:40:55.433 [Thread-1327] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:41:57.316 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:41:57.456 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:41:57.565 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.581 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.581 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.581 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.596 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.612 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.627 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.627 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.659 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.674 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.690 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.705 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.705 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.705 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.721 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.737 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.752 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.752 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.752 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.799 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.799 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.815 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.830 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.846 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.846 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.861 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.861 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.877 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.877 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.893 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.893 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.893 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.908 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.908 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.908 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.924 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.939 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.939 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.955 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.955 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.971 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.971 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.986 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:57.986 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.002 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.002 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.002 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.017 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.033 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.033 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.049 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.064 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.064 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.064 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.080 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.095 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.095 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.095 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.111 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.173 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.205 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.283 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.298 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.314 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.329 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.345 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:41:58.345 [Thread-2] ERROR uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
+2016-09-10 11:42:53.337 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:42:53.337 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:42:55.303 [Thread-2142] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:43:53.322 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:43:53.322 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:43:55.381 [Thread-2608] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:44:53.320 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:44:53.320 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:44:55.301 [Thread-3096] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:45:53.390 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:45:53.390 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:45:55.356 [Thread-3576] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:46:53.367 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:46:53.383 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:46:55.707 [Thread-4034] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:50:19.361 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 14
+2016-09-10 11:50:19.361 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-10 11:50:19.981 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-10 11:50:19.981 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-10 11:50:20.012 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:50:20.028 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:50:28.741 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 0E9116C774025FDA31BEEDAA507A267C1F10F65B to node 1D341AC2185C8275092E14F0A4F30E2366BA48C7
+2016-09-10 11:50:31.361 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-09-10 11:50:32.911 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-09-10 11:50:45.999 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 14
+2016-09-10 11:50:46.014 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-10 11:50:46.464 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-10 11:50:46.479 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-10 11:50:46.495 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:50:46.510 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:51:46.561 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:51:46.561 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:52:58.734 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 14
+2016-09-10 11:52:58.749 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-10 11:52:58.796 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:52:58.828 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:53:09.453 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 99D2E7939A8F738515ABADCC7546AE17E21E03A2 to node 3F79999B5CCB5773EC171AA37DF07972FB4EF879
+2016-09-10 11:53:58.897 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:53:59.014 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:54:50.089 [pool-2-thread-47] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-10 11:54:58.853 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:54:58.933 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:54:59.949 [pool-2-thread-137] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:55:00.017 [pool-2-thread-136] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:55:01.635 [pool-2-thread-136] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-09-10 11:55:25.105 [pool-2-thread-130] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: awofh
+2016-09-10 11:55:58.840 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:55:58.855 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:56:00.420 [pool-2-thread-126] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:00.420 [pool-2-thread-128] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:00.420 [pool-2-thread-139] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:00.653 [pool-2-thread-136] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:56:00.669 [pool-2-thread-122] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 11:56:00.668 [pool-2-thread-123] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 11:56:04.951 [pool-2-thread-123] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:04.966 [pool-2-thread-122] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:56:05.461 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rsipoj
+2016-09-10 11:56:09.481 [pool-2-thread-122] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:09.497 [pool-2-thread-123] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:56:09.971 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: sipogheipg
+2016-09-10 11:56:12.641 [pool-2-thread-123] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:12.656 [pool-2-thread-122] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:56:13.126 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: sdnj
+2016-09-10 11:56:15.778 [pool-2-thread-165] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:15.794 [pool-2-thread-154] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:56:16.275 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aefpkj
+2016-09-10 11:56:22.777 [pool-2-thread-154] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:56:22.792 [pool-2-thread-165] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:56:23.280 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: sdf
+2016-09-10 11:56:26.926 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-09-10 11:56:27.042 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-09-10 11:56:32.770 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 14
+2016-09-10 11:56:32.790 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-10 11:56:32.923 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-10 11:56:32.923 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-10 11:56:32.955 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-10 11:56:32.970 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-10 11:56:48.050 [pool-2-thread-62] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aefpkj
+2016-09-10 11:56:48.066 [pool-2-thread-49] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: sipogheipg
+2016-09-10 11:56:48.066 [pool-2-thread-50] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: sdnj
+2016-09-10 11:56:48.066 [pool-2-thread-51] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: awofh
+2016-09-10 11:56:48.066 [pool-2-thread-52] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-10 11:56:48.050 [pool-2-thread-56] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: sdf
+2016-09-10 11:56:48.050 [pool-2-thread-57] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-09-10 11:56:48.050 [pool-2-thread-61] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rsipoj
+2016-09-10 11:57:33.054 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:57:33.101 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:57:33.433 [pool-2-thread-72] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:57:33.449 [pool-2-thread-17] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:57:33.433 [pool-2-thread-93] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:57:33.433 [pool-2-thread-89] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:57:33.433 [pool-2-thread-87] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:57:33.433 [pool-2-thread-88] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:57:34.168 [pool-2-thread-75] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.172 [pool-2-thread-74] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.172 [pool-2-thread-92] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.172 [pool-2-thread-91] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.169 [pool-2-thread-84] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.169 [pool-2-thread-41] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.167 [pool-2-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.204 [pool-2-thread-76] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:57:34.172 [pool-2-thread-90] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:57:34.172 [pool-2-thread-86] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:58:33.025 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:58:33.041 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:58:33.326 [pool-2-thread-72] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:58:34.073 [pool-2-thread-90] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.073 [pool-2-thread-93] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.073 [pool-2-thread-17] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.073 [pool-2-thread-92] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.073 [pool-2-thread-79] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.073 [pool-2-thread-80] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.073 [pool-2-thread-86] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.073 [pool-2-thread-46] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:34.142 [pool-2-thread-94] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 11:58:34.142 [pool-2-thread-51] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 11:58:34.142 [pool-2-thread-88] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 11:58:34.173 [pool-2-thread-75] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:58:34.157 [pool-2-thread-50] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:58:34.157 [pool-2-thread-74] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:58:34.157 [pool-2-thread-62] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 11:58:48.946 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-10 11:58:48.992 [pool-2-thread-51] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYSSAIR
+2016-09-10 11:58:49.014 [pool-2-thread-17] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:33.054 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 11:59:33.071 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 11:59:34.586 [pool-2-thread-156] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:34.591 [pool-2-thread-166] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:34.590 [pool-2-thread-162] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:34.589 [pool-2-thread-164] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:34.589 [pool-2-thread-165] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:34.588 [pool-2-thread-163] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:34.587 [pool-2-thread-157] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:34.586 [pool-2-thread-155] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 11:59:35.063 [pool-2-thread-161] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:35.079 [pool-2-thread-151] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:35.079 [pool-2-thread-154] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:35.079 [pool-2-thread-159] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:35.063 [pool-2-thread-158] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:35.063 [pool-2-thread-153] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:35.063 [pool-2-thread-152] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 11:59:35.079 [pool-2-thread-160] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:33.037 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:00:33.053 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:00:33.236 [pool-2-thread-165] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:34.019 [pool-2-thread-171] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.025 [pool-2-thread-175] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.025 [pool-2-thread-177] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.025 [pool-2-thread-174] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.025 [pool-2-thread-180] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.023 [pool-2-thread-170] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.021 [pool-2-thread-169] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.019 [pool-2-thread-167] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:00:34.087 [pool-2-thread-156] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:34.087 [pool-2-thread-176] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:34.072 [pool-2-thread-179] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:34.056 [pool-2-thread-178] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:34.040 [pool-2-thread-173] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:34.025 [pool-2-thread-168] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:00:34.103 [pool-2-thread-164] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:33.039 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:01:33.071 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:01:34.564 [pool-2-thread-84] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.564 [pool-2-thread-79] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.564 [pool-2-thread-180] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.564 [pool-2-thread-167] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.564 [pool-2-thread-169] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.564 [pool-2-thread-170] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.564 [pool-2-thread-87] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.564 [pool-2-thread-172] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:01:34.678 [pool-2-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:34.678 [pool-2-thread-166] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:34.678 [pool-2-thread-174] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:34.678 [pool-2-thread-17] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:34.678 [pool-2-thread-177] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:34.678 [pool-2-thread-176] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:34.678 [pool-2-thread-168] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:01:34.678 [pool-2-thread-51] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:02:33.054 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:02:33.091 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:02:33.652 [pool-2-thread-223] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:02:34.030 [pool-2-thread-222] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.030 [pool-2-thread-227] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.030 [pool-2-thread-228] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.030 [pool-2-thread-231] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.030 [pool-2-thread-232] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.030 [pool-2-thread-217] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.030 [pool-2-thread-221] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.030 [pool-2-thread-215] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:02:34.161 [pool-2-thread-229] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:02:34.183 [pool-2-thread-224] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:02:34.181 [pool-2-thread-230] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:02:34.179 [pool-2-thread-233] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:02:34.161 [pool-2-thread-226] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:02:34.161 [pool-2-thread-225] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:02:34.161 [pool-2-thread-234] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:03:33.043 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:03:33.183 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:03:34.614 [pool-2-thread-230] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.614 [pool-2-thread-235] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.614 [pool-2-thread-229] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.614 [pool-2-thread-220] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.614 [pool-2-thread-243] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.614 [pool-2-thread-242] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.614 [pool-2-thread-244] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.614 [pool-2-thread-245] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:03:34.797 [pool-2-thread-221] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:03:34.797 [pool-2-thread-207] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:03:34.797 [pool-2-thread-241] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:03:34.797 [pool-2-thread-223] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:03:34.797 [pool-2-thread-239] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:03:34.797 [pool-2-thread-240] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:03:34.797 [pool-2-thread-216] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:03:34.797 [pool-2-thread-238] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:04:33.047 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:04:33.179 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:04:34.460 [pool-2-thread-207] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.460 [pool-2-thread-223] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.460 [pool-2-thread-236] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.460 [pool-2-thread-214] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.460 [pool-2-thread-229] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.460 [pool-2-thread-220] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.460 [pool-2-thread-243] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.460 [pool-2-thread-208] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:04:34.683 [pool-2-thread-216] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:04:34.683 [pool-2-thread-245] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:04:34.683 [pool-2-thread-240] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:04:34.683 [pool-2-thread-224] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:04:34.714 [pool-2-thread-238] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:04:34.714 [pool-2-thread-239] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:04:34.714 [pool-2-thread-221] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:04:34.714 [pool-2-thread-231] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:05:33.062 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:05:33.125 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:05:34.647 [pool-2-thread-269] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.647 [pool-2-thread-266] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.647 [pool-2-thread-259] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.647 [pool-2-thread-262] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.647 [pool-2-thread-267] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.647 [pool-2-thread-258] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.647 [pool-2-thread-268] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.647 [pool-2-thread-257] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:05:34.700 [pool-2-thread-261] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:05:34.700 [pool-2-thread-250] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:05:34.778 [pool-2-thread-264] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:05:34.700 [pool-2-thread-263] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:05:34.700 [pool-2-thread-260] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:05:34.700 [pool-2-thread-265] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:05:34.762 [pool-2-thread-255] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:05:34.747 [pool-2-thread-249] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:33.078 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:06:33.093 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:06:34.117 [pool-2-thread-275] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.117 [pool-2-thread-272] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.117 [pool-2-thread-248] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.117 [pool-2-thread-224] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.117 [pool-2-thread-229] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.117 [pool-2-thread-253] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.117 [pool-2-thread-216] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.117 [pool-2-thread-236] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:06:34.201 [pool-2-thread-243] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:34.217 [pool-2-thread-274] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:34.201 [pool-2-thread-259] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:34.201 [pool-2-thread-271] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:34.201 [pool-2-thread-263] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:34.201 [pool-2-thread-273] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:34.201 [pool-2-thread-277] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:06:34.201 [pool-2-thread-264] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:07:33.086 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:07:33.155 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:07:33.893 [pool-2-thread-223] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:07:33.893 [pool-2-thread-238] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:07:34.663 [pool-2-thread-264] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.663 [pool-2-thread-229] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.663 [pool-2-thread-246] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.663 [pool-2-thread-230] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.663 [pool-2-thread-243] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.663 [pool-2-thread-239] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.663 [pool-2-thread-268] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.663 [pool-2-thread-266] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:07:34.730 [pool-2-thread-274] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:07:34.715 [pool-2-thread-207] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:07:34.778 [pool-2-thread-282] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:07:34.777 [pool-2-thread-269] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:07:34.803 [pool-2-thread-245] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:07:34.804 [pool-2-thread-262] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:33.086 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:08:33.132 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:08:34.651 [pool-2-thread-240] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:34.655 [pool-2-thread-257] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:34.654 [pool-2-thread-246] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:34.653 [pool-2-thread-239] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:34.653 [pool-2-thread-274] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:34.652 [pool-2-thread-281] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:34.652 [pool-2-thread-264] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:34.652 [pool-2-thread-222] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:08:35.227 [pool-2-thread-223] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:35.227 [pool-2-thread-280] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:35.227 [pool-2-thread-266] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:35.227 [pool-2-thread-273] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:35.227 [pool-2-thread-238] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:35.227 [pool-2-thread-252] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:35.227 [pool-2-thread-229] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:08:35.227 [pool-2-thread-269] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:09:33.089 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:09:33.106 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:09:34.686 [pool-2-thread-250] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.686 [pool-2-thread-297] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.686 [pool-2-thread-296] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.686 [pool-2-thread-289] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.686 [pool-2-thread-284] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.686 [pool-2-thread-288] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.686 [pool-2-thread-243] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.686 [pool-2-thread-254] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:09:34.824 [pool-2-thread-287] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:09:34.840 [pool-2-thread-295] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:09:34.840 [pool-2-thread-294] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:09:34.840 [pool-2-thread-293] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:09:34.840 [pool-2-thread-292] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:09:34.840 [pool-2-thread-286] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:09:34.824 [pool-2-thread-291] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:09:34.824 [pool-2-thread-290] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:33.100 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:10:33.131 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:10:34.559 [pool-2-thread-240] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.559 [pool-2-thread-258] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.559 [pool-2-thread-207] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.559 [pool-2-thread-268] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.559 [pool-2-thread-283] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.559 [pool-2-thread-261] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.559 [pool-2-thread-246] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.559 [pool-2-thread-255] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:10:34.740 [pool-2-thread-280] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:34.740 [pool-2-thread-267] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:34.740 [pool-2-thread-252] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:34.740 [pool-2-thread-214] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:34.740 [pool-2-thread-264] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:34.740 [pool-2-thread-281] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:34.740 [pool-2-thread-260] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-10 12:10:35.147 [pool-2-thread-273] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-virtual
+2016-09-10 12:11:33.085 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:11:33.100 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:12:33.098 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:12:33.120 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:13:33.111 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:13:33.126 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:14:33.132 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:14:33.148 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:15:33.162 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:15:33.162 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:16:33.141 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:16:33.156 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:17:33.156 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:17:33.172 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:18:33.175 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:18:33.175 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:19:33.169 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:19:33.185 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:20:33.197 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:20:33.197 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:20:36.185 [pool-2-thread-356] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:20:36.185 [pool-2-thread-359] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:20:36.185 [pool-2-thread-360] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:20:36.185 [pool-2-thread-354] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:20:36.185 [pool-2-thread-357] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:20:36.185 [pool-2-thread-329] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:20:36.185 [pool-2-thread-358] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:20:36.185 [pool-2-thread-355] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:33.256 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:21:33.256 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:21:36.163 [pool-2-thread-362] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:36.163 [pool-2-thread-366] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:36.163 [pool-2-thread-369] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:36.163 [pool-2-thread-363] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:36.163 [pool-2-thread-370] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:36.163 [pool-2-thread-364] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:36.163 [pool-2-thread-368] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:21:36.163 [pool-2-thread-365] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:33.231 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:22:33.236 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:22:36.123 [pool-2-thread-368] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:36.123 [pool-2-thread-365] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:36.123 [pool-2-thread-371] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:36.123 [pool-2-thread-372] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:36.123 [pool-2-thread-370] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:36.123 [pool-2-thread-356] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:36.123 [pool-2-thread-363] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:22:36.123 [pool-2-thread-361] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:33.223 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:23:33.254 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:23:36.322 [pool-2-thread-380] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:36.322 [pool-2-thread-382] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:36.322 [pool-2-thread-357] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:36.322 [pool-2-thread-368] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:36.322 [pool-2-thread-365] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:36.322 [pool-2-thread-381] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:36.322 [pool-2-thread-363] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:23:36.322 [pool-2-thread-379] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:33.236 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-10 12:24:33.240 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-10 12:24:36.308 [pool-2-thread-370] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:36.308 [pool-2-thread-357] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:36.308 [pool-2-thread-380] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:36.308 [pool-2-thread-377] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:36.308 [pool-2-thread-367] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:36.308 [pool-2-thread-381] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:36.308 [pool-2-thread-356] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
+2016-09-10 12:24:36.308 [pool-2-thread-366] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYSSAIR
