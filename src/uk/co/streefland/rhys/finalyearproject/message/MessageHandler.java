@@ -10,7 +10,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 /**
- * Handles creating messages and receivers for incoming and outgoing messages
+ * Handles creating messages and receivers for incoming and outgoing messages and receivers
  */
 public class MessageHandler {
 
@@ -39,8 +39,8 @@ public class MessageHandler {
             case StoreUserMessage.CODE:
                 return new StoreUserMessage(in);
             default:
-                logger.error("No message type found for message code: {}", code);
-                return null;
+            logger.error("No message type found for message code: {}", code);
+            return null;
         }
     }
 

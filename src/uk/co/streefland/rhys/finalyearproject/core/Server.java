@@ -32,7 +32,7 @@ public class Server {
     private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
-    private boolean isRunning = true;
+    private boolean isRunning;
 
     private byte[] buffer;
     private DatagramPacket packet;
@@ -45,6 +45,7 @@ public class Server {
     ExecutorService threadPool = Executors.newCachedThreadPool();
 
     public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
+
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
         this.localNode = localNode;
@@ -53,15 +54,16 @@ public class Server {
         buffer = new byte[config.getPacketSize()];
         packet = new DatagramPacket(buffer, buffer.length);
 
-        /* Start listening for incoming requests in a new thread */
-        startListener();
+        isRunning = false;
     }
 
     /**
      * Starts the listener thread to listen for incoming messages
      */
-    private void startListener() {
+    public void startListener() {
         logger.info("Starting server");
+        isRunning = true;
+
         new Thread() {
             @Override
             public void run() {
@@ -109,9 +111,9 @@ public class Server {
                             }
                         }
                     } else {
-                        /* There is currently no receivers, try to get one */
-                        logger.debug("No receiver exists, creating one using code {}", messageCode);
-                        receiver = messageHandler.createReceiver(messageCode, this);
+                            /* There is currently no receivers, try to get one */
+                            logger.debug("No receiver exists, creating one using code {}", messageCode);
+                            receiver = messageHandler.createReceiver(messageCode, this);
                     }
 
                     /* Start the ReceiverTask on a thread in the cached threadPool*/
@@ -234,7 +236,7 @@ public class Server {
     }
 
     public boolean isRunning() {
-        return this.isRunning;
+        return isRunning;
     }
 
     /**

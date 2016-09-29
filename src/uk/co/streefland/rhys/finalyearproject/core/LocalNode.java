@@ -22,7 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "17";
+    public static final String BUILD_NUMBER = "35";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -58,8 +58,11 @@ public class LocalNode {
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
         this.users = new Users(server, this, config);
 
-        /* Start the automatic refresh operation that runs every 60 seconds */
-        startRefreshOperation();
+        if (routingTable.getAllNodes().size() > 1) {
+            server.startListener();
+            /* Start the automatic refresh operation that runs every 60 seconds */
+            startRefreshOperation();
+        }
     }
 
     /**
@@ -81,9 +84,6 @@ public class LocalNode {
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(port, messageHandler, localNode, config);
         this.users = new Users(server, this, config);
-
-        /* Start the automatic refresh operation that runs every 60 seconds */
-        startRefreshOperation();
     }
 
     /**
@@ -163,9 +163,20 @@ public class LocalNode {
      * @throws IOException
      */
     public final boolean bootstrap(Node node) throws IOException {
+
+        /* If server is not running then start it */
+        if (!server.isRunning()) {
+            server.startListener(); // start the server
+            startRefreshOperation(); // start the automatic refresh operation that runs every 60 second
+        }
+
         logger.info("Bootstrapping localnode {} to node {}", localNode.toString(), node.toString());
         ConnectOperation connect = new ConnectOperation(server, this, node, config);
         connect.execute();
+
+        /* Bring localNode up to date with data from the DHT */
+        refreshHandler.run();
+
         return connect.isError();
     }
 

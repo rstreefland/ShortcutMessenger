@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ac27ad5-c053-404d-9177-8c82acb82fb4" name="Default" comment="This is ridiculou">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/finalyearproject.jar" afterPath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/finalyearproject.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Configuration.class" afterPath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Configuration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Server$1.class" afterPath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Server$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Server$TimeoutTask.class" afterPath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Server$TimeoutTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Server.class" afterPath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/core/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all.log" afterPath="$PROJECT_DIR$/all.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/current.log" afterPath="$PROJECT_DIR$/current.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/all.log" afterPath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/all.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/current.log" afterPath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/current.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/build.number" afterPath="$PROJECT_DIR$/out/production/finalyearproject/build.number" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/build.number" afterPath="$PROJECT_DIR$/src/build.number" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Configuration.java" afterPath="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" afterPath="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java" afterPath="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java" />
-    </list>
+    <list default="true" id="9ac27ad5-c053-404d-9177-8c82acb82fb4" name="Default" comment="This is ridiculou" />
     <ignored path="LemonJuice.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -47,48 +31,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="75" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="docComment;class#Server#0" expanded="false" />
-                <element signature="docComment;method#startListener#0;class#Server#0" expanded="false" />
-                <element signature="e#2305#2423#0" expanded="true" />
-                <element signature="e#2422#2423#0" expanded="true" />
-                <element signature="docComment;method#sendMessage#0;class#Server#0" expanded="false" />
-                <element signature="docComment;method#sendMessage#1;class#Server#0" expanded="false" />
-                <element signature="docComment;method#reply#0;class#Server#0" expanded="false" />
-                <element signature="docComment;method#unregister#0;class#Server#0" expanded="false" />
-                <element signature="method#unregister#0;class#Server#0" expanded="false" />
-                <element signature="docComment;method#shutdown#0;class#Server#0" expanded="false" />
-                <element signature="docComment;class#TimeoutTask#0;class#Server#0" expanded="false" />
-                <element signature="method#TimeoutTask#0;class#TimeoutTask#0;class#Server#0" expanded="false" />
-                <element signature="method#run#0;class#TimeoutTask#0;class#Server#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReceiverTask.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/ReceiverTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MessageHandler.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="388">
+              <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RefreshHandler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/RefreshHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="555">
+              <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserRefreshOperation.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/UserRefreshOperation.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalNode.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="168" column="23" selection-start-line="168" selection-start-column="23" selection-end-line="168" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/User.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -97,29 +84,9 @@
       <file leaf-file-name="BucketRefreshOperation.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/BucketRefreshOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="44" column="80" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1402#1775#0" expanded="true" />
-                <element signature="e#1774#1775#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/cli/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3837#3838#0" expanded="true" />
-                <element signature="e#3900#3901#0" expanded="true" />
-                <element signature="e#3934#3935#0" expanded="true" />
-                <element signature="e#3970#3971#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="525">
+              <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -127,70 +94,9 @@
       <file leaf-file-name="Node.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/node/Node.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
-              <folding>
-                <element signature="method#Node#0;class#Node#0" expanded="false" />
-                <element signature="method#equals#0;class#Node#0" expanded="false" />
-                <element signature="docComment;method#toString#0;class#Node#0" expanded="false" />
-                <element signature="docComment;method#getSocketAddress#0;class#Node#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FindNodeOperation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="46" column="101" selection-start-line="46" selection-start-column="101" selection-end-line="46" selection-end-column="101" />
-              <folding>
-                <element signature="docComment;class#FindNodeOperation#0" expanded="false" />
-                <element signature="docComment;method#execute#0;class#FindNodeOperation#0" expanded="false" />
-                <element signature="docComment;method#addNodes#0;class#FindNodeOperation#0" expanded="false" />
-                <element signature="docComment;method#iterativeQueryNodes#0;class#FindNodeOperation#0" expanded="false" />
-                <element signature="docComment;method#getClosestNodes#0;class#FindNodeOperation#0" expanded="false" />
-                <element signature="docComment;method#getFailedNodes#0;class#FindNodeOperation#0" expanded="false" />
-                <element signature="method#getFailedNodes#0;class#FindNodeOperation#0" expanded="false" />
-                <element signature="docComment;method#receive#0;class#FindNodeOperation#0" expanded="false" />
-                <element signature="docComment;method#timeout#0;class#FindNodeOperation#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocalNode.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-              <folding>
-                <element signature="docComment;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#LocalNode#0;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#LocalNode#1;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#readState#0;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#saveState#0;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#startRefreshOperation#0;class#LocalNode#0" expanded="false" />
-                <element signature="method#startRefreshOperation#0;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#stopRefreshOperation#0;class#LocalNode#0" expanded="false" />
-                <element signature="method#stopRefreshOperation#0;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#bootstrap#0;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#message#0;class#LocalNode#0" expanded="false" />
-                <element signature="docComment;method#shutdown#0;class#LocalNode#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Configuration.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Configuration.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-              <folding>
-                <element signature="docComment;class#Configuration#0" expanded="false" />
-                <element signature="method#setMaxConnectionAttempts#0;class#Configuration#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="285">
+              <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -198,9 +104,23 @@
       <file leaf-file-name="FindNodeReplyMessage.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/FindNodeReplyMessage.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="795">
+              <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
+              <folding>
+                <marker date="1473242438000" expanded="true" signature="260:348" ph="/**...*/" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="520">
+              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+              <folding>
+                <element signature="e#2376#2377#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -249,7 +169,6 @@
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/StoreUserMessage.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/AcknowledgeMessage.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/ConnectReceiver.java" />
-        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/main/LocalNode.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/exceptions/UserAccountException.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/TextMessageOperation.java" />
@@ -262,7 +181,6 @@
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/main/Server.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/main/User.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/main/Users.java" />
-        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Users.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/ConnectOperation.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/RegisterUserOperation.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/RemoteNodeAndUserTest.java" />
@@ -274,10 +192,12 @@
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/BucketRefreshOperation.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/node/Node.java" />
-        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Configuration.java" />
-        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/ReceiverTask.java" />
+        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java" />
+        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Users.java" />
+        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java" />
+        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
       </list>
     </option>
   </component>
@@ -298,10 +218,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1440" />
-    <option name="y" value="-464" />
-    <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -329,6 +247,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -469,8 +389,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -647,7 +565,7 @@
       <deployment />
       <server-settings>
         <data>
-          <option name="transportHostId" />
+          <option name="transportHostId" value="" />
           <host-id />
         </data>
       </server-settings>
@@ -952,7 +870,7 @@
       <deployment />
       <server-settings>
         <data>
-          <option name="transportHostId" />
+          <option name="transportHostId" value="" />
           <host-id />
         </data>
       </server-settings>
@@ -1027,7 +945,7 @@
       <server-settings>
         <data>
           <option name="serverGroup" value="" />
-          <option name="transportHostId" />
+          <option name="transportHostId" value="" />
           <server-group />
           <host-id />
         </data>
@@ -1152,7 +1070,7 @@
       <deployment />
       <server-settings>
         <data>
-          <option name="transportHostId" />
+          <option name="transportHostId" value="" />
           <host-id />
         </data>
       </server-settings>
@@ -1313,7 +1231,7 @@
       <deployment />
       <server-settings>
         <data>
-          <option name="transportHostId" />
+          <option name="transportHostId" value="" />
           <host-id />
         </data>
       </server-settings>
@@ -1458,6 +1376,8 @@
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <node-interpreter value="project" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
@@ -1585,12 +1505,23 @@
       <workItem from="1473157493135" duration="29580000" />
       <workItem from="1473246375291" duration="85000" />
       <workItem from="1473246559681" duration="392000" />
-      <workItem from="1473423947371" duration="17626000" />
+      <workItem from="1473423947371" duration="18516000" />
+      <workItem from="1474023797413" duration="682000" />
+      <workItem from="1474195848832" duration="239000" />
+      <workItem from="1474833011774" duration="606000" />
+      <workItem from="1474843362367" duration="32000" />
+      <workItem from="1474843480116" duration="135000" />
+      <workItem from="1474898161924" duration="57000" />
+      <workItem from="1474898351014" duration="353000" />
+      <workItem from="1474991973947" duration="1000" />
+      <workItem from="1475013843274" duration="730000" />
+      <workItem from="1475058289330" duration="603000" />
+      <workItem from="1475062398825" duration="3745000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="248163000" />
+    <option name="totallyTimeSpent" value="256343000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1602,24 +1533,24 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1440" y="-464" width="1920" height="1080" extended-state="0" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.319802" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3192771" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32394367" sideWeight="0.50479746" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3345627" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35544553" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35841584" sideWeight="0.4968017" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43161094" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32309216" sideWeight="0.49520257" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15069222" sideWeight="0.6904442" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20171674" sideWeight="0.6904442" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19108911" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24946696" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24920128" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1631,9 +1562,9 @@
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32772276" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19108911" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1667,13 +1598,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/LoggingTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="67" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="67" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/current.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-30">
@@ -1700,7 +1624,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="540">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1715,26 +1638,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/UserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="8" selection-start-line="15" selection-start-column="8" selection-end-line="17" selection-end-column="73" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/UserTest.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/exceptions/UserAccountException.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/Operation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="1" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1758,55 +1670,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="685">
           <caret line="200" column="12" selection-start-line="200" selection-start-column="12" selection-end-line="200" selection-end-column="12" />
-          <folding>
-            <element signature="docComment;class#RoutingTable#0" expanded="false" />
-            <element signature="method#RoutingTable#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#findClosest#0;class#RoutingTable#0" expanded="false" />
-            <element signature="method#findClosest#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#updateConfigurationObjects#0;class#RoutingTable#0" expanded="false" />
-            <element signature="method#updateConfigurationObjects#0;class#RoutingTable#0" expanded="false" />
-            <element signature="method#toString#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#getAllNodes#0;class#RoutingTable#0" expanded="false" />
-            <element signature="method#getAllNodes#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#getAllContacts#0;class#RoutingTable#0" expanded="false" />
-            <element signature="method#getAllContacts#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#getBucketId#0;class#RoutingTable#0" expanded="false" />
-            <element signature="method#getBucketId#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#getBuckets#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#setBuckets#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#setUnresponsiveContact#0;class#RoutingTable#0" expanded="false" />
-            <element signature="docComment;method#setUnresponsiveContacts#0;class#RoutingTable#0" expanded="false" />
-            <element signature="method#setUnresponsiveContacts#0;class#RoutingTable#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/node/KeyId.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
-          <folding>
-            <element signature="docComment;class#KeyId#0" expanded="false" />
-            <element signature="method#KeyId#0;class#KeyId#0" expanded="false" />
-            <element signature="method#KeyId#2;class#KeyId#0" expanded="false" />
-            <element signature="docComment;method#xor#0;class#KeyId#0" expanded="false" />
-            <element signature="method#xor#0;class#KeyId#0" expanded="false" />
-            <element signature="docComment;method#generateNodeIdUsingDistance#0;class#KeyId#0" expanded="false" />
-            <element signature="method#generateNodeIdUsingDistance#0;class#KeyId#0" expanded="false" />
-            <element signature="method#getFirstSetBitLocation#0;class#KeyId#0" expanded="false" />
-            <element signature="docComment;method#getDistance#0;class#KeyId#0" expanded="false" />
-            <element signature="method#getDistance#0;class#KeyId#0" expanded="false" />
-            <element signature="method#hashCode#0;class#KeyId#0" expanded="false" />
-            <element signature="method#equals#0;class#KeyId#0" expanded="false" />
-            <element signature="docComment;method#toBinary#0;class#KeyId#0" expanded="false" />
-            <element signature="method#toBinary#0;class#KeyId#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#KeyId#0" expanded="false" />
-            <element signature="method#toString#0;class#KeyId#0" expanded="false" />
-            <element signature="docComment;method#getInt#0;class#KeyId#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/node/KeyId.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/TextReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1819,56 +1686,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="433">
           <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="docComment;method#setSeenNow#0;class#Contact#0" expanded="false" />
-            <element signature="e#1014#1015#0" expanded="false" />
-            <element signature="e#1075#1076#0" expanded="false" />
-            <element signature="e#1386#1387#0" expanded="false" />
-            <element signature="e#1417#1418#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/RefreshHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/src.zip!/java/net/DatagramSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="692" column="0" selection-start-line="692" selection-start-column="0" selection-end-line="692" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/src.zip!/java/net/DatagramSocket.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/Receiver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/StoreUserReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/main/ReceiverHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/StoreUserReceiver.java" />
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/main/ReceiverHandler.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/ConnectMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -1889,62 +1719,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/src.zip!/java/util/concurrent/ThreadPoolExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="616" column="0" selection-start-line="616" selection-start-column="0" selection-end-line="616" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#80896#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#16480#16481#0" expanded="false" />
-            <element signature="e#16508#16509#0" expanded="false" />
-            <element signature="e#16568#16569#0" expanded="false" />
-            <element signature="e#16597#16598#0" expanded="false" />
-            <element signature="e#16644#16645#0" expanded="false" />
-            <element signature="e#16679#16680#0" expanded="false" />
-            <element signature="e#16824#16825#0" expanded="false" />
-            <element signature="e#16884#16885#0" expanded="false" />
-            <element signature="e#17029#17030#0" expanded="false" />
-            <element signature="e#17089#17090#0" expanded="false" />
-            <element signature="e#17336#17337#0" expanded="false" />
-            <element signature="e#17409#17410#0" expanded="false" />
-            <element signature="e#19002#19010#0" expanded="false" />
-            <element signature="e#25293#25294#0" expanded="false" />
-            <element signature="e#25339#25340#0" expanded="false" />
-            <element signature="e#31552#31553#0" expanded="false" />
-            <element signature="e#31595#31596#0" expanded="false" />
-            <element signature="e#31948#31949#0" expanded="false" />
-            <element signature="e#32004#32005#0" expanded="false" />
-            <element signature="e#33001#33011#0" expanded="false" />
-            <element signature="e#57238#57239#0" expanded="false" />
-            <element signature="e#57283#57284#0" expanded="false" />
-            <element signature="e#57976#57977#0" expanded="false" />
-            <element signature="e#58037#58038#0" expanded="false" />
-            <element signature="e#58750#58751#0" expanded="false" />
-            <element signature="e#58776#58777#0" expanded="false" />
-            <element signature="e#59415#59416#0" expanded="false" />
-            <element signature="e#59451#59452#0" expanded="false" />
-            <element signature="e#60105#60106#0" expanded="false" />
-            <element signature="e#60135#60136#0" expanded="false" />
-            <element signature="e#61630#61631#0" expanded="false" />
-            <element signature="e#61665#61666#0" expanded="false" />
-            <element signature="e#63465#63466#0" expanded="false" />
-            <element signature="e#63510#63511#0" expanded="false" />
-            <element signature="e#65777#65778#0" expanded="false" />
-            <element signature="e#65815#65816#0" expanded="false" />
-            <element signature="e#67446#67447#0" expanded="false" />
-            <element signature="e#67518#67519#0" expanded="false" />
-            <element signature="e#67915#67916#0" expanded="false" />
-            <element signature="e#67947#67948#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_74.jdk/Contents/Home/src.zip!/java/util/concurrent/ThreadPoolExecutor.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/TextMessageOperation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1952,133 +1731,31 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="103" column="25" selection-start-line="103" selection-start-column="25" selection-end-line="103" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/StoreUserMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/StoreUserMessage.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/ConnectOperation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="808">
           <caret line="124" column="24" selection-start-line="124" selection-start-column="24" selection-end-line="124" selection-end-column="24" />
-          <folding>
-            <element signature="docComment;class#ConnectOperation#0" expanded="false" />
-            <element signature="method#ConnectOperation#0;class#ConnectOperation#0" expanded="false" />
-            <element signature="docComment;method#execute#0;class#ConnectOperation#0" expanded="false" />
-            <element signature="docComment;method#receive#0;class#ConnectOperation#0" expanded="false" />
-            <element signature="docComment;method#timeout#0;class#ConnectOperation#0" expanded="false" />
-            <element signature="e#4585#4586#0" expanded="true" />
-            <element signature="e#4613#4614#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/RegisterUserOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="856">
-          <caret line="208" column="5" selection-start-line="208" selection-start-column="5" selection-end-line="208" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="docComment;method#timeout#0;class#RegisterUserOperation#0" expanded="false" />
-            <element signature="e#7409#7410#0" expanded="true" />
-            <element signature="e#7437#7438#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="32" column="30" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/exceptions/BootstrapException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="33" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/RegisterUserOperation.java" />
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/exceptions/BootstrapException.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/RemoteNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1140">
           <caret line="76" column="8" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/irrelevant/ChatServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/irrelevant/Peer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/irrelevant/TestNode.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/RemoteNodeAndUserTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="488">
-          <caret line="46" column="47" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ant.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/UserRefreshOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1238#1618#0" expanded="true" />
-            <element signature="e#1617#1618#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/irrelevant/ChatServer.java" />
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/irrelevant/Peer.java" />
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/irrelevant/TestNode.java" />
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/RemoteNodeAndUserTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/ant.xml" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/FindNodeMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -2100,140 +1777,119 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/cli/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3837#3838#0" expanded="true" />
-            <element signature="e#3900#3901#0" expanded="true" />
-            <element signature="e#3934#3935#0" expanded="true" />
-            <element signature="e#3970#3971#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/cli/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="480">
           <caret line="46" column="101" selection-start-line="46" selection-start-column="101" selection-end-line="46" selection-end-column="101" />
-          <folding>
-            <element signature="docComment;class#FindNodeOperation#0" expanded="false" />
-            <element signature="docComment;method#execute#0;class#FindNodeOperation#0" expanded="false" />
-            <element signature="docComment;method#addNodes#0;class#FindNodeOperation#0" expanded="false" />
-            <element signature="docComment;method#iterativeQueryNodes#0;class#FindNodeOperation#0" expanded="false" />
-            <element signature="docComment;method#getClosestNodes#0;class#FindNodeOperation#0" expanded="false" />
-            <element signature="docComment;method#getFailedNodes#0;class#FindNodeOperation#0" expanded="false" />
-            <element signature="method#getFailedNodes#0;class#FindNodeOperation#0" expanded="false" />
-            <element signature="docComment;method#receive#0;class#FindNodeOperation#0" expanded="false" />
-            <element signature="docComment;method#timeout#0;class#FindNodeOperation#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/BucketRefreshOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="44" column="80" selection-start-line="44" selection-start-column="80" selection-end-line="44" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1402#1775#0" expanded="true" />
-            <element signature="e#1774#1775#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/node/Node.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="41" column="39" selection-start-line="41" selection-start-column="39" selection-end-line="41" selection-end-column="39" />
-          <folding>
-            <element signature="method#Node#0;class#Node#0" expanded="false" />
-            <element signature="method#equals#0;class#Node#0" expanded="false" />
-            <element signature="docComment;method#toString#0;class#Node#0" expanded="false" />
-            <element signature="docComment;method#getSocketAddress#0;class#Node#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/FindNodeReplyMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java">
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Users.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="35" column="23" selection-start-line="35" selection-start-column="23" selection-end-line="35" selection-end-column="23" />
-          <folding>
-            <element signature="docComment;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#LocalNode#0;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#LocalNode#1;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#readState#0;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#saveState#0;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#startRefreshOperation#0;class#LocalNode#0" expanded="false" />
-            <element signature="method#startRefreshOperation#0;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#stopRefreshOperation#0;class#LocalNode#0" expanded="false" />
-            <element signature="method#stopRefreshOperation#0;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#bootstrap#0;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#message#0;class#LocalNode#0" expanded="false" />
-            <element signature="docComment;method#shutdown#0;class#LocalNode#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="345">
+          <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/build.number">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Configuration.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="75">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/UserRefreshOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/BucketRefreshOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/node/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/FindNodeReplyMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="61" column="0" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding>
-            <element signature="docComment;class#Configuration#0" expanded="false" />
-            <element signature="method#setMaxConnectionAttempts#0;class#Configuration#0" expanded="false" />
+            <marker date="1473242438000" expanded="true" signature="260:348" ph="/**...*/" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java">
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/User.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="23" column="4" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="docComment;class#Server#0" expanded="false" />
-            <element signature="docComment;method#startListener#0;class#Server#0" expanded="false" />
-            <element signature="e#2305#2423#0" expanded="true" />
-            <element signature="e#2422#2423#0" expanded="true" />
-            <element signature="docComment;method#sendMessage#0;class#Server#0" expanded="false" />
-            <element signature="docComment;method#sendMessage#1;class#Server#0" expanded="false" />
-            <element signature="docComment;method#reply#0;class#Server#0" expanded="false" />
-            <element signature="docComment;method#unregister#0;class#Server#0" expanded="false" />
-            <element signature="method#unregister#0;class#Server#0" expanded="false" />
-            <element signature="docComment;method#shutdown#0;class#Server#0" expanded="false" />
-            <element signature="docComment;class#TimeoutTask#0;class#Server#0" expanded="false" />
-            <element signature="method#TimeoutTask#0;class#TimeoutTask#0;class#Server#0" expanded="false" />
-            <element signature="method#run#0;class#TimeoutTask#0;class#Server#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/ReceiverTask.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state relative-caret-position="388">
+          <caret line="42" column="24" selection-start-line="42" selection-start-column="24" selection-end-line="42" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/RefreshHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="44" column="9" selection-start-line="44" selection-start-column="9" selection-end-line="44" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="520">
+          <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+          <folding>
+            <element signature="e#2376#2377#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="168" column="23" selection-start-line="168" selection-start-column="23" selection-end-line="168" selection-end-column="23" />
           <folding />
         </state>
       </provider>
