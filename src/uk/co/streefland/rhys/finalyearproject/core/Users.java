@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation;
 
 import java.io.IOException;
@@ -15,6 +16,7 @@ public class Users {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private User localUser;
     private List<User> users;
 
     private final Server server;
@@ -35,8 +37,12 @@ public class Users {
         return operation.isError();
     }
 
-    public void loginUser() {
+    public boolean loginUser(User user, String plainTextPassword) throws IOException {
+        LoginUserOperation operation = new LoginUserOperation(server, localNode, config, user, plainTextPassword);
+        operation.execute();
 
+        localUser = user;
+        return operation.isLoggedIn();
     }
 
     /**
@@ -54,6 +60,16 @@ public class Users {
         users.add(newUser);
         logger.info("New user added to users: {}", newUser.getUserName());
         return true;
+    }
+
+    public User matchUser(User newUser) {
+        for (User user: users) {
+            if (user.getUserId().equals(newUser.getUserId())) {
+                logger.debug("Found a matching user");
+                return user;
+            }
+        }
+        return null;
     }
 
     public List<User> getUsers() {

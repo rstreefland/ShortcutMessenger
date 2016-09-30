@@ -22,7 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "35";
+    public static final String BUILD_NUMBER = "67";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -31,6 +31,7 @@ public class LocalNode {
     private final Server server;
     private final StorageHandler storageHandler;
     private Users users;
+    private User localUser;
 
     /* Objects for refresh operation */
     private Timer refreshOperationTimer;
@@ -156,6 +157,14 @@ public class LocalNode {
         refreshOperationTimer.purge();
     }
 
+    public final void first() {
+        /* If server is not running then start it */
+        if (!server.isRunning()) {
+            server.startListener(); // start the server
+            startRefreshOperation(); // start the automatic refresh operation that runs every 60 second
+        }
+    }
+
     /**
      * Begins the process of bootstrapping to the network
      *
@@ -231,5 +240,13 @@ public class LocalNode {
 
     public Server getServer() {
         return server;
+    }
+
+    public User getLocalUser() {
+        return localUser;
+    }
+
+    public void setLocalUser(User localUser) {
+        this.localUser = localUser;
     }
 }

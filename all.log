@@ -21034,3 +21034,158 @@ java.io.IOException: Network is unreachable
 2016-09-26 15:14:06.687 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
 2016-09-26 15:14:06.718 [pool-2-thread-33] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
 2016-09-26 15:14:06.734 [pool-2-thread-33] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-30 15:12:04.702 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 45
+2016-09-30 15:12:04.705 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-30 15:12:18.234 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:12:18.251 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 7A9015D49B98F75C73DA07C6A4C6E5E6D47540BE to node E693BC75F42FE4F07AC6489D72DA27ECA1C73F14
+2016-09-30 15:12:18.251 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:12:18.553 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 15:12:18.561 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-30 15:12:42.889 [pool-2-thread-21] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 10.30.71.102
+2016-09-30 15:12:43.368 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 15:37:24.698 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 46
+2016-09-30 15:37:24.702 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-30 15:38:22.987 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:38:22.995 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 61504178F934890214CB07C76DFC5B93E456C6FA to node A38168E9EE81501C0A058B09D2CCB2FA8AA925F4
+2016-09-30 15:38:22.995 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:38:25.264 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 15:38:25.268 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-30 15:47:30.680 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 47
+2016-09-30 15:47:30.682 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-09-30 15:47:36.178 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:47:36.186 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 4BC1CA105B045E615E1AD91BFAC6625075D7B5EF to node AD72CB9B4759F859A27507506DB6CADE4B94E48A
+2016-09-30 15:47:36.204 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:47:36.432 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 15:47:36.435 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-30 15:47:42.882 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-09-30 15:47:42.942 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-09-30 15:48:12.549 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 48
+2016-09-30 15:48:12.554 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 15:48:12.812 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 15:48:12.822 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 15:48:12.860 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:48:12.866 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:48:23.803 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-30 15:48:23.837 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.2.128
+2016-09-30 15:48:31.744 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 15:49:26.084 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 49
+2016-09-30 15:49:26.087 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 15:49:26.143 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 15:49:26.144 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 15:49:26.157 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:49:26.160 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:49:50.766 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 50
+2016-09-30 15:49:50.771 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 15:49:50.852 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 15:49:50.852 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 15:49:50.898 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:49:50.904 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:50:12.290 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 15:50:50.610 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 51
+2016-09-30 15:50:50.616 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 15:50:50.728 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 15:50:50.728 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 15:50:50.772 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:50:50.778 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:51:24.165 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 52
+2016-09-30 15:51:24.168 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 15:51:24.266 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 15:51:24.267 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 15:51:24.317 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:51:24.323 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:51:34.621 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to specified nodes
+2016-09-30 15:51:34.658 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation - ACK received from 192.168.2.128
+2016-09-30 15:51:59.818 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.2.128
+2016-09-30 15:52:00.318 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhysaled
+2016-09-30 15:53:28.365 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 54
+2016-09-30 15:53:28.368 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 15:53:28.526 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 15:53:28.529 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 15:53:28.567 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:53:28.574 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:53:51.819 [pool-2-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.2.128
+2016-09-30 15:53:52.303 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 15:54:24.851 [pool-2-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-09-30 15:56:43.843 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 54
+2016-09-30 15:56:43.848 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 15:56:43.972 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 15:56:43.973 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 15:56:44.005 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 15:56:44.010 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 15:57:00.732 [pool-2-thread-16] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 15:58:44.169 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 15:58:44.172 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-30 16:01:24.911 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 56
+2016-09-30 16:01:24.918 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:01:25.068 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:01:25.068 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:01:25.084 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:01:25.089 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:01:46.869 [pool-2-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:03:25.140 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 16:03:25.144 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-30 16:05:24.872 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 58
+2016-09-30 16:05:24.879 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:05:24.963 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:05:24.964 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:05:24.980 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:05:24.984 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:05:37.138 [pool-2-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.2.128
+2016-09-30 16:05:37.615 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:07:25.050 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 16:07:25.054 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-30 16:08:47.222 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 60
+2016-09-30 16:08:47.229 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:08:47.318 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:08:47.318 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:08:47.347 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:08:47.353 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:09:01.215 [pool-2-thread-25] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:09:15.619 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 61
+2016-09-30 16:09:15.621 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:09:15.681 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:09:15.682 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:09:15.696 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:09:15.700 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:09:20.323 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:09:27.094 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:10:57.084 [pool-2-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:11:15.764 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 16:11:15.773 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-09-30 16:11:15.861 [pool-2-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.2.128
+2016-09-30 16:11:48.305 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 63
+2016-09-30 16:11:48.308 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:11:48.405 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:11:48.406 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:11:48.428 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:11:48.435 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:12:07.332 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:12:15.969 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:12:26.785 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:13:02.043 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 63
+2016-09-30 16:13:02.046 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:13:02.093 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:13:02.094 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:13:02.105 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:13:02.109 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:13:07.161 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 192.168.2.128
+2016-09-30 16:13:07.650 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-09-30 16:13:59.848 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:14:24.638 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 65
+2016-09-30 16:14:24.641 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:14:24.718 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:14:24.719 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:14:24.754 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:14:24.760 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:14:42.234 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:17:03.158 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 67
+2016-09-30 16:17:03.163 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:17:03.264 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:17:03.266 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:17:03.295 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:17:03.301 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:17:24.861 [pool-2-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:17:32.850 [pool-2-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:18:05.860 [pool-2-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:19:49.606 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 16:19:49.610 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed

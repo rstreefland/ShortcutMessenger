@@ -73,6 +73,12 @@ public class Main {
             System.out.println("Please enter the IP of the node to bootstrap to:");
             input = sc.nextLine();
 
+            /* Special case for first node in the network */
+            if (input.equals("first")) {
+                localNode.first();
+                return;
+            }
+
             try {
                 error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), 12345));
             } catch (IOException e) {
@@ -111,6 +117,29 @@ public class Main {
 
     private static void login() {
 
+        boolean loggedIn = false;
+
+        do {
+            System.out.println("Please enter a username:");
+            String username = sc.nextLine();
+
+            System.out.println("Please enter a password:");
+            String password = sc.nextLine();
+
+            User user = new User(username, password);
+
+            try {
+                loggedIn = (localNode.getUsers().loginUser(user, password));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if (loggedIn) {
+                System.out.println("Logged in as " + username + " successfully!\n");
+            } else {
+                System.out.println("Invalid username/password - please try again\n");
+            }
+        } while (!loggedIn);
     }
 
     private static void broadcast() {

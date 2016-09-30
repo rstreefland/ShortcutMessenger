@@ -80,7 +80,7 @@ public class User implements Serializable, Streamable {
         in.readFully(passwordHash);
 
         passwordSalt = new byte[16];
-        in.readFully(passwordHash);
+        in.readFully(passwordSalt);
 
         int associatedNodesSize = in.readInt();
 

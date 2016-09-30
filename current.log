@@ -1,20 +1,11 @@
-2016-09-26 15:06:06.659 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 20
-2016-09-26 15:06:06.659 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-09-26 15:06:06.671 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-09-26 15:06:06.674 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-09-26 15:06:58.849 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 77508FE2D71ABF99952649EF070842078D49D270
-2016-09-26 15:08:06.709 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-26 15:08:06.717 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
-2016-09-26 15:09:20.940 [pool-2-thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
-2016-09-26 15:10:06.693 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-26 15:10:06.696 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
-2016-09-26 15:10:06.749 [pool-2-thread-23] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-26 15:10:44.291 [pool-2-thread-23] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: clayts paki
-2016-09-26 15:12:06.710 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-26 15:12:06.710 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
-2016-09-26 15:12:06.761 [pool-2-thread-23] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-26 15:12:06.761 [pool-2-thread-28] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-26 15:14:06.687 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-09-26 15:14:06.687 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
-2016-09-26 15:14:06.718 [pool-2-thread-33] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
-2016-09-26 15:14:06.734 [pool-2-thread-33] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from RHYS-VIRTUAL
+2016-09-30 16:17:03.158 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 67
+2016-09-30 16:17:03.163 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-09-30 16:17:03.264 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-09-30 16:17:03.266 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-09-30 16:17:03.295 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-09-30 16:17:03.301 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-09-30 16:17:24.861 [pool-2-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-09-30 16:17:32.850 [pool-2-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:18:05.860 [pool-2-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - CheckUserReplyMessage received from 192.168.2.128
+2016-09-30 16:19:49.606 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-09-30 16:19:49.610 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
