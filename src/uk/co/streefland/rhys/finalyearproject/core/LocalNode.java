@@ -22,7 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "67";
+    public static final String BUILD_NUMBER = "118";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -50,6 +50,34 @@ public class LocalNode {
         logger.info("FinalYearProject build " + BUILD_NUMBER);
 
         this.config = new Configuration();
+        this.storageHandler = new StorageHandler(config);
+
+        /* Read localNode and routingTable from file if possible; else create new objects */
+        readState(localIp);
+
+        this.messageHandler = new MessageHandler(this, config);
+        this.server = new Server(config.getPort(), messageHandler, localNode, config);
+        this.users = new Users(server, this, config);
+
+        if (routingTable.getAllNodes().size() > 1) {
+            server.startListener();
+            /* Start the automatic refresh operation that runs every 60 seconds */
+            startRefreshOperation();
+        }
+    }
+
+    /**
+     * This constructor is the core constructor and attempts to read the localNode and routingTable objects from a file.
+     * It creates new objects if they cannot be loaded from the file.
+     *
+     * @throws IOException
+     */
+    public LocalNode(String localIp, int port) throws IOException {
+        logger.info("FinalYearProject build " + BUILD_NUMBER);
+
+        this.config = new Configuration();
+        config.setPort(port);
+
         this.storageHandler = new StorageHandler(config);
 
         /* Read localNode and routingTable from file if possible; else create new objects */

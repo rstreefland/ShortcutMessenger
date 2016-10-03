@@ -9,8 +9,8 @@ public class Codes {
 
     public static void main (String[] args) {
         System.out.println("AcknowledgeMessage: " + AcknowledgeMessage.CODE);
-        System.out.println("CheckUserMessage: " + CheckUserMessage.CODE);
-        System.out.println("CheckUserReplyMessage: " + CheckUserReplyMessage.CODE);
+        System.out.println("VerifyUserMessage: " + VerifyUserMessage.CODE);
+        System.out.println("VerifyUserReplyMessage: " + VerifyUserReplyMessage.CODE);
         System.out.println("ConnectMessage: " + ConnectMessage.CODE);
         System.out.println("FindNodeMessage: " + FindNodeMessage.CODE);
         System.out.println("FindNodeReplyMessage:" + FindNodeReplyMessage.CODE);

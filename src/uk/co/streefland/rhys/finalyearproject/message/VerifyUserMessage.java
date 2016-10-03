@@ -10,19 +10,19 @@ import java.io.IOException;
 /**
  * A simple broadcast message - for testing purposes only
  */
-public class CheckUserMessage implements Message {
+public class VerifyUserMessage implements Message {
 
     Node origin;
     User user;
 
     public static final byte CODE = 0x07;
 
-    public CheckUserMessage(Node origin, User user) {
+    public VerifyUserMessage(Node origin, User user) {
         this.origin = origin;
         this.user = user;
     }
 
-    public CheckUserMessage(DataInputStream in) throws IOException {
+    public VerifyUserMessage(DataInputStream in) throws IOException {
         this.fromStream(in);
     }
 

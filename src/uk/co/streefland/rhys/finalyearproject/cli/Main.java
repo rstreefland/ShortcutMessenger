@@ -10,13 +10,16 @@ import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
- * Created by Rhys on 09/09/2016.
+ * Command line interface for the framework
  */
 public class Main {
 
     private static Scanner sc = new Scanner(System.in);
+    private static int localPort = 0;
     private static String localIp = "";
     private static String input = "";
 
@@ -27,19 +30,37 @@ public class Main {
         StorageHandler temp = new StorageHandler(new Configuration());
 
         if (!temp.doesSavedStateExist()) {
-            System.out.println("Please enter your local IP address:");
-            localIp = sc.nextLine();
+            System.out.println("Please enter your local IP address (and optionally port):");
+            String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
+
+            Pattern p = Pattern.compile(ipPattern);
+            Matcher m = p.matcher(sc.nextLine());
+            if (m.matches()) {
+                if (m.group(1) != null) {
+                    localIp = m.group(1);
+                    if (m.group(2) != null) {
+                        localPort = Integer.parseInt(m.group(2));
+                    }
+                }
+            } else {
+                System.err.println("Invalid IP address format");
+                return;
+            }
         }
 
         try {
-            localNode = new LocalNode(localIp);
-            localIp = localNode.getNode().getSocketAddress().getHostName();
+            if (localPort != 0) {
+                localNode = new LocalNode(localIp, localPort);
+            } else {
+                localNode = new LocalNode(localIp);
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         while (!input.equals("q")) {
-            System.out.println("Local IP: " + localIp + "\n");
+            System.out.println("Local IP address: " + localIp + "\n");
 
             System.out.println("Please select an option:\n");
 
@@ -53,73 +74,102 @@ public class Main {
             input = sc.nextLine();
 
             switch (input) {
-                case "1": bootstrap(); break;
-                case "2": register(); break;
-                case "3": login(); break;
-                case "4": broadcast(); break;
-                case "5": routingTable(); break;
-                case "q": exit(); break;
-                default : break;
+                case "1":
+                    bootstrap();
+                    break;
+                case "2":
+                    register();
+                    break;
+                case "3":
+                    login();
+                    break;
+                case "4":
+                    broadcast();
+                    break;
+                case "5":
+                    routingTable();
+                    break;
+                case "q":
+                    exit();
+                    break;
+                default:
+                    break;
             }
         }
     }
 
     private static void bootstrap() {
 
+        String input = "";
+        int port = 0;
         boolean error = false;
 
-        do {
+        System.out.println("Please enter the IP of the node to bootstrap to:");
 
-            System.out.println("Please enter the IP of the node to bootstrap to:");
-            input = sc.nextLine();
+        String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
 
+        String nextLine = sc.nextLine();
+        Pattern p = Pattern.compile(ipPattern);
+        Matcher m = p.matcher(nextLine);
+        if (m.matches()) {
+            if (m.group(1) != null) {
+                input = m.group(1);
+                if (m.group(2) != null) {
+                    port = Integer.parseInt(m.group(2));
+                }
+            }
+        } else {
             /* Special case for first node in the network */
-            if (input.equals("first")) {
+            if (nextLine.equals("first")) {
                 localNode.first();
                 return;
             }
 
-            try {
+            System.err.println("Invalid IP address");
+            return;
+        }
+
+        try {
+            if (port != 0) {
+                error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), port));
+            } else {
                 error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), 12345));
-            } catch (IOException e) {
-                e.printStackTrace();
             }
-            if (error) {
-                System.out.println("Could not bootstrap to the specified IP - please try again\n");
-            }
-        } while (error);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (error) {
+            System.err.println("Could not bootstrap to the specified IP - please try again\n");
+        }
     }
 
     private static void register() {
 
         boolean error = false;
 
-        do {
-            System.out.println("Please enter a username:");
-            String username = sc.nextLine();
+        System.out.println("Please enter a username:");
+        String username = sc.nextLine();
 
-            System.out.println("Please enter a password:");
-            String password = sc.nextLine();
+        System.out.println("Please enter a password:");
+        String password = sc.nextLine();
 
-            User user = new User(username, password);
+        User user = new User(username, password);
 
-            try {
-                error = (localNode.getUsers().registerUser(user));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            error = (localNode.getUsers().registerUser(user));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-            if (error) {
-                System.out.println("User already exists - please choose a different username\n");
-            }
-        } while (error);
+        if (error) {
+            System.err.println("User already exists - please choose a different username\n");
+        }
     }
 
     private static void login() {
 
         boolean loggedIn = false;
 
-        do {
             System.out.println("Please enter a username:");
             String username = sc.nextLine();
 
@@ -137,9 +187,8 @@ public class Main {
             if (loggedIn) {
                 System.out.println("Logged in as " + username + " successfully!\n");
             } else {
-                System.out.println("Invalid username/password - please try again\n");
+                System.err.println("Invalid username/password - please try again\n");
             }
-        } while (!loggedIn);
     }
 
     private static void broadcast() {

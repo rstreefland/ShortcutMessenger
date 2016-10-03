@@ -1,7 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.node;
 
-import uk.co.streefland.rhys.finalyearproject.message.Streamable;
-
 import java.io.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -12,7 +10,7 @@ import java.util.Random;
 /**
  * The KeyId class stores and represents the 160 bit key that identifies every node on the network.
  */
-public class KeyId implements Streamable, Serializable {
+public class KeyId implements Serializable {
 
     public static final int ID_LENGTH = 160;   // Length of KeyId im bits
     public static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of KeyId in bytes
@@ -58,12 +56,10 @@ public class KeyId implements Streamable, Serializable {
         this.fromStream(in);
     }
 
-    @Override
     public void toStream(DataOutputStream out) throws IOException {
         out.write(getIdBytes());
     }
 
-    @Override
     public final void fromStream(DataInputStream in) throws IOException {
         byte[] input = new byte[BYTES_LENGTH];
         in.readFully(input);

@@ -38,10 +38,10 @@ public class MessageHandler {
                 return new TextMessage(in);
             case StoreUserMessage.CODE:
                 return new StoreUserMessage(in);
-            case CheckUserMessage.CODE:
-                return new CheckUserMessage(in);
-            case CheckUserReplyMessage.CODE:
-                return new CheckUserReplyMessage(in);
+            case VerifyUserMessage.CODE:
+                return new VerifyUserMessage(in);
+            case VerifyUserReplyMessage.CODE:
+                return new VerifyUserReplyMessage(in);
             default:
             logger.error("No message type found for message code: {}", code);
             return null;
@@ -58,8 +58,8 @@ public class MessageHandler {
                 return new TextReceiver(server,localNode, config);
             case StoreUserMessage.CODE:
                 return new StoreUserReceiver(server, localNode, config);
-            case CheckUserMessage.CODE:
-                return new CheckUserReceiver(server, localNode, config);
+            case VerifyUserMessage.CODE:
+                return new VerifyUserReceiver(server, localNode);
             default:
                 logger.error("No receiver type found for message code: {}", code);
                 return null;

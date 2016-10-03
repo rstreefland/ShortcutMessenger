@@ -1,7 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.node;
 
-import uk.co.streefland.rhys.finalyearproject.message.Streamable;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -12,7 +10,7 @@ import java.net.InetSocketAddress;
 /**
  * Represents each individual node on the network. Stores the KeyId, InetAddress, and port.
  */
-public class Node implements Streamable, Serializable {
+public class Node implements Serializable {
 
     private KeyId nodeId;
     private InetAddress inetAddress;
@@ -29,7 +27,6 @@ public class Node implements Streamable, Serializable {
         fromStream(in);
     }
 
-    @Override
     public void toStream(DataOutputStream out) throws IOException
     {
          /* Add the KeyId to the stream */
@@ -47,7 +44,6 @@ public class Node implements Streamable, Serializable {
         out.writeInt(port);
     }
 
-    @Override
     public final void fromStream(DataInputStream in) throws IOException
     {
         /* Read the KeyId */

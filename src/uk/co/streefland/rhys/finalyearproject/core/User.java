@@ -2,7 +2,6 @@ package uk.co.streefland.rhys.finalyearproject.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.message.Streamable;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
@@ -24,7 +23,7 @@ import java.util.Random;
 /**
  * Created by Rhys on 07/09/2016.
  */
-public class User implements Serializable, Streamable {
+public class User implements Serializable{
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -49,7 +48,6 @@ public class User implements Serializable, Streamable {
         fromStream(in);
     }
 
-    @Override
     public void toStream(DataOutputStream out) throws IOException
     {
          /* Add the KeyId to the stream */
@@ -68,7 +66,6 @@ public class User implements Serializable, Streamable {
         }
     }
 
-    @Override
     public final void fromStream(DataInputStream in) throws IOException
     {
         /* Read the userId */

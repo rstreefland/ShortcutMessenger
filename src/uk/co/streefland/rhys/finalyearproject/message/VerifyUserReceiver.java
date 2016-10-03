@@ -11,28 +11,26 @@ import java.io.IOException;
 /**
  * Receives a TextMessage
  */
-public class CheckUserReceiver implements Receiver {
+public class VerifyUserReceiver implements Receiver {
 
     private final Server server;
     private final LocalNode localNode;
-    private final Configuration config;
 
-    public CheckUserReceiver(Server server, LocalNode localNode, Configuration config) {
+    public VerifyUserReceiver(Server server, LocalNode localNode) {
         this.server = server;
         this.localNode = localNode;
-        this.config = config;
     }
 
     @Override
     public void receive(Message incoming, int communicationId) throws IOException {
-        CheckUserMessage msg = (CheckUserMessage) incoming;
+        VerifyUserMessage msg = (VerifyUserMessage) incoming;
 
         Node origin = msg.getOrigin();
 
         User existingUser = localNode.getUsers().matchUser(msg.getUser());
 
-        /* Create the CheckUserReplyMessage */
-        Message reply = new CheckUserReplyMessage(localNode.getNode(), existingUser);
+        /* Create the VerifyUserReplyMessage */
+        Message reply = new VerifyUserReplyMessage(localNode.getNode(), existingUser);
 
         /* The server sends the reply */
         if (server.isRunning()) {

@@ -12,19 +12,19 @@ import java.util.List;
 /**
  * Responds to a FindNodeMessage with a list of the K closest nodes to the provided KeyId
  */
-public class CheckUserReplyMessage implements Message {
+public class VerifyUserReplyMessage implements Message {
 
     private Node origin;
     private User existingUser;
 
     public static final byte CODE = 0x08;
 
-    public CheckUserReplyMessage(Node origin, User existingUser) {
+    public VerifyUserReplyMessage(Node origin, User existingUser) {
         this.origin = origin;
         this.existingUser = existingUser;
     }
 
-    public CheckUserReplyMessage(DataInputStream in) throws IOException {
+    public VerifyUserReplyMessage(DataInputStream in) throws IOException {
         this.fromStream(in);
     }
 
@@ -48,7 +48,7 @@ public class CheckUserReplyMessage implements Message {
 
     @Override
     public String toString() {
-        return "CheckUserReplyMessage[origin KeyId=" + origin.getNodeId() + "]";
+        return "VerifyUserReplyMessage[origin KeyId=" + origin.getNodeId() + "]";
     }
 
     @Override

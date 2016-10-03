@@ -69,7 +69,7 @@ public class LoginUserOperation implements Operation, Receiver {
         operation.execute();
         addNodes(operation.getClosestNodes());
 
-        message = new CheckUserMessage(localNode.getNode(), user);
+        message = new VerifyUserMessage(localNode.getNode(), user);
 
         try {
             /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
@@ -174,10 +174,10 @@ public class LoginUserOperation implements Operation, Receiver {
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
 
-        /* Read the CheckUserReplyMessage */
-        CheckUserReplyMessage msg = (CheckUserReplyMessage) incoming;
+        /* Read the VerifyUserReplyMessage */
+        VerifyUserReplyMessage msg = (VerifyUserReplyMessage) incoming;
 
-        logger.info("CheckUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
+        logger.info("VerifyUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
             if (msg.getExistingUser().doPasswordsMatch(plainTextPassword)) {
