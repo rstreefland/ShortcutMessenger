@@ -18975,3 +18975,13 @@ java.io.EOFException
 2016-10-03 21:02:03.506 [pool-2-thread-16] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
 2016-10-03 21:02:04.017 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
 2016-10-03 21:02:08.222 [pool-2-thread-16] INFO  uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation - VerifyUserReplyMessage received from rhys-pc
+2016-10-03 21:43:02.389 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 121
+2016-10-03 21:43:02.390 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-03 21:43:12.072 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-03 21:43:12.076 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode DFB04C343014D81276839A305924992381037D5C to node 822B6E6E1225444ED1019A0970F4F59D7488CE72
+2016-10-03 21:43:12.076 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 1234
+2016-10-03 21:43:12.173 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-03 21:43:12.178 [main] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-03 21:43:17.648 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-03 21:43:31.136 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-03 21:43:31.637 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys

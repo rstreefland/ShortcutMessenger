@@ -33,7 +33,6 @@ public class Server {
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
     private boolean isRunning;
-
     private byte[] buffer;
     private DatagramPacket packet;
     private ByteArrayInputStream bin;
@@ -53,7 +52,6 @@ public class Server {
 
         buffer = new byte[config.getPacketSize()];
         packet = new DatagramPacket(buffer, buffer.length);
-
         isRunning = false;
     }
 
@@ -90,8 +88,6 @@ public class Server {
                 communicationId = din.readInt();
                 messageCode = din.readByte();
 
-                logger.debug("Incoming message code is {}", messageCode);
-
                 /* Create the message and close the input stream */
                 Message msg = messageHandler.createMessage(messageCode, din);
                 din.close();
@@ -102,6 +98,7 @@ public class Server {
                     /* Check if a receiver already exists and create one if not */
                     Receiver receiver;
                     if (receivers.containsKey(communicationId)) {
+
                         /* If there is a receiver in the receivers list to handle this */
                         synchronized (this) {
                             receiver = receivers.remove(communicationId);
@@ -111,9 +108,9 @@ public class Server {
                             }
                         }
                     } else {
-                            /* There is currently no receivers, try to get one */
-                            logger.debug("No receiver exists, creating one using code {}", messageCode);
-                            receiver = messageHandler.createReceiver(messageCode, this);
+                        /* There is currently no receivers, create one*/
+                        logger.debug("No receiver exists, creating one using code {}", messageCode);
+                        receiver = messageHandler.createReceiver(messageCode, this);
                     }
 
                     /* Start the ReceiverTask on a thread in the cached threadPool*/
@@ -130,12 +127,11 @@ public class Server {
                 }
             }
         }
-
         logger.debug("Shutdown command received - listener thread stopping");
     }
 
     /**
-     * Sends a message
+     * Sends a message to a remote node
      *
      * @param destination The destination node
      * @param msg         The message

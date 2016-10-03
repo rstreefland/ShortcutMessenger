@@ -22,7 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "118";
+    public static final String BUILD_NUMBER = "121";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -59,6 +59,7 @@ public class LocalNode {
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
         this.users = new Users(server, this, config);
 
+        /* If we've managed to load a saved state from file - start the server */
         if (routingTable.getAllNodes().size() > 1) {
             server.startListener();
             /* Start the automatic refresh operation that runs every 60 seconds */
@@ -67,8 +68,7 @@ public class LocalNode {
     }
 
     /**
-     * This constructor is the core constructor and attempts to read the localNode and routingTable objects from a file.
-     * It creates new objects if they cannot be loaded from the file.
+     * This constructor is the same the above but allows the specification of a custom port
      *
      * @throws IOException
      */
@@ -87,6 +87,7 @@ public class LocalNode {
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
         this.users = new Users(server, this, config);
 
+        /* If we've managed to load a saved state from file - start the server */
         if (routingTable.getAllNodes().size() > 1) {
             server.startListener();
             /* Start the automatic refresh operation that runs every 60 seconds */
@@ -185,6 +186,10 @@ public class LocalNode {
         refreshOperationTimer.purge();
     }
 
+    /**
+     * This method starts the server if it isn't already running.
+     * It is designed for the first node on the network
+     */
     public final void first() {
         /* If server is not running then start it */
         if (!server.isRunning()) {
@@ -224,7 +229,7 @@ public class LocalNode {
      * @throws IOException
      */
     public final void message(String message, List<Node> targetNodes) throws IOException {
-        if (!message.isEmpty() && !message.equals("exit")) { // TODO: 05/09/2016  remove the exit check once you have some kind of a user interface
+        if (!message.isEmpty()) {
             logger.info("Sending message to specified nodes");
             Operation sendMessage = new TextMessageOperation(server, this, config, message, targetNodes);
             sendMessage.execute();

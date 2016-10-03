@@ -145,7 +145,7 @@ public class Main {
 
     private static void register() {
 
-        boolean error = false;
+        boolean success = false;
 
         System.out.println("Please enter a username:");
         String username = sc.nextLine();
@@ -156,12 +156,14 @@ public class Main {
         User user = new User(username, password);
 
         try {
-            error = (localNode.getUsers().registerUser(user));
+            success = (localNode.getUsers().registerUser(user));
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        if (error) {
+        if (success) {
+            System.out.println("User registered successfully!\n");
+        } else {
             System.err.println("User already exists - please choose a different username\n");
         }
     }
@@ -170,25 +172,25 @@ public class Main {
 
         boolean loggedIn = false;
 
-            System.out.println("Please enter a username:");
-            String username = sc.nextLine();
+        System.out.println("Please enter a username:");
+        String username = sc.nextLine();
 
-            System.out.println("Please enter a password:");
-            String password = sc.nextLine();
+        System.out.println("Please enter a password:");
+        String password = sc.nextLine();
 
-            User user = new User(username, password);
+        User user = new User(username, password);
 
-            try {
-                loggedIn = (localNode.getUsers().loginUser(user, password));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        try {
+            loggedIn = (localNode.getUsers().loginUser(user, password));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-            if (loggedIn) {
-                System.out.println("Logged in as " + username + " successfully!\n");
-            } else {
-                System.err.println("Invalid username/password - please try again\n");
-            }
+        if (loggedIn) {
+            System.out.println("Logged in as " + username + " successfully!\n");
+        } else {
+            System.err.println("Invalid username/password - please try again\n");
+        }
     }
 
     private static void broadcast() {

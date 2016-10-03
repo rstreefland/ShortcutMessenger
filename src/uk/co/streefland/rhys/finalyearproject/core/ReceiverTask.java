@@ -8,7 +8,7 @@ import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import java.io.IOException;
 
 /**
- * Created by Rhys on 10/09/2016.
+ * Runs each receiver task in a different thread. This is designed to stop lengthy receiver tasks from hogging the main server thread.
  */
 public class ReceiverTask implements Runnable {
 
@@ -25,6 +25,9 @@ public class ReceiverTask implements Runnable {
         this.communicationId = communicationId;
     }
 
+    /**
+     * Invokes the receiver method
+     */
     public void run() {
         try {
             receiver.receive(msg, communicationId);

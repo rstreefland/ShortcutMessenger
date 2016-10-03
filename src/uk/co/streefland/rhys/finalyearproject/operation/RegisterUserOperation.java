@@ -36,14 +36,14 @@ public class RegisterUserOperation implements Operation, Receiver {
     private LocalNode localNode;
     private User user;
 
-    private Message message;        // Message sent to each peer
+    private Message message; // Message sent to each peer
     private Map<Node, String> nodes;
     private Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
     private Map<Integer, Node> messagesInTransit;
 
-    private boolean error;
+    private boolean isRegisteredSuccessfully;
     private boolean storeUserOnLocalNode;
 
     public RegisterUserOperation(Server server, LocalNode localNode, Configuration config, User user) {
@@ -64,7 +64,7 @@ public class RegisterUserOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
 
-        error = false;
+        isRegisteredSuccessfully = true; // true until disproved by a different node
         storeUserOnLocalNode = false;
 
         FindNodeOperation operation = new FindNodeOperation(server, localNode, user.getUserId(), config);
@@ -74,7 +74,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         message = new StoreUserMessage(localNode.getNode(), user);
 
         try {
-            /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;     // We re-check every n milliseconds
             while (totalTimeWaited < config.getOperationTimeout()) {
@@ -99,7 +99,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         }
 
         /* Add the user to our localStorage once we know that it doesn't exist already on any other nodes */
-        if (!error && storeUserOnLocalNode) {
+        if (!isRegisteredSuccessfully && storeUserOnLocalNode) {
             localNode.getUsers().addUser(user);
         }
     }
@@ -176,7 +176,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getOperationSuccessful() == false) {
-            error = true;
+            isRegisteredSuccessfully = false;
         }
 
         /* Update the hashmap to show that we've finished messaging this node */
@@ -207,8 +207,8 @@ public class RegisterUserOperation implements Operation, Receiver {
         messagesInTransit.remove(communicationId);
     }
 
-    public synchronized boolean isError() {
-        return error;
+    public synchronized boolean isRegisteredSuccessfully() {
+        return isRegisteredSuccessfully;
     }
 }
 

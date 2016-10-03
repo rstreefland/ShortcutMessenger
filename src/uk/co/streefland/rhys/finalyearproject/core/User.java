@@ -21,9 +21,9 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * Created by Rhys on 07/09/2016.
+ * Represents a User on the network
  */
-public class User implements Serializable{
+public class User implements Serializable {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -50,17 +50,17 @@ public class User implements Serializable{
 
     public void toStream(DataOutputStream out) throws IOException
     {
-         /* Add the KeyId to the stream */
+        /* Add userId and userName to stream */
         userId.toStream(out);
-
         out.writeUTF(userName);
 
+        /* Add password hash and salt to stream */
         out.write(passwordHash);
-
         out.write(passwordSalt);
 
+        /* Add all associated nodes to the stream
+         * And the quantity so we know how many to read back in */
         out.writeInt(associatedNodes.size());
-
         for (Node node : associatedNodes) {
             node.toStream(out);
         }
@@ -68,33 +68,42 @@ public class User implements Serializable{
 
     public final void fromStream(DataInputStream in) throws IOException
     {
-        /* Read the userId */
+        /* Read in userId and userName */
         userId = new KeyId(in);
-
         userName = in.readUTF();
 
+        /* Read in password hash and salt */
         passwordHash = new byte[16];
         in.readFully(passwordHash);
-
         passwordSalt = new byte[16];
         in.readFully(passwordSalt);
 
+        /* Read in all associated nodes */
         int associatedNodesSize = in.readInt();
-
         associatedNodes = new ArrayList<>();
-
         for (int i = 0; i < associatedNodesSize; i++) {
             associatedNodes.add(new Node(in));
         }
     }
 
+    /**
+     * Generates a 16 byte salt randomly
+     * @return byte array containing the salt
+     */
     private byte[] generateSalt() {
         final Random r = new SecureRandom();
         byte[] salt = new byte[16];
         r.nextBytes(salt);
         return salt;
     }
-    
+
+    /**
+     * Generates a secure 128bit password hash using the provided salt and password.
+     * Uses the PBEKeySpec method with 5000 passes
+     * @param salt The salt to hash the password with
+     * @param password The plaintext password to hash
+     * @return The generated password hash
+     */
     private byte[] generatePasswordHash(byte[] salt, String password) {
         long start = System.currentTimeMillis();
         byte[] passwordHash = null;
@@ -110,12 +119,19 @@ public class User implements Serializable{
             e.printStackTrace();
         }
 
+        /* Performance testing */
         long end = System.currentTimeMillis();
         long difference = end-start;
         logger.debug("Hashing password took: " + difference + "ms");
+
         return passwordHash;
     }
 
+    /**
+     * Compares a plaintext password with the hashed one stored in the object
+     * @param password The plaintext password to compare
+     * @return True if passwords match, false if not
+     */
     public boolean doPasswordsMatch(String password) {
         if (Arrays.equals(generatePasswordHash(passwordSalt, password), passwordHash)) {
             return true;

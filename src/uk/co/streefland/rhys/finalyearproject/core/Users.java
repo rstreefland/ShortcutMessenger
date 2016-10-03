@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Rhys on 07/09/2016.
+ *  Represents the set of user objects stored on the local node and the operations to manage them
  */
 public class Users {
 
@@ -31,24 +31,39 @@ public class Users {
         this.users = new ArrayList<>();
     }
 
+    /**
+     * Invokes the register user operation to register the user on the network and returns whether it was successful
+     * @param user The user object to register on the network
+     * @return True if the user was registered successfully
+     * @throws IOException
+     */
     public boolean registerUser(User user) throws IOException {
         RegisterUserOperation operation = new RegisterUserOperation(server, localNode, config, user);
         operation.execute();
-        return operation.isError();
+        return operation.isRegisteredSuccessfully();
     }
 
+    /**
+     * Invokes the login user operation to log an existing user into the network on this node
+     * @param user
+     * @param plainTextPassword
+     * @return
+     * @throws IOException
+     */
     public boolean loginUser(User user, String plainTextPassword) throws IOException {
         LoginUserOperation operation = new LoginUserOperation(server, localNode, config, user, plainTextPassword);
         operation.execute();
 
-        localUser = user;
+        if (operation.isLoggedIn()) {
+            localUser = user; // set the local user object for future reference
+        }
         return operation.isLoggedIn();
     }
 
     /**
-     * Returns false if the user already exists
-     * @param newUser
-     * @return
+     * Stores a user on the local node
+     * @param newUser The user to store on the local node
+     * @return False if the user already exists on the network
      */
     public boolean addUser(User newUser) {
         for (User user: users) {
@@ -62,6 +77,11 @@ public class Users {
         return true;
     }
 
+    /**
+     * Looks for a user on the local node and returns the object if it was found
+     * @param newUser
+     * @return The user object that was found
+     */
     public User matchUser(User newUser) {
         for (User user: users) {
             if (user.getUserId().equals(newUser.getUserId())) {
