@@ -8,20 +8,30 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * The KeyId class stores and represents the 160 bit key that identifies every node on the network.
+ * The KeyId class stores and represents the 160 bit key that identifies every key on the network.
+ * Keys are currently used to represent nodes and users on the network. Eventually they will also be used to represent
+ * messages and other content
  */
 public class KeyId implements Serializable {
 
+    /* Network constants */
     public static final int ID_LENGTH = 160;   // Length of KeyId im bits
     public static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of KeyId in bytes
 
-    private byte[] idBytes;
+    private byte[] idBytes; // the byte array that stores the KeyID
 
+    /**
+     * Default constructor - generates the KeyId randomly
+     */
     public KeyId() {
         idBytes = new byte[BYTES_LENGTH];
         new Random().nextBytes(idBytes);
     }
 
+    /**
+     * Generates the KeyId based on the SHA1 digest of an input string
+     * @param id
+     */
     public KeyId(String id) {
 
         /* Calculate SHA1 digest of input string - this creates a 160 bit byte array */
@@ -45,6 +55,10 @@ public class KeyId implements Serializable {
         }
     }
 
+    /**
+     * Stores a KeyId based on an existing 160 bit byte array
+     * @param idBytes
+     */
     public KeyId(byte[] idBytes) {
         if (idBytes.length != BYTES_LENGTH) {
             throw new IllegalArgumentException("Data needs to be " + BYTES_LENGTH + " characters long");
@@ -67,18 +81,19 @@ public class KeyId implements Serializable {
     }
 
     /**
-     * Performs the XOR operation on this KeyId and another KeyId provided as the parameter. Used to calculate the distance from one KeyId to another
+     * Performs the XOR operation on this KeyId and another KeyId provided as the parameter.
+     * Used to calculate the distance from one KeyId to another
      *
-     * @param nodeId The nodeId to be XOR'ed with the current KeyId
+     * @param keyId The KeyId to be XOR'ed with the current KeyId
      * @return A KeyId object created with the XOR'ed array
      */
-    private KeyId xor(KeyId nodeId) {
-        byte[] nodeIdBytes = nodeId.getIdBytes();
+    private KeyId xor(KeyId keyId) {
+        byte[] keyIdBytes = keyId.getIdBytes();
         byte[] result = new byte[BYTES_LENGTH];
 
         /* XOR each byte of the arrays and store in the result array */
         for (int i = 0; i < BYTES_LENGTH; i++) {
-            result[i] = (byte) (idBytes[i] ^ nodeIdBytes[i]);
+            result[i] = (byte) (idBytes[i] ^ keyIdBytes[i]);
         }
 
         return new KeyId(result);
@@ -90,35 +105,38 @@ public class KeyId implements Serializable {
      * @param distance the distance in bits
      * @return A KeyId object which is distance bits away from this KeyId
      */
-    public KeyId generateNodeIdUsingDistance(int distance) {
+    public KeyId generateKeyIdUsingDistance(int distance) {
 
-        byte[] newNodeIdBytes = idBytes.clone(); // Clone the byte array so we don't modify it
+        byte[] newKeyIdBytes = idBytes.clone(); // Clone the byte array so we don't modify it
 
         int bitsToFlip = distance; // Number of bits left to flip
 
         /* For each byte in byte array */
-        for (int i = newNodeIdBytes.length - 1; i >= 0; i--) {
+        for (int i = newKeyIdBytes.length - 1; i >= 0; i--) {
             /* For each bit in the byte */
             for (int j = 0; j <= 7; j++) {
 
                 if (bitsToFlip > 0) {
                     /* Invert the bit */
-                    if ((newNodeIdBytes[i] >> j & 1) == 1) {
-                        newNodeIdBytes[i] &= ~(1 << j); // Clear the bit
+                    if ((newKeyIdBytes[i] >> j & 1) == 1) {
+                        newKeyIdBytes[i] &= ~(1 << j); // Clear the bit
                     } else {
-                        newNodeIdBytes[i] |= (1 << j); // Set the bit
+                        newKeyIdBytes[i] |= (1 << j); // Set the bit
                     }
                     bitsToFlip--;
                 } else {
                     /* No bits left to flip - return the array as a new KeyId object */
-                    return new KeyId(newNodeIdBytes);
+                    return new KeyId(newKeyIdBytes);
                 }
             }
         }
-        return new KeyId(newNodeIdBytes); // impossible to reach this
+        return new KeyId(newKeyIdBytes); // impossible to reach this
     }
 
-
+    /**
+     * Calculates and returns the index of the first set bit in the byte array
+     * @return
+     */
     public int getFirstSetBitLocation() {
         int currentBit = 0;
 
@@ -133,7 +151,7 @@ public class KeyId implements Serializable {
                     if ((idBytes[i] >> j & 1) == 1) {
                         return currentBit;
                     }
-                    currentBit++;   // Increment the current bit
+                    currentBit++; // Increment the current bit
                 }
             }
         }
@@ -141,16 +159,20 @@ public class KeyId implements Serializable {
     }
 
     /**
-     * Calculates the distances between two nodeIds in bits.
+     * Calculates the distances between two KeyIds in bits.
      *
-     * @param otherNode The nodeId you would like to calculate the distance relative to
-     * @return The distance in bits between the two nodes
+     * @param otherKey The KeyId you would like to calculate the distance relative to
+     * @return The distance in bits between the two keys
      */
-    public int getDistance(KeyId otherNode) {
+    public int getDistance(KeyId otherKey) {
         /* Gets the first set bit of the KeyId generated by the XOR method and subtracts it from ID_LENGTH (160)*/
-        return ID_LENGTH - xor(otherNode).getFirstSetBitLocation();
+        return ID_LENGTH - xor(otherKey).getFirstSetBitLocation();
     }
 
+    /**
+     * Generates and returns the hashcode of the KeyId as an integer
+     * @return
+     */
     @Override
     public int hashCode() {
         int hash = 4;
@@ -158,6 +180,11 @@ public class KeyId implements Serializable {
         return hash;
     }
 
+    /**
+     * Compares two keys and returns true if they match
+     * @param obj
+     * @return
+     */
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof KeyId) {
@@ -169,7 +196,8 @@ public class KeyId implements Serializable {
     }
 
     /**
-     * Returns the binary representation of the KeyId byte array split into the individual bytes. Very helpful for debugging
+     * Returns the binary representation of the KeyId byte array split into the individual bytes.
+     * Very helpful for the early stages of debugging but can likely be removed once proper testing has taken place.
      *
      * @return The binary representation of the KeyId byte array
      */

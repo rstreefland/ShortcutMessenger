@@ -10,7 +10,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 /**
- * Handles creating messages and receivers for incoming and outgoing messages and receivers
+ * Handles creating messages and receivers for incoming and outgoing messages and receivers based on their byte code
  */
 public class MessageHandler {
 
@@ -43,7 +43,7 @@ public class MessageHandler {
             case VerifyUserReplyMessage.CODE:
                 return new VerifyUserReplyMessage(in);
             default:
-            logger.error("No message type found for message code: {}", code);
+            logger.warn("No message type found for message code: {}", code);
             return null;
         }
     }
@@ -61,7 +61,7 @@ public class MessageHandler {
             case VerifyUserMessage.CODE:
                 return new VerifyUserReceiver(server, localNode);
             default:
-                logger.error("No receiver type found for message code: {}", code);
+                logger.warn("No receiver type found for message code: {}", code);
                 return null;
         }
     }

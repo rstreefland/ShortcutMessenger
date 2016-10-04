@@ -34,7 +34,7 @@ public class UserRefreshOperation implements Operation {
     @Override
     public synchronized void execute() throws IOException {
         for (User currentUser : localNode.getUsers().getUsers()) {
-            /* Run RegisterUserOperation in a different thread */
+            /* Run RegisterUserOperation for each user in a different thread */
             new Thread() {
                 @Override
                 public void run() {

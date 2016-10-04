@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Responds to a FindNodeMessage with a list of the K closest nodes to the provided KeyId
+ * Response to a FindNodeMessage with a list of the K closest nodes to the provided KeyId
  */
 public class FindNodeReplyMessage implements Message {
 

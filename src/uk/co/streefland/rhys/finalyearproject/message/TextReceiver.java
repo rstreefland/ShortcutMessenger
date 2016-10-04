@@ -33,8 +33,8 @@ public class TextReceiver implements Receiver {
         /* The server sends the reply */
         if (server.isRunning()) {
             server.reply(msg.getOrigin(), ack, communicationId);
+        }
     }
-}
 
     /**
      * Nothing to be done here

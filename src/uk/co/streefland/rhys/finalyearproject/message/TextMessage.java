@@ -7,7 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * A simple broadcast message - for testing purposes only
+ * A simple text message - currently for testing purposes only
  */
 public class TextMessage implements Message {
 

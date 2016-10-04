@@ -7,7 +7,8 @@ import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 import java.io.*;
 
 /**
- * Created by Rhys on 05/09/2016.
+ * Provides methods for saving to and reading from files.
+ * Useful for saving the state on shutdown but will eventually be used to offload data from memory in real time as well.
  */
 public class StorageHandler {
 

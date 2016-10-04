@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Responds to a FindNodeMessage with a list of the K closest nodes to the provided KeyId
+ * Response to a VerifyUserMessage which contains the existing user object if it exists on the remote node
  */
 public class VerifyUserReplyMessage implements Message {
 
@@ -33,8 +33,13 @@ public class VerifyUserReplyMessage implements Message {
         /* Add the origin node to the stream */
         origin.toStream(out);
 
-        /* Add the existingUser to the stream */
-        existingUser.toStream(out);
+        /* Add the existingUser to the stream if not null */
+        if (existingUser != null) {
+            out.writeBoolean(true);
+            existingUser.toStream(out);
+        } else {
+            out.writeBoolean(false);
+        }
     }
 
     @Override
@@ -42,8 +47,10 @@ public class VerifyUserReplyMessage implements Message {
         /* Read in the origin */
         origin = new Node(in);
 
-        /* Read the existing user from the stream */
-        existingUser = new User(in);
+        /* Read the existing user from the stream if not null */
+        if (in.readBoolean()) {
+            existingUser = new User(in);
+        }
     }
 
     @Override

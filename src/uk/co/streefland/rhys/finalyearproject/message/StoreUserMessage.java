@@ -8,7 +8,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * A simple broadcast message - for testing purposes only
+ * This message is sent during the register user operation and contains the user object that the remote node should store
  */
 public class StoreUserMessage implements Message {
 

@@ -11,8 +11,18 @@ import java.io.IOException;
  */
 public interface Message {
 
+    /**
+     * Writes the message data to the output stream
+     * @param out
+     * @throws IOException
+     */
     void toStream(DataOutputStream out) throws IOException;
 
+    /**
+     * Reads the message data from the output stream
+     * @param out
+     * @throws IOException
+     */
     void fromStream(DataInputStream out) throws IOException;
 
     @Override

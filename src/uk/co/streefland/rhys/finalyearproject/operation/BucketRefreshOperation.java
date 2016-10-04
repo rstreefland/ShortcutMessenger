@@ -35,9 +35,9 @@ public class BucketRefreshOperation implements Operation {
     public synchronized void execute() throws IOException {
         for (int i = 1; i < KeyId.ID_LENGTH; i++) {
             /* Generate a KeyId that is n bits away from the current nodeId */
-            final KeyId current = localNode.getNode().getNodeId().generateNodeIdUsingDistance(i);
+            final KeyId current = localNode.getNode().getNodeId().generateKeyIdUsingDistance(i);
 
-            /* Run FindNodeOperation in a different thread */
+            /* Run each FindNodeOperations in a different thread */
             new Thread() {
                 @Override
                 public void run() {

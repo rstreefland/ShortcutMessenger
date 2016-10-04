@@ -7,7 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * Acknowledgement message sent in reply to an incoming ConnectMessage by the ConnectReceiver
+ * Acknowledgement message sent in reply to various messages
  */
 public class AcknowledgeMessage implements Message {
 

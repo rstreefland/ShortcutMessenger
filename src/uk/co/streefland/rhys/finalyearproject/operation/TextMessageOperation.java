@@ -66,9 +66,9 @@ public class TextMessageOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
         try {
-            /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
-            int timeInterval = 10;     // We re-check every n milliseconds
+            int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout()) {
                 if (!iterativeMessagesNodes()) {
                     wait(timeInterval);
@@ -169,7 +169,7 @@ public class TextMessageOperation implements Operation, Receiver {
             return;
         }
 
-        /* Mark this node as failed */
+        /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);

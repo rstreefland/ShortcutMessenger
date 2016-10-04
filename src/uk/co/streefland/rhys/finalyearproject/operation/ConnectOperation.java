@@ -36,23 +36,25 @@ public class ConnectOperation implements Operation, Receiver {
     }
 
     /**
-     * Send the connect message to the target node and wait for a reply. Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
+     * Send the connect message to the target node and wait for a reply.
+     * Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
      *
      * @throws IOException
      */
     @Override
     public synchronized void execute() throws IOException {
-            try {
+
+        try {
             /* Contact the bootstrap node */
-                error = true;
-                attempts = 0;
+            error = true;
+            attempts = 0;
 
             /* Construct a connect message and send it to the bootstrap node */
             Message m = new ConnectMessage(localNode.getNode());
             server.sendMessage(bootstrapNode, m, this);
             attempts++;
 
-            /* If we haven't finished,  wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 50;
             while (totalTimeWaited < config.getOperationTimeout()) {
@@ -75,8 +77,9 @@ public class ConnectOperation implements Operation, Receiver {
 
             /* Refresh buckets to update the rest of the routing table */
             new BucketRefreshOperation(server, localNode, config).execute();
+
         } catch (InterruptedException e) {
-            logger.error("Connect operation was interrupted: {} " + e.getMessage());
+            logger.error("Connect operation was interrupted: {} ", e);
         }
     }
 

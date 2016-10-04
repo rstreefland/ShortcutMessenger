@@ -11,7 +11,7 @@ public class NodeIdTest {
         System.out.println("NODE ID TESTING :)");
 
         KeyId nodeId = new KeyId("titanicsaled");
-        KeyId nodeId2 = nodeId.generateNodeIdUsingDistance(160);
+        KeyId nodeId2 = nodeId.generateKeyIdUsingDistance(160);
 
         System.out.println("\nBytes: " + nodeId.getIdBytes().toString());
 

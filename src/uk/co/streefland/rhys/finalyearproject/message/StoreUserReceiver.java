@@ -8,7 +8,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import java.io.IOException;
 
 /**
- * Receives a TextMessage
+ * Receives a StoreUserMessage
  */
 public class StoreUserReceiver implements Receiver {
 

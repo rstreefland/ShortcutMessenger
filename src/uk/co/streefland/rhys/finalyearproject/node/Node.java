@@ -36,7 +36,7 @@ public class Node implements Serializable {
         byte[] a = inetAddress.getAddress();
         if (a.length != 4)
         {
-            throw new RuntimeException("Expected InetAddress of 4 bytes, got " + a.length);
+            throw new RuntimeException("I expected an InetAddress of 4 bytes, here's what I actually got: " + a.length);
         }
         out.write(a);
 

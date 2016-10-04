@@ -76,7 +76,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
-            int timeInterval = 10;     // We re-check every n milliseconds
+            int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout()) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
@@ -90,8 +90,10 @@ public class RegisterUserOperation implements Operation, Receiver {
             logger.error("RegisterUserOperation was interrupted unexpectedly: {}", e);
         }
 
+        /* Don't terminate until all replies have either been received or have timed out */
         while (messagesInTransit.size() > 0) {
             try {
+                iterativeQueryNodes();
                 wait(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -129,6 +131,8 @@ public class RegisterUserOperation implements Operation, Receiver {
 
         List<Node> toQuery = new ArrayList<>();
 
+        /* Add not queried and failed nodes to the toQuery List if they haven't failed
+         * getMaxConnectionAttempts() times */
         for (Map.Entry<Node, String> e : nodes.entrySet()) {
             if (e.getValue().equals(NOT_QUERIED) || e.getValue().equals(FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
@@ -170,7 +174,7 @@ public class RegisterUserOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
-        /* Read the AcknowledgeMessage */
+        /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
         logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
@@ -201,7 +205,7 @@ public class RegisterUserOperation implements Operation, Receiver {
             return;
         }
 
-        /* Mark this node as failed */
+        /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);

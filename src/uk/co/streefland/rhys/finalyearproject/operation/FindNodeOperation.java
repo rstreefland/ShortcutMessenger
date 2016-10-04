@@ -59,6 +59,7 @@ public class FindNodeOperation implements Operation, Receiver {
 
     /**
      * Runs the find node operation
+     *
      * @throws IOException
      */
     @Override
@@ -70,9 +71,9 @@ public class FindNodeOperation implements Operation, Receiver {
         addNodes(localNode.getRoutingTable().getAllNodes());
 
         try {
-            /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
-            int timeInterval = 10;     // We re-check every n milliseconds
+            int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout()) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
@@ -92,6 +93,7 @@ public class FindNodeOperation implements Operation, Receiver {
 
     /**
      * Inserts the nodes into the TreeMap if they're not already present
+     *
      * @param list The list of nodes to insert
      */
     private void addNodes(List<Node> list) {
@@ -104,6 +106,7 @@ public class FindNodeOperation implements Operation, Receiver {
 
     /**
      * Sends a message to every not queried node. Maintains a maximum of config.getMaxConcurrency() active messages in transit
+     *
      * @return false if algorithm isn't finished, true if algorithm has finished
      * @throws IOException
      */

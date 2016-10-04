@@ -62,7 +62,7 @@ public class LoginUserOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
 
-        loggedIn = false;
+        loggedIn = false; // not logged in until another node proves otherwise
 
         /* Find nodes closest to the userId */
         FindNodeOperation operation = new FindNodeOperation(server, localNode, user.getUserId(), config);
@@ -72,9 +72,9 @@ public class LoginUserOperation implements Operation, Receiver {
         message = new VerifyUserMessage(localNode.getNode(), user);
 
         try {
-            /* If we haven't finished as yet, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
-            int timeInterval = 10;     // re-check every n milliseconds
+            int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout() && loggedIn == false) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
@@ -88,8 +88,10 @@ public class LoginUserOperation implements Operation, Receiver {
             logger.error("LoginUserOperation was interrupted unexpectedly: {}", e);
         }
 
+        /* Don't terminate until all replies have either been received or have timed out */
         while (messagesInTransit.size() > 0) {
             try {
+                iterativeQueryNodes();
                 wait(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -122,6 +124,8 @@ public class LoginUserOperation implements Operation, Receiver {
 
         List<Node> toQuery = new ArrayList<>();
 
+        /* Add not queried and failed nodes to the toQuery List if they haven't failed
+         * getMaxConnectionAttempts() times */
         for (Map.Entry<Node, String> e : nodes.entrySet()) {
             if (e.getValue().equals(NOT_QUERIED) || e.getValue().equals(FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
@@ -211,7 +215,7 @@ public class LoginUserOperation implements Operation, Receiver {
             return;
         }
 
-        /* Mark this node as failed */
+        /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);

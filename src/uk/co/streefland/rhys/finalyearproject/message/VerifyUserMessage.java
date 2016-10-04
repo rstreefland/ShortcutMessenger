@@ -8,7 +8,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * A simple broadcast message - for testing purposes only
+ * Sends a user object for verification as part of the login operation
  */
 public class VerifyUserMessage implements Message {
 
@@ -40,7 +40,7 @@ public class VerifyUserMessage implements Message {
 
     @Override
     public String toString() {
-        return "StoreUserMessage[origin KeyId=" + origin.getNodeId() + "]";
+        return "VerifyUserMessage[origin KeyId=" + origin.getNodeId() + "]";
     }
 
     @Override

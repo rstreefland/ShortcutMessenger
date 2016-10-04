@@ -143,7 +143,6 @@ public class Bucket implements Serializable {
      * Inserts a contact into the replacement cache
      */
     private synchronized void insertIntoReplacementCache(Contact c) {
-
         if (replacementCache.contains(c)) {
             /* Update the last seen time if this contact is already in our replacement cache */
             Contact tmp = removeFromReplacementCache(c.getNode());
@@ -222,7 +221,6 @@ public class Bucket implements Serializable {
 
     /**
      * Returns a list of all contacts in the bucket
-     * @return A list of all contacts in the bucket
      */
     public synchronized List<Contact> getContacts() {
         final ArrayList<Contact> list = new ArrayList<>();
