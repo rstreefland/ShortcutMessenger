@@ -21326,3 +21326,23 @@ java.io.IOException: Network is unreachable
 2016-10-03 21:43:17.646 [pool-2-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
 2016-10-03 21:44:51.987 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
 2016-10-03 21:44:51.989 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-04 12:53:11.970 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 126
+2016-10-04 12:53:11.973 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-04 12:53:22.375 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-04 12:53:22.382 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-04 12:55:03.854 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 128
+2016-10-04 12:55:03.856 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-04 12:55:35.657 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 129
+2016-10-04 12:58:20.047 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 130
+2016-10-04 12:58:20.050 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-04 12:58:56.214 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-04 12:58:56.227 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-04 13:01:30.326 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 132
+2016-10-04 13:01:30.332 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-04 13:01:33.400 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-04 13:01:33.406 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 1234
+2016-10-04 13:02:34.326 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 85F7DB42CB8E9D911313C4573A815DE3E68B4AB3
+2016-10-04 13:02:49.488 [pool-2-thread-85] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-10-04 13:03:33.505 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-04 13:03:33.524 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-04 13:03:33.542 [pool-2-thread-87] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 10.30.65.44

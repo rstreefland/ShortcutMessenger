@@ -163,6 +163,7 @@ public class Main {
 
         if (success) {
             System.out.println("User registered successfully!\n");
+            System.out.println("Logged in as " + username + " successfully!\n");
         } else {
             System.err.println("User already exists - please choose a different username\n");
         }

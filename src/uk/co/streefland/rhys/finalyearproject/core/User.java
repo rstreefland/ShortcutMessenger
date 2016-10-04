@@ -15,10 +15,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Represents a User on the network
@@ -32,6 +29,9 @@ public class User implements Serializable {
     private byte[] passwordHash;
     private byte[] passwordSalt;
     private List<Node> associatedNodes;
+
+    private long registerTime;
+    private long lastLoginTime;
 
     public User(String userName, String password) {
         this.userId = new KeyId(userName);
@@ -64,6 +64,9 @@ public class User implements Serializable {
         for (Node node : associatedNodes) {
             node.toStream(out);
         }
+
+        out.writeLong(registerTime);
+        out.writeLong(lastLoginTime);
     }
 
     public final void fromStream(DataInputStream in) throws IOException
@@ -84,6 +87,9 @@ public class User implements Serializable {
         for (int i = 0; i < associatedNodesSize; i++) {
             associatedNodes.add(new Node(in));
         }
+
+        registerTime = in.readLong();
+        lastLoginTime = in.readLong();
     }
 
     /**
@@ -146,5 +152,25 @@ public class User implements Serializable {
 
     public String getUserName() {
         return userName;
+    }
+
+    public long getRegisterTime() {
+        return registerTime;
+    }
+
+    public void setRegisterTime() {
+        /* Only allow setting of register time once */
+        if (registerTime == 0L) {
+            registerTime = new Date().getTime();
+            lastLoginTime = registerTime; // set the login time as well
+        }
+    }
+
+    public long getLastLoginTime() {
+        return lastLoginTime;
+    }
+
+    public void setLastLoginTime() {
+        this.lastLoginTime = new Date().getTime();
     }
 }
