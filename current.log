@@ -1,9 +1,40 @@
-2016-10-04 13:01:30.326 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 132
-2016-10-04 13:01:30.332 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-10-04 13:01:33.400 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-10-04 13:01:33.406 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 1234
-2016-10-04 13:02:34.326 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 85F7DB42CB8E9D911313C4573A815DE3E68B4AB3
-2016-10-04 13:02:49.488 [pool-2-thread-85] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
-2016-10-04 13:03:33.505 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-10-04 13:03:33.524 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
-2016-10-04 13:03:33.542 [pool-2-thread-87] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from 10.30.65.44
+2016-10-05 11:50:09.431 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 157
+2016-10-05 11:50:09.433 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-05 11:50:11.927 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-05 11:50:11.927 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-05 11:50:16.187 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-10-05 11:50:33.069 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.ConnectReceiver - A new node has bootstrapped to this node; nodeID: 66CC8D059A0541F97FFFD91771C776A1D3E00F79
+2016-10-05 11:50:41.971 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-05 11:50:41.973 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-05 11:50:41.989 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:50:42.375 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer login timestamp - replacing the old one
+2016-10-05 11:50:42.487 [Thread-163] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-05 11:51:03.110 [pool-2-thread-16] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:51:11.942 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-05 11:51:11.943 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-05 11:51:11.956 [pool-2-thread-13] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:51:12.454 [Thread-323] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:51:33.098 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:51:41.944 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-05 11:51:41.945 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-05 11:51:41.973 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:51:42.471 [Thread-483] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:51:51.158 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-05 11:51:58.986 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:51:59.504 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer login timestamp - replacing the old one
+2016-10-05 11:52:03.111 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:52:11.946 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-05 11:52:11.946 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-05 11:52:11.964 [pool-2-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:52:12.463 [Thread-643] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:52:29.176 [pool-2-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:52:29.690 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-10-05 11:52:33.106 [pool-2-thread-25] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:52:33.110 [pool-2-thread-22] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:52:41.955 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-05 11:52:41.957 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-05 11:52:41.971 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:52:41.972 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation - ACK received from rhys-pc
+2016-10-05 11:52:42.471 [Thread-803] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:52:42.472 [Thread-804] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-05 11:52:44.746 [pool-2-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer login timestamp - replacing the old one

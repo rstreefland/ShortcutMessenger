@@ -101,8 +101,8 @@ public class RegisterUserOperation implements Operation, Receiver {
         }
 
         /* Add the user to our localStorage once we know that it doesn't exist already on any other nodes */
-        if (!isRegisteredSuccessfully && storeUserOnLocalNode) {
-            localNode.getUsers().addUser(user);
+        if (storeUserOnLocalNode) {
+            isRegisteredSuccessfully = localNode.getUsers().addUser(user);
         }
     }
 

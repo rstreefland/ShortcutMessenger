@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *  Represents the set of user objects stored on the local node and the operations to manage them
+ * Represents the set of user objects stored on the local node and the operations to manage them
  */
 public class Users {
 
@@ -33,6 +33,7 @@ public class Users {
 
     /**
      * Invokes the register user operation to register the user on the network and returns whether it was successful
+     *
      * @param user The user object to register on the network
      * @return True if the user was registered successfully
      * @throws IOException
@@ -47,6 +48,7 @@ public class Users {
 
     /**
      * Invokes the login user operation to log an existing user into the network on this node
+     *
      * @param user
      * @param plainTextPassword
      * @return
@@ -58,8 +60,10 @@ public class Users {
 
         /* Update the rest of the nodes on the network with the last login time */
         if (operation.isLoggedIn()) {
-            user.setLastLoginTime();
-            // TODO: 04/10/2016  run the register user operation to update the network and set the last login time of the user
+            user.setLastLoginTime(); // set the last login time
+
+            RegisterUserOperation registerOperation = new RegisterUserOperation(server, localNode, config, user);
+            registerOperation.execute();
             localUser = user; // set the local user object for future reference
         }
         return operation.isLoggedIn();
@@ -68,25 +72,46 @@ public class Users {
     /**
      * Stores a user on the local node
      * Replaces the existing one if its registration timestamp is newer to maintain network integrity
+     *
      * @param newUser The user to store on the local node
      * @return False if the user already exists on the network
      */
-    public boolean addUser(User newUser) {
-        for (User user: users) {
+    public synchronized boolean addUser(User newUser) {
+
+        for (User user : users) {
             if (user.getUserName().equals(newUser.getUserName())) {
 
-                /* If there is a clash, check the registration timestamp */
-                if (user.getRegisterTime() < newUser.getRegisterTime()) {
-                    logger.debug("User with the same name exists - discarding");
-                    return false;
-                } else {
-                    logger.debug("New user has an older registration timestamp - replacing the old one");
+                /* For login */
+                if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() == 0L) {
+                    logger.info("New user object has newer login timestamp - replacing the old one");
                     users.remove(user);
                     users.add(newUser);
-                    return true;
+                    return false;
+                }
+
+                /* If new user has an older registration time that isn't zero - replace the existing user */
+                if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() == 0L) {
+                    logger.info("New user has an older registration timestamp - replacing the old one");
+                    users.remove(user);
+                    users.add(newUser);
+                    return false;
+                }
+
+                /* If existing user has older registration time then do nothing */
+                if ((user.getRegisterTime() < newUser.getRegisterTime())) {
+                    logger.info("User with the same name exists - discarding");
+                    return false;
+                }
+
+                /* Users are exactly the same - do nothing */
+                if (user.getRegisterTime() == newUser.getRegisterTime()) {
+                    logger.info("User objects are the same, doing nothing");
+                    return false;
                 }
             }
         }
+
+        /* User doest't exist in out memory --add it */
         users.add(newUser);
         logger.info("New user added to users: {}", newUser.getUserName());
         return true;
@@ -94,11 +119,13 @@ public class Users {
 
     /**
      * Looks for a user on the local node and returns the object if it was found
+     *
      * @param newUser
      * @return The user object that was found
      */
+
     public User matchUser(User newUser) {
-        for (User user: users) {
+        for (User user : users) {
             if (user.getUserId().equals(newUser.getUserId())) {
                 logger.debug("Found a matching user");
                 return user;

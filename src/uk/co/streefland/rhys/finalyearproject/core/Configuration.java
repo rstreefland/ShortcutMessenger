@@ -16,7 +16,7 @@ public class Configuration {
     private int maxConnectionAttempts = 5;
     private long operationTimeout = 2000;  // timeout for operation completion (2 seconds)
     private long responseTimeout = 2000; // timeout waiting for response (2 seconds)
-    private long refreshInterval = 120 * 1000; // refresh interval in milliseconds (2 minutes)
+    private long refreshInterval = 30 * 1000; // refresh interval in milliseconds (1 minute for now)
 
     public int getK() {
         return K;
