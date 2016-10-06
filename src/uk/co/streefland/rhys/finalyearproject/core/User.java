@@ -146,6 +146,22 @@ public class User implements Serializable {
         }
     }
 
+    /**
+     * Adds a node to the associated nodes list of the User
+     * @param newNode The node to add to the list of associated nodes
+     * @return False if node already exists in the associated nodes list
+     */
+    public boolean addAssociatedNode(Node newNode) {
+        for (Node node: associatedNodes) {
+            if (node.getNodeId().equals(newNode.getNodeId())) {
+                return false;
+            }
+        }
+
+        associatedNodes.add(newNode);
+        return true;
+    }
+
     public KeyId getUserId() {
         return userId;
     }
@@ -172,5 +188,20 @@ public class User implements Serializable {
 
     public void setLastLoginTime() {
         this.lastLoginTime = new Date().getTime();
+    }
+
+
+
+    @Override
+    public String toString() {
+
+        StringBuilder sb = new StringBuilder("User: " + userName);
+        sb.append("\n Associated nodes: \n");
+        for (Node node : associatedNodes) {
+            sb.append("Node: ");
+            sb.append(node.getSocketAddress().getHostName());
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }

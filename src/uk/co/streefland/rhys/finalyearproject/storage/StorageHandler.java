@@ -1,6 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.storage;
 
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.Users;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
@@ -15,11 +16,13 @@ public class StorageHandler {
     Configuration config;
     Node localNode;
     RoutingTable routingTable;
+    Users users;
 
     public StorageHandler(Configuration config) {
         this.config = config;
         this.localNode = null;
         this.routingTable = null;
+        this.users = null;
     }
 
     /**
@@ -27,7 +30,7 @@ public class StorageHandler {
      * @param localNode The Node object to write to file
      * @param routingTable The RoutingTable object to write to file
      */
-    public void save(Node localNode, RoutingTable routingTable) {
+    public void save(Node localNode, RoutingTable routingTable, Users users) {
         FileOutputStream fout;
         ObjectOutputStream oos;
 
@@ -36,6 +39,7 @@ public class StorageHandler {
             oos = new ObjectOutputStream(fout);
             oos.writeObject(localNode);
             oos.writeObject(routingTable);
+            oos.writeObject(users);
             oos.close();
             fout.close();
         } catch (Exception e) {
@@ -56,6 +60,7 @@ public class StorageHandler {
 
             localNode = (Node) ois.readObject();
             routingTable = (RoutingTable) ois.readObject();
+            users = (Users) ois.readObject();
 
             ois.close();
             fis.close();
@@ -84,5 +89,12 @@ public class StorageHandler {
      */
     public RoutingTable getRoutingTable() {
         return routingTable;
+    }
+
+    /**
+     * @return The Users object that was read from file by the load() method
+     */
+    public Users getUsers() {
+        return users;
     }
 }

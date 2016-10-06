@@ -162,7 +162,7 @@ public class Main {
         }
 
         if (success) {
-            System.out.println("User registered successfully!\n");
+            System.out.println("User registered successfully!");
             System.out.println("Logged in as " + username + " successfully!\n");
         } else {
             System.err.println("User already exists - please choose a different username\n");
@@ -188,7 +188,8 @@ public class Main {
         }
 
         if (loggedIn) {
-            System.out.println("Logged in as " + username + " successfully!\n");
+            System.out.println("Logged in as " + username + " successfully!");
+            System.out.println(localNode.getUsers().getLocalUser());
         } else {
             System.err.println("Invalid username/password - please try again\n");
         }

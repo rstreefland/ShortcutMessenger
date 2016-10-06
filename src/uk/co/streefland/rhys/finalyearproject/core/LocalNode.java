@@ -22,7 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "157";
+    public static final String BUILD_NUMBER = "163";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -31,7 +31,6 @@ public class LocalNode {
     private final Server server;
     private final StorageHandler storageHandler;
     private Users users;
-    private User localUser;
 
     /* Objects for refresh operation */
     private Timer refreshOperationTimer;
@@ -57,7 +56,6 @@ public class LocalNode {
 
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
-        this.users = new Users(server, this, config);
 
         /* If we've managed to load a saved state from file - start the server */
         if (routingTable.getAllNodes().size() > 1) {
@@ -85,7 +83,6 @@ public class LocalNode {
 
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
-        this.users = new Users(server, this, config);
 
         /* If we've managed to load a saved state from file - start the server */
         if (routingTable.getAllNodes().size() > 1) {
@@ -151,6 +148,18 @@ public class LocalNode {
                 logger.warn("Failed to read routing table from saved state - defaulting to creating a new routing table");
                 routingTable = new RoutingTable(localNode, config);
             }
+
+            /* Get users object from storageHandler */
+            Users newUsers = storageHandler.getUsers();
+
+            if (newUsers != null) {
+                logger.info("Users read successfully");
+                users = newUsers;
+            } else {
+                logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
+                users = new Users(server, this, config);
+            }
+
         } else {
             logger.info("Saved state not found");
             localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
@@ -162,7 +171,7 @@ public class LocalNode {
      * Saves the localNode and routingTable objects to a file using the StorageHandler class
      */
     private void saveState() {
-        storageHandler.save(localNode, routingTable);
+        storageHandler.save(localNode, routingTable, users);
     }
 
     /**
@@ -273,13 +282,5 @@ public class LocalNode {
 
     public Server getServer() {
         return server;
-    }
-
-    public User getLocalUser() {
-        return localUser;
-    }
-
-    public void setLocalUser(User localUser) {
-        this.localUser = localUser;
     }
 }

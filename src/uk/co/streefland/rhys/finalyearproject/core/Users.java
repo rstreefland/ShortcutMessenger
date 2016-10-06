@@ -6,22 +6,23 @@ import uk.co.streefland.rhys.finalyearproject.operation.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Represents the set of user objects stored on the local node and the operations to manage them
  */
-public class Users {
+public class Users implements Serializable {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private User localUser;
     private List<User> users;
 
-    private final Server server;
-    private final LocalNode localNode;
-    private final Configuration config;
+    private transient final Server server;
+    private transient final LocalNode localNode;
+    private transient final Configuration config;
 
     public Users(Server server, LocalNode localNode, Configuration config) {
         this.server = server;
@@ -40,9 +41,16 @@ public class Users {
      */
     public boolean registerUser(User user) throws IOException {
         user.setRegisterTime(); // set the register time
+        user.addAssociatedNode(localNode.getNode()); // add the local node as an associated node
 
         RegisterUserOperation operation = new RegisterUserOperation(server, localNode, config, user);
         operation.execute();
+
+        /* Set the local user object */
+        if (operation.isRegisteredSuccessfully()) {
+            localUser = user; // set the local user object for future reference
+        }
+
         return operation.isRegisteredSuccessfully();
     }
 
@@ -61,6 +69,7 @@ public class Users {
         /* Update the rest of the nodes on the network with the last login time */
         if (operation.isLoggedIn()) {
             user.setLastLoginTime(); // set the last login time
+            user.addAssociatedNode(localNode.getNode());
 
             RegisterUserOperation registerOperation = new RegisterUserOperation(server, localNode, config, user);
             registerOperation.execute();
@@ -71,7 +80,7 @@ public class Users {
 
     /**
      * Stores a user on the local node
-     * Replaces the existing one if its registration timestamp is newer to maintain network integrity
+     * Replaces the existing one based on the logic in the comments
      *
      * @param newUser The user to store on the local node
      * @return False if the user already exists on the network
@@ -83,7 +92,7 @@ public class Users {
 
                 /* For login */
                 if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() == 0L) {
-                    logger.info("New user object has newer login timestamp - replacing the old one");
+                    logger.debug("New user object has newer login timestamp - replacing the old one");
                     users.remove(user);
                     users.add(newUser);
                     return false;
@@ -91,7 +100,7 @@ public class Users {
 
                 /* If new user has an older registration time that isn't zero - replace the existing user */
                 if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() == 0L) {
-                    logger.info("New user has an older registration timestamp - replacing the old one");
+                    logger.debug("New user has an older registration timestamp - replacing the old one");
                     users.remove(user);
                     users.add(newUser);
                     return false;
@@ -99,13 +108,13 @@ public class Users {
 
                 /* If existing user has older registration time then do nothing */
                 if ((user.getRegisterTime() < newUser.getRegisterTime())) {
-                    logger.info("User with the same name exists - discarding");
+                    logger.debug("User with the same name exists - discarding");
                     return false;
                 }
 
                 /* Users are exactly the same - do nothing */
                 if (user.getRegisterTime() == newUser.getRegisterTime()) {
-                    logger.info("User objects are the same, doing nothing");
+                    logger.debug("User objects are the same, doing nothing");
                     return false;
                 }
             }
@@ -113,7 +122,7 @@ public class Users {
 
         /* User doest't exist in out memory --add it */
         users.add(newUser);
-        logger.info("New user added to users: {}", newUser.getUserName());
+        logger.debug("New user added to users: {}", newUser.getUserName());
         return true;
     }
 
@@ -124,7 +133,7 @@ public class Users {
      * @return The user object that was found
      */
 
-    public User matchUser(User newUser) {
+    public synchronized User matchUser(User newUser) {
         for (User user : users) {
             if (user.getUserId().equals(newUser.getUserId())) {
                 logger.debug("Found a matching user");
@@ -132,6 +141,14 @@ public class Users {
             }
         }
         return null;
+    }
+
+    public User getLocalUser() {
+        return localUser;
+    }
+
+    public void setLocalUser(User localUser) {
+        this.localUser = localUser;
     }
 
     public List<User> getUsers() {
