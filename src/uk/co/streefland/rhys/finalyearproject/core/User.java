@@ -196,7 +196,7 @@ public class User implements Serializable {
     public String toString() {
 
         StringBuilder sb = new StringBuilder("User: " + userName);
-        sb.append("\n Associated nodes: \n");
+        sb.append("\nAssociated nodes: \n");
         for (Node node : associatedNodes) {
             sb.append("Node: ");
             sb.append(node.getSocketAddress().getHostName());

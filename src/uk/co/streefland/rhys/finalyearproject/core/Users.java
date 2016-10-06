@@ -20,9 +20,9 @@ public class Users implements Serializable {
     private User localUser;
     private List<User> users;
 
-    private transient final Server server;
-    private transient final LocalNode localNode;
-    private transient final Configuration config;
+    private transient Server server;
+    private transient LocalNode localNode;
+    private transient Configuration config;
 
     public Users(Server server, LocalNode localNode, Configuration config) {
         this.server = server;
@@ -141,6 +141,12 @@ public class Users implements Serializable {
             }
         }
         return null;
+    }
+
+    public void updateAfterLoad(Server server, LocalNode localNode, Configuration config) {
+        this.server = server;
+        this.localNode = localNode;
+        this.config = config;
     }
 
     public User getLocalUser() {

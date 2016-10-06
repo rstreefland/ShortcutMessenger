@@ -22,7 +22,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "163";
+    public static final String BUILD_NUMBER = "173";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -51,7 +51,7 @@ public class LocalNode {
         this.config = new Configuration();
         this.storageHandler = new StorageHandler(config);
 
-        /* Read localNode and routingTable from file if possible; else create new objects */
+        /* Read localNode, routingTable and users from file if possible; else create new objects */
         readState(localIp);
 
         this.messageHandler = new MessageHandler(this, config);
@@ -78,7 +78,7 @@ public class LocalNode {
 
         this.storageHandler = new StorageHandler(config);
 
-        /* Read localNode and routingTable from file if possible; else create new objects */
+        /* Read localNode, routingTable and users from file if possible; else create new objects */
         readState(localIp);
 
         this.messageHandler = new MessageHandler(this, config);
@@ -155,6 +155,7 @@ public class LocalNode {
             if (newUsers != null) {
                 logger.info("Users read successfully");
                 users = newUsers;
+                users.updateAfterLoad(server, this, config);
             } else {
                 logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
                 users = new Users(server, this, config);
@@ -164,6 +165,7 @@ public class LocalNode {
             logger.info("Saved state not found");
             localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
             routingTable = new RoutingTable(localNode, config);
+            users = new Users(server, this, config);
         }
     }
 
@@ -171,6 +173,7 @@ public class LocalNode {
      * Saves the localNode and routingTable objects to a file using the StorageHandler class
      */
     private void saveState() {
+        logger.info("Saving state to file");
         storageHandler.save(localNode, routingTable, users);
     }
 

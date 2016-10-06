@@ -60,8 +60,6 @@ public class Main {
         }
 
         while (!input.equals("q")) {
-            System.out.println("Local IP address: " + localIp + "\n");
-
             System.out.println("Please select an option:\n");
 
             System.out.println("(1) - Bootstrap to a node");
