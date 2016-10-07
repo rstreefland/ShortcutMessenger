@@ -19,7 +19,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "191";
+    public static final String BUILD_NUMBER = "194";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -254,7 +254,7 @@ public class LocalNode {
     }
 
     public final void message(String message, User userToMessage) throws IOException {
-        if (!message.isEmpty()) {
+        if (!message.isEmpty() && users.getLocalUser() != null) {
             logger.info("Sending message to " + userToMessage);
             SendMessageOperation operation = new SendMessageOperation(server, this, config, userToMessage, message);
             operation.execute();

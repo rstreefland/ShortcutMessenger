@@ -158,7 +158,7 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
+        logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         isMessagedSuccessfully = true; // we've got an ack so the message was received
 

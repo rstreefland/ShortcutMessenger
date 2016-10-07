@@ -46,6 +46,8 @@ public class TextMessage implements Message {
         if (originUser != null) {
             out.writeBoolean(true);
             originUser.toStream(out);
+        } else {
+            out.writeBoolean(false);
         }
     }
 

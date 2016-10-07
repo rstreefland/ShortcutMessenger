@@ -31,7 +31,7 @@ public class RefreshHandler extends TimerTask {
         /* Run BucketRefreshOperation to refresh the buckets */
         try {
             new BucketRefreshOperation(server, localNode, config).execute();
-            logger.info("Routing table was refreshed");
+            logger.debug("Routing table was refreshed");
         } catch (IOException e) {
             logger.error("Routing table refresh failed:", e);
         }
@@ -39,7 +39,7 @@ public class RefreshHandler extends TimerTask {
         /* Run UserRefreshOperation to refresh the user database */
         try {
             new UserRefreshOperation(server, localNode, config).execute();
-            logger.info("User database was refreshed");
+            logger.debug("User database was refreshed");
         } catch (IOException e) {
             logger.error("User database refresh failed:", e);
         }

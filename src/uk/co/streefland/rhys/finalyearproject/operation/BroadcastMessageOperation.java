@@ -143,7 +143,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
         /* Read the AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
+        logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), MESSAGED);

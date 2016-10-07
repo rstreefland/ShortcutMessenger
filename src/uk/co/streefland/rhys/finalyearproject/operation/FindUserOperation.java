@@ -162,7 +162,7 @@ public class FindUserOperation implements Operation, Receiver {
         /* Read the incoming AcknowledgeMessage */
         VerifyUserReplyMessage msg = (VerifyUserReplyMessage) incoming;
 
-        logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
+        logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
             user = msg.getExistingUser();

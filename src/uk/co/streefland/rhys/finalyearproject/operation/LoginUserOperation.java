@@ -181,7 +181,7 @@ public class LoginUserOperation implements Operation, Receiver {
         /* Read the VerifyUserReplyMessage */
         VerifyUserReplyMessage msg = (VerifyUserReplyMessage) incoming;
 
-        logger.info("VerifyUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
+        logger.debug("VerifyUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
             if (msg.getExistingUser().doPasswordsMatch(plainTextPassword)) {
