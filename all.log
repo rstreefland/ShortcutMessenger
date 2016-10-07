@@ -24229,3 +24229,39 @@ Associated nodes:
 2016-10-07 16:46:51.765 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
 2016-10-07 16:47:51.763 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
 2016-10-07 16:47:51.763 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:48:51.769 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:48:51.769 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:49:51.761 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:49:51.761 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:50:51.758 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:50:51.773 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:51:51.775 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:51:51.776 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:52:51.780 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:52:51.781 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:53:51.789 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:53:51.789 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:54:47.299 [main] DEBUG uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:54:47.299 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:54:47.299 [main] WARN  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:54:47.299 [main] ERROR uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:55:45.480 [main] DEBUG uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:55:45.480 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:55:45.480 [main] WARN  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:55:45.480 [main] ERROR uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:12.807 [main] DEBUG uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:12.807 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:12.807 [main] WARN  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:12.807 [main] ERROR uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:48.204 [main] DEBUG uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:48.204 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:48.204 [main] WARN  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:56:48.204 [main] ERROR uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:57:40.294 [main] DEBUG uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:57:40.294 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:57:40.294 [main] WARN  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:57:40.294 [main] ERROR uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:58:57.729 [main] DEBUG uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:58:57.729 [main] INFO  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:58:57.729 [main] WARN  uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
+2016-10-07 16:58:57.729 [main] ERROR uk.co.streefland.rhys.finalyearproject.test.LoggingTest - Hello World
