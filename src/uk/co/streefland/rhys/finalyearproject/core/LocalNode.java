@@ -5,10 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
-import uk.co.streefland.rhys.finalyearproject.operation.Operation;
-import uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler;
-import uk.co.streefland.rhys.finalyearproject.operation.TextMessageOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.*;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
@@ -22,7 +19,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "173";
+    public static final String BUILD_NUMBER = "185";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -57,6 +54,11 @@ public class LocalNode {
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
+        /* Couldn't read it from file */
+        if (users == null) {
+            users = new Users(server, this, config);
+        }
+
         /* If we've managed to load a saved state from file - start the server */
         if (routingTable.getAllNodes().size() > 1) {
             server.startListener();
@@ -83,6 +85,11 @@ public class LocalNode {
 
         this.messageHandler = new MessageHandler(this, config);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
+
+        /* Couldn't read it from file */
+        if (users == null) {
+            users = new Users(server, this, config);
+        }
 
         /* If we've managed to load a saved state from file - start the server */
         if (routingTable.getAllNodes().size() > 1) {
@@ -157,15 +164,13 @@ public class LocalNode {
                 users = newUsers;
                 users.updateAfterLoad(server, this, config);
             } else {
-                logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
-                users = new Users(server, this, config);
+                logger.warn("Failed to read users from saved state - defaulting to creating a new users object");
             }
 
         } else {
             logger.info("Saved state not found");
             localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
             routingTable = new RoutingTable(localNode, config);
-            users = new Users(server, this, config);
         }
     }
 
@@ -240,11 +245,19 @@ public class LocalNode {
      * @param targetNodes The nodes that should receive the message
      * @throws IOException
      */
-    public final void message(String message, List<Node> targetNodes) throws IOException {
+    public final void broadcastMessage(String message, List<Node> targetNodes) throws IOException {
         if (!message.isEmpty()) {
             logger.info("Sending message to specified nodes");
-            Operation sendMessage = new TextMessageOperation(server, this, config, message, targetNodes);
-            sendMessage.execute();
+            Operation operation = new BroadcastMessageOperation(server, this, config, message, targetNodes);
+            operation.execute();
+        }
+    }
+
+    public final void message(String message, User userToMessage) throws IOException {
+        if (!message.isEmpty()) {
+            logger.info("Sending message to " + userToMessage);
+            SendMessageOperation operation = new SendMessageOperation(server, this, config, userToMessage, message);
+            operation.execute();
         }
     }
 

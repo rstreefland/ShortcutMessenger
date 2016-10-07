@@ -68,7 +68,7 @@ public class RemoteNodeTest {
             do  {
                 message = sc.nextLine();
                 if (message != null) {
-                    localNode.message(message, localNode.getRoutingTable().getAllNodes());
+                    localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes());
                 }
             } while(!message.equals("exit"));
 

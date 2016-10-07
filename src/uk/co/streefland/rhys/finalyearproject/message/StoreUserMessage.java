@@ -12,8 +12,8 @@ import java.io.IOException;
  */
 public class StoreUserMessage implements Message {
 
-    Node origin;
-    User user;
+    private Node origin;
+    private User user;
 
     public static final byte CODE = 0x06;
 

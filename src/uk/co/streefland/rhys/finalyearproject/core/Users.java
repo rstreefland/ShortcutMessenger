@@ -126,13 +126,21 @@ public class Users implements Serializable {
         return true;
     }
 
+    public synchronized User findUser(String userName) {
+        for (User user : users) {
+            if (user.getUserName().equals(userName)) {
+                return user;
+            }
+        }
+        return null;
+    }
+
     /**
      * Looks for a user on the local node and returns the object if it was found
      *
      * @param newUser
      * @return The user object that was found
      */
-
     public synchronized User matchUser(User newUser) {
         for (User user : users) {
             if (user.getUserId().equals(newUser.getUserId())) {

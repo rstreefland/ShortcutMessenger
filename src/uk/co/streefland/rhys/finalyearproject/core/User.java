@@ -190,7 +190,9 @@ public class User implements Serializable {
         this.lastLoginTime = new Date().getTime();
     }
 
-
+    public List<Node> getAssociatedNodes() {
+        return associatedNodes;
+    }
 
     @Override
     public String toString() {

@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Created by Rhys on 03/09/2016.
  */
-public class LoginUserOperation implements Operation, Receiver {
+public class FindUserOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
@@ -31,27 +31,25 @@ public class LoginUserOperation implements Operation, Receiver {
     private Server server;
     private Configuration config;
     private LocalNode localNode;
+    private User userToFind;
     private User user;
-    private String plainTextPassword;
 
-    private Message message;        // Message sent to each peer
+
+    private Message message; // Message sent to each peer
     private Map<Node, String> nodes;
     private Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
     private Map<Integer, Node> messagesInTransit;
 
-    private boolean loggedIn;
-
-    public LoginUserOperation(Server server, LocalNode localNode, Configuration config, User user, String plainTextPassword) {
+    public FindUserOperation(Server server, LocalNode localNode, Configuration config, User userToFind) {
         this.server = server;
         this.config = config;
         this.localNode = localNode;
-        this.user = user;
-        this.plainTextPassword = plainTextPassword;
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
+        this.userToFind = userToFind;
     }
 
     /**
@@ -62,20 +60,24 @@ public class LoginUserOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
 
-        loggedIn = false; // not logged in until another node proves otherwise
+        user = localNode.getUsers().findUser(userToFind.getUserName()); // look for the user on the local node
 
-        /* Find nodes closest to the userId */
-        FindNodeOperation operation = new FindNodeOperation(server, localNode, user.getUserId(), config);
+        if (user != null) {
+            /* We've found the user on the local node - no need to do anything else */
+            return;
+        }
+
+        FindNodeOperation operation = new FindNodeOperation(server, localNode, userToFind.getUserId(), config);
         operation.execute();
         addNodes(operation.getClosestNodes());
 
-        message = new VerifyUserMessage(localNode.getNode(), user, true);
+        message = new VerifyUserMessage(localNode.getNode(), user, false);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
-            while (totalTimeWaited < config.getOperationTimeout() && loggedIn == false) {
+            while ((totalTimeWaited < config.getOperationTimeout()) && user == null) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -85,11 +87,11 @@ public class LoginUserOperation implements Operation, Receiver {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-            logger.error("LoginUserOperation was interrupted unexpectedly: {}", e);
+            logger.error("FindUserOperation was interrupted unexpectedly: {}", e);
         }
 
-        /* Don't terminate until all replies have either been received or have timed out */
-        while (messagesInTransit.size() > 0) {
+        /* Don't terminate until we've found a user object */
+        while (user == null) {
             try {
                 iterativeQueryNodes();
                 wait(500);
@@ -141,31 +143,11 @@ public class LoginUserOperation implements Operation, Receiver {
 
         /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
         for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toQuery.size()); i++) {
+            int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
-            /* Query the local node */
-            if (toQuery.get(i).equals(localNode.getNode())) {
-
-                /* Handles finding the user object on the local node */
-                User existingUser = localNode.getUsers().matchUser(user);
-
-                /* Terminate early if found on the local node */
-                if (existingUser != null) {
-                    if (existingUser.doPasswordsMatch(plainTextPassword)) {
-                        loggedIn = true;
-                        return true;
-                    } else {
-                        loggedIn = false;
-                        return true;
-                    }
-                }
-            } else {
-
-                int communicationId = server.sendMessage(toQuery.get(i), message, this);
-
-                nodes.put(toQuery.get(i), AWAITING_ACK);
-                attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
-                messagesInTransit.put(communicationId, toQuery.get(i));
-            }
+            nodes.put(toQuery.get(i), AWAITING_ACK);
+            attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
+            messagesInTransit.put(communicationId, toQuery.get(i));
         }
         return true;
     }
@@ -177,26 +159,19 @@ public class LoginUserOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
-
-        /* Read the VerifyUserReplyMessage */
+        /* Read the incoming AcknowledgeMessage */
         VerifyUserReplyMessage msg = (VerifyUserReplyMessage) incoming;
 
-        logger.info("VerifyUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
+        logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
-            if (msg.getExistingUser().doPasswordsMatch(plainTextPassword)) {
-                loggedIn = true;
-            } else {
-                loggedIn = false;
-            }
-        } else {
-            loggedIn = false;
+            user = msg.getExistingUser();
         }
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), QUERIED);
 
-         /* Remove this msg from messagesInTransit since it's completed now */
+         /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
     }
 
@@ -221,8 +196,8 @@ public class LoginUserOperation implements Operation, Receiver {
         messagesInTransit.remove(communicationId);
     }
 
-    public synchronized boolean isLoggedIn() {
-        return loggedIn;
+    public User getUser() {
+        return user;
     }
 }
 

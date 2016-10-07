@@ -5,8 +5,10 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
-import uk.co.streefland.rhys.finalyearproject.core.User;
-import uk.co.streefland.rhys.finalyearproject.message.*;
+import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
@@ -18,21 +20,18 @@ import java.util.Map;
 /**
  * Created by Rhys on 03/09/2016.
  */
-public class LoginUserOperation implements Operation, Receiver {
+public class BroadcastMessageOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* Flags that represent Node states */
-    private static final String NOT_QUERIED = "1";
+    private static final String NOT_MESSAGED = "1";
     private static final String AWAITING_ACK = "2";
-    private static final String QUERIED = "3";
+    private static final String MESSAGED = "3";
     private static final String FAILED = "4";
 
     private Server server;
     private Configuration config;
-    private LocalNode localNode;
-    private User user;
-    private String plainTextPassword;
 
     private Message message;        // Message sent to each peer
     private Map<Node, String> nodes;
@@ -41,17 +40,22 @@ public class LoginUserOperation implements Operation, Receiver {
     /* Tracks messages in transit and awaiting reply */
     private Map<Integer, Node> messagesInTransit;
 
-    private boolean loggedIn;
-
-    public LoginUserOperation(Server server, LocalNode localNode, Configuration config, User user, String plainTextPassword) {
+    public BroadcastMessageOperation(Server server, LocalNode localNode, Configuration config, String message, List<Node> targetNodes) {
         this.server = server;
         this.config = config;
-        this.localNode = localNode;
-        this.user = user;
-        this.plainTextPassword = plainTextPassword;
+
+        this.message = new TextMessage(localNode.getNode(), null, message);
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
+
         this.messagesInTransit = new HashMap<>();
+
+        /* Set the local node as already messaged because we don't want to message the local node */
+        nodes.put(localNode.getNode(), MESSAGED);
+        attempts.put(localNode.getNode(), 0);
+
+        /* Add the target nodes to the HashMaps */
+        addNodes(targetNodes);
     }
 
     /**
@@ -61,22 +65,12 @@ public class LoginUserOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
-
-        loggedIn = false; // not logged in until another node proves otherwise
-
-        /* Find nodes closest to the userId */
-        FindNodeOperation operation = new FindNodeOperation(server, localNode, user.getUserId(), config);
-        operation.execute();
-        addNodes(operation.getClosestNodes());
-
-        message = new VerifyUserMessage(localNode.getNode(), user, true);
-
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
-            while (totalTimeWaited < config.getOperationTimeout() && loggedIn == false) {
-                if (!iterativeQueryNodes()) {
+            while (totalTimeWaited < config.getOperationTimeout()) {
+                if (!iterativeMessagesNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
                 } else {
@@ -85,29 +79,19 @@ public class LoginUserOperation implements Operation, Receiver {
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
-            logger.error("LoginUserOperation was interrupted unexpectedly: {}", e);
+            logger.error("BroadcastMessageOperation was interrupted unexpectedly: {}", e);
         }
 
-        /* Don't terminate until all replies have either been received or have timed out */
-        while (messagesInTransit.size() > 0) {
-            try {
-                iterativeQueryNodes();
-                wait(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     /**
      * Inserts the nodes into the HashMap if they're not already present
-     *
      * @param list The list of nodes to insert
      */
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, NOT_QUERIED);
+                nodes.put(node, NOT_MESSAGED);
             }
 
             if (!attempts.containsKey(node)) {
@@ -116,56 +100,35 @@ public class LoginUserOperation implements Operation, Receiver {
         }
     }
 
-    private boolean iterativeQueryNodes() throws IOException {
+    private boolean iterativeMessagesNodes() throws IOException {
         /* Maximum number of messages already in transit */
         if (config.getMaxConcurrency() <= messagesInTransit.size()) {
             return false;
         }
 
-        List<Node> toQuery = new ArrayList<>();
+        List<Node> toMessage = new ArrayList<>();
 
-        /* Add not queried and failed nodes to the toQuery List if they haven't failed
-         * getMaxConnectionAttempts() times */
-        for (Map.Entry<Node, String> e : nodes.entrySet()) {
-            if (e.getValue().equals(NOT_QUERIED) || e.getValue().equals(FAILED)) {
+        for (Map.Entry<Node, String> e: nodes.entrySet()) {
+            if (e.getValue().equals(NOT_MESSAGED) || e.getValue().equals(FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
-                    toQuery.add(e.getKey());
+                    toMessage.add(e.getKey());
                 }
             }
         }
 
         /* No not messaged nodes nor any messages in transit - finish */
-        if (toQuery.isEmpty() && messagesInTransit.isEmpty()) {
+        if (toMessage.isEmpty() && messagesInTransit.isEmpty()) {
             return true;
         }
 
         /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
-        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toQuery.size()); i++) {
+        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toMessage.size()); i++) {
 
-            /* Query the local node */
-            if (toQuery.get(i).equals(localNode.getNode())) {
+            int communicationId = server.sendMessage(toMessage.get(i), message, this);
 
-                /* Handles finding the user object on the local node */
-                User existingUser = localNode.getUsers().matchUser(user);
-
-                /* Terminate early if found on the local node */
-                if (existingUser != null) {
-                    if (existingUser.doPasswordsMatch(plainTextPassword)) {
-                        loggedIn = true;
-                        return true;
-                    } else {
-                        loggedIn = false;
-                        return true;
-                    }
-                }
-            } else {
-
-                int communicationId = server.sendMessage(toQuery.get(i), message, this);
-
-                nodes.put(toQuery.get(i), AWAITING_ACK);
-                attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
-                messagesInTransit.put(communicationId, toQuery.get(i));
-            }
+            nodes.put(toMessage.get(i), AWAITING_ACK);
+            attempts.put(toMessage.get(i), attempts.get(toMessage.get(i)) + 1);
+            messagesInTransit.put(communicationId, toMessage.get(i));
         }
         return true;
     }
@@ -177,27 +140,18 @@ public class LoginUserOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
+        /* Read the AcknowledgeMessage */
+        AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        /* Read the VerifyUserReplyMessage */
-        VerifyUserReplyMessage msg = (VerifyUserReplyMessage) incoming;
-
-        logger.info("VerifyUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
-
-        if (msg.getExistingUser() != null) {
-            if (msg.getExistingUser().doPasswordsMatch(plainTextPassword)) {
-                loggedIn = true;
-            } else {
-                loggedIn = false;
-            }
-        } else {
-            loggedIn = false;
-        }
+        logger.info("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         /* Update the hashmap to show that we've finished messaging this node */
-        nodes.put(msg.getOrigin(), QUERIED);
+        nodes.put(msg.getOrigin(), MESSAGED);
 
-         /* Remove this msg from messagesInTransit since it's completed now */
+         /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
+
+        notify();
     }
 
     /**
@@ -219,10 +173,6 @@ public class LoginUserOperation implements Operation, Receiver {
         nodes.put(n, FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
-    }
-
-    public synchronized boolean isLoggedIn() {
-        return loggedIn;
     }
 }
 

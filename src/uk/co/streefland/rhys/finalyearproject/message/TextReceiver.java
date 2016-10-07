@@ -25,7 +25,11 @@ public class TextReceiver implements Receiver {
     public void receive(Message incoming, int communicationId) throws IOException {
         TextMessage msg = (TextMessage) incoming;
 
-        System.out.println("Message received:" + msg.getMessage());
+        if (msg.getOriginUser() != null) {
+            System.out.println("Message received from " + msg.getOriginUser().getUserName() + ": " + msg.getMessage());
+        } else {
+            System.out.println("Broadcast message received: " + msg.getMessage());
+        }
 
         /* Create the AcknowledgeMessage */
         Message ack = new AcknowledgeMessage(localNode.getNode(), true);

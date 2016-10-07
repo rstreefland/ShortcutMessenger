@@ -65,8 +65,9 @@ public class Main {
             System.out.println("(1) - Bootstrap to a node");
             System.out.println("(2) - Register");
             System.out.println("(3) - Log in");
-            System.out.println("(4) - Send a broadcast message");
-            System.out.println("(5) - Print routing table");
+            System.out.println("(4) - Send a message");
+            System.out.println("(5) - Send a test broadcast message");
+            System.out.println("(6) - Print routing table");
             System.out.println("(q) - Quit");
 
             input = sc.nextLine();
@@ -82,9 +83,12 @@ public class Main {
                     login();
                     break;
                 case "4":
-                    broadcast();
+                    message();
                     break;
                 case "5":
+                    broadcast();
+                    break;
+                case "6":
                     routingTable();
                     break;
                 case "q":
@@ -193,13 +197,30 @@ public class Main {
         }
     }
 
+    private static void message() {
+
+        System.out.println("Please specify a username to message:");
+        String username = sc.nextLine();
+
+        User userToMessage = new User(username, "");
+
+        System.out.println("Please enter a message to send:");
+        String message = sc.nextLine();
+
+        try {
+            localNode.message(message, userToMessage);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static void broadcast() {
 
         System.out.println("Please enter a message to broadcast:");
         String message = sc.nextLine();
 
         try {
-            localNode.message(message, localNode.getRoutingTable().getAllNodes());
+            localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes());
         } catch (IOException e) {
             e.printStackTrace();
         }

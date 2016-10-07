@@ -1,9 +1,11 @@
-2016-10-06 22:55:41.849 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 173
-2016-10-06 22:55:41.853 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
-2016-10-06 22:55:41.985 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
-2016-10-06 22:55:41.986 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
-2016-10-06 22:55:41.986 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
-2016-10-06 22:55:58.283 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-10-06 22:55:58.289 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-10-06 22:56:58.333 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
-2016-10-06 22:56:58.338 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:45:48.817 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 185
+2016-10-07 16:45:48.817 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-07 16:45:51.720 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-07 16:45:51.720 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-07 16:46:06.693 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Sending message to User: rhys
+Associated nodes: 
+
+2016-10-07 16:46:51.765 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:46:51.765 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
+2016-10-07 16:47:51.763 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - Routing table was refreshed
+2016-10-07 16:47:51.763 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.RefreshHandler - User database was refreshed
