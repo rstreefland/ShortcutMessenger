@@ -44,7 +44,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
         this.server = server;
         this.config = config;
 
-        this.message = new TextMessage(localNode.getNode(), null, message);
+        this.message = new TextMessage(localNode.getNode(), null, null, message);
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
 

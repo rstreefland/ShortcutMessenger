@@ -58,7 +58,7 @@ public class MessageHandler {
             case FindNodeMessage.CODE:
                 return new FindNodeReceiver(server, localNode, config);
             case TextMessage.CODE:
-                return new TextReceiver(server,localNode, config);
+                return new TextReceiver(server,localNode);
             case StoreUserMessage.CODE:
                 return new StoreUserReceiver(server, localNode, config);
             case VerifyUserMessage.CODE:

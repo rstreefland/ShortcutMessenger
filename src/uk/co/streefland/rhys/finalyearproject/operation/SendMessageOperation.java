@@ -34,12 +34,15 @@ public class SendMessageOperation implements Operation, Receiver {
     private User userToMessage;
     private User user;
 
+    private String textMessage;
     private TextMessage message; // Message sent to each peer
     private Map<Node, String> nodes;
     private Map<Node, Integer> attempts;
 
     private Map<Integer, Node> messagesInTransit;
     private boolean isMessagedSuccessfully;
+
+    private List closestNodes;
 
     public SendMessageOperation(Server server, LocalNode localNode, Configuration config, User userToMessage, String textMessage) {
         this.server = server;
@@ -50,7 +53,7 @@ public class SendMessageOperation implements Operation, Receiver {
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
 
-        this.message = new TextMessage(localNode.getNode(), localNode.getUsers().getLocalUser(), textMessage);
+        this.textMessage = textMessage;
     }
 
     /**
@@ -64,28 +67,21 @@ public class SendMessageOperation implements Operation, Receiver {
         isMessagedSuccessfully = false;
 
         /* Get the user object of the user we would like to message */
-        FindUserOperation operation = new FindUserOperation(server, localNode, config, userToMessage);
-        operation.execute();
-        user = operation.getUser();
+        FindUserOperation fuo = new FindUserOperation(server, localNode, config, userToMessage);
+        fuo.execute();
+        user = fuo.getUser();
+        closestNodes = fuo.getClosestNodes();
 
         /* Add associated nodes to the 'to message' list */
         addNodes(user.getAssociatedNodes());
 
-        try {
-            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
-            int totalTimeWaited = 0;
-            int timeInterval = 10;
-            while (totalTimeWaited < config.getOperationTimeout()) {
-                if (!iterativeQueryNodes()) {
-                    wait(timeInterval);
-                    totalTimeWaited += timeInterval;
-                } else {
-                    break;
-                }
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-            logger.error("SendMessageOperation was interrupted unexpectedly: {}", e);
+        /* Run the message operation for only the intended recipients to begin with */
+        messageLoop();
+
+        /* Add the next k closest nodes and run the message operation again */
+        if (isMessagedSuccessfully == false) {
+            addNodes(closestNodes);
+            messageLoop();
         }
     }
 
@@ -103,6 +99,25 @@ public class SendMessageOperation implements Operation, Receiver {
             if (!attempts.containsKey(node)) {
                 attempts.put(node, 0);
             }
+        }
+    }
+
+    private void messageLoop() throws IOException {
+        try {
+            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
+            int totalTimeWaited = 0;
+            int timeInterval = 10;
+            while (totalTimeWaited < config.getOperationTimeout()) {
+                if (!iterativeQueryNodes()) {
+                    wait(timeInterval);
+                    totalTimeWaited += timeInterval;
+                } else {
+                    break;
+                }
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            logger.error("SendMessageOperation was interrupted unexpectedly: {}", e);
         }
     }
 
@@ -134,10 +149,12 @@ public class SendMessageOperation implements Operation, Receiver {
 
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
+                message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0) ,localNode.getUsers().getLocalUser(), textMessage);
                 localNode.getMessages().addReceivedMessage(message);
                 isMessagedSuccessfully = true;
                 nodes.put(toQuery.get(i), QUERIED);
             } else {
+                message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0) ,localNode.getUsers().getLocalUser(), textMessage);
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
                 nodes.put(toQuery.get(i), AWAITING_ACK);
@@ -183,6 +200,8 @@ public class SendMessageOperation implements Operation, Receiver {
         if (n == null) {
             return;
         }
+
+        isMessagedSuccessfully = false;
 
         /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, FAILED);

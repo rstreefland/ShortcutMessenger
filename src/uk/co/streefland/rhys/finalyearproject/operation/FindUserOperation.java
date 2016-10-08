@@ -36,6 +36,7 @@ public class FindUserOperation implements Operation, Receiver {
     private User userToFind;
     private User user;
 
+    private List closestNodes;
 
     private Message message; // Message sent to each peer
     private Map<Node, String> nodes;
@@ -64,14 +65,16 @@ public class FindUserOperation implements Operation, Receiver {
 
         user = localNode.getUsers().findUser(userToFind.getUserName()); // look for the user on the local node
 
+        FindNodeOperation fno = new FindNodeOperation(server, localNode, userToFind.getUserId(), config);
+        fno.execute();
+        closestNodes = fno.getClosestNodes();
+
         if (user != null) {
             /* We've found the user on the local node - no need to do anything else */
             return;
         }
 
-        FindNodeOperation operation = new FindNodeOperation(server, localNode, userToFind.getUserId(), config);
-        operation.execute();
-        addNodes(operation.getClosestNodes());
+        addNodes(closestNodes);
 
         message = new VerifyUserMessage(localNode.getNode(), userToFind, false);
 
@@ -205,6 +208,10 @@ public class FindUserOperation implements Operation, Receiver {
 
     public User getUser() {
         return user;
+    }
+
+    public List getClosestNodes() {
+        return closestNodes;
     }
 }
 

@@ -10,11 +10,12 @@ import java.io.IOException;
 import java.util.Date;
 
 /**
- * A simple text message - currently for testing purposes only
+ * A simple text message - slowly getting more functional :)
  */
 public class TextMessage implements Message {
 
     private Node origin;
+    private Node target;
     private User originUser;
     private KeyId messageId;
     private String message;
@@ -22,8 +23,9 @@ public class TextMessage implements Message {
 
     public static final byte CODE = 0x05;
 
-    public TextMessage(Node originNode, User originUser, String message) {
+    public TextMessage(Node originNode, Node target, User originUser, String message) {
         this.origin = originNode;
+        this.target = target;
         this.originUser = originUser;
         this.message = message;
         this.messageId = new KeyId();
@@ -38,6 +40,11 @@ public class TextMessage implements Message {
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
+
+        if (in.readBoolean()) {
+            target = new Node(in);
+        }
+
         message = in.readUTF();
 
         messageId = new KeyId(in);
@@ -50,6 +57,14 @@ public class TextMessage implements Message {
     @Override
     public void toStream(DataOutputStream out) throws IOException {
         origin.toStream(out);
+
+        if (target != null) {
+            out.writeBoolean(true);
+            target.toStream(out);
+        } else {
+            out.writeBoolean(false);
+        }
+
         out.writeUTF(message);
 
         messageId.toStream(out);
@@ -74,6 +89,10 @@ public class TextMessage implements Message {
 
     public Node getOrigin() {
         return origin;
+    }
+
+    public Node getTarget() {
+        return target;
     }
 
     public User getOriginUser() {
