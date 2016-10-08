@@ -1,11 +1,13 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
 import uk.co.streefland.rhys.finalyearproject.core.User;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Date;
 
 /**
  * A simple text message - currently for testing purposes only
@@ -14,7 +16,9 @@ public class TextMessage implements Message {
 
     private Node origin;
     private User originUser;
+    private KeyId messageId;
     private String message;
+    private long createdTime;
 
     public static final byte CODE = 0x05;
 
@@ -22,6 +26,9 @@ public class TextMessage implements Message {
         this.origin = originNode;
         this.originUser = originUser;
         this.message = message;
+        this.messageId = new KeyId();
+
+        this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
     }
 
     public TextMessage(DataInputStream in) throws IOException {
@@ -33,6 +40,8 @@ public class TextMessage implements Message {
         origin = new Node(in);
         message = in.readUTF();
 
+        messageId = new KeyId(in);
+
         if (in.readBoolean()) {
             originUser = new User(in);
         }
@@ -42,6 +51,8 @@ public class TextMessage implements Message {
     public void toStream(DataOutputStream out) throws IOException {
         origin.toStream(out);
         out.writeUTF(message);
+
+        messageId.toStream(out);
 
         if (originUser != null) {
             out.writeBoolean(true);
@@ -69,7 +80,15 @@ public class TextMessage implements Message {
         return originUser;
     }
 
+    public KeyId getMessageId() {
+        return messageId;
+    }
+
     public String getMessage() {
         return message;
+    }
+
+    public long getCreatedTime() {
+        return createdTime;
     }
 }

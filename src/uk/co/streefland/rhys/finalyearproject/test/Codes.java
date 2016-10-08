@@ -1,6 +1,10 @@
 package uk.co.streefland.rhys.finalyearproject.test;
 
 import uk.co.streefland.rhys.finalyearproject.message.*;
+import uk.co.streefland.rhys.finalyearproject.message.connect.ConnectMessage;
+import uk.co.streefland.rhys.finalyearproject.message.user.StoreUserMessage;
+import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserMessage;
+import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserReplyMessage;
 
 /**
  * Created by Rhys on 30/09/2016.

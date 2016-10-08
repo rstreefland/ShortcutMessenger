@@ -7,6 +7,8 @@ import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.*;
+import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserMessage;
+import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserReplyMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
@@ -71,7 +73,7 @@ public class FindUserOperation implements Operation, Receiver {
         operation.execute();
         addNodes(operation.getClosestNodes());
 
-        message = new VerifyUserMessage(localNode.getNode(), user, false);
+        message = new VerifyUserMessage(localNode.getNode(), userToFind, false);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
@@ -143,11 +145,16 @@ public class FindUserOperation implements Operation, Receiver {
 
         /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
         for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toQuery.size()); i++) {
-            int communicationId = server.sendMessage(toQuery.get(i), message, this);
+            /* Handle a node sending a message to itself */
+            if (toQuery.get(i).equals(localNode.getNode())) {
+                nodes.put(toQuery.get(i), QUERIED);
+            } else {
+                int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
-            nodes.put(toQuery.get(i), AWAITING_ACK);
-            attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
-            messagesInTransit.put(communicationId, toQuery.get(i));
+                nodes.put(toQuery.get(i), AWAITING_ACK);
+                attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
+                messagesInTransit.put(communicationId, toQuery.get(i));
+            }
         }
         return true;
     }

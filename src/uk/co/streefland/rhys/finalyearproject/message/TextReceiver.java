@@ -15,9 +15,9 @@ public class TextReceiver implements Receiver {
     private final LocalNode localNode;
     private final Configuration config;
 
-    public TextReceiver(Server server, LocalNode local, Configuration config) {
+    public TextReceiver(Server server, LocalNode localNode, Configuration config) {
         this.server = server;
-        this.localNode = local;
+        this.localNode = localNode;
         this.config = config;
     }
 
@@ -26,7 +26,7 @@ public class TextReceiver implements Receiver {
         TextMessage msg = (TextMessage) incoming;
 
         if (msg.getOriginUser() != null) {
-            System.out.println("Message received from " + msg.getOriginUser().getUserName() + ": " + msg.getMessage());
+            localNode.getMessages().addReceivedMessage(msg);
         } else {
             System.out.println("Broadcast message received: " + msg.getMessage());
         }

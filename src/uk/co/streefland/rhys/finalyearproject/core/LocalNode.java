@@ -3,6 +3,7 @@ package uk.co.streefland.rhys.finalyearproject.core;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
+import uk.co.streefland.rhys.finalyearproject.message.Messages;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.*;
@@ -19,7 +20,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "194";
+    public static final String BUILD_NUMBER = "225";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -28,6 +29,7 @@ public class LocalNode {
     private final Server server;
     private final StorageHandler storageHandler;
     private Users users;
+    private Messages messages;
 
     /* Objects for refresh operation */
     private Timer refreshOperationTimer;
@@ -52,6 +54,7 @@ public class LocalNode {
         readState(localIp);
 
         this.messageHandler = new MessageHandler(this, config);
+        this.messages = new Messages(this);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
         /* Couldn't read it from file */
@@ -84,6 +87,7 @@ public class LocalNode {
         readState(localIp);
 
         this.messageHandler = new MessageHandler(this, config);
+        this.messages = new Messages(this);
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
         /* Couldn't read it from file */
@@ -116,6 +120,7 @@ public class LocalNode {
         this.routingTable = new RoutingTable(localNode, config);
 
         this.messageHandler = new MessageHandler(this, config);
+        this.messages = new Messages(this);
         this.server = new Server(port, messageHandler, localNode, config);
         this.users = new Users(server, this, config);
     }
@@ -298,5 +303,9 @@ public class LocalNode {
 
     public Server getServer() {
         return server;
+    }
+
+    public Messages getMessages() {
+        return messages;
     }
 }

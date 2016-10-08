@@ -5,6 +5,9 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
+import uk.co.streefland.rhys.finalyearproject.message.connect.ConnectMessage;
+import uk.co.streefland.rhys.finalyearproject.message.connect.ConnectReceiver;
+import uk.co.streefland.rhys.finalyearproject.message.user.*;
 
 import java.io.DataInputStream;
 import java.io.IOException;

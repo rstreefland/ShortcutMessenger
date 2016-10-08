@@ -1,9 +1,12 @@
-package uk.co.streefland.rhys.finalyearproject.message;
+package uk.co.streefland.rhys.finalyearproject.message.connect;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
+import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 
 import java.io.IOException;
 

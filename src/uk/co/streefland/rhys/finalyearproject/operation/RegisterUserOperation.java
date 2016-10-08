@@ -9,7 +9,7 @@ import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
-import uk.co.streefland.rhys.finalyearproject.message.StoreUserMessage;
+import uk.co.streefland.rhys.finalyearproject.message.user.StoreUserMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;

@@ -134,7 +134,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
-                System.out.println("Message received from " + user.getUserName() + ": " + message.getMessage());
+                localNode.getMessages().addReceivedMessage(message);
                 isMessagedSuccessfully = true;
                 nodes.put(toQuery.get(i), QUERIED);
             } else {
