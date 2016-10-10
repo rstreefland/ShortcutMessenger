@@ -6,7 +6,10 @@ import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.core.User;
-import uk.co.streefland.rhys.finalyearproject.message.*;
+import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
@@ -40,11 +43,13 @@ public class SendMessageOperation implements Operation, Receiver {
     private Map<Node, Integer> attempts;
 
     private Map<Integer, Node> messagesInTransit;
+    private boolean forwarding;
     private boolean isMessagedSuccessfully;
+    private boolean hasTimeoutOccurred;
 
     private List closestNodes;
 
-    public SendMessageOperation(Server server, LocalNode localNode, Configuration config, User userToMessage, String textMessage) {
+    public SendMessageOperation(Server server, LocalNode localNode, Configuration config, User userToMessage, String textMessage, boolean forwarding) {
         this.server = server;
         this.config = config;
         this.localNode = localNode;
@@ -54,6 +59,23 @@ public class SendMessageOperation implements Operation, Receiver {
         this.messagesInTransit = new HashMap<>();
 
         this.textMessage = textMessage;
+        this.forwarding = forwarding;
+    }
+
+    public SendMessageOperation(Server server, LocalNode localNode, Configuration config, User userToMessage, TextMessage message, boolean forwarding) {
+        this.server = server;
+        this.config = config;
+        this.localNode = localNode;
+        this.user = userToMessage;
+        this.userToMessage = userToMessage;
+        this.nodes = new HashMap<>();
+        this.attempts = new HashMap<>();
+        this.messagesInTransit = new HashMap<>();
+
+        this.message = message;
+        this.forwarding = forwarding;
+
+        this.message.setOrigin(localNode.getNode());
     }
 
     /**
@@ -65,12 +87,15 @@ public class SendMessageOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
 
         isMessagedSuccessfully = false;
+        hasTimeoutOccurred = false;
 
         /* Get the user object of the user we would like to message */
-        FindUserOperation fuo = new FindUserOperation(server, localNode, config, userToMessage);
-        fuo.execute();
-        user = fuo.getUser();
-        closestNodes = fuo.getClosestNodes();
+        if (forwarding == false) {
+            FindUserOperation fuo = new FindUserOperation(server, localNode, config, userToMessage);
+            fuo.execute();
+            user = fuo.getUser();
+            closestNodes = fuo.getClosestNodes();
+        }
 
         /* Add associated nodes to the 'to message' list */
         addNodes(user.getAssociatedNodes());
@@ -78,8 +103,18 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Run the message operation for only the intended recipients to begin with */
         messageLoop();
 
-        /* Add the next k closest nodes and run the message operation again */
-        if (isMessagedSuccessfully == false) {
+        /* Don't terminate until all replies have either been received or have timed out */
+        while (messagesInTransit.size() > 0) {
+            try {
+                iterativeQueryNodes();
+                wait(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
+        if (isMessagedSuccessfully == false && hasTimeoutOccurred == true && forwarding == false) {
             addNodes(closestNodes);
             messageLoop();
         }
@@ -149,12 +184,16 @@ public class SendMessageOperation implements Operation, Receiver {
 
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
-                message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0) ,localNode.getUsers().getLocalUser(), textMessage);
+                if (forwarding == false) {
+                        message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
+                }
                 localNode.getMessages().addReceivedMessage(message);
                 isMessagedSuccessfully = true;
                 nodes.put(toQuery.get(i), QUERIED);
             } else {
-                message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0) ,localNode.getUsers().getLocalUser(), textMessage);
+                if (forwarding == false) {
+                    message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
+                }
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
                 nodes.put(toQuery.get(i), AWAITING_ACK);
@@ -202,6 +241,7 @@ public class SendMessageOperation implements Operation, Receiver {
         }
 
         isMessagedSuccessfully = false;
+        hasTimeoutOccurred = true;
 
         /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, FAILED);

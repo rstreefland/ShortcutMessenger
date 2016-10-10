@@ -44,6 +44,14 @@ public class RefreshHandler extends TimerTask {
             logger.error("User database refresh failed:", e);
         }
 
+        /* Run MessageRefreshOperation to forward messages*/
+        try {
+            new MessageRefreshOperation(server, localNode, config).execute();
+            logger.info("Messages were refreshed");
+        } catch (IOException e) {
+            logger.error("Message refresh failed:", e);
+        }
+
         // TODO: 02/09/2016  we'll need to refresh any data stored in the DHT as well once that functionality has been implemented
     }
 }

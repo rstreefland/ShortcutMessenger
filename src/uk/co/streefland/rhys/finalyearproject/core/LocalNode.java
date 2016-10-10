@@ -3,7 +3,6 @@ package uk.co.streefland.rhys.finalyearproject.core;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
-import uk.co.streefland.rhys.finalyearproject.message.Messages;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.*;
@@ -20,7 +19,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "245";
+    public static final String BUILD_NUMBER = "304";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
@@ -60,6 +59,8 @@ public class LocalNode {
         /* Couldn't read it from file */
         if (users == null) {
             users = new Users(server, this, config);
+        } else {
+            users.updateAfterLoad(server, this, config);
         }
 
         /* If we've managed to load a saved state from file - start the server */
@@ -93,6 +94,8 @@ public class LocalNode {
         /* Couldn't read it from file */
         if (users == null) {
             users = new Users(server, this, config);
+        } else {
+            users.updateAfterLoad(server, this, config);
         }
 
         /* If we've managed to load a saved state from file - start the server */
@@ -167,7 +170,6 @@ public class LocalNode {
             if (newUsers != null) {
                 logger.info("Users read successfully");
                 users = newUsers;
-                users.updateAfterLoad(server, this, config);
             } else {
                 logger.warn("Failed to read users from saved state - defaulting to creating a new users object");
             }
@@ -261,7 +263,7 @@ public class LocalNode {
     public final void message(String message, User userToMessage) throws IOException {
         if (!message.isEmpty() && users.getLocalUser() != null) {
             logger.info("Sending message to " + userToMessage);
-            SendMessageOperation operation = new SendMessageOperation(server, this, config, userToMessage, message);
+            SendMessageOperation operation = new SendMessageOperation(server, this, config, userToMessage, message, false);
             operation.execute();
         }
     }

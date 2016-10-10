@@ -7,8 +7,6 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Response to a VerifyUserMessage which contains the existing user object if it exists on the remote node

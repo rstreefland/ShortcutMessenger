@@ -17,16 +17,18 @@ public class TextMessage implements Message {
     private Node origin;
     private Node target;
     private User originUser;
+    private User targetUser;
     private KeyId messageId;
     private String message;
     private long createdTime;
 
     public static final byte CODE = 0x05;
 
-    public TextMessage(Node originNode, Node target, User originUser, String message) {
+    public TextMessage(Node originNode, Node target, User originUser, User targetUser, String message) {
         this.origin = originNode;
         this.target = target;
         this.originUser = originUser;
+        this.targetUser = targetUser;
         this.message = message;
         this.messageId = new KeyId();
 
@@ -52,6 +54,10 @@ public class TextMessage implements Message {
         if (in.readBoolean()) {
             originUser = new User(in);
         }
+
+        if (in.readBoolean()) {
+            targetUser = new User(in);
+        }
     }
 
     @Override
@@ -75,6 +81,13 @@ public class TextMessage implements Message {
         } else {
             out.writeBoolean(false);
         }
+
+        if (targetUser != null) {
+            out.writeBoolean(true);
+            targetUser.toStream(out);
+        } else {
+            out.writeBoolean(false);
+        }
     }
 
     @Override
@@ -91,12 +104,20 @@ public class TextMessage implements Message {
         return origin;
     }
 
+    public void setOrigin(Node origin) {
+        this.origin = origin;
+    }
+
     public Node getTarget() {
         return target;
     }
 
     public User getOriginUser() {
         return originUser;
+    }
+
+    public User getTargetUser() {
+        return targetUser;
     }
 
     public KeyId getMessageId() {
