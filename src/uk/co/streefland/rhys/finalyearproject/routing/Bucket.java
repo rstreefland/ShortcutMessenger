@@ -18,20 +18,19 @@ public class Bucket implements Serializable {
     private final int depth;
 
     /* Contacts stored in this bucket */
-    private TreeSet<Contact> contacts = new TreeSet<>();
+    private TreeSet<Contact> contacts;
 
     /* A set of recently seen contacts that can replace any contact that is unresponsive in the core set */
-    private TreeSet<Contact> replacementCache = new TreeSet<>();
+    private TreeSet<Contact> replacementCache;
 
-    private transient Configuration config;
-
-    public Bucket(int depth, Configuration config) {
+    public Bucket(int depth) {
         this.depth = depth;
-        this.config = config;
+        this.contacts = new TreeSet<>(new LastSeenComparator());
+        this.replacementCache = new TreeSet<>(new LastSeenComparator());
     }
 
     /**
-     * Inserts a new contact into the bucket. If the bucket is full and there are no stale contacts to replace, the new contact will be inserted into the replacement cachr
+     * Inserts a new contact into the bucket. If the bucket is full and there are no stale contacts to replace, the new contact will be inserted into the replacement cache
      *
      * @param contact The contact to insert into the bucket
      */
@@ -44,7 +43,7 @@ public class Bucket implements Serializable {
             contacts.add(newContact); /* Re-add to the TreeSet so the set is sorted correctly */
         } else {
             /* If the bucket is filled, put the contact into the replacement cache */
-            if (contacts.size() >= config.getK()) {
+            if (contacts.size() >= Configuration.K) {
                 Contact mostStale = null;
                 for (Contact newContact : contacts) {
                     if (newContact.getStaleCount() >= 1) {
@@ -61,7 +60,7 @@ public class Bucket implements Serializable {
                     contacts.remove(mostStale);
                     contacts.add(contact);
                 } else {
-                    /* No stale contact available to replcae, insert this node into replacement cache */
+                    /* No stale contact available to replace, insert this node into replacement cache */
                     insertIntoReplacementCache(contact);
                 }
             } else {
@@ -148,7 +147,7 @@ public class Bucket implements Serializable {
             Contact tmp = removeFromReplacementCache(c.getNode());
             tmp.setSeenNow();
             replacementCache.add(tmp);
-        } else if (replacementCache.size() > config.getK()) {
+        } else if (replacementCache.size() > Configuration.K) {
             /* If the cache is filled, remove the least recently seen contact */
             replacementCache.remove(replacementCache.last());
             replacementCache.add(c);
@@ -215,30 +214,22 @@ public class Bucket implements Serializable {
         return contacts.size();
     }
 
-    public synchronized int getDepth() {
-        return depth;
-    }
-
     /**
      * Returns a list of all contacts in the bucket
      */
     public synchronized List<Contact> getContacts() {
-        final ArrayList<Contact> list = new ArrayList<>();
+        ArrayList<Contact> list = new ArrayList<>();
 
-        /* If we have no contacts, return the blank arraylist */
+        /* If we have no contacts, return the blank ArrayList */
         if (contacts.isEmpty()) {
             return list;
         }
 
-        /* We have contacts, lets copy put them into the arraylist and return */
+        /* We have contacts, put them into the ArrayList and return */
         for (Contact c : contacts) {
             list.add(c);
         }
 
         return list;
-    }
-
-    public void setConfig(Configuration config) {
-        this.config = config;
     }
 }

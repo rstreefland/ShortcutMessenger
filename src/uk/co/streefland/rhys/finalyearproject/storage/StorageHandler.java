@@ -13,10 +13,10 @@ import java.io.*;
  */
 public class StorageHandler {
 
-    Configuration config;
-    Node localNode;
-    RoutingTable routingTable;
-    Users users;
+    private Configuration config;
+    private Node localNode;
+    private RoutingTable routingTable;
+    private Users users;
 
     public StorageHandler(Configuration config) {
         this.config = config;
@@ -35,7 +35,7 @@ public class StorageHandler {
         ObjectOutputStream oos;
 
         try {
-            fout = new FileOutputStream(config.getFilePath(), false);
+            fout = new FileOutputStream(Configuration.FILE_PATH, false);
             oos = new ObjectOutputStream(fout);
             oos.writeObject(localNode);
             oos.writeObject(routingTable);
@@ -55,7 +55,7 @@ public class StorageHandler {
         ObjectInputStream ois;
 
         try {
-            fis = new FileInputStream(config.getFilePath());
+            fis = new FileInputStream(Configuration.FILE_PATH);
             ois = new ObjectInputStream(fis);
 
             localNode = (Node) ois.readObject();
@@ -73,7 +73,7 @@ public class StorageHandler {
      * @return True if the file exists, false if not
      */
     public boolean doesSavedStateExist() {
-        File f = new File(config.getFilePath());
+        File f = new File(Configuration.FILE_PATH);
         return f.exists() && !f.isDirectory();
     }
 

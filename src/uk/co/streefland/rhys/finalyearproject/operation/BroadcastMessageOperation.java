@@ -18,40 +18,32 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Rhys on 03/09/2016.
+ * Sends a simple broadcast message to all nodes in the local node' routing table
+ * This class only really exists for testing and will be removed later on in the development process.
  */
 public class BroadcastMessageOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    /* Flags that represent Node states */
-    private static final String NOT_MESSAGED = "1";
-    private static final String AWAITING_ACK = "2";
-    private static final String MESSAGED = "3";
-    private static final String FAILED = "4";
-
     private Server server;
     private Configuration config;
-
-    private Message message;        // Message sent to each peer
+    private Message message;
     private Map<Node, String> nodes;
     private Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
     private Map<Integer, Node> messagesInTransit;
 
-    public BroadcastMessageOperation(Server server, LocalNode localNode, Configuration config, String message, List<Node> targetNodes) {
-        this.server = server;
-        this.config = config;
-
+    public BroadcastMessageOperation(LocalNode localNode, String message, List<Node> targetNodes) {
+        this.server = localNode.getServer();
+        this.config = localNode.getConfig();
         this.message = new TextMessage(localNode.getNode(), null, null, null, message);
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
-
         this.messagesInTransit = new HashMap<>();
 
         /* Set the local node as already messaged because we don't want to message the local node */
-        nodes.put(localNode.getNode(), MESSAGED);
+        nodes.put(localNode.getNode(), Configuration.QUERIED);
         attempts.put(localNode.getNode(), 0);
 
         /* Add the target nodes to the HashMaps */
@@ -59,7 +51,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
     }
 
     /**
-     * Send the connect message to the target node and wait for a reply. Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
+     * Send the node message to the target node and wait for a reply. Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
      *
      * @throws IOException
      */
@@ -91,7 +83,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, NOT_MESSAGED);
+                nodes.put(node, Configuration.NOT_QUERIED);
             }
 
             if (!attempts.containsKey(node)) {
@@ -102,14 +94,14 @@ public class BroadcastMessageOperation implements Operation, Receiver {
 
     private boolean iterativeMessagesNodes() throws IOException {
         /* Maximum number of messages already in transit */
-        if (config.getMaxConcurrency() <= messagesInTransit.size()) {
+        if (Configuration.MAX_CONCURRENCY <= messagesInTransit.size()) {
             return false;
         }
 
         List<Node> toMessage = new ArrayList<>();
 
         for (Map.Entry<Node, String> e: nodes.entrySet()) {
-            if (e.getValue().equals(NOT_MESSAGED) || e.getValue().equals(FAILED)) {
+            if (e.getValue().equals(Configuration.NOT_QUERIED) || e.getValue().equals(Configuration.FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
                     toMessage.add(e.getKey());
                 }
@@ -121,12 +113,12 @@ public class BroadcastMessageOperation implements Operation, Receiver {
             return true;
         }
 
-        /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
-        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toMessage.size()); i++) {
+        /* Create new messages for every not queried node, not exceeding Configuration.MAX_CONCURRENCY */
+        for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < toMessage.size()); i++) {
 
             int communicationId = server.sendMessage(toMessage.get(i), message, this);
 
-            nodes.put(toMessage.get(i), AWAITING_ACK);
+            nodes.put(toMessage.get(i), Configuration.AWAITING_REPLY);
             attempts.put(toMessage.get(i), attempts.get(toMessage.get(i)) + 1);
             messagesInTransit.put(communicationId, toMessage.get(i));
         }
@@ -134,7 +126,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
     }
 
     /**
-     * Receives an AcknowledgeMessage from the target node
+     * Receives and handles the reply from the target node
      *
      * @param communicationId
      */
@@ -146,7 +138,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
         logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         /* Update the hashmap to show that we've finished messaging this node */
-        nodes.put(msg.getOrigin(), MESSAGED);
+        nodes.put(msg.getOrigin(), Configuration.QUERIED);
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
@@ -170,7 +162,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed, increment attempts, remove message in transit */
-        nodes.put(n, FAILED);
+        nodes.put(n, Configuration.FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
     }

@@ -6,10 +6,16 @@ package uk.co.streefland.rhys.finalyearproject.core;
 public class Configuration {
 
     /* Constants */
-    private final int K = 5; // maximum number of contacts per bucket (kademlia specifies 20 but I'm sticking with 5 for now because it's better to test for a small network)
-    private final int MAX_CONCURRENCY = 3; // maximum number of concurrent connection
-    private final int PACKET_SIZE = 64 * 1024;  // maximum UDP packet size = 64KB
-    private final String filePath = "savedstate.ser";
+    public static final int K = 5; // maximum number of contacts per bucket (kademlia specifies 20 but I'm sticking with 5 for now because it's better to test for a small network)
+    public static final int MAX_CONCURRENCY = 3; // maximum number of concurrent connection
+    public static final int PACKET_SIZE = 64 * 1024;  // maximum UDP packet size = 64KB
+    public static final String FILE_PATH = "savedstate.ser";
+
+    /* Flags that represent node states */
+    public static final String NOT_QUERIED = "1";
+    public static final String AWAITING_REPLY = "2";
+    public static final String QUERIED = "3";
+    public static final String FAILED = "4";
 
     /* Settings the program can change if needs be */
     private int port = 12345;
@@ -17,22 +23,6 @@ public class Configuration {
     private long operationTimeout = 2000;  // timeout for operation completion (2 seconds)
     private long responseTimeout = 2000; // timeout waiting for response (2 seconds)
     private long refreshInterval = 60 * 1000; // refresh interval in milliseconds (1 minute for now)
-
-    public int getK() {
-        return K;
-    }
-
-    public int getMaxConcurrency() {
-        return MAX_CONCURRENCY;
-    }
-
-    public int getPacketSize() {
-        return PACKET_SIZE;
-    }
-
-    public String getFilePath() {
-        return filePath;
-    }
 
     public int getPort() {
         return port;

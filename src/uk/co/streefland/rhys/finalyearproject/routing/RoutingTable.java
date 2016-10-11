@@ -17,16 +17,14 @@ public class RoutingTable implements Serializable {
 
     private Node localNode;
     private Bucket[] buckets;
-    private transient Configuration config;
 
-    public RoutingTable(Node localNode, Configuration config) {
+    public RoutingTable(Node localNode) {
         this.localNode = localNode;
-        this.config = config;
 
         /* Initialise all of the buckets to a specific depth */
         this.buckets = new Bucket[KeyId.ID_LENGTH];
         for (int i = 0; i < KeyId.ID_LENGTH; i++) {
-            buckets[i] = new Bucket(i, this.config);
+            buckets[i] = new Bucket(i);
         }
 
         /* Inset the local node */
@@ -89,19 +87,6 @@ public class RoutingTable implements Serializable {
             }
         }
         return closest;
-    }
-
-    /**
-     * Updates the configuration object for this routing table and all of its buckets.
-     * This is required when the routing table is loaded from a file.
-     * @param newConfig
-     */
-    public void updateConfigurationObjects(Configuration newConfig) {
-        this.config = newConfig;
-
-        for (Bucket bucket : buckets) {
-            bucket.setConfig(config);
-        }
     }
 
     @Override

@@ -54,7 +54,7 @@ public class RemoteNodeAndUserTest {
                     } catch (InterruptedException ex) {
                         Thread.currentThread().interrupt();
                     }
-                    System.out.println("What IP would you like to connect to?");
+                    System.out.println("What IP would you like to node to?");
                     remoteIp = sc.nextLine();
 
                     destination = new Node(new KeyId(), InetAddress.getByName(remoteIp), 12345);

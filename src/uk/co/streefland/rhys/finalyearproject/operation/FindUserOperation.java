@@ -25,65 +25,58 @@ public class FindUserOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    /* Flags that represent Node states */
-    private static final String NOT_QUERIED = "1";
-    private static final String AWAITING_ACK = "2";
-    private static final String QUERIED = "3";
-    private static final String FAILED = "4";
-
     private Server server;
     private Configuration config;
     private LocalNode localNode;
-    private User userToFind;
-    private User user;
-
-    private List closestNodes;
+    private User targetUser;
 
     private Message message; // Message sent to each peer
+    private List closestNodes;
     private Map<Node, String> nodes;
     private Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
     private Map<Integer, Node> messagesInTransit;
 
-    public FindUserOperation(Server server, LocalNode localNode, Configuration config, User userToFind) {
-        this.server = server;
-        this.config = config;
+    public FindUserOperation(LocalNode localNode, User targetUser) {
+        this.server = localNode.getServer();
+        this.config = localNode.getConfig();
         this.localNode = localNode;
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
-        this.userToFind = userToFind;
+        this.targetUser = targetUser;
     }
 
     /**
-     * Send the connect message to the target node and wait for a reply. Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
+     * Send the node message to the target node and wait for a reply. Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
      *
      * @throws IOException
      */
     @Override
     public synchronized void execute() throws IOException {
 
-        user = localNode.getUsers().findUser(userToFind.getUserName()); // look for the user on the local node
+        /* Look for the user on the target node first */
+        targetUser= localNode.getUsers().findUser(targetUser.getUserName());
 
-        FindNodeOperation fno = new FindNodeOperation(server, localNode, userToFind.getUserId(), config);
+        FindNodeOperation fno = new FindNodeOperation(localNode, targetUser.getUserId());
         fno.execute();
         closestNodes = fno.getClosestNodes();
 
-        if (user != null) {
+        if (targetUser != null) {
             /* We've found the user on the local node - no need to do anything else */
             return;
         }
 
         addNodes(closestNodes);
 
-        message = new VerifyUserMessage(localNode.getNode(), userToFind, false);
+        message = new VerifyUserMessage(localNode.getNode(), targetUser, false);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
-            while ((totalTimeWaited < config.getOperationTimeout()) && user == null) {
+            while ((totalTimeWaited < config.getOperationTimeout()) && targetUser == null) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -97,7 +90,7 @@ public class FindUserOperation implements Operation, Receiver {
         }
 
         /* Don't terminate until we've found a user object */
-        while (user == null) {
+        while (targetUser == null) {
             try {
                 iterativeQueryNodes();
                 wait(500);
@@ -115,7 +108,7 @@ public class FindUserOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, NOT_QUERIED);
+                nodes.put(node, Configuration.NOT_QUERIED);
             }
 
             if (!attempts.containsKey(node)) {
@@ -126,7 +119,7 @@ public class FindUserOperation implements Operation, Receiver {
 
     private boolean iterativeQueryNodes() throws IOException {
         /* Maximum number of messages already in transit */
-        if (config.getMaxConcurrency() <= messagesInTransit.size()) {
+        if (Configuration.MAX_CONCURRENCY <= messagesInTransit.size()) {
             return false;
         }
 
@@ -135,7 +128,7 @@ public class FindUserOperation implements Operation, Receiver {
         /* Add not queried and failed nodes to the toQuery List if they haven't failed
          * getMaxConnectionAttempts() times */
         for (Map.Entry<Node, String> e : nodes.entrySet()) {
-            if (e.getValue().equals(NOT_QUERIED) || e.getValue().equals(FAILED)) {
+            if (e.getValue().equals(Configuration.NOT_QUERIED) || e.getValue().equals(Configuration.FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
                     toQuery.add(e.getKey());
                 }
@@ -147,15 +140,15 @@ public class FindUserOperation implements Operation, Receiver {
             return true;
         }
 
-        /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
-        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < toQuery.size()); i++) {
+        /* Create new messages for every not queried node, not exceeding Configuration.MAX_CONCURRENCY */
+        for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < toQuery.size()); i++) {
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
-                nodes.put(toQuery.get(i), QUERIED);
+                nodes.put(toQuery.get(i), Configuration.QUERIED);
             } else {
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
-                nodes.put(toQuery.get(i), AWAITING_ACK);
+                nodes.put(toQuery.get(i), Configuration.AWAITING_REPLY);
                 attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
                 messagesInTransit.put(communicationId, toQuery.get(i));
             }
@@ -176,11 +169,11 @@ public class FindUserOperation implements Operation, Receiver {
         logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
-            user = msg.getExistingUser();
+            targetUser = msg.getExistingUser();
         }
 
         /* Update the hashmap to show that we've finished messaging this node */
-        nodes.put(msg.getOrigin(), QUERIED);
+        nodes.put(msg.getOrigin(), Configuration.QUERIED);
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
@@ -202,13 +195,13 @@ public class FindUserOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed, increment attempts, remove message in transit */
-        nodes.put(n, FAILED);
+        nodes.put(n, Configuration.FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
     }
 
-    public User getUser() {
-        return user;
+    public User getTargetUser() {
+        return targetUser;
     }
 
     public List getClosestNodes() {

@@ -15,13 +15,9 @@ public class Messages {
     private Map<KeyId, TextMessage> receivedMessages;
     private Map<KeyId, TextMessage> forwardMessages;
 
-    LocalNode localNode;
-
-    public Messages(LocalNode localNode) {
+    public Messages() {
         this.receivedMessages = new HashMap<>();
         this.forwardMessages = new HashMap<>();
-
-        this.localNode = localNode;
     }
 
     public void addReceivedMessage(TextMessage message) {

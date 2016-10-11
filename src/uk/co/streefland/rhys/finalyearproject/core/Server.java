@@ -49,7 +49,7 @@ public class Server {
         this.localNode = localNode;
         this.messageHandler = messageHandler;
 
-        buffer = new byte[config.getPacketSize()];
+        buffer = new byte[Configuration.PACKET_SIZE];
         packet = new DatagramPacket(buffer, buffer.length);
         isRunning = false;
     }
@@ -182,7 +182,7 @@ public class Server {
 
         byte[] data = bout.toByteArray();
 
-        if (data.length > config.getPacketSize()) {
+        if (data.length > Configuration.PACKET_SIZE) {
             // TODO: split large message into smaller datagram packets
             throw new IllegalStateException("Message is too large");
         }

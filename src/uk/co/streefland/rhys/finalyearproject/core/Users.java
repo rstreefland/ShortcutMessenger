@@ -20,15 +20,10 @@ public class Users implements Serializable {
     private User localUser;
     private List<User> users;
 
-    private transient Server server;
     private transient LocalNode localNode;
-    private transient Configuration config;
 
-    public Users(Server server, LocalNode localNode, Configuration config) {
-        this.server = server;
+    public Users(LocalNode localNode) {
         this.localNode = localNode;
-        this.config = config;
-
         this.users = new ArrayList<>();
     }
 
@@ -43,7 +38,7 @@ public class Users implements Serializable {
         user.setRegisterTime(); // set the register time
         user.addAssociatedNode(localNode.getNode()); // add the local node as an associated node
 
-        RegisterUserOperation operation = new RegisterUserOperation(server, localNode, config, user);
+        RegisterUserOperation operation = new RegisterUserOperation(localNode, user);
         operation.execute();
 
         /* Set the local user object */
@@ -63,7 +58,7 @@ public class Users implements Serializable {
      * @throws IOException
      */
     public boolean loginUser(User user, String plainTextPassword) throws IOException {
-        LoginUserOperation operation = new LoginUserOperation(server, localNode, config, user, plainTextPassword);
+        LoginUserOperation operation = new LoginUserOperation(localNode, user, plainTextPassword);
         operation.execute();
 
         /* Update the rest of the nodes on the network with the last login time */
@@ -71,7 +66,7 @@ public class Users implements Serializable {
             user.setLastLoginTime(); // set the last login time
             user.addAssociatedNode(localNode.getNode());
 
-            RegisterUserOperation registerOperation = new RegisterUserOperation(server, localNode, config, user);
+            RegisterUserOperation registerOperation = new RegisterUserOperation(localNode, user);
             registerOperation.execute();
             localUser = user; // set the local user object for future reference
         }
@@ -151,18 +146,12 @@ public class Users implements Serializable {
         return null;
     }
 
-    public void updateAfterLoad(Server server, LocalNode localNode, Configuration config) {
-        this.server = server;
+    public void updateAfterLoad(LocalNode localNode) {
         this.localNode = localNode;
-        this.config = config;
     }
 
     public User getLocalUser() {
         return localUser;
-    }
-
-    public void setLocalUser(User localUser) {
-        this.localUser = localUser;
     }
 
     public List<User> getUsers() {

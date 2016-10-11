@@ -5,7 +5,11 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.operation.*;
+import uk.co.streefland.rhys.finalyearproject.operation.BroadcastMessageOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.Operation;
+import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
@@ -19,14 +23,14 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "304";
+    public static final String BUILD_NUMBER = "314";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private Configuration config;
     private Node localNode;
     private RoutingTable routingTable;
-    private final Server server;
-    private final StorageHandler storageHandler;
+    private Server server;
+    private StorageHandler storageHandler;
     private Users users;
     private Messages messages;
 
@@ -35,7 +39,7 @@ public class LocalNode {
     private RefreshHandler refreshHandler;
 
     /* MessageHandler object to create and receive messages */
-    private final MessageHandler messageHandler;
+    private MessageHandler messageHandler;
 
     /**
      * This constructor is the core constructor and attempts to read the localNode and routingTable objects from a file.
@@ -53,7 +57,7 @@ public class LocalNode {
         readState(localIp);
 
         this.messageHandler = new MessageHandler(this, config);
-        this.messages = new Messages(this);
+        this.messages = new Messages();
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
         /* Couldn't read it from file */
@@ -88,7 +92,7 @@ public class LocalNode {
         readState(localIp);
 
         this.messageHandler = new MessageHandler(this, config);
-        this.messages = new Messages(this);
+        this.messages = new Messages();
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
         /* Couldn't read it from file */
@@ -120,10 +124,10 @@ public class LocalNode {
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
         this.config = new Configuration();
         this.storageHandler = new StorageHandler(config);
-        this.routingTable = new RoutingTable(localNode, config);
+        this.routingTable = new RoutingTable(localNode);
 
         this.messageHandler = new MessageHandler(this, config);
-        this.messages = new Messages(this);
+        this.messages = new Messages();
         this.server = new Server(port, messageHandler, localNode, config);
         this.users = new Users(server, this, config);
     }
@@ -158,10 +162,9 @@ public class LocalNode {
             if (newRoutingTable != null) {
                 logger.info("Routing table read successfully");
                 routingTable = newRoutingTable;
-                routingTable.updateConfigurationObjects(config);
             } else {
                 logger.warn("Failed to read routing table from saved state - defaulting to creating a new routing table");
-                routingTable = new RoutingTable(localNode, config);
+                routingTable = new RoutingTable(localNode);
             }
 
             /* Get users object from storageHandler */
@@ -177,7 +180,7 @@ public class LocalNode {
         } else {
             logger.info("Saved state not found");
             localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
-            routingTable = new RoutingTable(localNode, config);
+            routingTable = new RoutingTable(localNode);
         }
     }
 
@@ -194,7 +197,7 @@ public class LocalNode {
      */
     private void startRefreshOperation() {
         /* Create the refresh operation */
-        refreshHandler = new RefreshHandler(server, this, config);
+        refreshHandler = new RefreshHandler(this);
 
         /* Create the timer and schedule it using the interval defined in Configuration.java  */
         refreshOperationTimer = new Timer(true);
@@ -255,7 +258,7 @@ public class LocalNode {
     public final void broadcastMessage(String message, List<Node> targetNodes) throws IOException {
         if (!message.isEmpty()) {
             logger.info("Sending message to specified nodes");
-            Operation operation = new BroadcastMessageOperation(server, this, config, message, targetNodes);
+            Operation operation = new BroadcastMessageOperation(this, message, targetNodes);
             operation.execute();
         }
     }
@@ -263,7 +266,7 @@ public class LocalNode {
     public final void message(String message, User userToMessage) throws IOException {
         if (!message.isEmpty() && users.getLocalUser() != null) {
             logger.info("Sending message to " + userToMessage);
-            SendMessageOperation operation = new SendMessageOperation(server, this, config, userToMessage, message, false);
+            SendMessageOperation operation = new SendMessageOperation(this, userToMessage, message, false);
             operation.execute();
         }
     }
@@ -285,10 +288,6 @@ public class LocalNode {
 
     public MessageHandler getMessageHandler() {
         return messageHandler;
-    }
-
-    public LocalNode getLocalNode() {
-        return this;
     }
 
     public Node getNode() {

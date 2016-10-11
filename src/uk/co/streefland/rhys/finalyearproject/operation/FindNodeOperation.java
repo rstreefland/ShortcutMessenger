@@ -1,14 +1,15 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
-import uk.co.streefland.rhys.finalyearproject.message.FindNodeMessage;
-import uk.co.streefland.rhys.finalyearproject.message.FindNodeReplyMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeReplyMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
@@ -25,16 +26,9 @@ public class FindNodeOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    /* Flags that represent Node states */
-    private static final String NOT_QUERIED = "1";
-    private static final String AWAITING_RESPONSE = "2";
-    private static final String QUERIED = "3";
-    private static final String FAILED = "4";
-
-    private final Server server;
     private final LocalNode localNode;
+    private final Server server;
     private final Configuration config;
-
     private final Message lookupMessage;        // Message sent to each peer
     private final Map<Node, String> nodes;
 
@@ -44,10 +38,10 @@ public class FindNodeOperation implements Operation, Receiver {
     /* Used to sort nodes */
     private final Comparator comparator;
 
-    public FindNodeOperation(Server server, LocalNode localNode, KeyId lookupId, Configuration config) {
-        this.server = server;
+    public FindNodeOperation(LocalNode localNode, KeyId lookupId) {
         this.localNode = localNode;
-        this.config = config;
+        this.server = localNode.getServer();
+        this.config = localNode.getConfig();
 
         this.lookupMessage = new FindNodeMessage(localNode.getNode(), lookupId);
         this.messagesInTransit = new HashMap<>();
@@ -65,7 +59,7 @@ public class FindNodeOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
         /* Set the local node as already asked */
-        nodes.put(localNode.getNode(), QUERIED);
+        nodes.put(localNode.getNode(), Configuration.QUERIED);
 
         /* Insert all nodes because some nodes may fail to respond. */
         addNodes(localNode.getRoutingTable().getAllNodes());
@@ -99,37 +93,37 @@ public class FindNodeOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, NOT_QUERIED);
+                nodes.put(node, Configuration.NOT_QUERIED);
             }
         }
     }
 
     /**
-     * Sends a message to every not queried node. Maintains a maximum of config.getMaxConcurrency() active messages in transit
+     * Sends a message to every not queried node. Maintains a maximum of Configuration.MAX_CONCURRENCY active messages in transit
      *
      * @return false if algorithm isn't finished, true if algorithm has finished
      * @throws IOException
      */
     private boolean iterativeQueryNodes() throws IOException {
         /* Maximum number of messages already in transit */
-        if (config.getMaxConcurrency() <= messagesInTransit.size()) {
+        if (Configuration.MAX_CONCURRENCY <= messagesInTransit.size()) {
             return false;
         }
 
-        List<Node> notQueried = getClosestNodes(NOT_QUERIED);
+        List<Node> notQueried = getClosestNodes(Configuration.NOT_QUERIED);
 
         /* No not queried nodes nor any messages in transit - finish */
         if (notQueried.isEmpty() && messagesInTransit.isEmpty()) {
             return true;
         }
 
-        /* Create new messages for every not queried node, not exceeding config.getMaxConcurrency() */
-        for (int i = 0; (messagesInTransit.size() < config.getMaxConcurrency()) && (i < notQueried.size()); i++) {
+        /* Create new messages for every not queried node, not exceeding Configuration.MAX_CONCURRENCY */
+        for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < notQueried.size()); i++) {
             Node n = notQueried.get(i);
 
             int communicationId = server.sendMessage(n, lookupMessage, this);
 
-            nodes.put(n, AWAITING_RESPONSE);
+            nodes.put(n, Configuration.AWAITING_REPLY);
             messagesInTransit.put(communicationId, n);
         }
         return false;
@@ -140,8 +134,8 @@ public class FindNodeOperation implements Operation, Receiver {
      * @return The K closest nodes to the target lookupId given that have the specified status
      */
     private List<Node> getClosestNodes(String status) {
-        List<Node> closestNodes = new ArrayList<>(config.getK());
-        int remainingSpaces = config.getK();
+        List<Node> closestNodes = new ArrayList<>(Configuration.K);
+        int remainingSpaces = Configuration.K;
 
         for (Map.Entry e : nodes.entrySet()) {
             if (status.equals(e.getValue())) {
@@ -157,7 +151,7 @@ public class FindNodeOperation implements Operation, Receiver {
     }
 
     public List<Node> getClosestNodes() {
-        return getClosestNodes(QUERIED);
+        return getClosestNodes(Configuration.QUERIED);
     }
 
     /**
@@ -167,7 +161,7 @@ public class FindNodeOperation implements Operation, Receiver {
         List<Node> failedNodes = new ArrayList<>();
 
         for (Map.Entry<Node, String> e : nodes.entrySet()) {
-            if (e.getValue().equals(FAILED)) {
+            if (e.getValue().equals(Configuration.FAILED)) {
                 failedNodes.add(e.getKey());
             }
         }
@@ -199,7 +193,7 @@ public class FindNodeOperation implements Operation, Receiver {
         localNode.getRoutingTable().insert(origin);
 
         /* Set that we've completed ASKing the origin nodse */
-        nodes.put(origin, QUERIED);
+        nodes.put(origin, Configuration.QUERIED);
 
         /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
@@ -226,7 +220,7 @@ public class FindNodeOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed and inform the routing table that it is unresponsive */
-        nodes.put(n, FAILED);
+        nodes.put(n, Configuration.FAILED);
         localNode.getRoutingTable().setUnresponsiveContact(n);
         messagesInTransit.remove(communicationId);
 

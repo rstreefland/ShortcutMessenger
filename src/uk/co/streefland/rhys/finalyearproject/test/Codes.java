@@ -1,10 +1,10 @@
 package uk.co.streefland.rhys.finalyearproject.test;
 
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
-import uk.co.streefland.rhys.finalyearproject.message.FindNodeMessage;
-import uk.co.streefland.rhys.finalyearproject.message.FindNodeReplyMessage;
 import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
-import uk.co.streefland.rhys.finalyearproject.message.connect.ConnectMessage;
+import uk.co.streefland.rhys.finalyearproject.message.node.ConnectMessage;
+import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage;
+import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeReplyMessage;
 import uk.co.streefland.rhys.finalyearproject.message.user.StoreUserMessage;
 import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserMessage;
 import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserReplyMessage;

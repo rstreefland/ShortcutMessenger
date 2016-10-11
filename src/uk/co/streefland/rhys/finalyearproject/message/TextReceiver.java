@@ -8,7 +8,7 @@ import uk.co.streefland.rhys.finalyearproject.core.Server;
 import java.io.IOException;
 
 /**
- * Receives a TextMessage
+ * Receives a TextMessage and utilises the Messages class to handle the message
  */
 public class TextReceiver implements Receiver {
 

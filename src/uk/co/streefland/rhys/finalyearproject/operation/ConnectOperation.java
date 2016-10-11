@@ -8,8 +8,9 @@ import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
-import uk.co.streefland.rhys.finalyearproject.message.connect.ConnectMessage;
+import uk.co.streefland.rhys.finalyearproject.message.node.ConnectMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
+import uk.co.streefland.rhys.finalyearproject.operation.refresh.BucketRefreshOperation;
 
 import java.io.IOException;
 
@@ -36,7 +37,7 @@ public class ConnectOperation implements Operation, Receiver {
     }
 
     /**
-     * Send the connect message to the target node and wait for a reply.
+     * Send the node message to the target node and wait for a reply.
      * Run FindNodeOperation and BucketRefreshOperation if the target node responds to populate the local RoutingTable
      *
      * @throws IOException
@@ -49,7 +50,7 @@ public class ConnectOperation implements Operation, Receiver {
             error = true;
             attempts = 0;
 
-            /* Construct a connect message and send it to the bootstrap node */
+            /* Construct a node message and send it to the bootstrap node */
             Message m = new ConnectMessage(localNode.getNode());
             server.sendMessage(bootstrapNode, m, this);
             attempts++;
@@ -72,11 +73,11 @@ public class ConnectOperation implements Operation, Receiver {
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
-            Operation findNode = new FindNodeOperation(server, localNode, localNode.getNode().getNodeId(), config);
+            Operation findNode = new FindNodeOperation(localNode, localNode.getNode().getNodeId());
             findNode.execute();
 
             /* Refresh buckets to update the rest of the routing table */
-            new BucketRefreshOperation(server, localNode, config).execute();
+            new BucketRefreshOperation(localNode).execute();
 
         } catch (InterruptedException e) {
             logger.error("Connect operation was interrupted: {} ", e);
