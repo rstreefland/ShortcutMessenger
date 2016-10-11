@@ -82,7 +82,7 @@ public class Bucket implements Serializable {
      * Removes a contact from the bucket only if the replacement cache has a contact to replace it with. Else increments the contacts stale count
      *
      * @param contact The contact to remove from the bucket
-     * @param force If true, remove the contact immediately without checking for a replacement in the replacement cache
+     * @param force   If true, remove the contact immediately without checking for a replacement in the replacement cache
      * @return Returns false if the contact doesn't exist.
      */
     public synchronized boolean removeContact(Contact contact, boolean force) {
@@ -158,6 +158,7 @@ public class Bucket implements Serializable {
 
     /**
      * Removes a contact from the replacement cache
+     *
      * @param node The node within a contact to remove from the replacement cache
      * @return The contact removed from the replacement cache
      */
@@ -208,6 +209,7 @@ public class Bucket implements Serializable {
 
     /**
      * Returns the total number of contacts in the bucket
+     *
      * @return
      */
     public synchronized int getNumberOfContacts() {

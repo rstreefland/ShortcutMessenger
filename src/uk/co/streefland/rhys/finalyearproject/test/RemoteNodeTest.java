@@ -39,7 +39,7 @@ public class RemoteNodeTest {
                 localIp = null;
             }
 
-            LocalNode localNode = new LocalNode(localIp);
+            LocalNode localNode = new LocalNode(localIp, 0);
 
             if (args.length > 0) {
                 if (args[0].equals("-first")) {
@@ -65,12 +65,12 @@ public class RemoteNodeTest {
             logger.info("Printing routing table");
             System.out.println(localNode.getRoutingTable());
 
-            do  {
+            do {
                 message = sc.nextLine();
                 if (message != null) {
                     localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes());
                 }
-            } while(!message.equals("exit"));
+            } while (!message.equals("exit"));
 
             localNode.shutdown();
 

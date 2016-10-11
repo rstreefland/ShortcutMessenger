@@ -31,6 +31,8 @@ public class Server {
     private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
+    /* Cached threadPool so we can run receivers in parallel */
+    ExecutorService threadPool = Executors.newCachedThreadPool();
     private boolean isRunning;
     private byte[] buffer;
     private DatagramPacket packet;
@@ -38,9 +40,6 @@ public class Server {
     private DataInputStream din;
     private int communicationId;
     private byte messageCode;
-
-    /* Cached threadPool so we can run receivers in parallel */
-    ExecutorService threadPool = Executors.newCachedThreadPool();
 
     public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
 

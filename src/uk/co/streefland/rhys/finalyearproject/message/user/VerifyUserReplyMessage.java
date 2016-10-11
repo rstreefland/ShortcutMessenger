@@ -13,10 +13,9 @@ import java.io.IOException;
  */
 public class VerifyUserReplyMessage implements Message {
 
+    public static final byte CODE = 0x08;
     private Node origin;
     private User existingUser;
-
-    public static final byte CODE = 0x08;
 
     public VerifyUserReplyMessage(Node origin, User existingUser) {
         this.origin = origin;

@@ -15,14 +15,12 @@ import java.util.List;
  */
 public class FindNodeReceiver implements Receiver {
 
-    private final Server server;
     private final LocalNode localNode;
-    private final Configuration config;
+    private final Server server;
 
-    public FindNodeReceiver(Server server, LocalNode local, Configuration config) {
-        this.server = server;
-        this.localNode = local;
-        this.config = config;
+    public FindNodeReceiver(LocalNode localNode) {
+        this.localNode = localNode;
+        this.server = localNode.getServer();
     }
 
     /**
@@ -36,7 +34,6 @@ public class FindNodeReceiver implements Receiver {
     @Override
     public void receive(Message incoming, int communicationId) throws IOException {
         FindNodeMessage msg = (FindNodeMessage) incoming;
-
         Node origin = msg.getOrigin();
 
         /* Insert origin into local routing table */

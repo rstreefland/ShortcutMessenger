@@ -49,12 +49,7 @@ public class Main {
         }
 
         try {
-            if (localPort != 0) {
-                localNode = new LocalNode(localIp, localPort);
-            } else {
-                localNode = new LocalNode(localIp);
-            }
-
+            localNode = new LocalNode(localIp, localPort);
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.operation;
 
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;

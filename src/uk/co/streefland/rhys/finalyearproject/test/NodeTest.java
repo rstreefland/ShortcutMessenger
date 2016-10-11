@@ -20,7 +20,7 @@ public class NodeTest {
         InetAddress inet2 = InetAddress.getByName("127.0.0.2");
 
         Node node1 = new Node(nodeId1, inet1, 8080);
-        Node node2 = new Node(nodeId2, inet2 , 8081);
+        Node node2 = new Node(nodeId2, inet2, 8081);
 
         System.out.println("NODE TESTING :)\n");
 

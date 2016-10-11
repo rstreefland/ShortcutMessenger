@@ -2,7 +2,6 @@ package uk.co.streefland.rhys.finalyearproject.message;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.node.*;
@@ -17,13 +16,10 @@ import java.io.IOException;
 public class MessageHandler {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     private final LocalNode localNode;
-    private final Configuration config;
 
-    public MessageHandler(LocalNode localNode, Configuration config) {
+    public MessageHandler(LocalNode localNode) {
         this.localNode = localNode;
-        this.config = config;
     }
 
     public Message createMessage(byte code, DataInputStream in) throws IOException {
@@ -45,23 +41,23 @@ public class MessageHandler {
             case VerifyUserReplyMessage.CODE:
                 return new VerifyUserReplyMessage(in);
             default:
-            logger.warn("No message type found for message code: {}", code);
-            return null;
+                logger.warn("No message type found for message code: {}", code);
+                return null;
         }
     }
 
     public Receiver createReceiver(byte code, Server server) {
         switch (code) {
             case ConnectMessage.CODE:
-                return new ConnectReceiver(server, localNode);
+                return new ConnectReceiver(localNode);
             case FindNodeMessage.CODE:
-                return new FindNodeReceiver(server, localNode, config);
+                return new FindNodeReceiver(localNode);
             case TextMessage.CODE:
-                return new TextReceiver(server,localNode);
+                return new TextReceiver(localNode);
             case StoreUserMessage.CODE:
-                return new StoreUserReceiver(server, localNode, config);
+                return new StoreUserReceiver(localNode);
             case VerifyUserMessage.CODE:
-                return new VerifyUserReceiver(server, localNode);
+                return new VerifyUserReceiver(localNode);
             default:
                 logger.warn("No receiver type found for message code: {}", code);
                 return null;

@@ -11,7 +11,7 @@ public interface Receiver {
      * Handle incoming message
      *
      * @param communicationId Used for replies
-     * @param incoming The incoming message
+     * @param incoming        The incoming message
      * @throws IOException
      */
     void receive(Message incoming, int communicationId) throws IOException;

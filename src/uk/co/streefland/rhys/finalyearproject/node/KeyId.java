@@ -30,6 +30,7 @@ public class KeyId implements Serializable {
 
     /**
      * Generates the KeyId based on the SHA1 digest of an input string
+     *
      * @param id
      */
     public KeyId(String id) {
@@ -57,6 +58,7 @@ public class KeyId implements Serializable {
 
     /**
      * Stores a KeyId based on an existing 160 bit byte array
+     *
      * @param idBytes
      */
     public KeyId(byte[] idBytes) {
@@ -135,6 +137,7 @@ public class KeyId implements Serializable {
 
     /**
      * Calculates and returns the index of the first set bit in the byte array
+     *
      * @return
      */
     public int getFirstSetBitLocation() {
@@ -171,6 +174,7 @@ public class KeyId implements Serializable {
 
     /**
      * Generates and returns the hashcode of the KeyId as an integer
+     *
      * @return
      */
     @Override
@@ -182,6 +186,7 @@ public class KeyId implements Serializable {
 
     /**
      * Compares two keys and returns true if they match
+     *
      * @param obj
      * @return
      */

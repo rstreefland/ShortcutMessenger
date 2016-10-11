@@ -14,8 +14,8 @@ import java.net.UnknownHostException;
  * Created by Rhys on 05/09/2016.
  */
 public class FileTest {
-// THIS CLASS NO LONGER WORKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    public static void main(String []args) {
+    // THIS CLASS NO LONGER WORKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public static void main(String[] args) {
 
         Logger logger = LoggerFactory.getLogger(FileTest.class);
 

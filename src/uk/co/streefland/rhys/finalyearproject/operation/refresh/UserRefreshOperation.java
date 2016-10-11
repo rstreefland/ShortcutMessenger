@@ -2,9 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.operation.refresh;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation;
@@ -12,12 +10,11 @@ import uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation;
 import java.io.IOException;
 
 /**
- * Refreshes all buckets within the RoutingTable
+ * Updates other nodes with the users stored on the local node
  */
 public class UserRefreshOperation implements Operation {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     private final LocalNode localNode;
 
     public UserRefreshOperation(LocalNode localNode) {
@@ -25,12 +22,13 @@ public class UserRefreshOperation implements Operation {
     }
 
     /**
-     * Refreshes each bucket in a separate thread using the FindNodeOperation.
+     * Run the RegisterUserOperation for each user account in a different thread
      *
      * @throws IOException
      */
     @Override
     public synchronized void execute() throws IOException {
+
         for (User currentUser : localNode.getUsers().getUsers()) {
             /* Run RegisterUserOperation for each user in a different thread */
             new Thread() {

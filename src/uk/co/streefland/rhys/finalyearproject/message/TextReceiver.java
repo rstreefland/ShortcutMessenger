@@ -13,20 +13,21 @@ import java.io.IOException;
 public class TextReceiver implements Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    private final Server server;
     private final LocalNode localNode;
+    private final Server server;
 
-    public TextReceiver(Server server, LocalNode localNode) {
-        this.server = server;
+    public TextReceiver(LocalNode localNode) {
         this.localNode = localNode;
+        this.server = localNode.getServer();
     }
 
     @Override
     public void receive(Message incoming, int communicationId) throws IOException {
         TextMessage msg = (TextMessage) incoming;
 
+        /* If target is null - it's a broadcast message */
         if (msg.getTarget() != null) {
+            /* If the message is intended for this node */
             if (msg.getTarget().getNodeId().equals(localNode.getNode().getNodeId())) {
                 if (msg.getOriginUser() != null) {
                     logger.info("Received a message intended for me");

@@ -2,9 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.operation.refresh;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.core.Server;
 
 import java.io.IOException;
 import java.util.TimerTask;
@@ -15,7 +13,6 @@ import java.util.TimerTask;
 public class RefreshHandler extends TimerTask {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     private final LocalNode localNode;
 
     public RefreshHandler(LocalNode localNode) {
@@ -40,7 +37,7 @@ public class RefreshHandler extends TimerTask {
             logger.error("User database refresh failed:", e);
         }
 
-        /* Run MessageRefreshOperation to forward messages*/
+        /* Run MessageRefreshOperation to forward messages to their intended recipients*/
         try {
             new MessageRefreshOperation(localNode).execute();
             logger.info("Messages were refreshed");

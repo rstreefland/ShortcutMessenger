@@ -1,6 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.routing;
 
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
@@ -17,6 +16,7 @@ public class RoutingTable implements Serializable {
 
     private Node localNode;
     private Bucket[] buckets;
+    private boolean isEmpty;
 
     public RoutingTable(Node localNode) {
         this.localNode = localNode;
@@ -29,6 +29,8 @@ public class RoutingTable implements Serializable {
 
         /* Inset the local node */
         insert(localNode);
+
+        isEmpty = true;
     }
 
     /**
@@ -40,6 +42,7 @@ public class RoutingTable implements Serializable {
      * @return returns true if the inserted contact is a contact that we've never seen before
      */
     public synchronized final boolean insert(Contact c) {
+        isEmpty = false;
 
         for (Node existingNode : getAllNodes()) {
             if (c.getNode().getSocketAddress().equals((existingNode.getSocketAddress()))) {
@@ -87,6 +90,10 @@ public class RoutingTable implements Serializable {
             }
         }
         return closest;
+    }
+
+    public boolean isEmpty() {
+        return isEmpty;
     }
 
     @Override

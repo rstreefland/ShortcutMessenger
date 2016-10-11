@@ -1,6 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.message.user;
 
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
@@ -15,20 +14,17 @@ import java.io.IOException;
  */
 public class StoreUserReceiver implements Receiver {
 
-    private final Server server;
     private final LocalNode localNode;
-    private final Configuration config;
+    private final Server server;
 
-    public StoreUserReceiver(Server server, LocalNode localNode, Configuration config) {
-        this.server = server;
+    public StoreUserReceiver(LocalNode localNode) {
         this.localNode = localNode;
-        this.config = config;
+        this.server = localNode.getServer();
     }
 
     @Override
     public void receive(Message incoming, int communicationId) throws IOException {
         StoreUserMessage msg = (StoreUserMessage) incoming;
-
         Node origin = msg.getOrigin();
 
         boolean success = localNode.getUsers().addUser(msg.getUser());

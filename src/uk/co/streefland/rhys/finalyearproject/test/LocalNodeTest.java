@@ -34,14 +34,14 @@ public class LocalNodeTest {
                 ip = null;
             }
 
-            LocalNode localNode = new LocalNode(ip);
+            LocalNode localNode = new LocalNode(ip, 0);
 
-            do  {
+            do {
                 message = sc.nextLine();
                 if (message != null) {
                     localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes());
                 }
-            } while(!message.equals("exit"));
+            } while (!message.equals("exit"));
 
             localNode.shutdown();
 

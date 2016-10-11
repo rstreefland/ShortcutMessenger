@@ -23,14 +23,16 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "314";
+    public static final String BUILD_NUMBER = "318";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    /* DHT objects */
     private Configuration config;
     private Node localNode;
-    private RoutingTable routingTable;
     private Server server;
+    private RoutingTable routingTable;
     private StorageHandler storageHandler;
+    private MessageHandler messageHandler;
     private Users users;
     private Messages messages;
 
@@ -38,45 +40,9 @@ public class LocalNode {
     private Timer refreshOperationTimer;
     private RefreshHandler refreshHandler;
 
-    /* MessageHandler object to create and receive messages */
-    private MessageHandler messageHandler;
-
     /**
      * This constructor is the core constructor and attempts to read the localNode and routingTable objects from a file.
      * It creates new objects if they cannot be loaded from the file.
-     *
-     * @throws IOException
-     */
-    public LocalNode(String localIp) throws IOException {
-        logger.info("FinalYearProject build " + BUILD_NUMBER);
-
-        this.config = new Configuration();
-        this.storageHandler = new StorageHandler(config);
-
-        /* Read localNode, routingTable and users from file if possible; else create new objects */
-        readState(localIp);
-
-        this.messageHandler = new MessageHandler(this, config);
-        this.messages = new Messages();
-        this.server = new Server(config.getPort(), messageHandler, localNode, config);
-
-        /* Couldn't read it from file */
-        if (users == null) {
-            users = new Users(server, this, config);
-        } else {
-            users.updateAfterLoad(server, this, config);
-        }
-
-        /* If we've managed to load a saved state from file - start the server */
-        if (routingTable.getAllNodes().size() > 1) {
-            server.startListener();
-            /* Start the automatic refresh operation that runs every 60 seconds */
-            startRefreshOperation();
-        }
-    }
-
-    /**
-     * This constructor is the same the above but allows the specification of a custom port
      *
      * @throws IOException
      */
@@ -84,26 +50,28 @@ public class LocalNode {
         logger.info("FinalYearProject build " + BUILD_NUMBER);
 
         this.config = new Configuration();
-        config.setPort(port);
+        if (port != 0) {
+            config.setPort(port);
+        }
 
         this.storageHandler = new StorageHandler(config);
 
         /* Read localNode, routingTable and users from file if possible; else create new objects */
         readState(localIp);
 
-        this.messageHandler = new MessageHandler(this, config);
+        this.messageHandler = new MessageHandler(this);
         this.messages = new Messages();
         this.server = new Server(config.getPort(), messageHandler, localNode, config);
 
         /* Couldn't read it from file */
         if (users == null) {
-            users = new Users(server, this, config);
+            users = new Users(this);
         } else {
-            users.updateAfterLoad(server, this, config);
+            users.initialise(this);
         }
 
         /* If we've managed to load a saved state from file - start the server */
-        if (routingTable.getAllNodes().size() > 1) {
+        if (!routingTable.isEmpty()) {
             server.startListener();
             /* Start the automatic refresh operation that runs every 60 seconds */
             startRefreshOperation();
@@ -115,7 +83,7 @@ public class LocalNode {
      * It doesn't load any existing configuration from a file
      *
      * @param defaultId The nodeId of the localNode
-     * @param port The port the server should listen on
+     * @param port      The port the server should listen on
      * @throws IOException
      */
     public LocalNode(KeyId defaultId, int port) throws IOException {
@@ -126,10 +94,10 @@ public class LocalNode {
         this.storageHandler = new StorageHandler(config);
         this.routingTable = new RoutingTable(localNode);
 
-        this.messageHandler = new MessageHandler(this, config);
+        this.messageHandler = new MessageHandler(this);
         this.messages = new Messages();
         this.server = new Server(port, messageHandler, localNode, config);
-        this.users = new Users(server, this, config);
+        this.users = new Users(this);
     }
 
     /**
@@ -251,7 +219,8 @@ public class LocalNode {
 
     /**
      * Sends a broadcast message to the specified nodes
-     * @param message The text message to broadcast
+     *
+     * @param message     The text message to broadcast
      * @param targetNodes The nodes that should receive the message
      * @throws IOException
      */
@@ -266,7 +235,7 @@ public class LocalNode {
     public final void message(String message, User userToMessage) throws IOException {
         if (!message.isEmpty() && users.getLocalUser() != null) {
             logger.info("Sending message to " + userToMessage);
-            SendMessageOperation operation = new SendMessageOperation(this, userToMessage, message, false);
+            SendMessageOperation operation = new SendMessageOperation(this, userToMessage, message);
             operation.execute();
         }
     }
@@ -284,10 +253,6 @@ public class LocalNode {
 
     public Configuration getConfig() {
         return config;
-    }
-
-    public MessageHandler getMessageHandler() {
-        return messageHandler;
     }
 
     public Node getNode() {

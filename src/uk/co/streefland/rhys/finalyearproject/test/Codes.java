@@ -14,7 +14,7 @@ import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserReplyMessag
  */
 public class Codes {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         System.out.println("AcknowledgeMessage: " + AcknowledgeMessage.CODE);
         System.out.println("VerifyUserMessage: " + VerifyUserMessage.CODE);
         System.out.println("VerifyUserReplyMessage: " + VerifyUserReplyMessage.CODE);

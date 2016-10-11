@@ -2,9 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.operation.refresh;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
@@ -17,7 +15,6 @@ import java.io.IOException;
 public class BucketRefreshOperation implements Operation {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
     private final LocalNode localNode;
 
     public BucketRefreshOperation(LocalNode localNode) {

@@ -22,20 +22,17 @@ public class Node implements Serializable {
         this.port = port;
     }
 
-    public Node(DataInputStream in) throws IOException
-    {
+    public Node(DataInputStream in) throws IOException {
         fromStream(in);
     }
 
-    public void toStream(DataOutputStream out) throws IOException
-    {
+    public void toStream(DataOutputStream out) throws IOException {
          /* Add the KeyId to the stream */
         nodeId.toStream(out);
 
         /* Add the Node's IP address to the stream */
         byte[] a = inetAddress.getAddress();
-        if (a.length != 4)
-        {
+        if (a.length != 4) {
             throw new RuntimeException("I expected an InetAddress of 4 bytes, here's what I actually got: " + a.length);
         }
         out.write(a);
@@ -44,8 +41,7 @@ public class Node implements Serializable {
         out.writeInt(port);
     }
 
-    public final void fromStream(DataInputStream in) throws IOException
-    {
+    public final void fromStream(DataInputStream in) throws IOException {
         /* Read the KeyId */
         nodeId = new KeyId(in);
 
@@ -59,13 +55,10 @@ public class Node implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o)
-    {
-        if (o instanceof Node)
-        {
+    public boolean equals(Object o) {
+        if (o instanceof Node) {
             Node n = (Node) o;
-            if (n == this)
-            {
+            if (n == this) {
                 return true;
             }
             return getNodeId().equals(n.getNodeId());
@@ -74,8 +67,7 @@ public class Node implements Serializable {
     }
 
     @Override
-    public int hashCode()
-    {
+    public int hashCode() {
         return getNodeId().hashCode();
     }
 
@@ -83,16 +75,14 @@ public class Node implements Serializable {
      * Returns the HEX representation of the KeyId as a string
      */
     @Override
-    public String toString()
-    {
+    public String toString() {
         return getNodeId().toString();
     }
 
     /**
      * Returns the InetSocketAddress for the InetAddress and port for the node
      */
-    public InetSocketAddress getSocketAddress()
-    {
+    public InetSocketAddress getSocketAddress() {
         return new InetSocketAddress(inetAddress, port);
     }
 

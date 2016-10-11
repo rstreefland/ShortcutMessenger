@@ -27,7 +27,8 @@ public class StorageHandler {
 
     /**
      * Save the provided objects to the file specified in the Configuration class
-     * @param localNode The Node object to write to file
+     *
+     * @param localNode    The Node object to write to file
      * @param routingTable The RoutingTable object to write to file
      */
     public void save(Node localNode, RoutingTable routingTable, Users users) {

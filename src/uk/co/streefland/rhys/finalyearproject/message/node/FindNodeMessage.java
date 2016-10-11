@@ -13,10 +13,9 @@ import java.io.IOException;
  */
 public class FindNodeMessage implements Message {
 
+    public static final byte CODE = 0x03;
     private Node origin;
     private KeyId lookupId;
-
-    public static final byte CODE = 0x03;
 
     public FindNodeMessage(Node origin, KeyId lookup) {
         this.origin = origin;

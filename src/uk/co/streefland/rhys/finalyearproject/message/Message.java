@@ -13,6 +13,7 @@ public interface Message {
 
     /**
      * Writes the message data to the output stream
+     *
      * @param out
      * @throws IOException
      */
@@ -20,6 +21,7 @@ public interface Message {
 
     /**
      * Reads the message data from the output stream
+     *
      * @param out
      * @throws IOException
      */

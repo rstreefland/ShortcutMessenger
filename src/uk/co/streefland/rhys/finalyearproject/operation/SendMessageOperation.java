@@ -43,7 +43,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
     private List closestNodes;
 
-    public SendMessageOperation(LocalNode localNode, User userToMessage, String textMessage, boolean forwarding) {
+    public SendMessageOperation(LocalNode localNode, User userToMessage, String textMessage) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
@@ -53,10 +53,10 @@ public class SendMessageOperation implements Operation, Receiver {
         this.messagesInTransit = new HashMap<>();
 
         this.textMessage = textMessage;
-        this.forwarding = forwarding;
+        this.forwarding = false;
     }
 
-    public SendMessageOperation(LocalNode localNode, User userToMessage, TextMessage message, boolean forwarding) {
+    public SendMessageOperation(LocalNode localNode, User userToMessage, TextMessage message) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
@@ -67,7 +67,7 @@ public class SendMessageOperation implements Operation, Receiver {
         this.messagesInTransit = new HashMap<>();
 
         this.message = message;
-        this.forwarding = forwarding;
+        this.forwarding = true;
 
         this.message.setOrigin(localNode.getNode());
     }
@@ -179,7 +179,7 @@ public class SendMessageOperation implements Operation, Receiver {
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
                 if (forwarding == false) {
-                        message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
+                    message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
                 }
                 localNode.getMessages().addReceivedMessage(message);
                 isMessagedSuccessfully = true;

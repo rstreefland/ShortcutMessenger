@@ -29,7 +29,6 @@ public class User implements Serializable {
     private byte[] passwordHash;
     private byte[] passwordSalt;
     private List<Node> associatedNodes;
-
     private long registerTime;
     private long lastLoginTime;
 
@@ -43,13 +42,11 @@ public class User implements Serializable {
         this.associatedNodes = new ArrayList<>();
     }
 
-    public User(DataInputStream in) throws IOException
-    {
+    public User(DataInputStream in) throws IOException {
         fromStream(in);
     }
 
-    public void toStream(DataOutputStream out) throws IOException
-    {
+    public void toStream(DataOutputStream out) throws IOException {
         /* Add userId and userName to stream */
         userId.toStream(out);
         out.writeUTF(userName);
@@ -69,8 +66,7 @@ public class User implements Serializable {
         out.writeLong(lastLoginTime);
     }
 
-    public final void fromStream(DataInputStream in) throws IOException
-    {
+    public final void fromStream(DataInputStream in) throws IOException {
         /* Read in userId and userName */
         userId = new KeyId(in);
         userName = in.readUTF();
@@ -94,6 +90,7 @@ public class User implements Serializable {
 
     /**
      * Generates a 16 byte salt randomly
+     *
      * @return byte array containing the salt
      */
     private byte[] generateSalt() {
@@ -106,7 +103,8 @@ public class User implements Serializable {
     /**
      * Generates a secure 128bit password hash using the provided salt and password.
      * Uses the PBEKeySpec method with 5000 passes
-     * @param salt The salt to hash the password with
+     *
+     * @param salt     The salt to hash the password with
      * @param password The plaintext password to hash
      * @return The generated password hash
      */
@@ -127,7 +125,7 @@ public class User implements Serializable {
 
         /* Performance testing */
         long end = System.currentTimeMillis();
-        long difference = end-start;
+        long difference = end - start;
         logger.debug("Hashing password took: " + difference + "ms");
 
         return passwordHash;
@@ -135,6 +133,7 @@ public class User implements Serializable {
 
     /**
      * Compares a plaintext password with the hashed one stored in the object
+     *
      * @param password The plaintext password to compare
      * @return True if passwords match, false if not
      */
@@ -148,11 +147,12 @@ public class User implements Serializable {
 
     /**
      * Adds a node to the associated nodes list of the User
+     *
      * @param newNode The node to add to the list of associated nodes
      * @return False if node already exists in the associated nodes list
      */
     public boolean addAssociatedNode(Node newNode) {
-        for (Node node: associatedNodes) {
+        for (Node node : associatedNodes) {
             if (node.getNodeId().equals(newNode.getNodeId())) {
                 return false;
             }

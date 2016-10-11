@@ -13,11 +13,10 @@ import java.io.IOException;
  */
 public class VerifyUserMessage implements Message {
 
+    public static final byte CODE = 0x07;
     private Node origin;
     private User user;
-    private boolean verify; // should we verify it matches or just check it exists
-
-    public static final byte CODE = 0x07;
+    private boolean verify; // should we verify the user matches or just check it exists
 
     public VerifyUserMessage(Node origin, User user, boolean verify) {
         this.origin = origin;

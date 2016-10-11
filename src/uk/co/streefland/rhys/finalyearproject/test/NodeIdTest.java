@@ -23,8 +23,8 @@ public class NodeIdTest {
 
         System.out.println("\nIndex of first set bit: " + nodeId.getFirstSetBitLocation());
 
-        System.out.println("Binary Representation: " +nodeId2.toBinary());
+        System.out.println("Binary Representation: " + nodeId2.toBinary());
 
-        System.out.println("DistanceNEW = " +nodeId.getDistance(nodeId2));
+        System.out.println("DistanceNEW = " + nodeId.getDistance(nodeId2));
     }
 }

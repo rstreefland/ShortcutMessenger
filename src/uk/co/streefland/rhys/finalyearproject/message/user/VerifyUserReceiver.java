@@ -14,22 +14,22 @@ import java.io.IOException;
  */
 public class VerifyUserReceiver implements Receiver {
 
-    private final Server server;
     private final LocalNode localNode;
+    private final Server server;
 
-    public VerifyUserReceiver(Server server, LocalNode localNode) {
-        this.server = server;
+    public VerifyUserReceiver(LocalNode localNode) {
         this.localNode = localNode;
+        this.server = localNode.getServer();
     }
 
     @Override
     public void receive(Message incoming, int communicationId) throws IOException {
         VerifyUserMessage msg = (VerifyUserMessage) incoming;
-
         Node origin = msg.getOrigin();
 
         User existingUser;
 
+        /* Should we verify the user object or do we just need to check the userName matches */
         if (msg.isVerify()) {
             existingUser = localNode.getUsers().matchUser(msg.getUser());
         } else {

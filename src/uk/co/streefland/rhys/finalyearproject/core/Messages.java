@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Handles messages stored on the local node
+ * Stores and manages messages on the local node
  */
 public class Messages {
 
@@ -20,12 +20,23 @@ public class Messages {
         this.forwardMessages = new HashMap<>();
     }
 
+    /**
+     * Store a received message in the receivedMessages HashMap if it doesn't already exist.
+     * Print the message if it doesn't already exist
+     *
+     * @param message The message to store
+     */
     public void addReceivedMessage(TextMessage message) {
         if (receivedMessages.putIfAbsent(message.getMessageId(), message) == null) {
             System.out.println("Message received from " + message.getOriginUser().getUserName() + ": " + message.getMessage());
         }
     }
 
+    /**
+     * Inserts a message into the forwardMessages HashMap if it doesn't already exist
+     *
+     * @param message The message to store
+     */
     public void addForwardMessage(TextMessage message) {
         forwardMessages.putIfAbsent(message.getMessageId(), message);
     }

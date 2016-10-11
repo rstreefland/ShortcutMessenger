@@ -16,15 +16,23 @@ import java.util.List;
 public class Users implements Serializable {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private transient LocalNode localNode;
 
     private User localUser;
     private List<User> users;
 
-    private transient LocalNode localNode;
-
     public Users(LocalNode localNode) {
-        this.localNode = localNode;
         this.users = new ArrayList<>();
+        initialise(localNode);
+    }
+
+    /**
+     * Initialise the class with the LocalNode object
+     *
+     * @param localNode
+     */
+    public void initialise(LocalNode localNode) {
+        this.localNode = localNode;
     }
 
     /**
@@ -35,18 +43,18 @@ public class Users implements Serializable {
      * @throws IOException
      */
     public boolean registerUser(User user) throws IOException {
-        user.setRegisterTime(); // set the register time
+        user.setRegisterTime(); // set the register time to now
         user.addAssociatedNode(localNode.getNode()); // add the local node as an associated node
 
-        RegisterUserOperation operation = new RegisterUserOperation(localNode, user);
-        operation.execute();
+        RegisterUserOperation ruo = new RegisterUserOperation(localNode, user);
+        ruo.execute();
 
         /* Set the local user object */
-        if (operation.isRegisteredSuccessfully()) {
+        if (ruo.isRegisteredSuccessfully()) {
             localUser = user; // set the local user object for future reference
         }
 
-        return operation.isRegisteredSuccessfully();
+        return ruo.isRegisteredSuccessfully();
     }
 
     /**
@@ -58,19 +66,21 @@ public class Users implements Serializable {
      * @throws IOException
      */
     public boolean loginUser(User user, String plainTextPassword) throws IOException {
-        LoginUserOperation operation = new LoginUserOperation(localNode, user, plainTextPassword);
-        operation.execute();
+        LoginUserOperation luo = new LoginUserOperation(localNode, user, plainTextPassword);
+        luo.execute();
 
         /* Update the rest of the nodes on the network with the last login time */
-        if (operation.isLoggedIn()) {
+        if (luo.isLoggedIn()) {
             user.setLastLoginTime(); // set the last login time
-            user.addAssociatedNode(localNode.getNode());
+            user.addAssociatedNode(localNode.getNode()); // add the local node as the associated node
 
-            RegisterUserOperation registerOperation = new RegisterUserOperation(localNode, user);
-            registerOperation.execute();
+            /* Run the RegisterUserOperation to update other nodes on the network with the new user object*/
+            RegisterUserOperation ruo = new RegisterUserOperation(localNode, user);
+            ruo.execute();
+
             localUser = user; // set the local user object for future reference
         }
-        return operation.isLoggedIn();
+        return luo.isLoggedIn();
     }
 
     /**
@@ -81,10 +91,8 @@ public class Users implements Serializable {
      * @return False if the user already exists on the network
      */
     public synchronized boolean addUser(User newUser) {
-
         for (User user : users) {
             if (user.getUserName().equals(newUser.getUserName())) {
-
                 /* For login */
                 if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() == 0L) {
                     logger.debug("New user object has newer login timestamp - replacing the old one");
@@ -92,7 +100,6 @@ public class Users implements Serializable {
                     users.add(newUser);
                     return false;
                 }
-
                 /* If new user has an older registration time that isn't zero - replace the existing user */
                 if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() == 0L) {
                     logger.debug("New user has an older registration timestamp - replacing the old one");
@@ -100,13 +107,11 @@ public class Users implements Serializable {
                     users.add(newUser);
                     return false;
                 }
-
                 /* If existing user has older registration time then do nothing */
                 if ((user.getRegisterTime() < newUser.getRegisterTime())) {
                     logger.debug("User with the same name exists - discarding");
                     return false;
                 }
-
                 /* Users are exactly the same - do nothing */
                 if (user.getRegisterTime() == newUser.getRegisterTime()) {
                     logger.debug("User objects are the same, doing nothing");
@@ -114,13 +119,18 @@ public class Users implements Serializable {
                 }
             }
         }
-
-        /* User doest't exist in out memory --add it */
+        /* User doesn't exist in out memory - add it */
         users.add(newUser);
         logger.debug("New user added to users: {}", newUser.getUserName());
         return true;
     }
 
+    /**
+     * Looks for a user with a specified userName on the local node and returns the user object if it was found
+     *
+     * @param userName
+     * @return
+     */
     public synchronized User findUser(String userName) {
         for (User user : users) {
             if (user.getUserName().equals(userName)) {
@@ -131,7 +141,7 @@ public class Users implements Serializable {
     }
 
     /**
-     * Looks for a user on the local node and returns the object if it was found
+     * Looks for a user with a specified userId on the local node and returns the user object if it was found
      *
      * @param newUser
      * @return The user object that was found
@@ -144,10 +154,6 @@ public class Users implements Serializable {
             }
         }
         return null;
-    }
-
-    public void updateAfterLoad(LocalNode localNode) {
-        this.localNode = localNode;
     }
 
     public User getLocalUser() {

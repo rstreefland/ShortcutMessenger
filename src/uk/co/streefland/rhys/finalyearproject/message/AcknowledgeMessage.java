@@ -11,10 +11,9 @@ import java.io.IOException;
  */
 public class AcknowledgeMessage implements Message {
 
+    public static final byte CODE = 0x01;
     private Node origin;
     private boolean operationSuccessful;
-
-    public static final byte CODE = 0x01;
 
     public AcknowledgeMessage(Node origin, boolean operationSuccessful) {
         this.origin = origin;

@@ -14,6 +14,7 @@ import java.util.Date;
  */
 public class TextMessage implements Message {
 
+    public static final byte CODE = 0x05;
     private Node origin;
     private Node target;
     private User originUser;
@@ -22,16 +23,26 @@ public class TextMessage implements Message {
     private String message;
     private long createdTime;
 
-    public static final byte CODE = 0x05;
+    /**
+     * Constructor for broadcast messages
+     */
+    public TextMessage(Node origin, String message) {
+        this.origin = origin;
+        this.message = message;
+        this.messageId = new KeyId();
+        this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
+    }
 
-    public TextMessage(Node originNode, Node target, User originUser, User targetUser, String message) {
-        this.origin = originNode;
+    /**
+     * Constructor for user to user messages
+     */
+    public TextMessage(Node origin, Node target, User originUser, User targetUser, String message) {
+        this.origin = origin;
         this.target = target;
         this.originUser = originUser;
         this.targetUser = targetUser;
         this.message = message;
         this.messageId = new KeyId();
-
         this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
     }
 
@@ -43,18 +54,20 @@ public class TextMessage implements Message {
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
 
+        /* only read if target node isn't null */
         if (in.readBoolean()) {
             target = new Node(in);
         }
 
         message = in.readUTF();
-
         messageId = new KeyId(in);
 
+        /* only read if origin user isn't null */
         if (in.readBoolean()) {
             originUser = new User(in);
         }
 
+        /* only read if target user isn't null */
         if (in.readBoolean()) {
             targetUser = new User(in);
         }
@@ -72,7 +85,6 @@ public class TextMessage implements Message {
         }
 
         out.writeUTF(message);
-
         messageId.toStream(out);
 
         if (originUser != null) {

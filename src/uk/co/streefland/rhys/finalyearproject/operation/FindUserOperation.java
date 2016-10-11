@@ -57,7 +57,7 @@ public class FindUserOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
 
         /* Look for the user on the target node first */
-        targetUser= localNode.getUsers().findUser(targetUser.getUserName());
+        targetUser = localNode.getUsers().findUser(targetUser.getUserName());
 
         FindNodeOperation fno = new FindNodeOperation(localNode, targetUser.getUserId());
         fno.execute();

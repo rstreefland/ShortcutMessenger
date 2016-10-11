@@ -41,7 +41,7 @@ public class RemoteNodeAndUserTest {
                 localIp = null;
             }
 
-            LocalNode localNode = new LocalNode(localIp);
+            LocalNode localNode = new LocalNode(localIp, 0);
 
             if (args.length > 0) {
                 if (args[0].equals("-first")) {
@@ -67,7 +67,7 @@ public class RemoteNodeAndUserTest {
             logger.info("Printing routing table");
             System.out.println(localNode.getRoutingTable());
 
-            do  {
+            do {
                 System.out.println("Please enter a username:");
                 username = sc.nextLine();
 
@@ -80,7 +80,7 @@ public class RemoteNodeAndUserTest {
                     logger.error("USER ALREADY EXISTS");
                 }
 
-            } while(!password.equals("exit"));
+            } while (!password.equals("exit"));
 
             localNode.shutdown();
 

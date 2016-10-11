@@ -12,8 +12,8 @@ import java.io.IOException;
  */
 public class ConnectMessage implements Message {
 
-    private Node origin;
     public static final byte CODE = 0x02;
+    private Node origin;
 
     public ConnectMessage(Node origin) {
         this.origin = origin;

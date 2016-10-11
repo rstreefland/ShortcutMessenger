@@ -14,13 +14,13 @@ public class UserTest {
         long start = System.currentTimeMillis();
         User user = new User("titanicsaled", "ilikecheese");
         long end = System.currentTimeMillis();
-        long difference = end-start;
+        long difference = end - start;
         System.out.println("Setting up user took: " + difference + "ms");
 
         String input = null;
         Scanner sc = new Scanner(System.in);
 
-        while(true) {
+        while (true) {
             input = sc.nextLine();
 
             if (user.doPasswordsMatch(input) == true) {

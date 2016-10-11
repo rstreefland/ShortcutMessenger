@@ -37,7 +37,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
     public BroadcastMessageOperation(LocalNode localNode, String message, List<Node> targetNodes) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
-        this.message = new TextMessage(localNode.getNode(), null, null, null, message);
+        this.message = new TextMessage(localNode.getNode(), message);
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
@@ -78,6 +78,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
 
     /**
      * Inserts the nodes into the HashMap if they're not already present
+     *
      * @param list The list of nodes to insert
      */
     private void addNodes(List<Node> list) {
@@ -100,7 +101,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
 
         List<Node> toMessage = new ArrayList<>();
 
-        for (Map.Entry<Node, String> e: nodes.entrySet()) {
+        for (Map.Entry<Node, String> e : nodes.entrySet()) {
             if (e.getValue().equals(Configuration.NOT_QUERIED) || e.getValue().equals(Configuration.FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
                     toMessage.add(e.getKey());
