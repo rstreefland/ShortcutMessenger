@@ -71,6 +71,8 @@ public class TextMessage implements Message {
         if (in.readBoolean()) {
             targetUser = new User(in);
         }
+
+        createdTime = in.readLong();
     }
 
     @Override
@@ -100,6 +102,8 @@ public class TextMessage implements Message {
         } else {
             out.writeBoolean(false);
         }
+
+        out.writeLong(createdTime);
     }
 
     @Override
