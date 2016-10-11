@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
-import uk.co.streefland.rhys.finalyearproject.operation.RegisterUserOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
 
 import java.io.IOException;
 

@@ -11,6 +11,7 @@ import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
+import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 
 import java.io.IOException;
 import java.util.ArrayList;

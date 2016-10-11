@@ -1,9 +1,11 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
+import java.io.Serializable;
+
 /**
  * Stores the configuration constants and variables for the other classes
  */
-public class Configuration {
+public class Configuration implements Serializable {
 
     /* Constants */
     public static final int K = 5; // maximum number of contacts per bucket (kademlia specifies 20 but I'm sticking with 5 for now because it's better to test for a small network)

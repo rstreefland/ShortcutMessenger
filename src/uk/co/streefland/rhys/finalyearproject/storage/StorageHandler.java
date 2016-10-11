@@ -13,6 +13,7 @@ import java.io.*;
  */
 public class StorageHandler {
 
+    private Configuration config;
     private Node localNode;
     private RoutingTable routingTable;
     private Users users;
@@ -29,13 +30,14 @@ public class StorageHandler {
      * @param localNode    The Node object to write to file
      * @param routingTable The RoutingTable object to write to file
      */
-    public void save(Node localNode, RoutingTable routingTable, Users users) {
+    public void save(Configuration config, Node localNode, RoutingTable routingTable, Users users) {
         FileOutputStream fout;
         ObjectOutputStream oos;
 
         try {
             fout = new FileOutputStream(Configuration.FILE_PATH, false);
             oos = new ObjectOutputStream(fout);
+            oos.writeObject(config);
             oos.writeObject(localNode);
             oos.writeObject(routingTable);
             oos.writeObject(users);
@@ -57,6 +59,7 @@ public class StorageHandler {
             fis = new FileInputStream(Configuration.FILE_PATH);
             ois = new ObjectInputStream(fis);
 
+            config = (Configuration) ois.readObject();
             localNode = (Node) ois.readObject();
             routingTable = (RoutingTable) ois.readObject();
             users = (Users) ois.readObject();
@@ -74,6 +77,13 @@ public class StorageHandler {
     public boolean doesSavedStateExist() {
         File f = new File(Configuration.FILE_PATH);
         return f.exists() && !f.isDirectory();
+    }
+
+    /**
+     * @return The Configuration object that was read from file by the load() method
+     */
+    public Configuration getConfig() {
+        return config;
     }
 
     /**

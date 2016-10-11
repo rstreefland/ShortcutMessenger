@@ -49,15 +49,9 @@ public class LocalNode {
     public LocalNode(String localIp, int port) throws IOException {
         logger.info("FinalYearProject build " + BUILD_NUMBER);
 
-        this.config = new Configuration();
-        if (port != 0) {
-            config.setPort(port);
-        }
-
+        /* Read config, localNode, routingTable and users from file if possible; else create new objects */
         this.storageHandler = new StorageHandler();
-
-        /* Read localNode, routingTable and users from file if possible; else create new objects */
-        readState(localIp);
+        readState(localIp, port);
 
         this.messageHandler = new MessageHandler(this);
         this.messages = new Messages();
@@ -106,12 +100,26 @@ public class LocalNode {
      *
      * @throws IOException
      */
-    private void readState(String localIp) throws IOException {
+    private void readState(String localIp, int port) throws IOException {
         if (storageHandler.doesSavedStateExist()) {
             logger.info("Saved state found - attempting to read ");
 
             /* Read objects from file */
             storageHandler.load();
+
+            /* Get config object from storageHandler */
+            Configuration newConfig = storageHandler.getConfig();
+
+            if (newConfig != null) {
+                logger.info("Config read successfully");
+                config = newConfig;
+            } else {
+                logger.warn("Failed to read config from saved state - defaulting to new config");
+                config = new Configuration();
+                if (port != 0) {
+                    config.setPort(port);
+                }
+            }
 
             /* Get localNode object from storageHandler */
             Node newLocalNode = storageHandler.getLocalNode();
@@ -147,6 +155,10 @@ public class LocalNode {
 
         } else {
             logger.info("Saved state not found");
+            config = new Configuration();
+            if (port != 0) {
+                config.setPort(port);
+            }
             localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
             routingTable = new RoutingTable(localNode);
         }
@@ -157,7 +169,7 @@ public class LocalNode {
      */
     private void saveState() {
         logger.info("Saving state to file");
-        storageHandler.save(localNode, routingTable, users);
+        storageHandler.save(config, localNode, routingTable, users);
     }
 
     /**
@@ -210,9 +222,6 @@ public class LocalNode {
         logger.info("Bootstrapping localnode {} to node {}", localNode.toString(), node.toString());
         ConnectOperation connect = new ConnectOperation(server, this, node, config);
         connect.execute();
-
-        /* Bring localNode up to date with data from the DHT */
-        refreshHandler.run();
 
         return connect.isError();
     }
