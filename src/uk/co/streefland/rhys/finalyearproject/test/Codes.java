@@ -12,7 +12,7 @@ import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserReplyMessag
 /**
  * Created by Rhys on 30/09/2016.
  */
-public class Codes {
+class Codes {
 
     public static void main(String[] args) {
         System.out.println("AcknowledgeMessage: " + AcknowledgeMessage.CODE);

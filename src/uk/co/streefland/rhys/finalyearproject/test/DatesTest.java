@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Rhys on 08/10/2016.
  */
-public class DatesTest {
+class DatesTest {
 
     public static void main(String[] args) {
         long date = new Date().getTime() / 1000;

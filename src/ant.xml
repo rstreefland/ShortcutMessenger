@@ -1,6 +1,6 @@
-<project name="MyProject" default="init" basedir=".">
+<project name="finalyearproject" default="init" basedir=".">
     <description>
-        simple example increment build variable
+        increments a build variable
     </description>
     <!-- set global properties for this build -->
     <property name="src" location=""/>

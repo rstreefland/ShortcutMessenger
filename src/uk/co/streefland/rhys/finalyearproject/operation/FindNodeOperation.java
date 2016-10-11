@@ -34,9 +34,6 @@ public class FindNodeOperation implements Operation, Receiver {
     /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
 
-    /* Used to sort nodes */
-    private final Comparator comparator;
-
     public FindNodeOperation(LocalNode localNode, KeyId lookupId) {
         this.localNode = localNode;
         this.server = localNode.getServer();
@@ -46,8 +43,8 @@ public class FindNodeOperation implements Operation, Receiver {
         this.messagesInTransit = new HashMap<>();
 
         /* Initialise a TreeMap that is sorted by which nodes are closest to the lookupId */
-        this.comparator = new KeyComparator(lookupId);
-        this.nodes = new TreeMap(this.comparator);
+        Comparator<Node> comparator = new KeyComparator(lookupId);
+        this.nodes = new TreeMap<>(comparator);
     }
 
     /**

@@ -25,18 +25,18 @@ public class FindUserOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private Server server;
-    private Configuration config;
-    private LocalNode localNode;
+    private final Server server;
+    private final Configuration config;
+    private final LocalNode localNode;
     private User targetUser;
 
     private Message message; // Message sent to each peer
-    private List closestNodes;
-    private Map<Node, String> nodes;
-    private Map<Node, Integer> attempts;
+    private List<Node> closestNodes;
+    private final Map<Node, String> nodes;
+    private final Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
-    private Map<Integer, Node> messagesInTransit;
+    private final Map<Integer, Node> messagesInTransit;
 
     public FindUserOperation(LocalNode localNode, User targetUser) {
         this.server = localNode.getServer();
@@ -204,7 +204,7 @@ public class FindUserOperation implements Operation, Receiver {
         return targetUser;
     }
 
-    public List getClosestNodes() {
+    public List<Node> getClosestNodes() {
         return closestNodes;
     }
 }

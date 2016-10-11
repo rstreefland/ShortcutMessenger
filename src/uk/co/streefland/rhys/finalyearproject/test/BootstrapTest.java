@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * Created by Rhys on 30/08/2016.
  */
-public class BootstrapTest {
+class BootstrapTest {
     public static void main(String[] args) {
 
         try {

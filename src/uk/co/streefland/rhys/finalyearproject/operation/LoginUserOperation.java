@@ -25,18 +25,18 @@ public class LoginUserOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private Server server;
-    private Configuration config;
-    private LocalNode localNode;
-    private User user;
-    private String plainTextPassword;
+    private final Server server;
+    private final Configuration config;
+    private final LocalNode localNode;
+    private final User user;
+    private final String plainTextPassword;
 
     private Message message;        // Message sent to each peer
-    private Map<Node, String> nodes;
-    private Map<Node, Integer> attempts;
+    private final Map<Node, String> nodes;
+    private final Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
-    private Map<Integer, Node> messagesInTransit;
+    private final Map<Integer, Node> messagesInTransit;
 
     private boolean loggedIn;
 
@@ -72,7 +72,7 @@ public class LoginUserOperation implements Operation, Receiver {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
-            while (totalTimeWaited < config.getOperationTimeout() && loggedIn == false) {
+            while (totalTimeWaited < config.getOperationTimeout() && !loggedIn) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -181,11 +181,7 @@ public class LoginUserOperation implements Operation, Receiver {
         logger.debug("VerifyUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
-            if (msg.getExistingUser().doPasswordsMatch(plainTextPassword)) {
-                loggedIn = true;
-            } else {
-                loggedIn = false;
-            }
+            loggedIn = msg.getExistingUser().doPasswordsMatch(plainTextPassword);
         } else {
             loggedIn = false;
         }

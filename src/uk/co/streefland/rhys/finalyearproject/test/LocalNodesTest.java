@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Connect some nodes on the local machine together
  */
-public class LocalNodesTest {
+class LocalNodesTest {
 
     public static void main(String[] args) {
 

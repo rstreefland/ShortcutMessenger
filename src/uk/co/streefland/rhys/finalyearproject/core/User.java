@@ -66,7 +66,7 @@ public class User implements Serializable {
         out.writeLong(lastLoginTime);
     }
 
-    public final void fromStream(DataInputStream in) throws IOException {
+    private void fromStream(DataInputStream in) throws IOException {
         /* Read in userId and userName */
         userId = new KeyId(in);
         userName = in.readUTF();
@@ -116,11 +116,8 @@ public class User implements Serializable {
             KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 5000, 128);
             SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             passwordHash = f.generateSecret(spec).getEncoded();
-
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
-            e.printStackTrace();
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            logger.error("Error while generating password hash", e);
         }
 
         /* Performance testing */
@@ -138,11 +135,7 @@ public class User implements Serializable {
      * @return True if passwords match, false if not
      */
     public boolean doPasswordsMatch(String password) {
-        if (Arrays.equals(generatePasswordHash(passwordSalt, password), passwordHash)) {
-            return true;
-        } else {
-            return false;
-        }
+        return Arrays.equals(generatePasswordHash(passwordSalt, password), passwordHash);
     }
 
     /**

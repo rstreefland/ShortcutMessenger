@@ -35,7 +35,7 @@ public class ConnectReceiver implements Receiver {
         ConnectMessage message = (ConnectMessage) incoming;
 
         /* Update the local routing table inserting the origin node. */
-        if (localNode.getRoutingTable().insert(message.getOrigin()) == true) {
+        if (localNode.getRoutingTable().insert(message.getOrigin())) {
             /* only print the message if this is the first time that we've seen this node */
             logger.info("A new node has bootstrapped to this node; nodeID: {}", message.getOrigin().toString());
         }

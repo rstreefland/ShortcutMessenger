@@ -12,14 +12,12 @@ import java.util.Scanner;
 /**
  * Connect some nodes on the local machine together
  */
-public class LocalNodeTest {
+class LocalNodeTest {
 
     public static void main(String[] args) {
 
-        Logger logger = LoggerFactory.getLogger(LocalNodeTest.class);
-
         Configuration config = new Configuration();
-        StorageHandler storageHandler = new StorageHandler(config);
+        StorageHandler storageHandler = new StorageHandler();
 
         Scanner sc = new Scanner(System.in);
         String ip;
@@ -27,7 +25,7 @@ public class LocalNodeTest {
 
         try {
 
-            if (storageHandler.doesSavedStateExist() == false) {
+            if (!storageHandler.doesSavedStateExist()) {
                 System.out.println("Please enter the local IP of the local machine");
                 ip = sc.nextLine();
             } else {

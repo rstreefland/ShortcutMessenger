@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 /**
  * Created by Rhys on 08/07/2016.
  */
-public class NodeTest {
+class NodeTest {
 
     public static void main(String[] args) throws UnknownHostException {
 

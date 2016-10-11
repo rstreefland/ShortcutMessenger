@@ -1,6 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.message.node;
 
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
@@ -40,7 +39,7 @@ public class FindNodeReceiver implements Receiver {
         localNode.getRoutingTable().insert(origin);
 
         /* Find nodes closest to the KeyId in local routing table */
-        List<Node> nodes = localNode.getRoutingTable().findClosest(msg.getLookupId(), Configuration.K);
+        List<Node> nodes = localNode.getRoutingTable().findClosest(msg.getLookupId());
 
         /* Create the FindNodeReplyMessage */
         Message reply = new FindNodeReplyMessage(localNode.getNode(), nodes);

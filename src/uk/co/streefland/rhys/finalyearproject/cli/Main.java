@@ -16,25 +16,27 @@ import java.util.regex.Pattern;
 /**
  * Command line interface for the framework
  */
-public class Main {
+class Main {
 
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
     private static int localPort = 0;
     private static String localIp = "";
     private static String input = "";
+
+    private static final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
+    private static final Pattern p = Pattern.compile(ipPattern);
 
     private static LocalNode localNode = null;
 
     public static void main(String[] args) {
 
-        StorageHandler temp = new StorageHandler(new Configuration());
+        StorageHandler temp = new StorageHandler();
 
         if (!temp.doesSavedStateExist()) {
             System.out.println("Please enter your local IP address (and optionally port):");
-            String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
 
-            Pattern p = Pattern.compile(ipPattern);
             Matcher m = p.matcher(sc.nextLine());
+
             if (m.matches()) {
                 if (m.group(1) != null) {
                     localIp = m.group(1);
@@ -103,11 +105,9 @@ public class Main {
 
         System.out.println("Please enter the IP of the node to bootstrap to:");
 
-        String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
-
         String nextLine = sc.nextLine();
-        Pattern p = Pattern.compile(ipPattern);
         Matcher m = p.matcher(nextLine);
+
         if (m.matches()) {
             if (m.group(1) != null) {
                 input = m.group(1);
@@ -121,7 +121,6 @@ public class Main {
                 localNode.first();
                 return;
             }
-
             System.err.println("Invalid IP address");
             return;
         }
@@ -186,7 +185,6 @@ public class Main {
 
         if (loggedIn) {
             System.out.println("Logged in as " + username + " successfully!");
-            System.out.println(localNode.getUsers().getLocalUser());
         } else {
             System.err.println("Invalid username/password - please try again\n");
         }

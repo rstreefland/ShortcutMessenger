@@ -16,7 +16,7 @@ public class KeyId implements Serializable {
 
     /* Network constants */
     public static final int ID_LENGTH = 160;   // Length of KeyId im bits
-    public static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of KeyId in bytes
+    private static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of KeyId in bytes
 
     private byte[] idBytes; // the byte array that stores the KeyID
 
@@ -36,16 +36,14 @@ public class KeyId implements Serializable {
     public KeyId(String id) {
 
         /* Calculate SHA1 digest of input string - this creates a 160 bit byte array */
-        MessageDigest digest = null;
+        MessageDigest digest;
         byte[] digestBytes = null;
 
         try {
             digest = MessageDigest.getInstance("SHA-1");
             digest.update(id.getBytes("utf8"));
             digestBytes = digest.digest();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (UnsupportedEncodingException e) {
+        } catch (NoSuchAlgorithmException | UnsupportedEncodingException e) {
             e.printStackTrace();
         }
 
@@ -61,7 +59,7 @@ public class KeyId implements Serializable {
      *
      * @param idBytes
      */
-    public KeyId(byte[] idBytes) {
+    private KeyId(byte[] idBytes) {
         if (idBytes.length != BYTES_LENGTH) {
             throw new IllegalArgumentException("Data needs to be " + BYTES_LENGTH + " characters long");
         }
@@ -76,7 +74,7 @@ public class KeyId implements Serializable {
         out.write(getIdBytes());
     }
 
-    public final void fromStream(DataInputStream in) throws IOException {
+    private void fromStream(DataInputStream in) throws IOException {
         byte[] input = new byte[BYTES_LENGTH];
         in.readFully(input);
         idBytes = input;

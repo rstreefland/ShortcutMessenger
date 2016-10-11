@@ -18,7 +18,7 @@ public class Bucket implements Serializable {
     private final int depth;
 
     /* Contacts stored in this bucket */
-    private TreeSet<Contact> contacts;
+    private final TreeSet<Contact> contacts;
 
     /* A set of recently seen contacts that can replace any contact that is unresponsive in the core set */
     private TreeSet<Contact> replacementCache;
@@ -85,8 +85,8 @@ public class Bucket implements Serializable {
      * @param force   If true, remove the contact immediately without checking for a replacement in the replacement cache
      * @return Returns false if the contact doesn't exist.
      */
-    public synchronized boolean removeContact(Contact contact, boolean force) {
-        if (force == true) {
+    private synchronized boolean removeContact(Contact contact, boolean force) {
+        if (force) {
             removeContactForce(contact.getNode());
         } else {
 

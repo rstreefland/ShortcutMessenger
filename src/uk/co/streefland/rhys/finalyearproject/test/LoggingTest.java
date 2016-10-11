@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Test SLF4J
  */
-public class LoggingTest {
+class LoggingTest {
     public static void main(String[] args) {
 
         Logger logger = LoggerFactory.getLogger(LoggingTest.class);

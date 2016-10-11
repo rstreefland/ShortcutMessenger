@@ -25,17 +25,17 @@ public class RegisterUserOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private Server server;
-    private Configuration config;
-    private LocalNode localNode;
-    private User user;
+    private final Server server;
+    private final Configuration config;
+    private final LocalNode localNode;
+    private final User user;
 
     private Message message; // Message sent to each peer
-    private Map<Node, String> nodes;
-    private Map<Node, Integer> attempts;
+    private final Map<Node, String> nodes;
+    private final Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
-    private Map<Integer, Node> messagesInTransit;
+    private final Map<Integer, Node> messagesInTransit;
 
     private boolean isRegisteredSuccessfully;
     private boolean storeUserOnLocalNode;
@@ -173,7 +173,7 @@ public class RegisterUserOperation implements Operation, Receiver {
 
         logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
-        if (msg.getOperationSuccessful() == false) {
+        if (!msg.getOperationSuccessful()) {
             isRegisteredSuccessfully = false;
         }
 

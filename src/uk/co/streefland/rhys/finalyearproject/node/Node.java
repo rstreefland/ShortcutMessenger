@@ -41,7 +41,7 @@ public class Node implements Serializable {
         out.writeInt(port);
     }
 
-    public final void fromStream(DataInputStream in) throws IOException {
+    private void fromStream(DataInputStream in) throws IOException {
         /* Read the KeyId */
         nodeId = new KeyId(in);
 

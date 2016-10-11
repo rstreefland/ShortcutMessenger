@@ -21,10 +21,10 @@ public class ConnectOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private Server server;
-    private LocalNode localNode;
+    private final Server server;
+    private final LocalNode localNode;
     private Node bootstrapNode;
-    private Configuration config;
+    private final Configuration config;
 
     private int attempts;
     private boolean error;

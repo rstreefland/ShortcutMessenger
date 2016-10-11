@@ -3,7 +3,6 @@ package uk.co.streefland.rhys.finalyearproject.message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.node.*;
 import uk.co.streefland.rhys.finalyearproject.message.user.*;
 
@@ -46,7 +45,7 @@ public class MessageHandler {
         }
     }
 
-    public Receiver createReceiver(byte code, Server server) {
+    public Receiver createReceiver(byte code) {
         switch (code) {
             case ConnectMessage.CODE:
                 return new ConnectReceiver(localNode);

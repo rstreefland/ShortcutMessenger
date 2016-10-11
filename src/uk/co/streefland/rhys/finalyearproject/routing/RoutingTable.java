@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.routing;
 
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
@@ -14,7 +15,7 @@ import java.util.TreeSet;
  */
 public class RoutingTable implements Serializable {
 
-    private Node localNode;
+    private final Node localNode;
     private Bucket[] buckets;
     private boolean isEmpty;
 
@@ -41,7 +42,7 @@ public class RoutingTable implements Serializable {
      * @param c The contact to add
      * @return returns true if the inserted contact is a contact that we've never seen before
      */
-    public synchronized final boolean insert(Contact c) {
+    private synchronized boolean insert(Contact c) {
         isEmpty = false;
 
         for (Node existingNode : getAllNodes()) {
@@ -72,20 +73,19 @@ public class RoutingTable implements Serializable {
      * Find the closest set of contacts to a given KeyId
      *
      * @param target           The target KeyId
-     * @param numNodesRequired The number of contacts to return
      * @return List A List of contacts closest to the target KeyId
      */
-    public synchronized final List<Node> findClosest(KeyId target, int numNodesRequired) {
+    public synchronized final List<Node> findClosest(KeyId target) {
         TreeSet<Node> sortedSet = new TreeSet<>(new KeyComparator(target));
         sortedSet.addAll(getAllNodes());
 
-        List<Node> closest = new ArrayList<>(numNodesRequired);
+        List<Node> closest = new ArrayList<>(Configuration.K);
 
         /* Now we have the sorted set, lets get the top numRequired */
         int count = 0;
         for (Node n : sortedSet) {
             closest.add(n);
-            if (++count == numNodesRequired) {
+            if (++count == Configuration.K) {
                 break;
             }
         }
@@ -150,7 +150,7 @@ public class RoutingTable implements Serializable {
      * @param nodeId The target KeyId
      * @return Integer The bucket id in which the given node should be placed.
      */
-    public final int getBucketId(KeyId nodeId) {
+    private int getBucketId(KeyId nodeId) {
         int bucketId = localNode.getNodeId().getDistance(nodeId) - 1;
 
         /* If we are trying to insert a node into it's own routing table, then the bucket ID will be -1, so let's just keep it in bucket 0 */
@@ -170,7 +170,7 @@ public class RoutingTable implements Serializable {
      * @param buckets
      */
     public final void setBuckets(Bucket[] buckets) {
-        buckets = buckets;
+        this.buckets = buckets;
     }
 
     /**

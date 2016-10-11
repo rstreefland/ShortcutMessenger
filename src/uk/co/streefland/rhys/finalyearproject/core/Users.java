@@ -19,7 +19,7 @@ public class Users implements Serializable {
     private transient LocalNode localNode;
 
     private User localUser;
-    private List<User> users;
+    private final List<User> users;
 
     public Users(LocalNode localNode) {
         this.users = new ArrayList<>();

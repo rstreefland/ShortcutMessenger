@@ -2,10 +2,12 @@ package uk.co.streefland.rhys.finalyearproject.test;
 
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
+import java.util.Arrays;
+
 /**
  * Created by Rhys on 08/07/2016.
  */
-public class NodeIdTest {
+class NodeIdTest {
 
     public static void main(String[] args) {
         System.out.println("NODE ID TESTING :)");
@@ -13,7 +15,7 @@ public class NodeIdTest {
         KeyId nodeId = new KeyId("titanicsaled");
         KeyId nodeId2 = nodeId.generateKeyIdUsingDistance(160);
 
-        System.out.println("\nBytes: " + nodeId.getIdBytes().toString());
+        System.out.println("\nBytes: " + Arrays.toString(nodeId.getIdBytes()));
 
         System.out.println("\nHashcode: " + nodeId.hashCode());
 

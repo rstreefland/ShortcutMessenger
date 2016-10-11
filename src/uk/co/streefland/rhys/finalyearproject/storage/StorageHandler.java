@@ -13,13 +13,11 @@ import java.io.*;
  */
 public class StorageHandler {
 
-    private Configuration config;
     private Node localNode;
     private RoutingTable routingTable;
     private Users users;
 
-    public StorageHandler(Configuration config) {
-        this.config = config;
+    public StorageHandler() {
         this.localNode = null;
         this.routingTable = null;
         this.users = null;

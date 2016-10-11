@@ -10,13 +10,13 @@ import java.io.IOException;
 /**
  * Runs each receiver task in a different thread. This is designed to stop lengthy receiver tasks from hogging the main server thread.
  */
-public class ReceiverTask implements Runnable {
+class ReceiverTask implements Runnable {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    Receiver receiver;
-    Message msg;
-    int communicationId;
+    private final Receiver receiver;
+    private final Message msg;
+    private final int communicationId;
 
     public ReceiverTask(Receiver receiver, Message msg, int communicationId) {
 

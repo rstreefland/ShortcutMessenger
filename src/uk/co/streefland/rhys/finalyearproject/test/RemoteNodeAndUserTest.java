@@ -16,7 +16,7 @@ import java.util.Scanner;
 /**
  * Connect some nodes on the local machine together
  */
-public class RemoteNodeAndUserTest {
+class RemoteNodeAndUserTest {
 
     public static void main(String[] args) {
 
@@ -24,7 +24,7 @@ public class RemoteNodeAndUserTest {
         Scanner sc = new Scanner(System.in);
 
         Configuration config = new Configuration();
-        StorageHandler storageHandler = new StorageHandler(config);
+        StorageHandler storageHandler = new StorageHandler();
 
         Node destination;
         String localIp;
@@ -34,7 +34,7 @@ public class RemoteNodeAndUserTest {
         String password;
 
         try {
-            if (storageHandler.doesSavedStateExist() == false) {
+            if (!storageHandler.doesSavedStateExist()) {
                 System.out.println("Please enter the local IP of the local machine");
                 localIp = sc.nextLine();
             } else {
@@ -48,7 +48,7 @@ public class RemoteNodeAndUserTest {
                     System.out.println("This is the first node in the network");
                 }
             } else {
-                if (storageHandler.doesSavedStateExist() == false) {
+                if (!storageHandler.doesSavedStateExist()) {
                     try {
                         Thread.sleep(500);
                     } catch (InterruptedException ex) {

@@ -23,7 +23,6 @@ public class Server {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final Configuration config;
-    private final Node localNode;
     private final MessageHandler messageHandler;
 
     /* Server Objects */
@@ -31,24 +30,19 @@ public class Server {
     private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
+
     /* Cached threadPool so we can run receivers in parallel */
-    ExecutorService threadPool = Executors.newCachedThreadPool();
+    private final ExecutorService threadPool = Executors.newCachedThreadPool();
+
     private boolean isRunning;
-    private byte[] buffer;
     private DatagramPacket packet;
-    private ByteArrayInputStream bin;
-    private DataInputStream din;
-    private int communicationId;
-    private byte messageCode;
 
-    public Server(int udpPort, MessageHandler messageHandler, Node localNode, Configuration config) throws SocketException {
-
+    public Server(int udpPort, MessageHandler messageHandler, Configuration config) throws SocketException {
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
-        this.localNode = localNode;
         this.messageHandler = messageHandler;
 
-        buffer = new byte[Configuration.PACKET_SIZE];
+        byte[] buffer = new byte[Configuration.PACKET_SIZE];
         packet = new DatagramPacket(buffer, buffer.length);
         isRunning = false;
     }
@@ -73,18 +67,18 @@ public class Server {
      */
     private void listen() {
         logger.info("Server is listening on port {}", socket.getLocalPort());
-        while (isRunning == true) {
+        while (isRunning) {
             try {
                 /* Wait for a packet*/
                 socket.receive(packet);
 
                 /* Handle the received packet */
-                bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
-                din = new DataInputStream(bin);
+                ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
+                DataInputStream din = new DataInputStream(bin);
 
                 /* Read the communicationId and messageCode */
-                communicationId = din.readInt();
-                messageCode = din.readByte();
+                int communicationId = din.readInt();
+                byte messageCode = din.readByte();
 
                 /* Create the message and close the input stream */
                 Message msg = messageHandler.createMessage(messageCode, din);
@@ -108,7 +102,7 @@ public class Server {
                     } else {
                         /* There is currently no receivers, create one*/
                         logger.debug("No receiver exists, creating one using code {}", messageCode);
-                        receiver = messageHandler.createReceiver(messageCode, this);
+                        receiver = messageHandler.createReceiver(messageCode);
                     }
 
                     /* Start the ReceiverTask on a thread in the cached threadPool*/
@@ -120,7 +114,7 @@ public class Server {
                     logger.debug("Remote node has IP address mismatch - ignoring message");
                 }
             } catch (IOException e) {
-                if (isRunning == true) {
+                if (isRunning) {
                     logger.error("The listener thread encountered an error:", e);
                 }
             }

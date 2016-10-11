@@ -13,7 +13,7 @@ import java.net.UnknownHostException;
 /**
  * Created by Rhys on 05/09/2016.
  */
-public class FileTest {
+class FileTest {
     // THIS CLASS NO LONGER WORKS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     public static void main(String[] args) {
 
@@ -22,7 +22,7 @@ public class FileTest {
         Node node = null;
 
         Configuration config = new Configuration();
-        StorageHandler storageHandler = new StorageHandler(config);
+        StorageHandler storageHandler = new StorageHandler();
 
         if (storageHandler.doesSavedStateExist()) {
             logger.info("Reading existing configuration...");

@@ -25,14 +25,14 @@ public class BroadcastMessageOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private Server server;
-    private Configuration config;
-    private Message message;
-    private Map<Node, String> nodes;
-    private Map<Node, Integer> attempts;
+    private final Server server;
+    private final Configuration config;
+    private final Message message;
+    private final Map<Node, String> nodes;
+    private final Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
-    private Map<Integer, Node> messagesInTransit;
+    private final Map<Integer, Node> messagesInTransit;
 
     public BroadcastMessageOperation(LocalNode localNode, String message, List<Node> targetNodes) {
         this.server = localNode.getServer();

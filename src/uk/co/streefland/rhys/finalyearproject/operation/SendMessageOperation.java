@@ -25,23 +25,23 @@ public class SendMessageOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private Server server;
-    private Configuration config;
-    private LocalNode localNode;
-    private User userToMessage;
+    private final Server server;
+    private final Configuration config;
+    private final LocalNode localNode;
+    private final User userToMessage;
     private User user;
 
     private String textMessage;
     private TextMessage message; // Message sent to each peer
-    private Map<Node, String> nodes;
-    private Map<Node, Integer> attempts;
+    private final Map<Node, String> nodes;
+    private final Map<Node, Integer> attempts;
 
-    private Map<Integer, Node> messagesInTransit;
-    private boolean forwarding;
+    private final Map<Integer, Node> messagesInTransit;
+    private final boolean forwarding;
     private boolean isMessagedSuccessfully;
     private boolean hasTimeoutOccurred;
 
-    private List closestNodes;
+    private List<Node> closestNodes;
 
     public SendMessageOperation(LocalNode localNode, User userToMessage, String textMessage) {
         this.server = localNode.getServer();
@@ -84,7 +84,7 @@ public class SendMessageOperation implements Operation, Receiver {
         hasTimeoutOccurred = false;
 
         /* Get the user object of the user we would like to message */
-        if (forwarding == false) {
+        if (!forwarding) {
             FindUserOperation fuo = new FindUserOperation(localNode, userToMessage);
             fuo.execute();
             user = fuo.getTargetUser();
@@ -108,7 +108,7 @@ public class SendMessageOperation implements Operation, Receiver {
         }
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
-        if (isMessagedSuccessfully == false && hasTimeoutOccurred == true && forwarding == false) {
+        if (!isMessagedSuccessfully && hasTimeoutOccurred && !forwarding) {
             addNodes(closestNodes);
             messageLoop();
         }
@@ -178,14 +178,14 @@ public class SendMessageOperation implements Operation, Receiver {
 
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
-                if (forwarding == false) {
+                if (!forwarding) {
                     message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
                 }
                 localNode.getMessages().addReceivedMessage(message);
                 isMessagedSuccessfully = true;
                 nodes.put(toQuery.get(i), Configuration.QUERIED);
             } else {
-                if (forwarding == false) {
+                if (!forwarding) {
                     message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
                 }
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);

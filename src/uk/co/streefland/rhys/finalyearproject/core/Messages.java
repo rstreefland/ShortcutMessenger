@@ -12,8 +12,8 @@ import java.util.Map;
  */
 public class Messages {
 
-    private Map<KeyId, TextMessage> receivedMessages;
-    private Map<KeyId, TextMessage> forwardMessages;
+    private final Map<KeyId, TextMessage> receivedMessages;
+    private final Map<KeyId, TextMessage> forwardMessages;
 
     public Messages() {
         this.receivedMessages = new HashMap<>();

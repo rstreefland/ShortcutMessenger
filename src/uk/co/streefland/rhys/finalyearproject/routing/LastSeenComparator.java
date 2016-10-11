@@ -6,7 +6,7 @@ import java.util.Comparator;
 /**
  * Compares contacts by their last seen time
  */
-public class LastSeenComparator implements Comparator<Contact>, Serializable {
+class LastSeenComparator implements Comparator<Contact>, Serializable {
 
     /**
      * Compare two contacts to determine their order in the Bucket,

@@ -23,7 +23,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "327";
+    private static final String BUILD_NUMBER = "344";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
@@ -54,14 +54,14 @@ public class LocalNode {
             config.setPort(port);
         }
 
-        this.storageHandler = new StorageHandler(config);
+        this.storageHandler = new StorageHandler();
 
         /* Read localNode, routingTable and users from file if possible; else create new objects */
         readState(localIp);
 
         this.messageHandler = new MessageHandler(this);
         this.messages = new Messages();
-        this.server = new Server(config.getPort(), messageHandler, localNode, config);
+        this.server = new Server(config.getPort(), messageHandler, config);
 
         /* Couldn't read it from file */
         if (users == null) {
@@ -91,12 +91,12 @@ public class LocalNode {
 
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
         this.config = new Configuration();
-        this.storageHandler = new StorageHandler(config);
+        this.storageHandler = new StorageHandler();
         this.routingTable = new RoutingTable(localNode);
 
         this.messageHandler = new MessageHandler(this);
         this.messages = new Messages();
-        this.server = new Server(port, messageHandler, localNode, config);
+        this.server = new Server(port, messageHandler, config);
         this.users = new Users(this);
     }
 
@@ -107,7 +107,7 @@ public class LocalNode {
      * @throws IOException
      */
     private void readState(String localIp) throws IOException {
-        if (storageHandler.doesSavedStateExist() == true) {
+        if (storageHandler.doesSavedStateExist()) {
             logger.info("Saved state found - attempting to read ");
 
             /* Read objects from file */
