@@ -29,7 +29,6 @@ public class SendMessageOperation implements Operation, Receiver {
     private final Server server;
     private final Configuration config;
     private final LocalNode localNode;
-    private final User userToMessage;
     private User user;
 
     private String textMessage;
@@ -48,7 +47,7 @@ public class SendMessageOperation implements Operation, Receiver {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
-        this.userToMessage = userToMessage;
+        this.user = userToMessage;
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
@@ -62,7 +61,6 @@ public class SendMessageOperation implements Operation, Receiver {
         this.config = localNode.getConfig();
         this.localNode = localNode;
         this.user = userToMessage;
-        this.userToMessage = userToMessage;
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
@@ -86,26 +84,30 @@ public class SendMessageOperation implements Operation, Receiver {
 
         /* Get the user object of the user we would like to message */
         if (!forwarding) {
-            FindUserOperation fuo = new FindUserOperation(localNode, userToMessage);
+            FindUserOperation fuo = new FindUserOperation(localNode, user);
             fuo.execute();
             user = fuo.getTargetUser();
             closestNodes = fuo.getClosestNodes();
         }
 
         /* Add associated nodes to the 'to message' list */
-        addNodes(user.getAssociatedNodes());
+        if (!user.getAssociatedNodes().isEmpty()) {
+            addNodes(user.getAssociatedNodes());
 
-        /* Run the message operation for only the intended recipients to begin with */
-        messageLoop();
+            /* Run the message operation for only the intended recipients to begin with */
+            messageLoop();
 
-        /* Don't terminate until all replies have either been received or have timed out */
-        while (messagesInTransit.size() > 0) {
-            try {
-                iterativeQueryNodes();
-                wait(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+            /* Don't terminate until all replies have either been received or have timed out */
+            while (messagesInTransit.size() > 0) {
+                try {
+                    iterativeQueryNodes();
+                    wait(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+        } else {
+            logger.info("User has no associated nodes - caching message on closest nodes");
         }
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */

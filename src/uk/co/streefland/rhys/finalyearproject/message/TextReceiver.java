@@ -44,7 +44,7 @@ public class TextReceiver implements Receiver {
 
                     try {
                         Encryption enc = new Encryption();
-                        String message = enc.decryptString(localNode.getUsers().getLocalUser(), msg.getIv(), msg.getEncryptedMessage());
+                        String message = enc.decryptString(msg.getTargetUser(), localNode.getUsers().getLocalUser(), msg.getIv(), msg.getEncryptedMessage());
                         msg.setMessage(message);
                     } catch (InvalidAlgorithmParameterException e) {
                         e.printStackTrace();

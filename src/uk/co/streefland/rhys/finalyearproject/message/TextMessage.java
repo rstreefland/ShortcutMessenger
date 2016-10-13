@@ -96,7 +96,7 @@ public class TextMessage implements Message {
         iv = new byte[16];
         in.readFully(iv);
 
-        int encryptedMessageLength= in.readInt();
+        int encryptedMessageLength = in.readInt();
         encryptedMessage = new byte[encryptedMessageLength];
         in.readFully(encryptedMessage);
 
