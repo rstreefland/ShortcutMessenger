@@ -1,18 +1,30 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.core.Encryption;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 /**
  * A simple text message - slowly getting more functional :)
  */
 public class TextMessage implements Message {
+
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public static final byte CODE = 0x05;
     private Node origin;
@@ -21,6 +33,8 @@ public class TextMessage implements Message {
     private User targetUser;
     private KeyId messageId;
     private String message;
+    private byte[] encryptedMessage;
+    private byte[] iv;
     private long createdTime;
 
     /**
@@ -28,8 +42,8 @@ public class TextMessage implements Message {
      */
     public TextMessage(Node origin, String message) {
         this.origin = origin;
-        this.message = message;
         this.messageId = new KeyId();
+        this.message = message;
         this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
     }
 
@@ -41,9 +55,16 @@ public class TextMessage implements Message {
         this.target = target;
         this.originUser = originUser;
         this.targetUser = targetUser;
-        this.message = message;
         this.messageId = new KeyId();
         this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
+
+        try {
+            Encryption enc = new Encryption();
+            iv = enc.generateIV();
+            encryptedMessage = enc.encryptString(targetUser, iv, message);
+        } catch (IllegalBlockSizeException | InvalidKeyException | BadPaddingException | NoSuchPaddingException | NoSuchAlgorithmException | UnsupportedEncodingException | InvalidAlgorithmParameterException e) {
+            logger.error("Failed to encrypt message with error", e);
+        }
     }
 
     public TextMessage(DataInputStream in) throws IOException {
@@ -59,9 +80,6 @@ public class TextMessage implements Message {
             target = new Node(in);
         }
 
-        message = in.readUTF();
-        messageId = new KeyId(in);
-
         /* only read if origin user isn't null */
         if (in.readBoolean()) {
             originUser = new User(in);
@@ -73,6 +91,16 @@ public class TextMessage implements Message {
         }
 
         createdTime = in.readLong();
+
+         /* Read in encrypted message and iv */
+        iv = new byte[16];
+        in.readFully(iv);
+
+        int encryptedMessageLength= in.readInt();
+        encryptedMessage = new byte[encryptedMessageLength];
+        in.readFully(encryptedMessage);
+
+        messageId = new KeyId(in);
     }
 
     @Override
@@ -85,9 +113,6 @@ public class TextMessage implements Message {
         } else {
             out.writeBoolean(false);
         }
-
-        out.writeUTF(message);
-        messageId.toStream(out);
 
         if (originUser != null) {
             out.writeBoolean(true);
@@ -104,6 +129,14 @@ public class TextMessage implements Message {
         }
 
         out.writeLong(createdTime);
+
+        logger.info("IV size: " + iv.length);
+        logger.info("EncryptedMessage size: " + encryptedMessage.length);
+
+        out.write(iv);
+        out.writeInt(encryptedMessage.length);
+        out.write(encryptedMessage);
+        messageId.toStream(out);
     }
 
     @Override
@@ -142,6 +175,18 @@ public class TextMessage implements Message {
 
     public String getMessage() {
         return message;
+    }
+
+    public byte[] getIv() {
+        return iv;
+    }
+
+    public byte[] getEncryptedMessage() {
+        return encryptedMessage;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public long getCreatedTime() {

@@ -2,10 +2,17 @@ package uk.co.streefland.rhys.finalyearproject.message;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.core.Encryption;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Receives a TextMessage and utilises the Messages class to handle the message
@@ -31,6 +38,28 @@ public class TextReceiver implements Receiver {
             if (msg.getTarget().getNodeId().equals(localNode.getNode().getNodeId())) {
                 if (msg.getOriginUser() != null) {
                     logger.info("Received a message intended for me");
+                    if (msg.getMessage() == null) {
+                        logger.info("Is encrypted: TRUE");
+                    }
+
+                    try {
+                        Encryption enc = new Encryption();
+                        String message = enc.decryptString(localNode.getUsers().getLocalUser(), msg.getIv(), msg.getEncryptedMessage());
+                        msg.setMessage(message);
+                    } catch (InvalidAlgorithmParameterException e) {
+                        e.printStackTrace();
+                    } catch (InvalidKeyException e) {
+                        e.printStackTrace();
+                    } catch (BadPaddingException e) {
+                        e.printStackTrace();
+                    } catch (IllegalBlockSizeException e) {
+                        e.printStackTrace();
+                    } catch (NoSuchAlgorithmException e) {
+                        e.printStackTrace();
+                    } catch (NoSuchPaddingException e) {
+                        e.printStackTrace();
+                    }
+
                     localNode.getMessages().addReceivedMessage(msg);
                 }
             } else {
