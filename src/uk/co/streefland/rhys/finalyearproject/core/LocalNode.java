@@ -234,7 +234,7 @@ public class LocalNode {
      * @throws IOException
      */
     public final void broadcastMessage(String message, List<Node> targetNodes) throws IOException {
-        if (!message.isEmpty()) {
+        if (!message.isEmpty() && users.getLocalUser() != null) {
             logger.info("Sending message to specified nodes");
             Operation operation = new BroadcastMessageOperation(this, message, targetNodes);
             operation.execute();

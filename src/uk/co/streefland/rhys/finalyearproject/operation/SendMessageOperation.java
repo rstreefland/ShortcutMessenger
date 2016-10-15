@@ -182,9 +182,12 @@ public class SendMessageOperation implements Operation, Receiver {
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
                 if (!forwarding) {
-                    message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
+                    message = new TextMessage(localNode.getNode(), user, textMessage);
+                    localNode.getMessages().addReceivedMessage(message);
+                } else {
+                    localNode.getMessages().addForwardMessage(message);
                 }
-                localNode.getMessages().addReceivedMessage(message);
+
                 isMessagedSuccessfully = true;
                 nodes.put(toQuery.get(i), Configuration.QUERIED);
             } else {
@@ -213,7 +216,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
         logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
-        isMessagedSuccessfully = true; // we've got an ack so the message was received
+        isMessagedSuccessfully = msg.getOperationSuccessful(); // use the result from the ack
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), Configuration.QUERIED);

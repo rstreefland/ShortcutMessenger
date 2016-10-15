@@ -48,6 +48,20 @@ public class TextMessage implements Message {
     }
 
     /**
+     * Constructor for a node sending a message to itself
+     */
+    public TextMessage(Node origin, User originUser, String message) {
+        this.origin = origin;
+        this.target = origin;
+        this.originUser = originUser;
+        this.targetUser = originUser;
+        this.messageId = new KeyId();
+        this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
+
+        this.message = message;
+    }
+
+    /**
      * Constructor for user to user messages
      */
     public TextMessage(Node origin, Node target, User originUser, User targetUser, String message) {
@@ -75,30 +89,35 @@ public class TextMessage implements Message {
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
 
-        /* only read if target node isn't null */
+        /* Only read if target node isn't null */
         if (in.readBoolean()) {
             target = new Node(in);
         }
 
-        /* only read if origin user isn't null */
+        /* Only read if origin user isn't null */
         if (in.readBoolean()) {
             originUser = new User(in);
         }
 
-        /* only read if target user isn't null */
+        /* Only read if target user isn't null */
         if (in.readBoolean()) {
             targetUser = new User(in);
         }
 
         createdTime = in.readLong();
 
-         /* Read in encrypted message and iv */
-        iv = new byte[16];
-        in.readFully(iv);
+        if (in.readBoolean()) {
+            /* Read in the initialisation vector */
+            iv = new byte[16];
+            in.readFully(iv);
 
-        int encryptedMessageLength = in.readInt();
-        encryptedMessage = new byte[encryptedMessageLength];
-        in.readFully(encryptedMessage);
+            /* Read in the encrypted message */
+            int encryptedMessageLength = in.readInt();
+            encryptedMessage = new byte[encryptedMessageLength];
+            in.readFully(encryptedMessage);
+        } else {
+            message = in.readUTF();
+        }
 
         messageId = new KeyId(in);
     }
@@ -130,12 +149,17 @@ public class TextMessage implements Message {
 
         out.writeLong(createdTime);
 
-        logger.info("IV size: " + iv.length);
-        logger.info("EncryptedMessage size: " + encryptedMessage.length);
+        /* Write the initialisation vector and encrypted message to the stream */
+        if (encryptedMessage != null) {
+            out.writeBoolean(true);
+            out.write(iv);
+            out.writeInt(encryptedMessage.length);
+            out.write(encryptedMessage);
+        } else {
+            out.writeBoolean(false);
+            out.writeUTF(message);
+        }
 
-        out.write(iv);
-        out.writeInt(encryptedMessage.length);
-        out.write(encryptedMessage);
         messageId.toStream(out);
     }
 
