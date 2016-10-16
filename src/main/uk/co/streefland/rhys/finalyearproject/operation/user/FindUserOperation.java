@@ -30,7 +30,8 @@ public class FindUserOperation implements Operation, Receiver {
     private final Server server;
     private final Configuration config;
     private final LocalNode localNode;
-    private User targetUser;
+    private User searchUser;
+    private User foundUser;
 
     private Message message; // Message sent to each peer
     private List<Node> closestNodes;
@@ -40,14 +41,14 @@ public class FindUserOperation implements Operation, Receiver {
     /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
 
-    public FindUserOperation(LocalNode localNode, User targetUser) {
+    public FindUserOperation(LocalNode localNode, User searchUser) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
-        this.targetUser = targetUser;
+        this.searchUser = searchUser;
     }
 
     /**
@@ -59,26 +60,30 @@ public class FindUserOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
 
         /* Look for the user on the target node first */
-        targetUser = localNode.getUsers().findUser(targetUser.getUserName());
+        User result = localNode.getUsers().findUser(searchUser.getUserName());
+        if (result != null) {
+            searchUser = result;
+            foundUser = result;
+        }
 
-        FindNodeOperation fno = new FindNodeOperation(localNode, targetUser.getUserId());
+        FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId());
         fno.execute();
         closestNodes = fno.getClosestNodes();
 
-        if (targetUser != null) {
+        if (foundUser!= null) {
             /* We've found the user on the local node - no need to do anything else */
             return;
         }
 
         addNodes(closestNodes);
 
-        message = new VerifyUserMessage(localNode.getNode(), targetUser, false);
+        message = new VerifyUserMessage(localNode.getNode(), searchUser, false);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
-            while ((totalTimeWaited < config.getOperationTimeout()) && targetUser == null) {
+            while ((totalTimeWaited < config.getOperationTimeout())) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -91,8 +96,8 @@ public class FindUserOperation implements Operation, Receiver {
             logger.error("FindUserOperation was interrupted unexpectedly: {}", e);
         }
 
-        /* Don't terminate until we've found a user object */
-        while (targetUser == null) {
+        /* Don't terminate until we've found a user object whilst we are still waiting for replies*/
+        while (messagesInTransit.size() > 0 && foundUser == null) {
             try {
                 iterativeQueryNodes();
                 wait(500);
@@ -171,7 +176,7 @@ public class FindUserOperation implements Operation, Receiver {
         logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
-            targetUser = msg.getExistingUser();
+            foundUser = msg.getExistingUser();
         }
 
         /* Update the hashmap to show that we've finished messaging this node */
@@ -202,8 +207,8 @@ public class FindUserOperation implements Operation, Receiver {
         messagesInTransit.remove(communicationId);
     }
 
-    public User getTargetUser() {
-        return targetUser;
+    public User getFoundUser() {
+        return foundUser;
     }
 
     public List<Node> getClosestNodes() {

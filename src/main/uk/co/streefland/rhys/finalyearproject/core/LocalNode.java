@@ -234,7 +234,7 @@ public class LocalNode {
      */
     public final void broadcastMessage(String message, List<Node> targetNodes) throws IOException {
         if (!message.isEmpty() && users.getLocalUser() != null) {
-            logger.info("Sending message to specified nodes");
+            logger.info("Sending broadcast message to all known nodes");
             Operation operation = new BroadcastMessageOperation(this, message, targetNodes);
             operation.execute();
         }
@@ -242,9 +242,14 @@ public class LocalNode {
 
     public final void message(String message, User userToMessage) throws IOException {
         if (!message.isEmpty() && users.getLocalUser() != null) {
-            logger.info("Sending message to " + userToMessage);
             SendMessageOperation operation = new SendMessageOperation(this, userToMessage, message);
             operation.execute();
+
+            if (operation.getUser() != null) {
+                logger.info("Message sent to " + operation.getUser());
+            } else {
+                logger.error("User " + userToMessage.getUserName() + " doesn't exist");
+            }
         }
     }
 

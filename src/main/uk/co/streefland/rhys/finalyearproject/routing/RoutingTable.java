@@ -39,40 +39,30 @@ public class RoutingTable implements Serializable {
      * If the new contact has socketAddress that matches one of an existing contact then the
      * old contact is removed from the routing table before inserting the new contact
      *
-     * @param c The contact to add
+     * @param n The node to add
      * @return returns true if the inserted contact is a contact that we've never seen before
      */
-    private synchronized boolean insert(Contact c) {
+    public synchronized boolean insert(Node n) {
         isEmpty = false;
 
         for (Node existingNode : getAllNodes()) {
-            if (c.getNode().getSocketAddress().equals((existingNode.getSocketAddress()))) {
+            if (n.getSocketAddress().equals((existingNode.getSocketAddress()))) {
                 /* Get the bucket of the node */
                 int bucketId = getBucketId(existingNode.getNodeId());
                 /* Force remove the contact from the bucket */
                 buckets[bucketId].removeContact(existingNode, true);
-                buckets[getBucketId(c.getNode().getNodeId())].insert(c);
+                buckets[getBucketId(n.getNodeId())].insert(n);
                 return false;
             }
         }
-        buckets[getBucketId(c.getNode().getNodeId())].insert(c);
+        buckets[getBucketId(n.getNodeId())].insert(n);
         return true;
-    }
-
-    /**
-     * Inserts a node into to the routing table based on how far it is from LocalNode.
-     *
-     * @param n The node to add
-     * @return returns true if the inserted node is a node that we've never seen before
-     */
-    public synchronized final boolean insert(Node n) {
-        return insert(new Contact(n));
     }
 
     /**
      * Find the closest set of contacts to a given KeyId
      *
-     * @param target           The target KeyId
+     * @param target The target KeyId
      * @return List A List of contacts closest to the target KeyId
      */
     public synchronized final List<Node> findClosest(KeyId target) {

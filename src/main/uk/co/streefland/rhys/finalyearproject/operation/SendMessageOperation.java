@@ -87,7 +87,10 @@ public class SendMessageOperation implements Operation, Receiver {
         if (!forwarding) {
             FindUserOperation fuo = new FindUserOperation(localNode, user);
             fuo.execute();
-            user = fuo.getTargetUser();
+            user = fuo.getFoundUser();
+            if (user == null) {
+                return;
+            }
             closestNodes = fuo.getClosestNodes();
         }
 
@@ -252,6 +255,10 @@ public class SendMessageOperation implements Operation, Receiver {
 
     public synchronized boolean isMessagedSuccessfully() {
         return isMessagedSuccessfully;
+    }
+
+    public User getUser() {
+        return user;
     }
 }
 
