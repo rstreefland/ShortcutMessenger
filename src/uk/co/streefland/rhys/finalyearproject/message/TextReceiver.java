@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Encryption;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -31,7 +32,7 @@ public class TextReceiver implements Receiver {
     @Override
     public void receive(Message incoming, int communicationId) throws IOException {
         TextMessage msg = (TextMessage) incoming;
-
+        User localUser = localNode.getUsers().getLocalUser();
         boolean success = true;
 
         /* If target is null - it's a broadcast message */
@@ -41,20 +42,27 @@ public class TextReceiver implements Receiver {
                 if (msg.getOriginUser() != null) {
                     logger.info("Received a message intended for me");
 
-                    if (localNode.getUsers().getLocalUser() != null) {
-                        try {
-                        /* Decrypt the message */
-                            Encryption enc = new Encryption();
-                            String message = enc.decryptString(msg.getTargetUser(), localNode.getUsers().getLocalUser(), msg.getIv(), msg.getEncryptedMessage());
-                            msg.setMessage(message);
+                    /* If there is a user logged in */
+                    if (localUser != null) {
+                        /* If the user currently logged in matches the target user of the message*/
+                        if (localUser.getUserId().equals(msg.getTargetUser().getUserId())) {
+                            try {
+                            /* Decrypt the message */
+                                Encryption enc = new Encryption();
+                                String message = enc.decryptString(msg.getTargetUser(), localUser, msg.getIv(), msg.getEncryptedMessage());
+                                msg.setMessage(message);
 
-                        /* Store the message */
-                            localNode.getMessages().addReceivedMessage(msg);
-                        } catch (InvalidAlgorithmParameterException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException | NoSuchAlgorithmException | NoSuchPaddingException e) {
-                            logger.error("Failed to decrypt message", e);
+                            /* Store the message */
+                                localNode.getMessages().addReceivedMessage(msg);
+                            } catch (InvalidAlgorithmParameterException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException | NoSuchAlgorithmException | NoSuchPaddingException e) {
+                                logger.error("Failed to decrypt message", e);
+                            }
+                        } else {
+                            logger.info("Ignoring message because it's not intended for the current user");
+                            success = false;
                         }
                     } else {
-                        logger.info("Ignoring message because we don't know if it's for the current user");
+                        logger.info("Ignoring message because the intended user is not logged in");
                         success = false;
                     }
                 }

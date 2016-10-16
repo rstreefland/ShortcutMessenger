@@ -20,7 +20,8 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Rhys on 03/09/2016.
+ * Sends a message to another user by sending to all of the nodes associated with that user.
+ * If it fails to send to an associated node then it caches the message on nodes nearby to the target node
  */
 public class SendMessageOperation implements Operation, Receiver {
 
@@ -31,7 +32,7 @@ public class SendMessageOperation implements Operation, Receiver {
     private final LocalNode localNode;
     private User user;
 
-    private String textMessage;
+    private String messageString;
     private TextMessage message; // Message sent to each peer
     private final Map<Node, String> nodes;
     private final Map<Node, Integer> attempts;
@@ -43,7 +44,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
     private List<Node> closestNodes;
 
-    public SendMessageOperation(LocalNode localNode, User userToMessage, String textMessage) {
+    public SendMessageOperation(LocalNode localNode, User userToMessage, String messageString) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
@@ -52,7 +53,7 @@ public class SendMessageOperation implements Operation, Receiver {
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
 
-        this.textMessage = textMessage;
+        this.messageString = messageString;
         this.forwarding = false;
     }
 
@@ -182,7 +183,7 @@ public class SendMessageOperation implements Operation, Receiver {
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
                 if (!forwarding) {
-                    message = new TextMessage(localNode.getNode(), user, textMessage);
+                    message = new TextMessage(localNode.getNode(), user, messageString);
                     localNode.getMessages().addReceivedMessage(message);
                 } else {
                     localNode.getMessages().addForwardMessage(message);
@@ -192,7 +193,7 @@ public class SendMessageOperation implements Operation, Receiver {
                 nodes.put(toQuery.get(i), Configuration.QUERIED);
             } else {
                 if (!forwarding) {
-                    message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, textMessage);
+                    message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
                 }
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
