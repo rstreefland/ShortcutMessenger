@@ -25,8 +25,8 @@ public class Bucket implements Serializable {
 
     public Bucket(int depth) {
         this.depth = depth;
-        this.contacts = new TreeSet<>(new LastSeenComparator());
-        this.replacementCache = new TreeSet<>(new LastSeenComparator());
+        this.contacts = new TreeSet<>();
+        this.replacementCache = new TreeSet<>();
     }
 
     /**
@@ -35,7 +35,7 @@ public class Bucket implements Serializable {
      * @param contact The contact to insert into the bucket
      */
     public synchronized void insert(Contact contact) {
-        /* If contact is already in bucket */
+
         if (contacts.contains(contact)) {
             Contact newContact = removeContactForce(contact.getNode()); /* Remove from the TreeSet */
             newContact.setSeenNow();    /* Update the last seen time*/

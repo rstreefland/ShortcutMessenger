@@ -15,7 +15,7 @@ class Contact implements Comparable<Contact>, Serializable {
 
     public Contact(Node node) {
         this.node = node;
-        this.lastSeen = System.currentTimeMillis() / 1000L;
+        this.lastSeen = System.currentTimeMillis();
     }
 
     @Override
@@ -29,18 +29,20 @@ class Contact implements Comparable<Contact>, Serializable {
 
     @Override
     public int compareTo(Contact o) {
-        if (getNode().equals(o.getNode())) {
+        if (this.getNode().equals(o.getNode())) {
             return 0;
-        }
+        } else {
+            /* We may have 2 different contacts with same last seen values so we can't return 0 here */
 
-        return (lastSeen > o.getLastSeen()) ? 1 : -1;
+            return this.getLastSeen() > o.getLastSeen() ? 1 : -1;
+        }
     }
 
     /**
      * Updates the last seen timestamp for this contact
      */
     public void setSeenNow() {
-        lastSeen = System.currentTimeMillis() / 1000L;
+        lastSeen = System.currentTimeMillis();
     }
 
     public void incrementStaleCount() {
