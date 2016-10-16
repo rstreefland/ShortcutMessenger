@@ -11,7 +11,6 @@ import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
-import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
 
 import java.io.IOException;
 import java.net.InetAddress;

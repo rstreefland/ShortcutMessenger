@@ -1,11 +1,10 @@
 package uk.co.streefland.rhys.finalyearproject.cli;
 
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
+import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 
 import java.io.IOException;
 import java.net.InetAddress;

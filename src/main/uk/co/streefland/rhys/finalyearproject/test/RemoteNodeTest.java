@@ -4,10 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.storage.StorageHandler;
+import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -16,11 +15,11 @@ import java.util.Scanner;
 /**
  * Connect some nodes on the local machine together
  */
-class RemoteNodeAndUserTest {
+class RemoteNodeTest {
 
     public static void main(String[] args) {
 
-        Logger logger = LoggerFactory.getLogger(RemoteNodeAndUserTest.class);
+        Logger logger = LoggerFactory.getLogger(RemoteNodeTest.class);
         Scanner sc = new Scanner(System.in);
 
         Configuration config = new Configuration();
@@ -30,8 +29,7 @@ class RemoteNodeAndUserTest {
         String localIp;
         String remoteIp;
 
-        String username;
-        String password;
+        String message;
 
         try {
             if (!storageHandler.doesSavedStateExist()) {
@@ -68,21 +66,14 @@ class RemoteNodeAndUserTest {
             System.out.println(localNode.getRoutingTable());
 
             do {
-                System.out.println("Please enter a username:");
-                username = sc.nextLine();
-
-                System.out.println("Please enter a password:");
-                password = sc.nextLine();
-
-                User user = new User(username, password);
-
-                if (localNode.getUsers().registerUser(user)) {
-                    logger.error("USER ALREADY EXISTS");
+                message = sc.nextLine();
+                if (message != null) {
+                    localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes());
                 }
-
-            } while (!password.equals("exit"));
+            } while (!message.equals("exit"));
 
             localNode.shutdown();
+
 
         } catch (IOException e) {
             e.printStackTrace();

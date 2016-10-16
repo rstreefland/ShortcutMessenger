@@ -1,4 +1,4 @@
-package uk.co.streefland.rhys.finalyearproject.storage;
+package uk.co.streefland.rhys.finalyearproject.core;
 
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.Users;
