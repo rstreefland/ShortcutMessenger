@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class Configuration implements Serializable {
 
     /* Constants */
-    public static final int K = 5; // maximum number of contacts per bucket (kademlia specifies 20 but I'm sticking with 5 for now because it's better to test for a small network)
+    public static final int K = 5; // maximum number of contacts per bucket (kademlia specifies 20 but I'm sticking with 5 for now because it's better to unused for a small network)
     public static final int MAX_CONCURRENCY = 3; // maximum number of concurrent connection
     public static final int PACKET_SIZE = 64 * 1024;  // maximum UDP packet size = 64KB
     public static final String FILE_PATH = "savedstate.ser";

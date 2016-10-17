@@ -62,7 +62,7 @@ class Main {
             System.out.println("(2) - Register");
             System.out.println("(3) - Log in");
             System.out.println("(4) - Send a message");
-            System.out.println("(5) - Send a test broadcast message");
+            System.out.println("(5) - Send a unused broadcast message");
             System.out.println("(6) - Print routing table");
             System.out.println("(q) - Quit");
 
