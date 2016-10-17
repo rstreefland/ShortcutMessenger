@@ -6,7 +6,6 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
 import java.util.TreeSet;
 
 /**
@@ -14,19 +13,19 @@ import java.util.TreeSet;
  */
 public class Bucket implements Serializable {
 
-    /* Depth of the bucket in the RoutingTable*/
+    /* Depth of the bucket in the RoutingTable */
     private final int depth;
 
     /* Contacts stored in this bucket */
     private final TreeSet<Contact> contacts;
 
-    /* A set of recently seen contacts that can replace any contact that is unresponsive in the core set */
-    private TreeSet<Contact> replacementCache;
+    /* A set of recently seen contacts that can replace any contact that is unresponsive in the main set */
+    private TreeSet<Contact> cache;
 
     public Bucket(int depth) {
         this.depth = depth;
         this.contacts = new TreeSet<>();
-        this.replacementCache = new TreeSet<>();
+        this.cache = new TreeSet<>();
     }
 
     /**
@@ -37,17 +36,18 @@ public class Bucket implements Serializable {
     public synchronized void insert(Contact contact) {
 
         if (contacts.contains(contact)) {
-            Contact newContact = removeContactForce(contact.getNode()); /* Remove from the TreeSet */
-            newContact.setSeenNow();    /* Update the last seen time*/
-            newContact.resetStaleCount();   /* Reset the stale count */
-            contacts.add(newContact); /* Re-add to the TreeSet so the set is sorted correctly */
+            Contact temp = contact;
+            removeContact(contact.getNode(), true); /* Remove from the TreeSet */
+            temp.setSeenNow();    /* Update the last seen time*/
+            temp.resetStaleCount();   /* Reset the stale count */
+            contacts.add(temp); /* Re-add to the TreeSet so the set is sorted correctly */
         } else {
-            /* If the bucket is filled, put the contact into the replacement cache */
+            /* If the bucket is full, put the contact into the cache instead */
             if (contacts.size() >= Configuration.K) {
                 Contact mostStale = null;
                 for (Contact newContact : contacts) {
                     if (newContact.getStaleCount() >= 1) {
-                        /* Contact is stale */
+                        /* Contact is stale - update the mostStale contact object */
                         if (mostStale == null) {
                             mostStale = newContact;
                         } else if (newContact.getStaleCount() > mostStale.getStaleCount()) {
@@ -55,13 +55,13 @@ public class Bucket implements Serializable {
                         }
                     }
                 }
-                /* If we have a stale contact, remove it and add the new contact to the bucket */
+                /* If there is a stale contact, remove it and add the new contact to the bucket */
                 if (mostStale != null) {
                     contacts.remove(mostStale);
                     contacts.add(contact);
                 } else {
-                    /* No stale contact available to replace, insert this node into replacement cache */
-                    insertIntoReplacementCache(contact);
+                    /* No stale contact available to replace, insert new contact into the cache */
+                    insertIntoCache(contact);
                 }
             } else {
                 contacts.add(contact);
@@ -79,99 +79,57 @@ public class Bucket implements Serializable {
     }
 
     /**
-     * Removes a contact from the bucket only if the replacement cache has a contact to replace it with. Else increments the contacts stale count
+     * Removes a contact from the bucket only if the cache has a contact to replace it with. Else increments the contacts stale count
      *
-     * @param contact The contact to remove from the bucket
-     * @param force   If true, remove the contact immediately without checking for a replacement in the replacement cache
-     * @return Returns false if the contact doesn't exist.
-     */
-    private synchronized boolean removeContact(Contact contact, boolean force) {
-        if (force) {
-            removeContactForce(contact.getNode());
-        } else {
-
-        /* If the contact does not exist, then we failed to remove it */
-            if (!contacts.contains(contact)) {
-                return false;
-            }
-
-        /* Contact exist, lets remove it only if our replacement cache has a replacement */
-            if (!replacementCache.isEmpty()) {
-            /* Replace the contact with one from the replacement cache */
-                contacts.remove(contact);
-                Contact replacement = replacementCache.first();
-                contacts.add(replacement);
-                replacementCache.remove(replacement);
-            } else {
-            /* There is no replacement, just increment the contact's stale count */
-                getContact(contact.getNode()).incrementStaleCount();
-            }
-        }
-        return true;
-    }
-
-    /**
-     * Removes the contact containing the node from the bucket
-     *
-     * @param node The node of the contact to remove from the bucket
-     * @return Returns false if the contact doesn't exist.
+     * @param node  The node representing the contact to remove from the bucket
+     * @param force If true, remove the contact immediately without checking for a replacement in the replacement cache
+     * @return Returns true if the contact was removed
      */
     public synchronized boolean removeContact(Node node, boolean force) {
-        return removeContact(new Contact(node), force);
-    }
 
-    /**
-     * Removes a contact from the bucket without checking for a replacement in the replacement cache
-     *
-     * @param node The node of the contact to remove from the bucket
-     * @return The contact removed
-     */
-    private synchronized Contact removeContactForce(Node node) {
-        for (Contact contact : contacts) {
-            if (contact.getNode().equals(node)) {
-                contacts.remove(contact);
-                return contact;
-            }
+        Contact contact = getContact(node);
+
+        if (contact == null) {
+            return false;
         }
 
-        /* We got here means this element does not exist */
-        throw new NoSuchElementException("Node does not exist in the replacement cache. ");
-    }
-
-    /**
-     * Inserts a contact into the replacement cache
-     */
-    private synchronized void insertIntoReplacementCache(Contact c) {
-        if (replacementCache.contains(c)) {
-            /* Update the last seen time if this contact is already in our replacement cache */
-            Contact tmp = removeFromReplacementCache(c.getNode());
-            tmp.setSeenNow();
-            replacementCache.add(tmp);
-        } else if (replacementCache.size() > Configuration.K) {
-            /* If the cache is filled, remove the least recently seen contact */
-            replacementCache.remove(replacementCache.last());
-            replacementCache.add(c);
+        if (force) {
+            contacts.remove(contact);
+            return true;
         } else {
-            replacementCache.add(c);
+            /* Contact exist, remove it only if there's a replacement available in the cache */
+            if (!cache.isEmpty()) {
+                /* Replace the contact with one from the cache */
+                contacts.remove(contact);
+                Contact replacement = cache.first();
+                contacts.add(replacement);
+                cache.remove(replacement);
+                return true;
+            } else {
+                /* No available replacement, increment the stale count instead */
+                contact.incrementStaleCount();
+            }
         }
+        return false;
     }
 
     /**
-     * Removes a contact from the replacement cache
-     *
-     * @param node The node within a contact to remove from the replacement cache
-     * @return The contact removed from the replacement cache
+     * Inserts a contact into the cache
      */
-    private synchronized Contact removeFromReplacementCache(Node node) {
-        for (Contact contact : replacementCache) {
-            if (contact.getNode().equals(node)) {
-                replacementCache.remove(contact);
-                return contact;
-            }
+    private synchronized void insertIntoCache(Contact c) {
+        if (cache.contains(c)) {
+            /* Update the last seen time if this contact is already in the cache */
+            Contact temp = c;
+            cache.remove(c.getNode());
+            temp.setSeenNow();
+            cache.add(temp);
+        } else if (cache.size() > Configuration.K) {
+            /* If the cache is filled, remove the least recently seen contact */
+            cache.remove(cache.last());
+            cache.add(c);
+        } else {
+            cache.add(c);
         }
-
-        /* We got here means this element does not exist */
-        throw new NoSuchElementException("Node does not exist in the replacement cache. ");
     }
 
     @Override
@@ -202,9 +160,7 @@ public class Bucket implements Serializable {
                 return c;
             }
         }
-
-        /* This contact does not exist */
-        throw new NoSuchElementException("The contact does not exist in the contacts list.");
+        return null;
     }
 
     /**
