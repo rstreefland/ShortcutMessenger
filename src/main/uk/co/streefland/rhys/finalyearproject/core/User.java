@@ -126,7 +126,7 @@ public class User implements Serializable {
         /* Performance testing */
         long end = System.currentTimeMillis();
         long difference = end - start;
-        logger.debug("Hashing password took: " + difference + "ms");
+        logger.debug("Hashing password took {} ms", difference);
 
         return passwordHash;
     }

@@ -10503,3 +10503,7 @@ Node: rhys-pc
 2016-10-16 23:55:35.938 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
 2016-10-16 23:55:35.938 [Thread-324] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
 2016-10-16 23:55:35.939 [Thread-325] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-17 20:38:59.404 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-17 20:38:59.419 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-17 20:39:02.673 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-17 20:39:02.673 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345

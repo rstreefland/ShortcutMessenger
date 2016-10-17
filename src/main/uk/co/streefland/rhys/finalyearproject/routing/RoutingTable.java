@@ -82,6 +82,32 @@ public class RoutingTable implements Serializable {
         return closest;
     }
 
+    /**
+     * Method used by operations to notify the routing table of any contacts that have been unresponsive.
+     *
+     * @param n The unresponsive node
+     */
+    public synchronized void setUnresponsiveContact(Node n) {
+        int bucketId = getBucketId(n.getNodeId());
+
+        /* Remove the contact from the bucket */
+        buckets[bucketId].removeContact(n, false);
+    }
+
+    /**
+     * Method used by operations to notify the routing table of any contacts that have been unresponsive.
+     *
+     * @param contacts The set of unresponsive contacts
+     */
+    public void setUnresponsiveContacts(List<Node> contacts) {
+        if (contacts.isEmpty()) {
+            return;
+        }
+        for (Node n : contacts) {
+            setUnresponsiveContact(n);
+        }
+    }
+
     public boolean isEmpty() {
         return isEmpty;
     }
@@ -122,19 +148,6 @@ public class RoutingTable implements Serializable {
     }
 
     /**
-     * @return List A List of all Contacts in this RoutingTable
-     */
-    public final List<Contact> getAllContacts() {
-        List<Contact> contacts = new ArrayList<>();
-
-        for (Bucket b : buckets) {
-            contacts.addAll(b.getContacts());
-        }
-
-        return contacts;
-    }
-
-    /**
      * Calculate the bucket ID in which a given node should be placed based on the distance from the local node
      *
      * @param nodeId The target KeyId
@@ -163,29 +176,5 @@ public class RoutingTable implements Serializable {
         this.buckets = buckets;
     }
 
-    /**
-     * Method used by operations to notify the routing table of any contacts that have been unresponsive.
-     *
-     * @param n The unresponsive node
-     */
-    public synchronized void setUnresponsiveContact(Node n) {
-        int bucketId = getBucketId(n.getNodeId());
 
-        /* Remove the contact from the bucket */
-        buckets[bucketId].removeContact(n, false);
-    }
-
-    /**
-     * Method used by operations to notify the routing table of any contacts that have been unresponsive.
-     *
-     * @param contacts The set of unresponsive contacts
-     */
-    public void setUnresponsiveContacts(List<Node> contacts) {
-        if (contacts.isEmpty()) {
-            return;
-        }
-        for (Node n : contacts) {
-            setUnresponsiveContact(n);
-        }
-    }
 }

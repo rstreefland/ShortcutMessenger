@@ -46,7 +46,7 @@ public class LocalNode {
      * @throws IOException
      */
     public LocalNode(String localIp, int port) throws IOException {
-        logger.info("FinalYearProject build " + BUILD_NUMBER);
+        logger.info("FinalYearProject build {}", BUILD_NUMBER);
 
         /* Read config, localNode, routingTable and users from file if possible; else create new objects */
         this.storageHandler = new StorageHandler();
@@ -80,7 +80,7 @@ public class LocalNode {
      * @throws IOException
      */
     public LocalNode(KeyId defaultId, int port) throws IOException {
-        logger.info("FinalYearProject build " + BUILD_NUMBER);
+        logger.info("FinalYearProject build {}", BUILD_NUMBER);
 
         this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
         this.config = new Configuration();
@@ -246,9 +246,9 @@ public class LocalNode {
             operation.execute();
 
             if (operation.getUser() != null) {
-                logger.info("Message sent to " + operation.getUser());
+                logger.info("Message sent to {}", operation.getUser());
             } else {
-                logger.error("User " + userToMessage.getUserName() + " doesn't exist");
+                logger.error("User {} doesn't exist", userToMessage.getUserName());
             }
         }
     }

@@ -59,7 +59,7 @@ public class KeyId implements Serializable {
      *
      * @param idBytes
      */
-    private KeyId(byte[] idBytes) {
+    public KeyId(byte[] idBytes) {
         if (idBytes.length != BYTES_LENGTH) {
             throw new IllegalArgumentException("Data needs to be " + BYTES_LENGTH + " characters long");
         }
