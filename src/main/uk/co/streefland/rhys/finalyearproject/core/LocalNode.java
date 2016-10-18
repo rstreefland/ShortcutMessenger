@@ -20,7 +20,7 @@ import java.util.Timer;
 /**
  * Represents the local node on the network. This class ties together all of the functionality of the other classes
  */
-public class LocalNode {
+public class LocalNode implements Runnable {
 
     private static final String BUILD_NUMBER = "344";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -91,6 +91,11 @@ public class LocalNode {
         this.messages = new Messages();
         this.server = new Server(port, messageHandler, config);
         this.users = new Users(this);
+    }
+
+    @Override
+    public void run() {
+
     }
 
     /**
