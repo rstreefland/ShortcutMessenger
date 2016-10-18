@@ -61,6 +61,10 @@ public class Messages {
         return super.toString(); // TODO: 08/10/2016  change this to print out all messages in memory
     }
 
+    public Map<KeyId, TextMessage> getReceivedMessages() {
+        return receivedMessages;
+    }
+
     public Map<KeyId, TextMessage> getForwardMessages() {
         return forwardMessages;
     }

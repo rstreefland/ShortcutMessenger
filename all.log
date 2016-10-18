@@ -10507,3 +10507,97 @@ Node: rhys-pc
 2016-10-17 20:38:59.419 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
 2016-10-17 20:39:02.673 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
 2016-10-17 20:39:02.673 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 12:33:14.410 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 286 ms
+2016-10-18 12:33:14.441 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:33:14.441 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:33:14.457 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:33:14.472 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 12:33:14.472 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:33:14.488 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:33:14.488 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:13.236 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 171 ms
+2016-10-18 12:37:13.236 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:13.251 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 12:37:13.267 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:37:13.267 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:13.283 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:37:13.300 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 17 ms
+2016-10-18 12:37:13.304 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:34.366 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 201 ms
+2016-10-18 12:37:34.381 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:34.400 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 19 ms
+2016-10-18 12:37:34.403 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 3 ms
+2016-10-18 12:37:34.403 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:34.419 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:37:34.435 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:37:34.435 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:37.919 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 221 ms
+2016-10-18 12:37:37.934 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 12:37:37.934 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:37.950 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:37:37.950 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:37.965 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:37:37.981 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:37:37.997 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:38:46.182 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 172 ms
+2016-10-18 12:38:46.197 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 12:38:46.197 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:38:46.213 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:38:46.230 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 17 ms
+2016-10-18 12:38:46.235 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 3 ms
+2016-10-18 12:38:46.235 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:38:46.251 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:50:24.596 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 188 ms
+2016-10-18 12:50:24.606 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 9 ms
+2016-10-18 12:50:24.616 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 10 ms
+2016-10-18 12:50:24.626 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 9 ms
+2016-10-18 12:50:24.634 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 8 ms
+2016-10-18 12:50:24.645 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 9 ms
+2016-10-18 12:50:24.654 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 8 ms
+2016-10-18 12:52:05.818 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 185 ms
+2016-10-18 12:52:05.834 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:52:05.849 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 12:52:05.849 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:52:05.865 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:52:05.865 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:52:05.881 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:52:50.238 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 184 ms
+2016-10-18 12:52:50.254 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:52:50.254 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:52:50.269 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 12:52:50.269 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 12:52:50.285 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 12:52:50.285 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 13:56:39.101 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 185 ms
+2016-10-18 13:56:39.116 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 13:56:39.132 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 13:56:39.132 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 13:56:39.148 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 13:56:39.148 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 13:56:39.163 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:01:12.139 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 169 ms
+2016-10-18 14:01:12.154 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 14:01:12.170 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 14:01:12.170 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:01:12.192 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 22 ms
+2016-10-18 14:01:12.192 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:01:12.208 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 14:02:34.487 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 167 ms
+2016-10-18 14:02:34.503 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:02:34.522 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 19 ms
+2016-10-18 14:02:34.525 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 3 ms
+2016-10-18 14:02:34.525 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:02:34.541 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 14:02:34.556 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 15 ms
+2016-10-18 14:16:30.209 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 172 ms
+2016-10-18 14:16:30.209 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:16:30.225 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 14:16:30.241 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 14:16:30.241 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:16:30.257 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 16 ms
+2016-10-18 14:16:30.257 [main] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 0 ms
+2016-10-18 14:16:37.871 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 14:19:16.763 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 14:30:10.265 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 14:43:35.107 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 14:46:06.397 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
