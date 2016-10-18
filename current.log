@@ -1,16 +1,5 @@
-2016-10-18 20:25:13.434 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-10-18 20:25:13.437 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-10-18 20:25:13.448 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-10-18 20:25:13.449 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-10-18 20:26:13.485 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
-2016-10-18 20:26:13.486 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
-2016-10-18 20:26:13.488 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
-2016-10-18 20:27:13.470 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
-2016-10-18 20:27:13.471 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
-2016-10-18 20:27:13.471 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
-2016-10-18 20:28:13.466 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
-2016-10-18 20:28:13.467 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
-2016-10-18 20:28:13.470 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
-2016-10-18 20:29:13.464 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
-2016-10-18 20:29:13.465 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
-2016-10-18 20:29:13.465 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:41:57.387 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:41:57.390 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:41:57.399 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:41:57.400 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:42:00.562 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 130 ms

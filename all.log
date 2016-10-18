@@ -10777,3 +10777,73 @@ Node: rhys-pc
 2016-10-18 20:29:13.464 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
 2016-10-18 20:29:13.465 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
 2016-10-18 20:29:13.465 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 20:58:58.128 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 20:58:58.131 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 20:58:58.140 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 20:58:58.141 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 20:59:58.175 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-18 20:59:58.177 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-18 20:59:58.178 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:01:51.705 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:01:51.709 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:01:51.718 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:01:51.719 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:02:42.112 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:02:42.115 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:02:42.124 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:02:42.125 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:03:42.161 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-18 21:03:42.162 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-18 21:03:42.163 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:04:42.145 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-18 21:04:42.146 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-18 21:04:42.146 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:05:42.141 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-18 21:05:42.142 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-18 21:05:42.144 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:18:25.732 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:18:25.735 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:18:25.747 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:18:25.748 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:19:26.964 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:19:26.967 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:19:26.976 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:19:26.977 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:20:27.014 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-18 21:20:27.015 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-18 21:20:27.016 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:21:08.719 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:21:08.722 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:21:08.731 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:21:08.732 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:31:36.742 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:31:36.745 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:31:36.754 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:31:36.755 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:32:54.852 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:32:54.856 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:32:54.865 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:32:54.866 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:33:54.904 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-18 21:33:54.906 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-18 21:33:54.907 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:36:16.576 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:36:16.580 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:36:16.589 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:36:16.591 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:38:50.758 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:38:50.761 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:38:50.772 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:38:50.774 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:40:19.586 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:40:19.589 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:40:19.598 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:40:19.599 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:41:19.637 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-18 21:41:19.639 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-18 21:41:19.640 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 21:41:57.387 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 21:41:57.390 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 21:41:57.399 [Thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-18 21:41:57.400 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-18 21:42:00.562 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 130 ms

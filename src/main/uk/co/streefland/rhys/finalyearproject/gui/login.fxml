@@ -1,52 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<BorderPane styleClass="root" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.co.streefland.rhys.finalyearproject.gui.Controller">
+    <center>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <Text styleClass="label-bigheader" text="FinalYearProject" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                  GridPane.rowIndex="1" GridPane.valignment="CENTER"/>
 
-<GridPane alignment="center" hgap="10" styleClass="root" vgap="10" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.streefland.rhys.finalyearproject.gui.Controller">
+            <Text styleClass="label-header" text="Please log in" GridPane.columnIndex="1" GridPane.columnSpan="2"
+                  GridPane.rowIndex="2"/>
 
-    <Text styleClass="label-bigheader" text="FinalYearProject" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label text="User Name:" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
-    <Text styleClass="label-header" text="Please log in" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+            <TextField fx:id="userNameInput" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
 
-    <Label text="User Name:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <Label text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
 
-    <TextField GridPane.columnIndex="2" GridPane.rowIndex="3" />
+            <PasswordField fx:id="passwordInput" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
 
-    <Label text="Password:" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                <Button onAction="#handleRegisterButtonAction" text="Register"/>
+                <Button onAction="#handleLoginButtonAction" text="Log in"/>
+            </HBox>
 
-    <PasswordField fx:id="passwordField" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+            <Text fx:id="message" fill="RED" styleClass="error" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
-    <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="5">
-        <Button onAction="#handleRegisterButtonAction" text="Register" />
-        <Button onAction="#handleLoginButtonAction" text="Log in" />
-    </HBox>
-
-    <Text fx:id="message" fill="RED" styleClass="error" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-
+            <stylesheets>
+                <URL value="@style.css"/>
+            </stylesheets>
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
+        </GridPane>
+    </center>
+    <bottom>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <Text text="Rhys Streefland (2016)" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" />
+            <ImageView fx:id="spinner" fitHeight="50.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+                <image>
+                    <Image url="@spin.gif" />
+                </image>
+            </ImageView>
+        </GridPane>
+    </bottom>
     <stylesheets>
-        <URL value="@style.css" />
+        <URL value="@style.css"/>
     </stylesheets>
-   <columnConstraints>
-      <ColumnConstraints />
-      <ColumnConstraints />
-      <ColumnConstraints />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-   </rowConstraints>
-
-</GridPane>
+</BorderPane>

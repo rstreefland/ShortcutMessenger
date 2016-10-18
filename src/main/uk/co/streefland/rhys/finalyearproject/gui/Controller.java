@@ -9,10 +9,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
@@ -25,19 +28,20 @@ public class Controller {
 
     private LocalNode localNode;
 
-    private String reason;
-
     @FXML
     private Button btn1;
-
     @FXML
     private TextField localIpInput;
-
     @FXML
     private TextField networkIpInput;
-
+    @FXML
+    private TextField userNameInput;
+    @FXML
+    private PasswordField passwordInput;
     @FXML
     private Text message;
+    @FXML
+    private ImageView spinner;
 
     public Controller() {
 
@@ -45,10 +49,11 @@ public class Controller {
 
     @FXML
     protected void handleConnectButtonAction(ActionEvent event) throws IOException {
+        spinner.setVisible(true);
+
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
-
                 boolean error = false;
 
                 String localIp = null;
@@ -132,6 +137,7 @@ public class Controller {
 
                 if (errorMessage != null) {
                     message.setText(errorMessage);
+                    spinner.setVisible(false);
                 } else {
                     Stage stage;
                     stage = (Stage) btn1.getScene().getWindow();
@@ -150,12 +156,31 @@ public class Controller {
     }
 
     @FXML
-    protected void handleRegisterButtonAction(ActionEvent event) {
-        message.setText("hello");
+    protected void handleRegisterButtonAction(ActionEvent event) throws IOException {
+        spinner.setVisible(true);
+
+        User user = new User(userNameInput.getText(), passwordInput.getText());
+
+        if (localNode.getUsers().registerUser(user)) {
+            message.setText("REGISTERED!");
+        } else {
+            message.setText("ERROR");
+        }
+
+        spinner.setVisible(false);
     }
 
     @FXML
     protected void handleLoginButtonAction(ActionEvent event) {
-        System.out.println("Sign in button pressed");
+        Task task = new Task() {
+            @Override
+            protected String call() throws Exception {
+                return null;
+            }
+        };
+
+        final Thread thread = new Thread(task);
+        thread.setDaemon(true);
+        thread.start();
     }
 }
