@@ -1,9 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.gui;
 
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -50,109 +48,88 @@ public class Controller {
     @FXML
     protected void handleConnectButtonAction(ActionEvent event) throws IOException {
         spinner.setVisible(true);
+        message.setText("bootstrapping");
 
-        Task task = new Task() {
-            @Override
-            protected String call() throws Exception {
-                boolean error = false;
+        boolean error = false;
 
-                String localIp = null;
-                int localPort = 0;
+        String localIp = null;
+        int localPort = 0;
 
-                final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
-                final Pattern p = Pattern.compile(ipPattern);
-                Matcher m = p.matcher(localIpInput.getText());
+        final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
+        final Pattern p = Pattern.compile(ipPattern);
+        Matcher m = p.matcher(localIpInput.getText());
 
-                if (m.matches()) {
-                    if (m.group(1) != null) {
-                        localIp = m.group(1);
-                        if (m.group(2) != null) {
-                            localPort = Integer.parseInt(m.group(2));
-                        }
-                    }
-                } else {
-                    this.succeeded();
-                    return "Invalid local IP address";
-                }
-
-                try {
-                    if (localNode == null) {
-                        localNode = new LocalNode(localIp, localPort);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                String networkIp = null;
-                int networkPort = 0;
-
-                m = p.matcher(networkIpInput.getText());
-
-                if (m.matches()) {
-                    if (m.group(1) != null) {
-                        networkIp = m.group(1);
-                        if (m.group(2) != null) {
-                            networkPort = Integer.parseInt(m.group(2));
-                        }
-                    }
-                } else {
-                    /* Special case for first node in the network */
-                    if (networkIpInput.getText().equals("first")) {
-                        localNode.first();
-                        this.succeeded();
-                        return null;
-                    }
-                    this.succeeded();
-                    return "Invalid network IP address";
-                }
-                try {
-                    if (networkPort != 0) {
-                        error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), networkPort));
-                    } else {
-                        error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), 12345));
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                if (error) {
-                    this.succeeded();
-                    return "Failed to bootstrap to the specified network";
-                } else {
-                    this.succeeded();
-                    return null;
+        if (m.matches()) {
+            if (m.group(1) != null) {
+                localIp = m.group(1);
+                if (m.group(2) != null) {
+                    localPort = Integer.parseInt(m.group(2));
                 }
             }
-        };
+        } else {
+            message.setText("Invalid local IP address");
+            spinner.setVisible(false);
+            return;
+        }
 
-        final Thread thread = new Thread(task);
-        thread.setDaemon(true);
-        thread.start();
+        try {
+            if (localNode == null) {
+                localNode = new LocalNode(localIp, localPort);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
+        String networkIp = null;
+        int networkPort = 0;
 
-                String errorMessage = (String) task.getValue(); // result of computation
+        m = p.matcher(networkIpInput.getText());
 
-                if (errorMessage != null) {
-                    message.setText(errorMessage);
-                    spinner.setVisible(false);
-                } else {
-                    Stage stage;
-                    stage = (Stage) btn1.getScene().getWindow();
-                    Parent root = null;
-                    try {
-                        root = FXMLLoader.load(getClass().getResource("login.fxml"));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    Scene scene = new Scene(root, 500, 500);
-                    stage.setScene(scene);
-                    stage.show();
+        if (m.matches()) {
+            if (m.group(1) != null) {
+                networkIp = m.group(1);
+                if (m.group(2) != null) {
+                    networkPort = Integer.parseInt(m.group(2));
                 }
             }
-        });
+
+            try {
+                if (networkPort != 0) {
+                    error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), networkPort));
+                } else {
+                    error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), 12345));
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            /* Special case for first node in the network */
+            if (networkIpInput.getText().equals("first")) {
+                localNode.first();
+            } else {
+                message.setText("Invalid network IP address");
+                spinner.setVisible(false);
+                return;
+            }
+        }
+
+        if (error) {
+            message.setText("Failed to bootstrap to the specified network");
+            spinner.setVisible(false);
+            return;
+        }
+
+        Stage stage;
+        stage = (Stage) btn1.getScene().getWindow();
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("login.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene scene = new Scene(root, 500, 500);
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
