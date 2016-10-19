@@ -1,4 +1,4 @@
-package uk.co.streefland.rhys.finalyearproject.gui;
+package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -14,6 +14,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
+import uk.co.streefland.rhys.finalyearproject.gui.Main;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
@@ -22,7 +23,7 @@ import java.net.InetAddress;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Controller {
+public class ConnectController {
 
     private LocalNode localNode;
 
@@ -41,7 +42,7 @@ public class Controller {
     @FXML
     private ImageView spinner;
 
-    public Controller() {
+    public ConnectController() {
 
     }
 
@@ -119,45 +120,17 @@ public class Controller {
             return;
         }
 
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../login.fxml"));
+        Parent root = loader.load();
+
+        LoginController controller =
+                loader.getController();
+        controller.init(localNode);
+
         Stage stage;
         stage = (Stage) btn1.getScene().getWindow();
-        Parent root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("login.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         Scene scene = new Scene(root, 500, 500);
         stage.setScene(scene);
         stage.show();
-    }
-
-    @FXML
-    protected void handleRegisterButtonAction(ActionEvent event) throws IOException {
-        spinner.setVisible(true);
-
-        User user = new User(userNameInput.getText(), passwordInput.getText());
-
-        if (localNode.getUsers().registerUser(user)) {
-            message.setText("REGISTERED!");
-        } else {
-            message.setText("ERROR");
-        }
-
-        spinner.setVisible(false);
-    }
-
-    @FXML
-    protected void handleLoginButtonAction(ActionEvent event) {
-        Task task = new Task() {
-            @Override
-            protected String call() throws Exception {
-                return null;
-            }
-        };
-
-        final Thread thread = new Thread(task);
-        thread.setDaemon(true);
-        thread.start();
     }
 }

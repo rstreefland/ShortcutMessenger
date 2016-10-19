@@ -10902,3 +10902,61 @@ Node: rhys-pc
 2016-10-18 22:08:07.271 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
 2016-10-18 22:08:07.305 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
 2016-10-18 22:08:07.306 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-18 22:12:17.595 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-18 22:12:17.599 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-18 22:12:17.619 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:19:45.915 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:19:45.918 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:19:45.930 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:20:45.967 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-19 11:20:45.970 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-19 11:20:45.971 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-19 11:22:00.762 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:22:00.764 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:22:00.774 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:33:44.942 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:33:44.943 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:33:44.954 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:34:19.386 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:34:19.388 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:34:19.398 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:35:07.522 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:35:07.524 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:35:07.534 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:37:58.136 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:37:58.138 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:37:58.148 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:38:49.350 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:38:49.353 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:38:49.365 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:40:00.081 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:40:00.084 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:40:00.093 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:40:25.198 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:40:25.201 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:40:25.211 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:41:09.554 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 11:41:09.557 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 11:41:09.567 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 11:41:17.505 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 202 ms
+2016-10-19 11:41:17.509 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-10-19 11:41:24.558 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 8 ms
+2016-10-19 11:41:24.559 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:41:25.421 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 9 ms
+2016-10-19 11:41:25.423 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:41:25.614 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 7 ms
+2016-10-19 11:41:25.614 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:41:25.869 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 7 ms
+2016-10-19 11:41:25.870 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:41:26.033 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 8 ms
+2016-10-19 11:41:26.034 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:41:26.655 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 8 ms
+2016-10-19 11:41:26.655 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:41:26.846 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 7 ms
+2016-10-19 11:41:26.847 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:41:26.964 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 7 ms
+2016-10-19 11:41:26.964 [JavaFX Application Thread] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User with the same name exists - discarding
+2016-10-19 11:42:09.596 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
+2016-10-19 11:42:09.604 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
+2016-10-19 11:42:09.605 [Thread-167] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-19 11:42:09.606 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
