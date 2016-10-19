@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -15,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("bootstrap.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("connect.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root, 500, 500);
