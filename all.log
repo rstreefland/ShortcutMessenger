@@ -12789,3 +12789,9 @@ Node: rhys-pc
 2016-10-19 12:20:33.980 [pool-3-thread-72] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
 2016-10-19 12:20:33.981 [Thread-7] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
 2016-10-19 12:20:33.981 [pool-3-thread-72] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-19 12:24:09.710 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-19 12:24:09.715 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-19 12:24:09.734 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-19 12:24:09.736 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-19 12:24:17.662 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 312 ms
+2016-10-19 12:24:17.673 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys

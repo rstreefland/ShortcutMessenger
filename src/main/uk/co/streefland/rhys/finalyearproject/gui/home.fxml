@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import java.net.URL?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<BorderPane styleClass="root" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
+    <top>
+        <VBox alignment="center">
+            <MenuBar fx:id="menuBar">
+                <menus>
+                    <Menu text="File">
+                        <items>
+                            <MenuItem text="New"/>
+                            <MenuItem text="Open"/>
+                            <MenuItem text="Save"/>
+                            <MenuItem text="Save As"/>
+                            <SeparatorMenuItem  />
+                            <MenuItem text="Exit"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Edit">
+                        <items>
+                            <MenuItem text="Copy"/>
+                            <MenuItem text="Cut"/>
+                            <MenuItem text="Paste"/>
+                        </items>
+                    </Menu>
+                    <Menu text="Help">
+                        <items>
+                            <MenuItem text="Search" disable="true"/>
+                            <MenuItem text="Online Manual" visible="false"/>
+                            <SeparatorMenuItem />
+                            <MenuItem text="About" />
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+        </VBox>
+    </top>
+    <center>
+        <GridPane alignment="center" hgap="10" vgap="10">
+        </GridPane>
+    </center>
+    <bottom>
+        <GridPane alignment="center" hgap="10" vgap="10">
+            <Text text="Rhys Streefland (2016)" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" />
+            <ImageView fx:id="spinner" fitHeight="50.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+                <image>
+                    <Image url="@spin.gif" />
+                </image>
+            </ImageView>
+        </GridPane>
+    </bottom>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</BorderPane>

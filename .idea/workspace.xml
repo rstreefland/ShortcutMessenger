@@ -7,7 +7,28 @@
     <bookmark url="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java" line="53" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ac27ad5-c053-404d-9177-8c82acb82fb4" name="Default" comment="This is ridiculou" />
+    <list default="true" id="9ac27ad5-c053-404d-9177-8c82acb82fb4" name="Default" comment="This is ridiculou">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Roboto-Bold.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Roboto-Light.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Roboto-Regular.ttf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/finalyearproject.jar" afterPath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/finalyearproject.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/gui/Main.class" afterPath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/gui/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/all.log" afterPath="$PROJECT_DIR$/all.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/current.log" afterPath="$PROJECT_DIR$/current.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/all.log" afterPath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/all.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/current.log" afterPath="$PROJECT_DIR$/out/artifacts/finalyearproject_jar/current.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/build.number" afterPath="$PROJECT_DIR$/out/production/finalyearproject/build.number" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/gui/style.css" afterPath="$PROJECT_DIR$/out/production/finalyearproject/uk/co/streefland/rhys/finalyearproject/gui/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/build.number" afterPath="$PROJECT_DIR$/src/main/build.number" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java" afterPath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css" afterPath="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/MessagesTest.java" afterPath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/MessagesTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/StorageHandlerTest.java" afterPath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/StorageHandlerTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/UserTest.java" afterPath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/UserTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/routing/RoutingTableTest.java" afterPath="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/routing/RoutingTableTest.java" />
+    </list>
     <ignored path="LemonJuice.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,58 +42,28 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/finalyearproject$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1476817503367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>uk.co.streefland.rhys.finalyearproject.gui.*</FILTER>
+    <SUITE FILE_PATH="coverage/finalyearproject$BucketTest.coverage" NAME="BucketTest Coverage Results" MODIFIED="1476655663178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>uk.co.streefland.rhys.finalyearproject.routing.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/finalyearproject$Main.coverage" NAME="Main Coverage Results" MODIFIED="1475514705202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>uk.co.streefland.rhys.finalyearproject.cli.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/finalyearproject$BucketTest.coverage" NAME="BucketTest Coverage Results" MODIFIED="1476655663178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>uk.co.streefland.rhys.finalyearproject.routing.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/LemonJuice$Test.coverage" NAME="Test Coverage Results" MODIFIED="1471300872573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>uk.co.streefland.rhys.lemonjuice.test.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/finalyearproject$All_in_finalyearproject.coverage" NAME="All in finalyearproject Coverage Results" MODIFIED="1476788345484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/finalyearproject$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1476817503367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>uk.co.streefland.rhys.finalyearproject.gui.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/finalyearproject$NodeConnectionTest.coverage" NAME="NodeConnectionTest Coverage Results" MODIFIED="1472656669161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>uk.co.streefland.rhys.finalyearproject.test.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/finalyearproject$BucketTest_testInsert.coverage" NAME="BucketTest.testInsert Coverage Results" MODIFIED="1476637918612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>uk.co.streefland.rhys.finalyearproject.routing.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/LemonJuice$Test.coverage" NAME="Test Coverage Results" MODIFIED="1471300872573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>uk.co.streefland.rhys.lemonjuice.test.*</FILTER>
+    </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="DockManager">
-    <window id="3">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="ConnectController.java" pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="586">
-                    <caret line="120" column="23" selection-start-line="118" selection-start-column="8" selection-end-line="120" selection-end-column="23" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/cli/Main.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="526">
-                    <caret line="187" column="32" selection-start-line="187" selection-start-column="32" selection-end-line="187" selection-end-column="58" />
-                    <folding />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -92,15 +83,81 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/core/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-              <folding>
-                <element signature="e#1996#2114#0" expanded="true" />
-                <element signature="e#2113#2114#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="131">
+              <caret line="68" column="59" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/home.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="765">
+              <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/login.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="connect.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/connect.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,8 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/test/RemoteNodeTest.java" />
-        <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/Operation.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/operation/FindUserOperation.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/storage/StorageHandler.java" />
         <option value="$PROJECT_DIR$/src/uk/co/streefland/rhys/finalyearproject/core/User.java" />
@@ -169,17 +224,19 @@
         <option value="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/MessagesTest.java" />
         <option value="$PROJECT_DIR$/src/test/uk/co/streefland/rhys/finalyearproject/core/StorageHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
-        <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/bootstrap.fxml" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/login.fxml" />
-        <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/cli/Main.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/core/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/home.fxml" />
+        <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css" />
       </list>
     </option>
   </component>
@@ -200,10 +257,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -230,6 +285,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -640,15 +697,13 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../workspace/artificialLifeSimulator" />
+    <property name="last_opened_file_path" value="/Applications/SceneBuilder.app" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15234375" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -666,6 +721,23 @@
       <recent name="uk.co.streefland.rhys.finalyearproject.routing" />
       <recent name="uk.co.streefland.rhys.finalyearproject.node" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="uk.co.streefland.rhys.finalyearproject.gui.controller" />
+      <recent name="uk.co.streefland.rhys.finalyearproject.gui" />
+      <recent name="uk.co.streefland.rhys.finalyearproject.operation" />
+      <recent name="uk.co.streefland.rhys.finalyearproject.message" />
+      <recent name="uk.co.streefland.rhys.finalyearproject.exceptions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\uk\co\streefland\rhys\finalyearproject\gui" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\uk\co\streefland\rhys\finalyearproject" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\lib" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\uk\co\streefland\rhys\finalyearproject\message" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\uk\co\streefland\rhys\finalyearproject\gui" />
       <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject" />
@@ -673,33 +745,16 @@
       <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main" />
       <recent name="$PROJECT_DIR$/src" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="uk.co.streefland.rhys.finalyearproject.gui" />
-      <recent name="uk.co.streefland.rhys.finalyearproject.operation" />
-      <recent name="uk.co.streefland.rhys.finalyearproject.message" />
-      <recent name="uk.co.streefland.rhys.finalyearproject.exceptions" />
-      <recent name="uk.co.streefland.rhys.finalyearproject.test" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\uk\co\streefland\rhys\finalyearproject\gui" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\uk\co\streefland\rhys\finalyearproject" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\lib" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\uk\co\streefland\rhys\finalyearproject\message" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\uk\co\streefland\rhys\finalyearproject" />
-    </key>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="uk.co.streefland.rhys.finalyearproject.cli.*" />
+          <option name="PATTERN" value="uk.co.streefland.rhys.finalyearproject.gui.controller.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="MAIN_CLASS_NAME" value="uk.co.streefland.rhys.finalyearproject.cli.Main" />
+      <option name="MAIN_CLASS_NAME" value="uk.co.streefland.rhys.finalyearproject.gui.Main" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
       <option name="WORKING_DIRECTORY" />
@@ -788,26 +843,6 @@
       </option>
       <envs />
       <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="uk.co.streefland.rhys.finalyearproject.gui.controller.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="uk.co.streefland.rhys.finalyearproject.gui.Main" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="finalyearproject" />
-      <envs />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.jsr45.JSR45ConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -1709,13 +1744,12 @@
       <patterns />
       <method />
     </configuration>
-    <list size="6">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="JUnit.All in finalyearproject" />
       <item index="1" class="java.lang.String" itemvalue="Application.Main" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.RoutingTableTest" />
       <item index="3" class="java.lang.String" itemvalue="JUnit.UserTest" />
       <item index="4" class="java.lang.String" itemvalue="JUnit.StorageHandlerTest" />
-      <item index="5" class="java.lang.String" itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list size="5">
@@ -1854,6 +1888,7 @@
       <workItem from="1476825026707" duration="22000" />
       <workItem from="1476825082828" duration="74000" />
       <workItem from="1476871576733" duration="4353000" />
+      <workItem from="1476876151368" duration="2342000" />
     </task>
     <servers />
   </component>
@@ -1890,7 +1925,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="431213000" />
+    <option name="totallyTimeSpent" value="433555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1902,7 +1937,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1912,13 +1947,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24702059" sideWeight="0.5207889" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3345627" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36403033" sideWeight="0.4792111" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12289157" sideWeight="0.4792111" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35777998" sideWeight="0.4968017" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3221011" sideWeight="0.49520257" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20362474" sideWeight="0.6904442" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20314735" sideWeight="0.6904442" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24840085" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2489339" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1930,6 +1964,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3575298" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1977,14 +2012,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/all.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui.java" />
     <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/bleh.java" />
     <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/src.zip!/java/lang/ClassLoader.java" />
@@ -2136,7 +2163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/scene/control/TextInputControl.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/fxml/FXMLLoader.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/scene/Node.java" />
@@ -2159,48 +2185,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/login.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/operation/user/LoginUserOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/connect.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="22" column="7" selection-start-line="22" selection-start-column="7" selection-end-line="22" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="85" selection-start-line="17" selection-start-column="85" selection-end-line="17" selection-end-column="85" />
-          <folding />
+        <state relative-caret-position="-2023">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
+        <state relative-caret-position="1485">
           <caret line="120" column="23" selection-start-line="118" selection-start-column="8" selection-end-line="120" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/operation/user/LoginUserOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2023">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -2209,6 +2204,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
           <caret line="187" column="32" selection-start-line="187" selection-start-column="32" selection-end-line="187" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/core/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="68" column="59" selection-start-line="68" selection-start-column="59" selection-end-line="68" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -2223,14 +2226,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/core/Server.java">
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/connect.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="51" column="7" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
-          <folding>
-            <element signature="e#1996#2114#0" expanded="true" />
-            <element signature="e#2113#2114#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="135">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/login.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="10" selection-start-line="51" selection-start-column="10" selection-end-line="51" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="34" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

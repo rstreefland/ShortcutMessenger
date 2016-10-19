@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -14,12 +15,16 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14).getFamily());
+        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14).getFamily());
+        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14).getFamily());
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("connect.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root, 500, 500);
 
-        stage.setTitle("FinalYearProject Login");
+        stage.setTitle("FinalYearProject");
         stage.setScene(scene);
         stage.setMinHeight(500);
         stage.setMinWidth(500);
