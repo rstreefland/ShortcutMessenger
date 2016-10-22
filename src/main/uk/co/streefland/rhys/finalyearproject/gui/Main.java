@@ -15,9 +15,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14).getFamily());
-        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14).getFamily());
-        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14).getFamily());
+        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14));
+        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14));
+        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14));
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("connect.fxml"));
         Parent root = loader.load();

@@ -29,7 +29,7 @@
                 <Button onAction="#handleLoginButtonAction" text="Log in"/>
             </HBox>
 
-            <Text fx:id="message" fill="RED" styleClass="error" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+            <Text fx:id="message" fill="RED" styleClass="info" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 
             <stylesheets>
                 <URL value="@style.css"/>
