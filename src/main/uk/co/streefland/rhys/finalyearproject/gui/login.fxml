@@ -25,8 +25,8 @@
             <PasswordField fx:id="passwordInput" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
 
             <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="5">
-                <Button onAction="#handleRegisterButtonAction" text="Register"/>
-                <Button onAction="#handleLoginButtonAction" text="Log in"/>
+                <Button fx:id="btn1" onAction="#handleRegisterButtonAction" text="Register"/>
+                <Button fx:id="btn2" onAction="#handleLoginButtonAction" text="Log in"/>
             </HBox>
 
             <Text fx:id="message" fill="RED" styleClass="info" GridPane.columnIndex="1" GridPane.rowIndex="5"/>

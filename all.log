@@ -12835,3 +12835,33 @@ Node: rhys-pc
 2016-10-21 13:11:19.883 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
 2016-10-21 13:11:19.884 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
 2016-10-21 13:11:19.894 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-10-23 19:12:02.257 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-23 19:12:02.259 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-23 19:12:02.271 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-23 19:12:02.272 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-23 19:12:05.454 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 201 ms
+2016-10-23 19:12:05.459 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-10-23 19:12:39.450 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-23 19:12:39.452 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-23 19:12:39.462 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-23 19:12:39.463 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-23 19:12:42.605 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 133 ms
+2016-10-23 19:12:42.610 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-10-23 19:13:41.607 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-23 19:13:41.609 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-23 19:13:41.620 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-23 19:13:41.622 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-10-23 19:13:44.363 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 141 ms
+2016-10-23 19:13:44.368 [Thread-10] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-10-23 19:14:35.177 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-23 19:14:35.181 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-23 19:14:35.191 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-23 19:14:35.193 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12
+2016-10-23 19:14:35.193 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 06FA709E81E57A1E2DE690B0A174C542FE796044 to node 0F938A233883DDA8BEE61E887F7AB460778D8CD4
+2016-10-23 19:14:43.486 [Thread-169] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 150 ms
+2016-10-23 19:14:43.502 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - ACK received from rhys-pc
+2016-10-23 19:14:44.000 [Thread-169] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
+2016-10-23 19:14:49.319 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-23 19:14:49.402 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
+2016-10-23 19:14:49.403 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for me
+2016-10-23 19:14:49.416 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 10 ms

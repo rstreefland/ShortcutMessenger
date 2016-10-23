@@ -1,5 +1,8 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
+import javafx.application.Platform;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
@@ -15,9 +18,13 @@ public class Messages {
     private final Map<KeyId, TextMessage> receivedMessages;
     private final Map<KeyId, TextMessage> forwardMessages;
 
+    private IntegerProperty messageCount = new SimpleIntegerProperty();
+
     public Messages() {
         this.receivedMessages = new HashMap<>();
         this.forwardMessages = new HashMap<>();
+
+        messageCount.set(receivedMessages.size());
     }
 
     /**
@@ -29,6 +36,7 @@ public class Messages {
     public void addReceivedMessage(TextMessage message) {
         if (receivedMessages.putIfAbsent(message.getMessageId(), message) == null) {
             System.out.println("Message received from " + message.getOriginUser().getUserName() + ": " + message.getMessage());
+            messageCount.set(receivedMessages.size());
         }
     }
 
@@ -67,5 +75,9 @@ public class Messages {
 
     public Map<KeyId, TextMessage> getForwardMessages() {
         return forwardMessages;
+    }
+
+    public IntegerProperty messageCountProperty() {
+        return messageCount;
     }
 }

@@ -5,11 +5,15 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 
@@ -66,7 +70,23 @@ public class LoginController {
                     spinner.setVisible(false);
                     message.setText(errorMessage);
                 } else {
-                    spinner.setVisible(false);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../home.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    HomeController controller =
+                            loader.getController();
+                    controller.init(localNode);
+
+                    Stage stage;
+                    stage = (Stage) btn1.getScene().getWindow();
+                    Scene scene = new Scene(root, 500, 500);
+                    stage.setScene(scene);
+                    stage.show();
                 }
             }
         });
@@ -104,7 +124,23 @@ public class LoginController {
                     spinner.setVisible(false);
                     message.setText(errorMessage);
                 } else {
-                    spinner.setVisible(false);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../home.fxml"));
+                    Parent root = null;
+                    try {
+                        root = loader.load();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    HomeController controller =
+                            loader.getController();
+                    controller.init(localNode);
+
+                    Stage stage;
+                    stage = (Stage) btn1.getScene().getWindow();
+                    Scene scene = new Scene(root, 500, 500);
+                    stage.setScene(scene);
+                    stage.show();
                 }
             }
         });

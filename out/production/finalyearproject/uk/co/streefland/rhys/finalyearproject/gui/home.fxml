@@ -1,35 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.URL?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
-
-<BorderPane styleClass="root" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
+<?import java.net.URL?>
+<BorderPane styleClass="root" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
     <top>
         <VBox alignment="center">
             <MenuBar fx:id="menuBar">
                 <menus>
                     <Menu text="File">
                         <items>
-                            <MenuItem text="New" />
-                            <MenuItem text="Open" />
-                            <MenuItem text="Save" />
-                            <MenuItem text="Save As" />
-                            <SeparatorMenuItem />
-                            <MenuItem text="Exit" />
+                            <MenuItem text="New"/>
+                            <MenuItem text="Open"/>
+                            <MenuItem text="Save"/>
+                            <MenuItem text="Save As"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem text="Exit"/>
                         </items>
                     </Menu>
                 </menus>
@@ -38,43 +29,47 @@
     </top>
     <center>
         <GridPane alignment="center">
-            <Pane maxWidth="200" minWidth="100.0" style="-fx-background-color: blue" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS"> </Pane>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-                <TextFlow>
-                    <Text text="Rich: Hello" textAlignment="LEFT" />
-                    <Text text="Rhys: Hello" />
-                </TextFlow>
+            <Pane maxWidth="200" minWidth="100.0" style="-fx-background-color: blue" GridPane.columnIndex="1"
+                  GridPane.rowIndex="1" GridPane.vgrow="ALWAYS"></Pane>
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" GridPane.columnIndex="2"
+                        GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+                        GridPane.vgrow="ALWAYS">
+                    <TextFlow>
+                        <Text text="User 1: Hello" GridPane.halignment="LEFT"/>
+                    </TextFlow>
             </ScrollPane>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-         </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
         </GridPane>
     </center>
     <bottom>
         <GridPane alignment="center" hgap="10" styleClass="menu-bar" vgap="10">
-            <Text fx:id="status" styleClass="info" text="Rhys Streefland (2016)" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" />
-            <ImageView fx:id="spinner" fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+            <Text fx:id="status" styleClass="info" text="Rhys Streefland (2016)" GridPane.columnIndex="1"
+                  GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS"/>
+            <ImageView fx:id="spinner" fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"
+                       visible="false" GridPane.columnIndex="2">
                 <image>
-                    <Image url="@spin.gif" />
+                    <Image url="@spin.gif"/>
                 </image>
             </ImageView>
-         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
-            <ColumnConstraints />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints />
-         </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+            </rowConstraints>
         </GridPane>
     </bottom>
     <stylesheets>
-        <URL value="@style.css" />
+        <URL value="@style.css"/>
     </stylesheets>
 </BorderPane>
