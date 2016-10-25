@@ -6,21 +6,22 @@ import javafx.beans.property.SimpleIntegerProperty;
 import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
+import java.util.*;
 
 /**
  * Stores and manages messages on the local node
  */
 public class Messages {
 
-    private final Map<KeyId, TextMessage> receivedMessages;
+    private final Map<String, ArrayList<String>> userMessages;
+    private final Map<KeyId, Long> receivedMessages;
     private final Map<KeyId, TextMessage> forwardMessages;
 
     private IntegerProperty messageCount = new SimpleIntegerProperty();
 
     public Messages() {
+        this.userMessages = new HashMap<>();
         this.receivedMessages = new HashMap<>();
         this.forwardMessages = new HashMap<>();
 
@@ -34,9 +35,14 @@ public class Messages {
      * @param message The message to store
      */
     public void addReceivedMessage(TextMessage message) {
-        if (receivedMessages.putIfAbsent(message.getMessageId(), message) == null) {
+        if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) == null) {
             System.out.println("Message received from " + message.getOriginUser().getUserName() + ": " + message.getMessage());
-            messageCount.set(receivedMessages.size());
+
+            if (userMessages.putIfAbsent(message.getOriginUser().getUserName(), new ArrayList(Arrays.asList(message.getMessage()))) != null) {
+                ArrayList<String> currentUserMessages = userMessages.get(message.getOriginUser().getUserName());
+                currentUserMessages.add(message.getMessage());
+            }
+            messageCount.set(messageCount.get() + 1);
         }
     }
 
@@ -69,8 +75,8 @@ public class Messages {
         return super.toString(); // TODO: 08/10/2016  change this to print out all messages in memory
     }
 
-    public Map<KeyId, TextMessage> getReceivedMessages() {
-        return receivedMessages;
+    public Map<String, ArrayList<String>> getUserMessages() {
+        return userMessages;
     }
 
     public Map<KeyId, TextMessage> getForwardMessages() {

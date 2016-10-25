@@ -29,14 +29,14 @@
     </top>
     <center>
         <GridPane alignment="center">
-            <Pane maxWidth="200" minWidth="100.0" style="-fx-background-color: blue" GridPane.columnIndex="1"
-                  GridPane.rowIndex="1" GridPane.vgrow="ALWAYS"></Pane>
-            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" GridPane.columnIndex="2"
+
+            <ListView fx:id="listView" maxWidth="100" GridPane.columnIndex="1"
+                      GridPane.rowIndex="1">
+            </ListView>
+            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" GridPane.columnIndex="2"
                         GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
                         GridPane.vgrow="ALWAYS">
-                    <TextFlow>
-                        <Text text="User 1: Hello" GridPane.halignment="LEFT"/>
-                    </TextFlow>
+                <GridPane fx:id="textPane"></GridPane>
             </ScrollPane>
             <columnConstraints>
                 <ColumnConstraints/>

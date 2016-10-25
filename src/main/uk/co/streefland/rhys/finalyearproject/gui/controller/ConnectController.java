@@ -12,6 +12,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
@@ -150,5 +152,13 @@ public class ConnectController {
                 }
             }
         });
+    }
+
+    public void handleKeyPressed(KeyEvent key)
+    {
+        if(key.getCode() == KeyCode.ENTER)
+        {
+            btn1.fire();
+        }
     }
 }

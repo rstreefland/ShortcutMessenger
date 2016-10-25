@@ -45,7 +45,7 @@ public class MessagesTest {
         message2 = new TextMessage(originNode, targetNode, originUser, targetUser, "");
         message3 = new TextMessage(originNode, targetNode, originUser, targetUser, "sdjfhdlkfhwklehfpiwehfwbhefhnkejfhewkjhf");
     }
-
+/*
     @Test
     public void testAddReceivedMessage() throws Exception {
         messages.addReceivedMessage(message1);
@@ -59,7 +59,7 @@ public class MessagesTest {
         assertEquals(messages.getReceivedMessages().get(message2.getMessageId()), message2);
         assertEquals(messages.getReceivedMessages().get(message3.getMessageId()), message3);
     }
-
+*/
     @Test
     public void testAddForwardMessage() throws Exception {
         messages.addForwardMessage(message1);
