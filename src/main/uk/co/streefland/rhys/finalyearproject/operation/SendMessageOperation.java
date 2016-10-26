@@ -257,6 +257,10 @@ public class SendMessageOperation implements Operation, Receiver {
         return isMessagedSuccessfully;
     }
 
+    public TextMessage getMessage() {
+        return message;
+    }
+
     public User getUser() {
         return user;
     }

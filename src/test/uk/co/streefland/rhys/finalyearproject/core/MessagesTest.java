@@ -31,7 +31,7 @@ public class MessagesTest {
 
     @Before
     public void setUp() throws Exception {
-        messages = new Messages();
+        messages = new Messages(null);
 
         originNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123);
         intermediaryNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 124);

@@ -11,7 +11,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
@@ -20,6 +19,7 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 
 import java.io.IOException;
@@ -30,7 +30,7 @@ import java.util.Optional;
 public class HomeController {
 
     private LocalNode localNode;
-    private Map<String, ArrayList<String>> userMessages;
+    private Map<String, ArrayList<StoredTextMessage>> userMessages;
 
     private ObservableList<String> conversations;
 
@@ -62,36 +62,39 @@ public class HomeController {
 
 
         localNode.getMessages().lastMessageProperty().addListener(
-                new ChangeListener<String>() {
+                new ChangeListener<StoredTextMessage>() {
                     @Override
-                    public void changed(ObservableValue<? extends String> o, String oldVal,
-                                        String newVal) {
+                    public void changed(ObservableValue<? extends StoredTextMessage> o, StoredTextMessage oldVal,
+                                        StoredTextMessage newVal) {
+
+                        StoredTextMessage message = newVal;
 
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
-                                changeConversation(localNode.getMessages().getLastMessageUser());
+                                changeConversation(message.getAuthor());
 
-                                String title = "New message from " + localNode.getMessages().getLastMessageUser();
-                                NotificationType notification = NotificationType.INFORMATION;
-
-                                Image image = new Image(getClass().getResource("../chatbubble.png").toExternalForm());
-                                TrayNotification tray = new TrayNotification();
-                                tray.setTitle(title);
-                                tray.setMessage(newVal);
-                                tray.setNotificationType(notification);
-                                tray.setRectangleFill(Paint.valueOf("#000000"));
-                                tray.setImage(image);
-                                tray.setAnimationType(AnimationType.POPUP);
-                                tray.showAndDismiss(Duration.seconds(3));
+                                if (currentConversationUser != message.getAuthor()) {
+                                    String title = "New message from " + message.getAuthor();
+                                    NotificationType notification = NotificationType.INFORMATION;
+                                    Image image = new Image(getClass().getResource("../chatbubble.png").toExternalForm());
+                                    TrayNotification tray = new TrayNotification();
+                                    tray.setTitle(title);
+                                    tray.setMessage(message.getMessage());
+                                    tray.setNotificationType(notification);
+                                    tray.setRectangleFill(Paint.valueOf("#000000"));
+                                    tray.setImage(image);
+                                    tray.setAnimationType(AnimationType.POPUP);
+                                    tray.showAndDismiss(Duration.seconds(5));
+                                }
                             }
                         });
 
-                        if (currentConversationUser == localNode.getMessages().getLastMessageUser()) {
+                        if (currentConversationUser == message.getAuthor()) {
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Text text = new Text(newVal);
+                                    Text text = new Text(message.getAuthor()+ ": " + message.getMessage());
                                     textPane.add(text, 1, textPane.getChildren().size() + 1);
                                 }
                             });
@@ -112,11 +115,11 @@ public class HomeController {
         textPane.getChildren().clear();
 
         if (currentConversationUser != null) {
-            ArrayList<String> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
+            ArrayList<StoredTextMessage> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
 
             if (conversation != null) {
                 for (int i = 0; i < conversation.size(); i++) {
-                    Text text = new Text(conversation.get(i));
+                    Text text = new Text(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
                     textPane.add(text, 1, i);
                 }
             }

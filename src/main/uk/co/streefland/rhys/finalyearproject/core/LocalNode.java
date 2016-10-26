@@ -53,7 +53,7 @@ public class LocalNode implements Runnable {
         readState(localIp, port);
 
         this.messageHandler = new MessageHandler(this);
-        this.messages = new Messages();
+        this.messages = new Messages(this);
         this.server = new Server(config.getPort(), messageHandler, config);
 
         /* Couldn't read it from file */
@@ -88,7 +88,7 @@ public class LocalNode implements Runnable {
         this.routingTable = new RoutingTable(localNode);
 
         this.messageHandler = new MessageHandler(this);
-        this.messages = new Messages();
+        this.messages = new Messages(this);
         this.server = new Server(port, messageHandler, config);
         this.users = new Users(this);
     }
@@ -246,16 +246,7 @@ public class LocalNode implements Runnable {
     }
 
     public final void message(String message, User userToMessage) throws IOException {
-        if (!message.isEmpty() && users.getLocalUser() != null) {
-            SendMessageOperation operation = new SendMessageOperation(this, userToMessage, message);
-            operation.execute();
-
-            if (operation.getUser() != null) {
-                logger.info("Message sent to {}", operation.getUser());
-            } else {
-                logger.error("User {} doesn't exist", userToMessage.getUserName());
-            }
-        }
+            messages.sendMessage(message, userToMessage);
     }
 
     /**
