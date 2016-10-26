@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.core;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
 
@@ -138,6 +139,21 @@ public class Users implements Serializable {
             }
         }
         return null;
+    }
+
+    public synchronized User findUserOnNetwork(String userName) throws IOException {
+        User user = findUser(userName);
+
+        if (findUser(userName) == null) {
+            FindUserOperation fuo = new FindUserOperation(localNode, new User(userName, ""));
+            fuo.execute();
+            user = fuo.getFoundUser();
+            if (user != null) {
+                addUser(user);
+            }
+        }
+
+        return user;
     }
 
     /**

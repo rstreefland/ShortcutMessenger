@@ -4,19 +4,28 @@ import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Optional;
 
 public class HomeController {
 
     private LocalNode localNode;
     private Map<String, ArrayList<String>> userMessages;
+
+    private ObservableList<String> conversations;
 
     private String currentConversationUser;
     private int currentConversationMessages;
@@ -31,11 +40,8 @@ public class HomeController {
         this.userMessages = localNode.getMessages().getUserMessages();
         currentConversationMessages = 0;
 
-        listView.setItems(FXCollections.observableArrayList(
-                "one", "two", "Item 3", "Item 4"));
-
-        currentConversationUser = "one";
-        changeConversation();
+        conversations = FXCollections.observableArrayList("test");
+        listView.setItems(conversations);
 
         listView.getSelectionModel().selectedItemProperty()
                 .addListener(new ChangeListener<String>() {
@@ -57,7 +63,18 @@ public class HomeController {
                     public void changed(ObservableValue<? extends Number> o, Number oldVal,
                                         Number newVal) {
 
-                        System.out.println("I IS HERE");
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (!conversations.contains(localNode.getMessages().getLastMessageUser())) {
+                                    conversations.add(localNode.getMessages().getLastMessageUser());
+                                    listView.getSelectionModel().select(localNode.getMessages().getLastMessageUser());
+                                    currentConversationUser = localNode.getMessages().getLastMessageUser();
+                                    changeConversation();
+                                }
+                            }
+                        });
+
 
                         if (userMessages.get(currentConversationUser).size() != currentConversationMessages) {
                             ArrayList<String> conversation = userMessages.get(currentConversationUser);
@@ -94,5 +111,39 @@ public class HomeController {
                 }
             }
         }
+    }
+
+    @FXML
+    private void newConversation(ActionEvent event) throws IOException {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("New Conversation");
+        dialog.setHeaderText("New conversation");
+        dialog.setContentText("Username:");
+
+        // Traditional way to get the response value.
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            System.out.println("Your name: " + result.get());
+            if (!setUser(result.get())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("User not found");
+                alert.setContentText("User not found!");
+                alert.showAndWait();
+            }
+        }
+    }
+
+
+    private boolean setUser(String userName) throws IOException {
+        User user = localNode.getUsers().findUserOnNetwork(userName);
+
+        if (user == null) {
+            return false;
+        }
+
+        conversations.add(userName);
+        listView.getSelectionModel().select(userName);
+        changeConversation();
+        return true;
     }
 }

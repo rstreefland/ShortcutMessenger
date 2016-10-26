@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -132,7 +131,7 @@ public class ConnectController {
                     spinner.setVisible(false);
                     message.setText(errorMessage);
                 } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../login.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/login.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();
