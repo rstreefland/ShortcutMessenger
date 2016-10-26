@@ -1,9 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
 import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
@@ -19,15 +17,13 @@ public class Messages {
     private final Map<KeyId, Long> receivedMessages;
     private final Map<KeyId, TextMessage> forwardMessages;
 
-    private IntegerProperty messageCount = new SimpleIntegerProperty();
+    private ObjectProperty<String> lastMessage = new SimpleObjectProperty<>();
     private String lastMessageUser;
 
     public Messages() {
         this.userMessages = new HashMap<>();
         this.receivedMessages = new HashMap<>();
         this.forwardMessages = new HashMap<>();
-
-        messageCount.set(receivedMessages.size());
     }
 
     /**
@@ -37,15 +33,20 @@ public class Messages {
      * @param message The message to store
      */
     public void addReceivedMessage(TextMessage message) {
-        if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) == null) {
-            System.out.println("Message received from " + message.getOriginUser().getUserName() + ": " + message.getMessage());
+        User originUser = message.getOriginUser();
+        String userName = originUser.getUserName();
+        String messageString = message.getMessage();
 
-            if (userMessages.putIfAbsent(message.getOriginUser().getUserName(), new ArrayList(Arrays.asList(message.getMessage()))) != null) {
-                ArrayList<String> currentUserMessages = userMessages.get(message.getOriginUser().getUserName());
-                currentUserMessages.add(message.getMessage());
+
+        if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) == null) {
+            System.out.println("Message received from " + userName + ": " + messageString);
+
+            if (userMessages.putIfAbsent(userName, new ArrayList(Arrays.asList(message.getMessage()))) != null) {
+                ArrayList<String> currentUserMessages = userMessages.get(userName);
+                currentUserMessages.add(messageString);
             }
-            messageCount.set(messageCount.get() + 1);
-            lastMessageUser = message.getOriginUser().getUserName();
+            lastMessageUser = userName;
+            lastMessage.set(messageString);
         }
     }
 
@@ -90,8 +91,7 @@ public class Messages {
         return lastMessageUser;
     }
 
-    public IntegerProperty messageCountProperty() {
-        return messageCount;
+    public ObjectProperty<String> lastMessageProperty() {
+        return lastMessage;
     }
-
 }

@@ -1,200 +1,192 @@
-2016-10-26 14:25:21.334 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-10-26 14:25:21.336 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-10-26 14:25:21.346 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-10-26 14:25:21.347 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 50796E30B434309F6F154AD9B874F6A2D1A39C2C to node 01F634E6C70FE84D0EB4B10F9E0485843B7D4639
-2016-10-26 14:25:21.347 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 442
-2016-10-26 14:25:23.397 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 4
-2016-10-26 14:25:23.397 [Thread-8] WARN  uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
-2016-10-26 14:25:23.419 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 4
-2016-10-26 14:25:23.419 [Thread-8] WARN  uk.co.streefland.rhys.finalyearproject.message.MessageHandler - No receiver type found for message code: 4
-2016-10-26 14:25:28.378 [Thread-169] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 153 ms
-2016-10-26 14:25:30.386 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - ACK received from rhys-pc
-2016-10-26 14:25:30.886 [Thread-169] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: pop
-2016-10-26 14:25:40.126 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.866 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.866 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.866 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.867 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.867 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.867 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.868 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.868 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.868 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.868 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.869 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.869 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.869 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.870 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.870 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.870 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.870 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.871 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.871 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.871 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.872 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.872 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.872 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.873 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.873 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.873 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.874 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.874 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.874 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.874 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.875 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.875 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.875 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.875 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.876 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.876 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.876 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.876 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.877 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.877 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.877 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.878 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.878 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.878 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.878 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.879 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.879 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.879 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.880 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.880 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.880 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.881 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.881 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.881 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.881 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.882 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.882 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.882 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.882 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.883 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.883 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.883 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.883 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.884 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.884 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.884 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.884 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.884 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.885 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.885 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.885 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.886 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.886 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.886 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.887 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.887 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.887 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.887 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.887 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.888 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.888 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.888 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.889 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.889 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.889 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.889 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.890 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.890 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.890 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.890 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.890 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.891 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.891 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.891 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.891 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.892 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.892 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.892 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.892 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.893 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.893 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.893 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.893 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.894 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.894 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.894 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.894 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.895 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.895 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.895 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.895 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.896 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.896 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.896 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.896 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.896 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.897 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.897 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.897 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.897 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.897 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.898 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.898 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.898 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.898 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.899 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.899 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.899 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.899 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.900 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.900 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.900 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.900 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.901 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.901 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.901 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.901 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.901 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.902 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.902 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.902 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.902 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.902 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.902 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.903 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.903 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.903 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.903 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.904 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.904 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.904 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.904 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.904 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.905 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.905 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.905 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.905 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.905 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.906 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:40.906 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:42.190 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
-2016-10-26 14:25:42.191 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: aled
-2016-10-26 14:25:42.883 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:42.891 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:25:42.946 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
-2016-10-26 14:25:42.946 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: bleh
-2016-10-26 14:25:42.956 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
-2016-10-26 14:25:42.956 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
-2016-10-26 14:25:42.956 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: one
-2016-10-26 14:25:42.956 [pool-3-thread-6] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
-2016-10-26 14:25:44.884 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:26:01.942 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:26:07.267 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
-2016-10-26 14:26:09.328 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
-2016-10-26 14:26:09.329 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for me
-2016-10-26 14:26:09.341 [pool-3-thread-6] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 10 ms
-2016-10-26 14:26:21.364 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
-2016-10-26 14:26:21.372 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
-2016-10-26 14:26:21.374 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
-2016-10-26 14:26:23.381 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - ACK received from rhys-pc
-2016-10-26 14:26:23.388 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - ACK received from rhys-pc
-2016-10-26 14:26:23.427 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - ACK received from rhys-pc
-2016-10-26 14:26:23.428 [pool-3-thread-3] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - ACK received from rhys-pc
-2016-10-26 14:26:23.880 [Thread-329] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
-2016-10-26 14:26:23.887 [Thread-330] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
-2016-10-26 14:26:23.927 [Thread-331] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
-2016-10-26 14:26:23.927 [Thread-332] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-26 18:23:02.254 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-10-26 18:23:02.256 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-10-26 18:23:02.265 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-10-26 18:23:02.266 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12
+2016-10-26 18:23:02.267 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode E2B4CDD0066036D7949CC47CD3005A3B1FF0F496 to node 0FF14F7852574234FCAEDBBF04F4BFC0E79551F6
+2016-10-26 18:23:06.468 [Thread-169] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 147 ms
+2016-10-26 18:23:08.483 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation - VerifyUserReplyMessage received from rhys-pc
+2016-10-26 18:23:08.501 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 18 ms
+2016-10-26 18:23:10.093 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.094 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.095 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.095 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.095 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.096 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.096 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.096 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.097 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.097 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.097 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.098 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.098 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.098 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.099 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.099 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.099 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.099 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.100 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.100 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.100 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.101 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.101 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.101 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.102 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.102 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.102 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.102 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.103 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.103 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.103 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.103 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.104 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.104 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.104 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.105 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.105 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.105 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.105 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.106 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.106 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.106 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.106 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.107 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.107 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.107 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.107 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.108 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.108 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.108 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.108 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.109 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.109 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.109 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.110 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.110 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.110 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.110 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.110 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.111 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.111 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.111 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.111 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.111 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.112 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.112 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.112 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.112 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.112 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.113 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.113 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.113 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.113 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.113 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.114 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.114 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.114 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.114 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.115 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.115 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.115 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.115 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.115 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.117 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.117 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.117 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.117 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.117 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.118 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.118 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.118 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.118 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.119 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.119 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.119 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.119 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.119 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.120 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.120 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.120 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.120 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.120 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.120 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.121 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.121 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.121 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.121 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.121 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.122 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.122 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.122 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.122 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.122 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.123 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.123 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.123 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.123 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.124 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.124 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.124 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.124 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.124 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.124 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.125 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.125 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.125 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.125 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.125 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.125 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.126 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.126 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.126 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.126 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.126 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.126 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.127 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.127 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.133 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.133 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.133 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.134 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.134 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.134 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.135 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.135 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.135 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.135 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.135 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.135 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.135 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.136 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.136 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.136 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.136 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.136 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.137 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.137 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.137 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.137 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:10.992 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - ACK received from rhys-pc
+2016-10-26 18:23:11.493 [Thread-169] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: rhys
+2016-10-26 18:23:12.111 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
+2016-10-26 18:23:12.112 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: three
+2016-10-26 18:23:12.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
+2016-10-26 18:23:12.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
+2016-10-26 18:23:12.116 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: clayton
+2016-10-26 18:23:12.116 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
+2016-10-26 18:23:12.117 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
+2016-10-26 18:23:12.116 [pool-3-thread-1] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: two
+2016-10-26 18:23:12.117 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
+2016-10-26 18:23:12.117 [pool-3-thread-3] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - New user added to users: test
+2016-10-26 18:23:20.015 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:22.019 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
+2016-10-26 18:23:22.021 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for me
+2016-10-26 18:23:22.031 [pool-3-thread-3] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 8 ms
+2016-10-26 18:23:33.222 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
+2016-10-26 18:23:35.224 [Thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
+2016-10-26 18:23:35.225 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for me
+2016-10-26 18:23:35.235 [pool-3-thread-3] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 10 ms

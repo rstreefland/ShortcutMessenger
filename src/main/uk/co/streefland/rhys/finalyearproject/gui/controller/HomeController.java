@@ -10,8 +10,15 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+import tray.animations.AnimationType;
+import tray.notification.NotificationType;
+import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 
@@ -28,7 +35,6 @@ public class HomeController {
     private ObservableList<String> conversations;
 
     private String currentConversationUser;
-    private int currentConversationMessages;
 
     @FXML
     private ListView<String> listView;
@@ -38,9 +44,8 @@ public class HomeController {
     public void init(LocalNode localNode) {
         this.localNode = localNode;
         this.userMessages = localNode.getMessages().getUserMessages();
-        currentConversationMessages = 0;
 
-        conversations = FXCollections.observableArrayList("test");
+        conversations = FXCollections.observableArrayList();
         listView.setItems(conversations);
 
         listView.getSelectionModel().selectedItemProperty()
@@ -51,54 +56,60 @@ public class HomeController {
                             String oldValue, String newValue) {
                         // change the label text value to the newly selected
                         // item.
-                        currentConversationUser = newValue;
-                        changeConversation();
+                        changeConversation(newValue);
                     }
                 });
 
 
-        localNode.getMessages().messageCountProperty().addListener(
-                new ChangeListener<Number>() {
+        localNode.getMessages().lastMessageProperty().addListener(
+                new ChangeListener<String>() {
                     @Override
-                    public void changed(ObservableValue<? extends Number> o, Number oldVal,
-                                        Number newVal) {
+                    public void changed(ObservableValue<? extends String> o, String oldVal,
+                                        String newVal) {
 
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
-                                if (!conversations.contains(localNode.getMessages().getLastMessageUser())) {
-                                    conversations.add(localNode.getMessages().getLastMessageUser());
-                                    listView.getSelectionModel().select(localNode.getMessages().getLastMessageUser());
-                                    currentConversationUser = localNode.getMessages().getLastMessageUser();
-                                    changeConversation();
-                                }
+                                changeConversation(localNode.getMessages().getLastMessageUser());
+
+                                String title = "New message from " + localNode.getMessages().getLastMessageUser();
+                                NotificationType notification = NotificationType.INFORMATION;
+
+                                Image image = new Image(getClass().getResource("../chatbubble.png").toExternalForm());
+                                TrayNotification tray = new TrayNotification();
+                                tray.setTitle(title);
+                                tray.setMessage(newVal);
+                                tray.setNotificationType(notification);
+                                tray.setRectangleFill(Paint.valueOf("#000000"));
+                                tray.setImage(image);
+                                tray.setAnimationType(AnimationType.POPUP);
+                                tray.showAndDismiss(Duration.seconds(3));
                             }
                         });
 
-
-                        if (userMessages.get(currentConversationUser).size() != currentConversationMessages) {
-                            ArrayList<String> conversation = userMessages.get(currentConversationUser);
-
-                            if (conversation != null) {
-                                Platform.runLater(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        for (int i = currentConversationMessages; i < userMessages.get(currentConversationUser).size(); i++) {
-                                            Text text = new Text(conversation.get(i));
-                                            textPane.add(text, 1, i);
-                                            currentConversationMessages++;
-                                        }
-                                    }
-                                });
-                            }
+                        if (currentConversationUser == localNode.getMessages().getLastMessageUser()) {
+                            Platform.runLater(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Text text = new Text(newVal);
+                                    textPane.add(text, 1, textPane.getChildren().size() + 1);
+                                }
+                            });
                         }
                     }
                 });
     }
 
-    private void changeConversation() {
+    private void changeConversation(String userName) {
+
+        if (!conversations.contains(userName)) {
+            conversations.add(userName);
+            return;
+        }
+
+        currentConversationUser = userName;
+
         textPane.getChildren().clear();
-        currentConversationMessages = 0;
 
         if (currentConversationUser != null) {
             ArrayList<String> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
@@ -107,7 +118,6 @@ public class HomeController {
                 for (int i = 0; i < conversation.size(); i++) {
                     Text text = new Text(conversation.get(i));
                     textPane.add(text, 1, i);
-                    currentConversationMessages++;
                 }
             }
         }
@@ -124,7 +134,7 @@ public class HomeController {
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
             System.out.println("Your name: " + result.get());
-            if (!setUser(result.get())) {
+            if (!setConversationUser(result.get())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("User not found");
                 alert.setContentText("User not found!");
@@ -134,16 +144,15 @@ public class HomeController {
     }
 
 
-    private boolean setUser(String userName) throws IOException {
+    private boolean setConversationUser(String userName) throws IOException {
+
         User user = localNode.getUsers().findUserOnNetwork(userName);
 
         if (user == null) {
             return false;
         }
 
-        conversations.add(userName);
-        listView.getSelectionModel().select(userName);
-        changeConversation();
+        changeConversation(userName);
         return true;
     }
 }
