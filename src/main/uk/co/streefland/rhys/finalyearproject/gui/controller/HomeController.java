@@ -7,10 +7,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
@@ -40,6 +40,10 @@ public class HomeController {
     private ListView<String> listView;
     @FXML
     private GridPane textPane;
+    @FXML
+    private TextField messageField;
+    @FXML
+    private Button sendButton;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
@@ -74,7 +78,7 @@ public class HomeController {
                             public void run() {
                                 changeConversation(message.getAuthor());
 
-                                if (currentConversationUser != message.getAuthor()) {
+                                if (currentConversationUser != message.getAuthor() && message.getAuthor() != localNode.getUsers().getLocalUser().getUserName()) {
                                     String title = "New message from " + message.getAuthor();
                                     NotificationType notification = NotificationType.INFORMATION;
                                     Image image = new Image(getClass().getResource("../chatbubble.png").toExternalForm());
@@ -90,7 +94,7 @@ public class HomeController {
                             }
                         });
 
-                        if (currentConversationUser == message.getAuthor()) {
+                        if (currentConversationUser == message.getAuthor() || currentConversationUser == message.getRecipient()) {
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
@@ -104,23 +108,25 @@ public class HomeController {
     }
 
     private void changeConversation(String userName) {
+        if (userName != localNode.getUsers().getLocalUser().getUserName()) {
 
-        if (!conversations.contains(userName)) {
-            conversations.add(userName);
-            return;
-        }
+            if (!conversations.contains(userName)) {
+                conversations.add(userName);
+                return;
+            }
 
-        currentConversationUser = userName;
+            currentConversationUser = userName;
 
-        textPane.getChildren().clear();
+            textPane.getChildren().clear();
 
-        if (currentConversationUser != null) {
-            ArrayList<StoredTextMessage> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
+            if (currentConversationUser != null) {
+                ArrayList<StoredTextMessage> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
 
-            if (conversation != null) {
-                for (int i = 0; i < conversation.size(); i++) {
-                    Text text = new Text(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
-                    textPane.add(text, 1, i);
+                if (conversation != null) {
+                    for (int i = 0; i < conversation.size(); i++) {
+                        Text text = new Text(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
+                        textPane.add(text, 1, i);
+                    }
                 }
             }
         }
@@ -157,5 +163,21 @@ public class HomeController {
 
         changeConversation(userName);
         return true;
+    }
+
+    @FXML
+    private void sendMessage(ActionEvent event) throws IOException {
+       if (currentConversationUser != null) {
+           localNode.message(messageField.getText(), new User(currentConversationUser, ""));
+           messageField.clear();
+       }
+    }
+
+    public void handleKeyPressed(KeyEvent key)
+    {
+        if(key.getCode() == KeyCode.ENTER)
+        {
+            sendButton.fire();
+        }
     }
 }

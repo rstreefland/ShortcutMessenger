@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <?import java.net.URL?>
-<BorderPane styleClass="root" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.65"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
     <top>
         <VBox alignment="center">
@@ -31,15 +32,23 @@
     </top>
     <center>
         <GridPane alignment="center">
-
             <ListView fx:id="listView" maxWidth="100" GridPane.columnIndex="1"
                       GridPane.rowIndex="1">
+                <placeholder>
+                    <Label styleClass="info" textAlignment="CENTER" text="No conversations found" wrapText="true"/>
+                </placeholder>
             </ListView>
-            <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" GridPane.columnIndex="2"
-                        GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
-                        GridPane.vgrow="ALWAYS">
-                <GridPane fx:id="textPane"></GridPane>
-            </ScrollPane>
+            <VBox GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1"
+                  GridPane.vgrow="ALWAYS">
+                <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
+                            vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+                    <GridPane fx:id="textPane"/>
+                </ScrollPane>
+                <HBox alignment="BOTTOM_CENTER">
+                    <TextField fx:id="messageField" HBox.hgrow="ALWAYS" promptText="Type a message..."/>
+                    <Button fx:id="sendButton" onAction="#sendMessage" text="SEND"/>
+                </HBox>
+            </VBox>
             <columnConstraints>
                 <ColumnConstraints/>
                 <ColumnConstraints/>

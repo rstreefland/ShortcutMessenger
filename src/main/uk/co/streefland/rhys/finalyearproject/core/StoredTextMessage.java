@@ -27,20 +27,26 @@ public class StoredTextMessage {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private String author;
+    private String recipient;
     private String message;
     private long createdTime;
 
     /**
      * Constructor for broadcast messages
      */
-    public StoredTextMessage(String author, String message, long createdTime) {
+    public StoredTextMessage(String author, String recipient, String message, long createdTime) {
         this.author = author;
+        this.recipient = recipient;
         this.message = message;
         this.createdTime = createdTime;
     }
 
     public String getAuthor() {
         return author;
+    }
+
+    public String getRecipient() {
+        return recipient;
     }
 
     public String getMessage() {

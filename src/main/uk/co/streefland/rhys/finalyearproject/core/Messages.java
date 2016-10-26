@@ -40,12 +40,14 @@ public class Messages {
 
             if (operation.getUser() != null) {
                 logger.info("Message sent to {}", operation.getUser());
-                StoredTextMessage stm = new StoredTextMessage(localNode.getUsers().getLocalUser().getUserName(), message, operation.getMessage().getCreatedTime());
+                StoredTextMessage stm = new StoredTextMessage(localNode.getUsers().getLocalUser().getUserName(), target.getUserName(),  message, operation.getMessage().getCreatedTime());
 
                 if (userMessages.putIfAbsent(target.getUserName(), new ArrayList(Arrays.asList(stm))) != null) {
                     ArrayList<StoredTextMessage> conversation = userMessages.get(target.getUserName());
                     conversation.add(stm);
                 }
+
+                lastMessage.set(stm);
             } else {
                 logger.error("User {} doesn't exist", target.getUserName());
             }
@@ -63,8 +65,7 @@ public class Messages {
         String userName = originUser.getUserName();
         String messageString = message.getMessage();
 
-        StoredTextMessage storedMessage = new StoredTextMessage(userName, messageString, message.getCreatedTime());
-
+        StoredTextMessage storedMessage = new StoredTextMessage(userName, localNode.getUsers().getLocalUser().getUserName(), messageString, message.getCreatedTime());
 
         if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) == null) {
             System.out.println("Message received from " + userName + ": " + messageString);
