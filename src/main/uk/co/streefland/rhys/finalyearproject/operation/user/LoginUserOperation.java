@@ -60,8 +60,17 @@ public class LoginUserOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
-
         loggedIn = false; // not logged in until another node proves otherwise
+
+        /* Look for user on the local node first */
+        User localUser = localNode.getUsers().findUser(user.getUserName());
+
+        if (localUser != null) {
+            if (localUser.doPasswordsMatch(plainTextPassword)) {
+                loggedIn = true;
+                return;
+            }
+        }
 
         /* Find nodes closest to the userId */
         FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId());
@@ -85,16 +94,6 @@ public class LoginUserOperation implements Operation, Receiver {
         } catch (InterruptedException e) {
             e.printStackTrace();
             logger.error("LoginUserOperation was interrupted unexpectedly: {}", e);
-        }
-
-        /* Don't terminate until all replies have either been received or have timed out */
-        while (messagesInTransit.size() > 0) {
-            try {
-                iterativeQueryNodes();
-                wait(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 

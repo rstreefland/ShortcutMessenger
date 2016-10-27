@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 import uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController;
 import uk.co.streefland.rhys.finalyearproject.gui.controller.LoginController;
 
@@ -20,16 +21,34 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+
         Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14);
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/connect.fxml"));
-        Parent root = loader.load();
+        StorageHandler temp = new StorageHandler();
 
-        ConnectController controller =
-                loader.getController();
-        controller.init(this);
+        Parent root;
+
+        if (temp.doesSavedStateExist()) {
+            localNode = new LocalNode("", 0);
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/login.fxml"));
+            root = loader.load();
+
+            LoginController controller =
+                    loader.getController();
+            controller.init(localNode);
+
+        } else {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/connect.fxml"));
+            root = loader.load();
+
+            ConnectController controller =
+                    loader.getController();
+            controller.init(this);
+        }
+
 
         Scene scene = new Scene(root, 500, 500);
 

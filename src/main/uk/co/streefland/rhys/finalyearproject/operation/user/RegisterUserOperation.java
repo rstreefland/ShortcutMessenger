@@ -72,14 +72,14 @@ public class RegisterUserOperation implements Operation, Receiver {
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
-            int timeInterval = 10;
-            while (totalTimeWaited < config.getOperationTimeout()) {
-                if (!iterativeQueryNodes()) {
-                    wait(timeInterval);
-                    totalTimeWaited += timeInterval;
-                } else {
-                    break;
-                }
+                int timeInterval = 10;
+                while (totalTimeWaited < config.getOperationTimeout()) {
+                    if (!iterativeQueryNodes()) {
+                        wait(timeInterval);
+                        totalTimeWaited += timeInterval;
+                    } else {
+                        break;
+                    }
             }
         } catch (InterruptedException e) {
             e.printStackTrace();

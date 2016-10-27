@@ -94,12 +94,6 @@ public class SendMessageOperation implements Operation, Receiver {
             }
 
             closestNodes = fuo.getClosestNodes();
-
-            if (closestNodes == null) {
-                FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId());
-                fno.execute();
-                closestNodes = fno.getClosestNodes();
-            }
         }
 
         /* Add associated nodes to the 'to message' list */
@@ -114,6 +108,12 @@ public class SendMessageOperation implements Operation, Receiver {
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
         if (!isMessagedSuccessfully && hasTimeoutOccurred && !forwarding) {
+            if (closestNodes == null) {
+                FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId());
+                fno.execute();
+                closestNodes = fno.getClosestNodes();
+            }
+
             addNodes(closestNodes);
             messageLoop();
         }

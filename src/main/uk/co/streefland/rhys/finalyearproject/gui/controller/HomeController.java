@@ -11,17 +11,13 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
@@ -60,7 +56,7 @@ public class HomeController {
     public void init(LocalNode localNode) {
         this.localNode = localNode;
         this.localUser = localNode.getUsers().getLocalUser().getUserName();
-        
+
         conversations = FXCollections.observableArrayList();
         listView.setItems(conversations);
 
@@ -138,33 +134,48 @@ public class HomeController {
         // Traditional way to get the response value.
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
-            if (!createConversationUser(result.get())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("User not found");
-                alert.setContentText("User not found!");
-                alert.showAndWait();
-            }
+            createConversationUser(result.get());
         }
     }
 
 
-    private boolean createConversationUser(String userName) throws IOException {
+    private void createConversationUser(String userName) throws IOException {
         if (userName.equals(localNode.getUsers().getLocalUser())) {
-            return false;
+            return;
         }
 
         spinner.setVisible(true);
-        User user = localNode.getUsers().findUserOnNetwork(userName);
 
-        if (user == null) {
-            spinner.setVisible(false);
-            return false;
-        }
+        Task task = new Task() {
+            @Override
+            protected User call() throws Exception {
+                User user = localNode.getUsers().findUserOnNetwork(userName);
+                this.succeeded();
+                return user;
+            }
+        };
 
-        changeConversation(userName);
-        listView.getSelectionModel().select(userName);
-        spinner.setVisible(false);
-        return true;
+        final Thread thread = new Thread(task);
+        thread.setDaemon(true);
+        thread.start();
+
+        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+            @Override
+            public void handle(WorkerStateEvent event) {
+                User user = (User) task.getValue(); // result of computation
+                spinner.setVisible(false);
+
+                if (user == null) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("User not found");
+                    alert.setContentText("User not found!");
+                    alert.showAndWait();
+                } else {
+                    changeConversation(userName);
+                    listView.getSelectionModel().select(userName);
+                }
+            }
+        });
     }
 
     private void changeConversation(String userName) {

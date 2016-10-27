@@ -53,7 +53,7 @@
             <VBox styleClass="scroll-pane" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                 <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
                     <GridPane vgap="5" fx:id="textPane">
-                        <padding><Insets right="10" left="10"/></padding>
+                        <padding><Insets top="5" bottom="5" right="5" left="5"/></padding>
                     </GridPane>
                 </ScrollPane>
                 <HBox alignment="BOTTOM_CENTER">
