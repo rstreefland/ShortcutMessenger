@@ -87,11 +87,19 @@ public class SendMessageOperation implements Operation, Receiver {
         if (!forwarding) {
             FindUserOperation fuo = new FindUserOperation(localNode, user);
             fuo.execute();
+
             user = fuo.getFoundUser();
             if (user == null) {
                 return;
             }
+
             closestNodes = fuo.getClosestNodes();
+
+            if (closestNodes == null) {
+                FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId());
+                fno.execute();
+                closestNodes = fno.getClosestNodes();
+            }
         }
 
         /* Add associated nodes to the 'to message' list */
@@ -100,16 +108,6 @@ public class SendMessageOperation implements Operation, Receiver {
 
             /* Run the message operation for only the intended recipients to begin with */
             messageLoop();
-
-            /* Don't terminate until all replies have either been received or have timed out */
-            while (messagesInTransit.size() > 0) {
-                try {
-                    iterativeQueryNodes();
-                    wait(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
         } else {
             logger.info("User has no associated nodes - caching message on closest nodes");
         }

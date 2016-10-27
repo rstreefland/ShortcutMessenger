@@ -34,6 +34,7 @@ public class Messages {
 
     public void sendMessage(String message, User target) throws IOException {
         if (!message.isEmpty() && localNode.getUsers().getLocalUser() != null) {
+
             SendMessageOperation operation = new SendMessageOperation(localNode, target, message);
             operation.execute();
 
@@ -47,6 +48,9 @@ public class Messages {
                 }
 
                 lastMessage.set(stm);
+
+                /* Store user locally to shorten future operations */
+                localNode.getUsers().addUser(operation.getUser());
             } else {
                 logger.error("User {} doesn't exist", target.getUserName());
             }
@@ -75,6 +79,9 @@ public class Messages {
             }
             lastMessage.set(storedMessage);
         }
+
+        /* Store user locally to shorten future operations */
+        localNode.getUsers().addUser(originUser);
     }
 
     /**
@@ -84,6 +91,9 @@ public class Messages {
      */
     public void addForwardMessage(TextMessage message) {
         forwardMessages.putIfAbsent(message.getMessageId(), message);
+
+        /* Store user locally to shorten future operations */
+        localNode.getUsers().addUser(message.getOriginUser());
     }
 
     /**

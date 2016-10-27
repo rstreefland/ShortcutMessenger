@@ -59,21 +59,17 @@ public class FindUserOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
 
-        /* Look for the user on the target node first */
+        /* Look for the user on the local node first */
         User result = localNode.getUsers().findUser(searchUser.getUserName());
         if (result != null) {
-            searchUser = result;
+            /* We've found the user on the local node - no need to do anything else */
             foundUser = result;
+            return;
         }
 
         FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId());
         fno.execute();
         closestNodes = fno.getClosestNodes();
-
-        if (foundUser!= null) {
-            /* We've found the user on the local node - no need to do anything else */
-            return;
-        }
 
         addNodes(closestNodes);
 

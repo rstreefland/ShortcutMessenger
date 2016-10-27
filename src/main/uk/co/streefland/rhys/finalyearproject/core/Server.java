@@ -32,7 +32,7 @@ public class Server {
     private final Map<Integer, Receiver> receivers = new HashMap<>();
 
     /* Cached threadPool so we can run receivers in parallel */
-    private final ExecutorService threadPool = Executors.newCachedThreadPool();
+    private final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     private boolean isRunning;
     private DatagramPacket packet;

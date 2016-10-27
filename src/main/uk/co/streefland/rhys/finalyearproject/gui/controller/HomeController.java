@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,8 +30,7 @@ import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.core.User;
-import uk.co.streefland.rhys.finalyearproject.gui.bubble.BubbleSpec;
-import uk.co.streefland.rhys.finalyearproject.gui.bubble.BubbledLabel;
+import uk.co.streefland.rhys.finalyearproject.gui.bubble.ChatBubble;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,6 +41,10 @@ public class HomeController {
     private LocalNode localNode;
     private ObservableList<String> conversations;
     private String currentConversationUser;
+
+    private String localUser;
+
+    Image image = new Image(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/chatbubble.png").toExternalForm());
 
     @FXML
     private ListView<String> listView;
@@ -55,7 +59,8 @@ public class HomeController {
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
-
+        this.localUser = localNode.getUsers().getLocalUser().getUserName();
+        
         conversations = FXCollections.observableArrayList();
         listView.setItems(conversations);
 
@@ -79,70 +84,94 @@ public class HomeController {
                                         StoredTextMessage newVal) {
 
                         StoredTextMessage message = newVal;
+                        String messageString = message.getMessage();
+                        String author = message.getAuthor();
 
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
-                                if (!conversations.contains(message.getAuthor()) && !message.getAuthor().equals(localNode.getUsers().getLocalUser().getUserName())) {
-                                    conversations.add(message.getAuthor());
-                                    return;
+                                if (!conversations.contains(author) && !author.equals(localUser)) {
+                                    conversations.add(author);
                                 }
 
-                                if (currentConversationUser != message.getAuthor() && message.getAuthor() != localNode.getUsers().getLocalUser().getUserName()) {
-                                    String title = "New message from " + message.getAuthor();
-                                    NotificationType notification = NotificationType.INFORMATION;
-                                    Image image = new Image(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/chatbubble.png").toExternalForm());
-                                    TrayNotification tray = new TrayNotification();
-                                    tray.setTitle(title);
-                                    tray.setMessage(message.getMessage());
-                                    tray.setNotificationType(notification);
-                                    tray.setRectangleFill(Paint.valueOf("#000000"));
-                                    tray.setImage(image);
-                                    tray.setAnimationType(AnimationType.POPUP);
-                                    tray.showAndDismiss(Duration.seconds(5));
+                                if (currentConversationUser != author && (author != localUser)) {
+                                    createNotification(author, messageString);
                                 }
                             }
                         });
 
-                        if (currentConversationUser.equals(message.getAuthor()) || currentConversationUser.equals(message.getRecipient())) {
-                            Platform.runLater(new Runnable() {
-                                @Override
-                                public void run() {
-                                    if (message.getAuthor().equals(localNode.getUsers().getLocalUser().getUserName())) {
-                                        BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_RIGHT_CENTER);
-                                        text.setText(message.getAuthor() + ": " + message.getMessage());
-                                        text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN,
-                                                null, null)));
+                        if (currentConversationUser != null) {
+                            if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
+                                Platform.runLater(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        if (author.equals(localUser)) {
+                                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREEN);
+                                            text.setText(author + ": " + messageString);
 
+                                            textPane.add(text, 1, textPane.getChildren().size() + 1);
+                                            GridPane.setHgrow(text, Priority.ALWAYS);
+                                            GridPane.setHalignment(text, HPos.RIGHT);
+                                        } else {
+                                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREY);
+                                            text.setText(author + ": " + messageString);
 
-                                        textPane.add(text, 1, textPane.getChildren().size() + 1);
-                                        GridPane.setHgrow(text, Priority.ALWAYS);
-                                        GridPane.setHalignment(text, HPos.RIGHT);
-
-                                    } else {
-                                        BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_LEFT_CENTER);
-                                        text.setText(message.getAuthor() + ": " + message.getMessage());
-                                        text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREY,
-                                                null, null)));
-
-
-                                        textPane.add(text, 1, textPane.getChildren().size() + 1);
-                                        GridPane.setHgrow(text, Priority.ALWAYS);
-                                        GridPane.setHalignment(text, HPos.LEFT);
+                                            textPane.add(text, 1, textPane.getChildren().size() + 1);
+                                            GridPane.setHgrow(text, Priority.ALWAYS);
+                                            GridPane.setHalignment(text, HPos.LEFT);
+                                        }
                                     }
-                                }
-                            });
+                                });
+                            }
                         }
                     }
                 });
     }
 
+    @FXML
+    private void newConversationDialog(ActionEvent event) throws IOException {
+        TextInputDialog dialog = new TextInputDialog();
+        dialog.setTitle("New Conversation");
+        dialog.setHeaderText("New conversation");
+        dialog.setContentText("Username:");
+
+        // Traditional way to get the response value.
+        Optional<String> result = dialog.showAndWait();
+        if (result.isPresent()) {
+            if (!createConversationUser(result.get())) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("User not found");
+                alert.setContentText("User not found!");
+                alert.showAndWait();
+            }
+        }
+    }
+
+
+    private boolean createConversationUser(String userName) throws IOException {
+        if (userName.equals(localNode.getUsers().getLocalUser())) {
+            return false;
+        }
+
+        spinner.setVisible(true);
+        User user = localNode.getUsers().findUserOnNetwork(userName);
+
+        if (user == null) {
+            spinner.setVisible(false);
+            return false;
+        }
+
+        changeConversation(userName);
+        listView.getSelectionModel().select(userName);
+        spinner.setVisible(false);
+        return true;
+    }
+
     private void changeConversation(String userName) {
-        if (!userName.equals(localNode.getUsers().getLocalUser().getUserName())) {
+        if (!userName.equals(localUser)) {
 
             if (!conversations.contains(userName)) {
                 conversations.add(userName);
-                return;
             }
 
             currentConversationUser = userName;
@@ -154,23 +183,16 @@ public class HomeController {
 
                 if (conversation != null) {
                     for (int i = 0; i < conversation.size(); i++) {
-                        if (conversation.get(i).getAuthor().equals(localNode.getUsers().getLocalUser().getUserName())) {
-                            BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_RIGHT_CENTER);
+                        if (conversation.get(i).getAuthor().equals(localUser)) {
+                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREEN);
                             text.setText(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
-                            text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN,
-                                    null, null)));
-
 
                             textPane.add(text, 1, i);
                             GridPane.setHgrow(text, Priority.ALWAYS);
                             GridPane.setHalignment(text, HPos.RIGHT);
-
                         } else {
-                            BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_LEFT_CENTER);
+                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREY);
                             text.setText(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
-                            text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREY,
-                                    null, null)));
-
 
                             textPane.add(text, 1, i);
                             GridPane.setHgrow(text, Priority.ALWAYS);
@@ -180,44 +202,6 @@ public class HomeController {
                 }
             }
         }
-    }
-
-    @FXML
-    private void newConversation(ActionEvent event) throws IOException {
-        TextInputDialog dialog = new TextInputDialog();
-        dialog.setTitle("New Conversation");
-        dialog.setHeaderText("New conversation");
-        dialog.setContentText("Username:");
-
-        // Traditional way to get the response value.
-        Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()) {
-            if (!setConversationUser(result.get())) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("User not found");
-                alert.setContentText("User not found!");
-                alert.showAndWait();
-            }
-        }
-    }
-
-
-    private boolean setConversationUser(String userName) throws IOException {
-        if (userName.equals(localNode.getUsers().getLocalUser())) {
-            return false;
-        }
-
-        spinner.setVisible(true);
-        User user = localNode.getUsers().findUserOnNetwork(userName);
-
-        if (user == null) {
-            return false;
-        }
-
-        changeConversation(userName);
-        listView.getSelectionModel().select(userName);
-        spinner.setVisible(false);
-        return true;
     }
 
     @FXML
@@ -247,6 +231,18 @@ public class HomeController {
                 }
             });
         }
+    }
+
+    private void createNotification(String author, String message) {
+        String title = "New message from " + author;
+        TrayNotification tray = new TrayNotification();
+        tray.setTitle(title);
+        tray.setMessage(message);
+        tray.setNotificationType(NotificationType.INFORMATION);
+        tray.setRectangleFill(Paint.valueOf("#000000"));
+        tray.setImage(image);
+        tray.setAnimationType(AnimationType.POPUP);
+        tray.showAndDismiss(Duration.seconds(5));
     }
 
     public void handleKeyPressed(KeyEvent key) {

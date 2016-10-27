@@ -16,6 +16,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.gui.Main;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
@@ -26,6 +27,7 @@ import java.util.regex.Pattern;
 
 public class ConnectController {
 
+    private Main main;
     private LocalNode localNode;
 
     @FXML
@@ -38,6 +40,10 @@ public class ConnectController {
     private Text message;
     @FXML
     private ImageView spinner;
+
+    public void init(Main main) {
+        this.main = main;
+    }
 
     @FXML
     protected void handleConnectButtonAction(ActionEvent event) {
@@ -143,6 +149,8 @@ public class ConnectController {
                     LoginController controller =
                             loader.getController();
                     controller.init(localNode);
+
+                    main.setLocalNode(localNode);
 
                     Stage stage;
                     stage = (Stage) btn1.getScene().getWindow();

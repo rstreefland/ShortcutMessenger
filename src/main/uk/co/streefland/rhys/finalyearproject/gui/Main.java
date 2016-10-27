@@ -7,20 +7,29 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController;
+import uk.co.streefland.rhys.finalyearproject.gui.controller.LoginController;
 
 import javax.swing.*;
 import java.io.IOException;
 
 public class Main extends Application {
 
+    LocalNode localNode = null;
+
     @Override
     public void start(Stage stage) throws IOException {
-        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14));
-        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14));
-        System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14));
+        Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14);
+        Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14);
+        Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14);
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/connect.fxml"));
         Parent root = loader.load();
+
+        ConnectController controller =
+                loader.getController();
+        controller.init(this);
 
         Scene scene = new Scene(root, 500, 500);
 
@@ -51,5 +60,18 @@ public class Main extends Application {
             Platform.exit();
         }
         launch(args);
+    }
+
+    @Override
+    public void stop(){
+        System.out.println("Stage is closing");
+
+        if (localNode != null) {
+            localNode.shutdown();
+        }
+    }
+
+    public void setLocalNode(LocalNode localNode) {
+        this.localNode = localNode;
     }
 }
