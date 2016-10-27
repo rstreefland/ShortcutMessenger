@@ -5,15 +5,23 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.HPos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-import javafx.scene.text.Text;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -21,19 +29,17 @@ import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.core.User;
+import uk.co.streefland.rhys.finalyearproject.gui.bubble.BubbleSpec;
+import uk.co.streefland.rhys.finalyearproject.gui.bubble.BubbledLabel;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Map;
 import java.util.Optional;
 
 public class HomeController {
 
     private LocalNode localNode;
-    private Map<String, ArrayList<StoredTextMessage>> userMessages;
-
     private ObservableList<String> conversations;
-
     private String currentConversationUser;
 
     @FXML
@@ -44,10 +50,11 @@ public class HomeController {
     private TextField messageField;
     @FXML
     private Button sendButton;
+    @FXML
+    private ImageView spinner;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
-        this.userMessages = localNode.getMessages().getUserMessages();
 
         conversations = FXCollections.observableArrayList();
         listView.setItems(conversations);
@@ -76,12 +83,15 @@ public class HomeController {
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
-                                changeConversation(message.getAuthor());
+                                if (!conversations.contains(message.getAuthor()) && !message.getAuthor().equals(localNode.getUsers().getLocalUser().getUserName())) {
+                                    conversations.add(message.getAuthor());
+                                    return;
+                                }
 
                                 if (currentConversationUser != message.getAuthor() && message.getAuthor() != localNode.getUsers().getLocalUser().getUserName()) {
                                     String title = "New message from " + message.getAuthor();
                                     NotificationType notification = NotificationType.INFORMATION;
-                                    Image image = new Image(getClass().getResource("../chatbubble.png").toExternalForm());
+                                    Image image = new Image(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/chatbubble.png").toExternalForm());
                                     TrayNotification tray = new TrayNotification();
                                     tray.setTitle(title);
                                     tray.setMessage(message.getMessage());
@@ -94,12 +104,32 @@ public class HomeController {
                             }
                         });
 
-                        if (currentConversationUser == message.getAuthor() || currentConversationUser == message.getRecipient()) {
+                        if (currentConversationUser.equals(message.getAuthor()) || currentConversationUser.equals(message.getRecipient())) {
                             Platform.runLater(new Runnable() {
                                 @Override
                                 public void run() {
-                                    Text text = new Text(message.getAuthor()+ ": " + message.getMessage());
-                                    textPane.add(text, 1, textPane.getChildren().size() + 1);
+                                    if (message.getAuthor().equals(localNode.getUsers().getLocalUser().getUserName())) {
+                                        BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_RIGHT_CENTER);
+                                        text.setText(message.getAuthor() + ": " + message.getMessage());
+                                        text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN,
+                                                null, null)));
+
+
+                                        textPane.add(text, 1, textPane.getChildren().size() + 1);
+                                        GridPane.setHgrow(text, Priority.ALWAYS);
+                                        GridPane.setHalignment(text, HPos.RIGHT);
+
+                                    } else {
+                                        BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_LEFT_CENTER);
+                                        text.setText(message.getAuthor() + ": " + message.getMessage());
+                                        text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREY,
+                                                null, null)));
+
+
+                                        textPane.add(text, 1, textPane.getChildren().size() + 1);
+                                        GridPane.setHgrow(text, Priority.ALWAYS);
+                                        GridPane.setHalignment(text, HPos.LEFT);
+                                    }
                                 }
                             });
                         }
@@ -108,7 +138,7 @@ public class HomeController {
     }
 
     private void changeConversation(String userName) {
-        if (userName != localNode.getUsers().getLocalUser().getUserName()) {
+        if (!userName.equals(localNode.getUsers().getLocalUser().getUserName())) {
 
             if (!conversations.contains(userName)) {
                 conversations.add(userName);
@@ -124,8 +154,28 @@ public class HomeController {
 
                 if (conversation != null) {
                     for (int i = 0; i < conversation.size(); i++) {
-                        Text text = new Text(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
-                        textPane.add(text, 1, i);
+                        if (conversation.get(i).getAuthor().equals(localNode.getUsers().getLocalUser().getUserName())) {
+                            BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_RIGHT_CENTER);
+                            text.setText(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
+                            text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN,
+                                    null, null)));
+
+
+                            textPane.add(text, 1, i);
+                            GridPane.setHgrow(text, Priority.ALWAYS);
+                            GridPane.setHalignment(text, HPos.RIGHT);
+
+                        } else {
+                            BubbledLabel text = new BubbledLabel(BubbleSpec.FACE_LEFT_CENTER);
+                            text.setText(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
+                            text.setBackground(new Background(new BackgroundFill(Color.LIGHTGREY,
+                                    null, null)));
+
+
+                            textPane.add(text, 1, i);
+                            GridPane.setHgrow(text, Priority.ALWAYS);
+                            GridPane.setHalignment(text, HPos.LEFT);
+                        }
                     }
                 }
             }
@@ -142,7 +192,6 @@ public class HomeController {
         // Traditional way to get the response value.
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
-            System.out.println("Your name: " + result.get());
             if (!setConversationUser(result.get())) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("User not found");
@@ -154,7 +203,11 @@ public class HomeController {
 
 
     private boolean setConversationUser(String userName) throws IOException {
+        if (userName.equals(localNode.getUsers().getLocalUser())) {
+            return false;
+        }
 
+        spinner.setVisible(true);
         User user = localNode.getUsers().findUserOnNetwork(userName);
 
         if (user == null) {
@@ -162,21 +215,42 @@ public class HomeController {
         }
 
         changeConversation(userName);
+        listView.getSelectionModel().select(userName);
+        spinner.setVisible(false);
         return true;
     }
 
     @FXML
     private void sendMessage(ActionEvent event) throws IOException {
-       if (currentConversationUser != null) {
-           localNode.message(messageField.getText(), new User(currentConversationUser, ""));
-           messageField.clear();
-       }
+        if (currentConversationUser != null) {
+            spinner.setVisible(true);
+            String message = messageField.getText();
+            messageField.clear();
+
+            Task task = new Task() {
+                @Override
+                protected String call() throws Exception {
+                    localNode.message(message, new User(currentConversationUser, ""));
+                    this.succeeded();
+                    return "";
+                }
+            };
+
+            final Thread thread = new Thread(task);
+            thread.setDaemon(true);
+            thread.start();
+
+            task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
+                @Override
+                public void handle(WorkerStateEvent event) {
+                    spinner.setVisible(false);
+                }
+            });
+        }
     }
 
-    public void handleKeyPressed(KeyEvent key)
-    {
-        if(key.getCode() == KeyCode.ENTER)
-        {
+    public void handleKeyPressed(KeyEvent key) {
+        if (key.getCode() == KeyCode.ENTER) {
             sendButton.fire();
         }
     }

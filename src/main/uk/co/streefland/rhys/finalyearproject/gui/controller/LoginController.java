@@ -74,7 +74,7 @@ public class LoginController {
                     spinner.setVisible(false);
                     message.setText(errorMessage);
                 } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/home.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/home.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();
@@ -128,7 +128,7 @@ public class LoginController {
                     spinner.setVisible(false);
                     message.setText(errorMessage);
                 } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/home.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/home.fxml"));
                     Parent root = null;
                     try {
                         root = loader.load();

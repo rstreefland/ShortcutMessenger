@@ -131,7 +131,8 @@ public class ConnectController {
                     spinner.setVisible(false);
                     message.setText(errorMessage);
                 } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("../view/login.fxml"));
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/login.fxml"));
+                    System.out.println(getClass());
                     Parent root = null;
                     try {
                         root = loader.load();

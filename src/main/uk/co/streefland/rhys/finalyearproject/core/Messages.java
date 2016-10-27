@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
-import uk.co.streefland.rhys.finalyearproject.message.user.StoreUserMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
@@ -40,7 +39,7 @@ public class Messages {
 
             if (operation.getUser() != null) {
                 logger.info("Message sent to {}", operation.getUser());
-                StoredTextMessage stm = new StoredTextMessage(localNode.getUsers().getLocalUser().getUserName(), target.getUserName(),  message, operation.getMessage().getCreatedTime());
+                StoredTextMessage stm = new StoredTextMessage(localNode.getUsers().getLocalUser().getUserName(), target.getUserName(), message, operation.getMessage().getCreatedTime());
 
                 if (userMessages.putIfAbsent(target.getUserName(), new ArrayList(Arrays.asList(stm))) != null) {
                     ArrayList<StoredTextMessage> conversation = userMessages.get(target.getUserName());

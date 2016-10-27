@@ -19,7 +19,7 @@ public class Main extends Application {
         System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14));
         System.out.println(Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14));
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("view/connect.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/connect.fxml"));
         Parent root = loader.load();
 
         Scene scene = new Scene(root, 500, 500);
