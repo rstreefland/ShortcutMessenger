@@ -19,7 +19,7 @@ public class Users implements Serializable {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private transient LocalNode localNode;
 
-    private transient User localUser; // don't want to store this in a file, we want the user to log in each time for security
+    private User localUser;
     private final List<User> users;
 
     public Users(LocalNode localNode) {

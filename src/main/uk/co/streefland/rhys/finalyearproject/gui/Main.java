@@ -10,6 +10,7 @@ import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 import uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController;
+import uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController;
 import uk.co.streefland.rhys.finalyearproject.gui.controller.LoginController;
 
 import javax.swing.*;
@@ -33,10 +34,10 @@ public class Main extends Application {
         if (temp.doesSavedStateExist()) {
             localNode = new LocalNode("", 0);
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/home.fxml"));
             root = loader.load();
 
-            LoginController controller =
+            HomeController controller =
                     loader.getController();
             controller.init(localNode);
 

@@ -17,11 +17,14 @@ public class StorageHandler {
     private Node localNode;
     private RoutingTable routingTable;
     private Users users;
+    private Messages messages;
 
     public StorageHandler() {
+        this.config = null;
         this.localNode = null;
         this.routingTable = null;
         this.users = null;
+        this.messages = null;
     }
 
     /**
@@ -30,7 +33,7 @@ public class StorageHandler {
      * @param localNode    The Node object to write to file
      * @param routingTable The RoutingTable object to write to file
      */
-    public void save(Configuration config, Node localNode, RoutingTable routingTable, Users users) {
+    public void save(Configuration config, Node localNode, RoutingTable routingTable, Users users, Messages messages) {
         FileOutputStream fout;
         ObjectOutputStream oos;
 
@@ -41,6 +44,7 @@ public class StorageHandler {
             oos.writeObject(localNode);
             oos.writeObject(routingTable);
             oos.writeObject(users);
+            oos.writeObject(messages);
             oos.close();
             fout.close();
         } catch (Exception e) {
@@ -63,6 +67,7 @@ public class StorageHandler {
             localNode = (Node) ois.readObject();
             routingTable = (RoutingTable) ois.readObject();
             users = (Users) ois.readObject();
+            messages = (Messages) ois.readObject();
 
             ois.close();
             fis.close();
@@ -105,5 +110,12 @@ public class StorageHandler {
      */
     public Users getUsers() {
         return users;
+    }
+
+    /**
+     * @return The Messages object that was read from file by the load() method
+     */
+    public Messages getMessages() {
+        return messages;
     }
 }

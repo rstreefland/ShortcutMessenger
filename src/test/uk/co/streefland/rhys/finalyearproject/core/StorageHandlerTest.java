@@ -32,8 +32,9 @@ public class StorageHandlerTest {
         Node node = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123);
         RoutingTable routingTable = new RoutingTable(node);
         Users users = new Users(new LocalNode(new KeyId(), 123));
+        Messages messages = new Messages(new LocalNode("",1));
 
-        storageHandler.save(config, node, routingTable, users);
+        storageHandler.save(config, node, routingTable, users, messages);
 
         storageHandler2.load();
 

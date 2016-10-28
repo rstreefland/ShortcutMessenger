@@ -30,6 +30,7 @@ import uk.co.streefland.rhys.finalyearproject.gui.bubble.ChatBubble;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Optional;
 
 public class HomeController {
@@ -59,6 +60,8 @@ public class HomeController {
 
         conversations = FXCollections.observableArrayList();
         listView.setItems(conversations);
+
+        fromSavedState();
 
         listView.getSelectionModel().selectedItemProperty()
                 .addListener(new ChangeListener<String>() {
@@ -122,6 +125,18 @@ public class HomeController {
                         }
                     }
                 });
+    }
+
+    public void fromSavedState() {
+        Map<String, ArrayList<StoredTextMessage>> userMessages = localNode.getMessages().getUserMessages();
+
+        if (userMessages != null) {
+            for (Map.Entry entry : userMessages.entrySet()) {
+                if (!conversations.contains(entry.getKey())) {
+                    conversations.add((String) entry.getKey());
+                }
+            }
+        }
     }
 
     @FXML

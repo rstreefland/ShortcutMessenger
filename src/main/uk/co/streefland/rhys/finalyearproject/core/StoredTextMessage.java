@@ -10,10 +10,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -22,7 +19,7 @@ import java.util.Date;
 /**
  * A simple text message that's stored as part of a conversation
  */
-public class StoredTextMessage {
+public class StoredTextMessage implements Serializable {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 

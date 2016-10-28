@@ -53,7 +53,6 @@ public class LocalNode implements Runnable {
         readState(localIp, port);
 
         this.messageHandler = new MessageHandler(this);
-        this.messages = new Messages(this);
         this.server = new Server(config.getPort(), messageHandler, config);
 
         /* Couldn't read it from file */
@@ -88,7 +87,6 @@ public class LocalNode implements Runnable {
         this.routingTable = new RoutingTable(localNode);
 
         this.messageHandler = new MessageHandler(this);
-        this.messages = new Messages(this);
         this.server = new Server(port, messageHandler, config);
         this.users = new Users(this);
     }
@@ -157,6 +155,18 @@ public class LocalNode implements Runnable {
                 logger.warn("Failed to read users from saved state - defaulting to creating a new users object");
             }
 
+            /* Get users object from storageHandler */
+            Messages newMessages = storageHandler.getMessages();
+
+            if (newMessages != null) {
+                logger.info("Messages read successfully");
+                messages = newMessages;
+                messages.init(this);
+            } else {
+                logger.warn("Failed to read messages from saved state - defaulting to creating a new messages object");
+                messages = new Messages(this);
+            }
+
         } else {
             logger.info("Saved state not found");
             config = new Configuration();
@@ -165,6 +175,7 @@ public class LocalNode implements Runnable {
             }
             localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
             routingTable = new RoutingTable(localNode);
+            messages = new Messages(this);
         }
     }
 
@@ -173,7 +184,7 @@ public class LocalNode implements Runnable {
      */
     private void saveState() {
         logger.info("Saving state to file");
-        storageHandler.save(config, localNode, routingTable, users);
+        storageHandler.save(config, localNode, routingTable, users, messages);
     }
 
     /**

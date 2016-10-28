@@ -9,26 +9,32 @@ import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.*;
 
 /**
  * Stores and manages messages on the local node
  */
-public class Messages {
+public class Messages implements Serializable {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final LocalNode localNode;
-    private final Map<String, ArrayList<StoredTextMessage>> userMessages;
-    private final Map<KeyId, Long> receivedMessages;
-    private final Map<KeyId, TextMessage> forwardMessages;
-    private final ObjectProperty<StoredTextMessage> lastMessage;
+    private transient LocalNode localNode;
+    private Map<String, ArrayList<StoredTextMessage>> userMessages;
+    private Map<KeyId, Long> receivedMessages;
+    private Map<KeyId, TextMessage> forwardMessages;
+    private transient ObjectProperty<StoredTextMessage> lastMessage;
 
     public Messages(LocalNode localNode) {
         this.localNode = localNode;
         this.userMessages = new HashMap<>();
         this.receivedMessages = new HashMap<>();
         this.forwardMessages = new HashMap<>();
+        this.lastMessage = new SimpleObjectProperty<>();
+    }
+
+    public void init(LocalNode localNode) {
+        this.localNode = localNode;
         this.lastMessage = new SimpleObjectProperty<>();
     }
 
