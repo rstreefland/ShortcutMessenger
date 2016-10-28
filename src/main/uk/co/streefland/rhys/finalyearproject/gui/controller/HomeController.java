@@ -1,6 +1,8 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
 import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -11,14 +13,18 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
@@ -48,6 +54,8 @@ public class HomeController {
     @FXML
     private GridPane textPane;
     @FXML
+    private ScrollPane scrollPane;
+    @FXML
     private TextField messageField;
     @FXML
     private Button sendButton;
@@ -64,67 +72,54 @@ public class HomeController {
         fromSavedState();
 
         listView.getSelectionModel().selectedItemProperty()
-                .addListener(new ChangeListener<String>() {
-
-                    public void changed(
-                            ObservableValue<? extends String> observable,
-                            String oldValue, String newValue) {
-                        // change the label text value to the newly selected
-                        // item.
-                        changeConversation(newValue);
-                    }
+                .addListener((observable, oldValue, newValue) -> {
+                    // change the label text value to the newly selected
+                    // item.
+                    changeConversation(newValue);
                 });
 
-
         localNode.getMessages().lastMessageProperty().addListener(
-                new ChangeListener<StoredTextMessage>() {
-                    @Override
-                    public void changed(ObservableValue<? extends StoredTextMessage> o, StoredTextMessage oldVal,
-                                        StoredTextMessage newVal) {
+                (o, oldVal, newVal) -> {
 
-                        StoredTextMessage message = newVal;
-                        String messageString = message.getMessage();
-                        String author = message.getAuthor();
+                    StoredTextMessage message = newVal;
+                    String messageString = message.getMessage();
+                    String author = message.getAuthor();
 
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                if (!conversations.contains(author) && !author.equals(localUser)) {
-                                    conversations.add(author);
+                    Platform.runLater(() -> {
+                        if (!conversations.contains(author) && !author.equals(localUser)) {
+                            conversations.add(author);
+                        }
+
+                        if (currentConversationUser != author && (author != localUser)) {
+                            createNotification(author, messageString);
+                        }
+                    });
+
+                    if (currentConversationUser != null) {
+                        if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
+                            Platform.runLater(() -> {
+                                if (author.equals(localUser)) {
+                                    ChatBubble bubble = new ChatBubble(messageString, ChatBubble.COLOUR_GREEN);
+
+                                    textPane.add(bubble, 1, textPane.getChildren().size() + 1);
+                                    GridPane.setHgrow(bubble, Priority.ALWAYS);
+                                    GridPane.setHalignment(bubble, HPos.RIGHT);
+                                } else {
+                                    ChatBubble bubble = new ChatBubble(messageString, ChatBubble.COLOUR_GREY);
+
+                                    textPane.add(bubble, 1, textPane.getChildren().size() + 1);
+                                    GridPane.setHgrow(bubble, Priority.ALWAYS);
+                                    GridPane.setHalignment(bubble, HPos.LEFT);
                                 }
-
-                                if (currentConversationUser != author && (author != localUser)) {
-                                    createNotification(author, messageString);
-                                }
-                            }
-                        });
-
-                        if (currentConversationUser != null) {
-                            if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
-                                Platform.runLater(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        if (author.equals(localUser)) {
-                                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREEN);
-                                            text.setText(author + ": " + messageString);
-
-                                            textPane.add(text, 1, textPane.getChildren().size() + 1);
-                                            GridPane.setHgrow(text, Priority.ALWAYS);
-                                            GridPane.setHalignment(text, HPos.RIGHT);
-                                        } else {
-                                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREY);
-                                            text.setText(author + ": " + messageString);
-
-                                            textPane.add(text, 1, textPane.getChildren().size() + 1);
-                                            GridPane.setHgrow(text, Priority.ALWAYS);
-                                            GridPane.setHalignment(text, HPos.LEFT);
-                                        }
-                                    }
-                                });
-                            }
+                            });
                         }
                     }
                 });
+
+        textPane.heightProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
+            textPane.layout();
+            scrollPane.setVvalue(1.0d);
+        });
     }
 
     public void fromSavedState() {
@@ -174,21 +169,18 @@ public class HomeController {
         thread.setDaemon(true);
         thread.start();
 
-        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
-                User user = (User) task.getValue(); // result of computation
-                spinner.setVisible(false);
+        task.setOnSucceeded(event -> {
+            User user = (User) task.getValue(); // result of computation
+            spinner.setVisible(false);
 
-                if (user == null) {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("User not found");
-                    alert.setContentText("User not found!");
-                    alert.showAndWait();
-                } else {
-                    changeConversation(userName);
-                    listView.getSelectionModel().select(userName);
-                }
+            if (user == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("User not found");
+                alert.setContentText("User not found!");
+                alert.showAndWait();
+            } else {
+                changeConversation(userName);
+                listView.getSelectionModel().select(userName);
             }
         });
     }
@@ -210,16 +202,12 @@ public class HomeController {
                 if (conversation != null) {
                     for (int i = 0; i < conversation.size(); i++) {
                         if (conversation.get(i).getAuthor().equals(localUser)) {
-                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREEN);
-                            text.setText(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
-
-                            textPane.add(text, 1, i);
-                            GridPane.setHgrow(text, Priority.ALWAYS);
-                            GridPane.setHalignment(text, HPos.RIGHT);
+                            ChatBubble bubble = new ChatBubble(conversation.get(i).getMessage(), ChatBubble.COLOUR_GREEN);
+                            textPane.add(bubble, 1, i);
+                            GridPane.setHgrow(bubble, Priority.ALWAYS);
+                            GridPane.setHalignment(bubble, HPos.RIGHT);
                         } else {
-                            ChatBubble text = new ChatBubble(ChatBubble.COLOUR_GREY);
-                            text.setText(conversation.get(i).getAuthor() + ": " + conversation.get(i).getMessage());
-
+                            ChatBubble text = new ChatBubble(conversation.get(i).getMessage(), ChatBubble.COLOUR_GREY);
                             textPane.add(text, 1, i);
                             GridPane.setHgrow(text, Priority.ALWAYS);
                             GridPane.setHalignment(text, HPos.LEFT);
@@ -250,12 +238,7 @@ public class HomeController {
             thread.setDaemon(true);
             thread.start();
 
-            task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-                @Override
-                public void handle(WorkerStateEvent event) {
-                    spinner.setVisible(false);
-                }
-            });
+            task.setOnSucceeded(event1 -> spinner.setVisible(false));
         }
     }
 
