@@ -10,6 +10,7 @@ import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 
@@ -33,6 +34,7 @@ public class SendMessageOperation implements Operation, Receiver {
     private User user;
 
     private String messageString;
+    private KeyId messageId;
     private TextMessage message; // Message sent to each peer
     private final Map<Node, String> nodes;
     private final Map<Node, Integer> attempts;
@@ -40,7 +42,6 @@ public class SendMessageOperation implements Operation, Receiver {
     private final Map<Integer, Node> messagesInTransit;
     private final boolean forwarding;
     private boolean isMessagedSuccessfully;
-    private boolean hasTimeoutOccurred;
 
     private List<Node> closestNodes;
 
@@ -53,6 +54,7 @@ public class SendMessageOperation implements Operation, Receiver {
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
 
+        this.messageId = new KeyId();
         this.messageString = messageString;
         this.forwarding = false;
     }
@@ -81,7 +83,6 @@ public class SendMessageOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
 
         isMessagedSuccessfully = false;
-        hasTimeoutOccurred = false;
 
         /* Get the user object of the user we would like to message */
         if (!forwarding) {
@@ -107,9 +108,9 @@ public class SendMessageOperation implements Operation, Receiver {
         }
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
-        if (!isMessagedSuccessfully && hasTimeoutOccurred && !forwarding) {
+        if (!isMessagedSuccessfully && !forwarding) {
             if (closestNodes == null) {
-                FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId());
+                FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId(), true);
                 fno.execute();
                 closestNodes = fno.getClosestNodes();
             }
@@ -183,18 +184,22 @@ public class SendMessageOperation implements Operation, Receiver {
 
             /* Handle a node sending a message to itself */
             if (toQuery.get(i).equals(localNode.getNode())) {
-                if (!forwarding) {
-                    message = new TextMessage(localNode.getNode(), user, messageString);
-                    localNode.getMessages().addReceivedMessage(message);
-                } else {
+
+                /* Don't message yourself, this is a message for another user */
+                if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
+                    message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
                     localNode.getMessages().addForwardMessage(message);
+                } else {
+                    /* this is a message for yourself */
+                    message = new TextMessage(messageId, localNode.getNode(), user, messageString);
+                    localNode.getMessages().addReceivedMessage(message);
+                    isMessagedSuccessfully = true;
                 }
 
-                isMessagedSuccessfully = true;
                 nodes.put(toQuery.get(i), Configuration.QUERIED);
             } else {
                 if (!forwarding) {
-                    message = new TextMessage(localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
+                    message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
                 }
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
@@ -203,7 +208,7 @@ public class SendMessageOperation implements Operation, Receiver {
                 messagesInTransit.put(communicationId, toQuery.get(i));
             }
         }
-        return true;
+        return false;
     }
 
     /**
@@ -243,7 +248,6 @@ public class SendMessageOperation implements Operation, Receiver {
         }
 
         isMessagedSuccessfully = false;
-        hasTimeoutOccurred = true;
 
         /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, Configuration.FAILED);

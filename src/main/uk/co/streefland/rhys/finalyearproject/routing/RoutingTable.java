@@ -45,7 +45,7 @@ public class RoutingTable implements Serializable {
     public synchronized boolean insert(Node n) {
         isEmpty = false;
 
-        for (Node existingNode : getAllNodes()) {
+        for (Node existingNode : getAllNodes(false)) {
             if (n.getSocketAddress().equals((existingNode.getSocketAddress()))) {
                 /* Get the bucket of the node */
                 int bucketId = getBucketId(existingNode.getNodeId());
@@ -67,7 +67,7 @@ public class RoutingTable implements Serializable {
      */
     public synchronized final List<Node> findClosest(KeyId target) {
         TreeSet<Node> sortedSet = new TreeSet<>(new KeyComparator(target));
-        sortedSet.addAll(getAllNodes());
+        sortedSet.addAll(getAllNodes(false));
 
         List<Node> closest = new ArrayList<>(Configuration.K);
 
@@ -135,12 +135,21 @@ public class RoutingTable implements Serializable {
     /**
      * @return A list of all Nodes in this RoutingTable
      */
-    public synchronized final List<Node> getAllNodes() {
+    public synchronized final List<Node> getAllNodes(boolean ignoreStale) {
         List<Node> nodes = new ArrayList<>();
 
         for (Bucket b : buckets) {
             for (Contact c : b.getContacts()) {
-                nodes.add(c.getNode());
+                if (ignoreStale) {
+                    if (c.getStaleCount() == 0) {
+                        nodes.add(c.getNode());
+                    } else {
+                        System.out.println("CONTACT IS STALE: ls" +
+                                "" + c.getNode().getSocketAddress().getHostName());
+                    }
+                } else {
+                    nodes.add(c.getNode());
+                }
             }
         }
 

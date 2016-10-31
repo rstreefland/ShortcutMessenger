@@ -8,8 +8,12 @@
     -fx-border-style: none;
 }
 
-.scroll-pane {
+.conversation-header {
     -fx-background-color: #f5f5f5;
+    -fx-border-style: solid;
+}
+
+.scroll-pane {
     -fx-border-style: none;
 }
 
@@ -29,13 +33,13 @@
 }
 
 .label-bright {
-	-fx-padding: 5 0 5 0;
+    -fx-padding: 5 0 5 0;
     -fx-font-family: "Roboto";
     -fx-opacity: 1;
 }
 
 .label-header {
-	-fx-padding: 10%;
+    -fx-padding: 10%;
     -fx-font-size: 15pt;
     -fx-font-family: "Roboto Light";
     -fx-opacity: 1;
@@ -66,8 +70,8 @@
     -fx-background-color: #e6e6e6;
 }
 
-.button:pressed{
-  -fx-background-color: #f2f2f2;
+.button:pressed {
+    -fx-background-color: #f2f2f2;
 }
 
 .button:disabled, .button:default:disabled {

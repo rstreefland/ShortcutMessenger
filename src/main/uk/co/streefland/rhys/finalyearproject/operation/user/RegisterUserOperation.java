@@ -41,8 +41,9 @@ public class RegisterUserOperation implements Operation, Receiver {
 
     private boolean isRegisteredSuccessfully;
     private boolean storeUserOnLocalNode;
+    private boolean ignoreStale;
 
-    public RegisterUserOperation(LocalNode localNode, User user) {
+    public RegisterUserOperation(LocalNode localNode, User user, boolean ignoreStale) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
@@ -50,6 +51,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
+        this.ignoreStale = ignoreStale;
     }
 
     /**
@@ -63,7 +65,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         isRegisteredSuccessfully = true; // true until disproved by a different node
         storeUserOnLocalNode = false;
 
-        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId());
+        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), ignoreStale);
         operation.execute();
         addNodes(operation.getClosestNodes());
 
@@ -73,7 +75,7 @@ public class RegisterUserOperation implements Operation, Receiver {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
                 int timeInterval = 10;
-                while (totalTimeWaited < config.getOperationTimeout()) {
+                while (true) {
                     if (!iterativeQueryNodes()) {
                         wait(timeInterval);
                         totalTimeWaited += timeInterval;
@@ -84,16 +86,6 @@ public class RegisterUserOperation implements Operation, Receiver {
         } catch (InterruptedException e) {
             e.printStackTrace();
             logger.error("RegisterUserOperation was interrupted unexpectedly: {}", e);
-        }
-
-        /* Don't terminate until all replies have either been received or have timed out */
-        while (messagesInTransit.size() > 0) {
-            try {
-                iterativeQueryNodes();
-                wait(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
 
         /* Add the user to our localStorage once we know that it doesn't exist already on any other nodes */
@@ -160,7 +152,7 @@ public class RegisterUserOperation implements Operation, Receiver {
                 messagesInTransit.put(communicationId, toQuery.get(i));
             }
         }
-        return true;
+        return false;
     }
 
     /**

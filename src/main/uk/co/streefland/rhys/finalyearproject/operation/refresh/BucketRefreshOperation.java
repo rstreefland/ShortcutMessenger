@@ -37,7 +37,7 @@ public class BucketRefreshOperation implements Operation {
                 @Override
                 public void run() {
                     try {
-                        new FindNodeOperation(localNode, current).execute();
+                        new FindNodeOperation(localNode, current, false).execute();
                     } catch (IOException e) {
                         logger.error("Bucket refresh failed with error:", e);
                     }

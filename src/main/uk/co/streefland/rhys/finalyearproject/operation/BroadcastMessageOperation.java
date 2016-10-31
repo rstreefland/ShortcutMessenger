@@ -123,7 +123,7 @@ public class BroadcastMessageOperation implements Operation, Receiver {
             attempts.put(toMessage.get(i), attempts.get(toMessage.get(i)) + 1);
             messagesInTransit.put(communicationId, toMessage.get(i));
         }
-        return true;
+        return false;
     }
 
     /**

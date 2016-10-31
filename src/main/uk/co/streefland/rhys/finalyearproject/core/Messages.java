@@ -54,9 +54,6 @@ public class Messages implements Serializable {
                 }
 
                 lastMessage.set(stm);
-
-                /* Store user locally to shorten future operations */
-                localNode.getUsers().addUser(operation.getUser());
             } else {
                 logger.error("User {} doesn't exist", target.getUserName());
             }
@@ -83,11 +80,9 @@ public class Messages implements Serializable {
                 ArrayList<StoredTextMessage> conversation = userMessages.get(userName);
                 conversation.add(storedMessage);
             }
+
             lastMessage.set(storedMessage);
         }
-
-        /* Store user locally to shorten future operations */
-        localNode.getUsers().addUser(originUser);
     }
 
     /**
@@ -97,9 +92,6 @@ public class Messages implements Serializable {
      */
     public void addForwardMessage(TextMessage message) {
         forwardMessages.putIfAbsent(message.getMessageId(), message);
-
-        /* Store user locally to shorten future operations */
-        localNode.getUsers().addUser(message.getOriginUser());
     }
 
     /**

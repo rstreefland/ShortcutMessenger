@@ -47,7 +47,7 @@ public class Users implements Serializable {
         user.setRegisterTime(); // set the register time to now
         user.addAssociatedNode(localNode.getNode()); // add the local node as an associated node
 
-        RegisterUserOperation ruo = new RegisterUserOperation(localNode, user);
+        RegisterUserOperation ruo = new RegisterUserOperation(localNode, user , true);
         ruo.execute();
 
         /* Set the local user object */
@@ -76,7 +76,7 @@ public class Users implements Serializable {
             user.addAssociatedNode(localNode.getNode()); // add the local node as the associated node
 
             /* Run the RegisterUserOperation to update other nodes on the network with the new user object*/
-            RegisterUserOperation ruo = new RegisterUserOperation(localNode, user);
+            RegisterUserOperation ruo = new RegisterUserOperation(localNode, user, true);
             ruo.execute();
 
             localUser = user; // set the local user object for future reference

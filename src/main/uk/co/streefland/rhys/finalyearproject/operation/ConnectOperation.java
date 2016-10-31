@@ -73,7 +73,7 @@ public class ConnectOperation implements Operation, Receiver {
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
-            Operation findNode = new FindNodeOperation(localNode, localNode.getNode().getNodeId());
+            Operation findNode = new FindNodeOperation(localNode, localNode.getNode().getNodeId(), true);
             findNode.execute();
 
             /* Refresh buckets to update the rest of the routing table */

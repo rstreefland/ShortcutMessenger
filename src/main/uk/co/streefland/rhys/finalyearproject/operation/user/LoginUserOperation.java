@@ -73,7 +73,7 @@ public class LoginUserOperation implements Operation, Receiver {
         }
 
         /* Find nodes closest to the userId */
-        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId());
+        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), true);
         operation.execute();
         addNodes(operation.getClosestNodes());
 
@@ -83,7 +83,7 @@ public class LoginUserOperation implements Operation, Receiver {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
-            while (totalTimeWaited < config.getOperationTimeout() && !loggedIn) {
+            while (totalTimeWaited < config.getOperationTimeout()) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -165,7 +165,7 @@ public class LoginUserOperation implements Operation, Receiver {
                 messagesInTransit.put(communicationId, toQuery.get(i));
             }
         }
-        return true;
+        return false;
     }
 
     /**

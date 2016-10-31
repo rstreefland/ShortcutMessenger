@@ -31,16 +31,20 @@ public class FindNodeOperation implements Operation, Receiver {
     private final Message lookupMessage;        // Message sent to each peer
     private final Map<Node, String> nodes;
 
+    private final boolean ignoreStale;
+
     /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
 
-    public FindNodeOperation(LocalNode localNode, KeyId lookupId) {
+    public FindNodeOperation(LocalNode localNode, KeyId lookupId, boolean ignoreStale) {
         this.localNode = localNode;
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
 
         this.lookupMessage = new FindNodeMessage(localNode.getNode(), lookupId);
         this.messagesInTransit = new HashMap<>();
+
+        this.ignoreStale = ignoreStale;
 
         /* Initialise a TreeMap that is sorted by which nodes are closest to the lookupId */
         Comparator<Node> comparator = new KeyComparator(lookupId);
@@ -58,7 +62,7 @@ public class FindNodeOperation implements Operation, Receiver {
         nodes.put(localNode.getNode(), Configuration.QUERIED);
 
         /* Insert all nodes because some nodes may fail to respond. */
-        addNodes(localNode.getRoutingTable().getAllNodes());
+        addNodes(localNode.getRoutingTable().getAllNodes(ignoreStale));
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */

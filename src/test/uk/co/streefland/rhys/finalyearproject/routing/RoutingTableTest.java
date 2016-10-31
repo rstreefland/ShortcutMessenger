@@ -41,7 +41,7 @@ public class RoutingTableTest {
 
     @Test
     public void testInsertNode() throws Exception {
-        assertEquals(routingTable.getAllNodes().size(), 1);
+        assertEquals(routingTable.getAllNodes(true).size(), 1);
 
         routingTable.insert(node1);
 
@@ -51,7 +51,7 @@ public class RoutingTableTest {
         routingTable.insert(node3);
         routingTable.insert(node4);
 
-        assertEquals(routingTable.getAllNodes().size(), 4);
+        assertEquals(routingTable.getAllNodes(true).size(), 4);
     }
 
     @Test
@@ -144,6 +144,6 @@ public class RoutingTableTest {
         routingTable.insert(node6);
         routingTable.insert(node7);
 
-        assertEquals(routingTable.getAllNodes().size(), 7);
+        assertEquals(routingTable.getAllNodes(true).size(), 7);
     }
 }

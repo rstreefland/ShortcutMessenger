@@ -35,7 +35,7 @@ public class UserRefreshOperation implements Operation {
                 @Override
                 public void run() {
                     try {
-                        new RegisterUserOperation(localNode, currentUser).execute();
+                        new RegisterUserOperation(localNode, currentUser, false).execute();
 
                     } catch (IOException e) {
                         logger.error("User refresh failed with error:", e);

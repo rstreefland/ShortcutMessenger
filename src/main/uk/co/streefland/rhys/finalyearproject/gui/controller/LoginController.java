@@ -150,10 +150,8 @@ public class LoginController {
         });
     }
 
-    public void handleKeyPressed(KeyEvent key)
-    {
-        if(key.getCode() == KeyCode.ENTER)
-        {
+    public void handleKeyPressed(KeyEvent key) {
+        if (key.getCode() == KeyCode.ENTER) {
             btn2.fire();
         }
     }

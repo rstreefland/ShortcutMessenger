@@ -67,7 +67,7 @@ public class FindUserOperation implements Operation, Receiver {
             return;
         }
 
-        FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId());
+        FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId(), true);
         fno.execute();
         closestNodes = fno.getClosestNodes();
 
@@ -79,7 +79,7 @@ public class FindUserOperation implements Operation, Receiver {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
-            while ((totalTimeWaited < config.getOperationTimeout())) {
+            while (totalTimeWaited < config.getOperationTimeout()) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
@@ -90,16 +90,6 @@ public class FindUserOperation implements Operation, Receiver {
         } catch (InterruptedException e) {
             e.printStackTrace();
             logger.error("FindUserOperation was interrupted unexpectedly: {}", e);
-        }
-
-        /* Don't terminate until we've found a user object whilst we are still waiting for replies*/
-        while (messagesInTransit.size() > 0 && foundUser == null) {
-            try {
-                iterativeQueryNodes();
-                wait(500);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
         }
     }
 
@@ -156,7 +146,7 @@ public class FindUserOperation implements Operation, Receiver {
                 messagesInTransit.put(communicationId, toQuery.get(i));
             }
         }
-        return true;
+        return false;
     }
 
     /**

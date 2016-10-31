@@ -21,23 +21,25 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.geometry.Insets?>
-<BorderPane onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
+<BorderPane onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.65"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
     <top>
         <VBox alignment="center">
             <MenuBar fx:id="menuBar">
                 <menus>
                     <Menu text="File">
                         <items>
-                            <MenuItem text="New" />
-                            <MenuItem text="Open" />
-                            <MenuItem text="Save" />
-                            <MenuItem text="Save As" />
-                            <SeparatorMenuItem />
-                            <MenuItem text="Exit" />
+                            <MenuItem text="New"/>
+                            <MenuItem text="Open"/>
+                            <MenuItem text="Save"/>
+                            <MenuItem text="Save As"/>
+                            <SeparatorMenuItem/>
+                            <MenuItem text="Exit"/>
                         </items>
                     </Menu>
                     <Menu text="Conversations">
-                        <MenuItem onAction="#newConversationDialog" text="New" />
+                        <MenuItem onAction="#newConversationDialog" text="New"/>
                     </Menu>
                 </menus>
             </MenuBar>
@@ -45,52 +47,64 @@
     </top>
     <center>
         <GridPane alignment="center">
-            <ListView fx:id="listView" maxWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <ListView fx:id="listView" maxWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"
+                      onMouseClicked="#onMouseClick">
                 <placeholder>
-                    <Label styleClass="info" text="No conversations found" textAlignment="CENTER" wrapText="true" />
+                    <Label styleClass="info" text="No conversations found" textAlignment="CENTER" wrapText="true"/>
                 </placeholder>
             </ListView>
-            <VBox styleClass="scroll-pane" GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-                <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+            <VBox GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                <HBox alignment="TOP_LEFT">
+                    <padding>
+                        <Insets top="10" bottom="10" right="10" left="10"/>
+                    </padding>
+                    <Text fx:id="conversationUser" text="Select a conversation..." HBox.hgrow="ALWAYS"/>
+                </HBox>
+                <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
+                            vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
                     <GridPane vgap="5" fx:id="textPane">
-                        <padding><Insets top="5" bottom="5" right="5" left="5"/></padding>
+                        <padding>
+                            <Insets top="5" bottom="5" right="5" left="5"/>
+                        </padding>
                     </GridPane>
                 </ScrollPane>
                 <HBox alignment="BOTTOM_CENTER">
-                    <TextField fx:id="messageField" promptText="Type a message..." HBox.hgrow="ALWAYS" />
-                    <Button fx:id="sendButton" onAction="#sendMessage" text="SEND" />
+                    <TextField fx:id="messageField" promptText="Type a message..." HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="sendButton" onAction="#sendMessage" text="SEND"/>
                 </HBox>
             </VBox>
             <columnConstraints>
-                <ColumnConstraints />
-                <ColumnConstraints />
-                <ColumnConstraints />
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints />
-                <RowConstraints />
+                <RowConstraints/>
+                <RowConstraints/>
             </rowConstraints>
         </GridPane>
     </center>
     <bottom>
         <GridPane alignment="center" hgap="10" styleClass="menu-bar" vgap="10">
-            <Text fx:id="status" styleClass="info" text="Rhys Streefland (2016)" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" />
-            <ImageView fx:id="spinner" fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+            <Text fx:id="status" styleClass="info" text="Rhys Streefland (2016)" GridPane.columnIndex="1"
+                  GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS"/>
+            <ImageView fx:id="spinner" fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"
+                       visible="false" GridPane.columnIndex="2">
                 <image>
-                    <Image url="@../spin.gif" />
+                    <Image url="@../spin.gif"/>
                 </image>
             </ImageView>
             <columnConstraints>
-                <ColumnConstraints />
-                <ColumnConstraints />
-                <ColumnConstraints />
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
             </columnConstraints>
             <rowConstraints>
-                <RowConstraints />
+                <RowConstraints/>
             </rowConstraints>
         </GridPane>
     </bottom>
     <stylesheets>
-        <URL value="@../style.css" />
+        <URL value="@../style.css"/>
     </stylesheets>
 </BorderPane>

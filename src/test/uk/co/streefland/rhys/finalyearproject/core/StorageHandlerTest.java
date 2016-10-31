@@ -52,7 +52,7 @@ public class StorageHandlerTest {
         assertEquals(node.getNodeId(), loadedNode.getNodeId());
         assertEquals(node.getSocketAddress(), loadedNode.getSocketAddress());
 
-        assertEquals(routingTable.getAllNodes(), loadedRoutingTable.getAllNodes());
+        assertEquals(routingTable.getAllNodes(true), loadedRoutingTable.getAllNodes(true));
         assertEquals(routingTable.getBuckets().length, loadedRoutingTable.getBuckets().length);
 
         assertEquals(users.getLocalUser(), users.getLocalUser());

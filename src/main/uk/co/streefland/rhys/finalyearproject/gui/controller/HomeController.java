@@ -19,6 +19,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -61,6 +62,8 @@ public class HomeController {
     private Button sendButton;
     @FXML
     private ImageView spinner;
+    @FXML
+    private Text conversationUser;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
@@ -75,7 +78,9 @@ public class HomeController {
                 .addListener((observable, oldValue, newValue) -> {
                     // change the label text value to the newly selected
                     // item.
-                    changeConversation(newValue);
+                    if (newValue != null) {
+                        changeConversation(newValue);
+                    }
                 });
 
         localNode.getMessages().lastMessageProperty().addListener(
@@ -90,7 +95,11 @@ public class HomeController {
                             conversations.add(author);
                         }
 
-                        if (currentConversationUser != author && (author != localUser)) {
+                        if (currentConversationUser != null) {
+                            if (!currentConversationUser.equals(author) && !author.equals(localUser)) {
+                                createNotification(author, messageString);
+                            }
+                        } else {
                             createNotification(author, messageString);
                         }
                     });
@@ -193,6 +202,7 @@ public class HomeController {
             }
 
             currentConversationUser = userName;
+            conversationUser.setText(currentConversationUser);
 
             textPane.getChildren().clear();
 
@@ -252,6 +262,16 @@ public class HomeController {
         tray.setImage(image);
         tray.setAnimationType(AnimationType.POPUP);
         tray.showAndDismiss(Duration.seconds(5));
+    }
+
+    @FXML
+    public void onMouseClick(MouseEvent click) {
+        if (click.getClickCount() == 2) {
+            conversations.remove(listView.getSelectionModel().getSelectedItem());
+            textPane.getChildren().clear();
+            currentConversationUser = null;
+            conversationUser.setText("Select a conversation...");
+        }
     }
 
     public void handleKeyPressed(KeyEvent key) {

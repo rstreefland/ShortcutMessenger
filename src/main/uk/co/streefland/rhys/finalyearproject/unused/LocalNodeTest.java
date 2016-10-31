@@ -35,7 +35,7 @@ class LocalNodeTest {
             do {
                 message = sc.nextLine();
                 if (message != null) {
-                    localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes());
+                    localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes(false));
                 }
             } while (!message.equals("exit"));
 

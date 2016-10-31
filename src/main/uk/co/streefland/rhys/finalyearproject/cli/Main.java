@@ -212,7 +212,7 @@ class Main {
         String message = sc.nextLine();
 
         try {
-            localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes());
+            localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes(false));
         } catch (IOException e) {
             e.printStackTrace();
         }

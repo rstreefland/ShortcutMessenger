@@ -47,12 +47,12 @@ public class TextMessage implements Message, Serializable {
     /**
      * Constructor for a node sending a message to itself
      */
-    public TextMessage(Node origin, User originUser, String message) {
+    public TextMessage(KeyId messageId, Node origin, User originUser, String message) {
         this.origin = origin;
         this.target = origin;
         this.originUser = originUser;
         this.targetUser = originUser;
-        this.messageId = new KeyId();
+        this.messageId = messageId;
         this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
 
         this.message = message;
@@ -61,12 +61,12 @@ public class TextMessage implements Message, Serializable {
     /**
      * Constructor for user to user messages
      */
-    public TextMessage(Node origin, Node target, User originUser, User targetUser, String message) {
+    public TextMessage(KeyId messageId, Node origin, Node target, User originUser, User targetUser, String message) {
         this.origin = origin;
         this.target = target;
         this.originUser = originUser;
         this.targetUser = targetUser;
-        this.messageId = new KeyId();
+        this.messageId = messageId;
         this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
 
         try {
