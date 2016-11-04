@@ -5,10 +5,8 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.operation.BroadcastMessageOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
-import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
@@ -239,21 +237,6 @@ public class LocalNode implements Runnable {
         connect.execute();
 
         return connect.isError();
-    }
-
-    /**
-     * Sends a broadcast message to the specified nodes
-     *
-     * @param message     The text message to broadcast
-     * @param targetNodes The nodes that should receive the message
-     * @throws IOException
-     */
-    public final void broadcastMessage(String message, List<Node> targetNodes) throws IOException {
-        if (!message.isEmpty() && users.getLocalUser() != null) {
-            logger.info("Sending broadcast message to all known nodes");
-            Operation operation = new BroadcastMessageOperation(this, message, targetNodes);
-            operation.execute();
-        }
     }
 
     public final void message(String message, User userToMessage) throws IOException {

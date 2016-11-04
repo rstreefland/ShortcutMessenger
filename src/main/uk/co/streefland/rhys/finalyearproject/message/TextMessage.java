@@ -26,8 +26,8 @@ public class TextMessage implements Message, Serializable {
     public static final byte CODE = 0x05;
     private Node origin;
     private Node target;
-    private User originUser;
-    private User targetUser;
+    private User authorUser;
+    private User recipientUser;
     private KeyId messageId;
     private String message;
     private byte[] encryptedMessage;
@@ -35,23 +35,13 @@ public class TextMessage implements Message, Serializable {
     private long createdTime;
 
     /**
-     * Constructor for broadcast messages
-     */
-    public TextMessage(Node origin, String message) {
-        this.origin = origin;
-        this.messageId = new KeyId();
-        this.message = message;
-        this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
-    }
-
-    /**
      * Constructor for a node sending a message to itself
      */
-    public TextMessage(KeyId messageId, Node origin, User originUser, String message) {
+    public TextMessage(KeyId messageId, Node origin, User authorUser, String message) {
         this.origin = origin;
         this.target = origin;
-        this.originUser = originUser;
-        this.targetUser = originUser;
+        this.authorUser = authorUser;
+        this.recipientUser = authorUser;
         this.messageId = messageId;
         this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
 
@@ -61,18 +51,18 @@ public class TextMessage implements Message, Serializable {
     /**
      * Constructor for user to user messages
      */
-    public TextMessage(KeyId messageId, Node origin, Node target, User originUser, User targetUser, String message) {
+    public TextMessage(KeyId messageId, Node origin, Node target, User authorUser, User recipientUser, String message) {
         this.origin = origin;
         this.target = target;
-        this.originUser = originUser;
-        this.targetUser = targetUser;
+        this.authorUser = authorUser;
+        this.recipientUser = recipientUser;
         this.messageId = messageId;
         this.createdTime = new Date().getTime() / 1000; // store timestamp in seconds
 
         try {
             Encryption enc = new Encryption();
             iv = enc.generateIV();
-            encryptedMessage = enc.encryptString(targetUser, iv, message);
+            encryptedMessage = enc.encryptString(recipientUser, iv, message);
         } catch (IllegalBlockSizeException | InvalidKeyException | BadPaddingException | NoSuchPaddingException | NoSuchAlgorithmException | UnsupportedEncodingException | InvalidAlgorithmParameterException e) {
             logger.error("Failed to encrypt message with error", e);
         }
@@ -93,12 +83,12 @@ public class TextMessage implements Message, Serializable {
 
         /* Only read if origin user isn't null */
         if (in.readBoolean()) {
-            originUser = new User(in);
+            authorUser = new User(in);
         }
 
         /* Only read if target user isn't null */
         if (in.readBoolean()) {
-            targetUser = new User(in);
+            recipientUser = new User(in);
         }
 
         createdTime = in.readLong();
@@ -130,16 +120,16 @@ public class TextMessage implements Message, Serializable {
             out.writeBoolean(false);
         }
 
-        if (originUser != null) {
+        if (authorUser != null) {
             out.writeBoolean(true);
-            originUser.toStream(out);
+            authorUser.toStream(out);
         } else {
             out.writeBoolean(false);
         }
 
-        if (targetUser != null) {
+        if (recipientUser != null) {
             out.writeBoolean(true);
-            targetUser.toStream(out);
+            recipientUser.toStream(out);
         } else {
             out.writeBoolean(false);
         }
@@ -182,12 +172,12 @@ public class TextMessage implements Message, Serializable {
         return target;
     }
 
-    public User getOriginUser() {
-        return originUser;
+    public User getAuthorUser() {
+        return authorUser;
     }
 
-    public User getTargetUser() {
-        return targetUser;
+    public User getRecipientUser() {
+        return recipientUser;
     }
 
     public KeyId getMessageId() {

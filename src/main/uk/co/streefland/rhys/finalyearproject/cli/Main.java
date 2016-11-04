@@ -62,8 +62,7 @@ class Main {
             System.out.println("(2) - Register");
             System.out.println("(3) - Log in");
             System.out.println("(4) - Send a message");
-            System.out.println("(5) - Send a unused broadcast message");
-            System.out.println("(6) - Print routing table");
+            System.out.println("(5) - Print routing table");
             System.out.println("(q) - Quit");
 
             input = sc.nextLine();
@@ -82,9 +81,6 @@ class Main {
                     message();
                     break;
                 case "5":
-                    broadcast();
-                    break;
-                case "6":
                     routingTable();
                     break;
                 case "q":
@@ -201,18 +197,6 @@ class Main {
 
         try {
             localNode.message(message, userToMessage);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void broadcast() {
-
-        System.out.println("Please enter a message to broadcast:");
-        String message = sc.nextLine();
-
-        try {
-            localNode.broadcastMessage(message, localNode.getRoutingTable().getAllNodes(false));
         } catch (IOException e) {
             e.printStackTrace();
         }

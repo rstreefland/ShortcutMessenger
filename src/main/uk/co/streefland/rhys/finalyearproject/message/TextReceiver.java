@@ -35,44 +35,39 @@ public class TextReceiver implements Receiver {
         User localUser = localNode.getUsers().getLocalUser();
         boolean success = true;
 
-        /* If target is null - it's a broadcast message */
-        if (msg.getTarget() != null) {
-            /* If the message is intended for this node */
-            if (msg.getTarget().getNodeId().equals(localNode.getNode().getNodeId())) {
-                if (msg.getOriginUser() != null) {
-                    logger.info("Received a message intended for me");
+        /* If the message is intended for this node */
+        if (msg.getTarget().getNodeId().equals(localNode.getNode().getNodeId())) {
+            if (msg.getAuthorUser() != null) {
+                logger.info("Received a message intended for me");
 
-                    /* If there is a user logged in */
-                    if (localUser != null) {
-                        /* If the user currently logged in matches the target user of the message*/
-                        if (localUser.getUserId().equals(msg.getTargetUser().getUserId())) {
-                            try {
+                /* If there is a user logged in */
+                if (localUser != null) {
+                    /* If the user currently logged in matches the target user of the message*/
+                    if (localUser.getUserId().equals(msg.getRecipientUser().getUserId())) {
+                        try {
                             /* Decrypt the message */
-                                Encryption enc = new Encryption();
-                                String message = enc.decryptString(msg.getTargetUser(), localUser, msg.getIv(), msg.getEncryptedMessage());
-                                msg.setMessage(message);
+                            Encryption enc = new Encryption();
+                            String message = enc.decryptString(msg.getRecipientUser(), localUser, msg.getIv(), msg.getEncryptedMessage());
+                            msg.setMessage(message);
 
                             /* Store the message */
-                                localNode.getMessages().addReceivedMessage(msg);
-                            } catch (InvalidAlgorithmParameterException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException | NoSuchAlgorithmException | NoSuchPaddingException e) {
-                                logger.error("Failed to decrypt message", e);
-                            }
-                        } else {
-                            logger.info("Ignoring message because it's not intended for the current user");
-                            success = false;
+                            localNode.getMessages().addReceivedMessage(msg);
+                        } catch (InvalidAlgorithmParameterException | BadPaddingException | InvalidKeyException | IllegalBlockSizeException | NoSuchAlgorithmException | NoSuchPaddingException e) {
+                            logger.error("Failed to decrypt message", e);
                         }
                     } else {
-                        logger.info("Ignoring message because the intended user is not logged in");
+                        logger.info("Ignoring message because it's not intended for the current user");
                         success = false;
                     }
+                } else {
+                    logger.info("Ignoring message because the intended user is not logged in");
+                    success = false;
                 }
-            } else {
-                /* This is a message intended for a different target - handle */
-                logger.info("Received a message intended for another node");
-                localNode.getMessages().addForwardMessage(msg);
             }
         } else {
-            System.out.println("Broadcast message received: " + msg.getMessage());
+            /* This is a message intended for a different target - handle */
+            logger.info("Received a message intended for another node");
+            localNode.getMessages().addForwardMessage(msg);
         }
 
         /* Create the AcknowledgeMessage */

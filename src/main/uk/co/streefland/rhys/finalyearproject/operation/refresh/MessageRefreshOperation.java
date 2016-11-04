@@ -40,7 +40,7 @@ public class MessageRefreshOperation implements Operation {
                 @Override
                 public void run() {
                     try {
-                        SendMessageOperation smo = new SendMessageOperation(localNode, entry.getValue().getTargetUser(), entry.getValue());
+                        SendMessageOperation smo = new SendMessageOperation(localNode, entry.getValue().getRecipientUser(), entry.getValue());
                         smo.execute();
                         if (smo.isMessagedSuccessfully()) {
                             logger.info("Forwarded successfully - deleting message from local storage");
