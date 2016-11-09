@@ -11,18 +11,18 @@ import java.io.IOException;
 /**
  * Response to a VerifyUserMessage which contains the existing user object if it exists on the remote node
  */
-public class VerifyUserReplyMessage implements Message {
+public class VerifyUserMessageReply implements Message {
 
-    public static final byte CODE = 0x08;
+    public static final byte CODE = 0x07;
     private Node origin;
     private User existingUser;
 
-    public VerifyUserReplyMessage(Node origin, User existingUser) {
+    public VerifyUserMessageReply(Node origin, User existingUser) {
         this.origin = origin;
         this.existingUser = existingUser;
     }
 
-    public VerifyUserReplyMessage(DataInputStream in) throws IOException {
+    public VerifyUserMessageReply(DataInputStream in) throws IOException {
         this.fromStream(in);
     }
 
@@ -53,7 +53,7 @@ public class VerifyUserReplyMessage implements Message {
 
     @Override
     public String toString() {
-        return "VerifyUserReplyMessage[origin KeyId=" + origin.getNodeId() + "]";
+        return "VerifyUserMessageReply[origin KeyId=" + origin.getNodeId() + "]";
     }
 
     @Override

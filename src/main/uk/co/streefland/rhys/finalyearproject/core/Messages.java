@@ -4,8 +4,8 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.message.StoredTextMessage;
-import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
+import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
+import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 

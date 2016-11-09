@@ -2,7 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.core;
 
 import org.junit.Before;
 import org.junit.Test;
-import uk.co.streefland.rhys.finalyearproject.message.TextMessage;
+import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 

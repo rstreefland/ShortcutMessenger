@@ -9,7 +9,7 @@ import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserMessage;
-import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserReplyMessage;
+import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserMessageReply;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
@@ -157,7 +157,7 @@ public class FindUserOperation implements Operation, Receiver {
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
         /* Read the incoming AcknowledgeMessage */
-        VerifyUserReplyMessage msg = (VerifyUserReplyMessage) incoming;
+        VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
 
         logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 

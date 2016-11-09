@@ -25,21 +25,25 @@ import java.net.InetAddress;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Facilitates connecting to a network by specifying their local IP address and the target IP address to bootstrap to.
+ * This class will eventually
+ */
 public class ConnectController {
 
     private Main main;
     private LocalNode localNode;
 
     @FXML
-    private Button btn1;
+    private Button connectButton;
     @FXML
-    private TextField localIpInput;
+    private TextField localIpField;
     @FXML
-    private TextField networkIpInput;
+    private TextField networkIpField;
     @FXML
-    private Text message;
+    private Text errorText;
     @FXML
-    private ImageView spinner;
+    private ImageView loadingAnimation;
 
     public void init(Main main) {
         this.main = main;
@@ -47,7 +51,7 @@ public class ConnectController {
 
     @FXML
     protected void handleConnectButtonAction(ActionEvent event) {
-        spinner.setVisible(true);
+        loadingAnimation.setVisible(true);
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
@@ -59,7 +63,7 @@ public class ConnectController {
 
                 final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
                 final Pattern p = Pattern.compile(ipPattern);
-                Matcher m = p.matcher(localIpInput.getText());
+                Matcher m = p.matcher(localIpField.getText());
 
                 if (m.matches()) {
                     if (m.group(1) != null) {
@@ -84,7 +88,7 @@ public class ConnectController {
                 String networkIp = null;
                 int networkPort = 0;
 
-                m = p.matcher(networkIpInput.getText());
+                m = p.matcher(networkIpField.getText());
 
                 if (m.matches()) {
                     if (m.group(1) != null) {
@@ -95,7 +99,7 @@ public class ConnectController {
                     }
                 } else {
                     /* Special case for first node in the network */
-                    if (networkIpInput.getText().equals("first")) {
+                    if (networkIpField.getText().equals("first")) {
                         localNode.first();
                         this.succeeded();
                         return null;
@@ -134,8 +138,8 @@ public class ConnectController {
                 String errorMessage = (String) task.getValue(); // result of computation
 
                 if (errorMessage != null) {
-                    spinner.setVisible(false);
-                    message.setText(errorMessage);
+                    loadingAnimation.setVisible(false);
+                    errorText.setText(errorMessage);
                 } else {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/login.fxml"));
                     System.out.println(getClass());
@@ -153,7 +157,7 @@ public class ConnectController {
                     main.setLocalNode(localNode);
 
                     Stage stage;
-                    stage = (Stage) btn1.getScene().getWindow();
+                    stage = (Stage) connectButton.getScene().getWindow();
                     Scene scene = new Scene(root, 500, 500);
                     stage.setScene(scene);
                     stage.show();
@@ -166,7 +170,7 @@ public class ConnectController {
     {
         if(key.getCode() == KeyCode.ENTER)
         {
-            btn1.fire();
+            connectButton.fire();
         }
     }
 }

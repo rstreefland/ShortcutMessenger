@@ -3,6 +3,8 @@ package uk.co.streefland.rhys.finalyearproject.message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
+import uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver;
 import uk.co.streefland.rhys.finalyearproject.message.node.*;
 import uk.co.streefland.rhys.finalyearproject.message.user.*;
 
@@ -17,6 +19,7 @@ public class MessageHandler {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final LocalNode localNode;
 
+
     public MessageHandler(LocalNode localNode) {
         this.localNode = localNode;
     }
@@ -29,16 +32,16 @@ public class MessageHandler {
                 return new ConnectMessage(in);
             case FindNodeMessage.CODE:
                 return new FindNodeMessage(in);
-            case FindNodeReplyMessage.CODE:
-                return new FindNodeReplyMessage(in);
+            case FindNodeMessageReply.CODE:
+                return new FindNodeMessageReply(in);
             case TextMessage.CODE:
                 return new TextMessage(in);
             case StoreUserMessage.CODE:
                 return new StoreUserMessage(in);
             case VerifyUserMessage.CODE:
                 return new VerifyUserMessage(in);
-            case VerifyUserReplyMessage.CODE:
-                return new VerifyUserReplyMessage(in);
+            case VerifyUserMessageReply.CODE:
+                return new VerifyUserMessageReply(in);
             default:
                 logger.warn("No message type found for message code: {}", code);
                 return null;

@@ -13,7 +13,7 @@ import java.io.IOException;
  */
 public class VerifyUserMessage implements Message {
 
-    public static final byte CODE = 0x07;
+    public static final byte CODE = 0x06;
     private Node origin;
     private User user;
     private boolean verify; // should we verify the user matches or just check it exists

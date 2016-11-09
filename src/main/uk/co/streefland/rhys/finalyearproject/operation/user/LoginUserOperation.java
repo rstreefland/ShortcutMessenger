@@ -9,7 +9,7 @@ import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserMessage;
-import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserReplyMessage;
+import uk.co.streefland.rhys.finalyearproject.message.user.VerifyUserMessageReply;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
@@ -176,10 +176,10 @@ public class LoginUserOperation implements Operation, Receiver {
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
 
-        /* Read the VerifyUserReplyMessage */
-        VerifyUserReplyMessage msg = (VerifyUserReplyMessage) incoming;
+        /* Read the VerifyUserMessageReply */
+        VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
 
-        logger.debug("VerifyUserReplyMessage received from {}", msg.getOrigin().getSocketAddress().getHostName());
+        logger.debug("VerifyUserMessageReply received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
             loggedIn = msg.getExistingUser().doPasswordsMatch(plainTextPassword);

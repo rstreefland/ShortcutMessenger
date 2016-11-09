@@ -12,18 +12,18 @@ import java.util.List;
 /**
  * Response to a FindNodeMessage with a list of the K closest nodes to the provided KeyId
  */
-public class FindNodeReplyMessage implements Message {
+public class FindNodeMessageReply implements Message {
 
     public static final byte CODE = 0x04;
     private Node origin;
     private List<Node> nodes;
 
-    public FindNodeReplyMessage(Node origin, List<Node> nodes) {
+    public FindNodeMessageReply(Node origin, List<Node> nodes) {
         this.origin = origin;
         this.nodes = nodes;
     }
 
-    public FindNodeReplyMessage(DataInputStream in) throws IOException {
+    public FindNodeMessageReply(DataInputStream in) throws IOException {
         this.fromStream(in);
     }
 
@@ -56,7 +56,7 @@ public class FindNodeReplyMessage implements Message {
 
     @Override
     public String toString() {
-        return "FindNodeReplyMessage[origin KeyId=" + origin.getNodeId() + "]";
+        return "FindNodeMessageReply[origin KeyId=" + origin.getNodeId() + "]";
     }
 
     @Override

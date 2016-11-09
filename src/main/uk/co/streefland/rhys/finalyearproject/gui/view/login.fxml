@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 <?import java.net.URL?>
-<BorderPane onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1"
+<BorderPane onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.60"
+            xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.LoginController">
     <center>
         <GridPane alignment="center" hgap="10" vgap="10">
@@ -34,27 +35,16 @@
             <stylesheets>
                 <URL value="@../style.css"/>
             </stylesheets>
-            <columnConstraints>
-                <ColumnConstraints/>
-                <ColumnConstraints/>
-                <ColumnConstraints/>
-            </columnConstraints>
-            <rowConstraints>
-                <RowConstraints/>
-                <RowConstraints/>
-                <RowConstraints/>
-                <RowConstraints/>
-                <RowConstraints/>
-                <RowConstraints/>
-            </rowConstraints>
         </GridPane>
     </center>
     <bottom>
         <GridPane alignment="center" hgap="10" vgap="10">
-            <Text text="Rhys Streefland (2016)" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" />
-            <ImageView fx:id="spinner" fitHeight="50.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" visible="false" GridPane.columnIndex="2">
+            <Text text="Rhys Streefland (2016)" GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                  GridPane.hgrow="ALWAYS"/>
+            <ImageView fx:id="spinner" fitHeight="50.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"
+                       visible="false" GridPane.columnIndex="2">
                 <image>
-                    <Image url="@../spin.gif" />
+                    <Image url="@../spin.gif"/>
                 </image>
             </ImageView>
         </GridPane>

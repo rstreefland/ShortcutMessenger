@@ -1,4 +1,4 @@
-package uk.co.streefland.rhys.finalyearproject.gui.bubble;
+package uk.co.streefland.rhys.finalyearproject.gui;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
@@ -7,7 +7,6 @@ public class ChatBubble extends Label {
 
     public final static int COLOUR_GREY = 1;
     public final static int COLOUR_GREEN = 2;
-    public final static int AUTHOR = 3;
 
     public ChatBubble(String text, int colour) {
         super();

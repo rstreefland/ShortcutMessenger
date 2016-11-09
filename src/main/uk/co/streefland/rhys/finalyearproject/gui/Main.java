@@ -16,6 +16,9 @@ import uk.co.streefland.rhys.finalyearproject.gui.controller.LoginController;
 import javax.swing.*;
 import java.io.IOException;
 
+/**
+ * The starting point for the JavaFX application
+ */
 public class Main extends Application {
 
     LocalNode localNode = null;
@@ -23,14 +26,15 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
+        /* Load in custom fonts */
         Font.loadFont(getClass().getResourceAsStream("Roboto-Regular.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("Roboto-Light.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("Roboto-Bold.ttf"), 14);
 
         StorageHandler temp = new StorageHandler();
-
         Parent root;
 
+        /* Check if we can load the saved state from the file and show the relevant scene */
         if (temp.doesSavedStateExist()) {
             localNode = new LocalNode("", 0);
 
@@ -84,8 +88,6 @@ public class Main extends Application {
 
     @Override
     public void stop(){
-        System.out.println("Stage is closing");
-
         if (localNode != null) {
             localNode.shutdown();
         }

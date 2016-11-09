@@ -8,7 +8,7 @@ import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage;
-import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeReplyMessage;
+import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessageReply;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
@@ -170,13 +170,13 @@ public class FindNodeOperation implements Operation, Receiver {
     }
 
     /**
-     * Receive and handle the incoming FindNodeReplyMessage
+     * Receive and handle the incoming FindNodeMessageReply
      *
      * @throws IOException
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
-        if (!(incoming instanceof FindNodeReplyMessage)) {
+        if (!(incoming instanceof FindNodeMessageReply)) {
 
             logger.warn("Incoming message was of a different type");
             logger.warn("{}", incoming.getClass().toString());
@@ -185,8 +185,8 @@ public class FindNodeOperation implements Operation, Receiver {
             return;
         }
 
-        /* Read the FindNodeReplyMessage */
-        FindNodeReplyMessage msg = (FindNodeReplyMessage) incoming;
+        /* Read the FindNodeMessageReply */
+        FindNodeMessageReply msg = (FindNodeMessageReply) incoming;
 
         /* Add the origin node to our routing table */
         Node origin = msg.getOrigin();

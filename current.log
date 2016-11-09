@@ -16,7 +16,7 @@ Associated nodes:
 Node: localhost
 
 2016-11-03 19:12:08.746 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
-2016-11-03 19:12:08.750 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for me
+2016-11-03 19:12:08.750 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
 2016-11-03 19:12:08.765 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 13 ms
 2016-11-03 19:12:10.322 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
 2016-11-03 19:12:10.325 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
@@ -710,7 +710,7 @@ Node: localhost
 2016-11-03 19:14:10.679 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 6
 2016-11-03 19:14:10.679 [pool-3-thread-7] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
 2016-11-03 19:14:11.980 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
-2016-11-03 19:14:11.980 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for me
+2016-11-03 19:14:11.980 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
 2016-11-03 19:14:11.996 [pool-3-thread-4] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 14 ms
 2016-11-03 19:14:29.155 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Routing table was refreshed
 2016-11-03 19:14:29.156 [Timer-1] DEBUG uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - User database was refreshed
@@ -1072,7 +1072,7 @@ Node: localhost
 2016-11-03 19:15:30.371 [Thread-819] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
 2016-11-03 19:15:30.372 [Thread-821] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
 2016-11-03 19:15:32.472 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
-2016-11-03 19:15:32.472 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for me
+2016-11-03 19:15:32.472 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
 2016-11-03 19:15:32.480 [pool-3-thread-3] DEBUG uk.co.streefland.rhys.finalyearproject.core.User - Hashing password took 7 ms
 2016-11-03 19:15:36.960 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
 2016-11-03 19:15:36.961 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
@@ -3567,7 +3567,7 @@ Node: localhost
 2016-11-03 19:20:38.510 [pool-3-thread-8] DEBUG uk.co.streefland.rhys.finalyearproject.core.Users - User objects are the same, doing nothing
 2016-11-03 19:20:46.462 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
 2016-11-03 19:20:47.585 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 5
-2016-11-03 19:20:47.586 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.TextReceiver - Received a message intended for another node
+2016-11-03 19:20:47.586 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
 2016-11-03 19:21:10.646 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
 2016-11-03 19:21:10.649 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3
 2016-11-03 19:21:10.650 [Thread-9] DEBUG uk.co.streefland.rhys.finalyearproject.core.Server - No receiver exists, creating one using code 3

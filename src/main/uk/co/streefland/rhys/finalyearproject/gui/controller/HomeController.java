@@ -23,9 +23,9 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.message.StoredTextMessage;
+import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.core.User;
-import uk.co.streefland.rhys.finalyearproject.gui.bubble.ChatBubble;
+import uk.co.streefland.rhys.finalyearproject.gui.ChatBubble;
 
 import java.io.IOException;
 import java.util.ArrayList;

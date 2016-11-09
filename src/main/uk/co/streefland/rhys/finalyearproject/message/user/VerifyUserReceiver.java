@@ -36,8 +36,8 @@ public class VerifyUserReceiver implements Receiver {
             existingUser = localNode.getUsers().findUser(msg.getUser().getUserName());
         }
 
-        /* Create the VerifyUserReplyMessage */
-        Message reply = new VerifyUserReplyMessage(localNode.getNode(), existingUser);
+        /* Create the VerifyUserMessageReply */
+        Message reply = new VerifyUserMessageReply(localNode.getNode(), existingUser);
 
         /* The server sends the reply */
         if (server.isRunning()) {

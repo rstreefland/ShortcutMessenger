@@ -7,7 +7,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * Interface that every message should implement to ensure consistency
+ * Interface that every message should implement
  */
 public interface Message {
 

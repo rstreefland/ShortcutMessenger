@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Receives a FindNodeMessage and sends a FindNodeReplyMessage as a reply with the K closest nodes to the KeyId provided
+ * Receives a FindNodeMessage and sends a FindNodeMessageReply as a reply with the K closest nodes to the KeyId provided
  */
 public class FindNodeReceiver implements Receiver {
 
@@ -41,8 +41,8 @@ public class FindNodeReceiver implements Receiver {
         /* Find nodes closest to the KeyId in local routing table */
         List<Node> nodes = localNode.getRoutingTable().findClosest(msg.getLookupId());
 
-        /* Create the FindNodeReplyMessage */
-        Message reply = new FindNodeReplyMessage(localNode.getNode(), nodes);
+        /* Create the FindNodeMessageReply */
+        Message reply = new FindNodeMessageReply(localNode.getNode(), nodes);
 
         /* The server sends the reply */
         if (server.isRunning()) {
