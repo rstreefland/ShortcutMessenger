@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
+import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
 
 import java.io.IOException;
@@ -28,6 +29,12 @@ public class UserRefreshOperation implements Operation {
      */
     @Override
     public synchronized void execute() throws IOException {
+
+        /* Clean up users */
+        localNode.getUsers().cleanUp();
+
+        localNode.getUsers().getLocalUser().setLastActiveTime();
+        new RegisterUserOperation(localNode, localNode.getUsers().getLocalUser(), false);
 
         for (User currentUser : localNode.getUsers().getUsers()) {
             /* Run RegisterUserOperation for each user in a different thread */

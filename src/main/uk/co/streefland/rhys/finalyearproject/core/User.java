@@ -32,6 +32,7 @@ public class User implements Serializable {
     private List<Node> associatedNodes;
     private long registerTime;
     private long lastLoginTime;
+    private long lastActiveTime;
 
     public User(String userName, String password) {
         this.userId = new KeyId(userName);
@@ -67,6 +68,7 @@ public class User implements Serializable {
 
         out.writeLong(registerTime);
         out.writeLong(lastLoginTime);
+        out.writeLong(lastActiveTime);
     }
 
     private void fromStream(DataInputStream in) throws IOException {
@@ -89,6 +91,7 @@ public class User implements Serializable {
 
         registerTime = in.readLong();
         lastLoginTime = in.readLong();
+        lastActiveTime = in.readLong();
     }
 
     /**
@@ -183,6 +186,7 @@ public class User implements Serializable {
         if (registerTime == 0L) {
             registerTime = new Date().getTime();
             lastLoginTime = registerTime; // set the login time as well
+            lastActiveTime = registerTime;
         }
     }
 
@@ -191,7 +195,16 @@ public class User implements Serializable {
     }
 
     public void setLastLoginTime() {
-        this.lastLoginTime = new Date().getTime();
+        lastLoginTime = new Date().getTime();
+        lastActiveTime = lastLoginTime;
+    }
+
+    public long getLastActiveTime() {
+        return lastActiveTime;
+    }
+
+    public void setLastActiveTime() {
+        lastActiveTime = new Date().getTime();
     }
 
     public List<Node> getAssociatedNodes() {

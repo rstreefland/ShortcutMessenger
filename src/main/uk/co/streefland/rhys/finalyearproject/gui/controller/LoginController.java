@@ -26,17 +26,17 @@ public class LoginController {
     private LocalNode localNode;
 
     @FXML
-    private Button btn1;
+    private Button registerButton;
     @FXML
-    private Button btn2;
+    private Button loginButton;
     @FXML
-    private TextField userNameInput;
+    private TextField userNameField;
     @FXML
-    private PasswordField passwordInput;
+    private PasswordField passwordField;
     @FXML
-    private Text message;
+    private Text errorText;
     @FXML
-    private ImageView spinner;
+    private ImageView loadingAnimation;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
@@ -44,12 +44,12 @@ public class LoginController {
 
     @FXML
     protected void handleRegisterButtonAction(ActionEvent event) throws IOException {
-        spinner.setVisible(true);
+        loadingAnimation.setVisible(true);
 
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
-                User user = new User(userNameInput.getText(), passwordInput.getText());
+                User user = new User(userNameField.getText(), passwordField.getText());
                 if (localNode.getUsers().registerUser(user)) {
                     this.succeeded();
                     return null;
@@ -60,51 +60,33 @@ public class LoginController {
             }
         };
 
+        /* Run the task in a separate thread to avoid blocking the JavaFX thread */
         final Thread thread = new Thread(task);
         thread.setDaemon(true);
         thread.start();
 
-        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
+        /* On task finish */
+        task.setOnSucceeded(event1 -> {
+            String errorMessage = (String) task.getValue(); // result of computation
 
-                String errorMessage = (String) task.getValue(); // result of computation
-
-                if (errorMessage != null) {
-                    spinner.setVisible(false);
-                    message.setText(errorMessage);
-                } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/home.fxml"));
-                    Parent root = null;
-                    try {
-                        root = loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    HomeController controller =
-                            loader.getController();
-                    controller.init(localNode);
-
-                    Stage stage;
-                    stage = (Stage) btn1.getScene().getWindow();
-                    Scene scene = new Scene(root, 500, 500);
-                    stage.setScene(scene);
-                    stage.show();
-                }
+            if (errorMessage != null) {
+                loadingAnimation.setVisible(false);
+                errorText.setText(errorMessage);
+            } else {
+                showHomeScene();
             }
         });
     }
 
     @FXML
     protected void handleLoginButtonAction(ActionEvent event) {
-        spinner.setVisible(true);
+        loadingAnimation.setVisible(true);
 
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
-                User user = new User(userNameInput.getText(), passwordInput.getText());
-                if (localNode.getUsers().loginUser(user, passwordInput.getText())) {
+                User user = new User(userNameField.getText(), passwordField.getText());
+                if (localNode.getUsers().loginUser(user, passwordField.getText())) {
                     this.succeeded();
                     return null;
                 } else {
@@ -114,45 +96,50 @@ public class LoginController {
             }
         };
 
+        /* Run the task in a separate thread to avoid blocking the JavaFX thread */
         final Thread thread = new Thread(task);
         thread.setDaemon(true);
         thread.start();
 
-        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
+        /* On task finish */
+        task.setOnSucceeded(event1 -> {
+            String errorMessage = (String) task.getValue(); // result of computation
 
-                String errorMessage = (String) task.getValue(); // result of computation
-
-                if (errorMessage != null) {
-                    spinner.setVisible(false);
-                    message.setText(errorMessage);
-                } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/home.fxml"));
-                    Parent root = null;
-                    try {
-                        root = loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    HomeController controller =
-                            loader.getController();
-                    controller.init(localNode);
-
-                    Stage stage;
-                    stage = (Stage) btn1.getScene().getWindow();
-                    Scene scene = new Scene(root, 500, 500);
-                    stage.setScene(scene);
-                    stage.show();
-                }
+            if (errorMessage != null) {
+                loadingAnimation.setVisible(false);
+                errorText.setText(errorMessage);
+            } else {
+                showHomeScene();
             }
         });
     }
 
+    /**
+     * Changes the current scene to the login scene
+     */
+    private void showHomeScene() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/home.fxml"));
+        Parent root = null;
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        HomeController controller =
+                loader.getController();
+        controller.init(localNode);
+
+        Stage stage;
+        stage = (Stage) registerButton.getScene().getWindow();
+        Scene scene = new Scene(root, 500, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
+
     public void handleKeyPressed(KeyEvent key) {
         if (key.getCode() == KeyCode.ENTER) {
-            btn2.fire();
+            loginButton.fire();
         }
     }
 }

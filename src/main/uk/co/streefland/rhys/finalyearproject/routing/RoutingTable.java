@@ -143,9 +143,6 @@ public class RoutingTable implements Serializable {
                 if (ignoreStale) {
                     if (c.getStaleCount() == 0) {
                         nodes.add(c.getNode());
-                    } else {
-                        System.out.println("CONTACT IS STALE: ls" +
-                                "" + c.getNode().getSocketAddress().getHostName());
                     }
                 } else {
                     nodes.add(c.getNode());

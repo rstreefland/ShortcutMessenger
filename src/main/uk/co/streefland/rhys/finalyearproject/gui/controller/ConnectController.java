@@ -1,9 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -49,22 +47,32 @@ public class ConnectController {
         this.main = main;
     }
 
+    /**
+     * Creates the localNode and bootstraps the node to the network
+     * @param event
+     * @throws IOException
+     */
     @FXML
-    protected void handleConnectButtonAction(ActionEvent event) {
+    private void handleConnectButtonAction(ActionEvent event) throws IOException {
         loadingAnimation.setVisible(true);
+
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
 
-                boolean error = false;
+                boolean error;
 
                 String localIp = null;
                 int localPort = 0;
+                String networkIp = null;
+                int networkPort = 0;
 
+                /* Regex to validate the IP:PORT fields */
                 final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
                 final Pattern p = Pattern.compile(ipPattern);
                 Matcher m = p.matcher(localIpField.getText());
 
+                /* Validate the local IP address */
                 if (m.matches()) {
                     if (m.group(1) != null) {
                         localIp = m.group(1);
@@ -77,29 +85,21 @@ public class ConnectController {
                     return "Invalid local IP address";
                 }
 
-                try {
-                    if (localNode == null) {
-                        localNode = new LocalNode(localIp, localPort);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                String networkIp = null;
-                int networkPort = 0;
-
                 m = p.matcher(networkIpField.getText());
 
+                /* Validate the network IP address */
                 if (m.matches()) {
                     if (m.group(1) != null) {
                         networkIp = m.group(1);
                         if (m.group(2) != null) {
                             networkPort = Integer.parseInt(m.group(2));
                         }
+                        localNode = new LocalNode(localIp, localPort);
                     }
                 } else {
                     /* Special case for first node in the network */
                     if (networkIpField.getText().equals("first")) {
+                        localNode = new LocalNode(localIp, localPort);
                         localNode.first();
                         this.succeeded();
                         return null;
@@ -107,14 +107,12 @@ public class ConnectController {
                     this.succeeded();
                     return "Invalid network IP address";
                 }
-                try {
-                    if (networkPort != 0) {
-                        error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), networkPort));
-                    } else {
-                        error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), 12345));
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+
+                /* If the user hasn't specified a different port then network IP will be on the default port */
+                if (networkPort != 0) {
+                    error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), networkPort));
+                } else {
+                    error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), 12345));
                 }
 
                 if (error) {
@@ -127,49 +125,58 @@ public class ConnectController {
             }
         };
 
+        /* Run the task in a separate thread to avoid blocking the JavaFX thread */
         final Thread thread = new Thread(task);
         thread.setDaemon(true);
         thread.start();
 
-        task.setOnSucceeded(new EventHandler<WorkerStateEvent>() {
-            @Override
-            public void handle(WorkerStateEvent event) {
+        /* On task finish */
+        task.setOnSucceeded(event1 -> {
+            String errorMessage = (String) task.getValue(); // result of computation
 
-                String errorMessage = (String) task.getValue(); // result of computation
-
-                if (errorMessage != null) {
-                    loadingAnimation.setVisible(false);
-                    errorText.setText(errorMessage);
-                } else {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/login.fxml"));
-                    System.out.println(getClass());
-                    Parent root = null;
-                    try {
-                        root = loader.load();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    LoginController controller =
-                            loader.getController();
-                    controller.init(localNode);
-
-                    main.setLocalNode(localNode);
-
-                    Stage stage;
-                    stage = (Stage) connectButton.getScene().getWindow();
-                    Scene scene = new Scene(root, 500, 500);
-                    stage.setScene(scene);
-                    stage.show();
-                }
+            if (errorMessage != null) {
+                loadingAnimation.setVisible(false);
+                errorText.setText(errorMessage);
+            } else {
+                showLoginScene();
             }
         });
     }
 
-    public void handleKeyPressed(KeyEvent key)
-    {
-        if(key.getCode() == KeyCode.ENTER)
-        {
+    /**
+     * Changes the current scene to the login scene
+     */
+    private void showLoginScene() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/login.fxml"));
+        System.out.println(getClass());
+        Parent root = null;
+
+        try {
+            root = loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        LoginController controller =
+                loader.getController();
+        controller.init(localNode);
+
+        main.setLocalNode(localNode);
+
+        Stage stage;
+        stage = (Stage) connectButton.getScene().getWindow();
+        Scene scene = new Scene(root, 500, 500);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    /**
+     * Fires the connect button event handler if the enter key was pressed
+     * @param key The key event
+     */
+    @FXML
+    private void handleKeyPressed(KeyEvent key) {
+        if (key.getCode() == KeyCode.ENTER) {
             connectButton.fire();
         }
     }

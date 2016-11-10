@@ -38,7 +38,7 @@ public class LocalNode implements Runnable {
     private RefreshHandler refreshHandler;
 
     /**
-     * This constructor is the core constructor and attempts to read the localNode and routingTable objects from a file.
+     * This constructor is the main constructor and attempts to read the localNode and routingTable objects from a file.
      * It creates new objects if they cannot be loaded from the file.
      *
      * @throws IOException
@@ -87,6 +87,9 @@ public class LocalNode implements Runnable {
         this.messageHandler = new MessageHandler(this);
         this.server = new Server(port, messageHandler, config);
         this.users = new Users(this);
+
+        server.startListener();
+        startRefreshOperation();
     }
 
     @Override

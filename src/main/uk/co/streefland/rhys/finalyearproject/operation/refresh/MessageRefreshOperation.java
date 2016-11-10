@@ -31,7 +31,7 @@ public class MessageRefreshOperation implements Operation {
     @Override
     public synchronized void execute() throws IOException {
 
-        /* Remove all messages older than two days */
+        /* Clean up messages */
         localNode.getMessages().cleanUp();
 
         for (Map.Entry<KeyId, TextMessage> entry : localNode.getMessages().getForwardMessages().entrySet()) {

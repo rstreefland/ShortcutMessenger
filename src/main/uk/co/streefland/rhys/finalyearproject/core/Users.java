@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
@@ -9,6 +10,7 @@ import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperati
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,9 +23,11 @@ public class Users implements Serializable {
 
     private User localUser;
     private final List<User> users;
+    private final List<User> cache;
 
     public Users(LocalNode localNode) {
         this.users = new ArrayList<>();
+        this.cache = new ArrayList<>();
         initialise(localNode);
     }
 
@@ -94,15 +98,24 @@ public class Users implements Serializable {
     public synchronized boolean addUser(User newUser) {
         for (User user : users) {
             if (user.getUserName().equals(newUser.getUserName())) {
-                /* For login */
-                if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() == 0L) {
-                    logger.debug("New user object has newer login timestamp - replacing the old one");
+
+                if ((user.getLastActiveTime() < newUser.getLastActiveTime()) && newUser.getRegisterTime() != 0L) {
+                    logger.info("New user object has newer last active timestamp - replacing the old one");
                     users.remove(user);
                     users.add(newUser);
                     return false;
                 }
+                
+                /* For login */ // TODO: 10/11/2016  is this even needed anymore? 
+                if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() != 0L) {
+                    logger.info("New user object has newer login timestamp - replacing the old one");
+                    users.remove(user);
+                    users.add(newUser);
+                    return false;
+                }
+                
                 /* If new user has an older registration time that isn't zero - replace the existing user */
-                if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() == 0L) {
+                if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() != 0L) {
                     logger.debug("New user has an older registration timestamp - replacing the old one");
                     users.remove(user);
                     users.add(newUser);
@@ -126,6 +139,24 @@ public class Users implements Serializable {
         return true;
     }
 
+    public synchronized void addUserToCache(User newUser) {
+        for (User user : users) {
+            if (user.getUserName().equals(newUser.getUserName())) {
+                return;
+            }
+        }
+
+        for (User user : cache) {
+            if (user.getUserName().equals(newUser.getUserName())) {
+                cache.remove(user);
+                break;
+            }
+        }
+
+        logger.info("User added to cache");
+        cache.add(newUser);
+    }
+
     /**
      * Looks for a user with a specified userName on the local node and returns the user object if it was found
      *
@@ -135,6 +166,13 @@ public class Users implements Serializable {
     public synchronized User findUser(String userName) {
         for (User user : users) {
             if (user.getUserName().equals(userName)) {
+                return user;
+            }
+        }
+
+        for (User user: cache) {
+            if (user.getUserName().equals(userName)) {
+                logger.info("Found user object in cache!");
                 return user;
             }
         }
@@ -170,6 +208,16 @@ public class Users implements Serializable {
             }
         }
         return null;
+    }
+
+    public synchronized void cleanUp() {
+        long currentTime = new Date().getTime() / 1000; // current time in seconds
+
+        for (User user : cache) {
+            if (currentTime >= user.getLastActiveTime() + Configuration.USER_CACHE_EXPIRY) {
+                cache.remove(user);
+            }
+        }
     }
 
     public User getLocalUser() {

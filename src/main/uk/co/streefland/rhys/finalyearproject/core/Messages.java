@@ -55,6 +55,7 @@ public class Messages implements Serializable {
                 }
 
                 lastMessage.set(stm);
+                localNode.getUsers().addUserToCache(operation.getUser());
             } else {
                 logger.error("User {} doesn't exist", target.getUserName());
             }
@@ -83,6 +84,7 @@ public class Messages implements Serializable {
             }
 
             lastMessage.set(storedMessage);
+            localNode.getUsers().addUserToCache(originUser);
         }
     }
 
@@ -98,17 +100,24 @@ public class Messages implements Serializable {
     /**
      * Removes any forwardMessages that are older than two days
      */
-    public void cleanUp() {
-        long twoDays = 172800;
+    public synchronized void cleanUp() {
         long currentTime = new Date().getTime() / 1000; // current time in seconds
 
+        /* Cleanup forward messages */
         for (Map.Entry<KeyId, TextMessage> entry : forwardMessages.entrySet()) {
             // Remove if current time is greater than created time + two days
-            if (currentTime >= (entry.getValue().getCreatedTime() + twoDays)) {
+            if (currentTime >= (entry.getValue().getCreatedTime() + Configuration.FORWARD_MESSAGE_EXPIRY)) {
                 forwardMessages.remove(entry.getKey());
             }
         }
-        // TODO: 26/10/2016 Clean up received messages too
+
+        /* Cleanup received messages */
+        for (Map.Entry<KeyId, Long> entry : receivedMessages.entrySet()) {
+            // Remove if current time is greater than created time + two days
+            if (currentTime >= (entry.getValue() + Configuration.FORWARD_MESSAGE_EXPIRY)) {
+                receivedMessages.remove(entry.getKey());
+            }
+        }
     }
 
     @Override
