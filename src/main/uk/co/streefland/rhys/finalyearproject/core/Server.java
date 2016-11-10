@@ -199,6 +199,7 @@ public class Server {
             throw new IllegalStateException("Server is not running");
         }
         sendMessage(destination, msg, communicationId);
+        logger.info("REPLY SENT");
     }
 
     /**

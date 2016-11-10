@@ -4,11 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * Updates other nodes with the users stored on the local node
@@ -36,13 +38,13 @@ public class UserRefreshOperation implements Operation {
         localNode.getUsers().getLocalUser().setLastActiveTime();
         new RegisterUserOperation(localNode, localNode.getUsers().getLocalUser(), false);
 
-        for (User currentUser : localNode.getUsers().getUsers()) {
+        for (Map.Entry<String, User> entry : localNode.getUsers().getUsers().entrySet()) {
             /* Run RegisterUserOperation for each user in a different thread */
             new Thread() {
                 @Override
                 public void run() {
                     try {
-                        new RegisterUserOperation(localNode, currentUser, false).execute();
+                        new RegisterUserOperation(localNode, entry.getValue(), false).execute();
 
                     } catch (IOException e) {
                         logger.error("User refresh failed with error:", e);

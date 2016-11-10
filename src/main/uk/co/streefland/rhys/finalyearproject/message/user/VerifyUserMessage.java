@@ -16,12 +16,10 @@ public class VerifyUserMessage implements Message {
     public static final byte CODE = 0x06;
     private Node origin;
     private User user;
-    private boolean verify; // should we verify the user matches or just check it exists
 
-    public VerifyUserMessage(Node origin, User user, boolean verify) {
+    public VerifyUserMessage(Node origin, User user) {
         this.origin = origin;
         this.user = user;
-        this.verify = verify;
     }
 
     public VerifyUserMessage(DataInputStream in) throws IOException {
@@ -32,14 +30,12 @@ public class VerifyUserMessage implements Message {
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
         user = new User(in);
-        verify = in.readBoolean();
     }
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
         origin.toStream(out);
         user.toStream(out);
-        out.writeBoolean(verify);
     }
 
     @Override
@@ -58,9 +54,5 @@ public class VerifyUserMessage implements Message {
 
     public User getUser() {
         return user;
-    }
-
-    public boolean isVerify() {
-        return verify;
     }
 }

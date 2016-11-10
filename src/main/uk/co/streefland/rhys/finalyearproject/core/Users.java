@@ -3,15 +3,14 @@ package uk.co.streefland.rhys.finalyearproject.core;
 import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Represents the set of user objects stored on the local node and the operations to manage them
@@ -22,12 +21,12 @@ public class Users implements Serializable {
     private transient LocalNode localNode;
 
     private User localUser;
-    private final List<User> users;
-    private final List<User> cache;
+    private final HashMap<String,User> users;
+    private final HashMap<String,User> cache;
 
     public Users(LocalNode localNode) {
-        this.users = new ArrayList<>();
-        this.cache = new ArrayList<>();
+        this.users = new HashMap<>();
+        this.cache = new HashMap<>();
         initialise(localNode);
     }
 
@@ -56,7 +55,7 @@ public class Users implements Serializable {
 
         /* Set the local user object */
         if (ruo.isRegisteredSuccessfully()) {
-            localUser = user; // set the local user object for future reference
+            localUser = user; // set the local user object
         }
 
         return ruo.isRegisteredSuccessfully();
@@ -83,7 +82,7 @@ public class Users implements Serializable {
             RegisterUserOperation ruo = new RegisterUserOperation(localNode, user, true);
             ruo.execute();
 
-            localUser = user; // set the local user object for future reference
+            localUser = user; // set the local user object
         }
         return luo.isLoggedIn();
     }
@@ -96,65 +95,59 @@ public class Users implements Serializable {
      * @return False if the user already exists on the network
      */
     public synchronized boolean addUser(User newUser) {
-        for (User user : users) {
-            if (user.getUserName().equals(newUser.getUserName())) {
 
-                if ((user.getLastActiveTime() < newUser.getLastActiveTime()) && newUser.getRegisterTime() != 0L) {
-                    logger.info("New user object has newer last active timestamp - replacing the old one");
-                    users.remove(user);
-                    users.add(newUser);
-                    return false;
-                }
-                
-                /* For login */ // TODO: 10/11/2016  is this even needed anymore? 
-                if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() != 0L) {
-                    logger.info("New user object has newer login timestamp - replacing the old one");
-                    users.remove(user);
-                    users.add(newUser);
-                    return false;
-                }
-                
+        User user = users.get(newUser.getUserName());
+
+        if (user != null) {
+            if ((user.getLastActiveTime() < newUser.getLastActiveTime()) && newUser.getRegisterTime() != 0L) {
+                logger.info("New user object has newer last active timestamp - replacing the old one");
+                users.remove(user);
+                users.put(newUser.getUserName(), newUser);
+                return false;
+            }
+
+                /* For login */ // TODO: 10/11/2016  is this even needed anymore?
+            if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() != 0L) {
+                logger.info("New user object has newer login timestamp - replacing the old one");
+                users.remove(user);
+                users.put(newUser.getUserName(), newUser);
+                return false;
+            }
+
                 /* If new user has an older registration time that isn't zero - replace the existing user */
-                if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() != 0L) {
-                    logger.debug("New user has an older registration timestamp - replacing the old one");
-                    users.remove(user);
-                    users.add(newUser);
-                    return false;
-                }
+            if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() != 0L) {
+                logger.debug("New user has an older registration timestamp - replacing the old one");
+                users.remove(user);
+                users.put(newUser.getUserName(), newUser);
+                return false;
+            }
                 /* If existing user has older registration time then do nothing */
-                if ((user.getRegisterTime() < newUser.getRegisterTime())) {
-                    logger.debug("User with the same name exists - discarding");
-                    return false;
-                }
+            if ((user.getRegisterTime() < newUser.getRegisterTime())) {
+                logger.debug("User with the same name exists - discarding");
+                return false;
+            }
                 /* Users are exactly the same - do nothing */
-                if (user.getRegisterTime() == newUser.getRegisterTime()) {
-                    logger.debug("User objects are the same, doing nothing");
-                    return false;
-                }
+            if (user.getRegisterTime() == newUser.getRegisterTime()) {
+                logger.debug("User objects are the same, doing nothing");
+                return false;
             }
         }
+
         /* User doesn't exist in out memory - add it */
-        users.add(newUser);
+        users.put(newUser.getUserName(), newUser);
         logger.debug("New user added to users: {}", newUser.getUserName());
         return true;
     }
 
     public synchronized void addUserToCache(User newUser) {
-        for (User user : users) {
-            if (user.getUserName().equals(newUser.getUserName())) {
-                return;
-            }
+
+        if (users.containsKey(newUser.getUserName())) {
+            return;
         }
 
-        for (User user : cache) {
-            if (user.getUserName().equals(newUser.getUserName())) {
-                cache.remove(user);
-                break;
-            }
-        }
-
+        cache.remove(newUser.getUserName());
+        cache.put(newUser.getUserName(), newUser);
         logger.info("User added to cache");
-        cache.add(newUser);
     }
 
     /**
@@ -164,19 +157,17 @@ public class Users implements Serializable {
      * @return
      */
     public synchronized User findUser(String userName) {
-        for (User user : users) {
-            if (user.getUserName().equals(userName)) {
-                return user;
-            }
+        User user = users.get(userName);
+        if (user != null) {
+            return user;
         }
 
-        for (User user: cache) {
-            if (user.getUserName().equals(userName)) {
-                logger.info("Found user object in cache!");
-                return user;
-            }
-        }
-        return null;
+        user = cache.get(userName);
+        return user;
+    }
+
+    public synchronized User findUser(User user) {
+       return findUser(user.getUserName());
     }
 
     public synchronized User findUserOnNetwork(String userName) throws IOException {
@@ -187,35 +178,19 @@ public class Users implements Serializable {
             fuo.execute();
             user = fuo.getFoundUser();
             if (user != null) {
-                addUser(user);
+                addUserToCache(user);
             }
         }
 
         return user;
     }
 
-    /**
-     * Looks for a user with a specified userId on the local node and returns the user object if it was found
-     *
-     * @param newUser
-     * @return The user object that was found
-     */
-    public synchronized User matchUser(User newUser) {
-        for (User user : users) {
-            if (user.getUserId().equals(newUser.getUserId())) {
-                logger.debug("Found a matching user");
-                return user;
-            }
-        }
-        return null;
-    }
-
     public synchronized void cleanUp() {
         long currentTime = new Date().getTime() / 1000; // current time in seconds
 
-        for (User user : cache) {
-            if (currentTime >= user.getLastActiveTime() + Configuration.USER_CACHE_EXPIRY) {
-                cache.remove(user);
+        for (Map.Entry<String, User> entry : users.entrySet()) {
+            if (currentTime >= entry.getValue().getLastActiveTime() + Configuration.USER_CACHE_EXPIRY) {
+                cache.remove(entry.getValue());
             }
         }
     }
@@ -224,7 +199,7 @@ public class Users implements Serializable {
         return localUser;
     }
 
-    public List<User> getUsers() {
+    public Map<String, User> getUsers() {
         return users;
     }
 }

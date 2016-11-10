@@ -213,14 +213,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-
         StringBuilder sb = new StringBuilder("user: " + userName);
-        sb.append("\nAssociated nodes: \n");
-        for (Node node : associatedNodes) {
-            sb.append("Node: ");
-            sb.append(node.getSocketAddress().getHostName());
-            sb.append("\n");
-        }
         return sb.toString();
     }
 }

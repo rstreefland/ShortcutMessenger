@@ -73,7 +73,7 @@ public class FindUserOperation implements Operation, Receiver {
 
         addNodes(closestNodes);
 
-        message = new VerifyUserMessage(localNode.getNode(), searchUser, false);
+        message = new VerifyUserMessage(localNode.getNode(), searchUser);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
@@ -158,8 +158,6 @@ public class FindUserOperation implements Operation, Receiver {
     public synchronized void receive(Message incoming, int communicationId) {
         /* Read the incoming AcknowledgeMessage */
         VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
-
-        logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
             foundUser = msg.getExistingUser();

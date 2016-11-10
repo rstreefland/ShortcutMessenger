@@ -77,7 +77,7 @@ public class LoginUserOperation implements Operation, Receiver {
         operation.execute();
         addNodes(operation.getClosestNodes());
 
-        message = new VerifyUserMessage(localNode.getNode(), user, true);
+        message = new VerifyUserMessage(localNode.getNode(), user);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
@@ -144,7 +144,7 @@ public class LoginUserOperation implements Operation, Receiver {
             if (toQuery.get(i).equals(localNode.getNode())) {
 
                 /* Handles finding the user object on the local node */
-                User existingUser = localNode.getUsers().matchUser(user);
+                User existingUser = localNode.getUsers().findUser(user);
 
                 /* Terminate early if found on the local node */
                 if (existingUser != null) {
@@ -156,6 +156,8 @@ public class LoginUserOperation implements Operation, Receiver {
                         return true;
                     }
                 }
+
+                nodes.put(toQuery.get(i), Configuration.QUERIED);
             } else {
 
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);
@@ -178,8 +180,6 @@ public class LoginUserOperation implements Operation, Receiver {
 
         /* Read the VerifyUserMessageReply */
         VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
-
-        logger.debug("VerifyUserMessageReply received from {}", msg.getOrigin().getSocketAddress().getHostName());
 
         if (msg.getExistingUser() != null) {
             loggedIn = msg.getExistingUser().doPasswordsMatch(plainTextPassword);

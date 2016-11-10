@@ -165,8 +165,6 @@ public class RegisterUserOperation implements Operation, Receiver {
         /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
-
         if (!msg.getOperationSuccessful()) {
             isRegisteredSuccessfully = false;
         }

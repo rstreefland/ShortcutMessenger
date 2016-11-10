@@ -221,8 +221,6 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        logger.debug("ACK received from {}", msg.getOrigin().getSocketAddress().getHostName());
-
         isMessagedSuccessfully = msg.getOperationSuccessful(); // use the result from the ack
 
         /* Update the hashmap to show that we've finished messaging this node */
@@ -240,6 +238,7 @@ public class SendMessageOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void timeout(int communicationId) {
+
         /* Get the node associated with this communication */
         Node n = messagesInTransit.get(communicationId);
 
