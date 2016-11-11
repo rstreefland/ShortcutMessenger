@@ -35,8 +35,10 @@ public class UserRefreshOperation implements Operation {
         /* Clean up users */
         localNode.getUsers().cleanUp();
 
-        localNode.getUsers().getLocalUser().setLastActiveTime();
-        new RegisterUserOperation(localNode, localNode.getUsers().getLocalUser(), false);
+        if (localNode.getUsers().getLocalUser() != null) {
+            localNode.getUsers().getLocalUser().setLastActiveTime();
+            new RegisterUserOperation(localNode, localNode.getUsers().getLocalUser(), false);
+        }
 
         for (Map.Entry<String, User> entry : localNode.getUsers().getUsers().entrySet()) {
             /* Run RegisterUserOperation for each user in a different thread */

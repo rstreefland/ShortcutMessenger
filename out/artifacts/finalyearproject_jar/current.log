@@ -1,12 +1,18 @@
-2016-11-10 18:24:44.074 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-10 18:24:44.076 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
-2016-11-10 18:24:44.158 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Config read successfully
-2016-11-10 18:24:44.158 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
-2016-11-10 18:24:44.159 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
-2016-11-10 18:24:44.159 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
-2016-11-10 18:24:44.159 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Messages read successfully
-2016-11-10 18:24:44.174 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-10 18:24:44.175 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-10 18:24:48.574 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-10 18:24:48.576 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
-2016-11-10 18:24:48.600 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-11-11 16:33:46.588 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-11-11 16:33:46.590 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-11 16:33:46.599 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-11 16:33:46.600 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode EC0D7E182BF4305922619914C7871D1D4E0DAD6E to node 4FAE17C3260478C28FBB82970AEFA70E43A6AC74
+2016-11-11 16:33:46.600 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-11 16:34:04.255 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-11 16:34:05.637 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-11 16:34:08.965 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-11 16:34:46.629 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-11 16:35:08.956 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-11 16:35:46.615 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-11 16:36:02.306 [Thread-498] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: Joe
+2016-11-11 16:36:07.973 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-11 16:36:46.612 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-11 16:37:07.978 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-11 16:37:22.557 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-11-11 16:37:22.560 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
+2016-11-11 16:37:22.610 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

@@ -80,6 +80,12 @@ public class Server {
                 int communicationId = din.readInt();
                 byte messageCode = din.readByte();
 
+                if (messageCode == 0x02) {
+                    logger.info("New node connected");
+                    logger.info("IP: " + packet.getAddress().getHostAddress());
+                    logger.info("PORT: " + packet.getPort());
+                }
+
                 /* Create the message and close the input stream */
                 Message msg = messageHandler.createMessage(messageCode, din);
                 din.close();
@@ -199,7 +205,6 @@ public class Server {
             throw new IllegalStateException("Server is not running");
         }
         sendMessage(destination, msg, communicationId);
-        logger.info("REPLY SENT");
     }
 
     /**
