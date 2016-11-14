@@ -100,6 +100,12 @@ public class ConnectOperation implements Operation, Receiver {
         /* The target node has responded, insert it into the routing table */
         localNode.getRoutingTable().insert(bootstrapNode);
 
+        /* NAT has changed the port - correct the localNode */
+        if (msg.getCorrectedNode() != null) {
+            logger.info("Received a corrected node object - replacing the localNode");
+            localNode.setNode(msg.getCorrectedNode());
+        }
+
         /* We got a response, so error is false */
         error = false;
 
@@ -117,6 +123,7 @@ public class ConnectOperation implements Operation, Receiver {
     public synchronized void timeout(int communicationId) throws IOException {
         /* If our attempts are less than the maxConnectionAttempts setting - try to send the message again */
         if (attempts < config.getMaxConnectionAttempts()) {
+            //logger.error("I TIMED OUT :(");
             server.sendMessage(bootstrapNode, new ConnectMessage(localNode.getNode()), this);
             attempts++;
         } else {

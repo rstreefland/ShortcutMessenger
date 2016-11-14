@@ -1,18 +1,19 @@
-2016-11-11 16:33:46.588 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-11 16:33:46.590 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-11 16:33:46.599 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-11 16:33:46.600 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode EC0D7E182BF4305922619914C7871D1D4E0DAD6E to node 4FAE17C3260478C28FBB82970AEFA70E43A6AC74
-2016-11-11 16:33:46.600 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-11 16:34:04.255 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
-2016-11-11 16:34:05.637 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-11 16:34:08.965 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
-2016-11-11 16:34:46.629 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
-2016-11-11 16:35:08.956 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
-2016-11-11 16:35:46.615 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
-2016-11-11 16:36:02.306 [Thread-498] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: Joe
-2016-11-11 16:36:07.973 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
-2016-11-11 16:36:46.612 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
-2016-11-11 16:37:07.978 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
-2016-11-11 16:37:22.557 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-11 16:37:22.560 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
-2016-11-11 16:37:22.610 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-11-14 21:03:27.821 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-11-14 21:03:27.825 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-14 21:03:27.839 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-14 21:03:27.841 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-14 21:03:27.841 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 3C775704D7DBEFD422C99087438847A78E8F9BC4 to node B57D0A928EFD66234DDA2EB4A4D459CF245E4250
+2016-11-14 21:03:27.891 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
+2016-11-14 21:04:27.899 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:04:41.854 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:05:09.699 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:05:09.712 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:05:16.883 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:05:27.864 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:05:38.324 [Thread-496] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: rhys
+2016-11-14 21:06:09.618 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:06:09.657 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:06:17.212 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:06:27.877 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:17:09.051 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:26:54.909 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed

@@ -1,17 +1,186 @@
-2016-11-10 18:24:03.004 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-10 18:24:03.006 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-10 18:24:03.015 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-10 18:24:03.016 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12341
-2016-11-10 18:24:03.016 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode B2C30104974E69D9A91C201FBA5F3A7876FF2424 to node 76F143CC6A4917F7E58ECC251D2A0FC424B2A994
-2016-11-10 18:24:13.507 [Thread-170] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-10 18:24:16.082 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: macbook
-2016-11-10 18:24:16.083 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-10 18:24:18.198 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-10 18:24:18.208 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-10 18:24:18.209 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - REPLY SENT
-2016-11-10 18:24:19.007 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-10 18:24:19.015 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-10 18:24:19.016 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - REPLY SENT
-2016-11-10 18:24:32.867 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-10 18:24:32.870 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
-2016-11-10 18:24:32.913 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-11-14 21:03:15.323 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-11-14 21:03:15.325 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-14 21:03:15.334 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-14 21:03:15.335 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-14 21:03:15.335 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 8C28E1132CACAD9452164652C7C01482E530C5FC to node 789A4BB7E87DFB82CF58F70E1A2AB4CCA8B276F1
+2016-11-14 21:03:55.526 [Thread-169] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:04:15.355 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:04:48.097 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:05:05.675 [Thread-335] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: macbook
+2016-11-14 21:05:08.498 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:05:08.502 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:05:15.351 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:05:29.248 [Thread-500] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: macbook
+2016-11-14 21:06:08.412 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:06:08.440 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:06:08.449 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:06:15.351 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:06:16.012 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 21:07:09.409 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:07:09.419 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:07:15.355 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:08:09.383 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:08:15.350 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:09:09.478 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:09:15.351 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:10:09.464 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:10:15.357 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:11:09.353 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:11:15.354 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:12:09.418 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:12:15.354 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:13:09.375 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:13:15.354 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:14:09.381 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:14:15.361 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:15:09.397 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:15:15.356 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:16:09.368 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:16:15.357 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:17:09.364 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:17:15.359 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:18:09.376 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:18:15.359 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:19:09.388 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:19:15.358 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:20:09.403 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:20:15.358 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:21:09.391 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:21:15.358 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:22:09.366 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:22:15.359 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:23:09.398 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:23:15.359 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:24:09.355 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:24:15.359 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:25:09.397 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:25:15.361 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:26:09.366 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:26:15.361 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:27:09.368 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:27:15.367 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:28:09.395 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:28:15.362 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:29:09.383 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:29:15.362 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:30:09.371 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:30:15.363 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:31:09.361 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:31:15.364 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:32:09.356 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:32:15.364 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:33:09.374 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:33:15.365 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:34:09.348 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:34:15.366 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:35:09.357 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:35:15.365 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:36:09.454 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:36:15.367 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:37:09.365 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:37:15.366 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:38:09.361 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:38:15.365 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:39:09.369 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:39:15.367 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:40:09.380 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:40:15.368 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:41:09.362 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:41:15.368 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:42:09.370 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:42:15.368 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:43:09.385 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:43:15.368 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:44:09.360 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:44:15.369 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:45:09.370 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:45:15.370 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:46:09.357 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:46:15.369 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:47:09.359 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:47:15.370 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:48:09.372 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:48:15.370 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:49:09.384 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:49:15.371 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:50:09.368 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:50:15.371 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:51:09.363 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:51:15.371 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:52:09.353 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:52:15.372 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:53:09.372 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:53:15.372 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:54:09.367 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:54:15.371 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:55:09.388 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:55:15.372 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:56:09.353 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:56:15.373 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:57:09.369 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:57:15.374 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:58:09.372 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:58:15.374 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 21:59:09.364 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 21:59:15.373 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:00:09.357 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:00:15.374 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:01:09.354 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:01:15.373 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:02:09.356 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:02:15.374 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:03:09.354 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:03:15.374 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:04:09.364 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:04:15.374 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:05:09.362 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:05:15.375 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:06:09.359 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:06:15.373 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:07:09.369 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:07:15.375 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:08:09.353 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:08:15.375 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:09:09.363 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:09:15.375 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:10:09.375 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:10:15.377 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:11:09.361 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:11:15.377 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:12:09.344 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:12:15.376 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:13:09.371 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:13:15.378 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:14:09.360 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:14:15.378 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:15:09.396 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:15:15.378 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:16:09.343 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:16:15.379 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:17:08.377 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:17:15.380 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:18:09.348 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:18:15.380 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:19:09.346 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:19:15.380 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:20:09.403 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:20:15.381 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:21:09.356 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:21:15.380 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:22:09.360 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:22:15.382 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:23:09.371 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:23:15.382 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:24:09.373 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:24:15.381 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:25:09.353 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:25:15.383 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:26:09.377 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:26:15.383 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:27:08.529 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:27:15.385 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:28:08.365 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-14 22:28:08.378 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:28:08.379 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - New user object has newer last active timestamp - replacing the old one
+2016-11-14 22:28:15.382 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Messages were refreshed
+2016-11-14 22:28:16.622 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me

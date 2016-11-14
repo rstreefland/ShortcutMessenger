@@ -86,8 +86,20 @@ public class Node implements Serializable {
         return new InetSocketAddress(inetAddress, port);
     }
 
+    public InetAddress getInetAddress() {
+        return inetAddress;
+    }
+
     public KeyId getNodeId() {
         return nodeId;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 }
 

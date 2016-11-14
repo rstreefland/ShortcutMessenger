@@ -13,6 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import uk.co.streefland.rhys.finalyearproject.core.IPDiscovery;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.gui.Main;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -31,20 +32,29 @@ public class ConnectController {
 
     private Main main;
     private LocalNode localNode;
+    private IPDiscovery ipDiscovery;
 
     @FXML
     private Button connectButton;
-    @FXML
-    private TextField localIpField;
     @FXML
     private TextField networkIpField;
     @FXML
     private Text errorText;
     @FXML
     private ImageView loadingAnimation;
+    @FXML
+    private Text statusText;
 
     public void init(Main main) {
         this.main = main;
+
+        try {
+            ipDiscovery = new IPDiscovery();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        statusText.setText("External IP: " + ipDiscovery.getExternalIp() + "\nInternal IP: " + ipDiscovery.getInternalIp());
     }
 
     /**
@@ -60,32 +70,16 @@ public class ConnectController {
             @Override
             protected String call() throws Exception {
 
-                boolean error;
+                boolean error = false;
 
-                String localIp = null;
-                int localPort = 0;
+                String localIp = ipDiscovery.getExternalIp();
                 String networkIp = null;
                 int networkPort = 0;
 
                 /* Regex to validate the IP:PORT fields */
                 final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
                 final Pattern p = Pattern.compile(ipPattern);
-                Matcher m = p.matcher(localIpField.getText());
-
-                /* Validate the local IP address */
-                if (m.matches()) {
-                    if (m.group(1) != null) {
-                        localIp = m.group(1);
-                        if (m.group(2) != null) {
-                            localPort = Integer.parseInt(m.group(2));
-                        }
-                    }
-                } else {
-                    this.succeeded();
-                    return "Invalid local IP address";
-                }
-
-                m = p.matcher(networkIpField.getText());
+                Matcher m = p.matcher(networkIpField.getText());
 
                 /* Validate the network IP address */
                 if (m.matches()) {
@@ -94,12 +88,12 @@ public class ConnectController {
                         if (m.group(2) != null) {
                             networkPort = Integer.parseInt(m.group(2));
                         }
-                        localNode = new LocalNode(localIp, localPort);
+                        localNode = new LocalNode(localIp, 12345);
                     }
                 } else {
                     /* Special case for first node in the network */
                     if (networkIpField.getText().equals("first")) {
-                        localNode = new LocalNode(localIp, localPort);
+                        localNode = new LocalNode(localIp, 12345);
                         localNode.first();
                         this.succeeded();
                         return null;

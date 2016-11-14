@@ -8,9 +8,8 @@ import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.*;
-import java.net.DatagramPacket;
-import java.net.DatagramSocket;
-import java.net.SocketException;
+import java.net.*;
+import java.nio.channels.DatagramChannel;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -37,9 +36,10 @@ public class Server {
     private boolean isRunning;
     private DatagramPacket packet;
 
-    public Server(int udpPort, MessageHandler messageHandler, Configuration config) throws SocketException {
+    public Server(int udpPort, MessageHandler messageHandler, Configuration config) throws IOException {
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
+
         this.messageHandler = messageHandler;
 
         byte[] buffer = new byte[Configuration.PACKET_SIZE];
@@ -80,18 +80,12 @@ public class Server {
                 int communicationId = din.readInt();
                 byte messageCode = din.readByte();
 
-                if (messageCode == 0x02) {
-                    logger.info("New node connected");
-                    logger.info("IP: " + packet.getAddress().getHostAddress());
-                    logger.info("PORT: " + packet.getPort());
-                }
-
                 /* Create the message and close the input stream */
                 Message msg = messageHandler.createMessage(messageCode, din);
                 din.close();
 
                 /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
-                if (packet.getSocketAddress().equals(msg.getOrigin().getSocketAddress())) {
+                if (packet.getAddress().equals(msg.getOrigin().getInetAddress())) {
 
                     /* Check if a receiver already exists and create one if not */
                     Receiver receiver;
@@ -108,7 +102,7 @@ public class Server {
                     } else {
                         /* There is currently no receivers, create one*/
                         logger.debug("No receiver exists, creating one using code {}", messageCode);
-                        receiver = messageHandler.createReceiver(messageCode);
+                        receiver = messageHandler.createReceiver(packet.getPort(), messageCode);
                     }
 
                     /* Start the ReceiverTask on a thread in the cached threadPool*/

@@ -10,6 +10,7 @@ import uk.co.streefland.rhys.finalyearproject.message.user.*;
 
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.net.DatagramPacket;
 
 /**
  * Handles creating messages and receivers for incoming and outgoing messages and receivers based on their byte code
@@ -48,10 +49,10 @@ public class MessageHandler {
         }
     }
 
-    public Receiver createReceiver(byte code) {
+    public Receiver createReceiver(int port, byte code) {
         switch (code) {
             case ConnectMessage.CODE:
-                return new ConnectReceiver(localNode);
+                return new ConnectReceiver(port, localNode);
             case FindNodeMessage.CODE:
                 return new FindNodeReceiver(localNode);
             case TextMessage.CODE:

@@ -21,6 +21,7 @@ public class RefreshHandler extends TimerTask {
 
     @Override
     public void run() {
+
         /* Run BucketRefreshOperation to refresh the buckets */
         try {
             new BucketRefreshOperation(localNode).execute();

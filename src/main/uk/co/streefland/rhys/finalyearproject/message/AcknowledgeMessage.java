@@ -13,11 +13,18 @@ public class AcknowledgeMessage implements Message {
 
     public static final byte CODE = 0x01;
     private Node origin;
+    private Node correctedNode;
     private boolean operationSuccessful;
 
     public AcknowledgeMessage(Node origin, boolean operationSuccessful) {
         this.origin = origin;
         this.operationSuccessful = operationSuccessful;
+    }
+
+    public AcknowledgeMessage(Node origin, Node correctedNode, boolean operationSuccessful) {
+        this.origin = origin;
+        this.operationSuccessful = operationSuccessful;
+        this.correctedNode = correctedNode;
     }
 
     public AcknowledgeMessage(DataInputStream in) throws IOException {
@@ -28,12 +35,23 @@ public class AcknowledgeMessage implements Message {
     public void toStream(DataOutputStream out) throws IOException {
         origin.toStream(out);
         out.writeBoolean(operationSuccessful);
+
+        if (correctedNode != null) {
+            out.writeBoolean(true);
+            correctedNode.toStream(out);
+        } else {
+            out.writeBoolean(false);
+        }
     }
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
         operationSuccessful = in.readBoolean();
+
+        if (in.readBoolean()) {
+            correctedNode = new Node(in);
+        }
     }
 
     @Override
@@ -48,6 +66,10 @@ public class AcknowledgeMessage implements Message {
 
     public Node getOrigin() {
         return origin;
+    }
+
+    public Node getCorrectedNode() {
+        return correctedNode;
     }
 
     public boolean getOperationSuccessful() {

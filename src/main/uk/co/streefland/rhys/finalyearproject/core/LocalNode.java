@@ -265,6 +265,10 @@ public class LocalNode implements Runnable {
         return localNode;
     }
 
+    public void setNode(Node node) {
+        this.localNode = node;
+    }
+
     public Users getUsers() {
         return users;
     }

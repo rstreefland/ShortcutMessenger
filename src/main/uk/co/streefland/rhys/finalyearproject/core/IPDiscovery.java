@@ -10,16 +10,15 @@ import java.util.List;
 
 public class IPDiscovery {
 
-    public static void main(String[] args) {
-        try {
-            System.out.println(getExternalIp());
-            System.out.println(getInternalIp());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    String externalIp;
+    String internalIp;
+
+    public IPDiscovery() throws IOException {
+        externalIp = determineExternalIp();
+        internalIp = determineInternalIp();
     }
 
-    public static String getExternalIp() throws IOException {
+    public String determineExternalIp() throws IOException {
         URL whatismyip = new URL("http://checkip.amazonaws.com");
         BufferedReader in = null;
         try {
@@ -29,16 +28,12 @@ public class IPDiscovery {
             return ip;
         } finally {
             if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                in.close();
             }
         }
     }
 
-    public static String getInternalIp() throws SocketException {
+    public String determineInternalIp() throws SocketException {
         List<InetAddress> ipAddresses = new ArrayList<>();
 
         Enumeration en = NetworkInterface.getNetworkInterfaces();
@@ -53,6 +48,21 @@ public class IPDiscovery {
                 }
             }
         }
-        return ipAddresses.get(ipAddresses.size()-1).getHostAddress();
+
+        if (ipAddresses.size() > 1) {
+            return ipAddresses.get(ipAddresses.size() - 1).getHostAddress();
+        } else if (ipAddresses.size() == 1) {
+            return ipAddresses.get(0).getHostAddress();
+        } else {
+            return null;
+        }
+    }
+
+    public String getExternalIp() {
+        return externalIp;
+    }
+
+    public String getInternalIp() {
+        return internalIp;
     }
 }
