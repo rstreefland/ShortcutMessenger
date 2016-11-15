@@ -100,7 +100,7 @@ public class Users implements Serializable {
 
         if (user != null) {
             if ((user.getLastActiveTime() < newUser.getLastActiveTime()) && newUser.getRegisterTime() != 0L) {
-                logger.info("New user object has newer last active timestamp - replacing the old one");
+                logger.debug("New user object has newer last active timestamp - replacing the old one");
                 users.remove(user);
                 users.put(newUser.getUserName(), newUser);
                 return false;
@@ -108,7 +108,7 @@ public class Users implements Serializable {
 
                 /* For login */ // TODO: 10/11/2016  is this even needed anymore?
             if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() != 0L) {
-                logger.info("New user object has newer login timestamp - replacing the old one");
+                logger.debug("New user object has newer login timestamp - replacing the old one");
                 users.remove(user);
                 users.put(newUser.getUserName(), newUser);
                 return false;

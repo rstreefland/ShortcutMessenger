@@ -41,7 +41,7 @@ public class RefreshHandler extends TimerTask {
         /* Run MessageRefreshOperation to forward messages to their intended recipients*/
         try {
             new MessageRefreshOperation(localNode).execute();
-            logger.info("Messages were refreshed");
+            logger.debug("Messages were refreshed");
         } catch (IOException e) {
             logger.error("Message refresh failed:", e);
         }

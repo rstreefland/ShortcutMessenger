@@ -43,7 +43,7 @@ public class MessageRefreshOperation implements Operation {
                         SendMessageOperation smo = new SendMessageOperation(localNode, entry.getValue().getRecipientUser(), entry.getValue());
                         smo.execute();
                         if (smo.isMessagedSuccessfully()) {
-                            logger.info("Forwarded successfully - deleting message from local storage");
+                            logger.debug("Forwarded successfully - deleting message from local storage");
                             localNode.getMessages().getForwardMessages().remove(entry.getKey());
                         }
                     } catch (IOException e) {

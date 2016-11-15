@@ -9,6 +9,8 @@ import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.node.Node;
+import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -67,18 +69,37 @@ public class TextReceiver implements Receiver {
                     success = false;
                 }
             }
+
+            /* Create the AcknowledgeMessage */
+            Message ack = new AcknowledgeMessage(localNode.getNode(), success);
+
+            /* The server sends the reply */
+            if (server.isRunning()) {
+                server.reply(msg.getOrigin(), ack, communicationId);
+            }
         } else {
+            /* Create the AcknowledgeMessage */
+            /* This is done here so the ack doesn't time out on the origin node */
+            /* And because the origin node gets overwritten by the SendMessageOperation */
+            Message ack = new AcknowledgeMessage(localNode.getNode(), success);
+
+            /* The server sends the reply */
+            if (server.isRunning()) {
+                server.reply(msg.getOrigin(), ack, communicationId);
+            }
+
             /* This is a message intended for a different target - handle */
             logger.info("Received a message intended for another node");
-            localNode.getMessages().addForwardMessage(msg);
-        }
 
-        /* Create the AcknowledgeMessage */
-        Message ack = new AcknowledgeMessage(localNode.getNode(), success);
+            SendMessageOperation smo = new SendMessageOperation(localNode, msg.getRecipientUser(), msg);
+            smo.execute();
 
-        /* The server sends the reply */
-        if (server.isRunning()) {
-            server.reply(msg.getOrigin(), ack, communicationId);
+            if (!smo.isMessagedSuccessfully()) {
+                logger.info("Couldn't forward immediately - adding to forward messages");
+                localNode.getMessages().addForwardMessage(msg);
+            } else {
+                logger.info("Message forwarded successfully - no need to add it to forward messages");
+            }
         }
     }
 

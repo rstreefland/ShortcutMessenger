@@ -203,6 +203,8 @@ public class SendMessageOperation implements Operation, Receiver {
                 }
                 int communicationId = server.sendMessage(toQuery.get(i), message, this);
 
+                logger.info("Sending message with commID: " + communicationId);
+
                 nodes.put(toQuery.get(i), Configuration.AWAITING_REPLY);
                 attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
                 messagesInTransit.put(communicationId, toQuery.get(i));
@@ -220,6 +222,8 @@ public class SendMessageOperation implements Operation, Receiver {
     public synchronized void receive(Message incoming, int communicationId) {
         /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
+
+        logger.info("Received ack with commId: " + communicationId);
 
         isMessagedSuccessfully = msg.getOperationSuccessful(); // use the result from the ack
 
