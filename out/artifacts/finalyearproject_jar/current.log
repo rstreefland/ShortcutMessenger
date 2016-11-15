@@ -1,18 +1,9 @@
-2016-11-15 12:34:53.415 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-15 12:34:53.418 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-15 12:34:53.425 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-15 12:34:53.426 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 1B00ED8F17539070CC15DB6DD88D09B08F71CCAA to node 603C790ADCBC429D3EE7A7960B56577AE2FC20D0
-2016-11-15 12:34:53.426 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-15 12:36:04.238 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-15 12:36:04.320 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-15 12:36:23.837 [Thread-331] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: -524262805
-2016-11-15 12:36:25.912 [Thread-331] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: -534570367
-2016-11-15 12:36:25.923 [Thread-331] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: 2106407310
-2016-11-15 12:36:25.934 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Received ack with commId: -534570367
-2016-11-15 12:36:26.949 [Thread-331] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: macbook
-2016-11-15 12:36:53.443 [Thread-494] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: 2138023732
-2016-11-15 12:37:53.444 [Thread-657] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: -1132581915
-2016-11-15 12:38:53.449 [Thread-820] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: 245273030
-2016-11-15 12:39:53.443 [Thread-983] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: -2136294243
-2016-11-15 12:40:53.444 [Thread-1146] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: -1470535088
-2016-11-15 12:41:53.450 [Thread-1309] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - Sending message with commID: -154490095
+2016-11-15 14:51:06.456 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-11-15 14:51:06.467 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-15 14:51:06.476 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-15 14:51:06.477 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-15 14:51:38.715 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.message.node.ConnectReceiver - PACKET PORT: 12345
+2016-11-15 14:51:38.715 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.message.node.ConnectReceiver - NODE PORT: 12345
+2016-11-15 14:51:38.716 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.node.ConnectReceiver - A new node has bootstrapped to this node; nodeID: F8B5E4C1CBBCF4829C82D559C504B6B727807C67
+2016-11-15 14:52:58.771 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.message.node.ConnectReceiver - PACKET PORT: 12345
+2016-11-15 14:52:58.772 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.message.node.ConnectReceiver - NODE PORT: 12345

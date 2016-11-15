@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.operation.HolePunchOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import java.io.IOException;
@@ -68,7 +69,7 @@ public class Messages implements Serializable {
      *
      * @param message The message to store
      */
-    public void addReceivedMessage(TextMessage message) {
+    public void addReceivedMessage(TextMessage message) throws IOException {
         User originUser = message.getAuthorUser();
         String userName = originUser.getUserName();
         String messageString = message.getMessage();
@@ -85,6 +86,13 @@ public class Messages implements Serializable {
 
             lastMessage.set(storedMessage);
             localNode.getUsers().addUserToCache(originUser);
+
+            /* If the message was forwarded - punch a hole in the NAT/firewall so we can communicate directly from now on */
+            if (!message.getOrigin().equals(originUser.getAssociatedNodes().get(0))) {
+                logger.info("THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN");
+                HolePunchOperation hpo = new HolePunchOperation(localNode.getServer(), localNode, originUser.getAssociatedNodes().get(0), localNode.getConfig());
+                hpo.execute();
+            }
         }
     }
 

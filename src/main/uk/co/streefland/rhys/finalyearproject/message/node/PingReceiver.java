@@ -10,54 +10,33 @@ import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
 
 /**
  * Receives and handles a ConnectMessage from another node
  */
-public class ConnectReceiver implements Receiver {
+public class PingReceiver implements Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final LocalNode localNode;
     private final Server server;
-    private final int port;
 
-    public ConnectReceiver(int port, LocalNode localNode) {
+    public PingReceiver(LocalNode localNode) {
         this.localNode = localNode;
         this.server = localNode.getServer();
-        this.port = port;
     }
 
     /**
      * Handles an incoming ConnectMessage
      *
      * @param communicationId
-     * @throws java.io.IOException
+     * @throws IOException
      */
     @Override
     public void receive(Message incoming, int communicationId) throws IOException {
-        ConnectMessage message = (ConnectMessage) incoming;
+        PingMessage message = (PingMessage) incoming;
 
-        Node origin = message.getOrigin();
-        AcknowledgeMessage msg;
-
-        if (origin.getPort() != port) {
-            logger.info("Port of new node does not match node object - updating node object and informing node");
-            origin.setPort(port);
-
-            /* Create the AcknowledgeMessage with the corrected node object */
-            msg = new AcknowledgeMessage(localNode.getNode(), origin, true);
-        } else {
-
-            /* Create the AcknowledgeMessage */
-            msg = new AcknowledgeMessage(localNode.getNode(), true);
-        }
-
-        /* Update the local routing table inserting the origin node. */
-        if (localNode.getRoutingTable().insert(message.getOrigin())) {
-            /* only print the message if this is the first time that we've seen this node */
-            logger.info("A new node has bootstrapped to this node; nodeID: {}", message.getOrigin().toString());
-        }
+        /* Create the AcknowledgeMessage */
+        AcknowledgeMessage msg = new AcknowledgeMessage(localNode.getNode(), true);
 
         /* Reply to the origin with the AcknowledgeMessage */
         server.reply(message.getOrigin(), msg, communicationId);
@@ -67,7 +46,7 @@ public class ConnectReceiver implements Receiver {
      * Nothing to be done here
      *
      * @param communicationId
-     * @throws java.io.IOException
+     * @throws IOException
      */
     @Override
     public void timeout(int communicationId) throws IOException {
