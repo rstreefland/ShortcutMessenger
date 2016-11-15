@@ -128,11 +128,11 @@ public class SendMessageOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, Configuration.NOT_QUERIED);
+                nodes.putIfAbsent(node, Configuration.NOT_QUERIED);
             }
 
             if (!attempts.containsKey(node)) {
-                attempts.put(node, 0);
+                attempts.putIfAbsent(node, 0);
             }
         }
     }

@@ -35,6 +35,8 @@ public class PingReceiver implements Receiver {
     public void receive(Message incoming, int communicationId) throws IOException {
         PingMessage message = (PingMessage) incoming;
 
+        logger.info("HOLE PUNCH MESSAGE RECEIVED AND ACK'ed");
+
         /* Create the AcknowledgeMessage */
         AcknowledgeMessage msg = new AcknowledgeMessage(localNode.getNode(), true);
 

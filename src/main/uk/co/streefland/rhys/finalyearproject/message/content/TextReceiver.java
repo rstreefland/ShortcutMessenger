@@ -40,6 +40,9 @@ public class TextReceiver implements Receiver {
         User localUser = localNode.getUsers().getLocalUser();
         boolean success = true;
 
+        logger.error("TARGET NODE ID: " +  msg.getTarget().getNodeId());
+        logger.error("LOCAL NODE ID: " +  localNode.getNode().getNodeId());
+
         /* If the message is intended for this node */
         if (msg.getTarget().getNodeId().equals(localNode.getNode().getNodeId())) {
             if (msg.getAuthorUser() != null) {
@@ -91,6 +94,7 @@ public class TextReceiver implements Receiver {
             /* This is a message intended for a different target - handle */
             logger.info("Received a message intended for another node");
 
+            logger.info("Forwarding to IP:" + msg.getOrigin().getInetAddress().getHostAddress() + " PORT: " + msg.getOrigin().getPort());
             SendMessageOperation smo = new SendMessageOperation(localNode, msg.getRecipientUser(), msg);
             smo.execute();
 

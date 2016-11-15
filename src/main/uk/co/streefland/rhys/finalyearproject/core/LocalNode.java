@@ -66,6 +66,7 @@ public class LocalNode implements Runnable {
             /* Start the automatic refresh operation that runs every 60 seconds */
             startRefreshOperation();
         }
+        logger.info("LocalNode ID is:" + localNode.getNodeId());
     }
 
     /**

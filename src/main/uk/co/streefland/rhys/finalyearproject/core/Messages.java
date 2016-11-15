@@ -91,6 +91,7 @@ public class Messages implements Serializable {
             if (!message.getOrigin().equals(originUser.getAssociatedNodes().get(0))) {
                 logger.info("THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN");
                 HolePunchOperation hpo = new HolePunchOperation(localNode.getServer(), localNode, originUser.getAssociatedNodes().get(0), localNode.getConfig());
+                logger.info("Sending hole punch to:" + originUser.getAssociatedNodes().get(0).getInetAddress().getHostAddress() + " PORT: " + originUser.getAssociatedNodes().get(0).getPort());
                 hpo.execute();
             }
         }

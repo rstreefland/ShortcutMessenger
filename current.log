@@ -1,9 +1,14 @@
-2016-11-15 11:59:37.837 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-15 11:59:37.839 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-15 11:59:37.850 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-15 11:59:37.851 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-15 11:59:37.852 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode D318D627E19EA271A493F2441C234C6237FF8249 to node 7943E5D04264620AC66AE2CC6FB9FE3451FB1270
-2016-11-15 12:00:46.470 [Thread-333] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
-2016-11-15 12:03:11.644 [Thread-661] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: macbook
-2016-11-15 12:03:16.555 [Thread-662] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: macbook
-2016-11-15 12:03:20.874 [Thread-663] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: macbook
+2016-11-15 16:19:51.141 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-11-15 16:19:51.143 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-15 16:19:51.178 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-15 16:19:51.179 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-15 16:19:51.179 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode BE150F814C0F91BF613A6AC6120409FABFD51C15 to node 28AEB898F4B40722148E8608412F4E56604218F8
+2016-11-15 16:20:19.923 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
+2016-11-15 16:20:19.998 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Forwarding to IP:82.24.92.147 PORT: 12345
+2016-11-15 16:20:21.044 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
+2016-11-15 16:21:09.136 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
+2016-11-15 16:21:09.136 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Forwarding to IP:82.24.92.147 PORT: 12345
+2016-11-15 16:21:10.170 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
+2016-11-15 16:21:19.927 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
+2016-11-15 16:21:19.939 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Forwarding to IP:82.24.92.147 PORT: 12345
+2016-11-15 16:21:21.001 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages

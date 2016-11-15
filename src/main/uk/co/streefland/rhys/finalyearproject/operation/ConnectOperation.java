@@ -72,6 +72,10 @@ public class ConnectOperation implements Operation, Receiver {
                 return;
             }
 
+            logger.warn("LocalNode ID: " + localNode.getNode().getNodeId());
+            logger.warn("LocalNode IP: " + localNode.getNode().getInetAddress().getHostAddress());
+            logger.warn("LocalNode PORT: " + localNode.getNode().getPort());
+
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
             Operation findNode = new FindNodeOperation(localNode, localNode.getNode().getNodeId(), true);
             findNode.execute();
