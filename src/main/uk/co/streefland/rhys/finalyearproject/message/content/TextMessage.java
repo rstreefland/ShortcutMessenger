@@ -26,6 +26,7 @@ public class TextMessage implements Message, Serializable {
 
     public static final byte CODE = 0x08;
     private Node origin;
+    private Node source;
     private Node target;
     private User authorUser;
     private User recipientUser;
@@ -40,6 +41,7 @@ public class TextMessage implements Message, Serializable {
      */
     public TextMessage(KeyId messageId, Node origin, User authorUser, String message) {
         this.origin = origin;
+        this.source = origin;
         this.target = origin;
         this.authorUser = authorUser;
         this.recipientUser = authorUser;
@@ -54,6 +56,7 @@ public class TextMessage implements Message, Serializable {
      */
     public TextMessage(KeyId messageId, Node origin, Node target, User authorUser, User recipientUser, String message) {
         this.origin = origin;
+        this.source = origin;
         this.target = target;
         this.authorUser = authorUser;
         this.recipientUser = recipientUser;
@@ -76,6 +79,7 @@ public class TextMessage implements Message, Serializable {
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
         origin = new Node(in);
+        source = new Node(in);
 
         /* Only read if target node isn't null */
         if (in.readBoolean()) {
@@ -113,6 +117,7 @@ public class TextMessage implements Message, Serializable {
     @Override
     public void toStream(DataOutputStream out) throws IOException {
         origin.toStream(out);
+        source.toStream(out);
 
         if (target != null) {
             out.writeBoolean(true);
@@ -161,12 +166,18 @@ public class TextMessage implements Message, Serializable {
         return CODE;
     }
 
+    @Override
     public Node getOrigin() {
         return origin;
     }
 
-    public void setOrigin(Node origin) {
-        this.origin = origin;
+    @Override
+    public Node getSource() {
+        return source;
+    }
+
+    public void setSource(Node source) {
+        this.source = source;
     }
 
     public Node getTarget() {

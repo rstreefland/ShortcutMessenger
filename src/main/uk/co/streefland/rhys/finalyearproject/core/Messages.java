@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.HolePunchOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
@@ -70,6 +71,7 @@ public class Messages implements Serializable {
      * @param message The message to store
      */
     public void addReceivedMessage(TextMessage message) throws IOException {
+        Node origin = message.getOrigin();
         User originUser = message.getAuthorUser();
         String userName = originUser.getUserName();
         String messageString = message.getMessage();
@@ -85,13 +87,13 @@ public class Messages implements Serializable {
             }
 
             lastMessage.set(storedMessage);
-            localNode.getUsers().addUserToCache(originUser);
+            localNode.getUsers().addUserToCache(originUser, origin);
 
             /* If the message was forwarded - punch a hole in the NAT/firewall so we can communicate directly from now on */
-            if (!message.getOrigin().equals(originUser.getAssociatedNodes().get(0))) {
+            if (!origin.equals(message.getSource())) {
                 logger.info("THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN");
-                HolePunchOperation hpo = new HolePunchOperation(localNode.getServer(), localNode, originUser.getAssociatedNodes().get(0), localNode.getConfig());
-                logger.info("Sending hole punch to:" + originUser.getAssociatedNodes().get(0).getPublicInetAddress().getHostAddress() + " PORT: " + originUser.getAssociatedNodes().get(0).getPublicPort());
+                HolePunchOperation hpo = new HolePunchOperation(localNode.getServer(), localNode, origin, localNode.getConfig());
+                logger.info("Sending hole punch to:" + origin.getPublicInetAddress().getHostAddress() + " PORT: " + origin.getPublicPort());
                 hpo.execute();
             }
         }

@@ -65,6 +65,11 @@ public class VerifyUserMessageReply implements Message {
         return origin;
     }
 
+    @Override
+    public Node getSource() {
+        return origin;
+    }
+
     public User getExistingUser() {
         return existingUser;
     }

@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.*;
@@ -83,10 +84,11 @@ public class Server {
 
                 /* Create the message and close the input stream */
                 Message msg = messageHandler.createMessage(messageCode, din);
+
                 din.close();
 
                 /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
-                if (packet.getAddress().equals(msg.getOrigin().getPublicInetAddress()) || packet.getAddress().equals(msg.getOrigin().getPrivateInetAddress())) {
+                if (packet.getAddress().equals(msg.getSource().getPublicInetAddress()) || packet.getAddress().equals(msg.getSource().getPrivateInetAddress())) {
 
                     /* Check if a receiver already exists and create one if not */
                     Receiver receiver;

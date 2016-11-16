@@ -33,4 +33,6 @@ public interface Message {
     byte getCode();
 
     Node getOrigin();
+
+    Node getSource();
 }

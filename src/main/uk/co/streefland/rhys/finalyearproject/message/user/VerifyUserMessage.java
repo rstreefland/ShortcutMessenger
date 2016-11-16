@@ -48,7 +48,13 @@ public class VerifyUserMessage implements Message {
         return CODE;
     }
 
+    @Override
     public Node getOrigin() {
+        return origin;
+    }
+
+    @Override
+    public Node getSource() {
         return origin;
     }
 

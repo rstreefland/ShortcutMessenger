@@ -71,7 +71,7 @@ public class SendMessageOperation implements Operation, Receiver {
         this.message = message;
         this.forwarding = true;
 
-        this.message.setOrigin(localNode.getNode());
+        this.message.setSource(localNode.getNode());
     }
 
     /**

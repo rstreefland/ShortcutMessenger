@@ -132,6 +132,16 @@ public class RoutingTable implements Serializable {
         return sb.toString();
     }
 
+    public Node getNode(KeyId nodeId) {
+        for (Node existingNode : getAllNodes(true)) {
+            if (nodeId.equals(existingNode.getNodeId())) {
+                /* Return the node object */
+                return existingNode;
+            }
+        }
+        return null;
+    }
+
     /**
      * @return A list of all Nodes in this RoutingTable
      */

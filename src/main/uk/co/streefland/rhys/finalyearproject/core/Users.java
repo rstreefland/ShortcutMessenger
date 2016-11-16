@@ -4,6 +4,7 @@ import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
@@ -148,6 +149,12 @@ public class Users implements Serializable {
         cache.remove(newUser.getUserName());
         cache.put(newUser.getUserName(), newUser);
         logger.info("User added to cache");
+    }
+
+    public synchronized void addUserToCache(User newUser, Node associatedNode) {
+        localNode.getRoutingTable().insert(associatedNode);
+
+        addUserToCache(newUser);
     }
 
     /**

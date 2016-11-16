@@ -188,6 +188,10 @@ public class Bucket implements Serializable {
             list.add(c);
         }
 
+        for (Contact c : cache) {
+            list.add(c);
+        }
+
         return list;
     }
 }
