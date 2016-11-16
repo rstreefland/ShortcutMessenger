@@ -7,14 +7,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 import uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController;
 import uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController;
-import uk.co.streefland.rhys.finalyearproject.gui.controller.LoginController;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.net.InetAddress;
 
 /**
  * The starting point for the JavaFX application
@@ -36,7 +37,8 @@ public class Main extends Application {
 
         /* Check if we can load the saved state from the file and show the relevant scene */
         if (temp.doesSavedStateExist()) {
-            localNode = new LocalNode("", 0);
+            IPTools ipTools = new IPTools();
+            localNode = new LocalNode(ipTools, InetAddress.getByName(""), InetAddress.getByName(""), 0);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/uk/co/streefland/rhys/finalyearproject/gui/view/home.fxml"));
             root = loader.load();
@@ -89,7 +91,7 @@ public class Main extends Application {
     @Override
     public void stop(){
         if (localNode != null) {
-            localNode.shutdown();
+            localNode.shutdown(false); // TODO: 16/11/2016 change this back to true once you've fixed the saving and loading
         }
     }
 

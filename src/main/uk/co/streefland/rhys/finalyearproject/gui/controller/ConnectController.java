@@ -13,7 +13,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import uk.co.streefland.rhys.finalyearproject.core.IPDiscovery;
+import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.gui.Main;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -32,7 +32,7 @@ public class ConnectController {
 
     private Main main;
     private LocalNode localNode;
-    private IPDiscovery ipDiscovery;
+    private IPTools ipTools;
 
     @FXML
     private Button connectButton;
@@ -49,12 +49,12 @@ public class ConnectController {
         this.main = main;
 
         try {
-            ipDiscovery = new IPDiscovery();
+            ipTools = new IPTools();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        statusText.setText("External IP: " + ipDiscovery.getExternalIp() + "\nInternal IP: " + ipDiscovery.getInternalIp());
+        statusText.setText("External IP: " + ipTools.getPublicIp() + "\nInternal IP: " + ipTools.getPrivateIp());
     }
 
     /**
@@ -70,47 +70,36 @@ public class ConnectController {
             @Override
             protected String call() throws Exception {
 
-                boolean error = false;
+                String publicIpString = ipTools.getPublicIp();
+                String privateIpString = ipTools.getPrivateIp();
+                String networkIpString = networkIpField.getText();
 
-                String localIp = ipDiscovery.getExternalIp();
-                String networkIp = null;
-                int networkPort = 0;
+                InetAddress publicIp = ipTools.validateAddress(publicIpString);
+                InetAddress privateIp = ipTools.validateAddress(privateIpString);
 
-                /* Regex to validate the IP:PORT fields */
-                final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
-                final Pattern p = Pattern.compile(ipPattern);
-                Matcher m = p.matcher(networkIpField.getText());
-
-                /* Validate the network IP address */
-                if (m.matches()) {
-                    if (m.group(1) != null) {
-                        networkIp = m.group(1);
-                        if (m.group(2) != null) {
-                            networkPort = Integer.parseInt(m.group(2));
-                        }
-                        localNode = new LocalNode(localIp, 12345);
-                    }
-                } else {
-                    /* Special case for first node in the network */
-                    if (networkIpField.getText().equals("first")) {
-                        localNode = new LocalNode(localIp, 12345);
-                        localNode.first();
-                        this.succeeded();
-                        return null;
-                    }
+                /* Special case for first node in the network */
+                if (networkIpString.equals("first")) {
+                    localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
+                    localNode.first();
                     this.succeeded();
-                    return "Invalid network IP address";
+                    return null;
                 }
 
-                /* If the user hasn't specified a different port then network IP will be on the default port */
-                if (networkPort != 0) {
-                    error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), networkPort));
+                InetAddress networkIp = ipTools.validateAddress(networkIpString);
+
+                if (networkIp != null) {
+                    localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
                 } else {
-                    error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(networkIp), 12345));
+                    this.succeeded();
+                    return "Invalid network address";
                 }
+
+                boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, 12345, 12345));
 
                 if (error) {
                     this.succeeded();
+                    localNode.shutdown(false);
+                    localNode = null;
                     return "Failed to bootstrap to the specified network";
                 } else {
                     this.succeeded();

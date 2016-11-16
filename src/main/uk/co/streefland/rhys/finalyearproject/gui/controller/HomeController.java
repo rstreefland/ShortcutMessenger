@@ -55,10 +55,14 @@ public class HomeController {
     private ImageView loadingAnimation;
     @FXML
     private Text conversationUser;
+    @FXML
+    private Text statusText;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
         this.localUser = localNode.getUsers().getLocalUser().getUserName();
+
+        statusText.setText("External IP: " + localNode.getIpTools().getPublicIp() + "\nInternal IP: " + localNode.getIpTools().getPrivateIp());
 
         /* Observable ArrayList of conversations */
         conversations = FXCollections.observableArrayList();

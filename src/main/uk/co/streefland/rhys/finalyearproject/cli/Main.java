@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.cli;
 
+import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -29,6 +30,12 @@ class Main {
 
     public static void main(String[] args) {
 
+        IPTools ipTools = null;
+        try {
+            ipTools = new IPTools();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         StorageHandler temp = new StorageHandler();
 
         if (!temp.doesSavedStateExist()) {
@@ -50,7 +57,7 @@ class Main {
         }
 
         try {
-            localNode = new LocalNode(localIp, localPort);
+            localNode = new LocalNode(ipTools, InetAddress.getByName(localIp), InetAddress.getByName(localIp), localPort);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -122,9 +129,9 @@ class Main {
 
         try {
             if (port != 0) {
-                error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), port));
+                error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), InetAddress.getByName(input), port, port));
             } else {
-                error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), 12345));
+                error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), InetAddress.getByName(input), 12345, 12345));
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -207,6 +214,6 @@ class Main {
     }
 
     private static void exit() {
-        localNode.shutdown();
+        localNode.shutdown(true);
     }
 }

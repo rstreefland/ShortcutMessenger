@@ -29,14 +29,14 @@ public class RoutingTableTest {
 
     @Before
     public void setUp() throws Exception {
-        routingTable = new RoutingTable(new Node(new KeyId("a"), InetAddress.getByName("127.0.0.1"), 12345));
+       /*  routingTable = new RoutingTable(new Node(new KeyId("a"), InetAddress.getByName("127.0.0.1"), 12345));
         node1 = new Node(new KeyId("b"),InetAddress.getByName("10.10.100.1"), 15315);
         node2 = new Node(new KeyId("c"),InetAddress.getByName("192.168.0.2"), 53273);
         node3 = new Node(new KeyId("d"),InetAddress.getByName("192.168.0.3"), 12723);
         node4 = new Node(new KeyId("e"),InetAddress.getByName("127.0.0.1"), 12345);
         node5 = new Node(new KeyId("f"),InetAddress.getByName("192.168.0.4"), 12345);
         node6 = new Node(new KeyId("g"),InetAddress.getByName("192.168.0.5"), 12345);
-        node7 = new Node(new KeyId("h"),InetAddress.getByName("192.168.0.5"), 12336);
+        node7 = new Node(new KeyId("h"),InetAddress.getByName("192.168.0.5"), 12336); */
     }
 
     @Test

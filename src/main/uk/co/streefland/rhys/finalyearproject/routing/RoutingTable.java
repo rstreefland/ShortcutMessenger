@@ -46,7 +46,7 @@ public class RoutingTable implements Serializable {
         isEmpty = false;
 
         for (Node existingNode : getAllNodes(false)) {
-            if (n.getSocketAddress().equals((existingNode.getSocketAddress())) || n.getNodeId().equals(existingNode.getNodeId())) {
+            if (n.getPublicSocketAddress().equals((existingNode.getPublicSocketAddress())) || n.getNodeId().equals(existingNode.getNodeId())) {
                 /* Get the bucket of the node */
                 int bucketId = getBucketId(existingNode.getNodeId());
                 /* Force remove the contact from the bucket */

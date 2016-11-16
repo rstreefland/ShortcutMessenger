@@ -22,9 +22,9 @@ public class ContactTest {
 
     @Before
     public void setUp() throws UnknownHostException {
-        contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 123));
+       /* contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 123));
         contact2 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 456));
-        contact3 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123));
+        contact3 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123)); */
     }
 
     @Test

@@ -8,17 +8,17 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
 
-public class IPDiscovery {
+public class IPTools {
 
-    String externalIp;
-    String internalIp;
+    String publicIp;
+    String privateIp;
 
-    public IPDiscovery() throws IOException {
-        externalIp = determineExternalIp();
-        internalIp = determineInternalIp();
+    public IPTools() throws IOException {
+        publicIp = determinePublicIp();
+        privateIp = determinePrivateIp();
     }
 
-    public String determineExternalIp() throws IOException {
+    public String determinePublicIp() throws IOException {
         URL whatismyip = new URL("http://checkip.amazonaws.com");
         BufferedReader in = null;
         try {
@@ -33,7 +33,7 @@ public class IPDiscovery {
         }
     }
 
-    public String determineInternalIp() throws SocketException {
+    public String determinePrivateIp() throws SocketException {
         List<InetAddress> ipAddresses = new ArrayList<>();
 
         Enumeration en = NetworkInterface.getNetworkInterfaces();
@@ -58,11 +58,15 @@ public class IPDiscovery {
         }
     }
 
-    public String getExternalIp() {
-        return externalIp;
+    public InetAddress validateAddress(String host) throws UnknownHostException {
+        return InetAddress.getByName(host);
     }
 
-    public String getInternalIp() {
-        return internalIp;
+    public String getPublicIp() {
+        return publicIp;
+    }
+
+    public String getPrivateIp() {
+        return privateIp;
     }
 }

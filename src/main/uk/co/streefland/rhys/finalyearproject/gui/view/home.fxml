@@ -63,8 +63,8 @@
     </center>
     <bottom>
         <GridPane alignment="center" hgap="10" styleClass="menu-bar" vgap="10">
-            <Text fx:id="status" styleClass="info" text="Rhys Streefland (2016)" GridPane.columnIndex="1"
-                  GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS"/>
+            <Text fx:id="statusText" styleClass="info" GridPane.columnIndex="1" GridPane.halignment="LEFT"
+                  GridPane.hgrow="ALWAYS"/>
             <ImageView fx:id="loadingAnimation" fitHeight="40.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true"
                        visible="false" GridPane.columnIndex="2">
                 <image>

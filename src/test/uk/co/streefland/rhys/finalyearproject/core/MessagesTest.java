@@ -36,9 +36,9 @@ public class MessagesTest {
         localNode = new LocalNode(new KeyId(), 12345);
         messages = new Messages(localNode);
 
-        originNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123);
+        /* originNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123);
         intermediaryNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 124);
-        targetNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 125);
+        targetNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 125); */
 
         originUser = new User("test1", "123");
         intermediaryUser = new User("test2", "abc");
@@ -79,7 +79,7 @@ public class MessagesTest {
         assertEquals(messages.getForwardMessages().get(message2.getMessageId()), message2);
         assertEquals(messages.getForwardMessages().get(message3.getMessageId()), message3);
 
-        localNode.shutdown();
+        localNode.shutdown(true);
     }
 
     @Test
@@ -97,6 +97,6 @@ public class MessagesTest {
         assertEquals(messages.getForwardMessages().get(message2.getMessageId()), message2);
         assertEquals(messages.getForwardMessages().get(message3.getMessageId()), message3);
 
-        localNode.shutdown();
+        localNode.shutdown(true);
     }
 }

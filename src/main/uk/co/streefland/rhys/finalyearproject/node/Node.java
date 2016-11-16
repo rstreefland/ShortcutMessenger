@@ -13,13 +13,17 @@ import java.net.InetSocketAddress;
 public class Node implements Serializable {
 
     private KeyId nodeId;
-    private InetAddress inetAddress;
-    private int port;
+    private InetAddress publicIp;
+    private InetAddress privateIp;
+    private int publicPort;
+    private int privatePort;
 
-    public Node(KeyId nid, InetAddress ip, int port) {
+    public Node(KeyId nid, InetAddress publicIp, InetAddress privateIp, int publicPort, int privatePort) {
         this.nodeId = nid;
-        this.inetAddress = ip;
-        this.port = port;
+        this.publicIp = publicIp;
+        this.privateIp = privateIp;
+        this.publicPort = publicPort;
+        this.privatePort = privatePort;
     }
 
     public Node(DataInputStream in) throws IOException {
@@ -31,14 +35,22 @@ public class Node implements Serializable {
         nodeId.toStream(out);
 
         /* Add the Node's IP address to the stream */
-        byte[] a = inetAddress.getAddress();
+        byte[] a = publicIp.getAddress();
         if (a.length != 4) {
             throw new RuntimeException("I expected an InetAddress of 4 bytes, here's what I actually got: " + a.length);
         }
         out.write(a);
 
-        /* Add the port to the stream */
-        out.writeInt(port);
+        /* Add the Node's IP address to the stream */
+        byte[] b = privateIp.getAddress();
+        if (b.length != 4) {
+            throw new RuntimeException("I expected an InetAddress of 4 bytes, here's what I actually got: " + b.length);
+        }
+        out.write(b);
+
+        /* Add the ports to the stream */
+        out.writeInt(publicPort);
+        out.writeInt(privatePort);
     }
 
     private void fromStream(DataInputStream in) throws IOException {
@@ -48,10 +60,16 @@ public class Node implements Serializable {
         /* Read the IP Address */
         byte[] ip = new byte[4];
         in.readFully(ip);
-        inetAddress = InetAddress.getByAddress(ip);
+        publicIp = InetAddress.getByAddress(ip);
 
-        /* Read the port */
-        port = in.readInt();
+        /* Read the IP Address */
+        byte[] ip2 = new byte[4];
+        in.readFully(ip2);
+        privateIp = InetAddress.getByAddress(ip2);
+
+        /* Read the ports */
+        publicPort = in.readInt();
+        privatePort = in.readInt();
     }
 
     @Override
@@ -82,24 +100,40 @@ public class Node implements Serializable {
     /**
      * Returns the InetSocketAddress for the InetAddress and port for the node
      */
-    public InetSocketAddress getSocketAddress() {
-        return new InetSocketAddress(inetAddress, port);
+    public InetSocketAddress getPublicSocketAddress() {
+        return new InetSocketAddress(publicIp, publicPort);
     }
 
-    public InetAddress getInetAddress() {
-        return inetAddress;
+    public InetSocketAddress getPrivateSocketAddress() {
+        return new InetSocketAddress(privateIp, privatePort);
+    }
+
+    public InetAddress getPublicInetAddress() {
+        return publicIp;
+    }
+
+    public InetAddress getPrivateInetAddress() {
+        return privateIp;
     }
 
     public KeyId getNodeId() {
         return nodeId;
     }
 
-    public int getPort() {
-        return port;
+    public int getPublicPort() {
+        return publicPort;
     }
 
-    public void setPort(int port) {
-        this.port = port;
+    public void setPublicPort(int publicPort) {
+        this.publicPort = publicPort;
+    }
+
+    public int getPrivatePort() {
+        return privatePort;
+    }
+
+    public void setPrivatePort(int privatePort) {
+        this.privatePort = privatePort;
     }
 }
 

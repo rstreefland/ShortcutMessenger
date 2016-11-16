@@ -23,6 +23,7 @@ public class Server {
 
     private final Configuration config;
     private final MessageHandler messageHandler;
+    private final Node localNode;
 
     /* Server Objects */
     private final DatagramSocket socket;
@@ -36,11 +37,11 @@ public class Server {
     private boolean isRunning;
     private DatagramPacket packet;
 
-    public Server(int udpPort, MessageHandler messageHandler, Configuration config) throws IOException {
+    public Server(int udpPort, MessageHandler messageHandler, Configuration config, Node localNode) throws IOException {
         this.config = config;
         this.socket = new DatagramSocket(udpPort);
-
         this.messageHandler = messageHandler;
+        this.localNode = localNode;
 
         byte[] buffer = new byte[Configuration.PACKET_SIZE];
         packet = new DatagramPacket(buffer, buffer.length);
@@ -85,7 +86,7 @@ public class Server {
                 din.close();
 
                 /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
-                if (packet.getAddress().equals(msg.getOrigin().getInetAddress())) {
+                if (packet.getAddress().equals(msg.getOrigin().getPublicInetAddress()) || packet.getAddress().equals(msg.getOrigin().getPrivateInetAddress())) {
 
                     /* Check if a receiver already exists and create one if not */
                     Receiver receiver;
@@ -182,7 +183,13 @@ public class Server {
 
             /* Create the packet and send it */
         DatagramPacket pkt = new DatagramPacket(data, 0, data.length);
-        pkt.setSocketAddress(destination.getSocketAddress());
+
+        if (destination.getPublicInetAddress().equals(localNode.getPublicInetAddress())) {
+            pkt.setSocketAddress(destination.getPrivateSocketAddress());
+        } else {
+            pkt.setSocketAddress(destination.getPublicSocketAddress());
+        }
+
         socket.send(pkt);
     }
 

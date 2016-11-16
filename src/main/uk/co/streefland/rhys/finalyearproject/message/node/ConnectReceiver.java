@@ -41,9 +41,9 @@ public class ConnectReceiver implements Receiver {
         Node origin = message.getOrigin();
         AcknowledgeMessage msg;
 
-        if (origin.getPort() != port) {
+        if (origin.getPublicPort() != port) {
             logger.info("Port of new node does not match node object - updating node object and informing node");
-            origin.setPort(port);
+            origin.setPublicPort(port);
 
             /* Create the AcknowledgeMessage with the corrected node object */
             msg = new AcknowledgeMessage(localNode.getNode(), origin, true);

@@ -1,9 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
 import javafx.concurrent.Task;
-import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,9 +35,12 @@ public class LoginController {
     private Text errorText;
     @FXML
     private ImageView loadingAnimation;
+    @FXML
+    private Text statusText;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
+        statusText.setText("External IP: " + localNode.getIpTools().getPublicIp() + "\nInternal IP: " + localNode.getIpTools().getPrivateIp());
     }
 
     @FXML

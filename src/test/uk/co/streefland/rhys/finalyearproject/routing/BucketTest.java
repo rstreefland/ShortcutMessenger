@@ -30,7 +30,7 @@ public class BucketTest {
     public void setUp() throws UnknownHostException, InterruptedException {
         bucket = new Bucket(0);
 
-        contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 123));
+        /* contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 123));
         Thread.sleep(10);
         contact2 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 456));
         Thread.sleep(10);
@@ -42,7 +42,7 @@ public class BucketTest {
         Thread.sleep(10);
         contact6 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123));
         Thread.sleep(10);
-        contact7 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123));
+        contact7 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123)); */
     }
 
     @Test

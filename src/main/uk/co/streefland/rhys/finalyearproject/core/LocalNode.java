@@ -6,13 +6,11 @@ import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
-import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.util.List;
 import java.util.Timer;
 
 /**
@@ -24,6 +22,7 @@ public class LocalNode implements Runnable {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
+    private IPTools ipTools;
     private Configuration config;
     private Node localNode;
     private Server server;
@@ -43,15 +42,17 @@ public class LocalNode implements Runnable {
      *
      * @throws IOException
      */
-    public LocalNode(String localIp, int port) throws IOException {
+    public LocalNode(IPTools ipTools, InetAddress publicIp, InetAddress privateIp, int port) throws IOException {
         logger.info("FinalYearProject build {}", BUILD_NUMBER);
+
+        this.ipTools = ipTools;
 
         /* Read config, localNode, routingTable and users from file if possible; else create new objects */
         this.storageHandler = new StorageHandler();
-        readState(localIp, port);
+        readState(publicIp, privateIp, port);
 
         this.messageHandler = new MessageHandler(this);
-        this.server = new Server(config.getPort(), messageHandler, config);
+        this.server = new Server(config.getPort(), messageHandler, config, localNode);
 
         /* Couldn't read it from file */
         if (users == null) {
@@ -66,7 +67,7 @@ public class LocalNode implements Runnable {
             /* Start the automatic refresh operation that runs every 60 seconds */
             startRefreshOperation();
         }
-        logger.info("LocalNode ID is:" + localNode.getNodeId());
+        logger.info("LocalNode ID:" + localNode.getNodeId());
     }
 
     /**
@@ -80,13 +81,15 @@ public class LocalNode implements Runnable {
     public LocalNode(KeyId defaultId, int port) throws IOException {
         logger.info("FinalYearProject build {}", BUILD_NUMBER);
 
-        this.localNode = new Node(defaultId, InetAddress.getLocalHost(), port);
+        this.ipTools = new IPTools();
+
+        this.localNode = new Node(defaultId, InetAddress.getLocalHost(), InetAddress.getLocalHost(), port, port);
         this.config = new Configuration();
         this.storageHandler = new StorageHandler();
         this.routingTable = new RoutingTable(localNode);
 
         this.messageHandler = new MessageHandler(this);
-        this.server = new Server(port, messageHandler, config);
+        this.server = new Server(port, messageHandler, config, localNode);
         this.users = new Users(this);
 
         server.startListener();
@@ -104,7 +107,7 @@ public class LocalNode implements Runnable {
      *
      * @throws IOException
      */
-    private void readState(String localIp, int port) throws IOException {
+    private void readState(InetAddress publicIp, InetAddress privateIp, int port) throws IOException {
         if (storageHandler.doesSavedStateExist()) {
             logger.info("Saved state found - attempting to read ");
 
@@ -133,7 +136,7 @@ public class LocalNode implements Runnable {
                 localNode = newLocalNode;
             } else {
                 logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
-                localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
+                localNode = new Node(new KeyId(), publicIp, privateIp, config.getPort(), config.getPort());
             }
 
             /* Get routingTable object from storageHandler */
@@ -175,7 +178,7 @@ public class LocalNode implements Runnable {
             if (port != 0) {
                 config.setPort(port);
             }
-            localNode = new Node(new KeyId(), InetAddress.getByName(localIp), config.getPort());
+            localNode = new Node(new KeyId(), publicIp, privateIp, config.getPort(), config.getPort());
             routingTable = new RoutingTable(localNode);
             messages = new Messages(this);
         }
@@ -250,12 +253,19 @@ public class LocalNode implements Runnable {
     /**
      * Shuts down the server cleanly
      */
-    public void shutdown() {
-
+    public void shutdown(boolean saveState) {
         server.shutdown();  // Shut down the listener
         stopRefreshOperation(); // Stop the automatic refresh timer
-        saveState(); // Save the localNode and routingTable objects to file
+
+        if (saveState) {
+            saveState(); // Save the localNode and routingTable objects to file
+        }
+
         logger.info("Server shut down successfully");
+    }
+
+    public IPTools getIpTools() {
+        return ipTools;
     }
 
     public Configuration getConfig() {
