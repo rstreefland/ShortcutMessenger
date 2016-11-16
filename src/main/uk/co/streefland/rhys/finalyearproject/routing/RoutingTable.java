@@ -132,11 +132,12 @@ public class RoutingTable implements Serializable {
         return sb.toString();
     }
 
-    public Node getNode(KeyId nodeId) {
-        for (Node existingNode : getAllNodes(true)) {
-            if (nodeId.equals(existingNode.getNodeId())) {
-                /* Return the node object */
-                return existingNode;
+
+    public Contact getContact(Node node) {
+        for (Contact existingContact : getAllContacts()) {
+            if (node.getNodeId().equals(existingContact.getNode().getNodeId())) {
+                /* Return the contact object */
+                return existingContact;
             }
         }
         return null;
@@ -161,6 +162,21 @@ public class RoutingTable implements Serializable {
         }
 
         return nodes;
+    }
+
+    /**
+     * @return A list of all Contacts in this RoutingTable
+     */
+    public synchronized final List<Contact> getAllContacts() {
+        List<Contact> contacts = new ArrayList<>();
+
+        for (Bucket b : buckets) {
+            for (Contact c : b.getContacts()) {
+                contacts.add(c);
+            }
+        }
+
+        return contacts;
     }
 
     /**

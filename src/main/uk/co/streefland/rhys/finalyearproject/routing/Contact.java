@@ -7,15 +7,17 @@ import java.io.Serializable;
 /**
  * Stores information about the contacts of the node. Contacts are stored in buckets in the routing table
  */
-class Contact implements Comparable<Contact>, Cloneable, Serializable {
+public class Contact implements Comparable<Contact>, Cloneable, Serializable {
 
     private final Node node;
     private long lastSeen;
     private int staleCount;
+    private boolean accessible;
 
     public Contact(Node node) {
         this.node = node;
         this.lastSeen = System.currentTimeMillis();
+        accessible = true;
     }
 
     @Override
@@ -41,6 +43,14 @@ class Contact implements Comparable<Contact>, Cloneable, Serializable {
     @Override
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
+    }
+
+    public boolean isAccessible() {
+        return accessible;
+    }
+
+    public void setAccessible(boolean accessible) {
+        this.accessible = accessible;
     }
 
     /**

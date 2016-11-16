@@ -13,6 +13,7 @@ import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
+import uk.co.streefland.rhys.finalyearproject.routing.Contact;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -32,6 +33,7 @@ public class SendMessageOperation implements Operation, Receiver {
     private final Configuration config;
     private final LocalNode localNode;
     private User user;
+    private Contact associatedContact;
 
     private String messageString;
     private KeyId messageId;
@@ -95,20 +97,36 @@ public class SendMessageOperation implements Operation, Receiver {
             }
 
             closestNodes = fuo.getClosestNodes();
-        }
 
-        /* Add associated nodes to the 'to message' list */
-        if (!user.getAssociatedNodes().isEmpty()) {
-            addNodes(user.getAssociatedNodes());
+            /* Add associated nodes to the 'to message' list */
+            if (!user.getAssociatedNodes().isEmpty()) {
 
-            /* Run the message operation for only the intended recipients to begin with */
-            messageLoop();
+                associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNodes().get(0));
+
+                if (associatedContact == null) {
+                    localNode.getRoutingTable().insert(user.getAssociatedNodes().get(0));
+                } else {
+                    if (associatedContact.isAccessible()) {
+                        addNodes(user.getAssociatedNodes());
+
+                        /* Run the message operation for only the intended recipients to begin with */
+                        messageLoop();
+                    }
+                }
+            } else {
+                logger.info("User has no associated nodes - caching message on closest nodes");
+            }
+
         } else {
-            logger.info("User has no associated nodes - caching message on closest nodes");
+            /* Run the message operation for the forwarded message */
+            addNodes(user.getAssociatedNodes());
+            messageLoop();
         }
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
         if (!isMessagedSuccessfully && !forwarding) {
+            associatedContact.setAccessible(false);
+
             if (closestNodes == null) {
                 FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId(), true);
                 fno.execute();
@@ -120,11 +138,13 @@ public class SendMessageOperation implements Operation, Receiver {
         }
     }
 
+
     /**
      * Inserts the nodes into the HashMap if they're not already present
      *
      * @param list The list of nodes to insert
      */
+
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
@@ -220,6 +240,8 @@ public class SendMessageOperation implements Operation, Receiver {
     public synchronized void receive(Message incoming, int communicationId) {
         /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
+
+        logger.info("SMO ACK RECEIVED");
 
         isMessagedSuccessfully = msg.getOperationSuccessful(); // use the result from the ack
 

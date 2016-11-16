@@ -85,7 +85,7 @@ public class TextReceiver implements Receiver {
 
             /* The server sends the reply */
             if (server.isRunning()) {
-                server.reply(msg.getOrigin(), ack, communicationId);
+                server.reply(msg.getSource(), ack, communicationId);
             }
 
             /* This is a message intended for a different target - handle */
