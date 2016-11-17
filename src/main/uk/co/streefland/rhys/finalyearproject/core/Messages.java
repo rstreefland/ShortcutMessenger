@@ -92,9 +92,9 @@ public class Messages implements Serializable {
             /* If the message was forwarded - punch a hole in the NAT/firewall so we can communicate directly from now on */
             if (!origin.equals(message.getSource())) {
                 logger.info("THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN");
-                HolePunchOperation hpo = new HolePunchOperation(localNode.getServer(), localNode, origin, localNode.getConfig());
-                logger.info("Sending hole punch to:" + origin.getPublicInetAddress().getHostAddress() + " PORT: " + origin.getPublicPort());
-                hpo.execute();
+                //HolePunchOperation hpo = new HolePunchOperation(localNode.getServer(), localNode, origin, localNode.getConfig());
+                //logger.info("Sending hole punch to:" + origin.getPublicInetAddress().getHostAddress() + " PORT: " + origin.getPublicPort());
+                //hpo.execute();
             }
         }
     }

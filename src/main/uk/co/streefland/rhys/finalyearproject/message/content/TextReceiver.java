@@ -75,7 +75,7 @@ public class TextReceiver implements Receiver {
 
             /* The server sends the reply */
             if (server.isRunning()) {
-                server.reply(msg.getOrigin(), ack, communicationId);
+                server.reply(msg.getSource(), ack, communicationId);
             }
         } else {
             /* Create the AcknowledgeMessage */
@@ -93,11 +93,11 @@ public class TextReceiver implements Receiver {
             SendMessageOperation smo = new SendMessageOperation(localNode, msg.getRecipientUser(), msg);
             smo.execute();
 
-            if (!smo.isMessagedSuccessfully()) {
+            if (smo.isMessagedSuccessfully()) {
+                logger.info("Message forwarded successfully - no need to add it to forward messages");
+            } else {
                 logger.info("Couldn't forward immediately - adding to forward messages");
                 localNode.getMessages().addForwardMessage(msg);
-            } else {
-                logger.info("Message forwarded successfully - no need to add it to forward messages");
             }
         }
     }

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="AntConfiguration">
     <buildFile url="file://$PROJECT_DIR$/src/main/ant.xml">
-      <executeOn event="afterCompilation" target="init" />
+      <executeOn event="beforeCompilation" target="init" />
     </buildFile>
   </component>
 </project>

@@ -1,67 +1,68 @@
-2016-11-16 20:19:16.567 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-16 20:19:16.569 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-16 20:19:16.578 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:FD3FD2CCC4EF7FFBA88D0AD42EBCED909BB2A059
-2016-11-16 20:19:16.578 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-16 20:19:16.580 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode FD3FD2CCC4EF7FFBA88D0AD42EBCED909BB2A059 to node 2DB19F1640514D2E80BDFB5C3698BF3C153E4DAB
-2016-11-16 20:19:16.580 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-16 20:19:26.527 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-16 20:19:28.556 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED
-2016-11-16 20:19:28.565 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-16 20:19:28.566 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-16 20:19:33.350 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-16 20:19:33.360 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-16 20:21:16.407 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-16 20:21:16.415 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-16 20:22:20.537 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-16 20:22:26.814 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:22:27.846 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:22:38.382 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:22:39.413 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:23:12.691 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:23:13.729 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:24:33.113 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:24:34.144 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:24:37.705 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:24:38.738 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:24:45.955 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:24:46.991 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:24:50.208 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:24:51.235 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:24:52.586 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:24:53.617 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:24:54.735 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:24:55.767 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:24:58.341 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:24:59.381 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:02.773 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:03.805 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:06.952 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:07.978 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:09.163 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:10.196 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:10.960 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:11.993 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:13.105 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:14.139 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:15.379 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:16.423 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:19.589 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:20.625 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:23.656 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:24.689 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:25.704 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:26.740 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:27.991 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:29.023 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:30.113 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:31.140 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:32.087 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:33.118 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:36.928 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:37.960 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:39.375 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:40.408 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:41.472 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:42.502 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
-2016-11-16 20:25:43.621 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for another node
-2016-11-16 20:25:44.662 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Couldn't forward immediately - adding to forward messages
+2016-11-17 12:56:32.267 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-11-17 12:56:32.271 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-17 12:56:32.291 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:4A31AFBD09427F414216387FF968A48659273DF7
+2016-11-17 12:56:32.291 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-17 12:56:32.293 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-17 12:56:32.294 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 4A31AFBD09427F414216387FF968A48659273DF7 to node C6A33914929DDEF5A5AFEB48E3D21CDCF15A5078
+2016-11-17 12:56:32.312 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
+2016-11-17 12:57:14.268 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 12:57:14.313 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-17 12:57:35.784 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 12:57:36.922 [Thread-339] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 12:58:05.339 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 12:58:05.344 [Thread-340] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 12:58:34.968 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 12:58:34.972 [Thread-505] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 12:58:45.474 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 12:58:45.477 [Thread-506] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 12:59:34.310 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 12:59:34.323 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN
+2016-11-17 12:59:47.579 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 12:59:47.587 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN
+2016-11-17 12:59:54.427 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 12:59:54.437 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN
+2016-11-17 12:59:59.931 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:00:01.033 [Thread-673] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:00:07.714 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:00:07.720 [Thread-674] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:00:09.830 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:00:09.834 [Thread-675] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:00:16.212 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:00:16.218 [Thread-676] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:00:16.937 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:00:16.938 [Thread-677] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:00:32.907 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:00:32.917 [Thread-678] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:00:35.675 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:00:35.679 [Thread-850] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:00:45.794 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:00:45.806 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN
+2016-11-17 13:00:50.764 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:00:50.773 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN
+2016-11-17 13:00:55.912 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:00:55.925 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN
+2016-11-17 13:00:59.438 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:00:59.449 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN
+2016-11-17 13:01:04.265 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:05.420 [Thread-851] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:01:07.353 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:07.360 [Thread-852] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:01:09.153 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:09.158 [Thread-853] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:01:11.045 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:11.051 [Thread-854] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:01:12.950 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:12.955 [Thread-855] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:01:14.539 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:14.545 [Thread-856] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:01:15.926 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:15.934 [Thread-857] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-17 13:01:23.266 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:23.269 [Thread-858] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
+2016-11-17 13:01:24.722 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-17 13:01:24.727 [Thread-859] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
+2016-11-17 13:01:35.829 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:01:36.625 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:01:37.602 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:01:38.471 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-17 13:01:39.364 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me

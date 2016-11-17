@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.jar.Pack200;
 
 /**
  * Sends a message to another user by sending to all of the nodes associated with that user.
@@ -105,14 +106,16 @@ public class SendMessageOperation implements Operation, Receiver {
 
                 if (associatedContact == null) {
                     localNode.getRoutingTable().insert(user.getAssociatedNodes().get(0));
-                } else {
-                    if (associatedContact.isAccessible()) {
-                        addNodes(user.getAssociatedNodes());
+                    associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNodes().get(0));
+                }
+
+                if (associatedContact.isAccessible()) {
+                    addNodes(user.getAssociatedNodes());
 
                         /* Run the message operation for only the intended recipients to begin with */
-                        messageLoop();
-                    }
+                    messageLoop();
                 }
+
             } else {
                 logger.info("User has no associated nodes - caching message on closest nodes");
             }
@@ -125,6 +128,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
         if (!isMessagedSuccessfully && !forwarding) {
+
             associatedContact.setAccessible(false);
 
             if (closestNodes == null) {
@@ -241,12 +245,12 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        logger.info("SMO ACK RECEIVED");
+        logger.info("SMO ACK RECEIVED with success value: " + msg.getOperationSuccessful());
 
         isMessagedSuccessfully = msg.getOperationSuccessful(); // use the result from the ack
 
         /* Update the hashmap to show that we've finished messaging this node */
-        nodes.put(msg.getOrigin(), Configuration.QUERIED);
+        nodes.put(msg.getSource(), Configuration.QUERIED);
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
@@ -268,7 +272,9 @@ public class SendMessageOperation implements Operation, Receiver {
             return;
         }
 
-        isMessagedSuccessfully = false;
+        if (!forwarding) {
+            isMessagedSuccessfully = false;
+        }
 
         /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, Configuration.FAILED);
