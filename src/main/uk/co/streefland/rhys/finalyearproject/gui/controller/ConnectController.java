@@ -21,6 +21,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -63,7 +64,7 @@ public class ConnectController {
      * @throws IOException
      */
     @FXML
-    private void handleConnectButtonAction(ActionEvent event) throws IOException {
+    private void handleConnectButtonAction(ActionEvent event) {
         loadingAnimation.setVisible(true);
 
         Task task = new Task() {
@@ -85,7 +86,12 @@ public class ConnectController {
                     return null;
                 }
 
-                InetAddress networkIp = ipTools.validateAddress(networkIpString);
+                InetAddress networkIp = null;
+
+                try {
+                    networkIp = ipTools.validateAddress(networkIpString);
+                } catch (UnknownHostException uho) {}
+                
 
                 if (networkIp != null) {
                     localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
