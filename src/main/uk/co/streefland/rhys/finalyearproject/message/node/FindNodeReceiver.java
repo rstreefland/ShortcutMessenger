@@ -39,7 +39,7 @@ public class FindNodeReceiver implements Receiver {
         localNode.getRoutingTable().insert(origin);
 
         /* Find nodes closest to the KeyId in local routing table */
-        List<Node> nodes = localNode.getRoutingTable().findClosest(msg.getLookupId());
+        List<Node> nodes = localNode.getRoutingTable().findClosest(msg.getLookupId(), false);
 
         /* Create the FindNodeMessageReply */
         Message reply = new FindNodeMessageReply(localNode.getNode(), nodes);

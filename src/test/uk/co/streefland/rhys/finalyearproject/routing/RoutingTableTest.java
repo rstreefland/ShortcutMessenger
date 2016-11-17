@@ -66,7 +66,7 @@ public class RoutingTableTest {
 
         byte[] bytes = new byte[20];
         KeyId zero = new KeyId(bytes);
-        List<Node> sortedSet = routingTable.findClosest(zero);
+        List<Node> sortedSet = routingTable.findClosest(zero, false);
 
         assertEquals(sortedSet.size(), 5);
 

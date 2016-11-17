@@ -65,9 +65,9 @@ public class RoutingTable implements Serializable {
      * @param target The target KeyId
      * @return List A List of contacts closest to the target KeyId
      */
-    public synchronized final List<Node> findClosest(KeyId target) {
+    public synchronized final List<Node> findClosest(KeyId target, boolean ignoreStale) {
         TreeSet<Node> sortedSet = new TreeSet<>(new KeyComparator(target));
-        sortedSet.addAll(getAllNodes(false));
+        sortedSet.addAll(getAllNodes(ignoreStale));
 
         List<Node> closest = new ArrayList<>(Configuration.K);
 

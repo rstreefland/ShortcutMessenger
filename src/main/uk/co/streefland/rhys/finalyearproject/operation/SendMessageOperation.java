@@ -132,9 +132,16 @@ public class SendMessageOperation implements Operation, Receiver {
             localNode.getRoutingTable().setUnresponsiveContact(user.getAssociatedNodes().get(0));
 
             if (closestNodes == null) {
-                FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId(), true);
-                fno.execute();
-                closestNodes = fno.getClosestNodes();
+
+                /* look on the local node first */
+                closestNodes = localNode.getRoutingTable().findClosest(user.getAssociatedNodes().get(0).getNodeId(), true);
+
+                /* then find node operation if the list is still empty */
+                if (closestNodes.size() == 0) {
+                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNodes().get(0).getNodeId(), true);
+                    fno.execute();
+                    closestNodes = fno.getClosestNodes();
+                }
             }
 
             addNodes(closestNodes);

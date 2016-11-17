@@ -42,6 +42,7 @@ public class Messages implements Serializable {
     }
 
     public void sendMessage(String message, User target) throws IOException {
+
         if (!message.isEmpty() && localNode.getUsers().getLocalUser() != null) {
 
             SendMessageOperation operation = new SendMessageOperation(localNode, target, message);
