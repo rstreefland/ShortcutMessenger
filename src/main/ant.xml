@@ -8,8 +8,8 @@
     <target name="init">
         <buildnumber/>
         <replaceregexp file="uk/co/streefland/rhys/finalyearproject/core/LocalNode.java"
-                       match="public\s+static\s+final\s+String\s+BUILD_NUMBER\s+=\s+&quot;.*&quot;;"
-                       replace="public static final String BUILD_NUMBER = &quot;${build.number}&quot;;"
+                       match="private\s+static\s+final\s+String\s+BUILD_NUMBER\s+=\s+&quot;.*&quot;;"
+                       replace="private static final String BUILD_NUMBER = &quot;${build.number}&quot;;"
                        byline="true"
         />
     </target>

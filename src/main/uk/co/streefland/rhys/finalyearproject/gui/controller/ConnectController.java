@@ -91,7 +91,7 @@ public class ConnectController {
                 try {
                     networkIp = ipTools.validateAddress(networkIpString);
                 } catch (UnknownHostException uho) {}
-                
+
 
                 if (networkIp != null) {
                     localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);

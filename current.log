@@ -1,36 +1,327 @@
-2016-11-17 17:58:24.091 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-17 17:58:24.094 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-17 17:58:24.113 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:CF0974D13B5AEDEE2FB113EF4829B749DF77C76C
-2016-11-17 17:58:24.113 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-17 17:58:24.115 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-17 17:58:24.116 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode CF0974D13B5AEDEE2FB113EF4829B749DF77C76C to node 52A726BEEF0B2F64C9000DBF2642F7D80B84C289
-2016-11-17 17:58:25.175 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-17 17:58:25.177 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
-2016-11-17 17:59:15.175 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-17 17:59:15.176 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-17 17:59:15.178 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:1EBB78CC2E645963C455BC005F74F95ADD279537
-2016-11-17 17:59:15.178 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-17 17:59:15.179 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 1EBB78CC2E645963C455BC005F74F95ADD279537 to node 85D3045E0296EFD1B22E5E2AA178D3BEABE4A44C
-2016-11-17 17:59:15.179 [Thread-13] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-17 17:59:15.207 [pool-4-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
-2016-11-17 17:59:26.083 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:31.156 [pool-4-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-17 17:59:31.165 [Thread-176] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-17 17:59:31.168 [Thread-176] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:37.928 [pool-4-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-17 17:59:37.947 [pool-4-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:40.019 [pool-4-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-17 17:59:40.029 [pool-4-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:42.681 [pool-4-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-17 17:59:42.682 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-17 17:59:42.683 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:43.500 [pool-4-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-17 17:59:43.506 [Thread-178] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-17 17:59:43.507 [Thread-178] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:44.235 [pool-4-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-17 17:59:44.237 [Thread-179] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-17 17:59:44.238 [Thread-179] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:47.110 [pool-4-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-17 17:59:47.121 [pool-4-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
-2016-11-17 17:59:58.437 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-17 17:59:58.438 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-11-17 18:05:53.465 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
+2016-11-17 18:05:53.469 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-17 18:05:53.490 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:757D736DEFE86514BB5C5633DB31632ED13021EB
+2016-11-17 18:05:53.490 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-17 18:05:53.492 [Thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-17 18:05:53.493 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 757D736DEFE86514BB5C5633DB31632ED13021EB to node 651BD7F9FEE5936079E5489BA406B4FEABA732D7
+2016-11-17 18:05:53.514 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
+2016-11-17 18:05:53.531 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:53.532 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.724 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.725 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.725 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.726 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.726 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.726 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.735 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.737 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.738 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.738 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.753 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.754 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.757 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.759 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.758 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.762 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.764 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.766 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.766 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.767 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.766 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.767 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.767 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.768 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.769 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.769 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.770 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.770 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.771 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.771 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.772 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.773 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.773 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.774 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.778 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.779 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.779 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.779 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.781 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.781 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.781 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.782 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.780 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.785 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.787 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.787 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.787 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.787 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.788 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.788 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.787 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.788 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.789 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.789 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.789 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.789 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.789 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.789 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.790 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.790 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.790 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.790 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.791 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.791 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.791 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.792 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.792 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.792 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.792 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.792 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.792 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.790 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.793 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.793 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.793 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.793 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.794 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.789 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.794 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.794 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.794 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.794 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.794 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.794 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.795 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.795 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.795 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.795 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.795 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.795 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.795 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.795 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.795 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.795 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.795 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.796 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.796 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.796 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.796 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.797 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.796 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.797 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.797 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.797 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.797 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.797 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.798 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.798 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.798 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.798 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.799 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.799 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.799 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.799 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.797 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.800 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.800 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.800 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.800 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.800 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.800 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.800 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.801 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.801 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.801 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.802 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.802 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.802 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.802 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.802 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.802 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.802 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.803 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.803 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.803 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.803 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.803 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.802 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.803 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.803 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.803 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.801 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.804 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.803 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.804 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.804 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.804 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.804 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.804 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.804 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.804 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.804 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.804 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.805 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.805 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.805 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.805 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.805 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.805 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.805 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.805 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.805 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.805 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.805 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.805 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.805 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.805 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.806 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.806 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.800 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.806 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.806 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.806 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.806 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.807 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.807 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.807 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.807 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.808 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.804 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.808 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.808 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.808 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.809 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.808 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.809 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.809 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.809 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.809 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.809 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.809 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.809 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.809 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.809 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.809 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.810 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.810 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.810 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.810 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.810 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.801 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.810 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.810 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.810 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.810 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.811 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.810 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.811 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.811 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.811 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.811 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.811 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.811 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.811 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.811 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.811 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.811 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.811 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.811 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.812 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.812 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.812 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.812 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.812 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.812 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.812 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.812 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.812 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.812 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.812 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.813 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.813 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.813 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.813 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.813 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.813 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.810 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.813 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.814 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.814 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.814 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.812 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.813 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.813 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.814 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.814 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.806 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.815 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.815 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.815 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.815 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.816 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.816 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.817 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.817 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.817 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.817 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.818 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.818 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.818 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.815 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.816 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.818 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.818 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.819 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.816 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.819 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.819 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.819 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.816 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.815 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.816 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.819 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.831 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.873 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.873 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.873 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.873 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.873 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.819 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.776 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.819 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.874 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.818 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.818 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.874 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.874 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.875 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.875 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.874 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.875 [pool-3-thread-8] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.875 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.876 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.876 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.876 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.876 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.876 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.877 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.877 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.877 [pool-3-thread-2] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.876 [pool-3-thread-7] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.877 [pool-3-thread-3] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.873 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.874 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.878 [pool-3-thread-5] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.877 [pool-3-thread-10] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.877 [pool-3-thread-9] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.875 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Incoming message was of a different type
+2016-11-17 18:05:54.878 [pool-3-thread-4] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.879 [pool-3-thread-1] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
+2016-11-17 18:05:54.874 [pool-3-thread-6] WARN  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - class uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage
