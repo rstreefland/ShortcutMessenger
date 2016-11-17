@@ -57,6 +57,7 @@ public class Users implements Serializable {
         /* Set the local user object */
         if (ruo.isRegisteredSuccessfully()) {
             localUser = user; // set the local user object
+            users.put(user.getUserName(), user);
         }
 
         return ruo.isRegisteredSuccessfully();
@@ -84,6 +85,7 @@ public class Users implements Serializable {
             ruo.execute();
 
             localUser = user; // set the local user object
+            users.put(user.getUserName(), user);
         }
         return luo.isLoggedIn();
     }
