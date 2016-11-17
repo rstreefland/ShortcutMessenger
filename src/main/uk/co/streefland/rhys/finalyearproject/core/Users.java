@@ -152,7 +152,11 @@ public class Users implements Serializable {
     }
 
     public synchronized void addUserToCache(User newUser, Node associatedNode) {
-        localNode.getRoutingTable().insert(associatedNode);
+
+        /* This was overwriting the contact and setting the stale value back to 0 - hence causing more delay */
+        if (localNode.getRoutingTable().getContact(associatedNode) == null) {
+            localNode.getRoutingTable().insert(associatedNode);
+        }
 
         addUserToCache(newUser);
     }

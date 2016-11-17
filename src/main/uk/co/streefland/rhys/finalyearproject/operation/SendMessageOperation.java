@@ -34,7 +34,6 @@ public class SendMessageOperation implements Operation, Receiver {
     private final Configuration config;
     private final LocalNode localNode;
     private User user;
-    private Contact associatedContact;
 
     private String messageString;
     private KeyId messageId;
@@ -102,17 +101,17 @@ public class SendMessageOperation implements Operation, Receiver {
             /* Add associated nodes to the 'to message' list */
             if (!user.getAssociatedNodes().isEmpty()) {
 
-                associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNodes().get(0));
+                Contact associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNodes().get(0));
 
                 if (associatedContact == null) {
                     localNode.getRoutingTable().insert(user.getAssociatedNodes().get(0));
                     associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNodes().get(0));
                 }
 
-                if (associatedContact.isAccessible()) {
+                if (associatedContact.getStaleCount() == 0) {
                     addNodes(user.getAssociatedNodes());
 
-                        /* Run the message operation for only the intended recipients to begin with */
+                    /* Run the message operation for only the intended recipients to begin with */
                     messageLoop();
                 }
 
@@ -129,7 +128,8 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
         if (!isMessagedSuccessfully && !forwarding) {
 
-            associatedContact.setAccessible(false);
+            /* Set the contact as unresponsive */
+            localNode.getRoutingTable().setUnresponsiveContact(user.getAssociatedNodes().get(0));
 
             if (closestNodes == null) {
                 FindNodeOperation fno = new FindNodeOperation(localNode, user.getUserId(), true);
