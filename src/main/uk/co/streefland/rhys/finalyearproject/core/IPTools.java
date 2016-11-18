@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
+import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -18,19 +20,41 @@ public class IPTools {
         privateIp = determinePrivateIp();
     }
 
-    public String determinePublicIp() throws IOException {
-        URL whatismyip = new URL("http://checkip.amazonaws.com");
+    public String determinePublicIp() {
+
+        String[] urls = new String[3];
+        urls[0] = "http://checkip.amazonaws.com";
+        urls[1] = "https://api.ipify.org/";
+        urls[2] = "https://wtfismyip.com/text";
+
+        String ip = null;
         BufferedReader in = null;
-        try {
-            in = new BufferedReader(new InputStreamReader(
-                    whatismyip.openStream()));
-            String ip = in.readLine();
-            return ip;
-        } finally {
-            if (in != null) {
-                in.close();
+
+        for (int i=0; i < 3; i++) {
+
+            try {
+                URL ipUrl = new URL(urls[i]);
+                in = new BufferedReader(new InputStreamReader(
+                        ipUrl.openStream()));
+                ip = in.readLine();
+
+            } catch (IOException e) {
+                System.out.println("couldn't get IP from source:" + i);
+            } finally {
+                if (in != null) {
+                    try {
+                        in.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            if (ip != null) {
+                return ip;
             }
         }
+        return null;
     }
 
     public String determinePrivateIp() throws SocketException {
