@@ -36,15 +36,11 @@
             <ListView fx:id="listView" maxWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"
                       onMouseClicked="#onMouseClick">
                 <placeholder>
-                    <Label styleClass="info" text="No conversations found" textAlignment="CENTER" wrapText="true"/>
+                    <Label styleClass="info" text="No Conversations" textAlignment="CENTER" wrapText="true"/>
                 </placeholder>
             </ListView>
             <VBox GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-                <HBox alignment="TOP_LEFT">
-                    <padding>
-                        <Insets top="10" bottom="10" right="10" left="10"/>
-                    </padding>
-                    <Text fx:id="conversationUser" text="Select a conversation..." HBox.hgrow="ALWAYS"/>
+                <HBox fx:id="conversationHeader" alignment="TOP_LEFT">
                 </HBox>
                 <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
                             vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">

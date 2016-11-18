@@ -8,6 +8,7 @@ import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
+import javafx.geometry.Insets;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,7 +16,9 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -54,9 +57,9 @@ public class HomeController {
     @FXML
     private ImageView loadingAnimation;
     @FXML
-    private Text conversationUser;
-    @FXML
     private Text statusText;
+    @FXML
+    private HBox conversationHeader;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
@@ -234,12 +237,17 @@ public class HomeController {
     private void changeConversation(String userName) {
         if (!userName.equals(localUser)) {
 
+            conversationHeader.getChildren().clear();
+            Text conversationHeaderText = new Text(userName);
+            HBox.setHgrow(conversationHeaderText, Priority.ALWAYS);
+            conversationHeader.getChildren().add(conversationHeaderText);
+            conversationHeader.setPadding(new Insets(10));
+
             if (!conversations.contains(userName)) {
                 conversations.add(userName);
             }
 
             currentConversationUser = userName;
-            conversationUser.setText(currentConversationUser);
 
             gridPane.getChildren().clear();
 
@@ -324,7 +332,6 @@ public class HomeController {
             conversations.remove(listView.getSelectionModel().getSelectedItem());
             gridPane.getChildren().clear();
             currentConversationUser = null;
-            conversationUser.setText("Select a conversation...");
         }
     }
 

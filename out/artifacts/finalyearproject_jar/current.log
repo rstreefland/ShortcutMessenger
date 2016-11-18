@@ -97,3 +97,5 @@
 2016-11-18 17:24:20.154 [Thread-2012] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: thompson
 2016-11-18 17:24:28.326 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
 2016-11-18 17:24:28.327 [Thread-2181] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: uor
+2016-11-18 17:53:31.382 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-11-18 17:53:31.390 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
