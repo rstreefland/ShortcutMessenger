@@ -18,7 +18,7 @@ import java.util.Timer;
  */
 public class LocalNode implements Runnable {
 
-    private static final String BUILD_NUMBER = "1708";
+    private static final String BUILD_NUMBER = "1710";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */

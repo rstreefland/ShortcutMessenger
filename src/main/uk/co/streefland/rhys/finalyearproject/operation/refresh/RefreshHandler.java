@@ -23,19 +23,23 @@ public class RefreshHandler extends TimerTask {
     public void run() {
 
         /* Run BucketRefreshOperation to refresh the buckets */
-        try {
-            new BucketRefreshOperation(localNode).execute();
-            logger.debug("Routing table was refreshed");
-        } catch (IOException e) {
-            logger.error("Routing table refresh failed:", e);
+        if (localNode.getNode() != null) {
+            try {
+                new BucketRefreshOperation(localNode).execute();
+                logger.debug("Routing table was refreshed");
+            } catch (IOException e) {
+                logger.error("Routing table refresh failed:", e);
+            }
         }
 
         /* Run UserRefreshOperation to refresh the user database */
-        try {
-            new UserRefreshOperation(localNode).execute();
-            logger.debug("User database was refreshed");
-        } catch (IOException e) {
-            logger.error("User database refresh failed:", e);
+        if (localNode.getUsers().getLocalUser() != null) {
+            try {
+                new UserRefreshOperation(localNode).execute();
+                logger.debug("User database was refreshed");
+            } catch (IOException e) {
+                logger.error("User database refresh failed:", e);
+            }
         }
 
         /* Run MessageRefreshOperation to forward messages to their intended recipients*/
@@ -45,7 +49,5 @@ public class RefreshHandler extends TimerTask {
         } catch (IOException e) {
             logger.error("Message refresh failed:", e);
         }
-
-        // TODO: 02/09/2016  we'll need to refresh any data stored in the DHT as well once that functionality has been implemented
     }
 }

@@ -1,7 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -30,8 +28,7 @@ public class IPTools {
         String ip = null;
         BufferedReader in = null;
 
-        for (int i=0; i < 3; i++) {
-
+        for (int i = 0; i < 3; i++) {
             try {
                 URL ipUrl = new URL(urls[i]);
                 in = new BufferedReader(new InputStreamReader(
