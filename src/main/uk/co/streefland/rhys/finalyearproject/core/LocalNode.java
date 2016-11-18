@@ -18,7 +18,7 @@ import java.util.Timer;
  */
 public class LocalNode implements Runnable {
 
-    private static final String BUILD_NUMBER = "1695";
+    private static final String BUILD_NUMBER = "1706";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
@@ -42,7 +42,7 @@ public class LocalNode implements Runnable {
      *
      * @throws IOException
      */
-    public LocalNode(IPTools ipTools, InetAddress publicIp, InetAddress privateIp, int port) throws IOException {
+    public LocalNode(IPTools ipTools, InetAddress publicIp, InetAddress privateIp, int port) throws IOException{
         logger.info("FinalYearProject build {}", BUILD_NUMBER);
 
         this.ipTools = ipTools;
@@ -52,7 +52,23 @@ public class LocalNode implements Runnable {
         readState(publicIp, privateIp, port);
 
         this.messageHandler = new MessageHandler(this);
-        this.server = new Server(config.getPort(), messageHandler, config, localNode);
+
+        boolean portBindFailure;
+
+        do {
+            try {
+                portBindFailure = false;
+                this.server = new Server(port, messageHandler, config, localNode);
+            } catch (IOException e) {
+                portBindFailure = true;
+                logger.warn("Couldn't bind to port " + port);
+                port++;
+                logger.warn("Using port " + port + " instead");
+
+                localNode.setPrivatePort(port);
+                localNode.setPublicPort(port);
+            }
+        } while (portBindFailure);
 
         /* Couldn't read it from file */
         if (users == null) {

@@ -1,11 +1,9 @@
-2016-11-16 20:31:54.973 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 344
-2016-11-16 20:31:54.976 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-16 20:31:54.989 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:95A4BACD17603BA1C66D06123B1929964E002903
-2016-11-16 20:31:54.990 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-16 20:31:54.991 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-16 20:31:54.992 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 95A4BACD17603BA1C66D06123B1929964E002903 to node 09C5610621FFC0FF0E23140629EFA8B1DA7E4DBB
-2016-11-16 20:32:19.775 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-16 20:32:25.282 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED
-2016-11-16 20:32:25.292 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: rhys
-2016-11-16 20:39:44.987 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-16 20:39:44.996 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-11-18 15:41:50.600 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 1706
+2016-11-18 15:41:50.603 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-18 15:41:50.609 [Thread-5] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Couldn't bind to port:12345
+2016-11-18 15:41:50.610 [Thread-5] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Using port: 12345 instead
+2016-11-18 15:41:50.610 [Thread-5] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Couldn't bind to port:12346
+2016-11-18 15:412016-11-18 15:45:31.957 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-11-18 15:45:31.958 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+0.613 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-18 15:41:50.614 [Thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12347
