@@ -1,9 +1,1 @@
-2016-11-18 18:08:24.355 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 1727
-2016-11-18 18:08:24.357 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-18 18:08:24.366 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:FDE992307CE49C52E6B1273C38F9C6F1518768D5
-2016-11-18 18:08:24.366 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-18 18:08:24.367 [Thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode FDE992307CE49C52E6B1273C38F9C6F1518768D5 to node DB8DC0E61077F2973D338E881FE4B54E46F13CD5
-2016-11-18 18:08:24.367 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-18 18:08:55.453 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-18 18:09:00.440 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-18 18:09:00.443 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: nldev1
+2016-11-21 17:52:31.088 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
