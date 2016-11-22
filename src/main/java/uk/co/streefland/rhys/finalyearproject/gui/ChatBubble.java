@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -20,14 +22,17 @@ public class ChatBubble extends TextFlow {
     public ChatBubble(TextFlow textFlow, int colour) {
         super();
 
-        getChildren().add(textFlow);
-
-        double width = 0;
+        /* double width = 0;
         for (Node child: textFlow.getChildren()) {
-            width += (child.getLayoutBounds().getWidth()*1.30); // No idea why this works
-        }
+            width += (child.getLayoutBounds().getWidth() * 1.30); // No idea why this works
+        } // TODO: 22/11/2016 futher improve this horrible hack to correct the width of the emoji as the last node
 
-        setMaxWidth(width + 15); // or this
+        if (width >= maxWidth) {
+            this.maxWidth(maxWidth);
+        } else {
+            setMaxWidth(width + 10); // or this
+        } */
+
         setPadding(new Insets(5));
 
         switch (colour) {
@@ -46,6 +51,27 @@ public class ChatBubble extends TextFlow {
             default:
                 break;
         }
+
+        getChildren().add(textFlow);
+    }
+
+
+    @Override
+    public void layoutChildren() {
+
+        super.layoutChildren();
+
+        double maxChildWidth = 0;
+        for (Node child : getChildren()) {
+            double childWidth = child.getLayoutBounds().getWidth();
+            maxChildWidth = Math.max(maxChildWidth, childWidth);
+        }
+        double insetWidth = getInsets().getLeft() + getInsets().getRight();
+        double adjustedWidth = maxChildWidth + insetWidth;
+
+        System.out.println("New width is: " + adjustedWidth);
+
+        setMaxWidth(adjustedWidth);
     }
 }
 
