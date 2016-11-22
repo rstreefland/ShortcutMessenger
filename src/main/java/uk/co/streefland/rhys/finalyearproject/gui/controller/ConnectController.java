@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
@@ -33,6 +34,8 @@ public class ConnectController {
     private IPTools ipTools;
 
     @FXML
+    private BorderPane borderPane;
+    @FXML
     private Button connectButton;
     @FXML
     private TextField networkIpField;
@@ -51,6 +54,7 @@ public class ConnectController {
 
     /**
      * Creates the localNode and bootstraps the node to the network
+     *
      * @param event
      * @throws IOException
      */
@@ -80,7 +84,8 @@ public class ConnectController {
 
                 try {
                     networkIp = ipTools.validateAddress(networkIpString);
-                } catch (UnknownHostException uho) {}
+                } catch (UnknownHostException uho) {
+                }
 
 
                 if (networkIp != null) {
@@ -150,6 +155,7 @@ public class ConnectController {
 
     /**
      * Fires the connect button event handler if the enter key was pressed
+     *
      * @param key The key event
      */
     @FXML

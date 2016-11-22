@@ -30,7 +30,7 @@
     </top>
     <center>
         <GridPane alignment="center">
-            <ListView fx:id="listView" maxWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"
+            <ListView fx:id="listView" minWidth="100" maxWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"
                       onMouseClicked="#onMouseClick">
                 <placeholder>
                     <Label styleClass="info" text="No Conversations" textAlignment="CENTER" wrapText="true"/>

@@ -19,6 +19,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,12 +29,11 @@ import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.gui.ChatBubble;
+import uk.co.streefland.rhys.finalyearproject.gui.EmojiConverter;
 import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 public class HomeController {
 
@@ -124,14 +124,17 @@ public class HomeController {
             if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
                 Platform.runLater(() -> {
 
+                    EmojiConverter emojiConverter = new EmojiConverter();
+                    TextFlow output = emojiConverter.convert(messageString);
+
                     if (author.equals(localUser)) {
-                        ChatBubble bubble = new ChatBubble(messageString, ChatBubble.COLOUR_GREEN);
+                        ChatBubble bubble = new ChatBubble(output, ChatBubble.COLOUR_GREEN);
 
                         gridPane.add(bubble, 1, gridPane.getChildren().size() + 1);
                         GridPane.setHgrow(bubble, Priority.ALWAYS);
                         GridPane.setHalignment(bubble, HPos.RIGHT);
                     } else {
-                        ChatBubble bubble = new ChatBubble(messageString, ChatBubble.COLOUR_GREY);
+                        ChatBubble bubble = new ChatBubble(output, ChatBubble.COLOUR_GREY);
 
                         gridPane.add(bubble, 1, gridPane.getChildren().size() + 1);
                         GridPane.setHgrow(bubble, Priority.ALWAYS);
@@ -248,16 +251,20 @@ public class HomeController {
 
                 if (conversation != null) {
                     for (int i = 0; i < conversation.size(); i++) {
+
+                        EmojiConverter emojiConverter = new EmojiConverter();
+                        TextFlow output = emojiConverter.convert(conversation.get(i).getMessage());
+
                         if (conversation.get(i).getAuthor().equals(localUser)) {
-                            ChatBubble bubble = new ChatBubble(conversation.get(i).getMessage(), ChatBubble.COLOUR_GREEN);
+                            ChatBubble bubble = new ChatBubble(output, ChatBubble.COLOUR_GREEN);
                             gridPane.add(bubble, 1, i);
                             GridPane.setHgrow(bubble, Priority.ALWAYS);
                             GridPane.setHalignment(bubble, HPos.RIGHT);
                         } else {
-                            ChatBubble text = new ChatBubble(conversation.get(i).getMessage(), ChatBubble.COLOUR_GREY);
-                            gridPane.add(text, 1, i);
-                            GridPane.setHgrow(text, Priority.ALWAYS);
-                            GridPane.setHalignment(text, HPos.LEFT);
+                            ChatBubble bubble = new ChatBubble(output, ChatBubble.COLOUR_GREY);
+                            gridPane.add(bubble, 1, i);
+                            GridPane.setHgrow(bubble, Priority.ALWAYS);
+                            GridPane.setHalignment(bubble, HPos.LEFT);
                         }
                     }
                 }

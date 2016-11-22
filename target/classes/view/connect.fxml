@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.60"
+<BorderPane fx:id="borderPane" onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.60"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController">
     <center>
