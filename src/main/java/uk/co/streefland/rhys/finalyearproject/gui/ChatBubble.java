@@ -21,18 +21,6 @@ public class ChatBubble extends TextFlow {
 
     public ChatBubble(TextFlow textFlow, int colour) {
         super();
-
-        /* double width = 0;
-        for (Node child: textFlow.getChildren()) {
-            width += (child.getLayoutBounds().getWidth() * 1.30); // No idea why this works
-        } // TODO: 22/11/2016 futher improve this horrible hack to correct the width of the emoji as the last node
-
-        if (width >= maxWidth) {
-            this.maxWidth(maxWidth);
-        } else {
-            setMaxWidth(width + 10); // or this
-        } */
-
         setPadding(new Insets(5));
 
         switch (colour) {
@@ -54,7 +42,6 @@ public class ChatBubble extends TextFlow {
 
         getChildren().add(textFlow);
     }
-
 
     @Override
     public void layoutChildren() {

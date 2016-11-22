@@ -55,7 +55,6 @@ public class Main extends Application {
 
         } else {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/connect.fxml"));
-            System.out.println(loader.getLocation());
             root = loader.load();
 
             ConnectController controller =

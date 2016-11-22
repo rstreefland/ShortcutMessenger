@@ -1,11 +1,8 @@
 package uk.co.streefland.rhys.finalyearproject.gui;
 
 import javafx.fxml.FXML;
-import javafx.geometry.HPos;
-import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -36,7 +33,8 @@ public class EmojiConverter {
         while (!obs.isEmpty()) {
             Object ob = obs.poll();
             if (ob instanceof String) {
-                addText((String) ob);
+                Text textNode = new Text((String) ob);
+                flowOutput.getChildren().add(textNode);
             } else if (ob instanceof Emoji) {
                 Emoji emoji = (Emoji) ob;
                 flowOutput.getChildren().add(createEmojiNode(emoji, false));
@@ -65,10 +63,5 @@ public class EmojiConverter {
 
     private String getEmojiImagePath(String hexStr) {
         return Emoji.class.getResource("/png_64/" + hexStr + ".png").toExternalForm();
-    }
-
-    private void addText(String text) {
-        Text textNode = new Text(text);
-        flowOutput.getChildren().add(textNode);
     }
 }
