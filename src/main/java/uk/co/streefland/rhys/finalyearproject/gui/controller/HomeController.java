@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -16,6 +17,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
@@ -129,7 +131,8 @@ public class HomeController {
                 Platform.runLater(() -> {
 
                     EmojiConverter emojiConverter = new EmojiConverter();
-                    TextFlow output = emojiConverter.convert(messageString);
+                    FlowPane output = emojiConverter.convert(messageString, gridPane.getWidth()/2);
+                    output.setRowValignment(VPos.CENTER);
 
                     Node bubble;
 
@@ -280,8 +283,8 @@ public class HomeController {
                     for (int i = 0; i < conversation.size(); i++) {
 
                         EmojiConverter emojiConverter = new EmojiConverter();
-                        TextFlow output = emojiConverter.convert(conversation.get(i).getMessage());
-
+                        FlowPane output = emojiConverter.convert(conversation.get(i).getMessage(), gridPane.getWidth()/2);
+                        output.setRowValignment(VPos.CENTER);
                         Node bubble;
 
                         if (conversation.get(i).getAuthor().equals(localUser)) {

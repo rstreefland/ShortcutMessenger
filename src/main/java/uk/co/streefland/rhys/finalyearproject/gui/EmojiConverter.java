@@ -1,8 +1,10 @@
 package uk.co.streefland.rhys.finalyearproject.gui;
 
 import javafx.fxml.FXML;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -14,14 +16,14 @@ import java.util.Queue;
 public class EmojiConverter {
 
     @FXML
-    private TextFlow flowOutput;
+    private FlowPane flowOutput;
 
     public EmojiConverter() {
-        flowOutput = new TextFlow();
+        flowOutput = new FlowPane();
     }
 
     @FXML
-    public TextFlow convert(String text) {
+    public FlowPane convert(String text, double wrapWidth) {
         Queue<Object> obs = EmojiOne.getInstance().toEmojiAndText(text);
 
         if (obs.size() == 1 && obs.peek() instanceof Emoji) {
@@ -33,8 +35,13 @@ public class EmojiConverter {
         while (!obs.isEmpty()) {
             Object ob = obs.poll();
             if (ob instanceof String) {
-                Text textNode = new Text((String) ob);
-                flowOutput.getChildren().add(textNode);
+                String sentence = (String) ob;
+                String[] words = sentence.split("\\s+");
+                for (int i = 0; i < words.length; i++) {
+                    Text word = new Text(words[i] + " ");
+                    System.out.println(word.getText());
+                    flowOutput.getChildren().add(word);
+                }
             } else if (ob instanceof Emoji) {
                 Emoji emoji = (Emoji) ob;
                 flowOutput.getChildren().add(createEmojiNode(emoji, false));

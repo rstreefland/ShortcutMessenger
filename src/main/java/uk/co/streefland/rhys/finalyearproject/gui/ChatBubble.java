@@ -10,16 +10,17 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
+import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 import java.util.Collection;
 
 public class ChatBubble extends TextFlow {
-
+    
     public final static int COLOUR_GREY = 1;
     public final static int COLOUR_GREEN = 2;
 
-    public ChatBubble(TextFlow textFlow, int colour) {
+    public ChatBubble(FlowPane textFlow, int colour) {
         super();
         setPadding(new Insets(5));
 
@@ -39,8 +40,20 @@ public class ChatBubble extends TextFlow {
             default:
                 break;
         }
-
         getChildren().add(textFlow);
+
+        double maxChildWidth = 0;
+        for (Node child : textFlow.getChildren()) {
+            double childWidth = child.getLayoutBounds().getWidth();
+            maxChildWidth = maxChildWidth + childWidth;
+        }
+        double insetWidth = textFlow.getInsets().getLeft() + textFlow.getInsets().getRight();
+        double adjustedWidth = maxChildWidth + insetWidth;
+
+        System.out.println("CHATBUBBLE width is " + adjustedWidth);
+        textFlow.maxWidth(adjustedWidth);
+
+        setMaxWidth((adjustedWidth*1.25) + 10);
     }
 
     @Override
@@ -56,9 +69,7 @@ public class ChatBubble extends TextFlow {
         double insetWidth = getInsets().getLeft() + getInsets().getRight();
         double adjustedWidth = maxChildWidth + insetWidth;
 
-        System.out.println("New width is: " + adjustedWidth);
-
-        setMaxWidth(adjustedWidth);
+        maxWidth(adjustedWidth);
     }
 }
 
