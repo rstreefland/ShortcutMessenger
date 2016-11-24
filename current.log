@@ -1,8 +1,0 @@
-2016-11-24 17:46:18.293 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
-2016-11-24 17:46:24.352 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 476
-2016-11-24 17:46:24.353 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-24 17:46:24.371 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:DA6DAC841E59D82F08F1234717A751E8119F673A
-2016-11-24 17:46:24.371 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-24 17:46:24.374 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode DA6DAC841E59D82F08F1234717A751E8119F673A to node F83EC92D5B70463FC04EFD480EF6866F085632D1
-2016-11-24 17:46:24.373 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-24 17:46:24.386 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode

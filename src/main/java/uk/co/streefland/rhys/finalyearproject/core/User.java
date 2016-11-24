@@ -26,7 +26,6 @@ public class User implements Serializable {
 
     private KeyId userId;
     private String userName;
-    private final String plainTextPassword;
     private byte[] passwordHash;
     private byte[] passwordSalt;
     private List<Node> associatedNodes;
@@ -38,7 +37,6 @@ public class User implements Serializable {
         this.userId = new KeyId(userName);
         this.userName = userName;
 
-        this.plainTextPassword = password;
         this.passwordSalt = generateSalt();
         this.passwordHash = generatePasswordHash(this.passwordSalt, password);
 
@@ -47,7 +45,6 @@ public class User implements Serializable {
 
     public User(DataInputStream in) throws IOException {
         fromStream(in);
-        plainTextPassword = null;
     }
 
     public void toStream(DataOutputStream out) throws IOException {
@@ -151,12 +148,7 @@ public class User implements Serializable {
      * @return False if node already exists in the associated nodes list
      */
     public boolean addAssociatedNode(Node newNode) {
-        for (Node node : associatedNodes) {
-            if (node.getNodeId().equals(newNode.getNodeId())) {
-                return false;
-            }
-        }
-
+        associatedNodes.clear();
         associatedNodes.add(newNode);
         return true;
     }
@@ -167,10 +159,6 @@ public class User implements Serializable {
 
     public String getUserName() {
         return userName;
-    }
-
-    public String getPlainTextPassword() {
-        return plainTextPassword;
     }
 
     public byte[] getPasswordHash() {

@@ -11,6 +11,7 @@ import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperati
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.security.Key;
 import java.util.*;
 
 /**
@@ -22,6 +23,7 @@ public class Users implements Serializable {
     private transient LocalNode localNode;
 
     private User localUser;
+    private String localUserPassword;
     private final HashMap<String,User> users;
     private final HashMap<String,User> cache;
 
@@ -43,21 +45,22 @@ public class Users implements Serializable {
     /**
      * Invokes the register user operation to register the user on the network and returns whether it was successful
      *
-     * @param user The user object to register on the network
+     * @param userName The user object to register on the network
      * @return True if the user was registered successfully
      * @throws IOException
      */
-    public boolean registerUser(User user) throws IOException {
-        user.setRegisterTime(); // set the register time to now
+    public boolean registerUser(String userName, String plainTextPassword) throws IOException {
+        User user = new User(userName, plainTextPassword);
         user.addAssociatedNode(localNode.getNode()); // add the local node as an associated node
 
-        RegisterUserOperation ruo = new RegisterUserOperation(localNode, user , true);
+        RegisterUserOperation ruo = new RegisterUserOperation(localNode, user ,true);
         ruo.execute();
 
         /* Set the local user object */
         if (ruo.isRegisteredSuccessfully()) {
+            localUserPassword = plainTextPassword;
             localUser = user; // set the local user object
-            users.put(user.getUserName(), user);
+            users.put(userName, user);
         }
 
         return ruo.isRegisteredSuccessfully();
@@ -66,12 +69,15 @@ public class Users implements Serializable {
     /**
      * Invokes the login user operation to log an existing user into the network on this node
      *
-     * @param user
+     * @param userName
      * @param plainTextPassword
      * @return
      * @throws IOException
      */
-    public boolean loginUser(User user, String plainTextPassword) throws IOException {
+    public boolean loginUser(String userName, String plainTextPassword) throws IOException {
+
+        User user = new User(userName, plainTextPassword);
+
         LoginUserOperation luo = new LoginUserOperation(localNode, user, plainTextPassword);
         luo.execute();
 
@@ -85,7 +91,7 @@ public class Users implements Serializable {
             ruo.execute();
 
             localUser = user; // set the local user object
-            users.put(user.getUserName(), user);
+            users.put(userName, user);
         }
         return luo.isLoggedIn();
     }
@@ -192,7 +198,7 @@ public class Users implements Serializable {
     public synchronized void cleanUp() {
         long currentTime = new Date().getTime() / 1000; // current time in seconds
 
-        for (Map.Entry<String, User> entry : users.entrySet()) {
+        for (Map.Entry<String, User> entry : cache.entrySet()) {
             if (currentTime >= entry.getValue().getLastActiveTime() + Configuration.USER_CACHE_EXPIRY) {
                 cache.remove(entry.getValue());
             }
@@ -205,5 +211,9 @@ public class Users implements Serializable {
 
     public Map<String, User> getUsers() {
         return users;
+    }
+
+    public String getLocalUserPassword() {
+        return localUserPassword;
     }
 }

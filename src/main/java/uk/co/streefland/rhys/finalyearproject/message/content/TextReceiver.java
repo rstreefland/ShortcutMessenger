@@ -52,7 +52,7 @@ public class TextReceiver implements Receiver {
                         try {
                             /* Decrypt the message */
                             Encryption enc = new Encryption();
-                            String message = enc.decryptString(msg.getRecipientUser(), localUser, msg.getIv(), msg.getEncryptedMessage());
+                            String message = enc.decryptString(msg.getRecipientUser(), localNode.getUsers().getLocalUserPassword(), msg.getIv(), msg.getEncryptedMessage());
                             msg.setMessage(message);
 
                             /* Store the message */

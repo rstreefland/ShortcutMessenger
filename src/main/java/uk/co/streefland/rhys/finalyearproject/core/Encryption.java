@@ -54,10 +54,10 @@ public class Encryption {
         return encrypted;
     }
 
-    public String decryptString(User target, User localUser, byte[] iv, byte[] encryptedMessage) throws InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, UnsupportedEncodingException {
+    public String decryptString(User target, String plainTextPassword, byte[] iv, byte[] encryptedMessage) throws InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, UnsupportedEncodingException {
 
         /* Hash the local users plain text password to check it matches the existing password hash */
-        if (target.doPasswordsMatch(localUser.getPlainTextPassword())) {
+        if (target.doPasswordsMatch(plainTextPassword)) {
 
             /* Create key and cipher using the password hash of the user */
             Key aesKey = new SecretKeySpec(target.getPasswordHash(), "AES");

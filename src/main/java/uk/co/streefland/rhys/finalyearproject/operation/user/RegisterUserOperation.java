@@ -40,7 +40,6 @@ public class RegisterUserOperation implements Operation, Receiver {
     private final Map<Integer, Node> messagesInTransit;
 
     private boolean isRegisteredSuccessfully;
-    private boolean storeUserOnLocalNode;
     private boolean ignoreStale;
 
     public RegisterUserOperation(LocalNode localNode, User user, boolean ignoreStale) {
@@ -63,7 +62,6 @@ public class RegisterUserOperation implements Operation, Receiver {
     public synchronized void execute() throws IOException {
 
         isRegisteredSuccessfully = true; // true until disproved by a different node
-        storeUserOnLocalNode = false;
 
         FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), ignoreStale);
         operation.execute();
@@ -86,11 +84,6 @@ public class RegisterUserOperation implements Operation, Receiver {
         } catch (InterruptedException e) {
             e.printStackTrace();
             logger.error("RegisterUserOperation was interrupted unexpectedly: {}", e);
-        }
-
-        /* Add the user to our localStorage once we know that it doesn't exist already on any other nodes */
-        if (storeUserOnLocalNode) {
-            isRegisteredSuccessfully = localNode.getUsers().addUser(user);
         }
     }
 
@@ -149,7 +142,6 @@ public class RegisterUserOperation implements Operation, Receiver {
                 if (n.equals(localNode.getNode())) {
                 /* Can only store user on local node once we know that it doesn't already exist on another node.
                  * So, we set this flag and handle this once we know for sure that the user doesn't already exist on another node */
-                    storeUserOnLocalNode = true;
                     nodes.put(n, Configuration.QUERIED);
                 } else {
 

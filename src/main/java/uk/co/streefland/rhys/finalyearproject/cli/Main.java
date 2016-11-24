@@ -151,10 +151,9 @@ class Main {
         System.out.println("Please enter a password:");
         String password = sc.nextLine();
 
-        User user = new User(username, password);
 
         try {
-            success = (localNode.getUsers().registerUser(user));
+            success = (localNode.getUsers().registerUser(username, password));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -177,10 +176,8 @@ class Main {
         System.out.println("Please enter a password:");
         String password = sc.nextLine();
 
-        User user = new User(username, password);
-
         try {
-            loggedIn = (localNode.getUsers().loginUser(user, password));
+            loggedIn = (localNode.getUsers().loginUser(username, password));
         } catch (IOException e) {
             e.printStackTrace();
         }
