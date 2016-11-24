@@ -1,57 +1,31 @@
-2016-11-24 16:45:06.065 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
-2016-11-24 16:45:13.177 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 461
-2016-11-24 16:45:13.178 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-24 16:45:13.202 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:DB1C85537EC108D9C3501D585DC2073B09FDDB0C
-2016-11-24 16:45:13.202 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-24 16:45:13.205 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode DB1C85537EC108D9C3501D585DC2073B09FDDB0C to node 6444739FB6646008C39A1EF0BF5C33D87FE0959E
-2016-11-24 16:45:13.205 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-24 16:45:13.220 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
-2016-11-24 16:45:19.600 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:19.609 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:20.835 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:20.847 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:21.569 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:21.579 [Thread-174] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:22.749 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:22.759 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:23.499 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:23.510 [Thread-176] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:24.207 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:24.219 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:26.353 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:26.363 [Thread-178] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:29.406 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:29.414 [Thread-179] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:32.485 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:32.496 [Thread-180] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:35.204 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:35.212 [Thread-181] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:38.293 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:38.303 [Thread-182] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:40.332 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:40.339 [Thread-183] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:45:55.054 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:45:55.058 [Thread-184] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:00.240 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:00.250 [Thread-185] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:01.280 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:01.292 [Thread-186] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:02.208 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:02.216 [Thread-187] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:02.774 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:02.785 [Thread-188] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:03.269 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:03.272 [Thread-189] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:04.321 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:04.327 [Thread-190] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:05.052 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:05.063 [Thread-191] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:06.363 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:06.364 [Thread-192] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:09.060 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:09.064 [Thread-193] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:13.267 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:13.274 [Thread-194] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:21.487 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
-2016-11-24 16:46:21.490 [Thread-357] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
-2016-11-24 16:46:24.384 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-24 16:55:04.316 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
+2016-11-24 16:55:14.887 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 461
+2016-11-24 16:55:14.887 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-24 16:55:14.907 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:0D94ACE6ABCA835E561B885F39ECF0445DAD4126
+2016-11-24 16:55:14.907 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-24 16:55:14.909 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-24 16:55:14.910 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 0D94ACE6ABCA835E561B885F39ECF0445DAD4126 to node 723B8C699506027C9724B97643EA161A1C08A80E
+2016-11-24 16:55:14.930 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
+2016-11-24 16:55:26.322 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:55:31.944 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-24 16:55:31.946 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
+2016-11-24 16:55:31.948 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:55:37.730 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-24 16:55:37.740 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:55:44.236 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-24 16:55:44.240 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
+2016-11-24 16:55:44.241 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:55:47.874 [pool-3-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-24 16:55:47.879 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
+2016-11-24 16:55:47.880 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:55:50.782 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-24 16:55:50.783 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
+2016-11-24 16:55:50.784 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:56:04.269 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-24 16:56:04.281 [Thread-178] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
+2016-11-24 16:56:04.282 [Thread-178] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:56:07.201 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO ACK RECEIVED with success value: true
+2016-11-24 16:56:07.210 [Thread-179] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: one
+2016-11-24 16:56:07.211 [Thread-179] INFO  uk.co.streefland.rhys.finalyearproject.core.Users - User added to cache
+2016-11-24 16:56:14.187 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-11-24 16:56:14.189 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

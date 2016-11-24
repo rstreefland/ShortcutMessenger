@@ -109,14 +109,6 @@ public class Users implements Serializable {
                 return false;
             }
 
-                /* For login */ // TODO: 10/11/2016  is this even needed anymore?
-            if ((user.getLastLoginTime() < newUser.getLastLoginTime()) && newUser.getRegisterTime() != 0L) {
-                logger.debug("New user object has newer login timestamp - replacing the old one");
-                users.remove(user);
-                users.put(newUser.getUserName(), newUser);
-                return false;
-            }
-
                 /* If new user has an older registration time that isn't zero - replace the existing user */
             if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() != 0L) {
                 logger.debug("New user has an older registration timestamp - replacing the old one");
@@ -150,7 +142,6 @@ public class Users implements Serializable {
 
         cache.remove(newUser.getUserName());
         cache.put(newUser.getUserName(), newUser);
-        logger.info("User added to cache");
     }
 
     public synchronized void addUserToCache(User newUser, Node associatedNode) {
