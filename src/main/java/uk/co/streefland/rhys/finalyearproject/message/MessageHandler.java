@@ -43,8 +43,6 @@ public class MessageHandler {
                 return new VerifyUserMessage(in);
             case VerifyUserMessageReply.CODE:
                 return new VerifyUserMessageReply(in);
-            case PingMessage.CODE:
-                return new PingMessage(in);
             default:
                 logger.warn("No message type found for message code: {}", code);
                 return null;
@@ -63,8 +61,6 @@ public class MessageHandler {
                 return new StoreUserReceiver(localNode);
             case VerifyUserMessage.CODE:
                 return new VerifyUserReceiver(localNode);
-            case PingMessage.CODE:
-                return new PingReceiver(localNode);
             default:
                 logger.warn("No receiver type found for message code: {}", code);
                 return null;

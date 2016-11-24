@@ -8,7 +8,6 @@ import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.operation.HolePunchOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import java.io.IOException;
