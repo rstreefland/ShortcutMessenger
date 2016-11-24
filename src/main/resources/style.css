@@ -4,28 +4,66 @@
     -fx-font-family: "Roboto";
 }
 
-.list-view {
-    -fx-border-style: none;
-}
-
 .conversation-header {
     -fx-background-color: #f5f5f5;
     -fx-border-style: solid;
 }
 
+.list-view {
+    -fx-control-inner-background-alt: -fx-control-inner-background ;
+    -fx-border-color: lightgray;
+
+}
+
+.list-view:focused {
+    -fx-focus-color: white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+}
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #6A91B1;
+    -fx-text-fill: white;
+
+}
+
+.list-cell:filled:hover {
+    -fx-background-color: #F5F5F5;
+}
+
 .scroll-pane {
-    -fx-border-style: none;
+    -fx-border-color: lightgray;
 }
 
 .scroll-pane > .viewport {
     -fx-background-color: transparent;
-    -fx-border-style: none;
+}
+
+.scroll-pane:focused {
+    -fx-focus-color: white;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
+}
+
+.text-field {
+    -fx-border-width: 1;
+    -fx-border-color: lightgray;
+}
+
+.text-field:focused {
+    -fx-focus-color: lightgrey;
+    -fx-background-insets: 0, 1, 2;
+    -fx-background-radius: 5, 4, 3;
 }
 
 .menu-bar {
-    -fx-background-color: #cccccc;
+    -fx-text-fill: white;
+    -fx-background-color: #6389A8;
     -fx-border-style: none;
+}
 
+.menu:hover {
+    -fx-background-color: red;
 }
 
 .label {
@@ -62,7 +100,7 @@
     -fx-border-width: 1;
     -fx-background-radius: 0;
     -fx-background-color: white;
-    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-family: "Roboto Light";
     -fx-font-size: 11pt;
 }
 

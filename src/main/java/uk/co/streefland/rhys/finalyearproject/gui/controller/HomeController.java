@@ -23,7 +23,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 import javafx.util.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -32,7 +31,6 @@ import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
-import uk.co.streefland.rhys.finalyearproject.gui.ChatBubble;
 import uk.co.streefland.rhys.finalyearproject.gui.EmojiConverter;
 import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 
@@ -129,47 +127,60 @@ public class HomeController {
         if (currentConversationUser != null) {
             if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
                 Platform.runLater(() -> {
-
-                    EmojiConverter emojiConverter = new EmojiConverter();
-                    FlowPane output = emojiConverter.convert(messageString, gridPane.getWidth()/2);
-                    output.setRowValignment(VPos.CENTER);
-
-                    Node bubble;
-
-                    if (author.equals(localUser)) {
-
-                        if (output.getChildren().size() == 1) {
-                            if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {
-                                bubble = output.getChildren().get(output.getChildren().size() - 1);
-                            } else {
-                                bubble = new ChatBubble(output, ChatBubble.COLOUR_GREEN);
-                            }
-                        } else {
-                            bubble = new ChatBubble(output, ChatBubble.COLOUR_GREEN);
-                        }
-
-                        gridPane.add(bubble, 1, gridPane.getChildren().size());
-                        GridPane.setHgrow(bubble, Priority.ALWAYS);
-                        GridPane.setHalignment(bubble, HPos.RIGHT);
-                    } else {
-
-                        if (output.getChildren().size() == 1) {
-                            if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {
-                                bubble = output.getChildren().get(output.getChildren().size() - 1);
-                            } else {
-                                bubble = new ChatBubble(output, ChatBubble.COLOUR_GREY);
-                            }
-                        } else {
-                            bubble = new ChatBubble(output, ChatBubble.COLOUR_GREY);
-                        }
-
-                        gridPane.add(bubble, 1, gridPane.getChildren().size());
-                        GridPane.setHgrow(bubble, Priority.ALWAYS);
-                        GridPane.setHalignment(bubble, HPos.LEFT);
-                    }
-
-                    gridPane.layout();
+                    drawChatBubble(messageString, author);
                 });
+            }
+        }
+    }
+
+    public void drawChatBubble(String messageString, String author) {
+
+        FlowPane output = null;
+        Node emoji = null;
+
+        if (author.equals(localUser)) {
+
+            EmojiConverter emojiConverter = new EmojiConverter(EmojiConverter.COLOUR_GREEN);
+            output = emojiConverter.convert(messageString, gridPane.getWidth() / 2);
+
+            if (output.getChildren().size() == 1) {
+                if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {
+                    emoji = output.getChildren().get(output.getChildren().size() - 1);
+                }
+            }
+
+            if (emoji != null) {
+                gridPane.add(emoji, 1, gridPane.getChildren().size());
+                GridPane.setHgrow(emoji, Priority.ALWAYS);
+                GridPane.setHalignment(emoji, HPos.RIGHT);
+            } else {
+                gridPane.add(output, 1, gridPane.getChildren().size());
+                GridPane.setHgrow(output, Priority.ALWAYS);
+                GridPane.setHalignment(output, HPos.RIGHT);
+                gridPane.layout();
+                emojiConverter.fix();
+            }
+
+        } else {
+            EmojiConverter emojiConverter = new EmojiConverter(EmojiConverter.COLOUR_GREY);
+            output = emojiConverter.convert(messageString, gridPane.getWidth() / 2);
+
+            if (output.getChildren().size() == 1) {
+                if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {
+                    emoji = output.getChildren().get(output.getChildren().size() - 1);
+                }
+            }
+
+            if (emoji != null) {
+                gridPane.add(emoji, 1, gridPane.getChildren().size());
+                GridPane.setHgrow(emoji, Priority.ALWAYS);
+                GridPane.setHalignment(emoji, HPos.LEFT);
+            } else {
+                gridPane.add(output, 1, gridPane.getChildren().size());
+                GridPane.setHgrow(output, Priority.ALWAYS);
+                GridPane.setHalignment(output, HPos.LEFT);
+                gridPane.layout();
+                emojiConverter.fix();
             }
         }
     }
@@ -281,43 +292,7 @@ public class HomeController {
 
                 if (conversation != null) {
                     for (int i = 0; i < conversation.size(); i++) {
-
-                        EmojiConverter emojiConverter = new EmojiConverter();
-                        FlowPane output = emojiConverter.convert(conversation.get(i).getMessage(), gridPane.getWidth()/2);
-                        output.setRowValignment(VPos.CENTER);
-                        Node bubble;
-
-                        if (conversation.get(i).getAuthor().equals(localUser)) {
-
-                            if (output.getChildren().size() == 1) {
-                                if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {
-                                    bubble = output.getChildren().get(output.getChildren().size() - 1);
-                                } else {
-                                    bubble = new ChatBubble(output, ChatBubble.COLOUR_GREEN);
-                                }
-                            } else {
-                                bubble = new ChatBubble(output, ChatBubble.COLOUR_GREEN);
-                            }
-
-                            gridPane.add(bubble, 1, i);
-                            GridPane.setHgrow(bubble, Priority.ALWAYS);
-                            GridPane.setHalignment(bubble, HPos.RIGHT);
-                        } else {
-
-                            if (output.getChildren().size() == 1) {
-                                if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {
-                                    bubble = output.getChildren().get(output.getChildren().size() - 1);
-                                } else {
-                                    bubble = new ChatBubble(output, ChatBubble.COLOUR_GREY);
-                                }
-                            } else {
-                                bubble = new ChatBubble(output, ChatBubble.COLOUR_GREY);
-                            }
-
-                            gridPane.add(bubble, 1, i);
-                            GridPane.setHgrow(bubble, Priority.ALWAYS);
-                            GridPane.setHalignment(bubble, HPos.LEFT);
-                        }
+                        drawChatBubble(conversation.get(i).getMessage(), conversation.get(i).getAuthor());
                     }
                 }
             }

@@ -1,8 +1,10 @@
 package uk.co.streefland.rhys.finalyearproject.gui;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
+import javafx.scene.control.Control;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
@@ -15,11 +17,35 @@ import java.util.Queue;
  */
 public class EmojiConverter {
 
+    public final static int COLOUR_GREY = 1;
+    public final static int COLOUR_GREEN = 2;
+
     @FXML
     private FlowPane flowOutput;
 
-    public EmojiConverter() {
+    public EmojiConverter(int colour) {
         flowOutput = new FlowPane();
+
+        flowOutput.setPadding(new Insets(5));
+
+        switch (colour) {
+            case COLOUR_GREY:
+                flowOutput.setStyle(
+                        "-fx-background-radius: 1em;" +
+                                "-fx-background-color: lightgrey;"
+                );
+                break;
+            case COLOUR_GREEN:
+                flowOutput.setStyle(
+                        "-fx-background-radius: 1em;" +
+                                "-fx-background-color: lightgreen;"
+                );
+                break;
+            default:
+                break;
+        }
+
+        flowOutput.setRowValignment(VPos.CENTER);
     }
 
     @FXML
@@ -39,7 +65,6 @@ public class EmojiConverter {
                 String[] words = sentence.split("\\s+");
                 for (int i = 0; i < words.length; i++) {
                     Text word = new Text(words[i] + " ");
-                    System.out.println(word.getText());
                     flowOutput.getChildren().add(word);
                 }
             } else if (ob instanceof Emoji) {
@@ -70,5 +95,17 @@ public class EmojiConverter {
 
     private String getEmojiImagePath(String hexStr) {
         return Emoji.class.getResource("/png_64/" + hexStr + ".png").toExternalForm();
+    }
+
+    public void fix() {
+        double maxChildWidth = 0;
+        for (Node child : flowOutput.getChildren()) {
+            double childWidth = child.getBoundsInParent().getWidth() + 2.5;
+            maxChildWidth = maxChildWidth + childWidth;
+        }
+        double insetWidth = flowOutput.getInsets().getLeft() + flowOutput.getInsets().getRight();
+        double adjustedWidth = maxChildWidth + insetWidth;
+
+        flowOutput.setMaxWidth(adjustedWidth);
     }
 }
