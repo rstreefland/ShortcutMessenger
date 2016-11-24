@@ -213,30 +213,39 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Create new messages for every not queried node, not exceeding Configuration.MAX_CONCURRENCY */
         for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < toQuery.size()); i++) {
 
+            Node n = toQuery.get(i);
+
+            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
+                //logger.info("Not running find node operation against stale node");
+                localNode.getRoutingTable().setUnresponsiveContact(n);
+                nodes.put(n, Configuration.QUERIED);
+            } else {
+
             /* Handle a node sending a message to itself */
-            if (toQuery.get(i).equals(localNode.getNode())) {
+                if (n.equals(localNode.getNode())) {
 
                 /* Don't message yourself, this is a message for another user */
-                if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
-                    message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
-                    localNode.getMessages().addForwardMessage(message);
-                } else {
+                    if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
+                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
+                        localNode.getMessages().addForwardMessage(message);
+                    } else {
                     /* this is a message for yourself */
-                    message = new TextMessage(messageId, localNode.getNode(), user, messageString);
-                    localNode.getMessages().addReceivedMessage(message);
-                    isMessagedSuccessfully = true;
-                }
+                        message = new TextMessage(messageId, localNode.getNode(), user, messageString);
+                        localNode.getMessages().addReceivedMessage(message);
+                        isMessagedSuccessfully = true;
+                    }
 
-                nodes.put(toQuery.get(i), Configuration.QUERIED);
-            } else {
-                if (!forwarding) {
-                    message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
-                }
-                int communicationId = server.sendMessage(toQuery.get(i), message, this);
+                    nodes.put(n, Configuration.QUERIED);
+                } else {
+                    if (!forwarding) {
+                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
+                    }
+                    int communicationId = server.sendMessage(n, message, this);
 
-                nodes.put(toQuery.get(i), Configuration.AWAITING_REPLY);
-                attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
-                messagesInTransit.put(communicationId, toQuery.get(i));
+                    nodes.put(n, Configuration.AWAITING_REPLY);
+                    attempts.put(n, attempts.get(n) + 1);
+                    messagesInTransit.put(communicationId, n);
+                }
             }
         }
         return false;

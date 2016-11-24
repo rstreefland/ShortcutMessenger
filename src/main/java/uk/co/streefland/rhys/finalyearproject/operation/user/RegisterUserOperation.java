@@ -74,14 +74,14 @@ public class RegisterUserOperation implements Operation, Receiver {
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
             int totalTimeWaited = 0;
-                int timeInterval = 10;
-                while (true) {
-                    if (!iterativeQueryNodes()) {
-                        wait(timeInterval);
-                        totalTimeWaited += timeInterval;
-                    } else {
-                        break;
-                    }
+            int timeInterval = 10;
+            while (true) {
+                if (!iterativeQueryNodes()) {
+                    wait(timeInterval);
+                    totalTimeWaited += timeInterval;
+                } else {
+                    break;
+                }
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -137,23 +137,33 @@ public class RegisterUserOperation implements Operation, Receiver {
         /* Create new messages for every not queried node, not exceeding Configuration.MAX_CONCURRENCY */
         for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < toQuery.size()); i++) {
 
-            if (toQuery.get(i).equals(localNode.getNode())) {
+            Node n = toQuery.get(i);
 
-                /* Can only store user on local node once we know that it doesn't already exist on another node.
-                 * So, we set this flag and handle this once we know for sure that the user doesn't already exist on another node */
-                storeUserOnLocalNode = true;
-                nodes.put(toQuery.get(i), Configuration.QUERIED);
+            /* Don't message a node with the same IP address as the local node because it's stale  - mark it as unresponsive */
+            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
+                //logger.info("Not running find node operation against stale node");
+                localNode.getRoutingTable().setUnresponsiveContact(n);
+                nodes.put(n, Configuration.QUERIED);
             } else {
 
-                int communicationId = server.sendMessage(toQuery.get(i), message, this);
+                if (n.equals(localNode.getNode())) {
+                /* Can only store user on local node once we know that it doesn't already exist on another node.
+                 * So, we set this flag and handle this once we know for sure that the user doesn't already exist on another node */
+                    storeUserOnLocalNode = true;
+                    nodes.put(n, Configuration.QUERIED);
+                } else {
 
-                nodes.put(toQuery.get(i), Configuration.AWAITING_REPLY);
-                attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
-                messagesInTransit.put(communicationId, toQuery.get(i));
+                    int communicationId = server.sendMessage(n, message, this);
+
+                    nodes.put(n, Configuration.AWAITING_REPLY);
+                    attempts.put(n, attempts.get(n) + 1);
+                    messagesInTransit.put(communicationId, n);
+                }
             }
         }
         return false;
     }
+
 
     /**
      * Receives an AcknowledgeMessage from the target node

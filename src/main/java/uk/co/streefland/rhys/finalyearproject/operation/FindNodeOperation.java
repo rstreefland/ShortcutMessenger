@@ -119,12 +119,20 @@ public class FindNodeOperation implements Operation, Receiver {
 
         /* Create new messages for every not queried node, not exceeding Configuration.MAX_CONCURRENCY */
         for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < notQueried.size()); i++) {
+
             Node n = notQueried.get(i);
 
-            int communicationId = server.sendMessage(n, lookupMessage, this);
+            /* Don't message a node with the same IP address as the local node because it's stale  - mark it as unresponsive */
+            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
+                //logger.info("Not running find node operation against stale node");
+                localNode.getRoutingTable().setUnresponsiveContact(n);
+                nodes.put(n, Configuration.QUERIED);
+            } else {
+                int communicationId = server.sendMessage(n, lookupMessage, this);
 
-            nodes.put(n, Configuration.AWAITING_REPLY);
-            messagesInTransit.put(communicationId, n);
+                nodes.put(n, Configuration.AWAITING_REPLY);
+                messagesInTransit.put(communicationId, n);
+            }
         }
         return false;
     }
@@ -176,14 +184,6 @@ public class FindNodeOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
-        if (!(incoming instanceof FindNodeMessageReply)) {
-
-            logger.warn("Incoming message was of a different type");
-            logger.warn("{}", incoming.getClass().toString());
-
-            /* I know why this is happening - fix in progress*/
-            return;
-        }
 
         /* Read the FindNodeMessageReply */
         FindNodeMessageReply msg = (FindNodeMessageReply) incoming;
@@ -192,7 +192,7 @@ public class FindNodeOperation implements Operation, Receiver {
         Node origin = msg.getOrigin();
         localNode.getRoutingTable().insert(origin);
 
-        /* Set that we've completed ASKing the origin nodse */
+        /* Set that we've completed ASKing the origin node */
         nodes.put(origin, Configuration.QUERIED);
 
         /* Remove this msg from messagesTransiting since it's completed now */

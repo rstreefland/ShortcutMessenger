@@ -140,31 +140,40 @@ public class LoginUserOperation implements Operation, Receiver {
         /* Create new messages for every not queried node, not exceeding Configuration.MAX_CONCURRENCY */
         for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < toQuery.size()); i++) {
 
+            Node n = toQuery.get(i);
+
+            /* Don't message a node with the same IP address as the local node because it's stale  - mark it as unresponsive */
+            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
+                //logger.info("Not running find node operation against stale node");
+                localNode.getRoutingTable().setUnresponsiveContact(n);
+                nodes.put(n, Configuration.QUERIED);
+            } else {
             /* Query the local node */
-            if (toQuery.get(i).equals(localNode.getNode())) {
+                if (n.equals(localNode.getNode())) {
 
                 /* Handles finding the user object on the local node */
-                User existingUser = localNode.getUsers().findUser(user);
+                    User existingUser = localNode.getUsers().findUser(user);
 
                 /* Terminate early if found on the local node */
-                if (existingUser != null) {
-                    if (existingUser.doPasswordsMatch(plainTextPassword)) {
-                        loggedIn = true;
-                        return true;
-                    } else {
-                        loggedIn = false;
-                        return true;
+                    if (existingUser != null) {
+                        if (existingUser.doPasswordsMatch(plainTextPassword)) {
+                            loggedIn = true;
+                            return true;
+                        } else {
+                            loggedIn = false;
+                            return true;
+                        }
                     }
+
+                    nodes.put(n, Configuration.QUERIED);
+                } else {
+
+                    int communicationId = server.sendMessage(n, message, this);
+
+                    nodes.put(n, Configuration.AWAITING_REPLY);
+                    attempts.put(n, attempts.get(n) + 1);
+                    messagesInTransit.put(communicationId, n);
                 }
-
-                nodes.put(toQuery.get(i), Configuration.QUERIED);
-            } else {
-
-                int communicationId = server.sendMessage(toQuery.get(i), message, this);
-
-                nodes.put(toQuery.get(i), Configuration.AWAITING_REPLY);
-                attempts.put(toQuery.get(i), attempts.get(toQuery.get(i)) + 1);
-                messagesInTransit.put(communicationId, toQuery.get(i));
             }
         }
         return false;
