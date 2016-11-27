@@ -93,7 +93,7 @@ public class TextReceiver implements Receiver {
             SendMessageOperation smo = new SendMessageOperation(localNode, msg.getRecipientUser(), msg);
             smo.execute();
 
-            if (smo.isMessagedSuccessfully()) {
+            if (smo.messageStatus() == SendMessageOperation.DELIVERED) {
                 logger.info("Message forwarded successfully - no need to add it to forward messages");
             } else {
                 logger.info("Couldn't forward immediately - adding to forward messages");

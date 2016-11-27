@@ -13,6 +13,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.io.*;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
+import java.security.Key;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
@@ -21,18 +22,32 @@ import java.util.Date;
  */
 public class StoredTextMessage implements Serializable {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    private KeyId messageId;
     private String authorUser;
     private String recipientUser;
     private String message;
+    private int messageStatus;
     private long createdTime;
 
-    public StoredTextMessage(String authorUser, String recipientUser, String message, long createdTime) {
+    public StoredTextMessage(KeyId messageId, String authorUser, String recipientUser, String message, long createdTime) {
+        this.messageId = messageId;
         this.authorUser = authorUser;
         this.recipientUser = recipientUser;
         this.message = message;
         this.createdTime = createdTime;
+    }
+
+    public StoredTextMessage(KeyId messageId, String authorUser, String recipientUser, String message, int messageStatus, long createdTime) {
+        this.messageId = messageId;
+        this.authorUser = authorUser;
+        this.recipientUser = recipientUser;
+        this.message = message;
+        this.messageStatus = messageStatus;
+        this.createdTime = createdTime;
+    }
+
+    public KeyId getMessageId() {
+        return messageId;
     }
 
     public String getAuthor() {
@@ -45,6 +60,14 @@ public class StoredTextMessage implements Serializable {
 
     public String getMessage() {
         return message;
+    }
+
+    public int getMessageStatus() {
+        return messageStatus;
+    }
+
+    public void setMessageStatus(int messageStatus) {
+        this.messageStatus = messageStatus;
     }
 
     public long getCreatedTime() {

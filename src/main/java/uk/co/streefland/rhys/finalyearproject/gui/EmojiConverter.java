@@ -100,7 +100,7 @@ public class EmojiConverter {
     public void fix() {
         double maxChildWidth = 0;
         for (Node child : flowOutput.getChildren()) {
-            double childWidth = child.getBoundsInParent().getWidth() + 2.5;
+            double childWidth = child.getBoundsInParent().getWidth() * 1.25;
             maxChildWidth = maxChildWidth + childWidth;
         }
         double insetWidth = flowOutput.getInsets().getLeft() + flowOutput.getInsets().getRight();

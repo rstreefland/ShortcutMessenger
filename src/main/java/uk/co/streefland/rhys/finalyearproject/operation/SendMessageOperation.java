@@ -30,24 +30,31 @@ public class SendMessageOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    public final static int PENDING_DELIVERY = 1;
+    public final static int DELIVERED = 2;
+    public final static int PENDING_FORWARDING = 3;
+    public final static int FORWARDED = 4;
+    public final static int FAILED = 5;
+
     private final Server server;
     private final Configuration config;
     private final LocalNode localNode;
     private User user;
 
-    private String messageString;
     private KeyId messageId;
+    private String messageString;
+    private long createdTime;
     private TextMessage message; // Message sent to each peer
     private final Map<Node, String> nodes;
     private final Map<Node, Integer> attempts;
 
     private final Map<Integer, Node> messagesInTransit;
     private final boolean forwarding;
-    private boolean isMessagedSuccessfully;
+    private int messageStatus;
 
     private List<Node> closestNodes;
 
-    public SendMessageOperation(LocalNode localNode, User userToMessage, String messageString) {
+    public SendMessageOperation(LocalNode localNode, User userToMessage, KeyId messageId, String messageString, long createdTime) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
@@ -56,8 +63,9 @@ public class SendMessageOperation implements Operation, Receiver {
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
 
-        this.messageId = new KeyId();
+        this.messageId = messageId;
         this.messageString = messageString;
+        this.createdTime = createdTime;
         this.forwarding = false;
     }
 
@@ -84,7 +92,7 @@ public class SendMessageOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
 
-        isMessagedSuccessfully = false;
+        messageStatus = SendMessageOperation.PENDING_DELIVERY;
 
         /* Get the user object of the user we would like to message */
         if (!forwarding) {
@@ -126,7 +134,9 @@ public class SendMessageOperation implements Operation, Receiver {
         }
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
-        if (!isMessagedSuccessfully && !forwarding) {
+        if ((messageStatus == SendMessageOperation.PENDING_DELIVERY) && !forwarding) {
+
+            messageStatus = SendMessageOperation.PENDING_FORWARDING;
 
             /* Set the contact as unresponsive */
             localNode.getRoutingTable().setUnresponsiveContact(user.getAssociatedNodes().get(0));
@@ -146,6 +156,10 @@ public class SendMessageOperation implements Operation, Receiver {
 
             addNodes(closestNodes);
             messageLoop();
+        }
+
+        if (messageStatus == SendMessageOperation.PENDING_FORWARDING) {
+            messageStatus = SendMessageOperation.FAILED;
         }
     }
 
@@ -226,19 +240,19 @@ public class SendMessageOperation implements Operation, Receiver {
 
                 /* Don't message yourself, this is a message for another user */
                     if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
-                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
+                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
                         localNode.getMessages().addForwardMessage(message);
                     } else {
                     /* this is a message for yourself */
-                        message = new TextMessage(messageId, localNode.getNode(), user, messageString);
+                        message = new TextMessage(messageId, localNode.getNode(), user, messageString, createdTime);
                         localNode.getMessages().addReceivedMessage(message);
-                        isMessagedSuccessfully = true;
+                        messageStatus = SendMessageOperation.DELIVERED;
                     }
 
                     nodes.put(n, Configuration.QUERIED);
                 } else {
                     if (!forwarding) {
-                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString);
+                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
                     }
                     int communicationId = server.sendMessage(n, message, this);
 
@@ -261,7 +275,16 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Read the incoming AcknowledgeMessage */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
-        isMessagedSuccessfully = msg.getOperationSuccessful(); // use the result from the ack
+        if (msg.getOperationSuccessful()) {
+
+            if (messageStatus == SendMessageOperation.PENDING_DELIVERY) {
+                messageStatus = SendMessageOperation.DELIVERED;
+            }
+
+            if (messageStatus == SendMessageOperation.PENDING_FORWARDING) {
+                messageStatus = SendMessageOperation.FORWARDED;
+            }
+        }
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getSource(), Configuration.QUERIED);
@@ -286,18 +309,14 @@ public class SendMessageOperation implements Operation, Receiver {
             return;
         }
 
-        if (!forwarding) {
-            isMessagedSuccessfully = false;
-        }
-
         /* Mark this node as failed, increment attempts, remove message in transit */
         nodes.put(n, Configuration.FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
     }
 
-    public synchronized boolean isMessagedSuccessfully() {
-        return isMessagedSuccessfully;
+    public synchronized int messageStatus() {
+        return messageStatus;
     }
 
     public TextMessage getMessage() {

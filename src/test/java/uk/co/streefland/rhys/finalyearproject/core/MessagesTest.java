@@ -44,9 +44,9 @@ public class MessagesTest {
         intermediaryUser = new User("test2", "abc");
         targetUser = new User("test3", "k!zl2dfha.sd2");
 
-        message1 = new TextMessage(new KeyId(), originNode, targetNode, originUser, targetUser, "hello");
-        message2 = new TextMessage(new KeyId(), originNode, targetNode, originUser, targetUser, "");
-        message3 = new TextMessage(new KeyId(), originNode, targetNode, originUser, targetUser, "sdjfhdlkfhwklehfpiwehfwbhefhnkejfhewkjhf");
+        //message1 = new TextMessage(new KeyId(), originNode, targetNode, originUser, targetUser, "hello");
+        //message2 = new TextMessage(new KeyId(), originNode, targetNode, originUser, targetUser, "");
+        //message3 = new TextMessage(new KeyId(), originNode, targetNode, originUser, targetUser, "sdjfhdlkfhwklehfpiwehfwbhefhnkejfhewkjhf");
     }
 
    /* @Test

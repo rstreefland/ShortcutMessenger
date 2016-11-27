@@ -26,6 +26,7 @@ public class Messages implements Serializable {
     private Map<KeyId, Long> receivedMessages;
     private Map<KeyId, TextMessage> forwardMessages;
     private transient ObjectProperty<StoredTextMessage> lastMessage;
+    private transient ObjectProperty<StoredTextMessage> lastMessageUpdate;
 
     public Messages(LocalNode localNode) {
         this.localNode = localNode;
@@ -33,31 +34,41 @@ public class Messages implements Serializable {
         this.receivedMessages = new HashMap<>();
         this.forwardMessages = new HashMap<>();
         this.lastMessage = new SimpleObjectProperty<>();
+        this.lastMessageUpdate = new SimpleObjectProperty<>();
     }
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
         this.lastMessage = new SimpleObjectProperty<>();
+        this.lastMessageUpdate = new SimpleObjectProperty<>();
     }
 
     public void sendMessage(String message, User target) throws IOException {
 
+        long createdTime = new Date().getTime() / 1000; // store timestamp in seconds
+        KeyId messageId = new KeyId();
+        StoredTextMessage stm = new StoredTextMessage(messageId, localNode.getUsers().getLocalUser().getUserName(), target.getUserName(), message, SendMessageOperation.PENDING_DELIVERY, createdTime);
+        lastMessage.set(stm);
+
         if (!message.isEmpty() && localNode.getUsers().getLocalUser() != null) {
 
-            SendMessageOperation operation = new SendMessageOperation(localNode, target, message);
+            SendMessageOperation operation = new SendMessageOperation(localNode, target, messageId, message, createdTime);
             operation.execute();
 
             if (operation.getUser() != null) {
                 logger.info("Message sent to {}", operation.getUser());
-                StoredTextMessage stm = new StoredTextMessage(localNode.getUsers().getLocalUser().getUserName(), target.getUserName(), message, operation.getMessage().getCreatedTime());
+
+                localNode.getUsers().addUserToCache(operation.getUser());
+
+                if (operation.messageStatus() != SendMessageOperation.PENDING_DELIVERY); {
+                    stm.setMessageStatus(operation.messageStatus());
+                    lastMessageUpdate.set(stm);
+                }
 
                 if (userMessages.putIfAbsent(target.getUserName(), new ArrayList(Arrays.asList(stm))) != null) {
                     ArrayList<StoredTextMessage> conversation = userMessages.get(target.getUserName());
                     conversation.add(stm);
                 }
-
-                lastMessage.set(stm);
-                localNode.getUsers().addUserToCache(operation.getUser());
             } else {
                 logger.error("User {} doesn't exist", target.getUserName());
             }
@@ -76,7 +87,7 @@ public class Messages implements Serializable {
         String userName = originUser.getUserName();
         String messageString = message.getMessage();
 
-        StoredTextMessage storedMessage = new StoredTextMessage(userName, localNode.getUsers().getLocalUser().getUserName(), messageString, message.getCreatedTime());
+        StoredTextMessage storedMessage = new StoredTextMessage(message.getMessageId(), userName, localNode.getUsers().getLocalUser().getUserName(), messageString, message.getCreatedTime());
 
         if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) == null) {
             System.out.println("Message received from " + userName + ": " + messageString);
@@ -91,10 +102,7 @@ public class Messages implements Serializable {
 
             /* If the message was forwarded - punch a hole in the NAT/firewall so we can communicate directly from now on */
             if (!origin.equals(message.getSource())) {
-                logger.info("THIS IS A FORWARDED MESSAGE - WILL NEED TO SEND A HOLE PUNCH MESSAGE TO THE REAL ORIGIN");
-                //HolePunchOperation hpo = new HolePunchOperation(localNode.getServer(), localNode, origin, localNode.getConfig());
-                //logger.info("Sending hole punch to:" + origin.getPublicInetAddress().getHostAddress() + " PORT: " + origin.getPublicPort());
-                //hpo.execute();
+                logger.info("THIS IS A FORWARDED MESSAGE");
             }
         }
     }
@@ -146,5 +154,9 @@ public class Messages implements Serializable {
 
     public ObjectProperty<StoredTextMessage> lastMessageProperty() {
         return lastMessage;
+    }
+
+    public ObjectProperty<StoredTextMessage> lastMessageUpdateProperty() {
+        return lastMessageUpdate;
     }
 }

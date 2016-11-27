@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -33,9 +34,14 @@ import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.gui.EmojiConverter;
 import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.security.Key;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -46,6 +52,7 @@ public class HomeController {
     private LocalNode localNode;
     private ObservableList<String> conversations;
     private String currentConversationUser;
+    private List<KeyId> currentConversationMessages;
     private String localUser;
 
     Image image = new Image(getClass().getResource("/chatbubble.png").toExternalForm());
@@ -69,6 +76,8 @@ public class HomeController {
         conversations = FXCollections.observableArrayList();
         listView.setItems(conversations);
 
+        currentConversationMessages = new ArrayList<>();
+
         // Attempt to load conversations from saved state
         fromSavedState();
 
@@ -88,6 +97,12 @@ public class HomeController {
                     newMessage(newVal);
                 });
 
+        /* Listener for updated message status */
+        localNode.getMessages().lastMessageUpdateProperty().addListener(
+                (o, oldVal, newVal) -> {
+                    updateMessage(newVal);
+                });
+
         /* Listener for auto scroll of ScrollPane- - when a new message is received */
         gridPane.heightProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
             gridPane.layout();
@@ -103,8 +118,10 @@ public class HomeController {
     private void newMessage(StoredTextMessage message) {
 
         /* Extract message data */
+        KeyId messageId = message.getMessageId();
         String messageString = message.getMessage();
         String author = message.getAuthor();
+        int messageStatus = message.getMessageStatus();
 
         /* Run on the JavaFX thread */
         Platform.runLater(() -> {
@@ -127,18 +144,45 @@ public class HomeController {
         if (currentConversationUser != null) {
             if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
                 Platform.runLater(() -> {
-                    drawChatBubble(messageString, author);
+                    drawChatBubble(messageId, messageString, author, messageStatus);
+                    currentConversationMessages.add(messageId);
                 });
             }
         }
     }
 
-    public void drawChatBubble(String messageString, String author) {
+    private void updateMessage(StoredTextMessage message) {
+        /* Extract message data */
+        KeyId messageId = message.getMessageId();
+        String messageString = message.getMessage();
+        String author = message.getAuthor();
+        int messageStatus = message.getMessageStatus();
 
-        FlowPane output = null;
+         /* If the message is for the current conversation - add it to the conversation */
+        if (currentConversationUser != null) {
+            if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
+                Platform.runLater(() -> {
+                    drawChatBubble(messageId, messageString, author, messageStatus);
+                });
+            }
+        }
+    }
+
+    public void drawChatBubble(KeyId messageId, String messageString, String author, int messageStatus) {
+
+        FlowPane output;
         Node emoji = null;
 
         if (author.equals(localUser)) {
+
+            int index;
+
+            if (currentConversationMessages.contains(messageId))  {
+             index = currentConversationMessages.indexOf(messageId);
+                gridPane.getChildren().remove(index);
+            } else {
+                index = gridPane.getChildren().size();
+            }
 
             EmojiConverter emojiConverter = new EmojiConverter(EmojiConverter.COLOUR_GREEN);
             output = emojiConverter.convert(messageString, gridPane.getWidth() / 2);
@@ -149,17 +193,37 @@ public class HomeController {
                 }
             }
 
-            if (emoji != null) {
-                gridPane.add(emoji, 1, gridPane.getChildren().size());
-                GridPane.setHgrow(emoji, Priority.ALWAYS);
-                GridPane.setHalignment(emoji, HPos.RIGHT);
-            } else {
-                gridPane.add(output, 1, gridPane.getChildren().size());
-                GridPane.setHgrow(output, Priority.ALWAYS);
-                GridPane.setHalignment(output, HPos.RIGHT);
-                gridPane.layout();
-                emojiConverter.fix();
+            HBox master = new HBox();
+            HBox status = new HBox();
+
+            if (messageStatus == SendMessageOperation.FORWARDED) {
+                ImageView tick = new ImageView("/singletick.png");
+                status.getChildren().add(tick);
+            } else if (messageStatus == SendMessageOperation.DELIVERED) {
+                ImageView tick = new ImageView("/doubletick.png");
+                status.getChildren().add(tick);
+            } else if (messageStatus == SendMessageOperation.FAILED) {
+                output.setStyle(
+                        "-fx-background-radius: 1em;" +
+                                "-fx-background-color: red;"
+                );
             }
+
+            status.setAlignment(Pos.BOTTOM_RIGHT);
+
+            if (emoji != null) {
+                master.getChildren().addAll(emoji, status);
+            } else {
+                master.getChildren().addAll(output, status);
+            }
+
+            master.setAlignment(Pos.CENTER_RIGHT);
+
+            gridPane.add(master, 1, index);
+            GridPane.setHgrow(master, Priority.ALWAYS);
+            GridPane.setHalignment(master, HPos.RIGHT);
+            gridPane.layout();
+            emojiConverter.fix();
 
         } else {
             EmojiConverter emojiConverter = new EmojiConverter(EmojiConverter.COLOUR_GREY);
@@ -286,13 +350,15 @@ public class HomeController {
             currentConversationUser = userName;
 
             gridPane.getChildren().clear();
+            currentConversationMessages.clear();
 
             if (currentConversationUser != null) {
                 ArrayList<StoredTextMessage> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
 
                 if (conversation != null) {
                     for (int i = 0; i < conversation.size(); i++) {
-                        drawChatBubble(conversation.get(i).getMessage(), conversation.get(i).getAuthor());
+                        drawChatBubble(conversation.get(i).getMessageId(), conversation.get(i).getMessage(), conversation.get(i).getAuthor(), conversation.get(i).getMessageStatus());
+                        currentConversationMessages.add(conversation.get(i).getMessageId());
                     }
                 }
             }
