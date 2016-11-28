@@ -56,12 +56,7 @@ public class Server {
         logger.info("Starting server");
         isRunning = true;
 
-        new Thread() {
-            @Override
-            public void run() {
-                listen();
-            }
-        }.start();
+        new Thread(() -> listen()).start();
     }
 
     /**

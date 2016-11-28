@@ -10,6 +10,7 @@ import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
+import uk.co.streefland.rhys.finalyearproject.operation.NotifySuccessOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import javax.crypto.BadPaddingException;
@@ -95,6 +96,13 @@ public class TextReceiver implements Receiver {
 
             if (smo.messageStatus() == SendMessageOperation.DELIVERED) {
                 logger.info("Message forwarded successfully - no need to add it to forward messages");
+
+                // send MESSAGE SUCCESS ACK here
+                NotifySuccessOperation nso = new NotifySuccessOperation(server, localNode, msg.getOrigin(), msg.getMessageId(), localNode.getConfig());
+                nso.execute();
+
+                logger.info("Message success message sent!");
+
             } else {
                 logger.info("Couldn't forward immediately - adding to forward messages");
                 localNode.getMessages().addForwardMessage(msg);

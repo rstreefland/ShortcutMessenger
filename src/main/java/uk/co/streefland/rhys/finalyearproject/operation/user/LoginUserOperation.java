@@ -201,6 +201,9 @@ public class LoginUserOperation implements Operation, Receiver {
 
          /* Remove this msg from messagesInTransit since it's completed now */
         messagesInTransit.remove(communicationId);
+
+        /* Wake up waiting thread */
+        notify();
     }
 
     /**
@@ -222,6 +225,9 @@ public class LoginUserOperation implements Operation, Receiver {
         nodes.put(n, Configuration.FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
+
+        /* Wake up waiting thread */
+        notify();
     }
 
     public synchronized boolean isLoggedIn() {

@@ -3,6 +3,8 @@ package uk.co.streefland.rhys.finalyearproject.message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessMessage;
+import uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver;
 import uk.co.streefland.rhys.finalyearproject.message.node.*;
@@ -10,7 +12,6 @@ import uk.co.streefland.rhys.finalyearproject.message.user.*;
 
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.net.DatagramPacket;
 
 /**
  * Handles creating messages and receivers for incoming and outgoing messages and receivers based on their byte code
@@ -19,7 +20,6 @@ public class MessageHandler {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final LocalNode localNode;
-
 
     public MessageHandler(LocalNode localNode) {
         this.localNode = localNode;
@@ -43,6 +43,8 @@ public class MessageHandler {
                 return new VerifyUserMessage(in);
             case VerifyUserMessageReply.CODE:
                 return new VerifyUserMessageReply(in);
+            case NotifySuccessMessage.CODE:
+                return new NotifySuccessMessage(in);
             default:
                 logger.warn("No message type found for message code: {}", code);
                 return null;
@@ -61,6 +63,8 @@ public class MessageHandler {
                 return new StoreUserReceiver(localNode);
             case VerifyUserMessage.CODE:
                 return new VerifyUserReceiver(localNode);
+            case NotifySuccessMessage.CODE:
+                return new NotifySuccessReceiver(localNode);
             default:
                 logger.warn("No receiver type found for message code: {}", code);
                 return null;

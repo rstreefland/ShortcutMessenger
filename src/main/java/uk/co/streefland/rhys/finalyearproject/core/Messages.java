@@ -50,6 +50,11 @@ public class Messages implements Serializable {
         StoredTextMessage stm = new StoredTextMessage(messageId, localNode.getUsers().getLocalUser().getUserName(), target.getUserName(), message, SendMessageOperation.PENDING_DELIVERY, createdTime);
         lastMessage.set(stm);
 
+        if (userMessages.putIfAbsent(target.getUserName(), new ArrayList(Arrays.asList(stm))) != null) {
+            ArrayList<StoredTextMessage> conversation = userMessages.get(target.getUserName());
+            conversation.add(stm);
+        }
+
         if (!message.isEmpty() && localNode.getUsers().getLocalUser() != null) {
 
             SendMessageOperation operation = new SendMessageOperation(localNode, target, messageId, message, createdTime);
@@ -60,17 +65,33 @@ public class Messages implements Serializable {
 
                 localNode.getUsers().addUserToCache(operation.getUser());
 
-                if (operation.messageStatus() != SendMessageOperation.PENDING_DELIVERY); {
+                // bit of a race condition
+                if (operation.messageStatus() != SendMessageOperation.PENDING_DELIVERY && stm.getMessageStatus() != SendMessageOperation.DELIVERED);
+                {
                     stm.setMessageStatus(operation.messageStatus());
                     lastMessageUpdate.set(stm);
                 }
-
-                if (userMessages.putIfAbsent(target.getUserName(), new ArrayList(Arrays.asList(stm))) != null) {
-                    ArrayList<StoredTextMessage> conversation = userMessages.get(target.getUserName());
-                    conversation.add(stm);
-                }
             } else {
                 logger.error("User {} doesn't exist", target.getUserName());
+            }
+        }
+    }
+
+    public void setDelivered(KeyId messageId) {
+
+        for (Map.Entry entry : userMessages.entrySet()) {
+
+            ArrayList<StoredTextMessage> conversation = (ArrayList<StoredTextMessage>) entry.getValue();
+
+            for (StoredTextMessage message : conversation) {
+
+                if (message.getMessageId().equals(messageId)) {
+                    logger.info("Updating message status to delivered");
+                    message.setMessageStatus(SendMessageOperation.DELIVERED);
+                    logger.info("New message status is: " + message.getMessageStatus());
+                    lastMessageUpdate.set(null);
+                    lastMessageUpdate.set(message);
+                }
             }
         }
     }
@@ -119,7 +140,7 @@ public class Messages implements Serializable {
     /**
      * Removes any forwardMessages that are older than two days
      */
-    public synchronized void cleanUp() {
+    public void cleanUp() {
         long currentTime = new Date().getTime() / 1000; // current time in seconds
 
         /* Cleanup forward messages */

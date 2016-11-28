@@ -1,23 +1,29 @@
-2016-11-27 19:25:23.979 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
-2016-11-27 19:25:28.378 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 531
-2016-11-27 19:25:28.379 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-27 19:25:28.390 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:CBB8263AFC1B22643B9E3763D1B9D8867DEFD577
-2016-11-27 19:25:28.390 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-27 19:25:28.391 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-27 19:25:28.391 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode CBB8263AFC1B22643B9E3763D1B9D8867DEFD577 to node 90632C84CEA8BBF9834A38C675D64920A172A6D7
-2016-11-27 19:25:35.545 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:25:44.396 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:25:51.991 [Thread-174] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:25:58.374 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:09.791 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-27 19:26:22.297 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2016-11-27 19:26:33.330 [Thread-339] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:36.969 [Thread-340] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:40.013 [Thread-341] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:45.337 [Thread-342] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:49.855 [Thread-343] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:50.884 [Thread-344] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:51.555 [Thread-345] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:26:52.181 [Thread-346] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-27 19:27:03.877 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-27 19:27:03.879 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-11-28 01:06:20.984 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
+2016-11-28 01:06:46.165 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 544
+2016-11-28 01:06:46.165 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-28 01:06:46.184 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:C3C592A62883BA915BC50192573A28314925F89F
+2016-11-28 01:06:46.184 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-28 01:06:46.185 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-11-28 01:06:46.186 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode C3C592A62883BA915BC50192573A28314925F89F to node 3C05D5DA4EFC06720E357A94639ADFC660005F86
+2016-11-28 01:07:22.221 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-28 01:07:29.488 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: dijkstra
+2016-11-28 01:08:48.860 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-28 01:08:48.872 [pool-3-thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2016-11-28 01:08:58.518 [Thread-497] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: thompson
+2016-11-28 01:09:15.663 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-28 01:09:15.676 [pool-3-thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2016-11-28 01:09:27.859 [Thread-499] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: thompson
+2016-11-28 01:09:27.893 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2016-11-28 01:09:27.894 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2016-11-28 01:09:27.894 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: 2
+2016-11-28 01:09:34.409 [Thread-500] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: thompson
+2016-11-28 01:09:34.439 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2016-11-28 01:09:34.440 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2016-11-28 01:09:34.440 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: 2
+2016-11-28 01:09:42.280 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-28 01:09:42.290 [pool-3-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2016-11-28 01:10:28.459 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-28 01:10:28.460 [pool-3-thread-8] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-28 01:10:28.460 [pool-3-thread-9] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-11-28 01:10:54.426 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-11-28 01:10:54.428 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

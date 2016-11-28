@@ -203,6 +203,9 @@ public class FindNodeOperation implements Operation, Receiver {
 
         /* Run the lookup against the new nodes */
         iterativeQueryNodes();
+
+        /* Wake up waiting thread */
+        notify();
     }
 
     /**
@@ -226,5 +229,8 @@ public class FindNodeOperation implements Operation, Receiver {
 
         /* Run the lookup again */
         iterativeQueryNodes();
+
+        /* Wake up waiting thread */
+        notify();
     }
 }

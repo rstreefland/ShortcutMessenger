@@ -178,6 +178,9 @@ public class FindUserOperation implements Operation, Receiver {
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
+
+        /* Wake up waiting thread */
+        notify();
     }
 
     /**
@@ -199,6 +202,9 @@ public class FindUserOperation implements Operation, Receiver {
         nodes.put(n, Configuration.FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
+
+        /* Wake up waiting thread */
+        notify();
     }
 
     public User getFoundUser() {

@@ -1,11 +1,11 @@
-2016-11-25 15:51:05.778 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
-2016-11-25 15:51:14.567 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 499
-2016-11-25 15:51:14.568 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-11-25 15:51:14.586 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:C0AEB422BF5C1267C162F6270D3348F93FE84F70
-2016-11-25 15:51:14.586 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-11-25 15:51:14.587 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-11-25 15:51:14.588 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode C0AEB422BF5C1267C162F6270D3348F93FE84F70 to node 1A3693087A52AE4F7941A6CC9694A8120BCA3330
-2016-11-25 15:51:14.609 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
-2016-11-25 15:51:25.438 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Message sent to user: gbdev1
-2016-11-25 15:51:29.067 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-11-25 15:51:29.069 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-11-27 23:53:09.483 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Starting UI
+2016-11-27 23:53:26.971 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 532
+2016-11-27 23:53:26.972 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
+2016-11-27 23:53:26.990 [Thread-7] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Couldn't bind to port 12345
+2016-11-27 23:53:26.990 [Thread-7] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Using port 12346 instead
+2016-11-27 23:53:26.992 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:AB8644179FF68E1E2DC5B04F9BB88FEE91130AED
+2016-11-27 23:53:26.993 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-11-27 23:53:26.995 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode AB8644179FF68E1E2DC5B04F9BB88FEE91130AED to node B743D1FB320C20AE388E17343704D7D34972C768
+2016-11-27 23:53:26.994 [Thread-10] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12346
+2016-11-27 23:53:49.971 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-11-27 23:53:49.973 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

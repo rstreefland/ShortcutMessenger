@@ -152,18 +152,21 @@ public class HomeController {
     }
 
     private void updateMessage(StoredTextMessage message) {
+        if (message != null) {
+
         /* Extract message data */
-        KeyId messageId = message.getMessageId();
-        String messageString = message.getMessage();
-        String author = message.getAuthor();
-        int messageStatus = message.getMessageStatus();
+            KeyId messageId = message.getMessageId();
+            String messageString = message.getMessage();
+            String author = message.getAuthor();
+            int messageStatus = message.getMessageStatus();
 
          /* If the message is for the current conversation - add it to the conversation */
-        if (currentConversationUser != null) {
-            if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
-                Platform.runLater(() -> {
-                    drawChatBubble(messageId, messageString, author, messageStatus);
-                });
+            if (currentConversationUser != null) {
+                if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
+                    Platform.runLater(() -> {
+                        drawChatBubble(messageId, messageString, author, messageStatus);
+                    });
+                }
             }
         }
     }
