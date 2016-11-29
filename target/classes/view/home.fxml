@@ -37,18 +37,18 @@
                 </placeholder>
             </ListView>
             <VBox GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-                <HBox fx:id="conversationHeader" alignment="TOP_LEFT">
+                <HBox fx:id="conversationHeader" alignment="TOP_LEFT" styleClass="conversation-header">
                 </HBox>
                 <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
                             vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
-                    <GridPane vgap="5" fx:id="gridPane">
+                    <GridPane vgap="5" fx:id="gridPane" styleClass="scroll-pane">
                         <padding>
                             <Insets top="5" bottom="5" right="5" left="5"/>
                         </padding>
                     </GridPane>
                 </ScrollPane>
                 <HBox alignment="BOTTOM_CENTER">
-                    <TextField fx:id="messageField" promptText="Type a message..." HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="messageField" styleClass="message-box" promptText="Type a message..." HBox.hgrow="ALWAYS"/>
                 </HBox>
             </VBox>
         </GridPane>

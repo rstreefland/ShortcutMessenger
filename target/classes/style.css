@@ -1,65 +1,68 @@
 .root {
-    -fx-background-color: #ffffff;
     -fx-font-size: 11pt;
     -fx-font-family: "Roboto";
 }
 
+.border-pane {
+    -fx-background-color: #253237;
+}
+
 .conversation-header {
-    -fx-background-color: #f5f5f5;
-    -fx-border-style: solid;
+    -fx-background-color: #9db4c0;
+    -fx-text-fill: #253237;
 }
 
 .list-view {
-    -fx-control-inner-background-alt: -fx-control-inner-background ;
-    -fx-border-color: lightgray;
-
+    -fx-border-radius: 0;
+    -fx-border-color: #5c6b73;
+    -fx-border-width: 0 1 0 0;
+    -fx-background-color: #9db4c0;
+    -fx-control-inner-background: #9db4c0;
+    -fx-control-inner-background-alt: -fx-control-inner-background;
+    -fx-text-fill: #e0fbfc;
 }
 
 .list-view:focused {
-    -fx-focus-color: white;
+    -fx-border-radius: 0;
     -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 5, 4, 3;
 }
 
 .list-cell:filled:selected:focused, .list-cell:filled:selected {
-    -fx-background-color: #6A91B1;
-    -fx-text-fill: white;
-
+    -fx-background-color: #404e53;
 }
 
 .list-cell:filled:hover {
-    -fx-background-color: #F5F5F5;
+    -fx-background-color: #58676c;
 }
 
 .scroll-pane {
-    -fx-border-color: lightgray;
-}
-
-.scroll-pane > .viewport {
-    -fx-background-color: transparent;
+    -fx-background-color: #253237;
+    -fx-border-style: none;
+    -fx-border-color: #253237;
 }
 
 .scroll-pane:focused {
-    -fx-focus-color: white;
     -fx-background-insets: 0, 1, 2;
     -fx-background-radius: 5, 4, 3;
 }
 
 .text-field {
-    -fx-border-width: 1;
-    -fx-border-color: lightgray;
+    -fx-background-color: #5c6b73;
+    -fx-text-fill: #e0fbfc;
+}
+
+.message-box {
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
 }
 
 .text-field:focused {
-    -fx-focus-color: lightgrey;
     -fx-background-insets: 0, 1, 2;
-    -fx-background-radius: 5, 4, 3;
 }
 
 .menu-bar {
-    -fx-text-fill: white;
-    -fx-background-color: #6389A8;
-    -fx-border-style: none;
+    -fx-text-fill: #e0fbfc;
+    -fx-background-color: #5c6b73;
 }
 
 .menu:hover {
@@ -68,19 +71,13 @@
 
 .label {
     -fx-font-family: "Roboto";
-}
-
-.label-bright {
-    -fx-padding: 5 0 5 0;
-    -fx-font-family: "Roboto";
-    -fx-opacity: 1;
+    -fx-text-fill: #e0fbfc;
 }
 
 .label-header {
     -fx-padding: 10%;
     -fx-font-size: 15pt;
     -fx-font-family: "Roboto Light";
-    -fx-opacity: 1;
 }
 
 .label-bigheader {
@@ -96,20 +93,21 @@
 
 .button {
     -fx-padding: 5 22 5 22;
-    -fx-border-color: black;
+    -fx-border-color: white;
     -fx-border-width: 1;
     -fx-background-radius: 0;
-    -fx-background-color: white;
+    -fx-background-color: #253237;
     -fx-font-family: "Roboto Light";
     -fx-font-size: 11pt;
+    -fx-text-fill: #e0fbfc;
 }
 
 .button:hover {
-    -fx-background-color: #e6e6e6;
+    -fx-background-color: #58676c;
 }
 
 .button:pressed {
-    -fx-background-color: #f2f2f2;
+    -fx-background-color: #404e53;
 }
 
 .button:disabled, .button:default:disabled {

@@ -4,48 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ac27ad5-c053-404d-9177-8c82acb82fb4" name="Default" comment="This is ridiculou">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server$1.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Roboto-Bold.ttf" afterPath="$PROJECT_DIR$/src/main/resources/Roboto-Bold.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Roboto-Light.ttf" afterPath="$PROJECT_DIR$/src/main/resources/Roboto-Light.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/Roboto-Regular.ttf" afterPath="$PROJECT_DIR$/src/main/resources/Roboto-Regular.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Roboto-Bold.ttf" afterPath="$PROJECT_DIR$/target/classes/Roboto-Bold.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Roboto-Light.ttf" afterPath="$PROJECT_DIR$/target/classes/Roboto-Light.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/Roboto-Regular.ttf" afterPath="$PROJECT_DIR$/target/classes/Roboto-Regular.ttf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/LocalNode.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/LocalNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Messages.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Messages.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server$TimeoutTask.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server$TimeoutTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/EmojiOne.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/EmojiOne.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/message/content/StoredTextMessage.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/message/content/StoredTextMessage.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/SendMessageOperation.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/SendMessageOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/user/FindUserOperation.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/user/FindUserOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/user/LoginUserOperation.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/user/LoginUserOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/user/RegisterUserOperation.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/user/RegisterUserOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/finalyearproject-1.0-SNAPSHOT-jar-with-dependencies.jar" afterPath="$PROJECT_DIR$/target/finalyearproject-1.0-SNAPSHOT-jar-with-dependencies.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/finalyearproject-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/finalyearproject-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.number" afterPath="$PROJECT_DIR$/build.number" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/current.log" afterPath="$PROJECT_DIR$/current.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Server.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/MessageHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/SendMessageOperation.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/SendMessageOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/user/FindUserOperation.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/user/FindUserOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/user/LoginUserOperation.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/user/LoginUserOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/user/RegisterUserOperation.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/user/RegisterUserOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/current.log" afterPath="$PROJECT_DIR$/target/current.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" />
-    </list>
+    <list default="true" id="9ac27ad5-c053-404d-9177-8c82acb82fb4" name="Default" comment="This is ridiculou" />
     <ignored path="LemonJuice.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -60,16 +19,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/LemonJuice$Test.coverage" NAME="Test Coverage Results" MODIFIED="1471300872573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>uk.co.streefland.rhys.lemonjuice.test.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/finalyearproject$BucketTest.coverage" NAME="BucketTest Coverage Results" MODIFIED="1476655663178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>uk.co.streefland.rhys.finalyearproject.routing.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/finalyearproject$NodeConnectionTest.coverage" NAME="NodeConnectionTest Coverage Results" MODIFIED="1472656669161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>uk.co.streefland.rhys.finalyearproject.test.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/finalyearproject$Main.coverage" NAME="Main Coverage Results" MODIFIED="1479912180471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/finalyearproject$Main.coverage" NAME="Main Coverage Results" MODIFIED="1480427243973" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>uk.co.streefland.rhys.finalyearproject.gui.controller.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/finalyearproject$All_in_finalyearproject.coverage" NAME="All in finalyearproject Coverage Results" MODIFIED="1476788345484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
@@ -82,6 +32,15 @@
     <SUITE FILE_PATH="coverage/finalyearproject$Main__1_.coverage" NAME="Main (1) Coverage Results" MODIFIED="1476817503367" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>uk.co.streefland.rhys.finalyearproject.gui.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/finalyearproject$NodeConnectionTest.coverage" NAME="NodeConnectionTest Coverage Results" MODIFIED="1472656669161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>uk.co.streefland.rhys.finalyearproject.test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/LemonJuice$Test.coverage" NAME="Test Coverage Results" MODIFIED="1471300872573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>uk.co.streefland.rhys.lemonjuice.test.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/finalyearproject$BucketTest.coverage" NAME="BucketTest Coverage Results" MODIFIED="1476655663178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>uk.co.streefland.rhys.finalyearproject.routing.*</FILTER>
+    </SUITE>
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -92,110 +51,62 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Messages.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="48" />
+            <state relative-caret-position="578">
+              <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TextReceiver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.java">
+      <file leaf-file-name="home.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/view/home.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="103" column="53" lean-forward="false" selection-start-line="103" selection-start-column="53" selection-end-line="103" selection-end-column="53" />
+            <state relative-caret-position="463">
+              <caret line="50" column="75" lean-forward="false" selection-start-line="50" selection-start-column="75" selection-end-line="50" selection-end-column="75" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-              <folding />
-            </state>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotifySuccessOperation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/NotifySuccessOperation.java">
+      <file leaf-file-name="connect.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/view/connect.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="103" column="21" lean-forward="true" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
+            <state relative-caret-position="102">
+              <caret line="6" column="87" lean-forward="false" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1485">
-              <caret line="170" column="9" lean-forward="false" selection-start-line="170" selection-start-column="9" selection-end-line="170" selection-end-column="9" />
+            <state relative-caret-position="289">
+              <caret line="72" column="75" lean-forward="false" selection-start-line="72" selection-start-column="75" selection-end-line="72" selection-end-column="75" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotifySuccessMessage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/NotifySuccessMessage.java">
+      <file leaf-file-name="login.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/view/login.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-              <folding>
-                <element signature="e#1431#1432#0" expanded="true" />
-                <element signature="e#1460#1461#0" expanded="true" />
-                <element signature="e#1495#1496#0" expanded="true" />
-                <element signature="e#1527#1528#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="NotifySuccessReceiver.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/NotifySuccessReceiver.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="42" column="62" lean-forward="true" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
+            <state relative-caret-position="4">
+              <caret line="6" column="68" lean-forward="false" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StoredTextMessage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/StoredTextMessage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="74" column="5" lean-forward="false" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-              <folding>
-                <marker date="1480292393000" expanded="true" signature="1798:1805" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FindNodeOperation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="207" column="17" lean-forward="false" selection-start-line="207" selection-start-column="17" selection-end-line="207" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ConnectOperation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/ConnectOperation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="94" column="63" lean-forward="true" selection-start-line="93" selection-start-column="8" selection-end-line="94" selection-end-column="63" />
-              <folding />
-            </state>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -216,9 +127,14 @@
     <findStrings>
       <find>toQuery.get(i)</find>
       <find>messageId</find>
+      <find>-fx-text-fill: white;</find>
+      <find>fx-text-fill: #e0fbfc;</find>
+      <find>fx-border</find>
+      <find>border</find>
     </findStrings>
     <replaceStrings>
       <replace>n</replace>
+      <replace>-fx-text-fill: #e0fbfc;</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -232,7 +148,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/core/Messages.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/style.css" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/main/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
@@ -244,14 +159,11 @@
         <option value="$PROJECT_DIR$/src/ant.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/ant.xml" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/home.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/Json.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/ImageCache.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/EmojiOne.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/connect.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/style.css" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/node/FindNodeReceiver.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/ChatBubble.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/user/VerifyUserReceiver.java" />
@@ -281,8 +193,12 @@
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/NotifySuccessReceiver.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/StoredTextMessage.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/connect.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/login.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/home.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/style.css" />
       </list>
     </option>
   </component>
@@ -331,8 +247,10 @@
     <option name="skipTests" value="true" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1440" />
-    <option name="height" value="900" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectReloadState">
     <option name="STATE" value="1" />
@@ -352,7 +270,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -897,6 +814,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
@@ -917,7 +835,6 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/Rhys/Development/IdeaProjects/finalyearproject/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/ChatBubble.java" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -928,15 +845,15 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\resources" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\core" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="uk.co.streefland.rhys.finalyearproject.core" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\resources" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\gui" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\lib" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\uk\co\streefland\rhys\finalyearproject\gui\emoji" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="uk.co.streefland.rhys.finalyearproject.message" />
@@ -945,12 +862,12 @@
       <recent name="uk.co.streefland.rhys.finalyearproject.message.node" />
       <recent name="uk.co.streefland.rhys.finalyearproject.operation.refresh" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\resources" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\core" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src" />
-      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\gui" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\lib" />
+      <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\uk\co\streefland\rhys\finalyearproject\gui\emoji" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -2176,7 +2093,10 @@
       <workItem from="1480252049790" duration="4554000" />
       <workItem from="1480266774676" duration="112000" />
       <workItem from="1480266949398" duration="7593000" />
-      <workItem from="1480287387078" duration="5878000" />
+      <workItem from="1480287387078" duration="5998000" />
+      <workItem from="1480349806862" duration="604000" />
+      <workItem from="1480359729226" duration="765000" />
+      <workItem from="1480424019452" duration="7372000" />
     </task>
     <servers />
   </component>
@@ -2213,7 +2133,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="726019000" />
+    <option name="totallyTimeSpent" value="734880000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2225,41 +2145,41 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23293608" sideWeight="0.48400852" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3217768" sideWeight="0.51492536" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.098712444" sideWeight="0.48908296" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3575298" sideWeight="0.4968017" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21084337" sideWeight="0.4792111" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.098614074" sideWeight="0.48439452" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3217768" sideWeight="0.48507464" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24964234" sideWeight="0.6904442" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35969663" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24821173" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24892704" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3261105" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23293608" sideWeight="0.48400852" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3575298" sideWeight="0.4968017" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13217768" sideWeight="0.4792111" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.098614074" sideWeight="0.5156055" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3217768" sideWeight="0.48507464" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2585288" sideWeight="0.6904442" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20575693" sideWeight="0.30955586" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.4978678" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3575298" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16151386" sideWeight="0.510917" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34127843" sideWeight="0.49573562" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -2335,8 +2255,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/animation/Animation.java" />
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_66/javafx-src.zip!/javafx/animation/AnimationAccessorImpl.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/Json.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5895">
@@ -2375,28 +2293,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/connect.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-226">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/view/home.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/ReceiverTask.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -2422,13 +2318,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/ChatBubble.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="32" selection-end-line="34" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/user/VerifyUserMessage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -2610,22 +2499,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="207" column="17" lean-forward="false" selection-start-line="207" selection-start-column="17" selection-end-line="207" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/ConnectOperation.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="94" column="63" lean-forward="true" selection-start-line="93" selection-start-column="8" selection-end-line="94" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/unused/Codes.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -2652,73 +2525,110 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/NotifySuccessMessage.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
-          <folding>
-            <element signature="e#1431#1432#0" expanded="true" />
-            <element signature="e#1460#1461#0" expanded="true" />
-            <element signature="e#1495#1496#0" expanded="true" />
-            <element signature="e#1527#1528#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/NotifySuccessReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="42" column="62" lean-forward="true" selection-start-line="42" selection-start-column="62" selection-end-line="42" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/StoredTextMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="74" column="5" lean-forward="false" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-          <folding>
-            <marker date="1480292393000" expanded="true" signature="1798:1805" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="2312">
+          <caret line="150" column="13" lean-forward="true" selection-start-line="150" selection-start-column="13" selection-end-line="150" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="103" column="53" lean-forward="false" selection-start-line="103" selection-start-column="53" selection-end-line="103" selection-end-column="53" />
+        <state relative-caret-position="1547">
+          <caret line="110" column="0" lean-forward="false" selection-start-line="110" selection-start-column="0" selection-end-line="110" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/NotifySuccessOperation.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/NotifySuccessMessage.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/NotifySuccessReceiver.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/StoredTextMessage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="74" column="5" lean-forward="false" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3298">
+          <caret line="210" column="7" lean-forward="false" selection-start-line="210" selection-start-column="7" selection-end-line="210" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/ConnectOperation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="94" column="63" lean-forward="false" selection-start-line="93" selection-start-column="8" selection-end-line="94" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/style_light.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/connect.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="87" lean-forward="false" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="170" column="9" lean-forward="false" selection-start-line="170" selection-start-column="9" selection-end-line="170" selection-end-column="9" />
+        <state relative-caret-position="289">
+          <caret line="72" column="75" lean-forward="false" selection-start-line="72" selection-start-column="75" selection-end-line="72" selection-end-column="75" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/NotifySuccessOperation.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/login.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="103" column="21" lean-forward="true" selection-start-line="103" selection-start-column="21" selection-end-line="103" selection-end-column="21" />
+        <state relative-caret-position="4">
+          <caret line="6" column="68" lean-forward="false" selection-start-line="6" selection-start-column="68" selection-end-line="6" selection-end-column="68" />
           <folding />
         </state>
       </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/home.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="411">
-          <caret line="91" column="0" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="48" />
+        <state relative-caret-position="463">
+          <caret line="50" column="75" lean-forward="false" selection-start-line="50" selection-start-column="75" selection-end-line="50" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="73" column="27" lean-forward="true" selection-start-line="73" selection-start-column="27" selection-end-line="73" selection-end-column="27" />
           <folding />
         </state>
       </provider>
