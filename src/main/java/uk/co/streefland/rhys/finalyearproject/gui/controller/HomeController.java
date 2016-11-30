@@ -18,10 +18,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -58,6 +55,14 @@ public class HomeController {
     Image image = new Image(getClass().getResource("/chatbubble.png").toExternalForm());
 
     @FXML
+    private BorderPane borderPane;
+    @FXML
+    private Menu settingsMenu;
+    @FXML
+    private Menu conversationsMenu;
+    @FXML
+    private Menu aboutMenu;
+    @FXML
     private ListView<String> listView;
     @FXML
     private GridPane gridPane;
@@ -80,6 +85,46 @@ public class HomeController {
 
         // Attempt to load conversations from saved state
         fromSavedState();
+
+        // Bind width of listView to 1/5th of the borderPane width (minimum width of 100px);
+        listView.prefWidthProperty().bind(borderPane.widthProperty().divide(5));
+
+        // Nasty little hack because for some reason JavaFX doesn't support onAction for Menus
+        MenuItem dummyMenuItem1 = new MenuItem();
+        MenuItem dummyMenuItem2 = new MenuItem();
+        MenuItem dummyMenuItem3 = new MenuItem();
+        settingsMenu.getItems().add(dummyMenuItem1);
+        conversationsMenu.getItems().add(dummyMenuItem2);
+        aboutMenu.getItems().add(dummyMenuItem3);
+
+        settingsMenu.showingProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    settingsMenu.hide();
+                    if (newValue) {
+                    }
+                });
+
+        conversationsMenu.showingProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    conversationsMenu.hide();
+                    if (newValue) {
+                        try {
+                            newConversationDialog();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+
+        aboutMenu.showingProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    aboutMenu.hide();
+                    if (newValue) {
+
+                    }
+                });
+
+        // END NASTY HACK
 
         /* Listener for current conversation ListView */
         listView.getSelectionModel().selectedItemProperty()
@@ -180,8 +225,8 @@ public class HomeController {
 
             int index;
 
-            if (currentConversationMessages.contains(messageId))  {
-             index = currentConversationMessages.indexOf(messageId);
+            if (currentConversationMessages.contains(messageId)) {
+                index = currentConversationMessages.indexOf(messageId);
                 gridPane.getChildren().remove(index);
             } else {
                 index = gridPane.getChildren().size();
@@ -275,7 +320,7 @@ public class HomeController {
      * @throws IOException
      */
     @FXML
-    private void newConversationDialog(ActionEvent event) throws IOException {
+    private void newConversationDialog() throws IOException {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("New Conversation");
         dialog.setHeaderText("New conversation");

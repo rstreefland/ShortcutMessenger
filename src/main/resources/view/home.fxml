@@ -4,25 +4,22 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<BorderPane onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.65"
+<BorderPane fx:id="borderPane" onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.65"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
     <top>
         <VBox alignment="center">
             <MenuBar fx:id="menuBar">
                 <menus>
-                    <Menu text="File">
-                        <items>
-                            <MenuItem text="New"/>
-                            <MenuItem text="Open"/>
-                            <MenuItem text="Save"/>
-                            <MenuItem text="Save As"/>
-                            <SeparatorMenuItem/>
-                            <MenuItem text="Exit"/>
-                        </items>
+                    <Menu text="Settings" fx:id="settingsMenu">
                     </Menu>
-                    <Menu text="Conversations">
-                        <MenuItem onAction="#newConversationDialog" text="New"/>
+                    <Menu text="Conversations" onAction="#newConversationDialog" fx:id="conversationsMenu">
+                    </Menu>
+                    <Menu text="Developer">
+                        <MenuItem text="Network Visualisation"/>
+                        <MenuItem text="Statistics"/>
+                    </Menu>
+                    <Menu text="About" fx:id="aboutMenu">
                     </Menu>
                 </menus>
             </MenuBar>
@@ -30,7 +27,7 @@
     </top>
     <center>
         <GridPane alignment="center">
-            <ListView fx:id="listView" minWidth="100" maxWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"
+            <ListView fx:id="listView" minWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1"
                       onMouseClicked="#onMouseClick">
                 <placeholder>
                     <Label styleClass="info" text="No Conversations" textAlignment="CENTER" wrapText="true"/>
