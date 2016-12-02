@@ -39,7 +39,7 @@ public class Main extends Application {
         StorageHandler temp = new StorageHandler();
         Parent root;
 
-        logger.info("Starting UI");
+        logger.info("Shortcut Messenger UI v1.0");
 
         /* Check if we can load the saved state from the file and show the relevant scene */
         if (temp.doesSavedStateExist()) {
@@ -64,7 +64,7 @@ public class Main extends Application {
 
 
         Scene scene = new Scene(root, 500, 500);
-        stage.setTitle("FinalYearProject");
+        stage.setTitle("Shortcut Messenger");
         stage.setScene(scene);
         stage.setMinHeight(500);
         stage.setMinWidth(500);

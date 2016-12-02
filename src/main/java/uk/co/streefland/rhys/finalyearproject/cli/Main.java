@@ -2,95 +2,73 @@ package uk.co.streefland.rhys.finalyearproject.cli;
 
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Command line interface for the framework
  */
 class Main {
 
+    private static IPTools ipTools;
+
     private static final Scanner sc = new Scanner(System.in);
-    private static int localPort = 0;
-    private static String localIp = "";
     private static String input = "";
-
-    private static final String ipPattern = "(\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}):?(\\d{1,5})?";
-    private static final Pattern p = Pattern.compile(ipPattern);
-
+    private static String[] inputWords = new String[2];
     private static LocalNode localNode = null;
 
     public static void main(String[] args) {
+        System.out.println("Shortcut Messenger CLI v1.0");
 
-        IPTools ipTools = null;
         try {
             ipTools = new IPTools();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        StorageHandler temp = new StorageHandler();
 
-        if (!temp.doesSavedStateExist()) {
-            System.out.println("Please enter your local IP address (and optionally port):");
-
-            Matcher m = p.matcher(sc.nextLine());
-
-            if (m.matches()) {
-                if (m.group(1) != null) {
-                    localIp = m.group(1);
-                    if (m.group(2) != null) {
-                        localPort = Integer.parseInt(m.group(2));
-                    }
-                }
-            } else {
-                System.err.println("Invalid IP address format");
-                return;
-            }
-        }
-
-        try {
-            localNode = new LocalNode(ipTools, InetAddress.getByName(localIp), InetAddress.getByName(localIp), localPort);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        while (!input.equals("q")) {
-            System.out.println("Please select an option:\n");
-
-            System.out.println("(1) - Bootstrap to a node");
-            System.out.println("(2) - Register");
-            System.out.println("(3) - Log in");
-            System.out.println("(4) - Send a message");
-            System.out.println("(5) - Print routing table");
-            System.out.println("(q) - Quit");
+        while (!input.equals("exit")) {
+            System.out.print("\n# ");
 
             input = sc.nextLine();
+            inputWords = input.split("\\s+");
 
-            switch (input) {
-                case "1":
-                    bootstrap();
+            switch (inputWords[0]) {
+                case "help":
+                    help();
                     break;
-                case "2":
-                    register();
+                case "bootstrap":
+                    try {
+                        bootstrap();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
-                case "3":
-                    login();
+                case "register":
+                    try {
+                        register();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
-                case "4":
+                case "login":
+                    try {
+                        login();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "message":
                     message();
                     break;
-                case "5":
-                    routingTable();
+                case "print":
+                    //routingTable();
                     break;
-                case "q":
+                case "exit":
                     exit();
                     break;
                 default:
@@ -99,118 +77,94 @@ class Main {
         }
     }
 
-    private static void bootstrap() {
+    private static void help() {
 
-        String input = "";
-        int port = 0;
-        boolean error = false;
-
-        System.out.println("Please enter the IP of the node to bootstrap to:");
-
-        String nextLine = sc.nextLine();
-        Matcher m = p.matcher(nextLine);
-
-        if (m.matches()) {
-            if (m.group(1) != null) {
-                input = m.group(1);
-                if (m.group(2) != null) {
-                    port = Integer.parseInt(m.group(2));
-                }
-            }
-        } else {
-            /* Special case for first node in the network */
-            if (nextLine.equals("first")) {
-                localNode.first();
+        if (inputWords.length > 1) {
+            if (inputWords[1].equals("print")) {
+                System.out.println("Print command usage information:");
+                System.out.println("-----------------------------");
+                System.out.println("print routingtable - print a list of nodes in the local routing table");
+                System.out.println("print users - print a list of users stored in the local node");
                 return;
             }
-            System.err.println("Invalid IP address");
-            return;
         }
 
-        try {
-            if (port != 0) {
-                error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), InetAddress.getByName(input), port, port));
-            } else {
-                error = localNode.bootstrap(new Node(new KeyId(), InetAddress.getByName(input), InetAddress.getByName(input), 12345, 12345));
+        System.out.println("Currently available commands:");
+        System.out.println("-----------------------------");
+        System.out.println("bootstrap - Bootstrap the local node to a network");
+        System.out.println("register - Register a user account on the network");
+        System.out.println("login - Login to an existing user account");
+        System.out.println("message - Message a user on the network");
+        System.out.println("print - Use 'help print' for usage information");
+        System.out.println("quit - Quit the program");
+
+    }
+
+    private static void bootstrap() throws IOException {
+        if (inputWords.length > 1) {
+
+            String publicIpString = ipTools.getPublicIp();
+            String privateIpString = ipTools.getPrivateIp();
+            String networkIpString = inputWords[1];
+
+            InetAddress publicIp = ipTools.validateAddress(publicIpString);
+            InetAddress privateIp = ipTools.validateAddress(privateIpString);
+
+            /* Special case for first node in the network */
+            if (networkIpString.equals("first")) {
+                localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
+                localNode.first();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (error) {
-            System.err.println("Could not bootstrap to the specified IP - please try again\n");
-        }
-    }
 
-    private static void register() {
+            InetAddress networkIp = null;
 
-        boolean success = false;
+            try {
+                networkIp = ipTools.validateAddress(networkIpString);
+            } catch (UnknownHostException uho) {
+            }
 
-        System.out.println("Please enter a username:");
-        String username = sc.nextLine();
+            if (networkIp != null) {
+                localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
+            } else {
+                System.err.println("Invalid network address");
+            }
 
-        System.out.println("Please enter a password:");
-        String password = sc.nextLine();
+            boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, 12345, 12345));
 
-
-        try {
-            success = (localNode.getUsers().registerUser(username, password));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        if (success) {
-            System.out.println("User registered successfully!");
-            System.out.println("Logged in as " + username + " successfully!\n");
-        } else {
-            System.err.println("User already exists - please choose a different username\n");
+            if (error) {
+                localNode.shutdown(false);
+                localNode = null;
+                System.err.println("Failed to bootstrap to the specified network");
+            }
         }
     }
 
-    private static void login() {
-
-        boolean loggedIn = false;
-
-        System.out.println("Please enter a username:");
-        String username = sc.nextLine();
-
-        System.out.println("Please enter a password:");
-        String password = sc.nextLine();
-
-        try {
-            loggedIn = (localNode.getUsers().loginUser(username, password));
-        } catch (IOException e) {
-            e.printStackTrace();
+    private static void register() throws IOException {
+        if (inputWords.length > 2) {
+            if (localNode.getUsers().registerUser(inputWords[1], inputWords[2])) {
+                System.out.println("User " + inputWords[1] + " registered successfully");
+            } else {
+                System.err.println("User already exists");
+            }
         }
+    }
 
-        if (loggedIn) {
-            System.out.println("Logged in as " + username + " successfully!");
-        } else {
-            System.err.println("Invalid username/password - please try again\n");
+    private static void login() throws IOException {
+        if (inputWords.length > 2) {
+            if (localNode.getUsers().loginUser(inputWords[1], inputWords[2])) {
+                System.out.println("Logged in as " + inputWords[1] + " successfully");
+            } else {
+                System.err.println("Invalid username or password");
+            }
         }
     }
 
     private static void message() {
-
-        System.out.println("Please specify a username to message:");
-        String username = sc.nextLine();
-
-        User userToMessage = new User(username, "");
-
-        System.out.println("Please enter a message to send:");
-        String message = sc.nextLine();
-
-        try {
-            localNode.message(message, userToMessage);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void routingTable() {
-        System.out.println(localNode.getRoutingTable());
     }
 
     private static void exit() {
-        localNode.shutdown(true);
+        if (localNode != null) {
+            localNode.shutdown(true);
+        }
     }
 }
