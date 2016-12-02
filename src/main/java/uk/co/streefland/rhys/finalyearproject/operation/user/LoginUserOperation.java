@@ -77,7 +77,7 @@ public class LoginUserOperation implements Operation, Receiver {
         operation.execute();
         addNodes(operation.getClosestNodes());
 
-        message = new VerifyUserMessage(localNode.getNode(), user);
+        message = new VerifyUserMessage(server.getNetworkId(), localNode.getNode(), user);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */

@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.message.user;
 
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;
@@ -14,10 +15,12 @@ import java.io.IOException;
 public class VerifyUserMessageReply implements Message {
 
     public static final byte CODE = 0x07;
+    private KeyId networkId;
     private Node origin;
     private User existingUser;
 
-    public VerifyUserMessageReply(Node origin, User existingUser) {
+    public VerifyUserMessageReply(KeyId networkId, Node origin, User existingUser) {
+        this.networkId = networkId;
         this.origin = origin;
         this.existingUser = existingUser;
     }
@@ -28,6 +31,8 @@ public class VerifyUserMessageReply implements Message {
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
+        networkId.toStream(out);
+
         /* Add the origin node to the stream */
         origin.toStream(out);
 
@@ -42,6 +47,8 @@ public class VerifyUserMessageReply implements Message {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
+        networkId = new KeyId(in);
+
         /* Read in the origin */
         origin = new Node(in);
 
@@ -59,6 +66,11 @@ public class VerifyUserMessageReply implements Message {
     @Override
     public byte getCode() {
         return CODE;
+    }
+
+    @Override
+    public KeyId getNetworkId() {
+        return networkId;
     }
 
     public Node getOrigin() {

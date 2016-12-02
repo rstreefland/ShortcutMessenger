@@ -1,6 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.message.node;
 
 import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;
@@ -15,10 +16,12 @@ import java.util.List;
 public class FindNodeMessageReply implements Message {
 
     public static final byte CODE = 0x04;
+    private KeyId networkId;
     private Node origin;
     private List<Node> nodes;
 
-    public FindNodeMessageReply(Node origin, List<Node> nodes) {
+    public FindNodeMessageReply(KeyId networkId, Node origin, List<Node> nodes) {
+        this.networkId = networkId;
         this.origin = origin;
         this.nodes = nodes;
     }
@@ -29,6 +32,8 @@ public class FindNodeMessageReply implements Message {
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
+        networkId.toStream(out);
+
         /* Add the origin node to the stream */
         origin.toStream(out);
 
@@ -41,6 +46,8 @@ public class FindNodeMessageReply implements Message {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
+        networkId = new KeyId(in);
+
         /* Read in the origin */
         origin = new Node(in);
 
@@ -62,6 +69,11 @@ public class FindNodeMessageReply implements Message {
     @Override
     public byte getCode() {
         return CODE;
+    }
+
+    @Override
+    public KeyId getNetworkId() {
+        return networkId;
     }
 
     @Override

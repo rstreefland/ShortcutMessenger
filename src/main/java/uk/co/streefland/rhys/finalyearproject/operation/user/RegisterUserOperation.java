@@ -67,7 +67,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         operation.execute();
         addNodes(operation.getClosestNodes());
 
-        message = new StoreUserMessage(localNode.getNode(), user);
+        message = new StoreUserMessage(server.getNetworkId(), localNode.getNode(), user);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */

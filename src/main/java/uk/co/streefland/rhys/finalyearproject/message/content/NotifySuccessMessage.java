@@ -14,10 +14,12 @@ import java.io.IOException;
 public class NotifySuccessMessage implements Message {
 
     public static final byte CODE = 0x09;
+    private KeyId networkId;
     private Node origin;
     private KeyId messageId;
 
-    public NotifySuccessMessage(Node origin, KeyId messageId) {
+    public NotifySuccessMessage(KeyId networkId, Node origin, KeyId messageId) {
+        this.networkId = networkId;
         this.origin = origin;
         this.messageId = messageId;
     }
@@ -28,12 +30,14 @@ public class NotifySuccessMessage implements Message {
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
+        networkId.toStream(out);
         origin.toStream(out);
         messageId.toStream(out);
     }
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
+        networkId = new KeyId(in);
         origin = new Node(in);
         messageId = new KeyId(in);
     }
@@ -46,6 +50,11 @@ public class NotifySuccessMessage implements Message {
     @Override
     public byte getCode() {
         return CODE;
+    }
+
+    @Override
+    public KeyId getNetworkId() {
+        return networkId;
     }
 
     @Override

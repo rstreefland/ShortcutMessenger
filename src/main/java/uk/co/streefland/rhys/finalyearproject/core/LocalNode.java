@@ -18,10 +18,11 @@ import java.util.Timer;
  */
 public class LocalNode implements Runnable {
 
-    private static final String BUILD_NUMBER = "749";
+    private static final String BUILD_NUMBER = "757";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
+    private KeyId networkId;
     private IPTools ipTools;
     private Configuration config;
     private Node localNode;
@@ -278,6 +279,14 @@ public class LocalNode implements Runnable {
         }
 
         logger.info("Server shut down successfully");
+    }
+
+    public KeyId getNetworkId() {
+        return networkId;
+    }
+
+    public void setNetworkId(KeyId networkId) {
+        this.networkId = networkId;
     }
 
     public IPTools getIpTools() {

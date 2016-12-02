@@ -1,6 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.message.node;
 
 import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;
@@ -36,6 +37,11 @@ public class ConnectMessage implements Message {
     @Override
     public String toString() {
         return "ConnectMessage[origin KeyId=" + origin.getNodeId() + "]";
+    }
+
+    @Override
+    public KeyId getNetworkId() {
+        return null;
     }
 
     @Override

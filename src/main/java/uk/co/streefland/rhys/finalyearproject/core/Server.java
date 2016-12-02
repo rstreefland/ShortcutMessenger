@@ -1,11 +1,13 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
+import javafx.fxml.FXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.*;
@@ -22,6 +24,7 @@ public class Server {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    private KeyId networkId;
     private final Configuration config;
     private final MessageHandler messageHandler;
     private final Node localNode;
@@ -82,34 +85,39 @@ public class Server {
 
                 din.close();
 
-                /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
-                if (packet.getAddress().equals(msg.getSource().getPublicInetAddress()) || packet.getAddress().equals(msg.getSource().getPrivateInetAddress())) {
+                /* Check if the node is part of this network - drop the packet if not */
+                if (networkId == null || msg.getNetworkId().equals(networkId)) {
+                    /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
+                    if (packet.getAddress().equals(msg.getSource().getPublicInetAddress()) || packet.getAddress().equals(msg.getSource().getPrivateInetAddress())) {
 
                     /* Check if a receiver already exists and create one if not */
-                    Receiver receiver;
-                    if (receivers.containsKey(communicationId)) {
+                        Receiver receiver;
+                        if (receivers.containsKey(communicationId)) {
 
                         /* If there is a receiver in the receivers list to handle this */
-                        synchronized (this) {
-                            receiver = receivers.remove(communicationId);
-                            TimerTask task = tasks.remove(communicationId);
-                            if (task != null) {
-                                task.cancel();
+                            synchronized (this) {
+                                receiver = receivers.remove(communicationId);
+                                TimerTask task = tasks.remove(communicationId);
+                                if (task != null) {
+                                    task.cancel();
+                                }
                             }
-                        }
-                    } else {
+                        } else {
                         /* There is currently no receivers, create one*/
-                        logger.debug("No receiver exists, creating one using code {}", messageCode);
-                        receiver = messageHandler.createReceiver(packet.getPort(), messageCode);
-                    }
+                            logger.debug("No receiver exists, creating one using code {}", messageCode);
+                            receiver = messageHandler.createReceiver(packet.getPort(), messageCode);
+                        }
 
                     /* Start the ReceiverTask on a thread in the cached threadPool*/
                     /* This is done so the computation for each receiver doesn't block the listener thread */
-                    if (receiver != null) {
-                        threadPool.execute(new ReceiverTask(receiver, msg, communicationId));
+                        if (receiver != null) {
+                            threadPool.execute(new ReceiverTask(receiver, msg, communicationId));
+                        }
+                    } else {
+                        logger.debug("Remote node has IP address mismatch - ignoring message");
                     }
                 } else {
-                    logger.debug("Remote node has IP address mismatch - ignoring message");
+                    logger.info("Discarding message from node that isn't part of this network");
                 }
             } catch (IOException e) {
                 if (isRunning) {
@@ -229,6 +237,14 @@ public class Server {
 
     public boolean isRunning() {
         return isRunning;
+    }
+
+    public KeyId getNetworkId() {
+        return networkId;
+    }
+
+    public void setNetworkId(KeyId networkId) {
+        this.networkId = networkId;
     }
 
     /**

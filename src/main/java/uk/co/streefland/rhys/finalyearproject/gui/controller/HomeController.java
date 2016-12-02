@@ -106,8 +106,8 @@ public class HomeController {
 
         conversationsMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
-                    conversationsMenu.hide();
-                    if (newValue) {
+                   // conversationsMenu.hide();
+                    if (newValue && !oldValue) {
                         try {
                             newConversationDialog();
                         } catch (IOException e) {
@@ -316,7 +316,6 @@ public class HomeController {
     /**
      * Dialog to add a new conversation
      *
-     * @param event
      * @throws IOException
      */
     @FXML

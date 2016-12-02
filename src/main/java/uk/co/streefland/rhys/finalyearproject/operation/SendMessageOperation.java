@@ -240,11 +240,11 @@ public class SendMessageOperation implements Operation, Receiver {
 
                 /* Don't message yourself, this is a message for another user */
                     if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
-                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                        message = new TextMessage(server.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
                         localNode.getMessages().addForwardMessage(message);
                     } else {
                     /* this is a message for yourself */
-                        message = new TextMessage(messageId, localNode.getNode(), user, messageString, createdTime);
+                        message = new TextMessage(server.getNetworkId(), messageId, localNode.getNode(), user, messageString, createdTime);
                         localNode.getMessages().addReceivedMessage(message);
                         messageStatus = SendMessageOperation.DELIVERED;
                     }
@@ -252,7 +252,7 @@ public class SendMessageOperation implements Operation, Receiver {
                     nodes.put(n, Configuration.QUERIED);
                 } else {
                     if (!forwarding) {
-                        message = new TextMessage(messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                        message = new TextMessage(server.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
                     }
                     int communicationId = server.sendMessage(n, message, this);
 

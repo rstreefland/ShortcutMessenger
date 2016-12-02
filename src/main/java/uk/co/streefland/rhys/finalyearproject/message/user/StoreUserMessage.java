@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.message.user;
 
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;
@@ -14,10 +15,12 @@ import java.io.IOException;
 public class StoreUserMessage implements Message {
 
     public static final byte CODE = 0x05;
+    private KeyId networkId;
     private Node origin;
     private User user;
 
-    public StoreUserMessage(Node origin, User user) {
+    public StoreUserMessage(KeyId networkId, Node origin, User user) {
+        this.networkId = networkId;
         this.origin = origin;
         this.user = user;
     }
@@ -28,12 +31,14 @@ public class StoreUserMessage implements Message {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
+        networkId = new KeyId(in);
         origin = new Node(in);
         user = new User(in);
     }
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
+        networkId.toStream(out);
         origin.toStream(out);
         user.toStream(out);
     }
@@ -46,6 +51,11 @@ public class StoreUserMessage implements Message {
     @Override
     public byte getCode() {
         return CODE;
+    }
+
+    @Override
+    public KeyId getNetworkId() {
+        return networkId;
     }
 
     @Override

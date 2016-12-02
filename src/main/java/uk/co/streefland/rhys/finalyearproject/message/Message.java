@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;
@@ -31,6 +32,8 @@ public interface Message {
     String toString();
 
     byte getCode();
+
+    KeyId getNetworkId();
 
     Node getOrigin();
 

@@ -30,7 +30,7 @@ public class StoreUserReceiver implements Receiver {
         boolean success = localNode.getUsers().addUser(msg.getUser());
 
         /* Create the AcknowledgeMessage */
-        Message ack = new AcknowledgeMessage(localNode.getNode(), success);
+        Message ack = new AcknowledgeMessage(server.getNetworkId(), localNode.getNode(), success);
 
         /* The server sends the reply */
         if (server.isRunning()) {

@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.message;
 
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.DataInputStream;
@@ -12,16 +13,18 @@ import java.io.IOException;
 public class AcknowledgeMessage implements Message {
 
     public static final byte CODE = 0x01;
+    private KeyId networkId;
     private Node origin;
     private Node correctedNode;
     private boolean operationSuccessful;
 
-    public AcknowledgeMessage(Node origin, boolean operationSuccessful) {
+    public AcknowledgeMessage(KeyId networkId, Node origin, boolean operationSuccessful) {
+        this.networkId = networkId;
         this.origin = origin;
         this.operationSuccessful = operationSuccessful;
     }
 
-    public AcknowledgeMessage(Node origin, Node correctedNode, boolean operationSuccessful) {
+    public AcknowledgeMessage(KeyId networkId, Node origin, Node correctedNode, boolean operationSuccessful) {
         this.origin = origin;
         this.operationSuccessful = operationSuccessful;
         this.correctedNode = correctedNode;
@@ -33,6 +36,7 @@ public class AcknowledgeMessage implements Message {
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
+        networkId.toStream(out);
         origin.toStream(out);
         out.writeBoolean(operationSuccessful);
 
@@ -46,6 +50,7 @@ public class AcknowledgeMessage implements Message {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
+        networkId = new KeyId(in);
         origin = new Node(in);
         operationSuccessful = in.readBoolean();
 
@@ -62,6 +67,11 @@ public class AcknowledgeMessage implements Message {
     @Override
     public byte getCode() {
         return CODE;
+    }
+
+    @Override
+    public KeyId getNetworkId() {
+        return networkId;
     }
 
     @Override

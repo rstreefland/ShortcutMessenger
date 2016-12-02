@@ -7,6 +7,7 @@ import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
@@ -38,6 +39,9 @@ public class ConnectReceiver implements Receiver {
     public void receive(Message incoming, int communicationId) throws IOException {
         ConnectMessage message = (ConnectMessage) incoming;
 
+        KeyId networkId = message.getNetworkId();
+        server.setNetworkId(networkId);
+
         Node origin = message.getOrigin();
         AcknowledgeMessage msg;
 
@@ -46,11 +50,11 @@ public class ConnectReceiver implements Receiver {
             origin.setPublicPort(port);
 
             /* Create the AcknowledgeMessage with the corrected node object */
-            msg = new AcknowledgeMessage(localNode.getNode(), origin, true);
+            msg = new AcknowledgeMessage(networkId, origin, true);
         } else {
 
             /* Create the AcknowledgeMessage */
-            msg = new AcknowledgeMessage(localNode.getNode(), true);
+            msg = new AcknowledgeMessage(networkId, localNode.getNode(), true);
         }
 
         /* Update the local routing table inserting the origin node. */

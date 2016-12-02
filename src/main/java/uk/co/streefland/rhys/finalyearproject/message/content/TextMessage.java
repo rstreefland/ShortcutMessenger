@@ -25,6 +25,7 @@ public class TextMessage implements Message, Serializable {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     public static final byte CODE = 0x08;
+    private KeyId networkId;
     private Node origin;
     private Node source;
     private Node target;
@@ -39,7 +40,8 @@ public class TextMessage implements Message, Serializable {
     /**
      * Constructor for a node sending a message to itself
      */
-    public TextMessage(KeyId messageId, Node origin, User authorUser, String message, long createdTime) {
+    public TextMessage(KeyId networkId, KeyId messageId, Node origin, User authorUser, String message, long createdTime) {
+        this.networkId = networkId;
         this.origin = origin;
         this.source = origin;
         this.target = origin;
@@ -54,7 +56,8 @@ public class TextMessage implements Message, Serializable {
     /**
      * Constructor for user to user messages
      */
-    public TextMessage(KeyId messageId, Node origin, Node target, User authorUser, User recipientUser, String message, long createdTime) {
+    public TextMessage(KeyId networkId, KeyId messageId, Node origin, Node target, User authorUser, User recipientUser, String message, long createdTime) {
+        this.networkId = networkId;
         this.origin = origin;
         this.source = origin;
         this.target = target;
@@ -78,6 +81,7 @@ public class TextMessage implements Message, Serializable {
 
     @Override
     public final void fromStream(DataInputStream in) throws IOException {
+        networkId = new KeyId(in);
         origin = new Node(in);
         source = new Node(in);
 
@@ -116,6 +120,7 @@ public class TextMessage implements Message, Serializable {
 
     @Override
     public void toStream(DataOutputStream out) throws IOException {
+        networkId.toStream(out);
         origin.toStream(out);
         source.toStream(out);
 
@@ -164,6 +169,11 @@ public class TextMessage implements Message, Serializable {
     @Override
     public byte getCode() {
         return CODE;
+    }
+
+    @Override
+    public KeyId getNetworkId() {
+        return networkId;
     }
 
     @Override

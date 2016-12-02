@@ -38,7 +38,7 @@ public class NotifySuccessOperation implements Operation, Receiver {
         this.target = target;
         this.config = config;
 
-        message = new NotifySuccessMessage(localNode.getNode(), messageId);
+        message = new NotifySuccessMessage(server.getNetworkId(), localNode.getNode(), messageId);
     }
 
     /**
