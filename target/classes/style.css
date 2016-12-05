@@ -125,18 +125,13 @@
 }
 
 .dialog-pane {
-    -fx-background-color: black;
+    -fx-background-color: #253237;
 }
 
 .dialog-pane .label {
-    -fx-text-fill: white;
+    -fx-text-fill: #e0fbfc;
 }
 
 .dialog-pane:header .header-panel {
-    -fx-background-color: black;
-}
-
-.dialog-pane:header .header-panel .label {
-    -fx-font-style: italic;
-    -fx-font-size: 2em;
+    -fx-background-color: #5c6b73;
 }
