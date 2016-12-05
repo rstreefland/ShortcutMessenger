@@ -148,7 +148,7 @@ public class ConnectController {
 
         Stage stage;
         stage = (Stage) connectButton.getScene().getWindow();
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
         stage.setScene(scene);
         stage.show();
     }

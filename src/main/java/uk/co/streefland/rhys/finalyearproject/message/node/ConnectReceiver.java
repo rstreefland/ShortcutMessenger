@@ -39,9 +39,6 @@ public class ConnectReceiver implements Receiver {
     public void receive(Message incoming, int communicationId) throws IOException {
         ConnectMessage message = (ConnectMessage) incoming;
 
-        KeyId networkId = message.getNetworkId();
-        server.setNetworkId(networkId);
-
         Node origin = message.getOrigin();
         AcknowledgeMessage msg;
 
@@ -50,11 +47,11 @@ public class ConnectReceiver implements Receiver {
             origin.setPublicPort(port);
 
             /* Create the AcknowledgeMessage with the corrected node object */
-            msg = new AcknowledgeMessage(networkId, origin, true);
+            msg = new AcknowledgeMessage(localNode.getNetworkId(), localNode.getNode(), origin, true);
         } else {
 
             /* Create the AcknowledgeMessage */
-            msg = new AcknowledgeMessage(networkId, localNode.getNode(), true);
+            msg = new AcknowledgeMessage(localNode.getNetworkId(), localNode.getNode(), true);
         }
 
         /* Update the local routing table inserting the origin node. */

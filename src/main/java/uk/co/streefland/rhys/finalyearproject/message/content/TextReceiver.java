@@ -72,7 +72,7 @@ public class TextReceiver implements Receiver {
             }
 
             /* Create the AcknowledgeMessage */
-            Message ack = new AcknowledgeMessage(server.getNetworkId(), localNode.getNode(), success);
+            Message ack = new AcknowledgeMessage(localNode.getNetworkId(), localNode.getNode(), success);
 
             /* The server sends the reply */
             if (server.isRunning()) {
@@ -82,7 +82,7 @@ public class TextReceiver implements Receiver {
             /* Create the AcknowledgeMessage */
             /* This is done here so the ack doesn't time out on the origin node */
             /* And because the origin node gets overwritten by the SendMessageOperation */
-            Message ack = new AcknowledgeMessage(server.getNetworkId(), localNode.getNode(), success);
+            Message ack = new AcknowledgeMessage(localNode.getNetworkId(), localNode.getNode(), success);
 
             /* The server sends the reply */
             if (server.isRunning()) {

@@ -24,28 +24,22 @@ public class Server {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private KeyId networkId;
-    private final Configuration config;
-    private final MessageHandler messageHandler;
-    private final Node localNode;
+    private LocalNode localNode;
 
     /* Server Objects */
     private final DatagramSocket socket;
     private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
+    private DatagramPacket packet;
+    private boolean isRunning;
 
     /* Cached threadPool so we can run receivers in parallel */
     private final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
-    private boolean isRunning;
-    private DatagramPacket packet;
-
-    public Server(int udpPort, MessageHandler messageHandler, Configuration config, Node localNode) throws IOException {
-        this.config = config;
-        this.socket = new DatagramSocket(udpPort);
-        this.messageHandler = messageHandler;
+    public Server(LocalNode localNode, int udpPort) throws IOException {
         this.localNode = localNode;
+        this.socket = new DatagramSocket(udpPort);
 
         byte[] buffer = new byte[Configuration.PACKET_SIZE];
         packet = new DatagramPacket(buffer, buffer.length);
@@ -81,20 +75,25 @@ public class Server {
                 byte messageCode = din.readByte();
 
                 /* Create the message and close the input stream */
-                Message msg = messageHandler.createMessage(messageCode, din);
+                Message msg = localNode.getMessageHandler().createMessage(messageCode, din);
 
+                /* Close the input stream */
                 din.close();
 
                 /* Check if the node is part of this network - drop the packet if not */
-                if (networkId == null || msg.getNetworkId().equals(networkId)) {
+                // allow if message is connect message
+                // allow if ack and local network ID is null
+                // allow if local network ID == remote network ID
+                if (messageCode == 0x02 || (messageCode == 0x01 && localNode.getNetworkId() == null) || localNode.getNetworkId().equals(msg.getNetworkId())) {
+
                     /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
                     if (packet.getAddress().equals(msg.getSource().getPublicInetAddress()) || packet.getAddress().equals(msg.getSource().getPrivateInetAddress())) {
 
-                    /* Check if a receiver already exists and create one if not */
+                        /* Check if a receiver already exists and create one if not */
                         Receiver receiver;
                         if (receivers.containsKey(communicationId)) {
 
-                        /* If there is a receiver in the receivers list to handle this */
+                            /* If there is a receiver in the receivers list to handle this */
                             synchronized (this) {
                                 receiver = receivers.remove(communicationId);
                                 TimerTask task = tasks.remove(communicationId);
@@ -105,11 +104,11 @@ public class Server {
                         } else {
                         /* There is currently no receivers, create one*/
                             logger.debug("No receiver exists, creating one using code {}", messageCode);
-                            receiver = messageHandler.createReceiver(packet.getPort(), messageCode);
+                            receiver = localNode.getMessageHandler().createReceiver(packet.getPort(), messageCode);
                         }
 
-                    /* Start the ReceiverTask on a thread in the cached threadPool*/
-                    /* This is done so the computation for each receiver doesn't block the listener thread */
+                        /* Start the ReceiverTask on a thread in the cached threadPool*/
+                        /* This is done so the computation for each receiver doesn't block the listener thread */
                         if (receiver != null) {
                             threadPool.execute(new ReceiverTask(receiver, msg, communicationId));
                         }
@@ -118,6 +117,8 @@ public class Server {
                     }
                 } else {
                     logger.info("Discarding message from node that isn't part of this network");
+                    logger.info("   Local netId: " + localNode.getNetworkId());
+                    logger.info("  Remote netId: " + msg.getNetworkId());
                 }
             } catch (IOException e) {
                 if (isRunning) {
@@ -150,7 +151,7 @@ public class Server {
             /* Setup the receiver to handle message response */
             receivers.put(communicationId, recv);
             TimerTask task = new TimeoutTask(communicationId, recv);
-            timer.schedule(task, config.getResponseTimeout());
+            timer.schedule(task, localNode.getConfig().getResponseTimeout());
             tasks.put(communicationId, task);
         }
 
@@ -189,7 +190,7 @@ public class Server {
             /* Create the packet and send it */
         DatagramPacket pkt = new DatagramPacket(data, 0, data.length);
 
-        if (destination.getPublicInetAddress().equals(localNode.getPublicInetAddress())) {
+        if (destination.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress())) {
             pkt.setSocketAddress(destination.getPrivateSocketAddress());
         } else {
             pkt.setSocketAddress(destination.getPublicSocketAddress());
@@ -237,14 +238,6 @@ public class Server {
 
     public boolean isRunning() {
         return isRunning;
-    }
-
-    public KeyId getNetworkId() {
-        return networkId;
-    }
-
-    public void setNetworkId(KeyId networkId) {
-        this.networkId = networkId;
     }
 
     /**

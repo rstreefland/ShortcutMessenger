@@ -5,12 +5,10 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -35,8 +33,6 @@ import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -52,7 +48,7 @@ public class HomeController {
     private List<KeyId> currentConversationMessages;
     private String localUser;
 
-    Image image = new Image(getClass().getResource("/chatbubble.png").toExternalForm());
+    Image logo = new Image(getClass().getResource("/icon5.png").toExternalForm());
 
     @FXML
     private BorderPane borderPane;
@@ -99,15 +95,15 @@ public class HomeController {
 
         settingsMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
-                    settingsMenu.hide();
                     if (newValue) {
+                        settingsMenu.hide();
                     }
                 });
 
         conversationsMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
-                   // conversationsMenu.hide();
-                    if (newValue && !oldValue) {
+                    if (newValue) {
+                        conversationsMenu.hide();
                         try {
                             newConversationDialog();
                         } catch (IOException e) {
@@ -118,9 +114,8 @@ public class HomeController {
 
         aboutMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
-                    aboutMenu.hide();
                     if (newValue) {
-
+                        aboutMenu.hide();
                     }
                 });
 
@@ -325,6 +320,11 @@ public class HomeController {
         dialog.setHeaderText("New conversation");
         dialog.setContentText("Username:");
 
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-pane");
+
         Optional<String> result = dialog.showAndWait();
         if (result.isPresent()) {
             createConversationUser(result.get());
@@ -450,8 +450,8 @@ public class HomeController {
         tray.setTitle(title);
         tray.setMessage(message);
         tray.setNotificationType(NotificationType.INFORMATION);
-        tray.setRectangleFill(Paint.valueOf("#000000"));
-        tray.setImage(image);
+        tray.setRectangleFill(Paint.valueOf("#253237"));
+        tray.setImage(logo);
         tray.setAnimationType(AnimationType.POPUP);
         tray.showAndDismiss(Duration.seconds(5));
     }

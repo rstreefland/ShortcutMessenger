@@ -25,6 +25,7 @@ public class AcknowledgeMessage implements Message {
     }
 
     public AcknowledgeMessage(KeyId networkId, Node origin, Node correctedNode, boolean operationSuccessful) {
+        this.networkId = networkId;
         this.origin = origin;
         this.operationSuccessful = operationSuccessful;
         this.correctedNode = correctedNode;

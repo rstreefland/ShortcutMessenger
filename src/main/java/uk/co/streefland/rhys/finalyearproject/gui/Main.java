@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -26,6 +27,9 @@ public class Main extends Application {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     LocalNode localNode = null;
+
+    private int width = 650;
+    private int height = 500;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -63,11 +67,12 @@ public class Main extends Application {
         }
 
 
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, width, height);
         stage.setTitle("Shortcut Messenger");
         stage.setScene(scene);
-        stage.setMinHeight(500);
+        stage.setMinHeight(420);
         stage.setMinWidth(500);
+        stage.getIcons().add(new Image("/icon6.png"));
         stage.show();
     }
 

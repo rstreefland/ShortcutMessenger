@@ -94,6 +94,9 @@ public class ConnectOperation implements Operation, Receiver {
         /* The incoming message is an acknowledgement message */
         AcknowledgeMessage msg = (AcknowledgeMessage) incoming;
 
+        /* Set the networkId */
+        localNode.setNetworkId(msg.getNetworkId());
+
         /* Update the node so we have the correct nodeId */
         bootstrapNode = msg.getOrigin();
 

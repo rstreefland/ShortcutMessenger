@@ -18,7 +18,7 @@ import java.util.Timer;
  */
 public class LocalNode implements Runnable {
 
-    private static final String BUILD_NUMBER = "757";
+    private static final String BUILD_NUMBER = "914";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
@@ -59,7 +59,7 @@ public class LocalNode implements Runnable {
         do {
             try {
                 portBindFailure = false;
-                this.server = new Server(port, messageHandler, config, localNode);
+                this.server = new Server(this, port);
             } catch (IOException e) {
                 portBindFailure = true;
                 logger.warn("Couldn't bind to port " + port);
@@ -106,7 +106,7 @@ public class LocalNode implements Runnable {
         this.routingTable = new RoutingTable(localNode);
 
         this.messageHandler = new MessageHandler(this);
-        this.server = new Server(port, messageHandler, config, localNode);
+        this.server = new Server(this, port);
         this.users = new Users(this);
 
         server.startListener();
@@ -235,6 +235,9 @@ public class LocalNode implements Runnable {
      * It is designed for the first node on the network
      */
     public final void first() {
+        /* As this is a new network we need to generate a networkId */
+        networkId = new KeyId();
+
         /* If server is not running then start it */
         if (!server.isRunning()) {
             server.startListener(); // start the server
@@ -319,5 +322,9 @@ public class LocalNode implements Runnable {
 
     public Messages getMessages() {
         return messages;
+    }
+
+    public MessageHandler getMessageHandler() {
+        return messageHandler;
     }
 }

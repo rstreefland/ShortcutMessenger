@@ -41,7 +41,7 @@ public class FindNodeOperation implements Operation, Receiver {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
 
-        this.lookupMessage = new FindNodeMessage(server.getNetworkId(), localNode.getNode(), lookupId);
+        this.lookupMessage = new FindNodeMessage(localNode.getNetworkId(), localNode.getNode(), lookupId);
         this.messagesInTransit = new HashMap<>();
 
         this.ignoreStale = ignoreStale;

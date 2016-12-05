@@ -73,7 +73,7 @@ public class FindUserOperation implements Operation, Receiver {
 
         addNodes(closestNodes);
 
-        message = new VerifyUserMessage(server.getNetworkId(), localNode.getNode(), searchUser);
+        message = new VerifyUserMessage(localNode.getNetworkId(), localNode.getNode(), searchUser);
 
         try {
             /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */

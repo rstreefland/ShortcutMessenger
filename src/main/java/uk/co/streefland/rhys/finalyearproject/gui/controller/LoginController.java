@@ -120,7 +120,7 @@ public class LoginController {
 
         Stage stage;
         stage = (Stage) registerButton.getScene().getWindow();
-        Scene scene = new Scene(root, 500, 500);
+        Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
         stage.setScene(scene);
         stage.show();
     }

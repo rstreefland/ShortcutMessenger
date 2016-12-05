@@ -42,7 +42,7 @@ public class FindNodeReceiver implements Receiver {
         List<Node> nodes = localNode.getRoutingTable().findClosest(msg.getLookupId(), false);
 
         /* Create the FindNodeMessageReply */
-        Message reply = new FindNodeMessageReply(server.getNetworkId(), localNode.getNode(), nodes);
+        Message reply = new FindNodeMessageReply(localNode.getNetworkId(), localNode.getNode(), nodes);
 
         /* The server sends the reply */
         if (server.isRunning()) {
