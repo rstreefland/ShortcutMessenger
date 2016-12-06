@@ -5,11 +5,14 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Forwards messages to their intended recipients
@@ -18,6 +21,9 @@ public class MessageRefreshOperation implements Operation {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final LocalNode localNode;
+
+    /* Cached threadPool so we can run the operation in parallel */
+    private final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     public MessageRefreshOperation(LocalNode localNode) {
         this.localNode = localNode;
@@ -30,27 +36,25 @@ public class MessageRefreshOperation implements Operation {
      */
     @Override
     public synchronized void execute() throws IOException {
-
         /* Clean up messages */
         localNode.getMessages().cleanUp();
 
         for (Map.Entry<KeyId, TextMessage> entry : localNode.getMessages().getForwardMessages().entrySet()) {
             /* Run each SendMessageOperation in a different thread */
-            new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        SendMessageOperation smo = new SendMessageOperation(localNode, entry.getValue().getRecipientUser(), entry.getValue());
-                        smo.execute();
-                        if (smo.messageStatus() == SendMessageOperation.DELIVERED) {
-                            logger.debug("Forwarded successfully - deleting message from local storage");
-                            localNode.getMessages().getForwardMessages().remove(entry.getKey());
-                        }
-                    } catch (IOException e) {
-                        logger.error("Message refresh failed with error:", e);
-                    }
-                }
-            }.start();
+            threadPool.execute(new Thread(() -> runOperation(entry)));
+        }
+    }
+
+    private void runOperation(Map.Entry<KeyId, TextMessage> entry) {
+        try {
+            SendMessageOperation smo = new SendMessageOperation(localNode, entry.getValue().getRecipientUser(), entry.getValue());
+            smo.execute();
+            if (smo.messageStatus() == SendMessageOperation.DELIVERED) {
+                logger.debug("Forwarded successfully - deleting message from local storage");
+                localNode.getMessages().getForwardMessages().remove(entry.getKey());
+            }
+        } catch (IOException e) {
+            logger.error("Message refresh failed with error:", e);
         }
     }
 }

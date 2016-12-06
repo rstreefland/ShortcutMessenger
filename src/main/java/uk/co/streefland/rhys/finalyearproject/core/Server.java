@@ -53,7 +53,10 @@ public class Server {
         logger.info("Starting server");
         isRunning = true;
 
-        new Thread(() -> listen()).start();
+        /* Start the listener thread*/
+        final Thread thread = new Thread(() -> listen());
+        thread.setDaemon(true);
+        thread.start();
     }
 
     /**
@@ -80,10 +83,10 @@ public class Server {
                 /* Close the input stream */
                 din.close();
 
-                /* Check if the node is part of this network - drop the packet if not */
-                // allow if message is connect message
-                // allow if ack and local network ID is null
-                // allow if local network ID == remote network ID
+                /* Check if the node is part of this network - drop the packet if not
+                   allow if message is connect message
+                   allow if ack and local network ID is null
+                   allow if local network ID == remote network ID */
                 if (messageCode == 0x02 || (messageCode == 0x01 && localNode.getNetworkId() == null) || localNode.getNetworkId().equals(msg.getNetworkId())) {
 
                     /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */

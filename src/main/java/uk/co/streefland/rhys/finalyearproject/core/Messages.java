@@ -43,6 +43,13 @@ public class Messages implements Serializable {
         this.lastMessageUpdate = new SimpleObjectProperty<>();
     }
 
+    /**
+     * Handles the process of sending a message to another user
+     *
+     * @param message The message to send
+     * @param target  The target user
+     * @throws IOException
+     */
     public void sendMessage(String message, User target) throws IOException {
 
         if (message.isEmpty() || localNode.getUsers().getLocalUser() == null) {
@@ -79,19 +86,26 @@ public class Messages implements Serializable {
         }
     }
 
+    /**
+     * Updates the status of a sent message to delivered
+     *
+     * @param userName  The recipient of the message
+     * @param messageId The id of the message to update
+     */
     public void setDelivered(String userName, KeyId messageId) {
 
+        /* Get the conversation */
         ArrayList<StoredTextMessage> conversation = userMessages.get(userName);
 
         /* Reverse for loop should be quicker here because message is more likely to be one of the last in the conversation */
         for (int i = conversation.size() - 1; i >= 0; i--) {
-           if (conversation.get(i).getMessageId().equals(messageId)) {
-               logger.info("Updating message status to delivered");
-               conversation.get(i).setMessageStatus(SendMessageOperation.DELIVERED);
-               logger.info("New message status is: " + conversation.get(i).getMessageStatus());
-               lastMessageUpdate.set(null);
-               lastMessageUpdate.set(conversation.get(i));
-           }
+            if (conversation.get(i).getMessageId().equals(messageId)) {
+                logger.info("Updating message status to delivered");
+                conversation.get(i).setMessageStatus(SendMessageOperation.DELIVERED);
+                logger.info("New message status is: " + conversation.get(i).getMessageStatus());
+                lastMessageUpdate.set(null);
+                lastMessageUpdate.set(conversation.get(i));
+            }
         }
     }
 
@@ -102,28 +116,33 @@ public class Messages implements Serializable {
      * @param message The message to store
      */
     public void addReceivedMessage(TextMessage message) throws IOException {
+        /* Only do anything if we haven't received this message before */
+        if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) != null) {
+            return;
+        }
+
         Node origin = message.getOrigin();
         User originUser = message.getAuthorUser();
         String userName = originUser.getUserName();
         String messageString = message.getMessage();
 
-        StoredTextMessage storedMessage = new StoredTextMessage(message.getMessageId(), userName, localNode.getUsers().getLocalUser().getUserName(), messageString, message.getCreatedTime());
+        System.out.println("Message received from " + userName + ": " + messageString);
 
-        if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) == null) {
-            System.out.println("Message received from " + userName + ": " + messageString);
+        /* Create the storedtextmessage object */
+        StoredTextMessage stm = new StoredTextMessage(message.getMessageId(), userName, localNode.getUsers().getLocalUser().getUserName(), messageString, message.getCreatedTime());
+        lastMessage.set(stm);
 
-            if (userMessages.putIfAbsent(userName, new ArrayList(Arrays.asList(storedMessage))) != null) {
-                ArrayList<StoredTextMessage> conversation = userMessages.get(userName);
-                conversation.add(storedMessage);
-            }
+        /* Add the storedtextmessage to an existing conversation or create a new one if it doesn't already exist */
+        if (userMessages.putIfAbsent(userName, new ArrayList(Arrays.asList(stm))) != null) {
+            ArrayList<StoredTextMessage> conversation = userMessages.get(userName);
+            conversation.add(stm);
+        }
 
-            lastMessage.set(storedMessage);
-            localNode.getUsers().addUserToCache(originUser, origin);
+        /* Add the origin user and node to cache */
+        localNode.getUsers().addUserToCache(originUser, origin);
 
-            /* If the message was forwarded - punch a hole in the NAT/firewall so we can communicate directly from now on */
-            if (!origin.equals(message.getSource())) {
-                logger.info("THIS IS A FORWARDED MESSAGE");
-            }
+        if (!origin.equals(message.getSource())) {
+            logger.info("THIS IS A FORWARDED MESSAGE");
         }
     }
 
@@ -137,7 +156,7 @@ public class Messages implements Serializable {
     }
 
     /**
-     * Removes any forwardMessages that are older than two days
+     * Removes any forwardMessages and receivedMessages that are older than two days
      */
     public void cleanUp() {
         long currentTime = new Date().getTime() / 1000; // current time in seconds

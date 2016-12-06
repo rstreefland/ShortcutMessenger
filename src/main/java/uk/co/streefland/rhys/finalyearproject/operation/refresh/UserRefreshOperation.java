@@ -4,13 +4,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
+import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
+import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
 
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Updates other nodes with the users stored on the local node
@@ -19,6 +23,9 @@ public class UserRefreshOperation implements Operation {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final LocalNode localNode;
+
+    /* Cached threadPool so we can run the operation in parallel */
+    private final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     public UserRefreshOperation(LocalNode localNode) {
         this.localNode = localNode;
@@ -39,18 +46,18 @@ public class UserRefreshOperation implements Operation {
         localNode.getUsers().getLocalUser().setLastActiveTime();
 
         for (Map.Entry<String, User> entry : localNode.getUsers().getUsers().entrySet()) {
-            /* Run RegisterUserOperation for each user in a different thread */
-            new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        new RegisterUserOperation(localNode, entry.getValue(), false).execute();
 
-                    } catch (IOException e) {
-                        logger.error("User refresh failed with error:", e);
-                    }
-                }
-            }.start();
+            /* Run each RegisterUserOperation in a different thread */
+            threadPool.execute(new Thread(() -> runOperation(entry)));
+        }
+    }
+
+    private void runOperation(Map.Entry<String, User> entry) {
+        try {
+            new RegisterUserOperation(localNode, entry.getValue(), false).execute();
+
+        } catch (IOException e) {
+            logger.error("User refresh failed with error:", e);
         }
     }
 }

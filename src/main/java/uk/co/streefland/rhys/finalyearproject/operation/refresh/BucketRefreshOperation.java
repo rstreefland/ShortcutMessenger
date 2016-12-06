@@ -8,6 +8,8 @@ import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 
 import java.io.IOException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * Refreshes all buckets within the RoutingTable
@@ -16,6 +18,9 @@ public class BucketRefreshOperation implements Operation {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private final LocalNode localNode;
+
+    /* Cached threadPool so we can run the operation in parallel */
+    private final ExecutorService threadPool = Executors.newFixedThreadPool(10);
 
     public BucketRefreshOperation(LocalNode localNode) {
         this.localNode = localNode;
@@ -33,16 +38,15 @@ public class BucketRefreshOperation implements Operation {
             final KeyId current = localNode.getNode().getNodeId().generateKeyIdUsingDistance(i);
 
             /* Run each FindNodeOperations in a different thread */
-            new Thread() {
-                @Override
-                public void run() {
-                    try {
-                        new FindNodeOperation(localNode, current, false).execute();
-                    } catch (IOException e) {
-                        logger.error("Bucket refresh failed with error:", e);
-                    }
-                }
-            }.start();
+            threadPool.execute(new Thread(() -> runOperation(current)));
+        }
+    }
+
+    private void runOperation(KeyId current) {
+        try {
+            new FindNodeOperation(localNode, current, false).execute();
+        } catch (IOException e) {
+            logger.error("Bucket refresh failed with error:", e);
         }
     }
 }

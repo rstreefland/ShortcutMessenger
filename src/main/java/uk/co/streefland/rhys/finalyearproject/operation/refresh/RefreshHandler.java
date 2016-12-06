@@ -22,6 +22,8 @@ public class RefreshHandler extends TimerTask {
     @Override
     public void run() {
 
+        long start = System.currentTimeMillis();
+
         /* Run BucketRefreshOperation to refresh the buckets */
         if (localNode.getNode() != null) {
             try {
@@ -49,5 +51,10 @@ public class RefreshHandler extends TimerTask {
         } catch (IOException e) {
             logger.error("Message refresh failed:", e);
         }
+
+        long end = System.currentTimeMillis();
+        long timeTakenSeconds = (end-start)/1000;
+
+        logger.info("Refresh operations took " + timeTakenSeconds + " seconds");
     }
 }

@@ -8,7 +8,7 @@ import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import java.io.IOException;
 
 /**
- * Runs each receiver task in a different thread. This is designed to stop lengthy receiver tasks from hogging the main server thread.
+ * Runs each receiver task in a different thread. This is designed to stop lengthy receiver tasks from blocking the main server thread.
  */
 class ReceiverTask implements Runnable {
 
