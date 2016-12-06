@@ -368,6 +368,12 @@ public class HomeController {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("User not found");
                 alert.setContentText("User not found!");
+
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(
+                        getClass().getResource("/style.css").toExternalForm());
+                dialogPane.getStyleClass().add("dialog-pane");
+
                 alert.showAndWait();
             } else {
                 /* Change the current conversation to the new user */
