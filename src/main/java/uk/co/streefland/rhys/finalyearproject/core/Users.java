@@ -109,37 +109,54 @@ public class Users implements Serializable {
         if (user != null) {
             if ((user.getLastActiveTime() < newUser.getLastActiveTime()) && newUser.getRegisterTime() != 0L) {
                 logger.debug("New user object has newer last active timestamp - replacing the old one");
-                users.remove(user);
-                users.put(newUser.getUserName(), newUser);
+                replaceUser(user, newUser);
                 return false;
             }
 
-                /* If new user has an older registration time that isn't zero - replace the existing user */
+            /* If new user has an older registration time that isn't zero - replace the existing user */
             if (user.getRegisterTime() > newUser.getRegisterTime() && newUser.getRegisterTime() != 0L) {
                 logger.debug("New user has an older registration timestamp - replacing the old one");
-                users.remove(user);
-                users.put(newUser.getUserName(), newUser);
+                replaceUser(user, newUser);
                 return false;
             }
-                /* If existing user has older registration time then do nothing */
+
+            /* If existing user has older registration time then do nothing */
             if ((user.getRegisterTime() < newUser.getRegisterTime())) {
                 logger.debug("User with the same name exists - discarding");
                 return false;
             }
-                /* Users are exactly the same - do nothing */
+
+            /* Users are exactly the same - do nothing */
             if (user.getRegisterTime() == newUser.getRegisterTime()) {
                 logger.debug("User objects are the same, doing nothing");
                 return false;
             }
         }
 
-        /* User doesn't exist in out memory - add it */
+        /* User doesn't exist in our memory - add it */
         users.put(newUser.getUserName(), newUser);
         logger.debug("New user added to users: {}", newUser.getUserName());
         return true;
     }
 
+    private void replaceUser(User oldUser, User newUser) {
+        users.remove(oldUser);
+        users.put(newUser.getUserName(), newUser);
+
+        /* Update the associated node if it's present in the local routing table */
+        if (localNode.getRoutingTable().getContact(oldUser.getAssociatedNode()) != null) {
+            localNode.getRoutingTable().setUnresponsiveContact(oldUser.getAssociatedNode());
+            localNode.getRoutingTable().insert(newUser.getAssociatedNode());
+        }
+    }
+
     public synchronized void addUserToCache(User newUser) {
+
+        /* Update the associated node if it's present in the local routing table */
+        if (localNode.getRoutingTable().getContact(newUser.getAssociatedNode()) != null) {
+            localNode.getRoutingTable().setUnresponsiveContact(newUser.getAssociatedNode());
+            localNode.getRoutingTable().insert(newUser.getAssociatedNode());
+        }
 
         if (users.containsKey(newUser.getUserName())) {
             return;
@@ -147,16 +164,6 @@ public class Users implements Serializable {
 
         cache.remove(newUser.getUserName());
         cache.put(newUser.getUserName(), newUser);
-    }
-
-    public synchronized void addUserToCache(User newUser, Node associatedNode) {
-
-        /* This was overwriting the contact and setting the stale value back to 0 - hence causing more delay */
-        if (localNode.getRoutingTable().getContact(associatedNode) == null) {
-            localNode.getRoutingTable().insert(associatedNode);
-        }
-
-        addUserToCache(newUser);
     }
 
     /**
@@ -211,8 +218,8 @@ public class Users implements Serializable {
         sb.append("\nUsers on local node: ");
 
         for (Map.Entry user : users.entrySet()) {
-                sb.append("\n");
-                sb.append(user.getValue().toString());
+            sb.append("\n");
+            sb.append(user.getValue().toString());
         }
 
         sb.append("\nUsers in cache: ");

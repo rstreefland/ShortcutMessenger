@@ -139,7 +139,7 @@ public class Messages implements Serializable {
         }
 
         /* Add the origin user and node to cache */
-        localNode.getUsers().addUserToCache(originUser, origin);
+        localNode.getUsers().addUserToCache(originUser);
 
         if (!origin.equals(message.getSource())) {
             logger.info("THIS IS A FORWARDED MESSAGE");

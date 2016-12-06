@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.jar.Pack200;
 
 /**
  * Sends a message to another user by sending to all of the nodes associated with that user.
@@ -107,17 +106,17 @@ public class SendMessageOperation implements Operation, Receiver {
             closestNodes = fuo.getClosestNodes();
 
             /* Add associated nodes to the 'to message' list */
-            if (!user.getAssociatedNodes().isEmpty()) {
+            if (user.getAssociatedNode() != null) {
 
-                Contact associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNodes().get(0));
+                Contact associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNode());
 
                 if (associatedContact == null) {
-                    localNode.getRoutingTable().insert(user.getAssociatedNodes().get(0));
-                    associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNodes().get(0));
+                    localNode.getRoutingTable().insert(user.getAssociatedNode());
+                    associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNode());
                 }
 
                 if (associatedContact.getStaleCount() == 0) {
-                    addNodes(user.getAssociatedNodes());
+                    addNode(user.getAssociatedNode());
 
                     /* Run the message operation for only the intended recipients to begin with */
                     messageLoop();
@@ -129,7 +128,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
         } else {
             /* Run the message operation for the forwarded message */
-            addNodes(user.getAssociatedNodes());
+            addNode(user.getAssociatedNode());
             messageLoop();
         }
 
@@ -139,16 +138,16 @@ public class SendMessageOperation implements Operation, Receiver {
             messageStatus = SendMessageOperation.PENDING_FORWARDING;
 
             /* Set the contact as unresponsive */
-            localNode.getRoutingTable().setUnresponsiveContact(user.getAssociatedNodes().get(0));
+            localNode.getRoutingTable().setUnresponsiveContact(user.getAssociatedNode());
 
             if (closestNodes == null) {
 
                 /* look on the local node first */
-                closestNodes = localNode.getRoutingTable().findClosest(user.getAssociatedNodes().get(0).getNodeId(), true);
+                closestNodes = localNode.getRoutingTable().findClosest(user.getAssociatedNode().getNodeId(), true);
 
                 /* then find node operation if the list is still empty */
                 if (closestNodes.size() == 0) {
-                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNodes().get(0).getNodeId(), true);
+                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), true);
                     fno.execute();
                     closestNodes = fno.getClosestNodes();
                 }
@@ -169,16 +168,23 @@ public class SendMessageOperation implements Operation, Receiver {
      *
      * @param list The list of nodes to insert
      */
-
     private void addNodes(List<Node> list) {
         for (Node node : list) {
-            if (!nodes.containsKey(node)) {
-                nodes.putIfAbsent(node, Configuration.NOT_QUERIED);
-            }
+            addNode(node);
+        }
+    }
 
-            if (!attempts.containsKey(node)) {
-                attempts.putIfAbsent(node, 0);
-            }
+    /**
+     * Inserts a single node into the HashMap
+     * @param node
+     */
+    private void addNode(Node node) {
+        if (!nodes.containsKey(node)) {
+            nodes.putIfAbsent(node, Configuration.NOT_QUERIED);
+        }
+
+        if (!attempts.containsKey(node)) {
+            attempts.putIfAbsent(node, 0);
         }
     }
 
@@ -240,7 +246,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
                     /* Don't message yourself, this is a message for another user */
                     if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
-                        message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                        message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
                         localNode.getMessages().addForwardMessage(message);
                     } else {
                         /* this is a message for yourself */
@@ -252,7 +258,7 @@ public class SendMessageOperation implements Operation, Receiver {
                     nodes.put(n, Configuration.QUERIED);
                 } else {
                     if (!forwarding) {
-                        message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNodes().get(0), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                        message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
                     }
                     int communicationId = server.sendMessage(n, message, this);
 

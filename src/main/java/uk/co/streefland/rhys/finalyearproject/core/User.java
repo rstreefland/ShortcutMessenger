@@ -28,7 +28,7 @@ public class User implements Serializable {
     private String userName;
     private byte[] passwordHash;
     private byte[] passwordSalt;
-    private List<Node> associatedNodes;
+    private Node associatedNode;
     private long registerTime;
     private long lastLoginTime;
     private long lastActiveTime;
@@ -39,8 +39,6 @@ public class User implements Serializable {
 
         this.passwordSalt = generateSalt();
         this.passwordHash = generatePasswordHash(this.passwordSalt, password);
-
-        this.associatedNodes = new ArrayList<>();
     }
 
     public User(DataInputStream in) throws IOException {
@@ -56,11 +54,12 @@ public class User implements Serializable {
         out.write(passwordHash);
         out.write(passwordSalt);
 
-        /* Add all associated nodes to the stream
-         * And the quantity so we know how many to read back in */
-        out.writeInt(associatedNodes.size());
-        for (Node node : associatedNodes) {
-            node.toStream(out);
+        /* Write associatedNode to the stream */
+        if (associatedNode == null) {
+            out.writeBoolean(false);
+        } else {
+            out.writeBoolean(true);
+            associatedNode.toStream(out);
         }
 
         out.writeLong(registerTime);
@@ -79,11 +78,9 @@ public class User implements Serializable {
         passwordSalt = new byte[16];
         in.readFully(passwordSalt);
 
-        /* Read in all associated nodes */
-        int associatedNodesSize = in.readInt();
-        associatedNodes = new ArrayList<>();
-        for (int i = 0; i < associatedNodesSize; i++) {
-            associatedNodes.add(new Node(in));
+        /* Read in associatedNode */
+        if (in.readBoolean()) {
+            associatedNode = new Node(in);
         }
 
         registerTime = in.readLong();
@@ -147,10 +144,8 @@ public class User implements Serializable {
      * @param newNode The node to add to the list of associated nodes
      * @return False if node already exists in the associated nodes list
      */
-    public boolean addAssociatedNode(Node newNode) {
-        associatedNodes.clear();
-        associatedNodes.add(newNode);
-        return true;
+    public void addAssociatedNode(Node newNode) {
+        associatedNode = newNode;
     }
 
     public KeyId getUserId() {
@@ -195,8 +190,8 @@ public class User implements Serializable {
         lastActiveTime = new Date().getTime();
     }
 
-    public List<Node> getAssociatedNodes() {
-        return associatedNodes;
+    public Node getAssociatedNode() {
+        return associatedNode;
     }
 
     @Override
