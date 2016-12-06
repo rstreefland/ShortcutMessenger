@@ -32,13 +32,13 @@ public class NotifySuccessOperation implements Operation, Receiver {
     private int attempts;
     private boolean error;
 
-    public NotifySuccessOperation(Server server, LocalNode localNode, Node target, KeyId messageId, Configuration config) {
+    public NotifySuccessOperation(Server server, LocalNode localNode, Node target, String recipient, KeyId messageId, Configuration config) {
         this.server = server;
         this.localNode = localNode;
         this.target = target;
         this.config = config;
 
-        message = new NotifySuccessMessage(localNode.getNetworkId(), localNode.getNode(), messageId);
+        message = new NotifySuccessMessage(localNode.getNetworkId(), localNode.getNode(), recipient, messageId);
     }
 
     /**

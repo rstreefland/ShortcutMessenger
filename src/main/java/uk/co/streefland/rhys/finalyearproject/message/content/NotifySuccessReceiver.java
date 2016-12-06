@@ -38,11 +38,12 @@ public class NotifySuccessReceiver implements Receiver {
         NotifySuccessMessage message = (NotifySuccessMessage) incoming;
 
         Node origin = message.getOrigin();
+        String recipient = message.getRecipient();
         KeyId messageId = message.getMessageId();
 
         logger.info("Received message success message :D :D");
 
-        localNode.getMessages().setDelivered(messageId);
+        localNode.getMessages().setDelivered(recipient, messageId);
 
         /* Create the AcknowledgeMessage with the corrected node object */
         AcknowledgeMessage msg = new AcknowledgeMessage(localNode.getNetworkId(), localNode.getNode(), origin, true);

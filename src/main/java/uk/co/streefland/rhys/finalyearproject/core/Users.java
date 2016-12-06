@@ -1,9 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
@@ -11,8 +9,9 @@ import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperati
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.security.Key;
-import java.util.*;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Represents the set of user objects stored on the local node and the operations to manage them
@@ -24,8 +23,8 @@ public class Users implements Serializable {
 
     private User localUser;
     private String localUserPassword;
-    private final HashMap<String,User> users;
-    private final HashMap<String,User> cache;
+    private final HashMap<String, User> users;
+    private final HashMap<String, User> cache;
 
     public Users(LocalNode localNode) {
         this.users = new HashMap<>();
@@ -53,7 +52,7 @@ public class Users implements Serializable {
         User user = new User(userName, plainTextPassword);
         user.addAssociatedNode(localNode.getNode()); // add the local node as an associated node
 
-        RegisterUserOperation ruo = new RegisterUserOperation(localNode, user ,true);
+        RegisterUserOperation ruo = new RegisterUserOperation(localNode, user, true);
         ruo.execute();
 
         /* Set the local user object */
@@ -177,7 +176,7 @@ public class Users implements Serializable {
     }
 
     public synchronized User findUser(User user) {
-       return findUser(user.getUserName());
+        return findUser(user.getUserName());
     }
 
     public synchronized User findUserOnNetwork(String userName) throws IOException {
@@ -203,6 +202,29 @@ public class Users implements Serializable {
                 cache.remove(entry.getValue());
             }
         }
+    }
+
+    @Override
+    public synchronized final String toString() {
+        StringBuilder sb = new StringBuilder("\n****** Users ******");
+
+        sb.append("\nUsers on local node: ");
+
+        for (Map.Entry user : users.entrySet()) {
+                sb.append("\n");
+                sb.append(user.getValue().toString());
+        }
+
+        sb.append("\nUsers in cache: ");
+
+        for (Map.Entry user : cache.entrySet()) {
+            sb.append("\n");
+            sb.append(user.getValue().toString());
+        }
+
+        sb.append("\n");
+        sb.append("****** Users Ended ******\n");
+        return sb.toString();
     }
 
     public User getLocalUser() {

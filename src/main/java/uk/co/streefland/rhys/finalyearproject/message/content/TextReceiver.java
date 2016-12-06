@@ -98,7 +98,7 @@ public class TextReceiver implements Receiver {
                 logger.info("Message forwarded successfully - no need to add it to forward messages");
 
                 // send MESSAGE SUCCESS ACK here
-                NotifySuccessOperation nso = new NotifySuccessOperation(server, localNode, msg.getOrigin(), msg.getMessageId(), localNode.getConfig());
+                NotifySuccessOperation nso = new NotifySuccessOperation(server, localNode, msg.getOrigin(), msg.getRecipientUser().getUserName(), msg.getMessageId(), localNode.getConfig());
                 nso.execute();
 
                 logger.info("Message success message sent!");

@@ -16,11 +16,13 @@ public class NotifySuccessMessage implements Message {
     public static final byte CODE = 0x09;
     private KeyId networkId;
     private Node origin;
+    private String recipient;
     private KeyId messageId;
 
-    public NotifySuccessMessage(KeyId networkId, Node origin, KeyId messageId) {
+    public NotifySuccessMessage(KeyId networkId, Node origin, String recipient, KeyId messageId) {
         this.networkId = networkId;
         this.origin = origin;
+        this.recipient = recipient;
         this.messageId = messageId;
     }
 
@@ -32,6 +34,7 @@ public class NotifySuccessMessage implements Message {
     public void toStream(DataOutputStream out) throws IOException {
         networkId.toStream(out);
         origin.toStream(out);
+        out.writeUTF(recipient);
         messageId.toStream(out);
     }
 
@@ -39,6 +42,7 @@ public class NotifySuccessMessage implements Message {
     public final void fromStream(DataInputStream in) throws IOException {
         networkId = new KeyId(in);
         origin = new Node(in);
+        recipient = in.readUTF();
         messageId = new KeyId(in);
     }
 
@@ -48,13 +52,13 @@ public class NotifySuccessMessage implements Message {
     }
 
     @Override
-    public byte getCode() {
-        return CODE;
+    public KeyId getNetworkId() {
+        return networkId;
     }
 
     @Override
-    public KeyId getNetworkId() {
-        return networkId;
+    public byte getCode() {
+        return CODE;
     }
 
     @Override
@@ -65,6 +69,10 @@ public class NotifySuccessMessage implements Message {
     @Override
     public Node getSource() {
         return origin;
+    }
+
+    public String getRecipient() {
+        return recipient;
     }
 
     public KeyId getMessageId() {

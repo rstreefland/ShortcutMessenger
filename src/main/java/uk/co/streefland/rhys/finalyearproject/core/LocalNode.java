@@ -16,9 +16,9 @@ import java.util.Timer;
 /**
  * Represents the local node on the network. This class ties together all of the functionality of the other classes ---
  */
-public class LocalNode implements Runnable {
+public class LocalNode {
 
-    private static final String BUILD_NUMBER = "917";
+    private static final String BUILD_NUMBER = "941";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
@@ -111,11 +111,6 @@ public class LocalNode implements Runnable {
 
         server.startListener();
         startRefreshOperation();
-    }
-
-    @Override
-    public void run() {
-
     }
 
     /**

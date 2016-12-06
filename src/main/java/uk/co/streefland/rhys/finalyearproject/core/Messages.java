@@ -45,54 +45,53 @@ public class Messages implements Serializable {
 
     public void sendMessage(String message, User target) throws IOException {
 
-        long createdTime = new Date().getTime() / 1000; // store timestamp in seconds
+        if (message.isEmpty() || localNode.getUsers().getLocalUser() == null) {
+            return;
+        }
+
+        /* Current timestamp and messageId for message objects */
+        long createdTime = new Date().getTime() / 1000;
         KeyId messageId = new KeyId();
+
+        /* Create the StoredTextMessage and set the lastMessage */
         StoredTextMessage stm = new StoredTextMessage(messageId, localNode.getUsers().getLocalUser().getUserName(), target.getUserName(), message, SendMessageOperation.PENDING_DELIVERY, createdTime);
         lastMessage.set(stm);
 
+        /* Add the storedtextmessage to an existing conversation or create a new one if it doesn't already exist */
         if (userMessages.putIfAbsent(target.getUserName(), new ArrayList(Arrays.asList(stm))) != null) {
             ArrayList<StoredTextMessage> conversation = userMessages.get(target.getUserName());
             conversation.add(stm);
         }
 
-        if (!message.isEmpty() && localNode.getUsers().getLocalUser() != null) {
+        /* Execute the sendmessageoperation */
+        SendMessageOperation operation = new SendMessageOperation(localNode, target, messageId, message, createdTime);
+        operation.execute();
 
-            SendMessageOperation operation = new SendMessageOperation(localNode, target, messageId, message, createdTime);
-            operation.execute();
+        if (operation.getUser() != null) {
+            localNode.getUsers().addUserToCache(operation.getUser());
 
-            if (operation.getUser() != null) {
-                logger.info("Message sent to {}", operation.getUser());
-
-                localNode.getUsers().addUserToCache(operation.getUser());
-
-                // bit of a race condition
-                if (operation.messageStatus() != SendMessageOperation.PENDING_DELIVERY && stm.getMessageStatus() != SendMessageOperation.DELIVERED);
-                {
-                    stm.setMessageStatus(operation.messageStatus());
-                    lastMessageUpdate.set(stm);
-                }
-            } else {
-                logger.error("User {} doesn't exist", target.getUserName());
+            if (operation.messageStatus() != SendMessageOperation.PENDING_DELIVERY && stm.getMessageStatus() != SendMessageOperation.DELIVERED) {
+                stm.setMessageStatus(operation.messageStatus());
+                lastMessageUpdate.set(stm);
             }
+        } else {
+            logger.error("User {} doesn't exist", target.getUserName());
         }
     }
 
-    public void setDelivered(KeyId messageId) {
+    public void setDelivered(String userName, KeyId messageId) {
 
-        for (Map.Entry entry : userMessages.entrySet()) {
+        ArrayList<StoredTextMessage> conversation = userMessages.get(userName);
 
-            ArrayList<StoredTextMessage> conversation = (ArrayList<StoredTextMessage>) entry.getValue();
-
-            for (StoredTextMessage message : conversation) {
-
-                if (message.getMessageId().equals(messageId)) {
-                    logger.info("Updating message status to delivered");
-                    message.setMessageStatus(SendMessageOperation.DELIVERED);
-                    logger.info("New message status is: " + message.getMessageStatus());
-                    lastMessageUpdate.set(null);
-                    lastMessageUpdate.set(message);
-                }
-            }
+        /* Reverse for loop should be quicker here because message is more likely to be one of the last in the conversation */
+        for (int i = conversation.size() - 1; i >= 0; i--) {
+           if (conversation.get(i).getMessageId().equals(messageId)) {
+               logger.info("Updating message status to delivered");
+               conversation.get(i).setMessageStatus(SendMessageOperation.DELIVERED);
+               logger.info("New message status is: " + conversation.get(i).getMessageStatus());
+               lastMessageUpdate.set(null);
+               lastMessageUpdate.set(conversation.get(i));
+           }
         }
     }
 

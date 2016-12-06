@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.cli;
 
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
@@ -63,10 +64,14 @@ class Main {
                     }
                     break;
                 case "message":
-                    message();
+                    try {
+                        message();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case "print":
-                    //routingTable();
+                    print();
                     break;
                 case "exit":
                     exit();
@@ -159,12 +164,31 @@ class Main {
         }
     }
 
-    private static void message() {
+    private static void message() throws IOException {
+        if (inputWords.length > 1) {
+            String recipient = inputWords[1];
+
+            System.out.println("Enter a message:");
+            String message = sc.nextLine();
+
+            localNode.message(message, new User(recipient, ""));
+        }
+    }
+
+    private static void print() {
+        if (inputWords.length > 1) {
+
+            if (inputWords[1].equals("routingtable")) {
+                System.out.println(localNode.getRoutingTable().toString());
+            } else if (inputWords[1].equals("users")) {
+                System.out.println(localNode.getUsers().toString());
+            }
+        }
     }
 
     private static void exit() {
         if (localNode != null) {
-            localNode.shutdown(true);
+            localNode.shutdown(false);
         }
     }
 }
