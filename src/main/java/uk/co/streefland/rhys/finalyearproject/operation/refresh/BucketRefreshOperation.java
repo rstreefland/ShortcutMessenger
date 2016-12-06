@@ -40,6 +40,8 @@ public class BucketRefreshOperation implements Operation {
             /* Run each FindNodeOperations in a different thread */
             threadPool.execute(new Thread(() -> runOperation(current)));
         }
+
+        threadPool.shutdown();
     }
 
     private void runOperation(KeyId current) {

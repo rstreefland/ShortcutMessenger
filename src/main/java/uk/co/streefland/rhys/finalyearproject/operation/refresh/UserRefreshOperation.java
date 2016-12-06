@@ -50,6 +50,8 @@ public class UserRefreshOperation implements Operation {
             /* Run each RegisterUserOperation in a different thread */
             threadPool.execute(new Thread(() -> runOperation(entry)));
         }
+
+        threadPool.shutdown();
     }
 
     private void runOperation(Map.Entry<String, User> entry) {

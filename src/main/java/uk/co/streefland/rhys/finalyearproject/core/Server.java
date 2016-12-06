@@ -143,7 +143,7 @@ public class Server {
      */
     public synchronized int sendMessage(Node destination, Message msg, Receiver recv) throws IOException {
         if (!isRunning) {
-            throw new IllegalStateException("Server is not running");
+            return 0;
         }
 
         /* Generate a random communication ID */
@@ -212,7 +212,7 @@ public class Server {
      */
     public synchronized void reply(Node destination, Message msg, int communicationId) throws IOException {
         if (!isRunning) {
-            throw new IllegalStateException("Server is not running");
+            return;
         }
         sendMessage(destination, msg, communicationId);
     }
@@ -233,10 +233,12 @@ public class Server {
     public synchronized void shutdown() {
         logger.info("Shutting down server");
 
+        threadPool.shutdownNow();  // shut down any running threads in the threadPool;
         isRunning = false;
-        threadPool.shutdownNow();  // shut down any running threads in the threadPool
         socket.close();
         timer.cancel();
+
+        System.out.println("ThreadPool is shutdown? "  + threadPool.isShutdown());
     }
 
     public boolean isRunning() {

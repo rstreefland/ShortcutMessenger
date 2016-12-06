@@ -44,6 +44,8 @@ public class MessageRefreshOperation implements Operation {
             /* Run each SendMessageOperation in a different thread */
             threadPool.execute(new Thread(() -> runOperation(entry)));
         }
+
+        threadPool.shutdown();
     }
 
     private void runOperation(Map.Entry<KeyId, TextMessage> entry) {

@@ -19,7 +19,6 @@ class ReceiverTask implements Runnable {
     private final int communicationId;
 
     public ReceiverTask(Receiver receiver, Message msg, int communicationId) {
-
         this.receiver = receiver;
         this.msg = msg;
         this.communicationId = communicationId;
