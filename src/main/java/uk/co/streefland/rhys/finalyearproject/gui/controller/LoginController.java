@@ -9,10 +9,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 
@@ -32,6 +35,8 @@ public class LoginController {
     private PasswordField passwordField;
     @FXML
     private Text errorText;
+    @FXML
+    private ImageView loader;
 
     public void init(LocalNode localNode) {
         this.localNode = localNode;
@@ -39,7 +44,7 @@ public class LoginController {
 
     @FXML
     protected void handleRegisterButtonAction(ActionEvent event) throws IOException {
-
+        loader.setVisible(true);
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
@@ -67,11 +72,13 @@ public class LoginController {
             } else {
                 showHomeScene();
             }
+            loader.setVisible(false);
         });
     }
 
     @FXML
     protected void handleLoginButtonAction(ActionEvent event) {
+        loader.setVisible(true);
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
@@ -99,6 +106,7 @@ public class LoginController {
             } else {
                 showHomeScene();
             }
+            loader.setVisible(false);
         });
     }
 

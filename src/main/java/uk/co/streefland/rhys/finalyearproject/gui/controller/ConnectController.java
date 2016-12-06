@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -41,6 +42,8 @@ public class ConnectController {
     private TextField networkIpField;
     @FXML
     private Text errorText;
+    @FXML
+    private ImageView loader;
 
     public void init(Main main) {
         this.main = main;
@@ -60,6 +63,7 @@ public class ConnectController {
      */
     @FXML
     private void handleConnectButtonAction(ActionEvent event) {
+        loader.setVisible(true);
 
         Task task = new Task() {
             @Override
@@ -123,6 +127,8 @@ public class ConnectController {
             } else {
                 showLoginScene();
             }
+
+            loader.setVisible(false);
         });
     }
 

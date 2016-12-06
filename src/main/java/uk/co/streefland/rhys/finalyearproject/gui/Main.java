@@ -37,8 +37,6 @@ public class Main extends Application {
         /* Load in custom fonts */
         Font.loadFont(getClass().getResourceAsStream("/Roboto-Regular.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("/Roboto-Light.ttf"), 14);
-        Font.loadFont(getClass().getResourceAsStream("/Roboto-Bold.ttf"), 14);
-        Font.loadFont(getClass().getResourceAsStream("/NotoColorEmoji.ttf"), 14);
 
         StorageHandler temp = new StorageHandler();
         Parent root;
