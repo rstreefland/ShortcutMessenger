@@ -86,7 +86,7 @@ public class Server {
                 /* Check if the node is part of this network - drop the packet if not
                    allow if message is connect message
                    allow if ack and local network ID is null
-                   allow if local network ID == remote network ID */
+                   allow if local network ID == remote network ID */ // TODO: 06/12/2016 sort out the null pointer exception here
                 if (messageCode == 0x02 || (messageCode == 0x01 && localNode.getNetworkId() == null) || localNode.getNetworkId().equals(msg.getNetworkId())) {
 
                     /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */

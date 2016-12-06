@@ -89,6 +89,7 @@ public class Users implements Serializable {
             RegisterUserOperation ruo = new RegisterUserOperation(localNode, user, true);
             ruo.execute();
 
+            localUserPassword = plainTextPassword;
             localUser = user; // set the local user object
             users.put(userName, user);
         }
@@ -140,8 +141,8 @@ public class Users implements Serializable {
     }
 
     private void replaceUser(User oldUser, User newUser) {
-        users.remove(oldUser);
-        users.put(newUser.getUserName(), newUser);
+
+        users.replace(newUser.getUserName(), oldUser, newUser);
 
         /* Update the associated node if it's present in the local routing table */
         if (localNode.getRoutingTable().getContact(oldUser.getAssociatedNode()) != null) {
@@ -158,7 +159,10 @@ public class Users implements Serializable {
             localNode.getRoutingTable().insert(newUser.getAssociatedNode());
         }
 
-        if (users.containsKey(newUser.getUserName())) {
+        User oldUser = users.get(newUser.getUserName());
+
+        if (oldUser != null) {
+            users.replace(newUser.getUserName(), oldUser, newUser);
             return;
         }
 

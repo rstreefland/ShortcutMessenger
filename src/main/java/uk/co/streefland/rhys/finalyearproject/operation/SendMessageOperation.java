@@ -94,42 +94,35 @@ public class SendMessageOperation implements Operation, Receiver {
         messageStatus = SendMessageOperation.PENDING_DELIVERY;
 
         /* Get the user object of the user we would like to message */
-        if (!forwarding) {
-            FindUserOperation fuo = new FindUserOperation(localNode, user);
-            fuo.execute();
+        FindUserOperation fuo = new FindUserOperation(localNode, user);
+        fuo.execute();
 
-            user = fuo.getFoundUser();
-            if (user == null) {
-                return;
+        user = fuo.getFoundUser();
+        if (user == null) {
+            return;
+        }
+
+        closestNodes = fuo.getClosestNodes();
+
+        /* Add associated nodes to the 'to message' list */
+        if (user.getAssociatedNode() != null) {
+
+            Contact associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNode());
+
+            if (associatedContact == null) {
+                localNode.getRoutingTable().insert(user.getAssociatedNode());
+                associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNode());
             }
 
-            closestNodes = fuo.getClosestNodes();
+            if (associatedContact.getStaleCount() == 0) {
+                addNode(user.getAssociatedNode());
 
-            /* Add associated nodes to the 'to message' list */
-            if (user.getAssociatedNode() != null) {
-
-                Contact associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNode());
-
-                if (associatedContact == null) {
-                    localNode.getRoutingTable().insert(user.getAssociatedNode());
-                    associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNode());
-                }
-
-                if (associatedContact.getStaleCount() == 0) {
-                    addNode(user.getAssociatedNode());
-
-                    /* Run the message operation for only the intended recipients to begin with */
-                    messageLoop();
-                }
-
-            } else {
-                logger.info("User has no associated nodes - caching message on closest nodes");
+                /* Run the message operation for only the intended recipients to begin with */
+                messageLoop();
             }
 
         } else {
-            /* Run the message operation for the forwarded message */
-            addNode(user.getAssociatedNode());
-            messageLoop();
+            logger.info("User has no associated nodes - caching message on closest nodes");
         }
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
@@ -176,6 +169,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
     /**
      * Inserts a single node into the HashMap
+     *
      * @param node
      */
     private void addNode(Node node) {
