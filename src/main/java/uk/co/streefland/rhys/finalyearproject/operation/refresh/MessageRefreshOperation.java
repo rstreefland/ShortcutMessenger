@@ -6,6 +6,7 @@ import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.NotifySuccessOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
@@ -52,6 +53,12 @@ public class MessageRefreshOperation implements Operation {
             if (smo.messageStatus() == SendMessageOperation.DELIVERED) {
                 logger.debug("Forwarded successfully - deleting message from local storage");
                 localNode.getMessages().getForwardMessages().remove(entry.getKey());
+
+                TextMessage msg = smo.getMessage();
+
+                // send MESSAGE SUCCESS ACK here
+                NotifySuccessOperation nso = new NotifySuccessOperation(localNode.getServer(), localNode, msg.getOrigin(), msg.getRecipientUser().getUserName(), msg.getMessageId(), localNode.getConfig());
+                nso.execute();
             }
         } catch (IOException e) {
             logger.error("Message refresh failed with error:", e);
