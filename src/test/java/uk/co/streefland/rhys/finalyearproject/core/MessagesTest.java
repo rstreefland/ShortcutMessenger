@@ -33,7 +33,7 @@ public class MessagesTest {
 
     @Before
     public void setUp() throws Exception {
-        localNode = new LocalNode(new KeyId(), 12345);
+        localNode = new LocalNode(new KeyId(), Configuration.DEFAULT_PORT);
         messages = new Messages(localNode);
 
         /* originNode = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123);

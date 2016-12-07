@@ -25,7 +25,7 @@ public class LocalNode {
     private KeyId networkId;
     private IPTools ipTools;
     private Configuration config;
-    private Node localNode;
+    private Node node;
     private Server server;
     private RoutingTable routingTable;
     private StorageHandler storageHandler;
@@ -38,36 +38,34 @@ public class LocalNode {
     private RefreshHandler refreshHandler;
 
     /**
-     * This constructor is the main constructor and attempts to read the localNode and routingTable objects from a file.
+     * This constructor is the main constructor and attempts to read the node and routingTable objects from a file.
      * It creates new objects if they cannot be loaded from the file.
      *
      * @throws IOException
      */
-    public LocalNode(IPTools ipTools, InetAddress publicIp, InetAddress privateIp, int port) throws IOException{
+    public LocalNode(IPTools ipTools) throws IOException{
         logger.info("Shortcut Messenger build {}", BUILD_NUMBER);
 
         this.ipTools = ipTools;
-
-        /* Read config, localNode, routingTable and users from file if possible; else create new objects */
         this.storageHandler = new StorageHandler();
-        readState(publicIp, privateIp, port);
+
+        /* Read config, node, routingTable and users from file if possible; else create new objects */
+        readState();
 
         this.messageHandler = new MessageHandler(this);
 
         boolean portBindFailure;
-
         do {
             try {
                 portBindFailure = false;
-                this.server = new Server(this, port);
+                this.server = new Server(this, node.getPrivatePort());
             } catch (IOException e) {
                 portBindFailure = true;
-                logger.warn("Couldn't bind to port " + port);
-                port++;
-                logger.warn("Using port " + port + " instead");
+                logger.warn("Couldn't bind to port " + node.getPrivatePort());
+                node.setPrivatePort(node.getPrivatePort() + 1);
+                logger.warn("Using port " + node.getPrivatePort() + " instead");
 
-                localNode.setPrivatePort(port);
-                localNode.setPublicPort(port);
+                node.setPublicPort(node.getPrivatePort());
             }
         } while (portBindFailure);
 
@@ -84,14 +82,14 @@ public class LocalNode {
             /* Start the automatic refresh operation that runs every 60 seconds */
             startRefreshOperation();
         }
-        logger.info("LocalNode ID:" + localNode.getNodeId());
+        logger.info("LocalNode ID:" + node.getNodeId());
     }
 
     /**
      * This constructor exists for tests that create multiple nodes with different ports on the local machine.
      * It doesn't load any existing configuration from a file
      *
-     * @param defaultId The nodeId of the localNode
+     * @param defaultId The nodeId of the node
      * @param port      The port the server should listen on
      * @throws IOException
      */
@@ -100,10 +98,10 @@ public class LocalNode {
 
         this.ipTools = new IPTools();
 
-        this.localNode = new Node(defaultId, InetAddress.getLocalHost(), InetAddress.getLocalHost(), port, port);
+        this.node = new Node(defaultId, InetAddress.getLocalHost(), InetAddress.getLocalHost(), port, port);
         this.config = new Configuration();
         this.storageHandler = new StorageHandler();
-        this.routingTable = new RoutingTable(localNode);
+        this.routingTable = new RoutingTable(node);
 
         this.messageHandler = new MessageHandler(this);
         this.server = new Server(this, port);
@@ -114,12 +112,12 @@ public class LocalNode {
     }
 
     /**
-     * If a saved state file exists then it will read the localNode and routingTable objects from that file.
+     * If a saved state file exists then it will read the node and routingTable objects from that file.
      * If it cannot read these objects from the file it will create new objects
      *
      * @throws IOException
      */
-    private void readState(InetAddress publicIp, InetAddress privateIp, int port) throws IOException {
+    private void readState() throws IOException {
         if (storageHandler.doesSavedStateExist()) {
             logger.info("Saved state found - attempting to read ");
 
@@ -135,20 +133,28 @@ public class LocalNode {
             } else {
                 logger.warn("Failed to read config from saved state - defaulting to new config");
                 config = new Configuration();
-                if (port != 0) {
-                    config.setPort(port);
-                }
             }
 
-            /* Get localNode object from storageHandler */
-            Node newLocalNode = storageHandler.getLocalNode();
+            /* Get networkId object from storageHandler */
+            KeyId newNetworkId = storageHandler.getNetworkId();
 
-            if (newLocalNode != null) {
+            if (newNetworkId != null) {
+                logger.info("NetworkId read successfully");
+                networkId = newNetworkId;
+            }
+
+            /* Get node object from storageHandler */
+            Node newNode = storageHandler.getNode();
+
+            if (newNode != null) {
                 logger.info("Local node read successfully");
-                localNode = newLocalNode;
+                /* IPs may have changed since the node was shut down - update the node object */
+                newNode.setPublicInetAddress(ipTools.getPublicInetAddress());
+                newNode.setPrivateInetAddress(ipTools.getPrivateInetAddress());
+                node = newNode;
             } else {
                 logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
-                localNode = new Node(new KeyId(), publicIp, privateIp, config.getPort(), config.getPort());
+                node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT);
             }
 
             /* Get routingTable object from storageHandler */
@@ -159,7 +165,7 @@ public class LocalNode {
                 routingTable = newRoutingTable;
             } else {
                 logger.warn("Failed to read routing table from saved state - defaulting to creating a new routing table");
-                routingTable = new RoutingTable(localNode);
+                routingTable = new RoutingTable(node);
             }
 
             /* Get users object from storageHandler */
@@ -187,21 +193,18 @@ public class LocalNode {
         } else {
             logger.info("Saved state not found");
             config = new Configuration();
-            if (port != 0) {
-                config.setPort(port);
-            }
-            localNode = new Node(new KeyId(), publicIp, privateIp, config.getPort(), config.getPort());
-            routingTable = new RoutingTable(localNode);
+            node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT);
+            routingTable = new RoutingTable(node);
             messages = new Messages(this);
         }
     }
 
     /**
-     * Saves the localNode and routingTable objects to a file using the StorageHandler class
+     * Saves the node and routingTable objects to a file using the StorageHandler class
      */
     private void saveState() {
         logger.info("Saving state to file");
-        storageHandler.save(config, localNode, routingTable, users, messages);
+        storageHandler.save(config, networkId, node, routingTable, users, messages);
     }
 
     /**
@@ -254,7 +257,7 @@ public class LocalNode {
             startRefreshOperation(); // start the automatic refresh operation that runs every 60 second
         }
 
-        logger.info("Bootstrapping localnode {} to node {}", localNode.toString(), node.toString());
+        logger.info("Bootstrapping localnode {} to node {}", node.toString(), node.toString());
         ConnectOperation connect = new ConnectOperation(server, this, node, config);
         connect.execute();
 
@@ -273,7 +276,7 @@ public class LocalNode {
         stopRefreshOperation(); // Stop the automatic refresh timer
 
         if (saveState) {
-            saveState(); // Save the localNode and routingTable objects to file
+            saveState(); // Save the node and routingTable objects to file
         }
 
         logger.info("Server shut down successfully");
@@ -296,11 +299,11 @@ public class LocalNode {
     }
 
     public Node getNode() {
-        return localNode;
+        return node;
     }
 
     public void setNode(Node node) {
-        this.localNode = node;
+        this.node = node;
     }
 
     public Users getUsers() {

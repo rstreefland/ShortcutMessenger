@@ -90,4 +90,12 @@ public class IPTools {
     public String getPrivateIp() {
         return privateIp;
     }
+
+    public InetAddress getPublicInetAddress() throws UnknownHostException {
+        return InetAddress.getByName(publicIp);
+    }
+
+    public InetAddress getPrivateInetAddress() throws UnknownHostException {
+        return InetAddress.getByName(publicIp);
+    }
 }

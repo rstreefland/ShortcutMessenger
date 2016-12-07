@@ -112,8 +112,16 @@ public class Node implements Serializable {
         return publicIp;
     }
 
+    public void setPublicInetAddress(InetAddress publicIp) {
+        this.publicIp = publicIp;
+    }
+
     public InetAddress getPrivateInetAddress() {
         return privateIp;
+    }
+
+    public void setPrivateInetAddress(InetAddress privateIp) {
+        this.privateIp = privateIp;
     }
 
     public KeyId getNodeId() {

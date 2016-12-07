@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.cli;
 
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
@@ -137,7 +138,7 @@ class Main {
 
             /* Special case for first node in the network */
             if (networkIpString.equals("first")) {
-                localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
+                localNode = new LocalNode(ipTools);
                 localNode.first();
             }
 
@@ -149,12 +150,12 @@ class Main {
             }
 
             if (networkIp != null) {
-                localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
+                localNode = new LocalNode(ipTools);
             } else {
                 System.err.println("Invalid network address");
             }
 
-            boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, 12345, 12345));
+            boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT));
 
             if (error) {
                 localNode.shutdown(false);

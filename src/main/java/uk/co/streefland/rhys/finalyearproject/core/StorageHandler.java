@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.core;
 
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.Users;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
@@ -14,14 +15,16 @@ import java.io.*;
 public class StorageHandler {
 
     private Configuration config;
-    private Node localNode;
+    private KeyId networkId;
+    private Node node;
     private RoutingTable routingTable;
     private Users users;
     private Messages messages;
 
     public StorageHandler() {
         this.config = null;
-        this.localNode = null;
+        this.networkId = null;
+        this.node = null;
         this.routingTable = null;
         this.users = null;
         this.messages = null;
@@ -30,10 +33,10 @@ public class StorageHandler {
     /**
      * Save the provided objects to the file specified in the Configuration class
      *
-     * @param localNode    The Node object to write to file
+     * @param node   The Node object to write to file
      * @param routingTable The RoutingTable object to write to file
      */
-    public void save(Configuration config, Node localNode, RoutingTable routingTable, Users users, Messages messages) {
+    public void save(Configuration config, KeyId networkId, Node node, RoutingTable routingTable, Users users, Messages messages) {
         FileOutputStream fout;
         ObjectOutputStream oos;
 
@@ -41,7 +44,8 @@ public class StorageHandler {
             fout = new FileOutputStream(Configuration.FILE_PATH, false);
             oos = new ObjectOutputStream(fout);
             oos.writeObject(config);
-            oos.writeObject(localNode);
+            oos.writeObject(networkId);
+            oos.writeObject(node);
             oos.writeObject(routingTable);
             oos.writeObject(users);
             oos.writeObject(messages);
@@ -64,7 +68,8 @@ public class StorageHandler {
             ois = new ObjectInputStream(fis);
 
             config = (Configuration) ois.readObject();
-            localNode = (Node) ois.readObject();
+            networkId = (KeyId) ois.readObject();
+            node = (Node) ois.readObject();
             routingTable = (RoutingTable) ois.readObject();
             users = (Users) ois.readObject();
             messages = (Messages) ois.readObject();
@@ -92,10 +97,17 @@ public class StorageHandler {
     }
 
     /**
+     * @return The KeyId object that was read from file by the load() method
+     */
+    public KeyId getNetworkId() {
+        return networkId;
+    }
+
+    /**
      * @return The Node object that was read from file by the load() method
      */
-    public Node getLocalNode() {
-        return localNode;
+    public Node getNode() {
+        return node;
     }
 
     /**

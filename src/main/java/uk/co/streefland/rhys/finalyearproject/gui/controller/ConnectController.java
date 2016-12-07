@@ -14,6 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.gui.Main;
@@ -78,7 +79,7 @@ public class ConnectController {
 
                 /* Special case for first node in the network */
                 if (networkIpString.equals("first")) {
-                    localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
+                    localNode = new LocalNode(ipTools);
                     localNode.first();
                     this.succeeded();
                     return null;
@@ -91,15 +92,14 @@ public class ConnectController {
                 } catch (UnknownHostException uho) {
                 }
 
-
                 if (networkIp != null) {
-                    localNode = new LocalNode(ipTools, publicIp, privateIp, 12345);
+                    localNode = new LocalNode(ipTools);
                 } else {
                     this.succeeded();
                     return "Invalid network address";
                 }
 
-                boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, 12345, 12345));
+                boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT));
 
                 if (error) {
                     this.succeeded();

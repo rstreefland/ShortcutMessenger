@@ -46,7 +46,7 @@ public class Main extends Application {
         /* Check if we can load the saved state from the file and show the relevant scene */
         if (temp.doesSavedStateExist()) {
             IPTools ipTools = new IPTools();
-            localNode = new LocalNode(ipTools, InetAddress.getByName(""), InetAddress.getByName(""), 0);
+            localNode = new LocalNode(ipTools);
 
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
             root = loader.load();
@@ -99,7 +99,7 @@ public class Main extends Application {
     @Override
     public void stop(){
         if (localNode != null) {
-            localNode.shutdown(false); // TODO: 16/11/2016 change this back to true once you've fixed the saving and loading
+            localNode.shutdown(true); // TODO: 16/11/2016 change this back to true once you've fixed the saving and loading
         }
     }
 
