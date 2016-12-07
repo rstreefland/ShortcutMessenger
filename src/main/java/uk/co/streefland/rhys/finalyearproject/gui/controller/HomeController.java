@@ -109,6 +109,11 @@ public class HomeController {
                 (observableValue, oldValue, newValue) -> {
                     if (newValue) {
                         settingsMenu.hide();
+                        try {
+                            settingsDialog();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
 
@@ -354,6 +359,61 @@ public class HomeController {
      * @throws IOException
      */
     @FXML
+    private void settingsDialog() throws IOException {
+        Dialog dialog = new Dialog();
+        dialog.setTitle("Settings");
+        dialog.setHeaderText("Settings");
+
+        GridPane content = new GridPane();
+        content.vgapProperty().set(10);
+        content.hgapProperty().set(10);
+        content.setMaxWidth(Double.MAX_VALUE);
+
+        content.add(new Label("Maximum connection attempts"), 1, 1);
+        content.add(new Label("Operation timeout (ms)"), 1, 2);
+        content.add(new Label("Response timeout (ms)"), 1, 3);
+        content.add(new Label("Refresh interval (ms)"), 1, 4);
+
+        TextField maxConnectionAttemptsInput = new TextField(localNode.getConfig().getMaxConnectionAttempts() + "");
+        TextField operationTimeoutInput = new TextField(localNode.getConfig().getOperationTimeout() + "");
+        TextField responseTimeoutInput = new TextField(localNode.getConfig().getResponseTimeout() + "");
+        TextField refreshIntervalInput = new TextField(localNode.getConfig().getRefreshInterval() + "");
+
+        content.add(maxConnectionAttemptsInput, 2, 1);
+        content.add(operationTimeoutInput, 2, 2);
+        content.add(responseTimeoutInput, 2, 3);
+        content.add(refreshIntervalInput, 2, 4);
+
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.setContent(content);
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-pane");
+
+        dialogPane.getButtonTypes().add(ButtonType.NO);
+        dialogPane.getButtonTypes().add(ButtonType.YES);
+        Button discardButton = (Button) dialogPane.lookupButton(ButtonType.NO);
+        Button applyButton = (Button) dialogPane.lookupButton(ButtonType.YES);
+
+        applyButton.setText("Apply");
+        discardButton.setText("Discard");
+
+        applyButton.setOnAction(e -> {
+            localNode.getConfig().setMaxConnectionAttempts(Integer.parseInt(maxConnectionAttemptsInput.getText()));
+            localNode.getConfig().setOperationTimeout(Integer.parseInt(operationTimeoutInput.getText()));
+            localNode.getConfig().setResponseTimeout(Integer.parseInt(responseTimeoutInput.getText()));
+            localNode.getConfig().setRefreshInterval(Integer.parseInt(refreshIntervalInput.getText()));
+        });
+
+        dialog.show();
+    }
+
+    /**
+     * About dialog
+     *
+     * @throws IOException
+     */
+    @FXML
     private void aboutDialog() throws IOException {
         Dialog dialog = new Dialog();
         dialog.setTitle("About");
@@ -365,7 +425,7 @@ public class HomeController {
         Hyperlink link = new Hyperlink("Shortcut Messenger is made possible by open source software.");
         link.setOnAction(e -> {
             try {
-                Desktop.getDesktop().browse(new URI("https://google.co.uk"));
+                Desktop.getDesktop().browse(new URI("https://rstreefland.github.io/shortcutmessengerweb/"));
             } catch (IOException e1) {
                 e1.printStackTrace();
             } catch (URISyntaxException e1) {
@@ -387,7 +447,6 @@ public class HomeController {
 
         dialogPane.getButtonTypes().add(ButtonType.CLOSE);
         Node closeButton = dialogPane.lookupButton(ButtonType.CLOSE);
-        content.add(closeButton, 2, 3);
 
         dialog.show();
     }
