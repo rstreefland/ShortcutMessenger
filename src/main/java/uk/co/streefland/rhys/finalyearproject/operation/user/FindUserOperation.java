@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.operation.user;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
@@ -35,7 +36,7 @@ public class FindUserOperation implements Operation, Receiver {
 
     private Message message; // Message sent to each peer
     private List<Node> closestNodes;
-    private final Map<Node, String> nodes;
+    private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
 
     /* Tracks messages in transit and awaiting reply */
@@ -101,7 +102,7 @@ public class FindUserOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, Configuration.NOT_QUERIED);
+                nodes.put(node, Configuration.Status.NOT_QUERIED);
             }
 
             if (!attempts.containsKey(node)) {
@@ -120,8 +121,8 @@ public class FindUserOperation implements Operation, Receiver {
 
         /* Add not queried and failed nodes to the toQuery List if they haven't failed
          * getMaxConnectionAttempts() times */
-        for (Map.Entry<Node, String> e : nodes.entrySet()) {
-            if (e.getValue().equals(Configuration.NOT_QUERIED) || e.getValue().equals(Configuration.FAILED)) {
+        for (Map.Entry<Node, Configuration.Status> e : nodes.entrySet()) {
+            if (e.getValue().equals(Configuration.Status.NOT_QUERIED) || e.getValue().equals(Configuration.Status.FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
                     toQuery.add(e.getKey());
                 }
@@ -142,15 +143,15 @@ public class FindUserOperation implements Operation, Receiver {
             if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
                 //logger.info("Not running find node operation against stale node");
                 localNode.getRoutingTable().setUnresponsiveContact(n);
-                nodes.put(n, Configuration.QUERIED);
+                nodes.put(n, Configuration.Status.QUERIED);
             } else {
                 /* Handle a node sending a message to itself */
                 if (n.equals(localNode.getNode())) {
-                    nodes.put(n, Configuration.QUERIED);
+                    nodes.put(n, Configuration.Status.QUERIED);
                 } else {
                     int communicationId = server.sendMessage(n, message, this);
 
-                    nodes.put(n, Configuration.AWAITING_REPLY);
+                    nodes.put(n, Configuration.Status.AWAITING_REPLY);
                     attempts.put(n, attempts.get(n) + 1);
                     messagesInTransit.put(communicationId, n);
                 }
@@ -174,7 +175,7 @@ public class FindUserOperation implements Operation, Receiver {
         }
 
         /* Update the hashmap to show that we've finished messaging this node */
-        nodes.put(msg.getOrigin(), Configuration.QUERIED);
+        nodes.put(msg.getOrigin(), Configuration.Status.QUERIED);
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
@@ -199,7 +200,7 @@ public class FindUserOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed, increment attempts, remove message in transit */
-        nodes.put(n, Configuration.FAILED);
+        nodes.put(n, Configuration.Status.FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
 

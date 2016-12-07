@@ -6,6 +6,7 @@ import uk.co.streefland.rhys.finalyearproject.core.Encryption;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
+import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -26,7 +27,7 @@ public class StoredTextMessage implements Serializable {
     private String authorUser;
     private String recipientUser;
     private String message;
-    private int messageStatus;
+    private SendMessageOperation.Status messageStatus;
     private long createdTime;
 
     public StoredTextMessage(KeyId messageId, String authorUser, String recipientUser, String message, long createdTime) {
@@ -37,7 +38,7 @@ public class StoredTextMessage implements Serializable {
         this.createdTime = createdTime;
     }
 
-    public StoredTextMessage(KeyId messageId, String authorUser, String recipientUser, String message, int messageStatus, long createdTime) {
+    public StoredTextMessage(KeyId messageId, String authorUser, String recipientUser, String message, SendMessageOperation.Status messageStatus, long createdTime) {
         this.messageId = messageId;
         this.authorUser = authorUser;
         this.recipientUser = recipientUser;
@@ -62,11 +63,11 @@ public class StoredTextMessage implements Serializable {
         return message;
     }
 
-    public int getMessageStatus() {
+    public SendMessageOperation.Status getMessageStatus() {
         return messageStatus;
     }
 
-    public void setMessageStatus(int messageStatus) {
+    public void setMessageStatus(SendMessageOperation.Status messageStatus) {
         this.messageStatus = messageStatus;
     }
 

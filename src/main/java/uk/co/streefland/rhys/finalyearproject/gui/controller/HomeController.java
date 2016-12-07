@@ -161,7 +161,7 @@ public class HomeController {
         KeyId messageId = message.getMessageId();
         String messageString = message.getMessage();
         String author = message.getAuthor();
-        int messageStatus = message.getMessageStatus();
+        SendMessageOperation.Status messageStatus = message.getMessageStatus();
 
         /* Run on the JavaFX thread */
         Platform.runLater(() -> {
@@ -198,7 +198,7 @@ public class HomeController {
             KeyId messageId = message.getMessageId();
             String messageString = message.getMessage();
             String author = message.getAuthor();
-            int messageStatus = message.getMessageStatus();
+            SendMessageOperation.Status messageStatus = message.getMessageStatus();
 
          /* If the message is for the current conversation - add it to the conversation */
             if (currentConversationUser != null) {
@@ -211,7 +211,7 @@ public class HomeController {
         }
     }
 
-    public void drawChatBubble(KeyId messageId, String messageString, String author, int messageStatus) {
+    public void drawChatBubble(KeyId messageId, String messageString, String author, SendMessageOperation.Status messageStatus) {
 
         FlowPane output;
         Node emoji = null;
@@ -239,13 +239,13 @@ public class HomeController {
             HBox master = new HBox();
             HBox status = new HBox();
 
-            if (messageStatus == SendMessageOperation.FORWARDED) {
+            if (messageStatus == SendMessageOperation.Status.FORWARDED) {
                 ImageView tick = new ImageView("/singletick.png");
                 status.getChildren().add(tick);
-            } else if (messageStatus == SendMessageOperation.DELIVERED) {
+            } else if (messageStatus == SendMessageOperation.Status.DELIVERED) {
                 ImageView tick = new ImageView("/doubletick.png");
                 status.getChildren().add(tick);
-            } else if (messageStatus == SendMessageOperation.FAILED) {
+            } else if (messageStatus == SendMessageOperation.Status.FAILED) {
                 output.setStyle(
                         "-fx-background-radius: 1em;" +
                                 "-fx-background-color: red;"

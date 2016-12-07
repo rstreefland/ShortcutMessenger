@@ -29,7 +29,7 @@ public class FindNodeOperation implements Operation, Receiver {
     private final Server server;
     private final Configuration config;
     private final Message lookupMessage;        // Message sent to each peer
-    private final Map<Node, String> nodes;
+    private final Map<Node, Configuration.Status> nodes;
 
     private final boolean ignoreStale;
 
@@ -59,7 +59,7 @@ public class FindNodeOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
         /* Set the local node as already asked */
-        nodes.put(localNode.getNode(), Configuration.QUERIED);
+        nodes.put(localNode.getNode(), Configuration.Status.QUERIED);
 
         /* Insert all nodes because some nodes may fail to respond. */
         addNodes(localNode.getRoutingTable().getAllNodes(ignoreStale));
@@ -93,7 +93,7 @@ public class FindNodeOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, Configuration.NOT_QUERIED);
+                nodes.put(node, Configuration.Status.NOT_QUERIED);
             }
         }
     }
@@ -110,7 +110,7 @@ public class FindNodeOperation implements Operation, Receiver {
             return false;
         }
 
-        List<Node> notQueried = getClosestNodes(Configuration.NOT_QUERIED);
+        List<Node> notQueried = getClosestNodes(Configuration.Status.NOT_QUERIED);
 
         /* No not queried nodes nor any messages in transit - finish */
         if (notQueried.isEmpty() && messagesInTransit.isEmpty()) {
@@ -126,11 +126,11 @@ public class FindNodeOperation implements Operation, Receiver {
             if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
                 //logger.info("Not running find node operation against stale node");
                 localNode.getRoutingTable().setUnresponsiveContact(n);
-                nodes.put(n, Configuration.QUERIED);
+                nodes.put(n, Configuration.Status.QUERIED);
             } else {
                 int communicationId = server.sendMessage(n, lookupMessage, this);
 
-                nodes.put(n, Configuration.AWAITING_REPLY);
+                nodes.put(n, Configuration.Status.AWAITING_REPLY);
                 messagesInTransit.put(communicationId, n);
             }
         }
@@ -141,7 +141,7 @@ public class FindNodeOperation implements Operation, Receiver {
      * @param status The status of the nodes to return
      * @return The K closest nodes to the target lookupId given that have the specified status
      */
-    private List<Node> getClosestNodes(String status) {
+    private List<Node> getClosestNodes(Configuration.Status status) {
         List<Node> closestNodes = new ArrayList<>(Configuration.K);
         int remainingSpaces = Configuration.K;
 
@@ -159,7 +159,7 @@ public class FindNodeOperation implements Operation, Receiver {
     }
 
     public List<Node> getClosestNodes() {
-        return getClosestNodes(Configuration.QUERIED);
+        return getClosestNodes(Configuration.Status.QUERIED);
     }
 
     /**
@@ -168,8 +168,8 @@ public class FindNodeOperation implements Operation, Receiver {
     private List<Node> getFailedNodes() {
         List<Node> failedNodes = new ArrayList<>();
 
-        for (Map.Entry<Node, String> e : nodes.entrySet()) {
-            if (e.getValue().equals(Configuration.FAILED)) {
+        for (Map.Entry<Node, Configuration.Status> e : nodes.entrySet()) {
+            if (e.getValue().equals(Configuration.Status.FAILED)) {
                 failedNodes.add(e.getKey());
             }
         }
@@ -193,7 +193,7 @@ public class FindNodeOperation implements Operation, Receiver {
         localNode.getRoutingTable().insert(origin);
 
         /* Set that we've completed ASKing the origin node */
-        nodes.put(origin, Configuration.QUERIED);
+        nodes.put(origin, Configuration.Status.QUERIED);
 
         /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
@@ -223,7 +223,7 @@ public class FindNodeOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed and inform the routing table that it is unresponsive */
-        nodes.put(n, Configuration.FAILED);
+        nodes.put(n, Configuration.Status.FAILED);
         localNode.getRoutingTable().setUnresponsiveContact(n);
         messagesInTransit.remove(communicationId);
 

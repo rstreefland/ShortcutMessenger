@@ -8,10 +8,9 @@ import java.io.Serializable;
 public class Configuration implements Serializable {
 
     /* Flags that represent node states */
-    public static final String NOT_QUERIED = "1";
-    public static final String AWAITING_REPLY = "2";
-    public static final String QUERIED = "3";
-    public static final String FAILED = "4";
+    public enum Status {
+        NOT_QUERIED, AWAITING_REPLY, QUERIED, FAILED
+    }
 
     /* Constants */
     public static final int K = 5; // maximum number of contacts per bucket (kademlia specifies 20 but I'm sticking with 5 for now because it's better to unused for a small network)

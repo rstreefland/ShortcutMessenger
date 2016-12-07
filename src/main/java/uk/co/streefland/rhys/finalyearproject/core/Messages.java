@@ -61,7 +61,7 @@ public class Messages implements Serializable {
         KeyId messageId = new KeyId();
 
         /* Create the StoredTextMessage and set the lastMessage */
-        StoredTextMessage stm = new StoredTextMessage(messageId, localNode.getUsers().getLocalUser().getUserName(), target.getUserName(), message, SendMessageOperation.PENDING_DELIVERY, createdTime);
+        StoredTextMessage stm = new StoredTextMessage(messageId, localNode.getUsers().getLocalUser().getUserName(), target.getUserName(), message, SendMessageOperation.Status.PENDING_DELIVERY, createdTime);
         lastMessage.set(stm);
 
         /* Add the storedtextmessage to an existing conversation or create a new one if it doesn't already exist */
@@ -77,7 +77,7 @@ public class Messages implements Serializable {
         if (operation.getUser() != null) {
             localNode.getUsers().addUserToCache(operation.getUser());
 
-            if (operation.messageStatus() != SendMessageOperation.PENDING_DELIVERY && stm.getMessageStatus() != SendMessageOperation.DELIVERED) {
+            if (operation.messageStatus() != SendMessageOperation.Status.PENDING_DELIVERY && stm.getMessageStatus() != SendMessageOperation.Status.DELIVERED) {
                 stm.setMessageStatus(operation.messageStatus());
                 lastMessageUpdate.set(stm);
             }
@@ -101,7 +101,7 @@ public class Messages implements Serializable {
         for (int i = conversation.size() - 1; i >= 0; i--) {
             if (conversation.get(i).getMessageId().equals(messageId)) {
                 logger.info("Updating message status to delivered");
-                conversation.get(i).setMessageStatus(SendMessageOperation.DELIVERED);
+                conversation.get(i).setMessageStatus(SendMessageOperation.Status.DELIVERED);
                 logger.info("New message status is: " + conversation.get(i).getMessageStatus());
                 lastMessageUpdate.set(null);
                 lastMessageUpdate.set(conversation.get(i));

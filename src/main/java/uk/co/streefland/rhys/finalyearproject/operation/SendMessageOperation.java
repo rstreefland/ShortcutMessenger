@@ -29,11 +29,9 @@ public class SendMessageOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public final static int PENDING_DELIVERY = 1;
-    public final static int DELIVERED = 2;
-    public final static int PENDING_FORWARDING = 3;
-    public final static int FORWARDED = 4;
-    public final static int FAILED = 5;
+    public enum Status {
+        PENDING_DELIVERY, DELIVERED, PENDING_FORWARDING, FORWARDED, FAILED
+    }
 
     private final Server server;
     private final Configuration config;
@@ -44,12 +42,12 @@ public class SendMessageOperation implements Operation, Receiver {
     private String messageString;
     private long createdTime;
     private TextMessage message; // Message sent to each peer
-    private final Map<Node, String> nodes;
+    private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
 
     private final Map<Integer, Node> messagesInTransit;
     private final boolean forwarding;
-    private int messageStatus;
+    private Status messageStatus;
 
     private List<Node> closestNodes;
 
@@ -91,7 +89,7 @@ public class SendMessageOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
 
-        messageStatus = SendMessageOperation.PENDING_DELIVERY;
+        messageStatus = Status.PENDING_DELIVERY;
 
         /* Get the user object of the user we would like to message */
         FindUserOperation fuo = new FindUserOperation(localNode, user);
@@ -126,9 +124,9 @@ public class SendMessageOperation implements Operation, Receiver {
         }
 
         /* Add the next k closest nodes and run the message operation again if the node wasn't reached successfully */
-        if ((messageStatus == SendMessageOperation.PENDING_DELIVERY) && !forwarding) {
+        if ((messageStatus == Status.PENDING_DELIVERY) && !forwarding) {
 
-            messageStatus = SendMessageOperation.PENDING_FORWARDING;
+            messageStatus = Status.PENDING_FORWARDING;
 
             /* Set the contact as unresponsive */
             localNode.getRoutingTable().setUnresponsiveContact(user.getAssociatedNode());
@@ -150,8 +148,8 @@ public class SendMessageOperation implements Operation, Receiver {
             messageLoop();
         }
 
-        if (messageStatus == SendMessageOperation.PENDING_FORWARDING) {
-            messageStatus = SendMessageOperation.FAILED;
+        if (messageStatus == Status.PENDING_FORWARDING) {
+            messageStatus = Status.FAILED;
         }
     }
 
@@ -174,7 +172,7 @@ public class SendMessageOperation implements Operation, Receiver {
      */
     private void addNode(Node node) {
         if (!nodes.containsKey(node)) {
-            nodes.putIfAbsent(node, Configuration.NOT_QUERIED);
+            nodes.putIfAbsent(node, Configuration.Status.NOT_QUERIED);
         }
 
         if (!attempts.containsKey(node)) {
@@ -211,8 +209,8 @@ public class SendMessageOperation implements Operation, Receiver {
 
         /* Add not queried and failed nodes to the toQuery List if they haven't failed
          * getMaxConnectionAttempts() times */
-        for (Map.Entry<Node, String> e : nodes.entrySet()) {
-            if (e.getValue().equals(Configuration.NOT_QUERIED) || e.getValue().equals(Configuration.FAILED)) {
+        for (Map.Entry<Node, Configuration.Status> e : nodes.entrySet()) {
+            if (e.getValue().equals(Configuration.Status.NOT_QUERIED) || e.getValue().equals(Configuration.Status.FAILED)) {
                 if (attempts.get(e.getKey()) < config.getMaxConnectionAttempts()) {
                     toQuery.add(e.getKey());
                 }
@@ -232,7 +230,7 @@ public class SendMessageOperation implements Operation, Receiver {
             if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
                 //logger.info("Not running find node operation against stale node");
                 localNode.getRoutingTable().setUnresponsiveContact(n);
-                nodes.put(n, Configuration.QUERIED);
+                nodes.put(n, Configuration.Status.QUERIED);
             } else {
 
                 /* Handle a node sending a message to itself */
@@ -246,17 +244,17 @@ public class SendMessageOperation implements Operation, Receiver {
                         /* this is a message for yourself */
                         message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user, messageString, createdTime);
                         localNode.getMessages().addReceivedMessage(message);
-                        messageStatus = SendMessageOperation.DELIVERED;
+                        messageStatus = Status.DELIVERED;
                     }
 
-                    nodes.put(n, Configuration.QUERIED);
+                    nodes.put(n, Configuration.Status.QUERIED);
                 } else {
                     if (!forwarding) {
                         message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
                     }
                     int communicationId = server.sendMessage(n, message, this);
 
-                    nodes.put(n, Configuration.AWAITING_REPLY);
+                    nodes.put(n, Configuration.Status.AWAITING_REPLY);
                     attempts.put(n, attempts.get(n) + 1);
                     messagesInTransit.put(communicationId, n);
                 }
@@ -277,17 +275,17 @@ public class SendMessageOperation implements Operation, Receiver {
 
         if (msg.getOperationSuccessful()) {
 
-            if (messageStatus == SendMessageOperation.PENDING_DELIVERY) {
-                messageStatus = SendMessageOperation.DELIVERED;
+            if (messageStatus == Status.PENDING_DELIVERY) {
+                messageStatus = Status.DELIVERED;
             }
 
-            if (messageStatus == SendMessageOperation.PENDING_FORWARDING) {
-                messageStatus = SendMessageOperation.FORWARDED;
+            if (messageStatus == Status.PENDING_FORWARDING) {
+                messageStatus = Status.FORWARDED;
             }
         }
 
         /* Update the hashmap to show that we've finished messaging this node */
-        nodes.put(msg.getSource(), Configuration.QUERIED);
+        nodes.put(msg.getSource(), Configuration.Status.QUERIED);
 
          /* Remove this msg from messagesTransiting since it's completed now */
         messagesInTransit.remove(communicationId);
@@ -313,7 +311,7 @@ public class SendMessageOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed, increment attempts, remove message in transit */
-        nodes.put(n, Configuration.FAILED);
+        nodes.put(n, Configuration.Status.FAILED);
         attempts.put(n, attempts.get(n) + 1);
         messagesInTransit.remove(communicationId);
 
@@ -321,7 +319,7 @@ public class SendMessageOperation implements Operation, Receiver {
         notify();
     }
 
-    public synchronized int messageStatus() {
+    public synchronized Status messageStatus() {
         return messageStatus;
     }
 
