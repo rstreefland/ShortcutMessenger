@@ -135,3 +135,12 @@
 .dialog-pane:header .header-panel {
     -fx-background-color: #5c6b73;
 }
+
+.hyperlink {
+    -fx-border-color: transparent;
+    -fx-padding: 4 0 4 0;
+}
+
+.hyperlink:visited {
+    -fx-text-fill: #1A8088;
+}

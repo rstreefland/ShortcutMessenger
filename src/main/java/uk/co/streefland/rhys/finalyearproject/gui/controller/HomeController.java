@@ -5,12 +5,21 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
@@ -32,7 +41,10 @@ import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -116,6 +128,11 @@ public class HomeController {
                 (observableValue, oldValue, newValue) -> {
                     if (newValue) {
                         aboutMenu.hide();
+                        try {
+                            aboutDialog();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
 
@@ -331,6 +348,49 @@ public class HomeController {
         }
     }
 
+    /**
+     * About dialog
+     *
+     * @throws IOException
+     */
+    @FXML
+    private void aboutDialog() throws IOException {
+        Dialog dialog = new Dialog();
+        dialog.setTitle("About");
+        dialog.setHeaderText("Shortcut Messenger");
+
+        StringBuilder sb = new StringBuilder("Shortcut Messenger build " + LocalNode.BUILD_NUMBER);
+        sb.append("\nCreated by Rhys Streefland for CS3IP16");
+
+        Hyperlink link = new Hyperlink("Shortcut Messenger is made possible by open source software.");
+        link.setOnAction(e -> {
+            try {
+                Desktop.getDesktop().browse(new URI("https://google.co.uk"));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            } catch (URISyntaxException e1) {
+                e1.printStackTrace();
+            }
+        });
+
+        GridPane content = new GridPane();
+        content.vgapProperty().set(10);
+        content.setMaxWidth(Double.MAX_VALUE);
+        content.add(new Label(sb.toString()), 1, 1);
+        content.add(link, 1, 2);
+
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.setContent(content);
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-pane");
+
+        dialogPane.getButtonTypes().add(ButtonType.CLOSE);
+        Node closeButton = dialogPane.lookupButton(ButtonType.CLOSE);
+        content.add(closeButton, 2, 3);
+
+        dialog.show();
+    }
 
     /**
      * Adds a new user to the conversation ListView

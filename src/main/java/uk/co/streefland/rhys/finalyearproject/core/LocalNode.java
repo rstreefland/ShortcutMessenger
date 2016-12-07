@@ -18,7 +18,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    private static final String BUILD_NUMBER = "1054";
+    public static final String BUILD_NUMBER = "1056";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
@@ -44,7 +44,7 @@ public class LocalNode {
      * @throws IOException
      */
     public LocalNode(IPTools ipTools, InetAddress publicIp, InetAddress privateIp, int port) throws IOException{
-        logger.info("FinalYearProject build {}", BUILD_NUMBER);
+        logger.info("Shortcut Messenger build {}", BUILD_NUMBER);
 
         this.ipTools = ipTools;
 
@@ -96,7 +96,7 @@ public class LocalNode {
      * @throws IOException
      */
     public LocalNode(KeyId defaultId, int port) throws IOException {
-        logger.info("FinalYearProject build {}", BUILD_NUMBER);
+        logger.info("Shortcut Messenger build {}", BUILD_NUMBER);
 
         this.ipTools = new IPTools();
 
