@@ -18,7 +18,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    private static final String BUILD_NUMBER = "1030";
+    private static final String BUILD_NUMBER = "1038";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */

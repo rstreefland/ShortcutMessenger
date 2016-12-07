@@ -1,8 +1,0 @@
-2016-12-06 21:35:40.024 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI v1.0
-2016-12-06 21:35:47.234 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - FinalYearProject build 1030
-2016-12-06 21:35:47.241 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state not found
-2016-12-06 21:35:47.266 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:67E7B186D69DC5D84C1F889A074425367D335984
-2016-12-06 21:35:47.267 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-12-06 21:35:47.268 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-12-06 21:35:58.450 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-12-06 21:35:58.452 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

@@ -4,7 +4,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.net.URL?>
-<BorderPane fx:id="borderPane" onKeyPressed="#handleKeyPressed" styleClass="root" xmlns="http://javafx.com/javafx/8.0.65"
+<BorderPane fx:id="borderPane" onKeyPressed="#handleKeyPressed" styleClass="root"
+            xmlns="http://javafx.com/javafx/8.0.65"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController">
     <top>
@@ -45,7 +46,8 @@
                     </GridPane>
                 </ScrollPane>
                 <HBox alignment="BOTTOM_CENTER">
-                    <TextField fx:id="messageField" styleClass="message-box" promptText="Type a message..." HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="messageField" styleClass="message-box" promptText="Type a message..."
+                               HBox.hgrow="ALWAYS"/>
                 </HBox>
             </VBox>
         </GridPane>

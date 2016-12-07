@@ -9,6 +9,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -22,9 +23,14 @@ class Main {
     private static String input = "";
     private static String[] inputWords = new String[2];
     private static LocalNode localNode = null;
+    private static ArrayList<String> availableCommands = new ArrayList<>();
 
     public static void main(String[] args) {
         System.out.println("Shortcut Messenger CLI v1.0");
+
+        availableCommands.add("bootstrap");
+        availableCommands.add("help");
+        availableCommands.add("exit");
 
         try {
             ipTools = new IPTools();
@@ -86,7 +92,7 @@ class Main {
 
         if (inputWords.length > 1) {
             if (inputWords[1].equals("print")) {
-                System.out.println("Print command usage information:");
+                System.out.println("\nPrint command usage information:");
                 System.out.println("-----------------------------");
                 System.out.println("print routingtable - print a list of nodes in the local routing table");
                 System.out.println("print users - print a list of users stored in the local node");
@@ -94,15 +100,29 @@ class Main {
             }
         }
 
-        System.out.println("Currently available commands:");
+        System.out.println("\nCurrently available commands:");
         System.out.println("-----------------------------");
-        System.out.println("bootstrap - Bootstrap the local node to a network");
-        System.out.println("register - Register a user account on the network");
-        System.out.println("login - Login to an existing user account");
-        System.out.println("message - Message a user on the network");
-        System.out.println("print - Use 'help print' for usage information");
-        System.out.println("quit - Quit the program");
 
+        if (availableCommands.contains("bootstrap"))
+            System.out.println("bootstrap - Bootstrap the local node to a network");
+
+        if (availableCommands.contains("register"))
+            System.out.println("register - Register a user account on the network");
+
+        if (availableCommands.contains("login"))
+            System.out.println("login - Login to an existing user account");
+
+        if (availableCommands.contains("message"))
+            System.out.println("message - Message a user on the network");
+
+        if (availableCommands.contains("print"))
+            System.out.println("print - Use 'help print' for usage information");
+
+        if (availableCommands.contains("help"))
+            System.out.println("help - A summary of all available commands");
+
+        if (availableCommands.contains("exit"))
+            System.out.println("exit - Exit the program");
     }
 
     private static void bootstrap() throws IOException {
@@ -140,6 +160,12 @@ class Main {
                 localNode.shutdown(false);
                 localNode = null;
                 System.err.println("Failed to bootstrap to the specified network");
+            } else {
+                availableCommands.remove("bootstrap");
+                availableCommands.add("login");
+                availableCommands.add("register");
+                availableCommands.add("message");
+                availableCommands.add("print");
             }
         }
     }
