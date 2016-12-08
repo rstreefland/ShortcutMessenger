@@ -24,7 +24,7 @@ public class MessageRefreshOperation implements Operation {
     private final LocalNode localNode;
 
     /* Cached threadPool so we can run the operation in parallel */
-    private final ExecutorService threadPool = Executors.newFixedThreadPool(10);
+    private final ExecutorService threadPool = Executors.newCachedThreadPool();
 
     public MessageRefreshOperation(LocalNode localNode) {
         this.localNode = localNode;

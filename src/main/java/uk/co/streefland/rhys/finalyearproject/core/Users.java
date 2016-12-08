@@ -145,19 +145,16 @@ public class Users implements Serializable {
         users.replace(newUser.getUserName(), oldUser, newUser);
 
         /* Update the associated node if it's present in the local routing table */
-        if (localNode.getRoutingTable().getContact(oldUser.getAssociatedNode()) != null) {
+        if (!oldUser.getAssociatedNode().equals(newUser.getAssociatedNode())) {
             localNode.getRoutingTable().setUnresponsiveContact(oldUser.getAssociatedNode());
             localNode.getRoutingTable().insert(newUser.getAssociatedNode());
         }
     }
 
-    public synchronized void addUserToCache(User newUser) {
+    public synchronized void addUserToCache(User newUser, boolean resetNodeStaleCount) {
 
         /* Update the associated node if it's present in the local routing table */
-        if (localNode.getRoutingTable().getContact(newUser.getAssociatedNode()) != null) {
-            localNode.getRoutingTable().setUnresponsiveContact(newUser.getAssociatedNode());
-            localNode.getRoutingTable().insert(newUser.getAssociatedNode());
-        }
+        localNode.getRoutingTable().refreshContact(newUser.getAssociatedNode(), resetNodeStaleCount);
 
         User oldUser = users.get(newUser.getUserName());
 
@@ -198,7 +195,7 @@ public class Users implements Serializable {
             fuo.execute();
             user = fuo.getFoundUser();
             if (user != null) {
-                addUserToCache(user);
+                addUserToCache(user, false);
             }
         }
 

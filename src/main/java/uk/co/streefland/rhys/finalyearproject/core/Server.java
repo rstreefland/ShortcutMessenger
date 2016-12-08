@@ -35,7 +35,7 @@ public class Server {
     private boolean isRunning;
 
     /* Cached threadPool so we can run receivers in parallel */
-    private final ExecutorService threadPool = Executors.newFixedThreadPool(10);
+    private final ExecutorService threadPool = Executors.newCachedThreadPool();
 
     public Server(LocalNode localNode, int udpPort) throws IOException {
         this.localNode = localNode;

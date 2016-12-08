@@ -16,6 +16,7 @@ import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 import uk.co.streefland.rhys.finalyearproject.routing.Contact;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -92,15 +93,27 @@ public class SendMessageOperation implements Operation, Receiver {
         messageStatus = Status.PENDING_DELIVERY;
 
         /* Get the user object of the user we would like to message */
-        FindUserOperation fuo = new FindUserOperation(localNode, user);
-        fuo.execute();
+        if (!forwarding) {
+            FindUserOperation fuo = new FindUserOperation(localNode, user);
+            fuo.execute();
 
-        user = fuo.getFoundUser();
-        if (user == null) {
-            return;
+            user = fuo.getFoundUser();
+            if (user == null) {
+                return;
+            }
+
+            closestNodes = fuo.getClosestNodes();
+        } else {
+            /* Don't do the find user operation if forwarding. */
+            User storedUser = null;
+            storedUser = localNode.getUsers().findUser(user);
+
+            if (storedUser != null) {
+                if (storedUser.getLastActiveTime() > user.getLastActiveTime()) {
+                    user = storedUser;
+                }
+            }
         }
-
-        closestNodes = fuo.getClosestNodes();
 
         /* Add associated nodes to the 'to message' list */
         if (user.getAssociatedNode() != null) {
@@ -112,11 +125,17 @@ public class SendMessageOperation implements Operation, Receiver {
                 associatedContact = localNode.getRoutingTable().getContact(user.getAssociatedNode());
             }
 
-            if (associatedContact.getStaleCount() == 0) {
+            /* Ignore the stale count if the message is being forwarded because the target node may have just come back online */
+            if (associatedContact.getStaleCount() == 0 || forwarding) {
                 addNode(user.getAssociatedNode());
 
+                long start = System.currentTimeMillis();
                 /* Run the message operation for only the intended recipients to begin with */
                 messageLoop();
+
+                long end = System.currentTimeMillis();
+                long time = end-start;
+                System.out.println("DIRECT MESSSAGE LOOP TIME: " + time);
             }
 
         } else {
@@ -132,12 +151,12 @@ public class SendMessageOperation implements Operation, Receiver {
             localNode.getRoutingTable().setUnresponsiveContact(user.getAssociatedNode());
 
             if (closestNodes == null) {
-
                 /* look on the local node first */
                 closestNodes = localNode.getRoutingTable().findClosest(user.getAssociatedNode().getNodeId(), true);
 
                 /* then find node operation if the list is still empty */
                 if (closestNodes.size() == 0) {
+                    logger.info("SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE");
                     FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), true);
                     fno.execute();
                     closestNodes = fno.getClosestNodes();
@@ -145,7 +164,12 @@ public class SendMessageOperation implements Operation, Receiver {
             }
 
             addNodes(closestNodes);
+
+            long start = System.currentTimeMillis();
             messageLoop();
+            long end = System.currentTimeMillis();
+            long time = end-start;
+            System.out.println("FORWARD MESSAGE LOOP TIME: " + time);
         }
 
         if (messageStatus == Status.PENDING_FORWARDING) {

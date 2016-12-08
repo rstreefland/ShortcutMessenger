@@ -81,17 +81,26 @@ public class TextReceiver implements Receiver {
             server.reply(msg.getSource(), ack, communicationId);
         }
 
+        long start = System.currentTimeMillis();
         /* This is a message intended for a different target - handle */
         logger.info("Received a message intended for another node");
         SendMessageOperation smo = new SendMessageOperation(localNode, msg.getRecipientUser(), msg);
         smo.execute();
+        long end = System.currentTimeMillis();
+        long time = end-start;
+        System.out.println("SMO took: " + time);
 
         if (smo.messageStatus() == SendMessageOperation.Status.DELIVERED) {
             logger.info("Message forwarded successfully - no need to add it to forward messages");
 
+            start = System.currentTimeMillis();
             // send MESSAGE SUCCESS ACK here
             NotifySuccessOperation nso = new NotifySuccessOperation(server, localNode, msg.getOrigin(), msg.getRecipientUser().getUserName(), msg.getMessageId(), localNode.getConfig());
             nso.execute();
+
+            end = System.currentTimeMillis();
+            time = end-start;
+            System.out.println("NSO ook: " + time);
 
             logger.info("Message success message sent!");
 

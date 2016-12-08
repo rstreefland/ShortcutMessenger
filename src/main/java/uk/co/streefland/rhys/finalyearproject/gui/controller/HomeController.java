@@ -233,7 +233,7 @@ public class HomeController {
         }
     }
 
-    public void drawChatBubble(KeyId messageId, String messageString, String author, SendMessageOperation.Status messageStatus) {
+    private synchronized void drawChatBubble(KeyId messageId, String messageString, String author, SendMessageOperation.Status messageStatus) {
 
         FlowPane output;
         Node emoji = null;

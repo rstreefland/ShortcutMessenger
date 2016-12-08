@@ -1,10 +1,21 @@
-2016-12-07 19:23:43.541 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI v1.0
-2016-12-07 19:23:43.933 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
-2016-12-07 19:23:43.933 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
-2016-12-07 19:23:43.939 [JavaFX Application Thread] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Failed to read config from saved state - defaulting to new config
-2016-12-07 19:23:43.939 [JavaFX Application Thread] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Failed to read local node from saved state - defaulting to creating a new local node
-2016-12-07 19:23:43.941 [JavaFX Application Thread] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Failed to read routing table from saved state - defaulting to creating a new routing table
-2016-12-07 19:23:43.943 [JavaFX Application Thread] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Failed to read users from saved state - defaulting to creating a new users object
-2016-12-07 19:23:43.944 [JavaFX Application Thread] WARN  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Failed to read messages from saved state - defaulting to creating a new messages object
-2016-12-07 19:23:43.951 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:C0B43051E46F6507B117181957EE5031FDCBEE93
-2016-12-07 19:23:44.180 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-12-08 16:29:25.669 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI v1.0
+2016-12-08 16:29:26.020 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
+2016-12-08 16:29:26.021 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-12-08 16:29:26.094 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Config read successfully
+2016-12-08 16:29:26.094 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - NetworkId read successfully
+2016-12-08 16:29:26.094 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-12-08 16:29:26.095 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-12-08 16:29:26.095 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
+2016-12-08 16:29:26.095 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Messages read successfully
+2016-12-08 16:29:26.100 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-12-08 16:29:26.101 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-12-08 16:29:26.101 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:5AD8FB7CCFA79392A5DB7D5EBD9E5F628CB00C4D
+2016-12-08 16:29:39.235 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-12-08 16:29:40.295 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-12-08 16:29:40.743 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-12-08 16:29:45.253 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-12-08 16:29:46.204 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2016-12-08 16:30:26.153 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-08 16:31:11.697 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-12-08 16:31:11.698 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
+2016-12-08 16:31:11.725 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

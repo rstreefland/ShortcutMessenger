@@ -43,19 +43,23 @@ public class RoutingTable implements Serializable {
      * @return returns true if the inserted contact is a contact that we've never seen before
      */
     public synchronized boolean insert(Node n) {
+        return insert(new Contact(n));
+    }
+
+    public synchronized boolean insert(Contact c) {
         isEmpty = false;
 
         for (Node existingNode : getAllNodes(false)) {
-            if (n.getPublicSocketAddress().equals((existingNode.getPublicSocketAddress())) || n.getNodeId().equals(existingNode.getNodeId())) {
+            if (c.getNode().getPublicSocketAddress().equals((existingNode.getPublicSocketAddress())) || c.getNode().getNodeId().equals(existingNode.getNodeId())) {
                 /* Get the bucket of the node */
                 int bucketId = getBucketId(existingNode.getNodeId());
                 /* Force remove the contact from the bucket */
                 buckets[bucketId].removeContact(existingNode, true);
-                buckets[getBucketId(n.getNodeId())].insert(n);
+                buckets[getBucketId(c.getNode().getNodeId())].insert(c);
                 return false;
             }
         }
-        buckets[getBucketId(n.getNodeId())].insert(n);
+        buckets[getBucketId(c.getNode().getNodeId())].insert(c);
         return true;
     }
 
@@ -92,6 +96,21 @@ public class RoutingTable implements Serializable {
 
         /* Remove the contact from the bucket */
         buckets[bucketId].removeContact(n, false);
+    }
+
+    /* Used to update a contact */
+    public synchronized void refreshContact(Node node, boolean resetStaleCount) {
+
+        if (!resetStaleCount) {
+            Contact existing = getContact(node);
+            if (existing != null) {
+                insert(existing);
+            } else {
+                insert(node);
+            }
+        } else {
+            insert(node);
+        }
     }
 
     /**

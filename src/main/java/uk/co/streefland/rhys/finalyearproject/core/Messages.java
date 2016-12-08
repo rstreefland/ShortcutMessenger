@@ -70,13 +70,21 @@ public class Messages implements Serializable {
             conversation.add(stm);
         }
 
+        long start = System.currentTimeMillis();
+
         /* Execute the sendmessageoperation */
         SendMessageOperation operation = new SendMessageOperation(localNode, target, messageId, message, createdTime);
         operation.execute();
 
-        if (operation.getUser() != null) {
-            localNode.getUsers().addUserToCache(operation.getUser());
+        long end = System.currentTimeMillis();
+        long time  = end-start;
+        System.out.println("OUTGOING SMO TOOK: " + time);
 
+        if (operation.getUser() != null) {
+
+            localNode.getUsers().addUserToCache(operation.getUser(), false);
+
+            /* This if statement prevents the race condition */
             if (operation.messageStatus() != SendMessageOperation.Status.PENDING_DELIVERY && stm.getMessageStatus() != SendMessageOperation.Status.DELIVERED) {
                 stm.setMessageStatus(operation.messageStatus());
                 lastMessageUpdate.set(stm);
@@ -138,11 +146,12 @@ public class Messages implements Serializable {
             conversation.add(stm);
         }
 
-        /* Add the origin user and node to cache */
-        localNode.getUsers().addUserToCache(originUser);
-
         if (!origin.equals(message.getSource())) {
             logger.info("THIS IS A FORWARDED MESSAGE");
+            /* Add the origin user and node to cache */
+            localNode.getUsers().addUserToCache(originUser, false);
+        } else {
+            localNode.getUsers().addUserToCache(originUser, true);
         }
     }
 
