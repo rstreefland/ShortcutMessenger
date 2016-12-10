@@ -101,7 +101,6 @@
             <artifactId>tray</artifactId>
             <version>1.0</version>
         </dependency>
-
     </dependencies>
 
     <repositories>

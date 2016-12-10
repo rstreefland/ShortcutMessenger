@@ -5,8 +5,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -37,6 +35,7 @@ import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.gui.EmojiConverter;
+import uk.co.streefland.rhys.finalyearproject.gui.visualiser.Visualiser;
 import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
@@ -608,5 +607,10 @@ public class HomeController {
                 logger.error("Could not send message {}", e);
             }
         }
+    }
+
+    @FXML
+    private void openVisualiser() {
+        Visualiser vis = new Visualiser(localNode);
     }
 }

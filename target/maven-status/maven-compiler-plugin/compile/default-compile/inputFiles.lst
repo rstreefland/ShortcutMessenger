@@ -2,6 +2,7 @@ E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\stre
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\gui\controller\LoginController.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\content\TextReceiver.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\user\StoreUserReceiver.java
+E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\gui\Visualiser.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\node\FindNodeReceiver.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\operation\SendMessageOperation.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\unused\HundredNodes.java
@@ -28,12 +29,14 @@ E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\stre
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\core\Messages.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\operation\refresh\RefreshHandler.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\content\NotifySuccessMessage.java
+E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\node\NetworkTraversalMessage.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\operation\refresh\BucketRefreshOperation.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\operation\user\FindUserOperation.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\gui\Main.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\operation\user\LoginUserOperation.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\user\VerifyUserMessageReply.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\content\StoredTextMessage.java
+E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\operation\NetworkTraversalOperation.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\routing\RoutingTable.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\node\ConnectReceiver.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\core\IPTools.java
@@ -45,8 +48,10 @@ E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\stre
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\node\KeyComparator.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\core\ReceiverTask.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\node\ConnectMessage.java
+E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\node\NetworkTraversalMessageReply.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\core\Encryption.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\gui\ImageCache.java
+E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\node\NetworkTraversalReceiver.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\operation\Operation.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\gui\EmojiOne.java
 E:\Users\Rhys\Development\IdeaProjects\finalyearproject\src\main\java\uk\co\streefland\rhys\finalyearproject\message\node\FindNodeMessage.java

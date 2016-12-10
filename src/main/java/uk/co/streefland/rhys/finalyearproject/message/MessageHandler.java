@@ -45,6 +45,10 @@ public class MessageHandler {
                 return new VerifyUserMessageReply(in);
             case NotifySuccessMessage.CODE:
                 return new NotifySuccessMessage(in);
+            case NetworkTraversalMessage.CODE:
+                return new NetworkTraversalMessage(in);
+            case NetworkTraversalMessageReply.CODE:
+                return new NetworkTraversalMessageReply(in);
             default:
                 logger.warn("No message type found for message code: {}", code);
                 return null;
@@ -65,6 +69,8 @@ public class MessageHandler {
                 return new VerifyUserReceiver(localNode);
             case NotifySuccessMessage.CODE:
                 return new NotifySuccessReceiver(localNode);
+            case NetworkTraversalMessage.CODE:
+                return new NetworkTraversalReceiver(localNode);
             default:
                 logger.warn("No receiver type found for message code: {}", code);
                 return null;

@@ -63,7 +63,7 @@ public class ConnectController {
      * @throws IOException
      */
     @FXML
-    private void handleConnectButtonAction(ActionEvent event) {
+    private void handleConnectButtonAction() {
         loader.setVisible(true);
 
         Task task = new Task() {

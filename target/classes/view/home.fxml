@@ -17,7 +17,7 @@
                     <Menu text="Conversations" onAction="#newConversationDialog" fx:id="conversationsMenu">
                     </Menu>
                     <Menu text="Developer">
-                        <MenuItem text="Network Visualisation"/>
+                        <MenuItem text="Network Visualisation" onAction="#openVisualiser"/>
                         <MenuItem text="Statistics"/>
                     </Menu>
                     <Menu text="About" fx:id="aboutMenu">
