@@ -237,8 +237,6 @@ public class Server {
         isRunning = false;
         socket.close();
         timer.cancel();
-
-        System.out.println("ThreadPool is shutdown? "  + threadPool.isShutdown());
     }
 
     public boolean isRunning() {

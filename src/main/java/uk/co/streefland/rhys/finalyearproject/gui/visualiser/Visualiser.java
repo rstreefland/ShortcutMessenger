@@ -5,7 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Rhys on 08/12/2016.
@@ -13,19 +19,20 @@ import uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperatio
 public class Visualiser {
 
     private LocalNode localNode;
-    Graph graph = new Graph();
+    private Graph graph = new Graph();
+    private Map<KeyId, List<Node>> nodeRoutingTables;
 
     public Visualiser(LocalNode localNode) {
         this.localNode = localNode;
 
         Task task = new Task() {
             @Override
-            protected String call() throws Exception {
+            protected Map<KeyId, List<Node>> call() throws Exception {
                 NetworkTraversalOperation nto = new NetworkTraversalOperation(localNode);
                 nto.execute();
 
                 succeeded();
-                return "";
+                return nto.getNodeRoutingTables();
             }
         };
 
@@ -37,7 +44,13 @@ public class Visualiser {
         /* On task finish */
         task.setOnSucceeded(event1 -> {
             System.out.println("FINISHED NETWORK TRAVERSAL OPERATION");
-            draw();
+
+            Map<KeyId, List<Node>> nodeRoutingTables = (Map<KeyId, List<Node>>) task.getValue(); // result of computation
+
+            if (nodeRoutingTables != null) {
+                this.nodeRoutingTables = nodeRoutingTables;
+                draw();
+            }
         });
     }
 
@@ -60,26 +73,16 @@ public class Visualiser {
     }
 
     private void addGraphComponents() {
-
         Model model = graph.getModel();
 
         graph.beginUpdate();
 
-        model.addCell("Cell A");
-        model.addCell("Cell B");
-        model.addCell("Cell C");
-        model.addCell("Cell D");
-        model.addCell("Cell E");
-        model.addCell("Cell F");
-        model.addCell("Cell G");
-
-        model.addEdge("Cell A", "Cell B");
-        model.addEdge("Cell A", "Cell C");
-        model.addEdge("Cell B", "Cell C");
-        model.addEdge("Cell C", "Cell D");
-        model.addEdge("Cell B", "Cell E");
-        model.addEdge("Cell D", "Cell F");
-        model.addEdge("Cell D", "Cell G");
+        for (Map.Entry routingTable : nodeRoutingTables.entrySet()) {
+            for (Node node : (ArrayList<Node>) routingTable.getValue()) {
+                model.addCell(node.getNodeId(), node.getPublicInetAddress().getHostAddress());
+                model.addEdge((KeyId) routingTable.getKey(), node.getNodeId());
+            }
+        }
 
         graph.endUpdate();
     }

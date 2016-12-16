@@ -2,20 +2,21 @@ package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cell extends Pane {
 
-    String cellId;
+    KeyId cellId;
 
     List<Cell> children = new ArrayList<>();
     List<Cell> parents = new ArrayList<>();
 
     Node view;
 
-    public Cell(String cellId) {
+    public Cell(KeyId cellId) {
         this.cellId = cellId;
     }
 
@@ -50,7 +51,7 @@ public class Cell extends Pane {
         return this.view;
     }
 
-    public String getCellId() {
+    public KeyId getCellId() {
         return cellId;
     }
 }

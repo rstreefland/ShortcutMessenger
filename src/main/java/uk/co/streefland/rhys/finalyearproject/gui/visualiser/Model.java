@@ -1,5 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
+import uk.co.streefland.rhys.finalyearproject.node.KeyId;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,11 +19,11 @@ public class Model {
     List<Edge> addedEdges;
     List<Edge> removedEdges;
 
-    Map<String, Cell> cellMap; // <id,cell>
+    Map<KeyId, Cell> cellMap; // <id,cell>
 
     public Model() {
 
-        graphParent = new Cell("_ROOT_");
+        graphParent = new Cell(new KeyId("0"));
 
         // clear model, create lists
         clear();
@@ -70,20 +72,20 @@ public class Model {
         return allEdges;
     }
 
-    public void addCell(String id) {
-        RectangleCell rectangleCell = new RectangleCell(id);
+    public void addCell(KeyId id, String name) {
+        CircleCell rectangleCell = new CircleCell(id, name);
         addCell(rectangleCell);
     }
 
     private void addCell(Cell cell) {
 
-        addedCells.add(cell);
-
-        cellMap.put(cell.getCellId(), cell);
-
+        if (!cellMap.containsKey(cell.getCellId())) {
+            addedCells.add(cell);
+            cellMap.put(cell.getCellId(), cell);
+        }
     }
 
-    public void addEdge(String sourceId, String targetId) {
+    public void addEdge(KeyId sourceId, KeyId targetId) {
 
         Cell sourceCell = cellMap.get(sourceId);
         Cell targetCell = cellMap.get(targetId);
