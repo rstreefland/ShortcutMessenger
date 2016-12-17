@@ -21,13 +21,13 @@ class Main {
     private static IPTools ipTools;
 
     private static final Scanner sc = new Scanner(System.in);
-    private static String input = "";
-    private static String[] inputWords = new String[2];
+    private static String input = ""; // a line of input from scanner
+    private static String[] inputWords = new String[2]; // scanner input separated into words
     private static LocalNode localNode = null;
-    private static ArrayList<String> availableCommands = new ArrayList<>();
+    private static ArrayList<String> availableCommands = new ArrayList<>(); // stores a list of available commands
 
     public static void main(String[] args) {
-        System.out.println("Shortcut Messenger CLI v1.0");
+        System.out.println("Shortcut Messenger CLI");
 
         availableCommands.add("bootstrap");
         availableCommands.add("help");
@@ -42,8 +42,8 @@ class Main {
         while (!input.equals("exit")) {
             System.out.print("\n# ");
 
-            input = sc.nextLine();
-            inputWords = input.split("\\s+");
+            input = sc.nextLine(); // read input from System.in
+            inputWords = input.split("\\s+"); // split string into words
 
             switch (inputWords[0]) {
                 case "help":
@@ -89,8 +89,12 @@ class Main {
         }
     }
 
+    /**
+     * Prints out a list of available commands
+     */
     private static void help() {
 
+        /* Special case for 'help print' */
         if (inputWords.length > 1) {
             if (inputWords[1].equals("print")) {
                 System.out.println("\nPrint command usage information:");
@@ -126,35 +130,49 @@ class Main {
             System.out.println("exit - Exit the program");
     }
 
+    /**
+     * Handles bootstrapping the localnode to a network
+     *
+     * @throws IOException
+     */
     private static void bootstrap() throws IOException {
+        if (!availableCommands.contains("bootstrap")) {
+            return;
+        }
+
         if (inputWords.length > 1) {
-
-            String publicIpString = ipTools.getPublicIp();
-            String privateIpString = ipTools.getPrivateIp();
             String networkIpString = inputWords[1];
-
-            InetAddress publicIp = ipTools.validateAddress(publicIpString);
-            InetAddress privateIp = ipTools.validateAddress(privateIpString);
 
             /* Special case for first node in the network */
             if (networkIpString.equals("first")) {
                 localNode = new LocalNode(ipTools);
                 localNode.first();
+
+                availableCommands.remove("bootstrap");
+                availableCommands.add("login");
+                availableCommands.add("register");
+                availableCommands.add("message");
+                availableCommands.add("print");
+
+                return;
             }
 
             InetAddress networkIp = null;
 
+            /* Convert IP/hostname into InetAddress */
             try {
                 networkIp = ipTools.validateAddress(networkIpString);
             } catch (UnknownHostException uho) {
             }
 
+            /* Create the localNode object */
             if (networkIp != null) {
                 localNode = new LocalNode(ipTools);
             } else {
                 System.err.println("Invalid network address");
             }
 
+            /* Attempt to bootstrap to the network */
             boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT));
 
             if (error) {
@@ -172,6 +190,10 @@ class Main {
     }
 
     private static void register() throws IOException {
+        if (availableCommands.contains("register")) {
+            return;
+        }
+
         if (inputWords.length > 2) {
             if (localNode.getUsers().registerUser(inputWords[1], inputWords[2])) {
                 System.out.println("User " + inputWords[1] + " registered successfully");
@@ -182,6 +204,10 @@ class Main {
     }
 
     private static void login() throws IOException {
+        if (!availableCommands.contains("login")) {
+            return;
+        }
+
         if (inputWords.length > 2) {
             if (localNode.getUsers().loginUser(inputWords[1], inputWords[2])) {
                 System.out.println("Logged in as " + inputWords[1] + " successfully");
@@ -192,6 +218,10 @@ class Main {
     }
 
     private static void message() throws IOException {
+        if (!availableCommands.contains("message")) {
+            return;
+        }
+
         if (inputWords.length > 1) {
             String recipient = inputWords[1];
 
@@ -203,6 +233,11 @@ class Main {
     }
 
     private static void print() {
+        if (!availableCommands.contains("print")) {
+            return;
+        }
+
+
         if (inputWords.length > 1) {
 
             if (inputWords[1].equals("routingtable")) {

@@ -41,7 +41,7 @@ public class Main extends Application {
         StorageHandler temp = new StorageHandler();
         Parent root;
 
-        logger.info("Shortcut Messenger UI v1.0");
+        logger.info("Shortcut Messenger UI");
 
         /* Check if we can load the saved state from the file and show the relevant scene */
         if (temp.doesSavedStateExist()) {

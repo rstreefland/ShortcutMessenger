@@ -1,16 +1,514 @@
-2016-12-16 13:01:11.086 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI v1.0
-2016-12-16 13:01:11.458 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
-2016-12-16 13:01:11.458 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
-2016-12-16 13:01:11.533 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Config read successfully
-2016-12-16 13:01:11.533 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - NetworkId read successfully
-2016-12-16 13:01:11.534 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
-2016-12-16 13:01:11.534 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
-2016-12-16 13:01:11.534 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
-2016-12-16 13:01:11.534 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Messages read successfully
-2016-12-16 13:01:11.541 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-12-16 13:01:11.542 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-12-16 13:01:11.542 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:FC85D08AB62F85A3C7B5D58F672C957923B5ED87
-2016-12-16 13:02:11.589 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
-2016-12-16 13:02:59.807 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-12-16 13:02:59.809 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
-2016-12-16 13:02:59.832 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-12-17 18:59:17.106 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
+2016-12-17 18:59:17.113 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-12-17 18:59:17.286 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Config read successfully
+2016-12-17 18:59:17.286 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - NetworkId read successfully
+2016-12-17 18:59:17.286 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-12-17 18:59:17.287 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-12-17 18:59:17.287 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
+2016-12-17 18:59:17.287 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Messages read successfully
+2016-12-17 18:59:17.310 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-12-17 18:59:17.379 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-12-17 18:59:17.381 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:27D61907CC178ED2EF2246BF38EE4B4FCD25328B
+2016-12-17 18:59:20.768 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.768 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.769 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.769 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.769 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.769 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.770 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.770 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.770 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.770 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.771 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.771 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.771 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.771 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.772 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.774 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.775 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.775 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.775 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.776 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.776 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.776 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.776 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.776 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.777 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.777 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.777 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.777 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.778 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.778 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.778 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.778 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.779 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.779 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.779 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.779 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.780 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.780 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.780 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.787 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.787 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.787 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.789 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.789 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.790 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.790 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.790 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.791 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.791 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.791 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.791 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.792 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.792 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.792 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.792 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.793 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.793 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.793 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.794 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.794 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.794 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.795 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.795 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.795 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.795 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.796 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.796 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.796 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.797 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.797 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.798 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.799 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.800 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.800 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.800 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.800 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.800 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.801 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.801 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.801 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.802 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.802 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.802 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.802 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.802 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.803 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.803 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.803 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.803 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.804 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.804 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.804 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.804 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.805 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.805 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.805 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.805 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.805 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.806 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.806 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.806 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.806 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.806 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.807 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.807 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.807 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.807 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.807 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.808 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.808 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.808 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.808 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.808 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.809 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.809 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.809 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.809 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.810 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.810 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.810 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.810 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.811 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.811 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.811 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.811 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.811 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.812 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.812 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.812 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.812 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.812 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.812 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.813 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.813 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.813 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.813 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.813 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.813 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.814 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.814 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.814 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.815 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.815 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.815 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.815 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.815 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.816 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.816 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.816 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.816 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.816 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.816 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.817 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.818 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.818 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.818 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.819 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.820 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.820 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.820 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.820 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.821 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.821 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.821 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.821 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.822 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.822 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.822 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.822 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.823 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.823 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.823 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.823 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.823 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.824 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.824 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.824 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.824 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.825 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.825 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.825 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.825 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.826 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.826 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.826 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.826 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.827 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.827 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.827 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.827 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.828 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.828 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.828 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.829 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.829 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.829 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.829 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.829 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.830 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.830 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.830 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.830 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.831 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.831 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.831 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.831 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.831 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.831 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.832 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.832 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.832 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.832 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.832 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.832 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.833 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.833 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.833 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.833 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.833 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.834 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.834 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.834 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.834 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.834 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.834 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.835 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.835 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.835 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.835 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.835 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.836 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.836 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.836 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.838 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.838 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.838 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.838 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.839 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.839 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.839 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.839 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.839 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.840 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.840 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.840 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.841 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.841 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.841 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.842 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.842 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.842 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.842 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.842 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.843 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.843 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.843 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.843 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.844 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.844 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.844 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.844 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.845 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.845 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.845 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.845 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.846 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.846 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.846 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.846 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.847 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.848 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.848 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.848 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.848 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.848 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.848 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.849 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.849 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.849 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.849 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.850 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.850 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.850 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.850 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.850 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.850 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.851 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.851 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.851 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.851 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.851 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.852 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.852 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.852 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.852 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.852 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.852 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.853 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.853 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.853 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.853 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.854 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.854 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.854 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.854 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.854 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.855 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.855 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.855 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.855 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.855 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.856 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.856 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.856 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.856 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.857 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.857 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.857 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.857 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.858 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.858 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.858 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.859 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.859 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.859 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.859 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.859 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.860 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.860 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.860 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.860 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.861 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.861 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.861 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.861 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.861 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.862 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.862 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.862 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.862 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.862 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.862 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.863 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.863 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.863 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.864 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.864 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.865 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.866 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.866 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.867 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.868 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.868 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.868 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.869 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.869 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.869 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.869 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.869 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.869 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.870 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.870 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.870 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.870 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.870 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.870 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.871 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.871 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.871 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.871 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.871 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.872 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.872 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.872 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.872 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.872 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.873 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.873 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.873 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.873 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.874 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.874 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.874 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.874 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.875 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.875 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.875 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.875 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.875 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.875 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.876 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.876 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.876 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.876 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.876 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.876 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.877 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.877 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.877 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.877 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.877 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.877 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.877 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.878 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.879 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.880 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.880 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.880 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.880 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.880 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.881 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.881 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.881 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.881 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.881 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.882 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.882 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.882 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.882 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.882 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.883 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.883 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.883 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.883 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.883 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.884 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.884 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.884 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.884 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.884 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.884 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.885 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.885 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.885 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.885 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.885 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.886 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.886 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.886 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.886 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.887 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.887 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.887 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.887 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.887 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.888 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.888 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.888 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.888 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.888 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.889 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.889 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:20.889 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:20.889 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:20.889 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:22.898 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:22.899 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:22.899 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:22.900 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:22.900 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:22.900 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:22.900 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:22.901 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:22.901 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:22.901 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:22.901 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:22.902 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:22.902 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Discarding message from node that isn't part of this network
+2016-12-17 18:59:22.902 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -    Local netId: 1E36E615EE19A18533FA56F32035E591F4DF6E0A
+2016-12-17 18:59:22.903 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server -   Remote netId: B190C173A6907278B958A4AD1AA99D2C9AA1CE48
+2016-12-17 18:59:33.629 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2016-12-17 18:59:33.631 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
