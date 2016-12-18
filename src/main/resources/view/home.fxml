@@ -14,9 +14,9 @@
                 <menus>
                     <Menu text="Settings" fx:id="settingsMenu">
                     </Menu>
-                    <Menu text="Conversations" onAction="#newConversationDialog" fx:id="conversationsMenu">
+                    <Menu text="Conversations" fx:id="conversationsMenu">
                     </Menu>
-                    <Menu text="Developer">
+                    <Menu text="Developer" fx:id="developerMenu">
                         <MenuItem text="Network Visualisation" onAction="#openVisualiser"/>
                         <MenuItem text="Statistics"/>
                     </Menu>

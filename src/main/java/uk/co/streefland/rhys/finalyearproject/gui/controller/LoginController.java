@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
+import javafx.animation.FadeTransition;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 
 import java.io.IOException;

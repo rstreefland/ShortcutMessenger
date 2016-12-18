@@ -5,43 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ac27ad5-c053-404d-9177-8c82acb82fb4" name="Default" comment="This is ridiculou">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/LocalNode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/User.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/test-classes/uk/co/streefland/rhys/finalyearproject/core/UserTest.class" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/cli/Main.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/cli/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Configuration$Status.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Configuration$Status.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Configuration.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Configuration.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Encryption.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Encryption.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/IPTools.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/IPTools.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Messages.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Messages.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server$TimeoutTask.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server$TimeoutTask.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Server.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/StorageHandler.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/StorageHandler.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Users.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/core/Users.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/Main.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController$1.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController$2.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController$2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/FindNodeOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/NetworkTraversalOperation.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/operation/NetworkTraversalOperation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/routing/Bucket.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/routing/Bucket.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/routing/RoutingTable.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/routing/RoutingTable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/uk/co/streefland/rhys/finalyearproject/core/StorageHandlerTest.class" afterPath="$PROJECT_DIR$/target/test-classes/uk/co/streefland/rhys/finalyearproject/core/StorageHandlerTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.class" afterPath="$PROJECT_DIR$/target/classes/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.number" afterPath="$PROJECT_DIR$/build.number" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/cli/Main.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/cli/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Configuration.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Encryption.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Encryption.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/IPTools.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/IPTools.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Messages.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Server.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Server.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/StorageHandler.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/StorageHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/User.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Users.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Users.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/Main.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/current.log" afterPath="$PROJECT_DIR$/current.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/uk/co/streefland/rhys/finalyearproject/core/UserTest.java" afterPath="$PROJECT_DIR$/src/test/java/uk/co/streefland/rhys/finalyearproject/core/UserTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/view/home.fxml" afterPath="$PROJECT_DIR$/src/main/resources/view/home.fxml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/view/home.fxml" afterPath="$PROJECT_DIR$/target/classes/view/home.fxml" />
     </list>
     <ignored path="LemonJuice.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,15 +64,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="HomeController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1815">
-              <caret line="630" column="9" lean-forward="true" selection-start-line="630" selection-start-column="9" selection-end-line="630" selection-end-column="9" />
+            <state relative-caret-position="60">
+              <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
               <folding>
                 <element signature="method#fromSavedState#0;class#HomeController#0" expanded="false" />
-                <element signature="method#setEventListeners#0;class#HomeController#0" expanded="false" />
-                <element signature="e#5996#6048#0" expanded="false" />
+                <element signature="e#6788#6840#0" expanded="false" />
                 <element signature="docComment;method#createConversationUser#0;class#HomeController#0" expanded="false" />
                 <element signature="method#createConversationUser#0;class#HomeController#0" expanded="false" />
                 <element signature="docComment;method#changeConversation#0;class#HomeController#0" expanded="false" />
@@ -110,16 +82,38 @@
                 <element signature="method#drawChatBubble#0;class#HomeController#0" expanded="false" />
                 <element signature="docComment;method#sendMessage#0;class#HomeController#0" expanded="false" />
                 <element signature="method#sendMessage#0;class#HomeController#0" expanded="false" />
-                <element signature="method#newConversationDialog#0;class#HomeController#0" expanded="false" />
                 <element signature="method#settingsDialog#0;class#HomeController#0" expanded="false" />
                 <element signature="method#aboutDialog#0;class#HomeController#0" expanded="false" />
                 <element signature="docComment;method#createNotification#0;class#HomeController#0" expanded="false" />
                 <element signature="method#createNotification#0;class#HomeController#0" expanded="false" />
-                <element signature="docComment;method#onMouseClick#0;class#HomeController#0" expanded="false" />
-                <element signature="method#onMouseClick#0;class#HomeController#0" expanded="false" />
+                <element signature="e#23358#23359#0" expanded="true" />
+                <element signature="e#23391#23392#0" expanded="true" />
                 <element signature="docComment;method#handleKeyPressed#0;class#HomeController#0" expanded="false" />
                 <element signature="method#handleKeyPressed#0;class#HomeController#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/view/home.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="141" column="21" lean-forward="false" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -183,7 +177,6 @@
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/ConnectOperation.java" />
         <option value="$PROJECT_DIR$/src/main/resources/view/connect.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/view/login.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/view/home.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/StoredTextMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/message/content/TextReceiver.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/operation/refresh/MessageRefreshOperation.java" />
@@ -224,9 +217,10 @@
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/LocalNode.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/core/Users.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/DialogController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/view/home.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java" />
       </list>
     </option>
   </component>
@@ -348,6 +342,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finalyearproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="finalyearproject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -786,7 +810,7 @@
       <recent name="E:\Users\Rhys\Development\IdeaProjects\finalyearproject\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Main">
     <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -1768,8 +1792,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.Main (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="0" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main (1)" />
         <item index="2" class="java.lang.String" itemvalue="Application.Test" />
         <item index="3" class="java.lang.String" itemvalue="Application.HostTest" />
         <item index="4" class="java.lang.String" itemvalue="Application.Codes" />
@@ -2029,7 +2053,7 @@
       <workItem from="1481890489727" duration="2773000" />
       <workItem from="1481980030724" duration="1396000" />
       <workItem from="1481983699907" duration="61000" />
-      <workItem from="1482000292591" duration="6938000" />
+      <workItem from="1482000292591" duration="10531000" />
     </task>
     <servers />
   </component>
@@ -2066,7 +2090,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="807419000" />
+    <option name="totallyTimeSpent" value="811012000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2090,7 +2114,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3217768" sideWeight="0.51492536" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13733906" sideWeight="0.46290323" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.018072288" sideWeight="0.4792111" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29277107" sideWeight="0.4792111" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3575298" sideWeight="0.4968017" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3217768" sideWeight="0.48507464" order="9" side_tool="false" content_ui="tabs" />
@@ -2170,15 +2194,15 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java</url>
-          <line>608</line>
+          <line>656</line>
           <properties />
-          <option name="timeStamp" value="455" />
+          <option name="timeStamp" value="458" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="456" />
+      <option name="time" value="459" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
@@ -2200,13 +2224,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/routing/RoutingTable.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1802">
-          <caret line="116" column="78" lean-forward="false" selection-start-line="116" selection-start-column="8" selection-end-line="116" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2448">
@@ -2473,7 +2490,7 @@
         <state relative-caret-position="553">
           <caret line="106" column="12" lean-forward="true" selection-start-line="106" selection-start-column="12" selection-end-line="110" selection-end-column="13" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2532,22 +2549,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="114" column="0" lean-forward="true" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="128" column="32" lean-forward="false" selection-start-line="128" selection-start-column="32" selection-end-line="128" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/DialogController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="103">
@@ -2556,14 +2557,32 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/ConnectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="143" column="37" lean-forward="true" selection-start-line="143" selection-start-column="37" selection-end-line="143" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/view/home.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="36" lean-forward="false" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1815">
-          <caret line="630" column="9" lean-forward="true" selection-start-line="630" selection-start-column="9" selection-end-line="630" selection-end-column="9" />
+        <state relative-caret-position="60">
+          <caret line="497" column="0" lean-forward="false" selection-start-line="497" selection-start-column="0" selection-end-line="497" selection-end-column="0" />
           <folding>
             <element signature="method#fromSavedState#0;class#HomeController#0" expanded="false" />
-            <element signature="method#setEventListeners#0;class#HomeController#0" expanded="false" />
-            <element signature="e#5996#6048#0" expanded="false" />
+            <element signature="e#6788#6840#0" expanded="false" />
             <element signature="docComment;method#createConversationUser#0;class#HomeController#0" expanded="false" />
             <element signature="method#createConversationUser#0;class#HomeController#0" expanded="false" />
             <element signature="docComment;method#changeConversation#0;class#HomeController#0" expanded="false" />
@@ -2574,16 +2593,23 @@
             <element signature="method#drawChatBubble#0;class#HomeController#0" expanded="false" />
             <element signature="docComment;method#sendMessage#0;class#HomeController#0" expanded="false" />
             <element signature="method#sendMessage#0;class#HomeController#0" expanded="false" />
-            <element signature="method#newConversationDialog#0;class#HomeController#0" expanded="false" />
             <element signature="method#settingsDialog#0;class#HomeController#0" expanded="false" />
             <element signature="method#aboutDialog#0;class#HomeController#0" expanded="false" />
             <element signature="docComment;method#createNotification#0;class#HomeController#0" expanded="false" />
             <element signature="method#createNotification#0;class#HomeController#0" expanded="false" />
-            <element signature="docComment;method#onMouseClick#0;class#HomeController#0" expanded="false" />
-            <element signature="method#onMouseClick#0;class#HomeController#0" expanded="false" />
+            <element signature="e#23358#23359#0" expanded="true" />
+            <element signature="e#23391#23392#0" expanded="true" />
             <element signature="docComment;method#handleKeyPressed#0;class#HomeController#0" expanded="false" />
             <element signature="method#handleKeyPressed#0;class#HomeController#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/uk/co/streefland/rhys/finalyearproject/gui/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="141" column="21" lean-forward="false" selection-start-line="141" selection-start-column="21" selection-end-line="141" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>

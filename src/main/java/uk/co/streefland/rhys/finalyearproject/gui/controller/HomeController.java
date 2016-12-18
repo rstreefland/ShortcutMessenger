@@ -1,10 +1,12 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -15,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
@@ -58,15 +61,20 @@ public class HomeController {
     private String currentConversationUser;
     private List<KeyId> currentConversationMessages;
     private String localUser;
+    private boolean click;
 
     Image logo = new Image(getClass().getResource("/icon5.png").toExternalForm());
 
     @FXML
     private BorderPane borderPane;
     @FXML
+    private MenuBar menuBar;
+    @FXML
     private Menu settingsMenu;
     @FXML
     private Menu conversationsMenu;
+    @FXML
+    private Menu developerMenu;
     @FXML
     private Menu aboutMenu;
     @FXML
@@ -94,7 +102,7 @@ public class HomeController {
         /* Attempt to load conversations from saved state */
         fromSavedState();
 
-        // Bind width of listView to 1/5th of the borderPane width (minimum width of 100px);
+        /* Bind width of listView to 1/5th of the borderPane width (minimum width of 100px) */
         listView.prefWidthProperty().bind(borderPane.widthProperty().divide(5));
 
         /* Nasty little hack because for some reason JavaFX doesn't support onAction for Menus */
@@ -104,19 +112,6 @@ public class HomeController {
         settingsMenu.getItems().add(dummyMenuItem1);
         conversationsMenu.getItems().add(dummyMenuItem2);
         aboutMenu.getItems().add(dummyMenuItem3);
-
-        /* Listener for settings menu */
-        settingsMenu.showingProperty().addListener(
-                (observableValue, oldValue, newValue) -> {
-                    if (newValue) {
-                        settingsMenu.hide();
-                        try {
-                            settingsDialog();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
 
         setEventListeners();
     }
@@ -140,16 +135,46 @@ public class HomeController {
      * Sets the required event listeners
      */
     private void setEventListeners() {
+
+        menuBar.addEventFilter(MouseEvent.MOUSE_PRESSED, mouseEvent -> click = true);
+
+        /* Listener for settings menu */
+        settingsMenu.showingProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    if (newValue) {
+                        settingsMenu.hide();
+
+                        if (click) {
+                            try {
+                                settingsDialog();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                });
+
+
         /* Listener for conversations menu */
         conversationsMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
                     if (newValue) {
                         conversationsMenu.hide();
-                        try {
-                            newConversationDialog();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+
+                        if (click) {
+                            try {
+                                newConversationDialog();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
+                    }
+                });
+
+        developerMenu.showingProperty().addListener(
+                (observableValue, oldValue, newValue) -> {
+                    if (newValue) {
+                        click = false;
                     }
                 });
 
@@ -158,10 +183,13 @@ public class HomeController {
                 (observableValue, oldValue, newValue) -> {
                     if (newValue) {
                         aboutMenu.hide();
-                        try {
-                            aboutDialog();
-                        } catch (IOException e) {
-                            e.printStackTrace();
+
+                        if (click) {
+                            try {
+                                aboutDialog();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 });
@@ -467,6 +495,7 @@ public class HomeController {
      */
     @FXML
     private void newConversationDialog() throws IOException {
+
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("New Conversation");
         dialog.setHeaderText("New conversation");
@@ -606,11 +635,17 @@ public class HomeController {
      */
     @FXML
     public void onMouseClick(MouseEvent click) {
+
         if (click.getClickCount() == 3) {
             conversations.remove(listView.getSelectionModel().getSelectedItem());
             gridPane.getChildren().clear();
             currentConversationUser = null;
         }
+    }
+
+    @FXML
+    public void menuBarClick() {
+        this.click = true;
     }
 
     /**
