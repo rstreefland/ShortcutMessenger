@@ -88,15 +88,16 @@ public class HomeController {
         conversations = FXCollections.observableArrayList();
         listView.setItems(conversations);
 
+        /* ArrayList of messageID's */
         currentConversationMessages = new ArrayList<>();
 
-        // Attempt to load conversations from saved state
+        /* Attempt to load conversations from saved state */
         fromSavedState();
 
         // Bind width of listView to 1/5th of the borderPane width (minimum width of 100px);
         listView.prefWidthProperty().bind(borderPane.widthProperty().divide(5));
 
-        // Nasty little hack because for some reason JavaFX doesn't support onAction for Menus
+        /* Nasty little hack because for some reason JavaFX doesn't support onAction for Menus */
         MenuItem dummyMenuItem1 = new MenuItem();
         MenuItem dummyMenuItem2 = new MenuItem();
         MenuItem dummyMenuItem3 = new MenuItem();
@@ -104,6 +105,7 @@ public class HomeController {
         conversationsMenu.getItems().add(dummyMenuItem2);
         aboutMenu.getItems().add(dummyMenuItem3);
 
+        /* Listener for settings menu */
         settingsMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
                     if (newValue) {
@@ -116,6 +118,29 @@ public class HomeController {
                     }
                 });
 
+        setEventListeners();
+    }
+
+    /**
+     * Loads existing conversations if they exist
+     */
+    private void fromSavedState() {
+        Map<String, ArrayList<StoredTextMessage>> userMessages = localNode.getMessages().getUserMessages();
+
+        if (userMessages != null) {
+            for (Map.Entry entry : userMessages.entrySet()) {
+                if (!conversations.contains(entry.getKey())) {
+                    conversations.add((String) entry.getKey());
+                }
+            }
+        }
+    }
+
+    /**
+     * Sets the required event listeners
+     */
+    private void setEventListeners() {
+        /* Listener for conversations menu */
         conversationsMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
                     if (newValue) {
@@ -128,6 +153,7 @@ public class HomeController {
                     }
                 });
 
+        /* Listener for about menu */
         aboutMenu.showingProperty().addListener(
                 (observableValue, oldValue, newValue) -> {
                     if (newValue) {
@@ -139,8 +165,6 @@ public class HomeController {
                         }
                     }
                 });
-
-        // END NASTY HACK
 
         /* Listener for current conversation ListView */
         listView.getSelectionModel().selectedItemProperty()
@@ -169,6 +193,92 @@ public class HomeController {
             gridPane.layout();
             scrollPane.setVvalue(1.0d);  // scroll to bottom
         });
+    }
+
+    /**
+     * Adds a new user to the conversation ListView
+     *
+     * @param userName
+     * @throws IOException
+     */
+    private void createConversationUser(String userName) throws IOException {
+
+        /* Don't add the local user */
+        if (userName.equals(localNode.getUsers().getLocalUser())) {
+            return;
+        }
+
+        /* Find the user object on the network */
+        Task task = new Task() {
+            @Override
+            protected User call() throws Exception {
+                User user = localNode.getUsers().findUserOnNetwork(userName);
+                this.succeeded();
+                return user;
+            }
+        };
+
+        /* Run task in different thread to avoid blocking the JavaFX thread */
+        final Thread thread = new Thread(task);
+        thread.setDaemon(true);
+        thread.start();
+
+        /* When the task had finished */
+        task.setOnSucceeded(event -> {
+            User user = (User) task.getValue(); // result of computation
+
+            if (user == null) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("User not found");
+                alert.setContentText("User not found!");
+
+                DialogPane dialogPane = alert.getDialogPane();
+                dialogPane.getStylesheets().add(
+                        getClass().getResource("/style.css").toExternalForm());
+                dialogPane.getStyleClass().add("dialog-pane");
+
+                alert.showAndWait();
+            } else {
+                /* Change the current conversation to the new user */
+                listView.getSelectionModel().select(userName);
+            }
+        });
+    }
+
+    /**
+     * Changes the conversation
+     *
+     * @param userName
+     */
+    private void changeConversation(String userName) {
+        if (!userName.equals(localUser)) {
+
+            conversationHeader.getChildren().clear();
+            Text conversationHeaderText = new Text(userName);
+            HBox.setHgrow(conversationHeaderText, Priority.ALWAYS);
+            conversationHeader.getChildren().add(conversationHeaderText);
+            conversationHeader.setPadding(new Insets(10));
+
+            if (!conversations.contains(userName)) {
+                conversations.add(userName);
+            }
+
+            currentConversationUser = userName;
+
+            gridPane.getChildren().clear();
+            currentConversationMessages.clear();
+
+            if (currentConversationUser != null) {
+                ArrayList<StoredTextMessage> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
+
+                if (conversation != null) {
+                    for (int i = 0; i < conversation.size(); i++) {
+                        drawChatBubble(conversation.get(i).getMessageId(), conversation.get(i).getMessage(), conversation.get(i).getAuthor(), conversation.get(i).getMessageStatus());
+                        currentConversationMessages.add(conversation.get(i).getMessageId());
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -212,6 +322,10 @@ public class HomeController {
         }
     }
 
+    /**
+     * Updates the delivery status (ticks) of a message
+     * @param message
+     */
     private void updateMessage(StoredTextMessage message) {
         if (message != null) {
 
@@ -232,6 +346,13 @@ public class HomeController {
         }
     }
 
+    /**
+     * Draws a single chat bubble to the gridPane
+     * @param messageId
+     * @param messageString
+     * @param author
+     * @param messageStatus
+     */
     private synchronized void drawChatBubble(KeyId messageId, String messageString, String author, SendMessageOperation.Status messageStatus) {
 
         FlowPane output;
@@ -314,18 +435,28 @@ public class HomeController {
     }
 
     /**
-     * Attempts to load the conversations from the saved state
+     * Sends a message to the currentConversationUser
+     *
+     * @throws IOException
      */
+    @FXML
+    private void sendMessage() throws IOException {
+        if (currentConversationUser != null) {
+            String message = messageField.getText();
+            messageField.clear();
 
-    private void fromSavedState() {
-        Map<String, ArrayList<StoredTextMessage>> userMessages = localNode.getMessages().getUserMessages();
-
-        if (userMessages != null) {
-            for (Map.Entry entry : userMessages.entrySet()) {
-                if (!conversations.contains(entry.getKey())) {
-                    conversations.add((String) entry.getKey());
+            Task task = new Task() {
+                @Override
+                protected String call() throws Exception {
+                    localNode.getMessages().sendMessage(message, new User(currentConversationUser, ""));
+                    this.succeeded();
+                    return "";
                 }
-            }
+            };
+
+            final Thread thread = new Thread(task);
+            thread.setDaemon(true);
+            thread.start();
         }
     }
 
@@ -451,118 +582,6 @@ public class HomeController {
     }
 
     /**
-     * Adds a new user to the conversation ListView
-     *
-     * @param userName
-     * @throws IOException
-     */
-    private void createConversationUser(String userName) throws IOException {
-
-        /* Don't add the local user */
-        if (userName.equals(localNode.getUsers().getLocalUser())) {
-            return;
-        }
-
-        /* Find the user object on the network */
-        Task task = new Task() {
-            @Override
-            protected User call() throws Exception {
-                User user = localNode.getUsers().findUserOnNetwork(userName);
-                this.succeeded();
-                return user;
-            }
-        };
-
-        /* Run task in different thread to avoid blocking the JavaFX thread */
-        final Thread thread = new Thread(task);
-        thread.setDaemon(true);
-        thread.start();
-
-        /* When the task had finished */
-        task.setOnSucceeded(event -> {
-            User user = (User) task.getValue(); // result of computation
-
-            if (user == null) {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("User not found");
-                alert.setContentText("User not found!");
-
-                DialogPane dialogPane = alert.getDialogPane();
-                dialogPane.getStylesheets().add(
-                        getClass().getResource("/style.css").toExternalForm());
-                dialogPane.getStyleClass().add("dialog-pane");
-
-                alert.showAndWait();
-            } else {
-                /* Change the current conversation to the new user */
-                listView.getSelectionModel().select(userName);
-            }
-        });
-    }
-
-    /**
-     * Changes the conversation
-     *
-     * @param userName
-     */
-    private void changeConversation(String userName) {
-        if (!userName.equals(localUser)) {
-
-            conversationHeader.getChildren().clear();
-            Text conversationHeaderText = new Text(userName);
-            HBox.setHgrow(conversationHeaderText, Priority.ALWAYS);
-            conversationHeader.getChildren().add(conversationHeaderText);
-            conversationHeader.setPadding(new Insets(10));
-
-            if (!conversations.contains(userName)) {
-                conversations.add(userName);
-            }
-
-            currentConversationUser = userName;
-
-            gridPane.getChildren().clear();
-            currentConversationMessages.clear();
-
-            if (currentConversationUser != null) {
-                ArrayList<StoredTextMessage> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
-
-                if (conversation != null) {
-                    for (int i = 0; i < conversation.size(); i++) {
-                        drawChatBubble(conversation.get(i).getMessageId(), conversation.get(i).getMessage(), conversation.get(i).getAuthor(), conversation.get(i).getMessageStatus());
-                        currentConversationMessages.add(conversation.get(i).getMessageId());
-                    }
-                }
-            }
-        }
-    }
-
-    /**
-     * Sends a message to the currentConversationUser
-     *
-     * @throws IOException
-     */
-    @FXML
-    private void sendMessage() throws IOException {
-        if (currentConversationUser != null) {
-            String message = messageField.getText();
-            messageField.clear();
-
-            Task task = new Task() {
-                @Override
-                protected String call() throws Exception {
-                    localNode.message(message, new User(currentConversationUser, ""));
-                    this.succeeded();
-                    return "";
-                }
-            };
-
-            final Thread thread = new Thread(task);
-            thread.setDaemon(true);
-            thread.start();
-        }
-    }
-
-    /**
      * Creates a notification for a new message
      *
      * @param author
@@ -587,7 +606,7 @@ public class HomeController {
      */
     @FXML
     public void onMouseClick(MouseEvent click) {
-        if (click.getClickCount() == 2) {
+        if (click.getClickCount() == 3) {
             conversations.remove(listView.getSelectionModel().getSelectedItem());
             gridPane.getChildren().clear();
             currentConversationUser = null;

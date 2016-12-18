@@ -33,7 +33,7 @@ public class LocalNode {
     private Users users;
     private Messages messages;
 
-    /* Objects for refresh operation */
+    /* Refresh operation objects */
     private Timer refreshOperationTimer;
     private RefreshHandler refreshHandler;
 
@@ -43,7 +43,7 @@ public class LocalNode {
      *
      * @throws IOException
      */
-    public LocalNode(IPTools ipTools) throws IOException{
+    public LocalNode(IPTools ipTools) throws IOException, ClassNotFoundException {
         logger.info("Shortcut Messenger build {}", BUILD_NUMBER);
 
         this.ipTools = ipTools;
@@ -54,6 +54,7 @@ public class LocalNode {
 
         this.messageHandler = new MessageHandler(this);
 
+        /* If port is already in use bind to the next port */
         boolean portBindFailure;
         do {
             try {
@@ -73,7 +74,7 @@ public class LocalNode {
         if (users == null) {
             users = new Users(this);
         } else {
-            users.initialise(this);
+            users.init(this);
         }
 
         /* If we've managed to load a saved state from file - start the server */
@@ -117,7 +118,7 @@ public class LocalNode {
      *
      * @throws IOException
      */
-    private void readState() throws IOException {
+    private void readState() throws IOException, ClassNotFoundException {
         if (storageHandler.doesSavedStateExist()) {
             logger.info("Saved state found - attempting to read ");
 
@@ -200,9 +201,9 @@ public class LocalNode {
     }
 
     /**
-     * Saves the node and routingTable objects to a file using the StorageHandler class
+     * Saves the appropriate objects to a file using the StorageHandler class
      */
-    private void saveState() {
+    private void saveState() throws IOException {
         logger.info("Saving state to file");
         storageHandler.save(config, networkId, node, routingTable, users, messages);
     }
@@ -264,14 +265,10 @@ public class LocalNode {
         return connect.isError();
     }
 
-    public final void message(String message, User userToMessage) throws IOException {
-            messages.sendMessage(message, userToMessage);
-    }
-
     /**
      * Shuts down the server cleanly
      */
-    public void shutdown(boolean saveState) {
+    public void shutdown(boolean saveState) throws IOException {
         server.shutdown();  // Shut down the listener
         stopRefreshOperation(); // Stop the automatic refresh timer
 

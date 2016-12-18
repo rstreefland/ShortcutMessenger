@@ -22,21 +22,24 @@ public class Messages implements Serializable {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private transient LocalNode localNode;
-    private Map<String, ArrayList<StoredTextMessage>> userMessages;
     private Map<KeyId, Long> receivedMessages;
     private Map<KeyId, TextMessage> forwardMessages;
+    private Map<String, ArrayList<StoredTextMessage>> userMessages;
+
     private transient ObjectProperty<StoredTextMessage> lastMessage;
     private transient ObjectProperty<StoredTextMessage> lastMessageUpdate;
 
     public Messages(LocalNode localNode) {
-        this.localNode = localNode;
         this.userMessages = new HashMap<>();
         this.receivedMessages = new HashMap<>();
         this.forwardMessages = new HashMap<>();
-        this.lastMessage = new SimpleObjectProperty<>();
-        this.lastMessageUpdate = new SimpleObjectProperty<>();
+
+        init(localNode);
     }
 
+    /**
+     * Used to set the transient objects when a saved state has been read
+     */
     public void init(LocalNode localNode) {
         this.localNode = localNode;
         this.lastMessage = new SimpleObjectProperty<>();
@@ -72,12 +75,12 @@ public class Messages implements Serializable {
 
         long start = System.currentTimeMillis();
 
-        /* Execute the sendmessageoperation */
+        /* Execute the SendMessageOperation */
         SendMessageOperation operation = new SendMessageOperation(localNode, target, messageId, message, createdTime);
         operation.execute();
 
         long end = System.currentTimeMillis();
-        long time  = end-start;
+        long time = end - start;
         System.out.println("OUTGOING SMO TOOK: " + time);
 
         if (operation.getUser() != null) {
@@ -136,11 +139,11 @@ public class Messages implements Serializable {
 
         System.out.println("Message received from " + userName + ": " + messageString);
 
-        /* Create the storedtextmessage object */
+        /* Create the StoredTextMessage object */
         StoredTextMessage stm = new StoredTextMessage(message.getMessageId(), userName, localNode.getUsers().getLocalUser().getUserName(), messageString, message.getCreatedTime());
         lastMessage.set(stm);
 
-        /* Add the storedtextmessage to an existing conversation or create a new one if it doesn't already exist */
+        /* Add the StoredTextMessage to an existing conversation or create a new one if it doesn't already exist */
         if (userMessages.putIfAbsent(userName, new ArrayList(Arrays.asList(stm))) != null) {
             ArrayList<StoredTextMessage> conversation = userMessages.get(userName);
             conversation.add(stm);

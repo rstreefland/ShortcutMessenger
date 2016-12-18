@@ -1,18 +1,14 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
-import javafx.fxml.FXML;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
-import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
-import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
-import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.*;
-import java.net.*;
-import java.nio.channels.DatagramChannel;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -23,19 +19,16 @@ import java.util.concurrent.Executors;
 public class Server {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-    private LocalNode localNode;
-
-    /* Server Objects */
+    /* Server objects */
     private final DatagramSocket socket;
     private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
-    private DatagramPacket packet;
-    private boolean isRunning;
-
     /* Cached threadPool so we can run receivers in parallel */
     private final ExecutorService threadPool = Executors.newCachedThreadPool();
+    private LocalNode localNode;
+    private DatagramPacket packet;
+    private boolean isRunning;
 
     public Server(LocalNode localNode, int udpPort) throws IOException {
         this.localNode = localNode;
@@ -86,8 +79,8 @@ public class Server {
                 /* Check if the node is part of this network - drop the packet if not
                    allow if message is connect message
                    allow if ack and local network ID is null
-                   allow if local network ID == remote network ID */ // TODO: 06/12/2016 sort out the null pointer exception here
-                if (messageCode == 0x02 || (messageCode == 0x01 && localNode.getNetworkId() == null) || localNode.getNetworkId().equals(msg.getNetworkId())) {
+                   allow if local network ID == remote network ID */ // TODO: 18/12/2016  think I've fixed the null pointer exception here - test it
+                if (messageCode == 0x02 || (messageCode == 0x01 && localNode.getNetworkId() == null) || msg.getNetworkId().equals(localNode.getNetworkId())) {
 
                     /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
                     if (packet.getAddress().equals(msg.getSource().getPublicInetAddress()) || packet.getAddress().equals(msg.getSource().getPrivateInetAddress())) {

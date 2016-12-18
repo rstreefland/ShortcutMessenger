@@ -10,6 +10,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
@@ -18,7 +19,6 @@ import uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.net.InetAddress;
 
 /**
  * The starting point for the JavaFX application
@@ -30,49 +30,6 @@ public class Main extends Application {
 
     private int width = 650;
     private int height = 500;
-
-    @Override
-    public void start(Stage stage) throws IOException {
-
-        /* Load in custom fonts */
-        Font.loadFont(getClass().getResourceAsStream("/Roboto-Regular.ttf"), 14);
-        Font.loadFont(getClass().getResourceAsStream("/Roboto-Light.ttf"), 14);
-
-        StorageHandler temp = new StorageHandler();
-        Parent root;
-
-        logger.info("Shortcut Messenger UI");
-
-        /* Check if we can load the saved state from the file and show the relevant scene */
-        if (temp.doesSavedStateExist()) {
-            IPTools ipTools = new IPTools();
-            localNode = new LocalNode(ipTools);
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
-            root = loader.load();
-
-            HomeController controller =
-                    loader.getController();
-            controller.init(localNode);
-
-        } else {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/connect.fxml"));
-            root = loader.load();
-
-            ConnectController controller =
-                    loader.getController();
-            controller.init(this);
-        }
-
-
-        Scene scene = new Scene(root, width, height);
-        stage.setTitle("Shortcut Messenger");
-        stage.setScene(scene);
-        stage.setMinHeight(420);
-        stage.setMinWidth(500);
-        stage.getIcons().add(new Image("/icon6.png"));
-        stage.show();
-    }
 
     /**
      * The main() method is ignored in correctly deployed JavaFX application.
@@ -97,9 +54,61 @@ public class Main extends Application {
     }
 
     @Override
-    public void stop(){
+    public void start(Stage stage) {
+
+        /* Load in custom fonts */
+        Font.loadFont(getClass().getResourceAsStream("/Roboto-Regular.ttf"), 14);
+        Font.loadFont(getClass().getResourceAsStream("/Roboto-Light.ttf"), 14);
+
+        StorageHandler temp = new StorageHandler();
+        Parent root;
+
+        logger.info("Shortcut Messenger UI");
+
+        try {
+            /* Check if we can load the saved state from the file and show the relevant scene */
+            if (temp.doesSavedStateExist()) {
+
+                IPTools ipTools = new IPTools();
+                localNode = new LocalNode(ipTools);
+
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
+                root = loader.load();
+
+                HomeController controller =
+                        loader.getController();
+                controller.init(localNode);
+
+            } else {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/connect.fxml"));
+                root = loader.load();
+
+                ConnectController controller =
+                        loader.getController();
+                controller.init(this);
+            }
+
+            Scene scene = new Scene(root, width, height);
+            stage.setTitle("Shortcut Messenger");
+            stage.setScene(scene);
+            stage.setMinHeight(420);
+            stage.setMinWidth(500);
+            stage.getIcons().add(new Image("/icon6.png"));
+            stage.show();
+
+        } catch (Exception e) {
+            logger.error("Failed to initialise UI - try deleting the {} file if it exists", Configuration.FILE_PATH);
+        }
+    }
+
+    @Override
+    public void stop() {
         if (localNode != null) {
-            localNode.shutdown(true); // TODO: 16/11/2016 change this back to true once you've fixed the saving and loading
+            try {
+                localNode.shutdown(true);
+            } catch (IOException e) {
+                logger.error("Failed to shutdown cleanly");
+            }
         }
     }
 

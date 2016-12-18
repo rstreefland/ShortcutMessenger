@@ -23,6 +23,7 @@ public class Encryption {
 
     /**
      * Randomly generates an IV (Initialisation Vector)
+     *
      * @return
      */
     public byte[] generateIV() {
@@ -34,8 +35,9 @@ public class Encryption {
 
     /**
      * Encrypts a given string with the password hash of the target user
-     * @param target The target user object - needed for the password hash
-     * @param iv The initialisation vector in a byte array
+     *
+     * @param target  The target user object - needed for the password hash
+     * @param iv      The initialisation vector in a byte array
      * @param message The string to encrypt
      * @return The encrypted string as a byte array
      */
@@ -54,6 +56,20 @@ public class Encryption {
         return encrypted;
     }
 
+    /**
+     * Decrypts an encrypted message into a string given the plaintext password of the target user
+     *
+     * @param target            The target user object
+     * @param plainTextPassword The plaintext password of the local user
+     * @param iv                The initialisation vector
+     * @param encryptedMessage  The encrypted messgage in byte array
+     * @return The decrypted string
+     * @throws InvalidAlgorithmParameterException
+     * @throws InvalidKeyException
+     * @throws BadPaddingException
+     * @throws IllegalBlockSizeException
+     * @throws UnsupportedEncodingException
+     */
     public String decryptString(User target, String plainTextPassword, byte[] iv, byte[] encryptedMessage) throws InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, UnsupportedEncodingException {
 
         /* Hash the local users plain text password to check it matches the existing password hash */

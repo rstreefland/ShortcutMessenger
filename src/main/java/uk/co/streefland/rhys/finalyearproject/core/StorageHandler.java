@@ -1,7 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
-import uk.co.streefland.rhys.finalyearproject.core.Users;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
@@ -33,52 +31,47 @@ public class StorageHandler {
     /**
      * Save the provided objects to the file specified in the Configuration class
      *
-     * @param node   The Node object to write to file
+     * @param node         The Node object to write to file
      * @param routingTable The RoutingTable object to write to file
      */
-    public void save(Configuration config, KeyId networkId, Node node, RoutingTable routingTable, Users users, Messages messages) {
+    public void save(Configuration config, KeyId networkId, Node node, RoutingTable routingTable, Users users, Messages messages) throws IOException {
         FileOutputStream fout;
         ObjectOutputStream oos;
 
-        try {
-            fout = new FileOutputStream(Configuration.FILE_PATH, false);
-            oos = new ObjectOutputStream(fout);
-            oos.writeObject(config);
-            oos.writeObject(networkId);
-            oos.writeObject(node);
-            oos.writeObject(routingTable);
-            oos.writeObject(users);
-            oos.writeObject(messages);
-            oos.close();
-            fout.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        fout = new FileOutputStream(Configuration.FILE_PATH, false);
+        oos = new ObjectOutputStream(fout);
+
+        /* Write objects to stream */
+        oos.writeObject(config);
+        oos.writeObject(networkId);
+        oos.writeObject(node);
+        oos.writeObject(routingTable);
+        oos.writeObject(users);
+        oos.writeObject(messages);
+
+        /* Close output streams */
+        oos.close();
+        fout.close();
     }
 
     /**
      * Reads the Node and RoutingTable objects from the file specified in the Configuration class.
      */
-    public void load() {
-        FileInputStream fis;
-        ObjectInputStream ois;
+    public void load() throws IOException, ClassNotFoundException {
+        FileInputStream fis = new FileInputStream(Configuration.FILE_PATH);
+        ObjectInputStream ois = new ObjectInputStream(fis);
 
-        try {
-            fis = new FileInputStream(Configuration.FILE_PATH);
-            ois = new ObjectInputStream(fis);
+        /* Read objects from stream */
+        config = (Configuration) ois.readObject();
+        networkId = (KeyId) ois.readObject();
+        node = (Node) ois.readObject();
+        routingTable = (RoutingTable) ois.readObject();
+        users = (Users) ois.readObject();
+        messages = (Messages) ois.readObject();
 
-            config = (Configuration) ois.readObject();
-            networkId = (KeyId) ois.readObject();
-            node = (Node) ois.readObject();
-            routingTable = (RoutingTable) ois.readObject();
-            users = (Users) ois.readObject();
-            messages = (Messages) ois.readObject();
-
-            ois.close();
-            fis.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        /* Close input streams */
+        ois.close();
+        fis.close();
     }
 
     /**

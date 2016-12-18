@@ -1,7 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
@@ -36,8 +34,6 @@ public class ConnectController {
     private IPTools ipTools;
 
     @FXML
-    private BorderPane borderPane;
-    @FXML
     private Button connectButton;
     @FXML
     private TextField networkIpField;
@@ -59,7 +55,6 @@ public class ConnectController {
     /**
      * Creates the localNode and bootstraps the node to the network
      *
-     * @param event
      * @throws IOException
      */
     @FXML
@@ -69,13 +64,7 @@ public class ConnectController {
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
-
-                String publicIpString = ipTools.getPublicIp();
-                String privateIpString = ipTools.getPrivateIp();
                 String networkIpString = networkIpField.getText();
-
-                InetAddress publicIp = ipTools.validateAddress(publicIpString);
-                InetAddress privateIp = ipTools.validateAddress(privateIpString);
 
                 /* Special case for first node in the network */
                 if (networkIpString.equals("first")) {
@@ -85,13 +74,14 @@ public class ConnectController {
                     return null;
                 }
 
+                /* Convert the network IP/URL into an InetAddress */
                 InetAddress networkIp = null;
-
                 try {
                     networkIp = ipTools.validateAddress(networkIpString);
                 } catch (UnknownHostException uho) {
                 }
 
+                /* Create the localNode object */
                 if (networkIp != null) {
                     localNode = new LocalNode(ipTools);
                 } else {
@@ -99,6 +89,7 @@ public class ConnectController {
                     return "Invalid network address";
                 }
 
+                /* Attempt to bootstrap to the network */
                 boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT));
 
                 if (error) {

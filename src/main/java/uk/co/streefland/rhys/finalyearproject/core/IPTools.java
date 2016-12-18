@@ -18,6 +18,11 @@ public class IPTools {
         privateIp = determinePrivateIp();
     }
 
+    /**
+     * Determines the node's public IP by querying a website
+     *
+     * @return The node's public IP as a string
+     */
     public String determinePublicIp() {
 
         String[] urls = new String[3];
@@ -28,6 +33,7 @@ public class IPTools {
         String ip = null;
         BufferedReader in = null;
 
+        /* Check a different source if one fails */
         for (int i = 0; i < 3; i++) {
             try {
                 URL ipUrl = new URL(urls[i]);
@@ -54,9 +60,17 @@ public class IPTools {
         return null;
     }
 
+    /**
+     * Determines the node's private IP by selecting the IP address of network interface that is most
+     * likely to be the primary interfaces
+     *
+     * @return
+     * @throws SocketException
+     */
     public String determinePrivateIp() throws SocketException {
         List<InetAddress> ipAddresses = new ArrayList<>();
 
+        /* Loop through network interfaces adding all suitable InetAdresses to an ArrayList*/
         Enumeration en = NetworkInterface.getNetworkInterfaces();
         while (en.hasMoreElements()) {
             NetworkInterface i = (NetworkInterface) en.nextElement();
@@ -70,15 +84,21 @@ public class IPTools {
             }
         }
 
+        /* Pick the last IP address */
         if (ipAddresses.size() > 1) {
             return ipAddresses.get(ipAddresses.size() - 1).getHostAddress();
-        } else if (ipAddresses.size() == 1) {
-            return ipAddresses.get(0).getHostAddress();
         } else {
             return null;
         }
     }
 
+    /**
+     * Converts a IP/URL into an InetAddress
+     *
+     * @param host The IP/URL of the host
+     * @return
+     * @throws UnknownHostException
+     */
     public InetAddress validateAddress(String host) throws UnknownHostException {
         return InetAddress.getByName(host);
     }

@@ -18,9 +18,8 @@ import java.util.Scanner;
  */
 class Main {
 
-    private static IPTools ipTools;
-
     private static final Scanner sc = new Scanner(System.in);
+    private static IPTools ipTools;
     private static String input = ""; // a line of input from scanner
     private static String[] inputWords = new String[2]; // scanner input separated into words
     private static LocalNode localNode = null;
@@ -52,7 +51,7 @@ class Main {
                 case "bootstrap":
                     try {
                         bootstrap();
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     break;
@@ -135,7 +134,7 @@ class Main {
      *
      * @throws IOException
      */
-    private static void bootstrap() throws IOException {
+    private static void bootstrap() throws IOException, ClassNotFoundException {
         if (!availableCommands.contains("bootstrap")) {
             return;
         }
@@ -228,7 +227,7 @@ class Main {
             System.out.println("Enter a message:");
             String message = sc.nextLine();
 
-            localNode.message(message, new User(recipient, ""));
+            localNode.getMessages().sendMessage(message, new User(recipient, ""));
         }
     }
 
@@ -250,7 +249,11 @@ class Main {
 
     private static void exit() {
         if (localNode != null) {
-            localNode.shutdown(false);
+            try {
+                localNode.shutdown(true);
+            } catch (IOException e) {
+                System.err.println("Failed to shutdown cleanly");
+            }
         }
     }
 }

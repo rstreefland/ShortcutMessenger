@@ -15,7 +15,9 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.Random;
 
 /**
  * Represents a User on the network
@@ -30,13 +32,11 @@ public class User implements Serializable {
     private byte[] passwordSalt;
     private Node associatedNode;
     private long registerTime;
-    private long lastLoginTime;
     private long lastActiveTime;
 
     public User(String userName, String password) {
         this.userId = new KeyId(userName);
         this.userName = userName;
-
         this.passwordSalt = generateSalt();
         this.passwordHash = generatePasswordHash(this.passwordSalt, password);
     }
@@ -63,7 +63,6 @@ public class User implements Serializable {
         }
 
         out.writeLong(registerTime);
-        out.writeLong(lastLoginTime);
         out.writeLong(lastActiveTime);
     }
 
@@ -84,7 +83,6 @@ public class User implements Serializable {
         }
 
         registerTime = in.readLong();
-        lastLoginTime = in.readLong();
         lastActiveTime = in.readLong();
     }
 
@@ -119,12 +117,6 @@ public class User implements Serializable {
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             logger.error("Error while generating password hash", e);
         }
-
-        /* Performance testing */
-        long end = System.currentTimeMillis();
-        long difference = end - start;
-        logger.debug("Hashing password took {} ms", difference);
-
         return passwordHash;
     }
 
@@ -168,18 +160,8 @@ public class User implements Serializable {
         /* Only allow setting of register time once */
         if (registerTime == 0L) {
             registerTime = new Date().getTime();
-            lastLoginTime = registerTime; // set the login time as well
             lastActiveTime = registerTime;
         }
-    }
-
-    public long getLastLoginTime() {
-        return lastLoginTime;
-    }
-
-    public void setLastLoginTime() {
-        lastLoginTime = new Date().getTime();
-        lastActiveTime = lastLoginTime;
     }
 
     public long getLastActiveTime() {

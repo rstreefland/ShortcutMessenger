@@ -1,7 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,9 +38,15 @@ public class LoginController {
         this.localNode = localNode;
     }
 
+    /**
+     * Handles registering a user on the network
+     *
+     * @throws IOException
+     */
     @FXML
-    protected void handleRegisterButtonAction(ActionEvent event) throws IOException {
+    protected void handleRegisterButtonAction() throws IOException {
         loader.setVisible(true);
+
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
@@ -73,9 +78,13 @@ public class LoginController {
         });
     }
 
+    /**
+     * Handles logging a user in on the network
+     */
     @FXML
-    protected void handleLoginButtonAction(ActionEvent event) {
+    protected void handleLoginButtonAction() {
         loader.setVisible(true);
+
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
@@ -113,6 +122,7 @@ public class LoginController {
     private void showHomeScene() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
         Parent root = null;
+
         try {
             root = loader.load();
         } catch (IOException e) {
