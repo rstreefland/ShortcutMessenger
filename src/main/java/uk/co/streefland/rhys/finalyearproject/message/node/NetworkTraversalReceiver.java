@@ -35,7 +35,6 @@ public class NetworkTraversalReceiver implements Receiver {
         NetworkTraversalMessage msg = (NetworkTraversalMessage) incoming;
         Node origin = msg.getOrigin();
 
-        /* Find nodes closest to the KeyId in local routing table */
         List<Node> nodes = localNode.getRoutingTable().getAllNodes(false);
 
         /* Create the FindNodeMessageReply */

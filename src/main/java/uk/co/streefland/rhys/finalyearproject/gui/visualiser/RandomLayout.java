@@ -26,8 +26,28 @@ public class RandomLayout extends Layout {
 
             cell.relocate(x, y);
 
-        }
+            boolean collisionDetected;
 
+            do {
+                collisionDetected = detectCollision(cells, cell);
+            } while (collisionDetected);
+        }
     }
 
+    private boolean detectCollision(List<Cell> cells, Cell cell) {
+        for (Cell cell2 : cells) {
+            if (!cell.equals(cell2)) {
+                if (cell.getBoundsInParent().intersects(cell2.getBoundsInParent())) {
+
+                    /* New random position for cell */
+                    double x = rnd.nextDouble() * 500;
+                    double y = rnd.nextDouble() * 500;
+                    cell.relocate(x, y);
+
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 }

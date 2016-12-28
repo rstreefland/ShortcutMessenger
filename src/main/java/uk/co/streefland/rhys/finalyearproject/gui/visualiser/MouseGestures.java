@@ -17,7 +17,6 @@ public class MouseGestures {
     public void makeDraggable( final Node node) {
         node.setOnMousePressed(onMousePressedEventHandler);
         node.setOnMouseDragged(onMouseDraggedEventHandler);
-        node.setOnMouseReleased(onMouseReleasedEventHandler);
     }
 
     EventHandler<MouseEvent> onMousePressedEventHandler = new EventHandler<MouseEvent>() {
@@ -52,22 +51,11 @@ public class MouseGestures {
             offsetY /= scale;
 
             node.relocate(offsetX, offsetY);
-
-        }
-    };
-
-    EventHandler<MouseEvent> onMouseReleasedEventHandler = new EventHandler<MouseEvent>() {
-
-        @Override
-        public void handle(MouseEvent event) {
-
         }
     };
 
     class DragContext {
-
         double x;
         double y;
-
     }
 }

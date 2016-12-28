@@ -33,14 +33,14 @@ public class Graph {
         mouseGestures = new MouseGestures(this);
 
         scrollPane = new ZoomableScrollPane(canvas);
-
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
+        scrollPane.getStyleClass().add("vis");
 
     }
 
-    public ScrollPane getScrollPane() {
-        return this.scrollPane;
+    public ZoomableScrollPane getScrollPane() {
+        return scrollPane;
     }
 
     public Model getModel() {

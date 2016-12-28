@@ -1,8 +1,16 @@
 package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -22,9 +30,28 @@ public class Visualiser {
     private Graph graph = new Graph();
     private Map<KeyId, List<Node>> nodeRoutingTables;
 
+    private Stage stage;
+
     public Visualiser(LocalNode localNode) {
         this.localNode = localNode;
+        stage = new Stage();
 
+        BorderPane root = new BorderPane();
+        root.setCenter(new Label("Generating network visualisation"));
+
+        Scene scene = new Scene(root, 1024, 768);
+        scene.getStylesheets().add("style.css");
+        root.getStyleClass().add("vis");
+
+        stage.setTitle("Shortcut Messenger - Network Visualisation");
+        stage.setScene(scene);
+        stage.getIcons().add(new Image("/icon6.png"));
+        stage.show();
+
+        doComputation();
+    }
+
+    private void doComputation() {
         Task task = new Task() {
             @Override
             protected Map<KeyId, List<Node>> call() throws Exception {
@@ -55,21 +82,37 @@ public class Visualiser {
     }
 
     private void draw() {
-        Stage stage = new Stage();
         BorderPane root = new BorderPane();
+        root.getStyleClass().add("vis");
 
         graph = new Graph();
-        root.setCenter(graph.getScrollPane());
+
+        ZoomableScrollPane zoomableScrollPane = graph.getScrollPane();
+        root.setCenter(zoomableScrollPane);
 
         Scene scene = new Scene(root, 1024, 768);
+        scene.getStylesheets().add("style.css");
 
         addGraphComponents();
 
         Layout layout = new RandomLayout(graph);
         layout.execute();
 
+        HBox bottomToolbar = new HBox(5);
+        Button routingTable = new Button("Routing Table");
+        Button newLayout = new Button("New Layout");
+        bottomToolbar.setPadding(new Insets(5));
+        bottomToolbar.setAlignment(Pos.CENTER_RIGHT);
+
+        Slider slider = new Slider(0, 2, zoomableScrollPane.getScaleValue());
+        slider.valueProperty().addListener((ov, oldValue, newValue) -> zoomableScrollPane.zoomTo(newValue.floatValue()));
+
+        bottomToolbar.getChildren().addAll(slider, routingTable, newLayout);
+        root.setBottom(bottomToolbar);
+        routingTable.setOnAction(e -> printRoutingTable());
+        newLayout.setOnAction(e -> layout.execute());
+
         stage.setScene(scene);
-        stage.show();
     }
 
     private void addGraphComponents() {
@@ -85,5 +128,34 @@ public class Visualiser {
         }
 
         graph.endUpdate();
+    }
+
+    private void printRoutingTable() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Shortcut Messenger - Routing Table");
+        alert.setHeaderText("Routing Table");
+
+        TextArea textArea = new TextArea(localNode.getRoutingTable().toString());
+        textArea.setEditable(false);
+        textArea.setWrapText(true);
+
+        textArea.setMaxWidth(Double.MAX_VALUE);
+        textArea.setMaxHeight(Double.MAX_VALUE);
+        GridPane.setVgrow(textArea, Priority.ALWAYS);
+        GridPane.setHgrow(textArea, Priority.ALWAYS);
+
+        GridPane content = new GridPane();
+        content.setMaxWidth(Double.MAX_VALUE);
+        content.add(textArea, 0, 1);
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-pane");
+
+        // Set expandable Exception into the dialog pane.
+        alert.getDialogPane().setContent(content);
+
+        alert.showAndWait();
     }
 }

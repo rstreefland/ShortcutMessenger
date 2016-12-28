@@ -2,6 +2,7 @@ package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
 import javafx.scene.Group;
 import javafx.scene.control.Label;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 public class Edge extends Group {
@@ -21,6 +22,7 @@ public class Edge extends Group {
 
         line = new Line();
         line.setSmooth(true);
+        line.setStroke(Color.GREEN);
 
         line.startXProperty().bind( source.layoutXProperty().add(source.getBoundsInParent().getWidth() / 2));
         line.startYProperty().bind( source.layoutYProperty().add(source.getBoundsInParent().getHeight() / 2));

@@ -144,3 +144,7 @@
 .hyperlink:visited {
     -fx-text-fill: #1A8088;
 }
+
+.vis {
+    -fx-background: #253237;
+}
