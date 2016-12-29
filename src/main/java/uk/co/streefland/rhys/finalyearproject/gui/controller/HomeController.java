@@ -1,6 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
-import javafx.animation.FadeTransition;
+import javafx.animation.*;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -36,6 +36,7 @@ import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
+import uk.co.streefland.rhys.finalyearproject.core.Statistics;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.gui.EmojiConverter;
 import uk.co.streefland.rhys.finalyearproject.gui.visualiser.Visualiser;
@@ -47,10 +48,8 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
-import java.util.Map;
-import java.util.Optional;
 
 public class HomeController {
 
@@ -499,7 +498,7 @@ public class HomeController {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("New Conversation");
         dialog.setHeaderText("New conversation");
-        dialog.setContentText("Username:");
+        dialog.setContentText("Who would you like to message:");
 
         DialogPane dialogPane = dialog.getDialogPane();
         dialogPane.getStylesheets().add(
@@ -564,6 +563,73 @@ public class HomeController {
             localNode.getConfig().setRefreshInterval(Integer.parseInt(refreshIntervalInput.getText()));
         });
 
+        dialog.show();
+    }
+
+    /**
+     * Stats dialog
+     *
+     * @throws IOException
+     */
+    @FXML
+    private void statsDialog() throws IOException {
+        Dialog dialog = new Dialog();
+        dialog.setTitle("Statistics");
+        dialog.setHeaderText("Statistics");
+
+        GridPane content = new GridPane();
+        content.vgapProperty().set(10);
+        content.hgapProperty().set(10);
+        content.setMaxWidth(Double.MAX_VALUE);
+
+        Statistics stats = localNode.getServer().getStats();
+
+        content.getChildren().clear();
+
+        content.add(new Label("Bytes sent"), 1, 1);
+        content.add(new Label("Bytes received"), 1, 2);
+        content.add(new Label("Messages sent"), 1, 4);
+        content.add(new Label("Messages received"), 1, 5);
+        content.add(new Label("Last communication with network"), 1, 7);
+
+        long currentTime = new Date().getTime();
+        long secondsAgo = (currentTime - stats.getLastCommunication()) / 1000;
+
+        content.add(new Text(stats.getBytesSent() + ""), 2, 1);
+        content.add(new Text(stats.getBytesReceived() + ""), 2, 2);
+        content.add(new Text(stats.getMessagesSent() + ""), 2, 4);
+        content.add(new Text(stats.getMessagesReceived() + ""), 2, 5);
+        content.add(new Text(secondsAgo + " seconds ago"), 2, 7);
+
+        final Timeline timeline = new Timeline( new KeyFrame( Duration.millis( 1000 ), event -> {
+            content.getChildren().clear();
+
+            content.add(new Label("Bytes sent"), 1, 1);
+            content.add(new Label("Bytes received"), 1, 2);
+            content.add(new Label("Messages sent"), 1, 4);
+            content.add(new Label("Messages received"), 1, 5);
+            content.add(new Label("Last communication with network"), 1, 7);
+
+            long currentTime2 = new Date().getTime();
+            long secondsAgo2 = (currentTime2 - stats.getLastCommunication()) / 1000;
+
+            content.add(new Text(stats.getBytesSent() + ""), 2, 1);
+            content.add(new Text(stats.getBytesReceived() + ""), 2, 2);
+            content.add(new Text(stats.getMessagesSent() + ""), 2, 4);
+            content.add(new Text(stats.getMessagesReceived() + ""), 2, 5);
+            content.add(new Text(secondsAgo2 + " seconds ago"), 2, 7);
+        }));
+
+        timeline.setCycleCount( Animation.INDEFINITE );
+        timeline.play();
+
+        DialogPane dialogPane = dialog.getDialogPane();
+        dialogPane.setContent(content);
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-pane");
+
+        dialogPane.getButtonTypes().add(ButtonType.CLOSE);
         dialog.show();
     }
 

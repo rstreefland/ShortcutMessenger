@@ -18,7 +18,7 @@
                     </Menu>
                     <Menu text="Developer" fx:id="developerMenu">
                         <MenuItem text="Network Visualisation" onAction="#openVisualiser"/>
-                        <MenuItem text="Statistics"/>
+                        <MenuItem text="Statistics" onAction="#statsDialog"/>
                     </Menu>
                     <Menu text="About" fx:id="aboutMenu">
                     </Menu>

@@ -19,16 +19,19 @@ import java.util.concurrent.Executors;
 public class Server {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     /* Server objects */
     private final DatagramSocket socket;
     private final Timer timer = new Timer(true);    // Schedule future tasks
     private final Map<Integer, TimerTask> tasks = new HashMap<>();  // Keep track of scheduled tasks
     private final Map<Integer, Receiver> receivers = new HashMap<>();
+
     /* Cached threadPool so we can run receivers in parallel */
     private final ExecutorService threadPool = Executors.newCachedThreadPool();
     private LocalNode localNode;
     private DatagramPacket packet;
     private boolean isRunning;
+    private Statistics stats;
 
     public Server(LocalNode localNode, int udpPort) throws IOException {
         this.localNode = localNode;
@@ -37,6 +40,7 @@ public class Server {
         byte[] buffer = new byte[Configuration.PACKET_SIZE];
         packet = new DatagramPacket(buffer, buffer.length);
         isRunning = false;
+        stats = new Statistics();
     }
 
     /**
@@ -61,6 +65,9 @@ public class Server {
             try {
                 /* Wait for a packet*/
                 socket.receive(packet);
+
+                /* Update the statistics */
+                stats.updateReceived(packet.getLength());
 
                 /* Handle the received packet */
                 ByteArrayInputStream bin = new ByteArrayInputStream(packet.getData(), packet.getOffset(), packet.getLength());
@@ -192,6 +199,9 @@ public class Server {
             pkt.setSocketAddress(destination.getPublicSocketAddress());
         }
 
+        /* Update statistics */
+        stats.updateSent(pkt.getLength());
+
         socket.send(pkt);
     }
 
@@ -234,6 +244,10 @@ public class Server {
 
     public boolean isRunning() {
         return isRunning;
+    }
+
+    public Statistics getStats() {
+        return stats;
     }
 
     /**

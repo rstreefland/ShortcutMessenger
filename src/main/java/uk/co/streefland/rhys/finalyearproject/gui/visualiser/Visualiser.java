@@ -1,16 +1,15 @@
 package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Task;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -43,7 +42,7 @@ public class Visualiser {
         scene.getStylesheets().add("style.css");
         root.getStyleClass().add("vis");
 
-        stage.setTitle("Shortcut Messenger - Network Visualisation");
+        stage.setTitle("Network Visualisation");
         stage.setScene(scene);
         stage.getIcons().add(new Image("/icon6.png"));
         stage.show();
