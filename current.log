@@ -1,18 +1,20 @@
-2016-12-29 10:05:30.602 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
-2016-12-29 10:05:30.901 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
-2016-12-29 10:05:30.902 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
-2016-12-29 10:05:31.017 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Config read successfully
-2016-12-29 10:05:31.018 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - NetworkId read successfully
-2016-12-29 10:05:31.018 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
-2016-12-29 10:05:31.019 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
-2016-12-29 10:05:31.019 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
-2016-12-29 10:05:31.019 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Messages read successfully
-2016-12-29 10:05:31.030 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2016-12-29 10:05:31.032 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2016-12-29 10:05:31.033 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:322991F7D7A458AEEC77378942100BC08BF343A1
-2016-12-29 10:06:31.228 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
-2016-12-29 10:07:31.091 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
-2016-12-29 10:08:31.073 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
-2016-12-29 10:09:08.768 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2016-12-29 10:09:08.770 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
-2016-12-29 10:09:08.793 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2016-12-29 15:28:47.707 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
+2016-12-29 15:28:48.052 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
+2016-12-29 15:28:48.053 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read 
+2016-12-29 15:28:48.168 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Config read successfully
+2016-12-29 15:28:48.169 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - NetworkId read successfully
+2016-12-29 15:28:48.169 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
+2016-12-29 15:28:48.170 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
+2016-12-29 15:28:48.170 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
+2016-12-29 15:28:48.170 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Messages read successfully
+2016-12-29 15:28:48.182 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2016-12-29 15:28:48.183 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2016-12-29 15:28:48.184 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:322991F7D7A458AEEC77378942100BC08BF343A1
+2016-12-29 15:29:48.311 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-29 15:30:48.249 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-29 15:31:48.268 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-29 15:32:48.213 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-29 15:33:48.215 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-29 15:34:48.231 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-29 15:35:48.215 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds
+2016-12-29 15:36:48.229 [Timer-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler - Refresh operations took 0 seconds

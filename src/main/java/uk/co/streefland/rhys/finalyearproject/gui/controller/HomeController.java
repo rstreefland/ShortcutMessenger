@@ -584,44 +584,7 @@ public class HomeController {
 
         Statistics stats = localNode.getServer().getStats();
 
-        content.getChildren().clear();
-
-        content.add(new Label("Bytes sent"), 1, 1);
-        content.add(new Label("Bytes received"), 1, 2);
-        content.add(new Label("Messages sent"), 1, 4);
-        content.add(new Label("Messages received"), 1, 5);
-        content.add(new Label("Last communication with network"), 1, 7);
-
-        long currentTime = new Date().getTime();
-        long secondsAgo = (currentTime - stats.getLastCommunication()) / 1000;
-
-        content.add(new Text(stats.getBytesSent() + ""), 2, 1);
-        content.add(new Text(stats.getBytesReceived() + ""), 2, 2);
-        content.add(new Text(stats.getMessagesSent() + ""), 2, 4);
-        content.add(new Text(stats.getMessagesReceived() + ""), 2, 5);
-        content.add(new Text(secondsAgo + " seconds ago"), 2, 7);
-
-        final Timeline timeline = new Timeline( new KeyFrame( Duration.millis( 1000 ), event -> {
-            content.getChildren().clear();
-
-            content.add(new Label("Bytes sent"), 1, 1);
-            content.add(new Label("Bytes received"), 1, 2);
-            content.add(new Label("Messages sent"), 1, 4);
-            content.add(new Label("Messages received"), 1, 5);
-            content.add(new Label("Last communication with network"), 1, 7);
-
-            long currentTime2 = new Date().getTime();
-            long secondsAgo2 = (currentTime2 - stats.getLastCommunication()) / 1000;
-
-            content.add(new Text(stats.getBytesSent() + ""), 2, 1);
-            content.add(new Text(stats.getBytesReceived() + ""), 2, 2);
-            content.add(new Text(stats.getMessagesSent() + ""), 2, 4);
-            content.add(new Text(stats.getMessagesReceived() + ""), 2, 5);
-            content.add(new Text(secondsAgo2 + " seconds ago"), 2, 7);
-        }));
-
-        timeline.setCycleCount( Animation.INDEFINITE );
-        timeline.play();
+        updateStats(content, stats);
 
         DialogPane dialogPane = dialog.getDialogPane();
         dialogPane.setContent(content);
@@ -630,8 +593,51 @@ public class HomeController {
         dialogPane.getStyleClass().add("dialog-pane");
 
         dialogPane.getButtonTypes().add(ButtonType.CLOSE);
+
+        final Timeline timeline = new Timeline( new KeyFrame( Duration.millis( 1000 ), event -> {
+            updateStats(content, stats);
+
+            if (dialogPane.getScene() != null) {
+                dialogPane.getScene().getWindow().sizeToScene();
+            }
+        }));
+
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+
         dialog.show();
     }
+
+    private void updateStats(GridPane content, Statistics stats) {
+        content.getChildren().clear();
+        content.add(new Label("Bytes sent"), 1, 1);
+        content.add(new Label("Bytes received"), 1, 2);
+        content.add(new Label("Messages sent"), 1, 4);
+        content.add(new Label("Messages received"), 1, 5);
+        content.add(new Label("Last communication with network"), 1, 7);
+
+        long currentTime = new Date().getTime();
+        long seconds = (currentTime - stats.getLastCommunication()) / 1000;
+
+        Label bytesSent = new Label(stats.getBytesSent() + "");
+        Label bytesReceived = new Label(stats.getBytesReceived() + "");
+        Label messagesSent = new Label(stats.getMessagesSent() + "");
+        Label messagesReceived = new Label(stats.getMessagesReceived() + "");
+        Label secondsAgo = new Label( seconds + " seconds ago");
+
+        bytesSent.setStyle("-fx-text-fill: #9db4c0");
+        bytesReceived.setStyle("-fx-text-fill: #9db4c0");
+        messagesSent.setStyle("-fx-text-fill: #9db4c0");
+        messagesReceived.setStyle("-fx-text-fill: #9db4c0");
+        secondsAgo.setStyle("-fx-text-fill: #9db4c0");
+
+        content.add(bytesSent, 2, 1);
+        content.add(bytesReceived, 2, 2);
+        content.add(messagesSent, 2, 4);
+        content.add(messagesReceived, 2, 5);
+        content.add(secondsAgo, 2, 7);
+    }
+
 
     /**
      * About dialog
