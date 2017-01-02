@@ -37,6 +37,7 @@ import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Statistics;
+import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.gui.EmojiConverter;
 import uk.co.streefland.rhys.finalyearproject.gui.visualiser.Visualiser;
@@ -738,5 +739,18 @@ public class HomeController {
     @FXML
     private void openVisualiser() {
         Visualiser vis = new Visualiser(localNode);
+    }
+
+    /**
+     * Deletes any existing saved state and force shuts down the program
+     * @throws IOException
+     */
+    @FXML
+    private void reset() throws IOException {
+        StorageHandler temp = new StorageHandler();
+        temp.delete();
+
+        localNode.shutdown(false);
+        System.exit(0);
     }
 }

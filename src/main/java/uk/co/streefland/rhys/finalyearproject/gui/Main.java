@@ -5,6 +5,9 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DialogPane;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -18,6 +21,7 @@ import uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.util.Optional;
 
 /**
  * The starting point for the JavaFX application
@@ -81,6 +85,7 @@ public class Main extends Application {
                     localNode = null;
                     temp.delete();
                     root = showConnectScreen();
+                    errorDialog();
                 }
 
             } else {
@@ -110,6 +115,20 @@ public class Main extends Application {
         controller.init(this);
 
         return root;
+    }
+
+    private void errorDialog() throws IOException {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText("Failed to load saved data");
+        alert.setContentText("Please re-connect to the network and log in again");
+
+        DialogPane dialogPane = alert.getDialogPane();
+        dialogPane.getStylesheets().add(
+                getClass().getResource("/style.css").toExternalForm());
+        dialogPane.getStyleClass().add("dialog-pane");
+
+        alert.showAndWait();
     }
 
     @Override
