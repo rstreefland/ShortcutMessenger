@@ -9,6 +9,7 @@ import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
+import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Timer;
@@ -49,10 +50,17 @@ public class LocalNode {
         this.ipTools = ipTools;
         this.storageHandler = new StorageHandler();
 
-        /* Read config, node, routingTable and users from file if possible; else create new objects */
-        readState();
-
-        this.messageHandler = new MessageHandler(this);
+        if (storageHandler.doesSavedStateExist()) {
+            /* Read config, node, routingTable and users from file if possible; else create new objects */
+            readState();
+        } else {
+            config = new Configuration();
+            this.networkId = new KeyId();
+            node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT);
+            routingTable = new RoutingTable(node);
+            messages = new Messages(this);
+            this.messageHandler = new MessageHandler(this);
+        }
 
         /* If port is already in use bind to the next port */
         boolean portBindFailure;
@@ -78,7 +86,7 @@ public class LocalNode {
         }
 
         /* If we've managed to load a saved state from file - start the server */
-        if (!routingTable.isEmpty()) {
+        if (storageHandler.doesSavedStateExist()) {
             server.startListener();
             /* Start the automatic refresh operation that runs every 60 seconds */
             startRefreshOperation();
@@ -119,8 +127,7 @@ public class LocalNode {
      * @throws IOException
      */
     private void readState() throws IOException, ClassNotFoundException {
-        if (storageHandler.doesSavedStateExist()) {
-            logger.info("Saved state found - attempting to read ");
+            logger.info("Saved state found - attempting to read");
 
             /* Read objects from file */
             storageHandler.load();
@@ -132,8 +139,7 @@ public class LocalNode {
                 logger.info("Config read successfully");
                 config = newConfig;
             } else {
-                logger.warn("Failed to read config from saved state - defaulting to new config");
-                config = new Configuration();
+                throw new IOException("Failed to read config object from file");
             }
 
             /* Get networkId object from storageHandler */
@@ -142,6 +148,8 @@ public class LocalNode {
             if (newNetworkId != null) {
                 logger.info("NetworkId read successfully");
                 networkId = newNetworkId;
+            } else {
+                throw new IOException("Failed to read networkId from file");
             }
 
             /* Get node object from storageHandler */
@@ -154,8 +162,7 @@ public class LocalNode {
                 newNode.setPrivateInetAddress(ipTools.getPrivateInetAddress());
                 node = newNode;
             } else {
-                logger.warn("Failed to read local node from saved state - defaulting to creating a new local node");
-                node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT);
+                throw new IOException("Failed to load node object from file");
             }
 
             /* Get routingTable object from storageHandler */
@@ -165,8 +172,7 @@ public class LocalNode {
                 logger.info("Routing table read successfully");
                 routingTable = newRoutingTable;
             } else {
-                logger.warn("Failed to read routing table from saved state - defaulting to creating a new routing table");
-                routingTable = new RoutingTable(node);
+                throw new IOException("Failed to load routing table object from file");
             }
 
             /* Get users object from storageHandler */
@@ -176,7 +182,7 @@ public class LocalNode {
                 logger.info("Users read successfully");
                 users = newUsers;
             } else {
-                logger.warn("Failed to read users from saved state - defaulting to creating a new users object");
+                throw new IOException("Failed to read users object from file");
             }
 
             /* Get users object from storageHandler */
@@ -187,17 +193,8 @@ public class LocalNode {
                 messages = newMessages;
                 messages.init(this);
             } else {
-                logger.warn("Failed to read messages from saved state - defaulting to creating a new messages object");
-                messages = new Messages(this);
+                throw new IOException("Failed to read messages object from file");
             }
-
-        } else {
-            logger.info("Saved state not found");
-            config = new Configuration();
-            node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT);
-            routingTable = new RoutingTable(node);
-            messages = new Messages(this);
-        }
     }
 
     /**

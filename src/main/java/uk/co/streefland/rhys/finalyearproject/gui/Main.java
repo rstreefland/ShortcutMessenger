@@ -10,7 +10,6 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
@@ -68,24 +67,24 @@ public class Main extends Application {
         try {
             /* Check if we can load the saved state from the file and show the relevant scene */
             if (temp.doesSavedStateExist()) {
+                try {
+                    IPTools ipTools = new IPTools();
+                    localNode = new LocalNode(ipTools);
 
-                IPTools ipTools = new IPTools();
-                localNode = new LocalNode(ipTools);
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
+                    root = loader.load();
 
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
-                root = loader.load();
-
-                HomeController controller =
-                        loader.getController();
-                controller.init(localNode);
+                    HomeController controller =
+                            loader.getController();
+                    controller.init(localNode);
+                } catch (IOException | ClassNotFoundException e) {
+                    localNode = null;
+                    temp.delete();
+                    root = showConnectScreen();
+                }
 
             } else {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/connect.fxml"));
-                root = loader.load();
-
-                ConnectController controller =
-                        loader.getController();
-                controller.init(this);
+                root = showConnectScreen();
             }
 
             Scene scene = new Scene(root, width, height);
@@ -96,16 +95,32 @@ public class Main extends Application {
             stage.getIcons().add(new Image("/icon6.png"));
             stage.show();
 
-        } catch (Exception e) {
-            logger.error("Failed to initialise UI - try deleting the {} file if it exists", Configuration.FILE_PATH);
+        } catch (IOException e) {
+            logger.error("Launch error: {}", e);
         }
+    }
+
+    private Parent showConnectScreen() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/connect.fxml"));
+        Parent root = loader.load();
+
+        ConnectController controller =
+                loader.getController();
+
+        controller.init(this);
+
+        return root;
     }
 
     @Override
     public void stop() {
         if (localNode != null) {
             try {
-                localNode.shutdown(true);
+                if (localNode.getUsers().getLocalUser() == null) {
+                    localNode.shutdown(false);
+                } else {
+                    localNode.shutdown(true);
+                }
             } catch (IOException e) {
                 logger.error("Failed to shutdown cleanly");
             }

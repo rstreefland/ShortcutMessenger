@@ -74,6 +74,11 @@ public class StorageHandler {
         fis.close();
     }
 
+    public boolean delete() {
+        File f = new File(Configuration.FILE_PATH);
+        return f.delete();
+    }
+
     /**
      * @return True if the file exists, false if not
      */
