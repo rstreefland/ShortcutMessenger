@@ -4,12 +4,9 @@ import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
-import javafx.scene.control.Control;
-import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextFlow;
 
 import java.util.Queue;
 
@@ -95,7 +92,7 @@ public class EmojiConverter {
     }
 
     private String getEmojiImagePath(String hexStr) {
-        return Emoji.class.getResource("/png_64/" + hexStr + ".png").toExternalForm();
+        return Emoji.class.getResource("/emoji/" + hexStr + ".png").toExternalForm();
     }
 
     public void fix() {

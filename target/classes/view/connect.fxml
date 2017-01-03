@@ -21,7 +21,7 @@
         <VBox alignment="CENTER" spacing="10">
             <FlowPane alignment="CENTER" hgap="10" rowValignment="CENTER" vgap="10">
                 <ImageView GridPane.columnIndex="1" GridPane.rowIndex="1">
-                    <Image url="/icon1_75.png" />
+                    <Image url="/graphics/logo.png" />
                 </ImageView>
                 <Label styleClass="label-bigheader" text="Shortcut Messenger" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             </FlowPane>
@@ -56,7 +56,7 @@
     <bottom>
         <HBox alignment="BOTTOM_RIGHT">
         <ImageView fx:id="loader" visible="false">
-            <Image url="/loader.gif"/>
+            <Image url="/graphics/loader.gif"/>
             <HBox.margin>
                <Insets top="-100" bottom="10.0" right="10.0" />
             </HBox.margin>

@@ -7,7 +7,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.DialogPane;
-import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
@@ -21,7 +20,6 @@ import uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.util.Optional;
 
 /**
  * The starting point for the JavaFX application
@@ -60,8 +58,8 @@ public class Main extends Application {
     public void start(Stage stage) {
 
         /* Load in custom fonts */
-        Font.loadFont(getClass().getResourceAsStream("/Roboto-Regular.ttf"), 14);
-        Font.loadFont(getClass().getResourceAsStream("/Roboto-Light.ttf"), 14);
+        Font.loadFont(getClass().getResourceAsStream("/fonts/Roboto-Regular.ttf"), 14);
+        Font.loadFont(getClass().getResourceAsStream("/fonts/Roboto-Light.ttf"), 14);
 
         StorageHandler temp = new StorageHandler();
         Parent root;
@@ -97,7 +95,7 @@ public class Main extends Application {
             stage.setScene(scene);
             stage.setMinHeight(420);
             stage.setMinWidth(500);
-            stage.getIcons().add(new Image("/icon6.png"));
+            stage.getIcons().add(new Image("/graphics/icon.png"));
             stage.show();
 
         } catch (IOException e) {

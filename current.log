@@ -1,17 +1,14 @@
-2017-01-02 21:59:47.470 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
-2017-01-02 21:59:47.765 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
-2017-01-02 21:59:47.766 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saved state found - attempting to read
-2017-01-02 21:59:47.882 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Config read successfully
-2017-01-02 21:59:47.882 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - NetworkId read successfully
-2017-01-02 21:59:47.883 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Local node read successfully
-2017-01-02 21:59:47.883 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Routing table read successfully
-2017-01-02 21:59:47.884 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Users read successfully
-2017-01-02 21:59:47.884 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Messages read successfully
-2017-01-02 21:59:47.909 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2017-01-02 21:59:47.911 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2017-01-02 21:59:47.912 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:F7684186DB5749A93A19A08E12EE57E454C06A99
-2017-01-02 22:01:41.363 [pool-3-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2017-01-02 22:01:43.536 [pool-3-thread-14] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
-2017-01-02 22:14:02.595 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2017-01-02 22:14:02.602 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Saving state to file
-2017-01-02 22:14:02.635 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2017-01-03 10:23:54.638 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
+2017-01-03 10:24:02.167 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
+2017-01-03 10:24:02.191 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:A45EA5D37338355C2C25B5258366AF2E43148118
+2017-01-03 10:24:02.192 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2017-01-03 10:24:02.194 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-03 10:24:02.194 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 6FC19C6C34123A441AE28BF173D9D0D1EB37CD21 to node 6FC19C6C34123A441AE28BF173D9D0D1EB37CD21
+2017-01-03 10:24:03.267 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2017-01-03 10:24:03.268 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2017-01-03 10:24:05.465 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1056
+2017-01-03 10:24:05.466 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:AA7E66B0EE13F3BFCBA9FD02589F222220F91926
+2017-01-03 10:24:05.467 [Thread-11] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2017-01-03 10:24:05.467 [Thread-13] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-03 10:24:20.619 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2017-01-03 10:24:20.620 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

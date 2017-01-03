@@ -28,7 +28,7 @@ public class RoutingTable implements Serializable {
             buckets[i] = new Bucket(i);
         }
 
-        /* Inset the local node */
+        /* Insert the local node */
         insert(localNode);
 
         isEmpty = true;
@@ -99,17 +99,17 @@ public class RoutingTable implements Serializable {
     }
 
     /* Used to update a contact */
-    public synchronized void refreshContact(Node node, boolean resetStaleCount) {
+    public synchronized void refreshContact(Node n, boolean resetStaleCount) {
 
         if (!resetStaleCount) {
-            Contact existing = getContact(node);
+            Contact existing = getContact(n);
             if (existing != null) {
                 insert(existing);
             } else {
-                insert(node);
+                insert(n);
             }
         } else {
-            insert(node);
+            insert(n);
         }
     }
 

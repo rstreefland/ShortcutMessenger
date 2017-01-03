@@ -6,7 +6,6 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -63,7 +62,7 @@ public class HomeController {
     private String localUser;
     private boolean click;
 
-    Image logo = new Image(getClass().getResource("/icon5.png").toExternalForm());
+    Image logo = new Image(getClass().getResource("/graphics/logo_notification.png").toExternalForm());
 
     @FXML
     private BorderPane borderPane;
@@ -410,10 +409,10 @@ public class HomeController {
             HBox status = new HBox();
 
             if (messageStatus == SendMessageOperation.Status.FORWARDED) {
-                ImageView tick = new ImageView("/singletick.png");
+                ImageView tick = new ImageView("/graphics/singletick.png");
                 status.getChildren().add(tick);
             } else if (messageStatus == SendMessageOperation.Status.DELIVERED) {
-                ImageView tick = new ImageView("/doubletick.png");
+                ImageView tick = new ImageView("/graphics/doubletick.png");
                 status.getChildren().add(tick);
             } else if (messageStatus == SendMessageOperation.Status.FAILED) {
                 output.setStyle(

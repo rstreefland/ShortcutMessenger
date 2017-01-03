@@ -44,7 +44,7 @@ public class Visualiser {
 
         stage.setTitle("Network Visualisation");
         stage.setScene(scene);
-        stage.getIcons().add(new Image("/icon6.png"));
+        stage.getIcons().add(new Image("/graphics/icon.png"));
         stage.show();
 
         doComputation();

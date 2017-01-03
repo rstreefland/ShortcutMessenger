@@ -148,7 +148,7 @@ public class ConnectController {
         stage = (Stage) connectButton.getScene().getWindow();
         Scene scene = new Scene(root, stage.getWidth(), stage.getHeight());
         stage.setScene(scene);
-        stage.getIcons().add(new Image("/icon6.png"));
+        stage.getIcons().add(new Image("/graphics/icon.png"));
         stage.show();
     }
 
