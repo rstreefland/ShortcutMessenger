@@ -715,11 +715,6 @@ public class HomeController {
         }
     }
 
-    @FXML
-    public void menuBarClick() {
-        this.click = true;
-    }
-
     /**
      * Sends a message when the enter key is pressed
      *
@@ -737,7 +732,7 @@ public class HomeController {
 
     @FXML
     private void openVisualiser() {
-        Visualiser vis = new Visualiser(localNode);
+        new Visualiser(localNode);
     }
 
     /**
