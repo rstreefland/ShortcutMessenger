@@ -55,12 +55,12 @@ public class LocalNode {
             readState();
         } else {
             config = new Configuration();
-            this.networkId = new KeyId();
             node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT);
             routingTable = new RoutingTable(node);
             messages = new Messages(this);
-            this.messageHandler = new MessageHandler(this);
         }
+
+        this.messageHandler = new MessageHandler(this);
 
         /* If port is already in use bind to the next port */
         boolean portBindFailure;

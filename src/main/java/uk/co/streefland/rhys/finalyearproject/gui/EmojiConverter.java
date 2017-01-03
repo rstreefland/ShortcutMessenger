@@ -5,6 +5,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Control;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.text.Text;
@@ -99,13 +100,17 @@ public class EmojiConverter {
 
     public void fix() {
         double maxChildWidth = 0;
+
+        flowOutput.applyCss();
+        flowOutput.layout();
+
         for (Node child : flowOutput.getChildren()) {
-            double childWidth = child.getBoundsInParent().getWidth() * 1.25;
+            double childWidth = child.prefWidth(-1)*1.05;
             maxChildWidth = maxChildWidth + childWidth;
         }
+
         double insetWidth = flowOutput.getInsets().getLeft() + flowOutput.getInsets().getRight();
         double adjustedWidth = maxChildWidth + insetWidth;
-
         flowOutput.setMaxWidth(adjustedWidth);
     }
 }
