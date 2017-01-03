@@ -5,26 +5,22 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
-import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
 import uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessMessage;
-import uk.co.streefland.rhys.finalyearproject.message.node.ConnectMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
-import uk.co.streefland.rhys.finalyearproject.operation.refresh.BucketRefreshOperation;
 
 import java.io.IOException;
 
 /**
- * Bootstraps the LocalNode to a network by connecting it to another Node and retrieving a list of Nodes from that Node
+ * Used to notify another node that a forwarded message was delivered successfully
  */
 public class NotifySuccessOperation implements Operation, Receiver {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private final Server server;
-    private final LocalNode localNode;
     private final Node target;
     private final Configuration config;
     private final Message message;
@@ -32,11 +28,10 @@ public class NotifySuccessOperation implements Operation, Receiver {
     private int attempts;
     private boolean error;
 
-    public NotifySuccessOperation(Server server, LocalNode localNode, Node target, String recipient, KeyId messageId, Configuration config) {
-        this.server = server;
-        this.localNode = localNode;
+    public NotifySuccessOperation(LocalNode localNode, Node target, String recipient, KeyId messageId) {
+        this.server = localNode.getServer();
         this.target = target;
-        this.config = config;
+        this.config = localNode.getConfig();
 
         message = new NotifySuccessMessage(localNode.getNetworkId(), localNode.getNode(), recipient, messageId);
     }
@@ -57,7 +52,7 @@ public class NotifySuccessOperation implements Operation, Receiver {
             server.sendMessage(target, message, this);
             attempts++;
 
-            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.getOperationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 50;
             while (totalTimeWaited < config.getOperationTimeout()) {
@@ -95,7 +90,7 @@ public class NotifySuccessOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void timeout(int communicationId) throws IOException {
-        /* If our attempts are less than the maxConnectionAttempts setting - try to send the message again */
+        /* If attempts are less than the maxConnectionAttempts setting - try to send the message again */
         if (attempts < config.getMaxConnectionAttempts()) {
             server.sendMessage(target, message, this);
             attempts++;

@@ -1,6 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.operation.user;
 
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
@@ -22,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Rhys on 03/09/2016.
+ * Finds a user object on the network
  */
 public class FindUserOperation implements Operation, Receiver {
 
@@ -31,16 +30,13 @@ public class FindUserOperation implements Operation, Receiver {
     private final Server server;
     private final Configuration config;
     private final LocalNode localNode;
-    private User searchUser;
-    private User foundUser;
-
-    private Message message; // Message sent to each peer
-    private List<Node> closestNodes;
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
-
-    /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
+    private User searchUser;
+    private User foundUser;
+    private Message message;
+    private List<Node> closestNodes;
 
     public FindUserOperation(LocalNode localNode, User searchUser) {
         this.server = localNode.getServer();
@@ -177,7 +173,7 @@ public class FindUserOperation implements Operation, Receiver {
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), Configuration.Status.QUERIED);
 
-         /* Remove this msg from messagesTransiting since it's completed now */
+         /* Remove this message from messagesInTransit */
         messagesInTransit.remove(communicationId);
 
         /* Wake up waiting thread */

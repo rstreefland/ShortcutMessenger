@@ -18,6 +18,38 @@ public class Contact implements Comparable<Contact>, Serializable {
         this.lastSeen = System.currentTimeMillis();
     }
 
+    /**
+     * Updates the last seen timestamp for this contact
+     */
+    public void setSeenNow() {
+        lastSeen = System.currentTimeMillis();
+    }
+
+    public void incrementStaleCount() {
+        staleCount++;
+    }
+
+    public void resetStaleCount() {
+        staleCount = 0;
+    }
+
+    public Node getNode() {
+        return node;
+    }
+
+    public long getLastSeen() {
+        return lastSeen;
+    }
+
+    public int getStaleCount() {
+        return staleCount;
+    }
+
+    @Override
+    public int hashCode() {
+        return getNode().hashCode();
+    }
+
     @Override
     public boolean equals(Object c) {
         if (c instanceof Contact) {
@@ -37,38 +69,4 @@ public class Contact implements Comparable<Contact>, Serializable {
             return this.getLastSeen() > o.getLastSeen() ? 1 : -1;
         }
     }
-
-    /**
-     * Updates the last seen timestamp for this contact
-     */
-    public void setSeenNow() {
-        lastSeen = System.currentTimeMillis();
-    }
-
-    public void incrementStaleCount() {
-        staleCount++;
-    }
-
-    public void resetStaleCount() {
-        staleCount = 0;
-    }
-
-    @Override
-    public int hashCode() {
-        return getNode().hashCode();
-    }
-
-    public Node getNode() {
-        return node;
-    }
-
-    public long getLastSeen() {
-        return lastSeen;
-    }
-
-    public int getStaleCount() {
-        return staleCount;
-    }
-
-
 }

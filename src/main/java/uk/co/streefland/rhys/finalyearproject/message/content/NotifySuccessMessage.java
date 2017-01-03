@@ -9,7 +9,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 /**
- * Acknowledgement message sent in reply to various messages
+ * Success message sent by forwarding node to indicate that the message has been forwarded successfully
  */
 public class NotifySuccessMessage implements Message {
 
@@ -47,11 +47,6 @@ public class NotifySuccessMessage implements Message {
     }
 
     @Override
-    public String toString() {
-        return "NotifySuccessMessage[origin=" + origin.getNodeId() + "]";
-    }
-
-    @Override
     public KeyId getNetworkId() {
         return networkId;
     }
@@ -77,5 +72,10 @@ public class NotifySuccessMessage implements Message {
 
     public KeyId getMessageId() {
         return messageId;
+    }
+
+    @Override
+    public String toString() {
+        return "NotifySuccessMessage[origin=" + origin.getNodeId() + "]";
     }
 }

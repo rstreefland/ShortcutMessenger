@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.*;
 
 /**
- * Created by Rhys on 10/12/2016.
+ * Queries every node in the RoutingTable for their RoutingTablee iteratively. Designed to create a list of the entire network for
  */
 public class NetworkTraversalOperation implements Operation, Receiver {
 
@@ -27,24 +27,20 @@ public class NetworkTraversalOperation implements Operation, Receiver {
 
     private final LocalNode localNode;
     private final Server server;
-    private final Configuration config;
-    private final Message lookupMessage;        // Message sent to each peer
+    private final Message lookupMessage;
     private final Map<Node, Configuration.Status> nodes;
     private final Map<KeyId, List<Node>> nodeRoutingTables;
-
-    /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
 
     public NetworkTraversalOperation(LocalNode localNode) {
         this.localNode = localNode;
         this.server = localNode.getServer();
-        this.config = localNode.getConfig();
 
         this.lookupMessage = new NetworkTraversalMessage(localNode.getNetworkId(), localNode.getNode());
         this.messagesInTransit = new HashMap<>();
         this.nodeRoutingTables = new HashMap<>();
 
-        /* Initialise a TreeMap that is sorted by which nodes are closest to the local nodeId*/
+        /* Initialise a TreeMap that is sorted by which nodes are closest to the local nodeId */
         Comparator<Node> comparator = new KeyComparator(localNode.getNode().getNodeId());
         this.nodes = new TreeMap<>(comparator);
     }
@@ -68,13 +64,11 @@ public class NetworkTraversalOperation implements Operation, Receiver {
         addNodes(localNode.getRoutingTable().getAllNodes(false));
 
         try {
-            /* Run for a maximum of 60 seconds */
-            int totalTimeWaited = 0;
+            /* Runs until it's queried (or failed to query) ever node - this could be problematic */
             int timeInterval = 10;
             while (true) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
-                    totalTimeWaited += timeInterval;
                 } else {
                     break;
                 }
@@ -87,7 +81,7 @@ public class NetworkTraversalOperation implements Operation, Receiver {
         long end = System.currentTimeMillis();
         long time = end-start;
 
-        System.out.println("NetworkTraversalOperation took: " + time + "ms");
+        logger.info("NetworkTraversalOperation took: " + time + "ms");
     }
 
     /**
@@ -163,10 +157,6 @@ public class NetworkTraversalOperation implements Operation, Receiver {
         return closestNodes;
     }
 
-    public List<Node> getClosestNodes() {
-        return getClosestNodes(Configuration.Status.QUERIED);
-    }
-
     /**
      * Receive and handle the incoming FindNodeMessageReply
      *
@@ -174,8 +164,6 @@ public class NetworkTraversalOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) throws IOException {
-
-        /* Read the FindNodeMessageReply */
         NetworkTraversalMessageReply msg = (NetworkTraversalMessageReply) incoming;
 
         Node origin = msg.getOrigin();
@@ -189,6 +177,7 @@ public class NetworkTraversalOperation implements Operation, Receiver {
         /* Add the received nodes to our nodes list to query */
         addNodes(msg.getNodes());
 
+        /* Add the received routing table to nodeRoutingTables */
         nodeRoutingTables.put(msg.getOrigin().getNodeId(), msg.getNodes());
 
         /* Wake up waiting thread */

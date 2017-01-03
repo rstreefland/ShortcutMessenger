@@ -39,11 +39,6 @@ public class NetworkTraversalMessage implements Message {
     }
 
     @Override
-    public String toString() {
-        return "FindNodeMessage[origin=" + origin + "]";
-    }
-
-    @Override
     public byte getCode() {
         return CODE;
     }
@@ -63,4 +58,8 @@ public class NetworkTraversalMessage implements Message {
         return origin;
     }
 
+    @Override
+    public String toString() {
+        return "NetworkTraversalMessage[origin=" + origin + "]";
+    }
 }

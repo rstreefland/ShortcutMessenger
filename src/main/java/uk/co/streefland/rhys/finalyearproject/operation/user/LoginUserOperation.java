@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Rhys on 03/09/2016.
+ * Logs in a user
  */
 public class LoginUserOperation implements Operation, Receiver {
 
@@ -32,12 +32,9 @@ public class LoginUserOperation implements Operation, Receiver {
     private final LocalNode localNode;
     private final User user;
     private final String plainTextPassword;
-
-    private Message message; // Message sent to each peer
+    private Message message;
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
-
-    /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
 
     private boolean loggedIn;
@@ -148,13 +145,13 @@ public class LoginUserOperation implements Operation, Receiver {
                 localNode.getRoutingTable().setUnresponsiveContact(n);
                 nodes.put(n, Configuration.Status.QUERIED);
             } else {
-            /* Query the local node */
+                /* Query the local node */
                 if (n.equals(localNode.getNode())) {
 
-                /* Handles finding the user object on the local node */
+                    /* Handles finding the user object on the local node */
                     User existingUser = localNode.getUsers().findUser(user);
 
-                /* Terminate early if found on the local node */
+                    /* Terminate early if found on the local node */
                     if (existingUser != null) {
                         if (existingUser.doPasswordsMatch(plainTextPassword)) {
                             loggedIn = true;
@@ -186,7 +183,6 @@ public class LoginUserOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void receive(Message incoming, int communicationId) {
-
         /* Read the VerifyUserMessageReply */
         VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
 
@@ -199,7 +195,7 @@ public class LoginUserOperation implements Operation, Receiver {
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), Configuration.Status.QUERIED);
 
-         /* Remove this msg from messagesInTransit since it's completed now */
+         /* Remove this message from messagesInTransit */
         messagesInTransit.remove(communicationId);
 
         /* Wake up waiting thread */

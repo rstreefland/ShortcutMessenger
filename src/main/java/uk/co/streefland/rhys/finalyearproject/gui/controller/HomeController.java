@@ -38,7 +38,7 @@ import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Statistics;
 import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
 import uk.co.streefland.rhys.finalyearproject.core.User;
-import uk.co.streefland.rhys.finalyearproject.gui.EmojiConverter;
+import uk.co.streefland.rhys.finalyearproject.gui.chatbubble.ChatBubble;
 import uk.co.streefland.rhys.finalyearproject.gui.visualiser.Visualiser;
 import uk.co.streefland.rhys.finalyearproject.message.content.StoredTextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -396,8 +396,8 @@ public class HomeController {
                 index = gridPane.getChildren().size();
             }
 
-            EmojiConverter emojiConverter = new EmojiConverter(EmojiConverter.COLOUR_GREEN);
-            output = emojiConverter.convert(messageString, gridPane.getWidth() / 2);
+            ChatBubble emojiConverter = new ChatBubble(ChatBubble.COLOUR_GREEN);
+            output = emojiConverter.convert(messageString);
 
             if (output.getChildren().size() == 1) {
                 if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {
@@ -438,8 +438,8 @@ public class HomeController {
             emojiConverter.fix();
 
         } else {
-            EmojiConverter emojiConverter = new EmojiConverter(EmojiConverter.COLOUR_GREY);
-            output = emojiConverter.convert(messageString, gridPane.getWidth() / 2);
+            ChatBubble emojiConverter = new ChatBubble(ChatBubble.COLOUR_GREY);
+            output = emojiConverter.convert(messageString);
 
             if (output.getChildren().size() == 1) {
                 if (output.getChildren().get(output.getChildren().size() - 1) instanceof ImageView) {

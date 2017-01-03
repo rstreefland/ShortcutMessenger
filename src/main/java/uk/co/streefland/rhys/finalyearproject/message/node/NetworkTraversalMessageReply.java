@@ -62,11 +62,6 @@ public class NetworkTraversalMessageReply implements Message {
     }
 
     @Override
-    public String toString() {
-        return "FindNodeMessageReply[origin KeyId=" + origin.getNodeId() + "]";
-    }
-
-    @Override
     public byte getCode() {
         return CODE;
     }
@@ -88,5 +83,10 @@ public class NetworkTraversalMessageReply implements Message {
 
     public List<Node> getNodes() {
         return nodes;
+    }
+
+    @Override
+    public String toString() {
+        return "NetworkTraversalMessageReply[origin KeyId=" + origin.getNodeId() + "]";
     }
 }

@@ -28,13 +28,10 @@ public class FindNodeOperation implements Operation, Receiver {
     private final LocalNode localNode;
     private final Server server;
     private final Configuration config;
-    private final Message lookupMessage;        // Message sent to each peer
+    private final Message lookupMessage;
     private final Map<Node, Configuration.Status> nodes;
-
-    private final boolean ignoreStale;
-
-    /* Tracks messages in transit and awaiting reply */
     private final Map<Integer, Node> messagesInTransit;
+    private final boolean ignoreStale;
 
     public FindNodeOperation(LocalNode localNode, KeyId lookupId, boolean ignoreStale) {
         this.localNode = localNode;
@@ -65,7 +62,7 @@ public class FindNodeOperation implements Operation, Receiver {
         addNodes(localNode.getRoutingTable().getAllNodes(ignoreStale));
 
         try {
-            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.getOperationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout()) {
@@ -195,7 +192,7 @@ public class FindNodeOperation implements Operation, Receiver {
         /* Set that we've completed ASKing the origin node */
         nodes.put(origin, Configuration.Status.QUERIED);
 
-        /* Remove this msg from messagesTransiting since it's completed now */
+        /* Remove message from messagesInTransit */
         messagesInTransit.remove(communicationId);
 
         /* Add the received nodes to our nodes list to query */

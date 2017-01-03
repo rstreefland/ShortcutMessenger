@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/** The model of the graph */
 public class Model {
 
     Cell graphParent;
@@ -22,7 +23,6 @@ public class Model {
     Map<KeyId, Cell> cellMap; // <id,cell>
 
     public Model() {
-
         graphParent = new Cell(new KeyId("0"));
 
         // clear model, create lists
@@ -30,7 +30,6 @@ public class Model {
     }
 
     public void clear() {
-
         allCells = new ArrayList<>();
         addedCells = new ArrayList<>();
         removedCells = new ArrayList<>();
@@ -40,7 +39,6 @@ public class Model {
         removedEdges = new ArrayList<>();
 
         cellMap = new HashMap<>(); // <id,cell>
-
     }
 
     public void clearAddedLists() {
@@ -78,7 +76,6 @@ public class Model {
     }
 
     private void addCell(Cell cell) {
-
         if (!cellMap.containsKey(cell.getCellId())) {
             addedCells.add(cell);
             cellMap.put(cell.getCellId(), cell);
@@ -86,14 +83,12 @@ public class Model {
     }
 
     public void addEdge(KeyId sourceId, KeyId targetId) {
-
         Cell sourceCell = cellMap.get(sourceId);
         Cell targetCell = cellMap.get(targetId);
 
         Edge edge = new Edge(sourceCell, targetCell);
 
         addedEdges.add(edge);
-
     }
 
     /**
@@ -102,13 +97,11 @@ public class Model {
      * @param cellList
      */
     public void attachOrphansToGraphParent(List<Cell> cellList) {
-
         for (Cell cell : cellList) {
             if (cell.getCellParents().size() == 0) {
                 graphParent.addCellChild(cell);
             }
         }
-
     }
 
     /**
@@ -117,14 +110,12 @@ public class Model {
      * @param cellList
      */
     public void disconnectFromGraphParent(List<Cell> cellList) {
-
         for (Cell cell : cellList) {
             graphParent.removeCellChild(cell);
         }
     }
 
     public void merge() {
-
         // cells
         allCells.addAll(addedCells);
         allCells.removeAll(removedCells);
@@ -138,6 +129,5 @@ public class Model {
 
         addedEdges.clear();
         removedEdges.clear();
-
     }
 }

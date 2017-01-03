@@ -7,15 +7,14 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.ZoomEvent;
 import javafx.scene.transform.Scale;
 
+/** Enables zooming of the graph */
 public class ZoomableScrollPane extends ScrollPane {
 
     private Group zoomGroup;
     private Scale scaleTransform;
-    private Node content;
     private double scaleValue = 1.0;
 
     public ZoomableScrollPane(Node content) {
-        this.content = content;
         Group contentGroup = new Group();
         zoomGroup = new Group();
         contentGroup.getChildren().add(zoomGroup);
@@ -32,16 +31,13 @@ public class ZoomableScrollPane extends ScrollPane {
     }
 
     public void zoomTo(double scaleValue) {
-
         this.scaleValue = scaleValue;
 
         scaleTransform.setX(scaleValue);
         scaleTransform.setY(scaleValue);
-
     }
 
     private class ZoomHandler implements EventHandler<ZoomEvent> {
-
         @Override
         public void handle(ZoomEvent zoomEvent) {
             scaleValue = scaleValue * zoomEvent.getZoomFactor();

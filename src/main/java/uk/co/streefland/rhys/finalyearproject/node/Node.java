@@ -72,31 +72,6 @@ public class Node implements Serializable {
         privatePort = in.readInt();
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o instanceof Node) {
-            Node n = (Node) o;
-            if (n == this) {
-                return true;
-            }
-            return getNodeId().equals(n.getNodeId());
-        }
-        return false;
-    }
-
-    @Override
-    public int hashCode() {
-        return getNodeId().hashCode();
-    }
-
-    /**
-     * Returns the HEX representation of the KeyId as a string
-     */
-    @Override
-    public String toString() {
-        return getNodeId().toString();
-    }
-
     /**
      * Returns the InetSocketAddress for the InetAddress and port for the node
      */
@@ -142,6 +117,31 @@ public class Node implements Serializable {
 
     public void setPrivatePort(int privatePort) {
         this.privatePort = privatePort;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Node) {
+            Node n = (Node) o;
+            if (n == this) {
+                return true;
+            }
+            return getNodeId().equals(n.getNodeId());
+        }
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return getNodeId().hashCode();
+    }
+
+    /**
+     * Returns the HEX representation of the KeyId as a string
+     */
+    @Override
+    public String toString() {
+        return getNodeId().toString();
     }
 }
 

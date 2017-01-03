@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * Receives a FindNodeMessage and sends a FindNodeMessageReply as a reply with the K closest nodes to the KeyId provided
+ * Receives a NetworkTraversalMessage and sends a NetworkTraversalMessageReply
  */
 public class NetworkTraversalReceiver implements Receiver {
 
@@ -37,7 +37,7 @@ public class NetworkTraversalReceiver implements Receiver {
 
         List<Node> nodes = localNode.getRoutingTable().getAllNodes(false);
 
-        /* Create the FindNodeMessageReply */
+        /* Create the NetworkTraversalMessageReply */
         Message reply = new NetworkTraversalMessageReply(localNode.getNetworkId(), localNode.getNode(), nodes);
 
         /* The server sends the reply */

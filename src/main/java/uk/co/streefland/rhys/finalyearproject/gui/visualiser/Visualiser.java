@@ -6,10 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -21,22 +19,27 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Rhys on 08/12/2016.
+ * Runs the NetworkTraversalOperation and generates a graph with the information
  */
 public class Visualiser {
 
     private LocalNode localNode;
+    private Stage stage;
     private Graph graph = new Graph();
     private Map<KeyId, List<Node>> nodeRoutingTables;
-
-    private Stage stage;
 
     public Visualiser(LocalNode localNode) {
         this.localNode = localNode;
         stage = new Stage();
 
+        /* Placeholder for while the NetworkTraversalOperation is running */
         BorderPane root = new BorderPane();
-        root.setCenter(new Label("Generating network visualisation"));
+        VBox vBox = new VBox(20);
+        Image image = new Image("/graphics/loader.gif");
+        ImageView imageView = new ImageView(image);
+        vBox.getChildren().addAll(new Label("Generating network visualisation"), imageView);
+        vBox.setAlignment(Pos.CENTER);
+        root.setCenter(vBox);
 
         Scene scene = new Scene(root, 1024, 768);
         scene.getStylesheets().add("style.css");
@@ -47,10 +50,11 @@ public class Visualiser {
         stage.getIcons().add(new Image("/graphics/icon.png"));
         stage.show();
 
-        doComputation();
+        runTraversalOperation();
     }
 
-    private void doComputation() {
+    /** Invokes the NetworkTraversalOperation in a separate thread to avoid blocking the JavaFX thread */
+    private void runTraversalOperation() {
         Task task = new Task() {
             @Override
             protected Map<KeyId, List<Node>> call() throws Exception {
@@ -69,21 +73,19 @@ public class Visualiser {
 
         /* On task finish */
         task.setOnSucceeded(event1 -> {
-            System.out.println("FINISHED NETWORK TRAVERSAL OPERATION");
-
             Map<KeyId, List<Node>> nodeRoutingTables = (Map<KeyId, List<Node>>) task.getValue(); // result of computation
 
             if (nodeRoutingTables != null) {
                 this.nodeRoutingTables = nodeRoutingTables;
-                draw();
+                generateGraph();
             }
         });
     }
 
-    private void draw() {
+    /** Generates the graph based on the information in nodeRoutingTables */
+    private void generateGraph() {
         BorderPane root = new BorderPane();
         root.getStyleClass().add("vis");
-
         graph = new Graph();
 
         ZoomableScrollPane zoomableScrollPane = graph.getScrollPane();
@@ -94,7 +96,7 @@ public class Visualiser {
 
         addGraphComponents();
 
-        Layout layout = new RandomLayout(graph);
+        RandomLayout layout = new RandomLayout(graph);
         layout.execute();
 
         HBox bottomToolbar = new HBox(5);
@@ -105,7 +107,6 @@ public class Visualiser {
 
         Slider slider = new Slider(0, 2, zoomableScrollPane.getScaleValue());
         slider.valueProperty().addListener((ov, oldValue, newValue) -> zoomableScrollPane.zoomTo(newValue.floatValue()));
-
         bottomToolbar.getChildren().addAll(slider, routingTable, newLayout);
         root.setBottom(bottomToolbar);
         routingTable.setOnAction(e -> printRoutingTable());
@@ -114,10 +115,9 @@ public class Visualiser {
         stage.setScene(scene);
     }
 
+    /** Add nodes and edges to the graph */
     private void addGraphComponents() {
         Model model = graph.getModel();
-
-        graph.beginUpdate();
 
         for (Map.Entry routingTable : nodeRoutingTables.entrySet()) {
             for (Node node : (ArrayList<Node>) routingTable.getValue()) {
@@ -129,6 +129,7 @@ public class Visualiser {
         graph.endUpdate();
     }
 
+    /** A dialog which displays a text representation of the routing table*/
     private void printRoutingTable() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Shortcut Messenger - Routing Table");
@@ -152,9 +153,7 @@ public class Visualiser {
                 getClass().getResource("/style.css").toExternalForm());
         dialogPane.getStyleClass().add("dialog-pane");
 
-        // Set expandable Exception into the dialog pane.
         alert.getDialogPane().setContent(content);
-
         alert.showAndWait();
     }
 }

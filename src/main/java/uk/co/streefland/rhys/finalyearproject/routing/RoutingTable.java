@@ -98,7 +98,7 @@ public class RoutingTable implements Serializable {
         buckets[bucketId].removeContact(n, false);
     }
 
-    /* Used to update a contact */
+    /** Used to update a contact */
     public synchronized void refreshContact(Node n, boolean resetStaleCount) {
 
         if (!resetStaleCount) {
@@ -127,31 +127,6 @@ public class RoutingTable implements Serializable {
         }
     }
 
-    public boolean isEmpty() {
-        return isEmpty;
-    }
-
-    @Override
-    public synchronized final String toString() {
-        StringBuilder sb = new StringBuilder("\n****** Routing Table ******");
-        int totalContacts = 0;
-        for (Bucket b : buckets) {
-            if (b.getNumberOfContacts() > 0) {
-                totalContacts += b.getNumberOfContacts();
-                sb.append("\n");
-                sb.append(b.toString());
-            }
-        }
-
-        sb.append("\nTotal Contacts: ");
-        sb.append(totalContacts);
-        sb.append("\n");
-
-        sb.append("****** Routing Table Ended ******\n");
-        return sb.toString();
-    }
-
-
     public Contact getContact(Node node) {
         for (Contact existingContact : getAllContacts()) {
             if (node.getNodeId().equals(existingContact.getNode().getNodeId())) {
@@ -161,7 +136,6 @@ public class RoutingTable implements Serializable {
         }
         return null;
     }
-
     /**
      * @return A list of all Nodes in this RoutingTable
      */
@@ -227,5 +201,32 @@ public class RoutingTable implements Serializable {
         this.buckets = buckets;
     }
 
+    /**
+     * Returns true if the routing table is empty, false if not
+     * @return
+     */
+    public boolean isEmpty() {
+        return isEmpty;
+    }
+
+    @Override
+    public synchronized final String toString() {
+        StringBuilder sb = new StringBuilder("\n****** Routing Table ******");
+        int totalContacts = 0;
+        for (Bucket b : buckets) {
+            if (b.getNumberOfContacts() > 0) {
+                totalContacts += b.getNumberOfContacts();
+                sb.append("\n");
+                sb.append(b.toString());
+            }
+        }
+
+        sb.append("\nTotal Contacts: ");
+        sb.append(totalContacts);
+        sb.append("\n");
+
+        sb.append("****** Routing Table Ended ******\n");
+        return sb.toString();
+    }
 
 }

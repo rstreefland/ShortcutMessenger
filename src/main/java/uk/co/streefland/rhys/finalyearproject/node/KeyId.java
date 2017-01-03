@@ -170,6 +170,18 @@ public class KeyId implements Serializable {
         return ID_LENGTH - xor(otherKey).getFirstSetBitLocation();
     }
 
+
+    public byte[] getIdBytes() {
+        return idBytes;
+    }
+
+    /**
+     * @return The BigInteger representation of the key
+     */
+    public BigInteger getInt() {
+        return new BigInteger(1, getIdBytes());
+    }
+
     /**
      * Generates and returns the hashcode of the KeyId as an integer
      *
@@ -229,16 +241,6 @@ public class KeyId implements Serializable {
         return new String(hexChars);
     }
 
-    public byte[] getIdBytes() {
-        return idBytes;
-    }
-
-    /**
-     * @return The BigInteger representation of the key
-     */
-    public BigInteger getInt() {
-        return new BigInteger(1, getIdBytes());
-    }
 
 
 }

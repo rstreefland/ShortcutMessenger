@@ -43,11 +43,6 @@ public class FindNodeMessage implements Message {
     }
 
     @Override
-    public String toString() {
-        return "FindNodeMessage[origin=" + origin + ",lookup=" + lookupId + "]";
-    }
-
-    @Override
     public byte getCode() {
         return CODE;
     }
@@ -69,5 +64,10 @@ public class FindNodeMessage implements Message {
 
     public KeyId getLookupId() {
         return lookupId;
+    }
+
+    @Override
+    public String toString() {
+        return "FindNodeMessage[origin=" + origin + ",lookup=" + lookupId + "]";
     }
 }

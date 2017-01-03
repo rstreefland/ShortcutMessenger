@@ -5,15 +5,14 @@ import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
+/** Represents an edge on the graph */
 public class Edge extends Group {
 
-    protected Cell source;
-    protected Cell target;
-
-    Line line;
+    private Cell source;
+    private Cell target;
+    private Line line;
 
     public Edge(Cell source, Cell target) {
-
         this.source = source;
         this.target = target;
 
@@ -31,7 +30,6 @@ public class Edge extends Group {
         line.endYProperty().bind( target.layoutYProperty().add( target.getBoundsInParent().getHeight() / 2));
 
         getChildren().add( line);
-
     }
 
     public Cell getSource() {
@@ -41,5 +39,4 @@ public class Edge extends Group {
     public Cell getTarget() {
         return target;
     }
-
 }

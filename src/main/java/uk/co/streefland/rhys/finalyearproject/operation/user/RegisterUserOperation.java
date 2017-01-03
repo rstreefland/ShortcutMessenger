@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by Rhys on 03/09/2016.
+ * Registers a user on the network by checking close nodes to determine whether the user is already present on the network
  */
 public class RegisterUserOperation implements Operation, Receiver {
 
@@ -30,14 +30,11 @@ public class RegisterUserOperation implements Operation, Receiver {
     private final Server server;
     private final Configuration config;
     private final LocalNode localNode;
-    private final User user;
-
-    private Message message; // Message sent to each peer
+    private final Map<Integer, Node> messagesInTransit;
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
-
-    /* Tracks messages in transit and awaiting reply */
-    private final Map<Integer, Node> messagesInTransit;
+    private final User user;
+    private Message message;
 
     private boolean isRegisteredSuccessfully;
     private boolean ignoreStale;
@@ -70,13 +67,11 @@ public class RegisterUserOperation implements Operation, Receiver {
         message = new StoreUserMessage(localNode.getNetworkId(), localNode.getNode(), user);
 
         try {
-            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
-            int totalTimeWaited = 0;
+            /* Runs until we've heard back (or not) from every node in the list */
             int timeInterval = 10;
             while (true) {
                 if (!iterativeQueryNodes()) {
                     wait(timeInterval);
-                    totalTimeWaited += timeInterval;
                 } else {
                     break;
                 }
@@ -174,7 +169,7 @@ public class RegisterUserOperation implements Operation, Receiver {
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), Configuration.Status.QUERIED);
 
-         /* Remove this msg from messagesTransiting since it's completed now */
+         /* Remove this message from messagesInTransit */
         messagesInTransit.remove(communicationId);
 
         /* Wake up waiting thread */

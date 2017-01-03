@@ -44,11 +44,6 @@ public class StoreUserMessage implements Message {
     }
 
     @Override
-    public String toString() {
-        return "StoreUserMessage[origin KeyId=" + origin.getNodeId() + "]";
-    }
-
-    @Override
     public byte getCode() {
         return CODE;
     }
@@ -71,4 +66,10 @@ public class StoreUserMessage implements Message {
     public User getUser() {
         return user;
     }
+
+    @Override
+    public String toString() {
+        return "StoreUserMessage[origin KeyId=" + origin.getNodeId() + "]";
+    }
+
 }

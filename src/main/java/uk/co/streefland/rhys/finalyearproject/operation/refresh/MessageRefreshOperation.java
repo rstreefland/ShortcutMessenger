@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
-import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.NotifySuccessOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
@@ -42,13 +41,13 @@ public class MessageRefreshOperation implements Operation {
 
         for (Map.Entry<KeyId, TextMessage> entry : localNode.getMessages().getForwardMessages().entrySet()) {
             /* Run each SendMessageOperation in a different thread */
-            threadPool.execute(new Thread(() -> runOperation(entry)));
+            threadPool.execute(new Thread(() -> runForMessage(entry)));
         }
 
         threadPool.shutdown();
     }
 
-    private void runOperation(Map.Entry<KeyId, TextMessage> entry) {
+    private void runForMessage(Map.Entry<KeyId, TextMessage> entry) {
         try {
             SendMessageOperation smo = new SendMessageOperation(localNode, entry.getValue().getRecipientUser(), entry.getValue());
             smo.execute();
@@ -59,7 +58,7 @@ public class MessageRefreshOperation implements Operation {
                 TextMessage msg = smo.getMessage();
 
                 // send MESSAGE SUCCESS ACK here
-                NotifySuccessOperation nso = new NotifySuccessOperation(localNode.getServer(), localNode, msg.getOrigin(), msg.getRecipientUser().getUserName(), msg.getMessageId(), localNode.getConfig());
+                NotifySuccessOperation nso = new NotifySuccessOperation(localNode, msg.getOrigin(), msg.getRecipientUser().getUserName(), msg.getMessageId());
                 nso.execute();
             }
         } catch (IOException e) {

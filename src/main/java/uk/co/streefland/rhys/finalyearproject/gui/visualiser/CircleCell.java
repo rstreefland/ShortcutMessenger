@@ -6,6 +6,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
+/** Circle layout for graph cell */
 public class CircleCell extends Cell {
 
     public CircleCell(KeyId id, String name) {

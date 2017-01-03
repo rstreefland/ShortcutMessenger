@@ -55,7 +55,7 @@ public class ConnectOperation implements Operation, Receiver {
             server.sendMessage(bootstrapNode, m, this);
             attempts++;
 
-            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.getOperationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 50;
             while (totalTimeWaited < config.getOperationTimeout()) {
@@ -73,7 +73,7 @@ public class ConnectOperation implements Operation, Receiver {
             }
 
             /* Perform lookup for our own ID to get the K nodes closest to LocalNode */
-            Operation findNode = new FindNodeOperation(localNode, localNode.getNode().getNodeId(), true);
+            Operation findNode = new FindNodeOperation(localNode, localNode.getNode().getNodeId(), false);
             findNode.execute();
 
             /* Refresh buckets to update the rest of the routing table */
@@ -126,7 +126,6 @@ public class ConnectOperation implements Operation, Receiver {
     public synchronized void timeout(int communicationId) throws IOException {
         /* If our attempts are less than the maxConnectionAttempts setting - try to send the message again */
         if (attempts < config.getMaxConnectionAttempts()) {
-            //logger.error("I TIMED OUT :(");
             server.sendMessage(bootstrapNode, new ConnectMessage(localNode.getNode()), this);
             attempts++;
         } else {

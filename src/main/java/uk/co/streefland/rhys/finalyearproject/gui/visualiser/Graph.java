@@ -7,24 +7,19 @@ import javafx.scene.layout.Pane;
 public class Graph {
 
     private Model model;
-
     private Group canvas;
-
     private ZoomableScrollPane scrollPane;
-
-    MouseGestures mouseGestures;
+    private MouseGestures mouseGestures;
 
     /**
      * the pane wrapper is necessary or else the scrollpane would always align
      * the top-most and left-most child to the top and left eg when you drag the
      * top child down, the entire scrollpane would move down
      */
-    Pane pane;
+    private Pane pane;
 
     public Graph() {
-
         this.model = new Model();
-
         canvas = new Group();
         pane = new Pane();
 
@@ -36,7 +31,6 @@ public class Graph {
         scrollPane.setFitToWidth(true);
         scrollPane.setFitToHeight(true);
         scrollPane.getStyleClass().add("vis");
-
     }
 
     public ZoomableScrollPane getScrollPane() {
@@ -47,11 +41,7 @@ public class Graph {
         return model;
     }
 
-    public void beginUpdate() {
-    }
-
     public void endUpdate() {
-
         // add components to graph pane
         pane.getChildren().addAll(model.getAddedEdges());
         pane.getChildren().addAll(model.getAddedCells());
@@ -74,7 +64,6 @@ public class Graph {
 
         // merge added & removed cells with all cells
         getModel().merge();
-
     }
 
     public double getScale() {

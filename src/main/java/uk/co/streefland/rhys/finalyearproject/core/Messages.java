@@ -81,7 +81,7 @@ public class Messages implements Serializable {
 
         long end = System.currentTimeMillis();
         long time = end - start;
-        System.out.println("OUTGOING SMO TOOK: " + time);
+        logger.info("OUTGOING SMO TOOK: " + time);
 
         if (operation.getUser() != null) {
 

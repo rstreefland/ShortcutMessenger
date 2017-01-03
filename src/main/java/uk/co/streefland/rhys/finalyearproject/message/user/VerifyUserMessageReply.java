@@ -59,11 +59,6 @@ public class VerifyUserMessageReply implements Message {
     }
 
     @Override
-    public String toString() {
-        return "VerifyUserMessageReply[origin KeyId=" + origin.getNodeId() + "]";
-    }
-
-    @Override
     public byte getCode() {
         return CODE;
     }
@@ -84,5 +79,10 @@ public class VerifyUserMessageReply implements Message {
 
     public User getExistingUser() {
         return existingUser;
+    }
+
+    @Override
+    public String toString() {
+        return "VerifyUserMessageReply[origin KeyId=" + origin.getNodeId() + "]";
     }
 }

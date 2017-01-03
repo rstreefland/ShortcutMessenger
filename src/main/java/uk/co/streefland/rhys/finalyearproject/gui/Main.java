@@ -29,9 +29,6 @@ public class Main extends Application {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
     LocalNode localNode = null;
 
-    private int width = 650;
-    private int height = 500;
-
     /**
      * The main() method is ignored in correctly deployed JavaFX application.
      * main() serves only as fallback in case the application can not be
@@ -90,7 +87,7 @@ public class Main extends Application {
                 root = showConnectScreen();
             }
 
-            Scene scene = new Scene(root, width, height);
+            Scene scene = new Scene(root, 650, 500);
             stage.setTitle("Shortcut Messenger");
             stage.setScene(scene);
             stage.setMinHeight(420);
@@ -103,6 +100,7 @@ public class Main extends Application {
         }
     }
 
+    /** Loads in the connect scene */
     private Parent showConnectScreen() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/connect.fxml"));
         Parent root = loader.load();
@@ -115,6 +113,10 @@ public class Main extends Application {
         return root;
     }
 
+    /**
+     * Error dialog which is shown if a saved state could not be loaded
+     * @throws IOException
+     */
     private void errorDialog() throws IOException {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
@@ -129,6 +131,9 @@ public class Main extends Application {
         alert.showAndWait();
     }
 
+    /**
+     * Shuts down the server cleanly and saves the state if appropriate
+     */
     @Override
     public void stop() {
         if (localNode != null) {
@@ -139,7 +144,8 @@ public class Main extends Application {
                     localNode.shutdown(true);
                 }
             } catch (IOException e) {
-                logger.error("Failed to shutdown cleanly");
+                logger.error("Failed to shutdown cleanly - forcing a shutdown instead");
+                System.exit(-1);
             }
         }
     }

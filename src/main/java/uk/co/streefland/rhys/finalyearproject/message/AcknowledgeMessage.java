@@ -61,11 +61,6 @@ public class AcknowledgeMessage implements Message {
     }
 
     @Override
-    public String toString() {
-        return "AcknowledgeMessage[origin=" + origin.getNodeId() + "]";
-    }
-
-    @Override
     public byte getCode() {
         return CODE;
     }
@@ -91,5 +86,10 @@ public class AcknowledgeMessage implements Message {
 
     public boolean getOperationSuccessful() {
         return operationSuccessful;
+    }
+
+    @Override
+    public String toString() {
+        return "AcknowledgeMessage[origin=" + origin.getNodeId() + "]";
     }
 }

@@ -31,13 +31,13 @@ public class Bucket implements Serializable {
     /**
      * Inserts a new contact into the bucket. If the bucket is full and there are no stale contacts to replace, the new contact will be inserted into the replacement cache
      *
-     * @param contact The contact to insert into the bucket
+     * @param c The contact to insert into the bucket
      */
-    public synchronized void insert(Contact contact) {
+    public synchronized void insert(Contact c) {
 
-        if (contacts.contains(contact)) {
-            Contact temp = contact;
-            removeContact(contact.getNode(), true); /* Remove from the TreeSet */
+        if (contacts.contains(c)) {
+            Contact temp = c;
+            removeContact(c.getNode(), true); /* Remove from the TreeSet */
             temp.setSeenNow();    /* Update the last seen time*/
             temp.resetStaleCount();   /* Reset the stale count */
             contacts.add(temp); /* Re-add to the TreeSet so the set is sorted correctly */
@@ -58,13 +58,13 @@ public class Bucket implements Serializable {
                 /* If there is a stale contact, remove it and add the new contact to the bucket */
                 if (mostStale != null) {
                     contacts.remove(mostStale);
-                    contacts.add(contact);
+                    contacts.add(c);
                 } else {
                     /* No stale contact available to replace, insert new contact into the cache */
-                    insertIntoCache(contact);
+                    insertIntoCache(c);
                 }
             } else {
-                contacts.add(contact);
+                contacts.add(c);
             }
         }
     }
@@ -72,22 +72,41 @@ public class Bucket implements Serializable {
     /**
      * Inserts a node into the bucket as a contact
      *
-     * @param node The node to insert into the bucket
+     * @param n The node to insert into the bucket
      */
-    public synchronized void insert(Node node) {
-        insert(new Contact(node));
+    public synchronized void insert(Node n) {
+        insert(new Contact(n));
+    }
+
+    /**
+     * Inserts a contact into the cache
+     */
+    private synchronized void insertIntoCache(Contact c) {
+        if (cache.contains(c)) {
+            /* Update the last seen time if this contact is already in the cache */
+            Contact temp = c;
+            cache.remove(c.getNode());
+            temp.setSeenNow();
+            cache.add(temp);
+        } else if (cache.size() > Configuration.K) {
+            /* If the cache is filled, remove the least recently seen contact */
+            cache.remove(cache.last());
+            cache.add(c);
+        } else {
+            cache.add(c);
+        }
     }
 
     /**
      * Removes a contact from the bucket only if the cache has a contact to replace it with. Else increments the contacts stale count
      *
-     * @param node  The node representing the contact to remove from the bucket
+     * @param n  The node representing the contact to remove from the bucket
      * @param force If true, remove the contact immediately without checking for a replacement in the replacement cache
      * @return Returns true if the contact was removed
      */
-    public synchronized boolean removeContact(Node node, boolean force) {
+    public synchronized boolean removeContact(Node n, boolean force) {
 
-        Contact contact = getContact(node);
+        Contact contact = getContact(n);
 
         if (contact == null) {
             return false;
@@ -115,22 +134,48 @@ public class Bucket implements Serializable {
     }
 
     /**
-     * Inserts a contact into the cache
+     * Returns a specific contact in the bucket based on the provided node
      */
-    private synchronized void insertIntoCache(Contact c) {
-        if (cache.contains(c)) {
-            /* Update the last seen time if this contact is already in the cache */
-            Contact temp = c;
-            cache.remove(c.getNode());
-            temp.setSeenNow();
-            cache.add(temp);
-        } else if (cache.size() > Configuration.K) {
-            /* If the cache is filled, remove the least recently seen contact */
-            cache.remove(cache.last());
-            cache.add(c);
-        } else {
-            cache.add(c);
+    private synchronized Contact getContact(Node n) {
+        for (Contact c : contacts) {
+            if (c.getNode().equals(n)) {
+                return c;
+            }
         }
+        return null;
+    }
+
+    /**
+     * Returns a list of all contacts in the bucket
+     */
+    public synchronized List<Contact> getContacts() {
+        ArrayList<Contact> list = new ArrayList<>();
+
+        /* If we have no contacts, return the blank ArrayList */
+        if (contacts.isEmpty()) {
+            return list;
+        }
+
+        /* We have contacts, put them into the ArrayList and return */
+        for (Contact c : contacts) {
+            list.add(c);
+        }
+
+        /* Do the same for the cache */
+        for (Contact c : cache) {
+            list.add(c);
+        }
+
+        return list;
+    }
+
+    /**
+     * Returns the total number of contacts in the bucket
+     *
+     * @return
+     */
+    public synchronized int getNumberOfContacts() {
+        return contacts.size();
     }
 
     @Override
@@ -150,49 +195,5 @@ public class Bucket implements Serializable {
         }
 
         return sb.toString();
-    }
-
-    /**
-     * Returns a specific contact in the bucket based on the provided node
-     */
-    private synchronized Contact getContact(Node n) {
-        for (Contact c : contacts) {
-            if (c.getNode().equals(n)) {
-                return c;
-            }
-        }
-        return null;
-    }
-
-    /**
-     * Returns the total number of contacts in the bucket
-     *
-     * @return
-     */
-    public synchronized int getNumberOfContacts() {
-        return contacts.size();
-    }
-
-    /**
-     * Returns a list of all contacts in the bucket
-     */
-    public synchronized List<Contact> getContacts() {
-        ArrayList<Contact> list = new ArrayList<>();
-
-        /* If we have no contacts, return the blank ArrayList */
-        if (contacts.isEmpty()) {
-            return list;
-        }
-
-        /* We have contacts, put them into the ArrayList and return */
-        for (Contact c : contacts) {
-            list.add(c);
-        }
-
-        for (Contact c : cache) {
-            list.add(c);
-        }
-
-        return list;
     }
 }

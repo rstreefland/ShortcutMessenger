@@ -7,14 +7,15 @@ import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Represents a node on the graph */
 public class Cell extends Pane {
 
-    KeyId cellId;
+    private KeyId cellId;
 
-    List<Cell> children = new ArrayList<>();
-    List<Cell> parents = new ArrayList<>();
+    private List<Cell> children = new ArrayList<>();
+    private List<Cell> parents = new ArrayList<>();
 
-    Node view;
+    private Node view;
 
     public Cell(KeyId cellId) {
         this.cellId = cellId;
@@ -41,10 +42,8 @@ public class Cell extends Pane {
     }
 
     public void setView(Node view) {
-
         this.view = view;
         getChildren().add(view);
-
     }
 
     public Node getView() {

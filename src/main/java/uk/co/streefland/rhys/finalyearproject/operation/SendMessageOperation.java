@@ -38,20 +38,20 @@ public class SendMessageOperation implements Operation, Receiver {
     private final Configuration config;
     private final LocalNode localNode;
     private User user;
+    private List<Node> closestNodes;
 
     private KeyId messageId;
     private String messageString;
     private long createdTime;
     private TextMessage message; // Message sent to each peer
+
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
-
     private final Map<Integer, Node> messagesInTransit;
     private final boolean forwarding;
     private Status messageStatus;
 
-    private List<Node> closestNodes;
-
+    /** Default constructor */
     public SendMessageOperation(LocalNode localNode, User userToMessage, KeyId messageId, String messageString, long createdTime) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
@@ -67,6 +67,7 @@ public class SendMessageOperation implements Operation, Receiver {
         this.forwarding = false;
     }
 
+    /** This constructor is used to forward messages */
     public SendMessageOperation(LocalNode localNode, User userToMessage, TextMessage message) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
@@ -89,7 +90,6 @@ public class SendMessageOperation implements Operation, Receiver {
      */
     @Override
     public synchronized void execute() throws IOException {
-
         messageStatus = Status.PENDING_DELIVERY;
 
         /* Get the user object of the user we would like to message */
@@ -105,7 +105,7 @@ public class SendMessageOperation implements Operation, Receiver {
             closestNodes = fuo.getClosestNodes();
         } else {
             /* Don't do the find user operation if forwarding. */
-            User storedUser = null;
+            User storedUser;
             storedUser = localNode.getUsers().findUser(user);
 
             if (storedUser != null) {
@@ -135,7 +135,7 @@ public class SendMessageOperation implements Operation, Receiver {
 
                 long end = System.currentTimeMillis();
                 long time = end-start;
-                System.out.println("DIRECT MESSSAGE LOOP TIME: " + time);
+                logger.info("DIRECT MESSSAGE LOOP TIME: " + time);
             }
 
         } else {
@@ -169,7 +169,7 @@ public class SendMessageOperation implements Operation, Receiver {
             messageLoop();
             long end = System.currentTimeMillis();
             long time = end-start;
-            System.out.println("FORWARD MESSAGE LOOP TIME: " + time);
+            logger.info("FORWARD MESSAGE LOOP TIME: " + time);
         }
 
         if (messageStatus == Status.PENDING_FORWARDING) {
@@ -177,15 +177,14 @@ public class SendMessageOperation implements Operation, Receiver {
         }
     }
 
-
     /**
      * Inserts the nodes into the HashMap if they're not already present
      *
      * @param list The list of nodes to insert
      */
     private void addNodes(List<Node> list) {
-        for (Node node : list) {
-            addNode(node);
+        for (Node n : list) {
+            addNode(n);
         }
     }
 
@@ -194,19 +193,19 @@ public class SendMessageOperation implements Operation, Receiver {
      *
      * @param node
      */
-    private void addNode(Node node) {
-        if (!nodes.containsKey(node)) {
-            nodes.putIfAbsent(node, Configuration.Status.NOT_QUERIED);
+    private void addNode(Node n) {
+        if (!nodes.containsKey(n)) {
+            nodes.putIfAbsent(n, Configuration.Status.NOT_QUERIED);
         }
 
-        if (!attempts.containsKey(node)) {
-            attempts.putIfAbsent(node, 0);
+        if (!attempts.containsKey(n)) {
+            attempts.putIfAbsent(n, 0);
         }
     }
 
     private void messageLoop() throws IOException {
         try {
-            /* If operation hasn't finished, wait for a maximum of config.operationTimeout() time */
+            /* If operation hasn't finished, wait for a maximum of config.getOperationTimeout() time */
             int totalTimeWaited = 0;
             int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout()) {
@@ -311,7 +310,7 @@ public class SendMessageOperation implements Operation, Receiver {
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getSource(), Configuration.Status.QUERIED);
 
-         /* Remove this msg from messagesTransiting since it's completed now */
+         /* Remove the messageInTransit */
         messagesInTransit.remove(communicationId);
 
         /* Wake up waiting thread */

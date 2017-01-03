@@ -162,11 +162,6 @@ public class TextMessage implements Message, Serializable {
     }
 
     @Override
-    public String toString() {
-        return "TextMessage[origin KeyId=" + origin.getNodeId() + "]";
-    }
-
-    @Override
     public byte getCode() {
         return CODE;
     }
@@ -224,5 +219,10 @@ public class TextMessage implements Message, Serializable {
 
     public long getCreatedTime() {
         return createdTime;
+    }
+
+    @Override
+    public String toString() {
+        return "TextMessage[origin KeyId=" + origin.getNodeId() + "]";
     }
 }
