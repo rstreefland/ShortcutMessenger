@@ -26,7 +26,6 @@ import java.net.UnknownHostException;
 
 /**
  * Facilitates connecting to a network by specifying their local IP address and the target IP address to bootstrap to.
- * This class will eventually
  */
 public class ConnectController {
 

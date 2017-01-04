@@ -1,7 +1,11 @@
 package uk.co.streefland.rhys.finalyearproject.core;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.*;
 import java.util.ArrayList;
@@ -10,12 +14,39 @@ import java.util.List;
 
 public class IPTools {
 
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    boolean isConnected = false;
     String publicIp;
     String privateIp;
 
     public IPTools() throws IOException {
-        publicIp = determinePublicIp();
+        checkConnectivity();
+
+        if (isConnected) {
+            publicIp = determinePublicIp();
+        }
+
         privateIp = determinePrivateIp();
+    }
+
+    public void checkConnectivity() {
+       // InetAddress testAddress = InetAddress.getByAddress(new byte[] {62, 252,73,93});
+       // isConnected = testAddress.isReachable(2000);
+
+        try {
+            Socket s = new Socket("8.8.8.8", 53);
+            isConnected = true;
+            s.close();
+        } catch (IOException e) {
+            isConnected = false;
+        }
+
+        if (isConnected) {
+            logger.info("Internet connection is operational");
+        } else {
+            logger.warn("Internet connection failure");
+        }
     }
 
     /**
@@ -36,13 +67,22 @@ public class IPTools {
         /* Check a different source if one fails */
         for (int i = 0; i < 3; i++) {
             try {
-                URL ipUrl = new URL(urls[i]);
+                /*URL ipUrl = new URL(urls[i]);
                 in = new BufferedReader(new InputStreamReader(
                         ipUrl.openStream()));
-                ip = in.readLine();
+                ip = in.readLine();*/
 
+                URL url = new URL(urls[i]);
+                URLConnection con = url.openConnection();
+
+                con.setConnectTimeout(1000);
+                con.setReadTimeout(1000);
+
+                InputStream inputStream = con.getInputStream();
+                in = new BufferedReader(new InputStreamReader(inputStream));
+                ip = in.readLine();
             } catch (IOException e) {
-                System.out.println("couldn't get IP from source:" + i);
+                logger.warn("couldn't get IP from source:" + i);
             } finally {
                 if (in != null) {
                     try {
@@ -54,9 +94,11 @@ public class IPTools {
             }
 
             if (ip != null) {
+                logger.info("Public IP address is: {}", ip);
                 return ip;
             }
         }
+        logger.warn("Could not determine public IP");
         return null;
     }
 
@@ -85,9 +127,11 @@ public class IPTools {
         }
 
         /* Pick the last IP address */
-        if (ipAddresses.size() > 1) {
+        if (ipAddresses.size() > 0) {
+            logger.info("Private IP address is: {}", ipAddresses.get(ipAddresses.size() - 1).getHostAddress());
             return ipAddresses.get(ipAddresses.size() - 1).getHostAddress();
         } else {
+            logger.warn("Could not determine private IP");
             return null;
         }
     }
@@ -117,5 +161,9 @@ public class IPTools {
 
     public InetAddress getPrivateInetAddress() throws UnknownHostException {
         return InetAddress.getByName(publicIp);
+    }
+
+    public boolean isConnected() {
+        return isConnected;
     }
 }
