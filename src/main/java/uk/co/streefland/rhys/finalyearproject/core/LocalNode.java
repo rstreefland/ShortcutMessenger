@@ -9,7 +9,6 @@ import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
-import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Timer;
@@ -44,7 +43,7 @@ public class LocalNode {
      *
      * @throws IOException
      */
-    public LocalNode(IPTools ipTools) throws IOException, ClassNotFoundException {
+    public LocalNode(IPTools ipTools, int localPort) throws IOException, ClassNotFoundException {
         logger.info("Shortcut Messenger build {}", BUILD_NUMBER);
 
         this.ipTools = ipTools;
@@ -55,7 +54,7 @@ public class LocalNode {
             readState();
         } else {
             config = new Configuration();
-            node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT);
+            node = new Node(new KeyId(), ipTools.getPublicInetAddress(), ipTools.getPrivateInetAddress(), localPort, localPort);
             routingTable = new RoutingTable(node);
             messages = new Messages(this);
         }

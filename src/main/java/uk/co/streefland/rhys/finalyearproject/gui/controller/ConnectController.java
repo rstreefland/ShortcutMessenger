@@ -6,11 +6,14 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
@@ -34,13 +37,26 @@ public class ConnectController {
     private IPTools ipTools;
 
     @FXML
+    private HBox internetError;
+    @FXML
     private Button connectButton;
+    @FXML
+    private Button advancedButton;
     @FXML
     private TextField networkIpField;
     @FXML
     private Text errorText;
     @FXML
     private ImageView loader;
+    @FXML
+    private GridPane gridPane;
+    @FXML
+    private HBox buttonBox;
+
+    private Label networkPort = new Label("Network port:");
+    private TextField networkPortField = new TextField();
+    private Label localPort = new Label("Local port:");
+    private TextField localPortField = new TextField();
 
     public void init(Main main) {
         this.main = main;
@@ -49,6 +65,10 @@ public class ConnectController {
             ipTools = new IPTools();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+
+        if (!ipTools.isConnected()) {
+            internetError.setVisible(true);
         }
     }
 
@@ -65,10 +85,20 @@ public class ConnectController {
             @Override
             protected String call() throws Exception {
                 String networkIpString = networkIpField.getText();
+                int networkPort = Configuration.DEFAULT_PORT;
+                int localPort = Configuration.DEFAULT_PORT;
+
+                try {
+                    networkPort = Integer.parseInt(networkPortField.getText());
+                } catch (NumberFormatException e) {}
+
+                try {
+                    localPort = Integer.parseInt(localPortField.getText());
+                } catch (NumberFormatException e) {}
 
                 /* Special case for first node in the network */
                 if (networkIpString.equals("first")) {
-                    localNode = new LocalNode(ipTools);
+                    localNode = new LocalNode(ipTools, localPort);
                     localNode.first();
                     this.succeeded();
                     return null;
@@ -83,14 +113,14 @@ public class ConnectController {
 
                 /* Create the localNode object */
                 if (networkIp != null) {
-                    localNode = new LocalNode(ipTools);
+                    localNode = new LocalNode(ipTools, localPort);
                 } else {
                     this.succeeded();
                     return "Invalid network address";
                 }
 
                 /* Attempt to bootstrap to the network */
-                boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, Configuration.DEFAULT_PORT, Configuration.DEFAULT_PORT));
+                boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, networkPort, networkPort));
 
                 if (error) {
                     this.succeeded();
@@ -121,6 +151,28 @@ public class ConnectController {
 
             loader.setVisible(false);
         });
+    }
+
+    @FXML
+    private void handleAdvancedButtonAction() {
+        if (advancedButton.getText().equals("Advanced")) {
+            gridPane.getChildren().remove(buttonBox);
+
+            localPortField.setPromptText("12345");
+            networkPortField.setPromptText("12345");
+
+            gridPane.add(networkPort, 1, 3);
+            gridPane.add(networkPortField, 2, 3);
+            gridPane.add(localPort, 1, 4);
+            gridPane.add(localPortField, 2, 4);
+
+            gridPane.add(buttonBox, 2, 5);
+            advancedButton.setText("Simple");
+        } else {
+            gridPane.getChildren().removeAll(buttonBox, localPort, localPortField, networkPort, networkPortField);
+            gridPane.add(buttonBox, 2, 3);
+            advancedButton.setText("Advanced");
+        }
     }
 
     /**

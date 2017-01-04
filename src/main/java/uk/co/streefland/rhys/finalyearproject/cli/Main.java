@@ -1,5 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.cli;
 
+import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
@@ -144,7 +145,7 @@ class Main {
 
             /* Special case for first node in the network */
             if (networkIpString.equals("first")) {
-                localNode = new LocalNode(ipTools);
+                localNode = new LocalNode(ipTools, Configuration.DEFAULT_PORT);
                 localNode.first();
 
                 availableCommands.remove("bootstrap");
@@ -166,7 +167,7 @@ class Main {
 
             /* Create the localNode object */
             if (networkIp != null) {
-                localNode = new LocalNode(ipTools);
+                localNode = new LocalNode(ipTools, Configuration.DEFAULT_PORT);
             } else {
                 System.err.println("Invalid network address");
             }

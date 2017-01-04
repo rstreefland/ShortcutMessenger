@@ -17,6 +17,11 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="borderPane" onKeyPressed="#handleKeyPressed" styleClass="border-pane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController">
+    <top>
+        <HBox styleClass="interneterror" alignment="TOP_CENTER" visible="false" fx:id="internetError">
+            <Label HBox.hgrow="ALWAYS" text="Internet connection could not be detected"/>
+        </HBox>
+    </top>
     <center>
         <VBox alignment="CENTER" spacing="10">
             <FlowPane alignment="CENTER" hgap="10" rowValignment="CENTER" vgap="10">
@@ -25,7 +30,7 @@
                 </ImageView>
                 <Label styleClass="label-bigheader" text="Shortcut Messenger" wrapText="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             </FlowPane>
-        <GridPane alignment="center" hgap="20" vgap="20">
+        <GridPane alignment="center" hgap="20" vgap="20" fx:id="gridPane">
 
             <Label styleClass="label-header" text="Connect to the network" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.rowIndex="1" />
 
@@ -33,10 +38,11 @@
 
             <TextField fx:id="networkIpField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
-            <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="buttonBox">
                 <Button fx:id="connectButton" onAction="#handleConnectButtonAction" text="Connect" />
-                <Button fx:id="advancedButton" text="Advanced" />
+                <Button fx:id="advancedButton" onAction="#handleAdvancedButtonAction" text="Advanced"/>
             </HBox>
+
             <columnConstraints>
                 <ColumnConstraints />
                 <ColumnConstraints />

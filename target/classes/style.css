@@ -152,3 +152,9 @@
     -fx-text-fill: red;
     -fx-font-size: 10pt;
 }
+
+.interneterror {
+    -fx-background-color: red;
+    -fx-opacity: 0.5;
+    -fx-text-fill: black;
+}

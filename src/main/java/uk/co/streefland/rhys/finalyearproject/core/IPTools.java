@@ -31,11 +31,12 @@ public class IPTools {
     }
 
     public void checkConnectivity() {
-       // InetAddress testAddress = InetAddress.getByAddress(new byte[] {62, 252,73,93});
-       // isConnected = testAddress.isReachable(2000);
-
         try {
-            Socket s = new Socket("8.8.8.8", 53);
+            Socket s = new Socket();
+            byte[] ip = new byte[]{8, 8, 8, 8};
+            InetAddress inet = InetAddress.getByAddress(ip);
+            SocketAddress socketAddress = new InetSocketAddress(inet, 53);
+            s.connect(socketAddress, 1000);
             isConnected = true;
             s.close();
         } catch (IOException e) {
@@ -166,4 +167,6 @@ public class IPTools {
     public boolean isConnected() {
         return isConnected;
     }
+
 }
+

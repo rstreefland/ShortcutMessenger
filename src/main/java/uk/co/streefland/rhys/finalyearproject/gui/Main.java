@@ -12,6 +12,7 @@ import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.StorageHandler;
@@ -68,7 +69,7 @@ public class Main extends Application {
             if (temp.doesSavedStateExist()) {
                 try {
                     IPTools ipTools = new IPTools();
-                    localNode = new LocalNode(ipTools);
+                    localNode = new LocalNode(ipTools, Configuration.DEFAULT_PORT);
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
                     root = loader.load();

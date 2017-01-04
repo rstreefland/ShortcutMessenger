@@ -44,6 +44,7 @@ public class ChatBubble {
 
     /** Converts a string into text and emoji nodes */
     public FlowPane convert(String text) {
+        text = text.trim();
         Queue<Object> obs = EmojiOne.getInstance().toEmojiAndText(text);
 
         /* If chatbubble only contains an emoji - make the emoji bigger and remove the border */
