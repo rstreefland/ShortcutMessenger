@@ -9,9 +9,9 @@ import static org.junit.Assert.*;
  */
 public class KeyIdTest {
 
-    KeyId key1 = new KeyId("sdlkfhjsd");
-    KeyId key2 = new KeyId("iuqaghjvfldfsdf");
-    KeyId key3 = new KeyId("sjkld");
+    private KeyId key1 = new KeyId("sdlkfhjsd");
+    private KeyId key2 = new KeyId("iuqaghjvfldfsdf");
+    private KeyId key3 = new KeyId("sjkld");
 
     @Test
     public void testHashcode() throws Exception {

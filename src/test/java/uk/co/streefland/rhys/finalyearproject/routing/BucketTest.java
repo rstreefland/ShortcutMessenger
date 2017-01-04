@@ -7,47 +7,45 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Tests the Bucket class
  */
 public class BucketTest {
 
-    KeyId key = new KeyId();
-    Bucket bucket;
-    Contact contact1;
-    Contact contact2;
-    Contact contact3;
-    Contact contact4;
-    Contact contact5;
-    Contact contact6;
-    Contact contact7;
+    private KeyId key = new KeyId();
+    private Bucket bucket;
+    private Contact contact1;
+    private Contact contact2;
+    private Contact contact3;
+    private Contact contact4;
+    private Contact contact5;
+    private Contact contact6;
+    private Contact contact7;
 
     @Before
     public void setUp() throws UnknownHostException, InterruptedException {
         bucket = new Bucket(0);
 
-        /* contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 123));
+        contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 123, 123));
         Thread.sleep(10);
-        contact2 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 456));
+        contact2 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 456, 456));
         Thread.sleep(10);
-        contact3 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 246));
+        contact3 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 246, 246));
         Thread.sleep(10);
-        contact4 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123));
+        contact4 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 123, 123));
         Thread.sleep(10);
-        contact5 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123));
+        contact5 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 123, 123));
         Thread.sleep(10);
-        contact6 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123));
+        contact6 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 123, 123));
         Thread.sleep(10);
-        contact7 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123)); */
+        contact7 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 123, 123));
     }
 
     @Test
     public void testInsert() throws Exception {
-
         bucket.insert(contact1);
         bucket.insert(contact2);
         bucket.insert(contact3);
@@ -68,7 +66,7 @@ public class BucketTest {
         assertEquals(bucket.getContacts().get(4), contact5);
 
         bucket.insert(contact6);
-        assertEquals(bucket.getNumberOfContacts(), 5);
+        assertEquals(bucket.getNumberOfContacts(), 6);
     }
 
     @Test
@@ -87,7 +85,7 @@ public class BucketTest {
         bucket.insert(contact6);
         bucket.insert(contact7);
 
-        assertEquals(bucket.removeContact(contact2.getNode(), false), true);
+        assertEquals(bucket.removeContact(contact2.getNode(), false), false);
     }
 
     @Test

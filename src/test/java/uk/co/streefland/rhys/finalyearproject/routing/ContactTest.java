@@ -15,16 +15,16 @@ import static org.junit.Assert.*;
  */
 public class ContactTest {
 
-    KeyId key = new KeyId();
-    Contact contact1;
-    Contact contact2;
-    Contact contact3;
+    private KeyId key = new KeyId();
+    private Contact contact1;
+    private Contact contact2;
+    private Contact contact3;
 
     @Before
     public void setUp() throws UnknownHostException {
-       /* contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 123));
-        contact2 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), 456));
-        contact3 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123)); */
+        contact1 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 123, 123));
+        contact2 = new Contact(new Node(key, InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 456, 456));
+        contact3 = new Contact(new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 123, 123));
     }
 
     @Test

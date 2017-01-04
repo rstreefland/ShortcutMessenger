@@ -102,9 +102,10 @@ public class LocalNode {
      * @param port      The port the server should listen on
      * @throws IOException
      */
-    public LocalNode(KeyId defaultId, int port) throws IOException {
+    public LocalNode(KeyId networkId, KeyId defaultId, int port) throws IOException {
         logger.info("Shortcut Messenger build {}", BUILD_NUMBER);
 
+        this.networkId = networkId;
         this.ipTools = new IPTools();
 
         this.node = new Node(defaultId, InetAddress.getLocalHost(), InetAddress.getLocalHost(), port, port);

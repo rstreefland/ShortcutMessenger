@@ -15,7 +15,7 @@ class HundredNodes {
 
         for (int i = 0; i < 100; i++) {
             System.out.println("Creating node number: " + i);
-            localNodes[i] = new LocalNode(new KeyId(), 40000 + i);
+           // localNodes[i] = new LocalNode(new KeyId(), 40000 + i);
         }
 
         // init first node

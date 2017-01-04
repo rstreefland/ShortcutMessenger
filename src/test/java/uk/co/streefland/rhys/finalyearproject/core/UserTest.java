@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
  */
 public class UserTest {
 
-    User user;
+    private User user;
 
     @Before
     public void setUp() {
@@ -41,10 +41,9 @@ public class UserTest {
         assertEquals(user.getUserId(), newUser.getUserId());
         assertEquals(user.getUserName(), newUser.getUserName());
         assertArrayEquals(user.getPasswordHash(), newUser.getPasswordHash());
-        //assertEquals(user.getAssociatedNodes(), newUser.getAssociatedNodes());
+        assertEquals(user.getAssociatedNode(), newUser.getAssociatedNode());
         assertEquals(user.getRegisterTime(), newUser.getRegisterTime());
-     //   assertEquals(user.getLastLoginTime(), newUser.getLastLoginTime());
-     //   assertEquals(newUser.getPlainTextPassword(), null);
+        assertEquals(user.getLastActiveTime(), newUser.getLastActiveTime());
     }
 
     @Test
@@ -57,18 +56,13 @@ public class UserTest {
 
     @Test
     public void testAddAssociatedNode() throws Exception {
-        /* Node node = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 123);
-        Node node2 = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), 1234);
+        Node node = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.2"), 12345, 54321);
+        Node node2 = new Node(new KeyId(), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.2"), 12345, 54321);
 
         user.addAssociatedNode(node);
-
-        assertEquals(user.getAssociatedNodes().size(), 1);
-        assertEquals(user.getAssociatedNodes().get(0), node);
+        assertEquals(user.getAssociatedNode(), node);
 
         user.addAssociatedNode(node2);
-
-        assertEquals(user.getAssociatedNodes().size(), 2);
-        assertEquals(user.getAssociatedNodes().get(0), node);
-        assertEquals(user.getAssociatedNodes().get(1), node2); */
+        assertEquals(user.getAssociatedNode(), node2);
     }
 }

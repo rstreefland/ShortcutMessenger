@@ -18,25 +18,25 @@ import static org.junit.Assert.*;
  */
 public class RoutingTableTest {
 
-    RoutingTable routingTable;
-    Node node1;
-    Node node2;
-    Node node3;
-    Node node4;
-    Node node5;
-    Node node6;
-    Node node7;
+    private RoutingTable routingTable;
+    private Node node1;
+    private Node node2;
+    private Node node3;
+    private Node node4;
+    private Node node5;
+    private Node node6;
+    private Node node7;
 
     @Before
     public void setUp() throws Exception {
-       /*  routingTable = new RoutingTable(new Node(new KeyId("a"), InetAddress.getByName("127.0.0.1"), 12345));
-        node1 = new Node(new KeyId("b"),InetAddress.getByName("10.10.100.1"), 15315);
-        node2 = new Node(new KeyId("c"),InetAddress.getByName("192.168.0.2"), 53273);
-        node3 = new Node(new KeyId("d"),InetAddress.getByName("192.168.0.3"), 12723);
-        node4 = new Node(new KeyId("e"),InetAddress.getByName("127.0.0.1"), 12345);
-        node5 = new Node(new KeyId("f"),InetAddress.getByName("192.168.0.4"), 12345);
-        node6 = new Node(new KeyId("g"),InetAddress.getByName("192.168.0.5"), 12345);
-        node7 = new Node(new KeyId("h"),InetAddress.getByName("192.168.0.5"), 12336); */
+        routingTable = new RoutingTable(new Node(new KeyId("a"), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 12345, 12345));
+        node1 = new Node(new KeyId("b"), InetAddress.getByName("10.10.100.1"), InetAddress.getByName("10.10.100.1"), 15315, 15315);
+        node2 = new Node(new KeyId("c"), InetAddress.getByName("192.168.0.2"), InetAddress.getByName("192.168.0.2"), 53273, 53273);
+        node3 = new Node(new KeyId("d"), InetAddress.getByName("192.168.0.3"), InetAddress.getByName("192.168.0.3"), 12723, 12723);
+        node4 = new Node(new KeyId("e"), InetAddress.getByName("127.0.0.1"), InetAddress.getByName("127.0.0.1"), 12345, 12345);
+        node5 = new Node(new KeyId("f"), InetAddress.getByName("192.168.0.4"), InetAddress.getByName("192.168.0.4"), 12345, 12345);
+        node6 = new Node(new KeyId("g"), InetAddress.getByName("192.168.0.5"), InetAddress.getByName("192.168.0.5"), 12345, 12345);
+        node7 = new Node(new KeyId("h"), InetAddress.getByName("192.168.0.5"), InetAddress.getByName("192.168.0.5"), 12335, 12336);
     }
 
     @Test
@@ -68,7 +68,7 @@ public class RoutingTableTest {
         KeyId zero = new KeyId(bytes);
         List<Node> sortedSet = routingTable.findClosest(zero, false);
 
-        assertEquals(sortedSet.size(), 5);
+        assertEquals(sortedSet.size(), 7);
 
         BigInteger previous = zero.getInt();
 
