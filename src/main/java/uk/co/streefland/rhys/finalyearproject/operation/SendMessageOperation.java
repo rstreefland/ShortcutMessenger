@@ -16,7 +16,6 @@ import uk.co.streefland.rhys.finalyearproject.operation.user.FindUserOperation;
 import uk.co.streefland.rhys.finalyearproject.routing.Contact;
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

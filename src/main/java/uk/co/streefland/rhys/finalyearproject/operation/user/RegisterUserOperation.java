@@ -37,7 +37,7 @@ public class RegisterUserOperation implements Operation, Receiver {
     private Message message;
 
     private boolean isRegisteredSuccessfully;
-    private boolean ignoreStale;
+    private final boolean ignoreStale;
 
     public RegisterUserOperation(LocalNode localNode, User user, boolean ignoreStale) {
         this.server = localNode.getServer();

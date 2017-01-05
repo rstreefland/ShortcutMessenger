@@ -7,6 +7,8 @@ import java.io.Serializable;
  */
 public class Configuration implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /* Constants */
     public static final int K = 20; // Kademlia specifies 20
     public static final int MAX_CONCURRENCY = 3; // maximum number of concurrent connection

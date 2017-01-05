@@ -33,7 +33,7 @@ public class FindUserOperation implements Operation, Receiver {
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
     private final Map<Integer, Node> messagesInTransit;
-    private User searchUser;
+    private final User searchUser;
     private User foundUser;
     private Message message;
     private List<Node> closestNodes;

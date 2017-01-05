@@ -10,13 +10,12 @@ import javafx.scene.transform.Scale;
 /** Enables zooming of the graph */
 public class ZoomableScrollPane extends ScrollPane {
 
-    private Group zoomGroup;
-    private Scale scaleTransform;
+    private final Scale scaleTransform;
     private double scaleValue = 1.0;
 
     public ZoomableScrollPane(Node content) {
         Group contentGroup = new Group();
-        zoomGroup = new Group();
+        Group zoomGroup = new Group();
         contentGroup.getChildren().add(zoomGroup);
         zoomGroup.getChildren().add(content);
         setContent(contentGroup);

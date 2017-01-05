@@ -7,8 +7,6 @@ import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
-import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessage;
-import uk.co.streefland.rhys.finalyearproject.message.node.FindNodeMessageReply;
 import uk.co.streefland.rhys.finalyearproject.message.node.NetworkTraversalMessage;
 import uk.co.streefland.rhys.finalyearproject.message.node.NetworkTraversalMessageReply;
 import uk.co.streefland.rhys.finalyearproject.node.KeyComparator;

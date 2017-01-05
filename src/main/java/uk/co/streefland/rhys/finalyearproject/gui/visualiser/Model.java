@@ -10,17 +10,17 @@ import java.util.Map;
 /** The model of the graph */
 public class Model {
 
-    Cell graphParent;
+    private final Cell graphParent;
 
-    List<Cell> allCells;
-    List<Cell> addedCells;
-    List<Cell> removedCells;
+    private List<Cell> allCells;
+    private List<Cell> addedCells;
+    private List<Cell> removedCells;
 
-    List<Edge> allEdges;
-    List<Edge> addedEdges;
-    List<Edge> removedEdges;
+    private List<Edge> allEdges;
+    private List<Edge> addedEdges;
+    private List<Edge> removedEdges;
 
-    Map<KeyId, Cell> cellMap; // <id,cell>
+    private Map<KeyId, Cell> cellMap; // <id,cell>
 
     public Model() {
         graphParent = new Cell(new KeyId("0"));
@@ -29,7 +29,7 @@ public class Model {
         clear();
     }
 
-    public void clear() {
+    private void clear() {
         allCells = new ArrayList<>();
         addedCells = new ArrayList<>();
         removedCells = new ArrayList<>();
@@ -39,11 +39,6 @@ public class Model {
         removedEdges = new ArrayList<>();
 
         cellMap = new HashMap<>(); // <id,cell>
-    }
-
-    public void clearAddedLists() {
-        addedCells.clear();
-        addedEdges.clear();
     }
 
     public List<Cell> getAddedCells() {
@@ -64,10 +59,6 @@ public class Model {
 
     public List<Edge> getRemovedEdges() {
         return removedEdges;
-    }
-
-    public List<Edge> getAllEdges() {
-        return allEdges;
     }
 
     public void addCell(KeyId id, String name) {

@@ -186,11 +186,7 @@ public class LoginUserOperation implements Operation, Receiver {
         /* Read the VerifyUserMessageReply */
         VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
 
-        if (msg.getExistingUser() != null) {
-            loggedIn = msg.getExistingUser().doPasswordsMatch(plainTextPassword);
-        } else {
-            loggedIn = false;
-        }
+        loggedIn = msg.getExistingUser() != null && msg.getExistingUser().doPasswordsMatch(plainTextPassword);
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), Configuration.Status.QUERIED);

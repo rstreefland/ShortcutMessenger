@@ -3,7 +3,7 @@ package uk.co.streefland.rhys.finalyearproject.core;
 import java.util.Date;
 
 /**
- * Created by Rhys on 29/12/2016.
+ * Manages statistics for the local node
  */
 public class Statistics {
 

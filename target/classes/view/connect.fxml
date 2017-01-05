@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane fx:id="borderPane" onKeyPressed="#handleKeyPressed" styleClass="border-pane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController">
+<BorderPane onKeyPressed="#handleKeyPressed" styleClass="border-pane" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.ConnectController">
     <top>
         <HBox styleClass="interneterror" alignment="TOP_CENTER" visible="false" fx:id="internetError">
             <Label HBox.hgrow="ALWAYS" text="Internet connection could not be detected"/>
@@ -24,7 +24,7 @@
     </top>
     <center>
         <VBox alignment="CENTER" spacing="10">
-            <FlowPane alignment="CENTER" hgap="10" rowValignment="CENTER" vgap="10">
+            <FlowPane alignment="CENTER" hgap="10" vgap="10">
                 <ImageView GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <Image url="/graphics/logo.png" />
                 </ImageView>

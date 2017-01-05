@@ -16,9 +16,9 @@ public class IPTools {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    boolean isConnected = false;
-    String publicIp;
-    String privateIp;
+    private boolean isConnected = false;
+    private String publicIp;
+    private String privateIp;
 
     public IPTools() throws IOException {
         checkConnectivity();
@@ -30,7 +30,7 @@ public class IPTools {
         privateIp = determinePrivateIp();
     }
 
-    public void checkConnectivity() {
+    private void checkConnectivity() {
         try {
             Socket s = new Socket();
             byte[] ip = new byte[]{8, 8, 8, 8};
@@ -55,7 +55,7 @@ public class IPTools {
      *
      * @return The node's public IP as a string
      */
-    public String determinePublicIp() {
+    private String determinePublicIp() {
 
         String[] urls = new String[3];
         urls[0] = "http://checkip.amazonaws.com";
@@ -110,7 +110,7 @@ public class IPTools {
      * @return
      * @throws SocketException
      */
-    public String determinePrivateIp() throws SocketException {
+    private String determinePrivateIp() throws SocketException {
         List<InetAddress> ipAddresses = new ArrayList<>();
 
         /* Loop through network interfaces adding all suitable InetAdresses to an ArrayList*/
@@ -146,14 +146,6 @@ public class IPTools {
      */
     public InetAddress validateAddress(String host) throws UnknownHostException {
         return InetAddress.getByName(host);
-    }
-
-    public String getPublicIp() {
-        return publicIp;
-    }
-
-    public String getPrivateIp() {
-        return privateIp;
     }
 
     public InetAddress getPublicInetAddress() throws UnknownHostException {

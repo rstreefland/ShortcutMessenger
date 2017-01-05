@@ -9,6 +9,8 @@ import java.io.Serializable;
  */
 public class Contact implements Comparable<Contact>, Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private final Node node;
     private long lastSeen;
     private int staleCount;
@@ -52,11 +54,8 @@ public class Contact implements Comparable<Contact>, Serializable {
 
     @Override
     public boolean equals(Object c) {
-        if (c instanceof Contact) {
-            return ((Contact) c).getNode().equals(getNode());
-        }
+        return c instanceof Contact && ((Contact) c).getNode().equals(getNode());
 
-        return false;
     }
 
     @Override

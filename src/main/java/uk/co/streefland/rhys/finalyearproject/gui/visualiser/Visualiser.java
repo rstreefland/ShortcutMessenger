@@ -1,6 +1,7 @@
 package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
 import javafx.concurrent.Task;
+import javafx.event.Event;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -23,8 +24,8 @@ import java.util.Map;
  */
 public class Visualiser {
 
-    private LocalNode localNode;
-    private Stage stage;
+    private final LocalNode localNode;
+    private final Stage stage;
     private Graph graph = new Graph();
     private Map<KeyId, List<Node>> nodeRoutingTables;
 
@@ -72,8 +73,8 @@ public class Visualiser {
         thread.start();
 
         /* On task finish */
-        task.setOnSucceeded(event1 -> {
-            Map<KeyId, List<Node>> nodeRoutingTables = (Map<KeyId, List<Node>>) task.getValue(); // result of computation
+        task.setOnSucceeded((Event event1) -> {
+            Map<KeyId, List<Node>> nodeRoutingTables = (Map<KeyId,List<Node>>) task.getValue(); // result of computation
 
             if (nodeRoutingTables != null) {
                 this.nodeRoutingTables = nodeRoutingTables;

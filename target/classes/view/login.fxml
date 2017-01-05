@@ -12,7 +12,7 @@
             fx:controller="uk.co.streefland.rhys.finalyearproject.gui.controller.LoginController">
     <center>
         <VBox alignment="CENTER" spacing="10">
-            <FlowPane rowValignment="CENTER" hgap="10" vgap="10" alignment="CENTER">
+            <FlowPane hgap="10" vgap="10" alignment="CENTER">
                 <ImageView GridPane.columnIndex="1" GridPane.rowIndex="1">
                     <Image url="/graphics/logo.png" />
                 </ImageView>

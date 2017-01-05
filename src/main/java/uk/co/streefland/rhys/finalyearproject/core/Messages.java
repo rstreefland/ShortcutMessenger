@@ -19,12 +19,13 @@ import java.util.*;
  */
 public class Messages implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private transient LocalNode localNode;
-    private Map<KeyId, Long> receivedMessages;
-    private Map<KeyId, TextMessage> forwardMessages;
-    private Map<String, ArrayList<StoredTextMessage>> userMessages;
+    private final Map<KeyId, Long> receivedMessages;
+    private final Map<KeyId, TextMessage> forwardMessages;
+    private final Map<String, ArrayList<StoredTextMessage>> userMessages;
 
     private transient ObjectProperty<StoredTextMessage> lastMessage;
     private transient ObjectProperty<StoredTextMessage> lastMessageUpdate;
@@ -68,7 +69,7 @@ public class Messages implements Serializable {
         lastMessage.set(stm);
 
         /* Add the storedtextmessage to an existing conversation or create a new one if it doesn't already exist */
-        if (userMessages.putIfAbsent(target.getUserName(), new ArrayList(Arrays.asList(stm))) != null) {
+        if (userMessages.putIfAbsent(target.getUserName(), new ArrayList<>(Collections.singletonList(stm))) != null) {
             ArrayList<StoredTextMessage> conversation = userMessages.get(target.getUserName());
             conversation.add(stm);
         }
@@ -126,7 +127,7 @@ public class Messages implements Serializable {
      *
      * @param message The message to store
      */
-    public void addReceivedMessage(TextMessage message) throws IOException {
+    public void addReceivedMessage(TextMessage message) {
         /* Only do anything if we haven't received this message before */
         if (receivedMessages.putIfAbsent(message.getMessageId(), message.getCreatedTime()) != null) {
             return;
@@ -144,7 +145,7 @@ public class Messages implements Serializable {
         lastMessage.set(stm);
 
         /* Add the StoredTextMessage to an existing conversation or create a new one if it doesn't already exist */
-        if (userMessages.putIfAbsent(userName, new ArrayList(Arrays.asList(stm))) != null) {
+        if (userMessages.putIfAbsent(userName, new ArrayList<>(Collections.singletonList(stm))) != null) {
             ArrayList<StoredTextMessage> conversation = userMessages.get(userName);
             conversation.add(stm);
         }
@@ -188,11 +189,6 @@ public class Messages implements Serializable {
                 receivedMessages.remove(entry.getKey());
             }
         }
-    }
-
-    @Override
-    public String toString() {
-        return super.toString(); // TODO: 08/10/2016  change this to print out all messages in memory
     }
 
     public Map<String, ArrayList<StoredTextMessage>> getUserMessages() {

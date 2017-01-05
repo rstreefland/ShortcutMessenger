@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Random;
 
 /** Randomly lays out nodes in the graph but doesn't allow nodes to overlap */
-public class RandomLayout {
+class RandomLayout {
 
-    Graph graph;
-    Random rnd = new Random();
+    private final Graph graph;
+    private final Random rnd = new Random();
 
     public RandomLayout(Graph graph) {
         this.graph = graph;

@@ -28,7 +28,7 @@ import java.io.IOException;
 public class Main extends Application {
 
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
-    LocalNode localNode = null;
+    private LocalNode localNode = null;
 
     /**
      * The main() method is ignored in correctly deployed JavaFX application.
@@ -118,7 +118,7 @@ public class Main extends Application {
      * Error dialog which is shown if a saved state could not be loaded
      * @throws IOException
      */
-    private void errorDialog() throws IOException {
+    private void errorDialog() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("Failed to load saved data");

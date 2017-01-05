@@ -4,11 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
-import uk.co.streefland.rhys.finalyearproject.message.content.TextMessage;
-import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
-import uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation;
-import uk.co.streefland.rhys.finalyearproject.operation.user.LoginUserOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation;
 
 import java.io.IOException;

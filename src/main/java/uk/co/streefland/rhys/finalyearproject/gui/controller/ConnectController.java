@@ -53,10 +53,10 @@ public class ConnectController {
     @FXML
     private HBox buttonBox;
 
-    private Label networkPort = new Label("Network port:");
-    private TextField networkPortField = new TextField();
-    private Label localPort = new Label("Local port:");
-    private TextField localPortField = new TextField();
+    private final Label networkPort = new Label("Network port:");
+    private final TextField networkPortField = new TextField();
+    private final Label localPort = new Label("Local port:");
+    private final TextField localPortField = new TextField();
 
     public void init(Main main) {
         this.main = main;
@@ -90,11 +90,11 @@ public class ConnectController {
 
                 try {
                     networkPort = Integer.parseInt(networkPortField.getText());
-                } catch (NumberFormatException e) {}
+                } catch (NumberFormatException ignored) {}
 
                 try {
                     localPort = Integer.parseInt(localPortField.getText());
-                } catch (NumberFormatException e) {}
+                } catch (NumberFormatException ignored) {}
 
                 /* Special case for first node in the network */
                 if (networkIpString.equals("first")) {
@@ -108,7 +108,7 @@ public class ConnectController {
                 InetAddress networkIp = null;
                 try {
                     networkIp = ipTools.validateAddress(networkIpString);
-                } catch (UnknownHostException uho) {
+                } catch (UnknownHostException ignored) {
                 }
 
                 /* Create the localNode object */

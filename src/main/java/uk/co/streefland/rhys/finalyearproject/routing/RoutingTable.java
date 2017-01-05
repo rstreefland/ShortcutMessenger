@@ -15,6 +15,8 @@ import java.util.TreeSet;
  */
 public class RoutingTable implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private final Node localNode;
     private Bucket[] buckets;
     private boolean isEmpty;
@@ -46,7 +48,7 @@ public class RoutingTable implements Serializable {
         return insert(new Contact(n));
     }
 
-    public synchronized boolean insert(Contact c) {
+    private synchronized boolean insert(Contact c) {
         isEmpty = false;
 
         for (Node existingNode : getAllNodes(false)) {
@@ -160,7 +162,7 @@ public class RoutingTable implements Serializable {
     /**
      * @return A list of all Contacts in this RoutingTable
      */
-    public synchronized final List<Contact> getAllContacts() {
+    private synchronized List<Contact> getAllContacts() {
         List<Contact> contacts = new ArrayList<>();
 
         for (Bucket b : buckets) {
@@ -190,15 +192,6 @@ public class RoutingTable implements Serializable {
      */
     public final Bucket[] getBuckets() {
         return buckets;
-    }
-
-    /**
-     * Set all Buckets of this routing table
-     *
-     * @param buckets
-     */
-    public final void setBuckets(Bucket[] buckets) {
-        this.buckets = buckets;
     }
 
     /**

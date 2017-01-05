@@ -7,11 +7,9 @@ import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
-import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
 import java.io.IOException;
-import java.net.DatagramPacket;
 
 /**
  * Receives and handles a ConnectMessage from another node

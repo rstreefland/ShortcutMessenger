@@ -24,6 +24,7 @@ import java.util.Random;
  */
 public class User implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private KeyId userId;
@@ -107,7 +108,6 @@ public class User implements Serializable {
      * @return The generated password hash
      */
     private byte[] generatePasswordHash(byte[] salt, String password) {
-        long start = System.currentTimeMillis();
         byte[] passwordHash = null;
 
         try {
@@ -178,7 +178,6 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder(userName);
-        return sb.toString();
+        return userName;
     }
 }

@@ -15,14 +15,13 @@ import java.io.*;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Date;
 
 /**
  * A simple text message - slowly getting more functional :)
  */
 public class TextMessage implements Message, Serializable {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
+    private static final long serialVersionUID = 1L;
 
     public static final byte CODE = 0x08;
     private KeyId networkId;
@@ -71,6 +70,7 @@ public class TextMessage implements Message, Serializable {
             iv = enc.generateIV();
             encryptedMessage = enc.encryptString(recipientUser, iv, message);
         } catch (IllegalBlockSizeException | InvalidKeyException | BadPaddingException | NoSuchPaddingException | NoSuchAlgorithmException | UnsupportedEncodingException | InvalidAlgorithmParameterException e) {
+            Logger logger = LoggerFactory.getLogger(this.getClass());
             logger.error("Failed to encrypt message with error", e);
         }
     }
@@ -183,10 +183,6 @@ public class TextMessage implements Message, Serializable {
 
     public void setSource(Node source) {
         this.source = source;
-    }
-
-    public Node getTarget() {
-        return target;
     }
 
     public User getAuthorUser() {

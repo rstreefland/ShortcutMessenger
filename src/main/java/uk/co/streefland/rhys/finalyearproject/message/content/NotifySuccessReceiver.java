@@ -7,7 +7,6 @@ import uk.co.streefland.rhys.finalyearproject.core.Server;
 import uk.co.streefland.rhys.finalyearproject.message.AcknowledgeMessage;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.message.Receiver;
-import uk.co.streefland.rhys.finalyearproject.message.node.ConnectMessage;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 

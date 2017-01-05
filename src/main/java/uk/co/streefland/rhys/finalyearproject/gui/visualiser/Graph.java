@@ -1,26 +1,24 @@
 package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
 import javafx.scene.Group;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.Pane;
 
-public class Graph {
+class Graph {
 
-    private Model model;
-    private Group canvas;
-    private ZoomableScrollPane scrollPane;
-    private MouseGestures mouseGestures;
+    private final Model model;
+    private final ZoomableScrollPane scrollPane;
+    private final MouseGestures mouseGestures;
 
     /**
      * the pane wrapper is necessary or else the scrollpane would always align
      * the top-most and left-most child to the top and left eg when you drag the
      * top child down, the entire scrollpane would move down
      */
-    private Pane pane;
+    private final Pane pane;
 
     public Graph() {
         this.model = new Model();
-        canvas = new Group();
+        Group canvas = new Group();
         pane = new Pane();
 
         canvas.getChildren().add(pane);

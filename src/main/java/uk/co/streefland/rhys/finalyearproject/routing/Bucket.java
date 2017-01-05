@@ -13,6 +13,8 @@ import java.util.TreeSet;
  */
 public class Bucket implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /* Depth of the bucket in the RoutingTable */
     private final int depth;
 
@@ -20,7 +22,7 @@ public class Bucket implements Serializable {
     private final TreeSet<Contact> contacts;
 
     /* A set of recently seen contacts that can replace any contact that is unresponsive in the main set */
-    private TreeSet<Contact> cache;
+    private final TreeSet<Contact> cache;
 
     public Bucket(int depth) {
         this.depth = depth;
@@ -36,11 +38,10 @@ public class Bucket implements Serializable {
     public synchronized void insert(Contact c) {
 
         if (contacts.contains(c)) {
-            Contact temp = c;
             removeContact(c.getNode(), true); /* Remove from the TreeSet */
-            temp.setSeenNow();    /* Update the last seen time*/
-            temp.resetStaleCount();   /* Reset the stale count */
-            contacts.add(temp); /* Re-add to the TreeSet so the set is sorted correctly */
+            c.setSeenNow();    /* Update the last seen time*/
+            c.resetStaleCount();   /* Reset the stale count */
+            contacts.add(c); /* Re-add to the TreeSet so the set is sorted correctly */
         } else {
             /* If the bucket is full, put the contact into the cache instead */
             if (contacts.size() >= Configuration.K) {
@@ -70,24 +71,14 @@ public class Bucket implements Serializable {
     }
 
     /**
-     * Inserts a node into the bucket as a contact
-     *
-     * @param n The node to insert into the bucket
-     */
-    public synchronized void insert(Node n) {
-        insert(new Contact(n));
-    }
-
-    /**
      * Inserts a contact into the cache
      */
     private synchronized void insertIntoCache(Contact c) {
         if (cache.contains(c)) {
             /* Update the last seen time if this contact is already in the cache */
-            Contact temp = c;
             cache.remove(c.getNode());
-            temp.setSeenNow();
-            cache.add(temp);
+            c.setSeenNow();
+            cache.add(c);
         } else if (cache.size() > Configuration.K) {
             /* If the cache is filled, remove the least recently seen contact */
             cache.remove(cache.last());

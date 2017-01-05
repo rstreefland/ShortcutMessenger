@@ -18,7 +18,7 @@ import java.util.Timer;
  */
 public class LocalNode {
 
-    public static final String BUILD_NUMBER = "1056";
+    public static final String BUILD_NUMBER = "1626";
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /* DHT objects */
@@ -282,10 +282,6 @@ public class LocalNode {
 
     public void setNetworkId(KeyId networkId) {
         this.networkId = networkId;
-    }
-
-    public IPTools getIpTools() {
-        return ipTools;
     }
 
     public Configuration getConfig() {

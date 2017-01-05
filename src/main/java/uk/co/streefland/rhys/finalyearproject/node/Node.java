@@ -12,6 +12,8 @@ import java.net.InetSocketAddress;
  */
 public class Node implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     private KeyId nodeId;
     private InetAddress publicIp;
     private InetAddress privateIp;
@@ -123,10 +125,7 @@ public class Node implements Serializable {
     public boolean equals(Object o) {
         if (o instanceof Node) {
             Node n = (Node) o;
-            if (n == this) {
-                return true;
-            }
-            return getNodeId().equals(n.getNodeId());
+            return n == this || getNodeId().equals(n.getNodeId());
         }
         return false;
     }

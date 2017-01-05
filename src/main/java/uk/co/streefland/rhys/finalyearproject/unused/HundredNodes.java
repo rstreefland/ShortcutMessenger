@@ -1,13 +1,9 @@
 package uk.co.streefland.rhys.finalyearproject.unused;
 
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 
 import java.io.IOException;
 
-/**
- * Created by Rhys on 07/10/2016.
- */
 class HundredNodes {
     public static void main(String[] args) throws IOException, InterruptedException {
 

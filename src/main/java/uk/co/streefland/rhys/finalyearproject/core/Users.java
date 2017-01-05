@@ -17,7 +17,9 @@ import java.util.Map;
  */
 public class Users implements Serializable {
 
+    private static final long serialVersionUID = 1L;
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private final HashMap<String, User> users;
     private final HashMap<String, User> cache;
     private transient LocalNode localNode;
@@ -237,7 +239,7 @@ public class Users implements Serializable {
 
         for (Map.Entry<String, User> entry : cache.entrySet()) {
             if (currentTime >= entry.getValue().getLastActiveTime() + Configuration.USER_CACHE_EXPIRY) {
-                cache.remove(entry.getValue());
+                cache.remove(entry.getKey());
             }
         }
     }

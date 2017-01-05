@@ -1,6 +1,8 @@
 package uk.co.streefland.rhys.finalyearproject.gui.controller;
 
-import javafx.animation.*;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -53,17 +55,13 @@ import java.util.List;
 
 public class HomeController {
 
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
-
+    private final Image logo = new Image(getClass().getResource("/graphics/logo_notification.png").toExternalForm());
     private LocalNode localNode;
     private ObservableList<String> conversations;
     private String currentConversationUser;
     private List<KeyId> currentConversationMessages;
     private String localUser;
     private boolean click;
-
-    Image logo = new Image(getClass().getResource("/graphics/logo_notification.png").toExternalForm());
-
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -144,11 +142,7 @@ public class HomeController {
                         settingsMenu.hide();
 
                         if (click) {
-                            try {
-                                settingsDialog();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            settingsDialog();
                         }
                     }
                 });
@@ -161,11 +155,7 @@ public class HomeController {
                         conversationsMenu.hide();
 
                         if (click) {
-                            try {
-                                newConversationDialog();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            newConversationDialog();
                         }
                     }
                 });
@@ -184,11 +174,7 @@ public class HomeController {
                         aboutMenu.hide();
 
                         if (click) {
-                            try {
-                                aboutDialog();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
+                            aboutDialog();
                         }
                     }
                 });
@@ -205,15 +191,11 @@ public class HomeController {
 
         /* Listener for new message */
         localNode.getMessages().lastMessageProperty().addListener(
-                (o, oldVal, newVal) -> {
-                    newMessage(newVal);
-                });
+                (o, oldVal, newVal) -> newMessage(newVal));
 
         /* Listener for updated message status */
         localNode.getMessages().lastMessageUpdateProperty().addListener(
-                (o, oldVal, newVal) -> {
-                    updateMessage(newVal);
-                });
+                (o, oldVal, newVal) -> updateMessage(newVal));
 
         /* Listener for auto scroll of ScrollPane- - when a new message is received */
         gridPane.heightProperty().addListener((ObservableValue<? extends Number> observable, Number oldValue, Number newValue) -> {
@@ -228,10 +210,10 @@ public class HomeController {
      * @param userName
      * @throws IOException
      */
-    private void createConversationUser(String userName) throws IOException {
+    private void createConversationUser(String userName) {
 
         /* Don't add the local user */
-        if (userName.equals(localNode.getUsers().getLocalUser())) {
+        if (userName.equals(localNode.getUsers().getLocalUser().getUserName())) {
             return;
         }
 
@@ -299,9 +281,9 @@ public class HomeController {
                 ArrayList<StoredTextMessage> conversation = localNode.getMessages().getUserMessages().get(currentConversationUser);
 
                 if (conversation != null) {
-                    for (int i = 0; i < conversation.size(); i++) {
-                        drawChatBubble(conversation.get(i).getMessageId(), conversation.get(i).getMessage(), conversation.get(i).getAuthor(), conversation.get(i).getMessageStatus());
-                        currentConversationMessages.add(conversation.get(i).getMessageId());
+                    for (StoredTextMessage aConversation : conversation) {
+                        drawChatBubble(aConversation.getMessageId(), aConversation.getMessage(), aConversation.getAuthor(), aConversation.getMessageStatus());
+                        currentConversationMessages.add(aConversation.getMessageId());
                     }
                 }
             }
@@ -351,6 +333,7 @@ public class HomeController {
 
     /**
      * Updates the delivery status (ticks) of a message
+     *
      * @param message
      */
     private void updateMessage(StoredTextMessage message) {
@@ -365,9 +348,7 @@ public class HomeController {
          /* If the message is for the current conversation - add it to the conversation */
             if (currentConversationUser != null) {
                 if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
-                    Platform.runLater(() -> {
-                        drawChatBubble(messageId, messageString, author, messageStatus);
-                    });
+                    Platform.runLater(() -> drawChatBubble(messageId, messageString, author, messageStatus));
                 }
             }
         }
@@ -375,6 +356,7 @@ public class HomeController {
 
     /**
      * Draws a single chat bubble to the gridPane
+     *
      * @param messageId
      * @param messageString
      * @param author
@@ -467,7 +449,7 @@ public class HomeController {
      * @throws IOException
      */
     @FXML
-    private void sendMessage() throws IOException {
+    private void sendMessage() {
         if (currentConversationUser != null) {
             String message = messageField.getText();
             messageField.clear();
@@ -489,11 +471,9 @@ public class HomeController {
 
     /**
      * Dialog to add a new conversation
-     *
-     * @throws IOException
      */
     @FXML
-    private void newConversationDialog() throws IOException {
+    private void newConversationDialog() {
 
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("New Conversation");
@@ -506,9 +486,7 @@ public class HomeController {
         dialogPane.getStyleClass().add("dialog-pane");
 
         Optional<String> result = dialog.showAndWait();
-        if (result.isPresent()) {
-            createConversationUser(result.get());
-        }
+        result.ifPresent(this::createConversationUser);
     }
 
     /**
@@ -517,7 +495,7 @@ public class HomeController {
      * @throws IOException
      */
     @FXML
-    private void settingsDialog() throws IOException {
+    private void settingsDialog() {
         Dialog dialog = new Dialog();
         dialog.setTitle("Settings");
         dialog.setHeaderText("Settings");
@@ -594,7 +572,7 @@ public class HomeController {
 
         dialogPane.getButtonTypes().add(ButtonType.CLOSE);
 
-        final Timeline timeline = new Timeline( new KeyFrame( Duration.millis( 1000 ), event -> {
+        final Timeline timeline = new Timeline(new KeyFrame(Duration.millis(1000), event -> {
             updateStats(content, stats);
 
             if (dialogPane.getScene() != null) {
@@ -623,7 +601,7 @@ public class HomeController {
         Label bytesReceived = new Label(stats.getBytesReceived() + "");
         Label messagesSent = new Label(stats.getMessagesSent() + "");
         Label messagesReceived = new Label(stats.getMessagesReceived() + "");
-        Label secondsAgo = new Label( seconds + " seconds ago");
+        Label secondsAgo = new Label(seconds + " seconds ago");
 
         bytesSent.setStyle("-fx-text-fill: #9db4c0");
         bytesReceived.setStyle("-fx-text-fill: #9db4c0");
@@ -645,21 +623,16 @@ public class HomeController {
      * @throws IOException
      */
     @FXML
-    private void aboutDialog() throws IOException {
+    private void aboutDialog() {
         Dialog dialog = new Dialog();
         dialog.setTitle("About");
         dialog.setHeaderText("Shortcut Messenger");
-
-        StringBuilder sb = new StringBuilder("Shortcut Messenger build " + LocalNode.BUILD_NUMBER);
-        sb.append("\nCreated by Rhys Streefland for CS3IP16");
 
         Hyperlink link = new Hyperlink("Shortcut Messenger is made possible by open source software.");
         link.setOnAction(e -> {
             try {
                 Desktop.getDesktop().browse(new URI("https://rstreefland.github.io/shortcutmessengerweb/"));
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            } catch (URISyntaxException e1) {
+            } catch (IOException | URISyntaxException e1) {
                 e1.printStackTrace();
             }
         });
@@ -667,7 +640,7 @@ public class HomeController {
         GridPane content = new GridPane();
         content.vgapProperty().set(10);
         content.setMaxWidth(Double.MAX_VALUE);
-        content.add(new Label(sb.toString()), 1, 1);
+        content.add(new Label("Shortcut Messenger build " + LocalNode.BUILD_NUMBER + "\nCreated by Rhys Streefland for CS3IP16"), 1, 1);
         content.add(link, 1, 2);
 
         DialogPane dialogPane = dialog.getDialogPane();
@@ -677,8 +650,6 @@ public class HomeController {
         dialogPane.getStyleClass().add("dialog-pane");
 
         dialogPane.getButtonTypes().add(ButtonType.CLOSE);
-        Node closeButton = dialogPane.lookupButton(ButtonType.CLOSE);
-
         dialog.show();
     }
 
@@ -722,11 +693,7 @@ public class HomeController {
      */
     public void handleKeyPressed(KeyEvent key) {
         if (key.getCode() == KeyCode.ENTER) {
-            try {
                 sendMessage();
-            } catch (IOException e) {
-                logger.error("Could not send message {}", e);
-            }
         }
     }
 
@@ -737,6 +704,7 @@ public class HomeController {
 
     /**
      * Deletes any existing saved state and force shuts down the program
+     *
      * @throws IOException
      */
     @FXML

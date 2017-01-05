@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /** Caches emoji images */
 public class ImageCache {
-	private ConcurrentHashMap<String, WeakReference<Image>> map;
+	private final ConcurrentHashMap<String, WeakReference<Image>> map;
 	private static final ImageCache INSTANCE = new ImageCache();
 	public static ImageCache getInstance() {
 		return INSTANCE;

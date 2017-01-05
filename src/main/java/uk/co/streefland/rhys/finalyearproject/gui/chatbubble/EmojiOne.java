@@ -64,16 +64,14 @@ public class EmojiOne {
 				shortnameToUnicode.put(shortname, convert(unicode));
 				unicodeToShortname.put(convert(unicode), shortname);
 			});
-			entry.getAliasesAscii().forEach(ascii -> {
-				asciiToShortname.put(ascii, shortname);
-			});
+			entry.getAliasesAscii().forEach(ascii -> asciiToShortname.put(ascii, shortname));
 
 		});
 
 
-		ASCII_PATTERN = Pattern.compile(String.join("|", asciiToShortname.keySet().stream().map(o -> Pattern.quote(o)).collect(Collectors.toList())));
+		ASCII_PATTERN = Pattern.compile(String.join("|", asciiToShortname.keySet().stream().map(Pattern::quote).collect(Collectors.toList())));
 		SHORTNAME_PATTERN = Pattern.compile(String.join("|", emojiList.keySet().stream().collect(Collectors.toList())));
-		UNICODE_PATTERN = Pattern.compile(String.join("|", unicodeToHex.keySet().stream().map(u->Pattern.quote(u)).collect(Collectors.toList())));
+		UNICODE_PATTERN = Pattern.compile(String.join("|", unicodeToHex.keySet().stream().map(Pattern::quote).collect(Collectors.toList())));
 
 	}
 
@@ -101,7 +99,7 @@ public class EmojiOne {
 		return queue;
 	}
 
-	public String shortnameToUnicode(String str) {
+	private String shortnameToUnicode(String str) {
 		String output = replaceWithFunction(str, SHORTNAME_PATTERN, (shortname) -> {
 			if (shortname == null || shortname.isEmpty() || (!emojiList.containsKey(shortname))) {
 				return shortname;
@@ -123,106 +121,6 @@ public class EmojiOne {
 		}
 
 		return output;
-	}
-
-	public String unicodeToShortname(String str) {
-		String output = replaceWithFunction(str, UNICODE_PATTERN, (unicode) -> {
-			if (unicode == null || unicode.isEmpty() || (!unicodeToShortname.containsKey(unicode))) {
-				return unicode;
-			}
-			return unicodeToShortname.get(unicode);
-		});
-
-		return output;
-	}
-
-	public String shortnameToAscii(String str) {
-		String output = replaceWithFunction(str, SHORTNAME_PATTERN, (shortname) -> {
-			if (shortname == null || shortname.isEmpty() || (!emojiList.containsKey(shortname))) {
-				return shortname;
-			}
-			if (emojiList.get(shortname).getAliasesAscii().isEmpty()) {
-				return shortname;
-			}
-			return emojiList.get(shortname).getAliasesAscii().get(0);
-		});
-
-		return output;
-	}
-
-	public String asciiToShortname(String str) {
-		String output = replaceWithFunction(str, ASCII_PATTERN, (ascii) -> {
-			if (ascii == null || ascii.isEmpty() || (!asciiToShortname.containsKey(ascii))) {
-				return ascii;
-			}
-			return asciiToShortname.get(ascii);
-		});
-
-		return output;
-	}
-
-	public String unicodeToAscii(String str) {
-		return shortnameToAscii(unicodeToShortname(str));
-	}
-
-	public String asciiToUnicode(String str) {
-		return shortnameToUnicode(asciiToShortname(str));
-	}
-
-	public List<String> getCategories() {
-		return emojiList.values().stream().map(e -> e.getCategory()).distinct().collect(Collectors.toList());
-	}
-
-	public Map<String, List<Emoji>> getCategorizedEmojis(int tone) {
-		Map<String, List<Emoji>> map = new HashMap<>();
-		getTonedEmojis(tone).forEach(emojiEntry -> {
-			if (emojiEntry.getCategory().equals("modifier")) return;
-			for (int i = 1; i <= 6; i++) {
-				if (i == tone) continue;
-				if (emojiEntry.getShortname().endsWith("_tone" + i + ":"))
-					return;
-			}
-			List<Emoji> list = map.computeIfAbsent(emojiEntry.getCategory(), k -> new ArrayList<>());
-			Emoji emoji = new Emoji(emojiEntry.getShortname(), convert(emojiEntry.getLastUnicode()),
-					emojiEntry.getLastUnicode());
-			emoji.setEmojiOrder(emojiEntry.getEmojiOrder());
-			list.add(emoji);
-		});
-
-		map.values().forEach(list->list.sort(Comparator.comparing(Emoji::getEmojiOrder)));
-
-		return map;
-	}
-
-	public List<EmojiEntry> getTonedEmojis(int tone) {
-		List<EmojiEntry> allToned = new ArrayList<>();
-		List<EmojiEntry> selectedTone = new ArrayList<>();
-		List<EmojiEntry> defaultTone = new ArrayList<>();
-		emojiList.values().forEach(emojiEntry -> {
-			for(int i = 1; i <= 5; i++) {
-				if(emojiEntry.getShortname().endsWith("_tone" +i+":")) {
-					allToned.add(emojiEntry);
-					if(emojiEntry.getShortname().endsWith(tone + ":")) {
-						selectedTone.add(emojiEntry);
-					}
-					String withoutTone = emojiEntry.getShortname().substring(0,emojiEntry.getShortname().length()-7) + ":";
-					EmojiEntry emojiEntryWithoutTone = emojiList.get(withoutTone);
-					if(!defaultTone.contains(emojiEntryWithoutTone)) {
-						defaultTone.add(emojiEntryWithoutTone);
-					}
-				}
-			}
-		});
-		List<EmojiEntry> allEmojis = new ArrayList<>(emojiList.values());
-		allEmojis.removeAll(allToned);
-		allEmojis.removeAll(defaultTone);
-		if(tone == 6) { //default
-			allEmojis.addAll(defaultTone);
-		} else {
-			allEmojis.addAll(selectedTone);
-		}
-		return allEmojis;
-
 	}
 
 	private String replaceWithFunction(String input, Pattern pattern, Function<String, String> func) {
@@ -248,26 +146,12 @@ public class EmojiOne {
 			if (part >= 0x10000 && part <= 0x10FFFF) {
 				int hi = (int) (Math.floor((part - 0x10000) / 0x400) + 0xD800);
 				int lo = ((part - 0x10000) % 0x400) + 0xDC00;
-				buff.append(new String(Character.toChars(hi)) + new String(Character.toChars(lo)));
+				buff.append(new String(Character.toChars(hi))).append(new String(Character.toChars(lo)));
 			} else {
 				buff.append(new String(Character.toChars(part)));
 			}
 		}
 		return buff.toString();
-	}
-
-	public List<Emoji> search(String text) {
-		return emojiList.values().stream().filter(emojiEntry -> (emojiEntry.getShortname().contains(text)
-		|| emojiEntry.getAliases().contains(text) || emojiEntry.getAliasesAscii().contains(text))
-		|| emojiEntry.getName().contains(text)).map(emojiEntry ->
-			new Emoji(emojiEntry.getShortname(), convert(emojiEntry.getLastUnicode()), emojiEntry.getLastUnicode())).collect(Collectors.toList());
-	}
-
-	public Emoji getEmoji(String shortname) {
-		EmojiEntry entry = emojiList.get(shortname);
-		if(entry == null) return null;
-		Emoji emoji = new Emoji(entry.getShortname(), convert(entry.getLastUnicode()), entry.getLastUnicode());
-		return emoji;
 	}
 
 	class EmojiEntry {
@@ -311,10 +195,6 @@ public class EmojiOne {
 			return unicodes.get(unicodes.size() - 1);
 		}
 
-		public List<String> getAliases() {
-			return aliases;
-		}
-
 		public void setAliases(List<String> aliases) {
 			this.aliases = aliases;
 		}
@@ -327,24 +207,12 @@ public class EmojiOne {
 			this.aliasesAscii = aliasesAscii;
 		}
 
-		public List<String> getKeywords() {
-			return keywords;
-		}
-
 		public void setKeywords(List<String> keywords) {
 			this.keywords = keywords;
 		}
 
-		public String getCategory() {
-			return category;
-		}
-
 		public void setCategory(String category) {
 			this.category = category;
-		}
-
-		public int getEmojiOrder() {
-			return emojiOrder;
 		}
 
 		public void setEmojiOrder(int emojiOrder) {

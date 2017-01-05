@@ -16,7 +16,7 @@ public class ChatBubble {
 
     public final static int COLOUR_GREY = 1;
     public final static int COLOUR_GREEN = 2;
-    private FlowPane flowOutput;
+    private final FlowPane flowOutput;
 
     public ChatBubble(int colour) {
         flowOutput = new FlowPane();
@@ -59,8 +59,8 @@ public class ChatBubble {
             if (ob instanceof String) {
                 String sentence = (String) ob;
                 String[] words = sentence.split("\\s+");
-                for (int i = 0; i < words.length; i++) {
-                    Text word = new Text(words[i] + " ");
+                for (String word1 : words) {
+                    Text word = new Text(word1 + " ");
                     flowOutput.getChildren().add(word);
                 }
             } else if (ob instanceof Emoji) {

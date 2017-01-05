@@ -74,9 +74,9 @@ public class StorageHandler {
         fis.close();
     }
 
-    public boolean delete() {
+    public void delete() {
         File f = new File(Configuration.FILE_PATH);
-        return f.delete();
+        f.delete();
     }
 
     /**

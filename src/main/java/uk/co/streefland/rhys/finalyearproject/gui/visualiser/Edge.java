@@ -1,25 +1,17 @@
 package uk.co.streefland.rhys.finalyearproject.gui.visualiser;
 
 import javafx.scene.Group;
-import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 
 /** Represents an edge on the graph */
-public class Edge extends Group {
-
-    private Cell source;
-    private Cell target;
-    private Line line;
+class Edge extends Group {
 
     public Edge(Cell source, Cell target) {
-        this.source = source;
-        this.target = target;
-
         source.addCellChild(target);
         target.addCellParent(source);
 
-        line = new Line();
+        Line line = new Line();
         line.setSmooth(true);
         line.setStroke(Color.GREEN);
 
@@ -29,14 +21,6 @@ public class Edge extends Group {
         line.endXProperty().bind( target.layoutXProperty().add( target.getBoundsInParent().getWidth() / 2));
         line.endYProperty().bind( target.layoutYProperty().add( target.getBoundsInParent().getHeight() / 2));
 
-        getChildren().add( line);
-    }
-
-    public Cell getSource() {
-        return source;
-    }
-
-    public Cell getTarget() {
-        return target;
+        getChildren().add(line);
     }
 }

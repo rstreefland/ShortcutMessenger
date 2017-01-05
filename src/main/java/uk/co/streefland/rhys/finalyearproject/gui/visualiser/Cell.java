@@ -8,14 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Represents a node on the graph */
-public class Cell extends Pane {
+class Cell extends Pane {
 
-    private KeyId cellId;
+    private final KeyId cellId;
 
-    private List<Cell> children = new ArrayList<>();
-    private List<Cell> parents = new ArrayList<>();
-
-    private Node view;
+    private final List<Cell> children = new ArrayList<>();
+    private final List<Cell> parents = new ArrayList<>();
 
     public Cell(KeyId cellId) {
         this.cellId = cellId;
@@ -23,10 +21,6 @@ public class Cell extends Pane {
 
     public void addCellChild(Cell cell) {
         children.add(cell);
-    }
-
-    public List<Cell> getCellChildren() {
-        return children;
     }
 
     public void addCellParent(Cell cell) {
@@ -41,13 +35,8 @@ public class Cell extends Pane {
         children.remove(cell);
     }
 
-    public void setView(Node view) {
-        this.view = view;
+    void setView(Node view) {
         getChildren().add(view);
-    }
-
-    public Node getView() {
-        return this.view;
     }
 
     public KeyId getCellId() {

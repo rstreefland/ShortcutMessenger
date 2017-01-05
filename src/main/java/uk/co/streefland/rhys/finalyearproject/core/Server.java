@@ -28,7 +28,7 @@ public class Server {
 
     /* Cached threadPool so we can run receivers in parallel */
     private final ExecutorService threadPool = Executors.newCachedThreadPool();
-    private LocalNode localNode;
+    private final LocalNode localNode;
     private DatagramPacket packet;
     private boolean isRunning;
     private Statistics stats;
@@ -51,7 +51,7 @@ public class Server {
         isRunning = true;
 
         /* Start the listener thread*/
-        final Thread thread = new Thread(() -> listen());
+        final Thread thread = new Thread(this::listen);
         thread.setDaemon(true);
         thread.start();
     }

@@ -11,19 +11,17 @@
     <top>
         <VBox alignment="center">
             <MenuBar fx:id="menuBar">
-                <menus>
-                    <Menu text="Settings" fx:id="settingsMenu">
-                    </Menu>
-                    <Menu text="Conversations" fx:id="conversationsMenu">
-                    </Menu>
-                    <Menu text="Developer" fx:id="developerMenu">
-                        <MenuItem text="Network Visualisation" onAction="#openVisualiser"/>
-                        <MenuItem text="Statistics" onAction="#statsDialog"/>
-                        <MenuItem text="Reset" onAction="#reset"/>
-                    </Menu>
-                    <Menu text="About" fx:id="aboutMenu">
-                    </Menu>
-                </menus>
+                <Menu text="Settings" fx:id="settingsMenu">
+                </Menu>
+                <Menu text="Conversations" fx:id="conversationsMenu">
+                </Menu>
+                <Menu text="Developer" fx:id="developerMenu">
+                    <MenuItem text="Network Visualisation" onAction="#openVisualiser"/>
+                    <MenuItem text="Statistics" onAction="#statsDialog"/>
+                    <MenuItem text="Reset" onAction="#reset"/>
+                </Menu>
+                <Menu text="About" fx:id="aboutMenu">
+                </Menu>
             </MenuBar>
         </VBox>
     </top>
@@ -36,10 +34,10 @@
                 </placeholder>
             </ListView>
             <VBox GridPane.columnIndex="2" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
-                <HBox fx:id="conversationHeader" alignment="TOP_LEFT" styleClass="conversation-header">
+                <HBox fx:id="conversationHeader" styleClass="conversation-header">
                 </HBox>
                 <ScrollPane fx:id="scrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER"
-                            vbarPolicy="AS_NEEDED" VBox.vgrow="ALWAYS">
+                            VBox.vgrow="ALWAYS">
                     <GridPane vgap="5" fx:id="gridPane" styleClass="scroll-pane">
                         <padding>
                             <Insets top="5" bottom="5" right="5" left="5"/>

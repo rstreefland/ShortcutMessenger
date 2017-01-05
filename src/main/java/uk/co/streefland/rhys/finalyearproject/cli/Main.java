@@ -1,6 +1,5 @@
 package uk.co.streefland.rhys.finalyearproject.cli;
 
-import jdk.nashorn.internal.runtime.regexp.joni.Config;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
@@ -24,7 +23,7 @@ class Main {
     private static String input = ""; // a line of input from scanner
     private static String[] inputWords = new String[2]; // scanner input separated into words
     private static LocalNode localNode = null;
-    private static ArrayList<String> availableCommands = new ArrayList<>(); // stores a list of available commands
+    private static final ArrayList<String> availableCommands = new ArrayList<>(); // stores a list of available commands
 
     public static void main(String[] args) {
         System.out.println("Shortcut Messenger CLI");
@@ -162,7 +161,7 @@ class Main {
             /* Convert IP/hostname into InetAddress */
             try {
                 networkIp = ipTools.validateAddress(networkIpString);
-            } catch (UnknownHostException uho) {
+            } catch (UnknownHostException ignored) {
             }
 
             /* Create the localNode object */

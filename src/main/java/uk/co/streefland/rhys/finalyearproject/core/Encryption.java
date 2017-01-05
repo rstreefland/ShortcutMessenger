@@ -15,7 +15,7 @@ import java.security.*;
  */
 public class Encryption {
 
-    Cipher cipher;
+    private Cipher cipher;
 
     public Encryption() throws NoSuchPaddingException, NoSuchAlgorithmException {
         cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
@@ -51,9 +51,8 @@ public class Encryption {
 
         /* Encrypt the string using the key and the iv spec */
         cipher.init(Cipher.ENCRYPT_MODE, aesKey, ivSpec);
-        byte[] encrypted = cipher.doFinal(message.getBytes(("UTF-8")));
 
-        return encrypted;
+        return cipher.doFinal(message.getBytes(("UTF-8")));
     }
 
     /**

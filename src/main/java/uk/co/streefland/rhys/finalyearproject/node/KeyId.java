@@ -14,6 +14,8 @@ import java.util.Random;
  */
 public class KeyId implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     /* Network constants */
     public static final int ID_LENGTH = 160;   // Length of KeyId im bits
     private static final int BYTES_LENGTH = ID_LENGTH / 8; // Length of KeyId in bytes
@@ -142,14 +144,14 @@ public class KeyId implements Serializable {
         int currentBit = 0;
 
         /* For each byte in byte array */
-        for (int i = 0; i < idBytes.length; i++) {
-            if (idBytes[i] == 0) {
+        for (byte idByte : idBytes) {
+            if (idByte == 0) {
                 currentBit += 8; // save unnecessary processing if all bits are empty in the byte
             } else {
                 /* For each bit in the byte */
                 for (int j = 7; j >= 0; j--) {
                 /* If bit is set return the currentBit value */
-                    if ((idBytes[i] >> j & 1) == 1) {
+                    if ((idByte >> j & 1) == 1) {
                         return currentBit;
                     }
                     currentBit++; // Increment the current bit
@@ -171,7 +173,7 @@ public class KeyId implements Serializable {
     }
 
 
-    public byte[] getIdBytes() {
+    private byte[] getIdBytes() {
         return idBytes;
     }
 
@@ -208,20 +210,6 @@ public class KeyId implements Serializable {
         } else {
             return false;
         }
-    }
-
-    /**
-     * Returns the binary representation of the KeyId byte array split into the individual bytes.
-     * Very helpful for the early stages of debugging but can likely be removed once proper testing has taken place.
-     *
-     * @return The binary representation of the KeyId byte array
-     */
-    public String toBinary() {
-        String output = "";
-        for (byte b : idBytes) {
-            output = output + " " + (Integer.toBinaryString(b & 255 | 256).substring(1));
-        }
-        return output;
     }
 
     /**

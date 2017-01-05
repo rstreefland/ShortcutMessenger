@@ -99,8 +99,4 @@ public class NotifySuccessOperation implements Operation, Receiver {
             notify();
         }
     }
-
-    public synchronized boolean isError() {
-        return error;
-    }
 }
