@@ -44,7 +44,7 @@
             <configuration>
                 <archive>
                     <manifest>
-                        <mainClass>uk.co.streefland.rhys.finalyearproject.gui.Main</mainClass>
+                        <mainClass>uk.co.streefland.rhys.finalyearproject.cli.Main</mainClass>
                     </manifest>
                 </archive>
                 <descriptorRefs>

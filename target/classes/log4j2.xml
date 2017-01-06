@@ -15,6 +15,7 @@
         <Root level="info">
             <appender-ref ref="Console" level="info"/>
             <AppenderRef ref="CurrentLog"/>
+            <AppenderRef ref="AllLog"/>
         </Root>
     </Loggers>
 </Configuration>

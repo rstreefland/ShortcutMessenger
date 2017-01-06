@@ -180,7 +180,6 @@ public class ConnectController {
      */
     private void showLoginScene() {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
-        System.out.println(getClass());
         Parent root = null;
 
         try {
