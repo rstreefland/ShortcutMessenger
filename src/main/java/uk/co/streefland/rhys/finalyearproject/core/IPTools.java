@@ -153,7 +153,7 @@ public class IPTools {
     }
 
     public InetAddress getPrivateInetAddress() throws UnknownHostException {
-        return InetAddress.getByName(publicIp);
+        return InetAddress.getByName(privateIp);
     }
 
     public boolean isConnected() {
