@@ -64,7 +64,7 @@ public class FindUserOperation implements Operation, Receiver {
             return;
         }
 
-        FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId(), true);
+        FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId(), true, false);
         fno.execute();
         closestNodes = fno.getClosestNodes();
 

@@ -32,8 +32,9 @@ public class FindNodeOperation implements Operation, Receiver {
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Integer, Node> messagesInTransit;
     private final boolean ignoreStale;
+    private final boolean firstRun;
 
-    public FindNodeOperation(LocalNode localNode, KeyId lookupId, boolean ignoreStale) {
+    public FindNodeOperation(LocalNode localNode, KeyId lookupId, boolean ignoreStale, boolean firstRun) {
         this.localNode = localNode;
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
@@ -42,6 +43,7 @@ public class FindNodeOperation implements Operation, Receiver {
         this.messagesInTransit = new HashMap<>();
 
         this.ignoreStale = ignoreStale;
+        this.firstRun = firstRun;
 
         /* Initialise a TreeMap that is sorted by which nodes are closest to the lookupId */
         Comparator<Node> comparator = new KeyComparator(lookupId);
@@ -220,8 +222,13 @@ public class FindNodeOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed and inform the routing table that it is unresponsive */
-        nodes.put(n, Configuration.Status.FAILED);
-        localNode.getRoutingTable().setUnresponsiveContact(n);
+        if (!firstRun) {
+            nodes.put(n, Configuration.Status.FAILED);
+            localNode.getRoutingTable().setUnresponsiveContact(n);
+        } else {
+            nodes.put(n, Configuration.Status.NOT_QUERIED);
+        }
+
         messagesInTransit.remove(communicationId);
 
         /* Run the lookup again */

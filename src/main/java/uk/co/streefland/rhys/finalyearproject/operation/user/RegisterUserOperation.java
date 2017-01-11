@@ -60,7 +60,7 @@ public class RegisterUserOperation implements Operation, Receiver {
 
         isRegisteredSuccessfully = true; // true until disproved by a different node
 
-        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), ignoreStale);
+        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), ignoreStale, false);
         operation.execute();
         addNodes(operation.getClosestNodes());
 

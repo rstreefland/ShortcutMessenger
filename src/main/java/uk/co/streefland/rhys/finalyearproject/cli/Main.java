@@ -29,7 +29,6 @@ class Main {
         availableCommands.add("help");
         availableCommands.add("exit");
 
-
         try {
             ipTools = new IPTools();
         } catch (IOException e) {

@@ -156,7 +156,7 @@ public class SendMessageOperation implements Operation, Receiver {
                 /* then find node operation if the list is still empty */
                 if (closestNodes.size() == 0) {
                     logger.info("SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE");
-                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), true);
+                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), true, false);
                     fno.execute();
                     closestNodes = fno.getClosestNodes();
                 }
@@ -189,8 +189,6 @@ public class SendMessageOperation implements Operation, Receiver {
 
     /**
      * Inserts a single node into the HashMap
-     *
-     * @param node
      */
     private void addNode(Node n) {
         if (!nodes.containsKey(n)) {

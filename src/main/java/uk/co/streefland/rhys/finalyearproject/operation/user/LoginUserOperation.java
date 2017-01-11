@@ -70,7 +70,7 @@ public class LoginUserOperation implements Operation, Receiver {
         }
 
         /* Find nodes closest to the userId */
-        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), true);
+        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), true, false);
         operation.execute();
         addNodes(operation.getClosestNodes());
 
@@ -81,7 +81,7 @@ public class LoginUserOperation implements Operation, Receiver {
             int totalTimeWaited = 0;
             int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout()) {
-                if (!iterativeQueryNodes()) {
+                if (!iterativeQueryNodes() && !loggedIn) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
                 } else {
