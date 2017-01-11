@@ -1,8 +1,9 @@
-2017-01-06 18:08:32.313 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
-2017-01-06 18:08:33.020 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
-2017-01-06 18:08:33.323 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 82.14.65.251
-2017-01-06 18:08:33.324 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 192.168.0.6
-2017-01-06 18:08:38.639 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
-2017-01-06 18:08:38.659 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:1414714BD5E063D8B7558EE47FC0E6CB503D6B3E
-2017-01-06 18:08:38.660 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2017-01-06 18:08:38.661 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-11 15:42:41.708 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
+2017-01-11 15:42:41.940 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 134.225.30.166
+2017-01-11 15:42:41.942 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 10.30.69.75
+2017-01-11 15:43:10.415 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
+2017-01-11 15:43:10.447 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:338FD7D1CE4F84D395370EEB5D58D6E706B55F87
+2017-01-11 15:43:10.448 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2017-01-11 15:43:10.535 [Thread-2] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-11 15:43:10.536 [main] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode BB70E027122B213126B5A8B91012C9B2B446681C to node BB70E027122B213126B5A8B91012C9B2B446681C
+2017-01-11 15:43:10.572 [pool-2-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode

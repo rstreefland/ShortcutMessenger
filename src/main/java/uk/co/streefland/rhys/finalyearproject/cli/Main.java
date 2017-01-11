@@ -1,9 +1,6 @@
 package uk.co.streefland.rhys.finalyearproject.cli;
 
-import uk.co.streefland.rhys.finalyearproject.core.Configuration;
-import uk.co.streefland.rhys.finalyearproject.core.IPTools;
-import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
-import uk.co.streefland.rhys.finalyearproject.core.User;
+import uk.co.streefland.rhys.finalyearproject.core.*;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 
@@ -32,11 +29,15 @@ class Main {
         availableCommands.add("help");
         availableCommands.add("exit");
 
+
         try {
             ipTools = new IPTools();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        /* CLI doesn't support saved state - delete the file if exists */
+        new StorageHandler().delete();
 
         while (!input.equals("exit")) {
             System.out.print("\n# ");
@@ -83,6 +84,7 @@ class Main {
                     exit();
                     break;
                 default:
+                    System.out.println("Command not recognised. Please type help for a list of available commands");
                     break;
             }
         }
@@ -153,6 +155,7 @@ class Main {
                 availableCommands.add("message");
                 availableCommands.add("print");
 
+                System.out.println("Network created successfully");
                 return;
             }
 
@@ -184,12 +187,13 @@ class Main {
                 availableCommands.add("register");
                 availableCommands.add("message");
                 availableCommands.add("print");
+                System.out.println("Successfully bootstrapped to network.");
             }
         }
     }
 
     private static void register() throws IOException {
-        if (availableCommands.contains("register")) {
+        if (!availableCommands.contains("register")) {
             return;
         }
 
@@ -250,7 +254,7 @@ class Main {
     private static void exit() {
         if (localNode != null) {
             try {
-                localNode.shutdown(true);
+                localNode.shutdown(false); // saved state not supported by CLI
             } catch (IOException e) {
                 System.err.println("Failed to shutdown cleanly");
             }
