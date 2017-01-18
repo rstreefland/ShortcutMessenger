@@ -32,9 +32,8 @@ public class FindNodeOperation implements Operation, Receiver {
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Integer, Node> messagesInTransit;
     private final boolean ignoreStale;
-    private final boolean firstRun;
 
-    public FindNodeOperation(LocalNode localNode, KeyId lookupId, boolean ignoreStale, boolean firstRun) {
+    public FindNodeOperation(LocalNode localNode, KeyId lookupId, boolean ignoreStale) {
         this.localNode = localNode;
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
@@ -43,7 +42,6 @@ public class FindNodeOperation implements Operation, Receiver {
         this.messagesInTransit = new HashMap<>();
 
         this.ignoreStale = ignoreStale;
-        this.firstRun = firstRun;
 
         /* Initialise a TreeMap that is sorted by which nodes are closest to the lookupId */
         Comparator<Node> comparator = new KeyComparator(lookupId);
@@ -58,7 +56,8 @@ public class FindNodeOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
         /* Set the local node as already asked */
-        nodes.put(localNode.getNode(), Configuration.Status.QUERIED);
+        nodes.put(localNode.getNode(), Configuration.Status.FAILED);
+        localNode.getRoutingTable().setUnresponsiveContact(localNode.getNode());
 
         /* Insert all nodes because some nodes may fail to respond. */
         addNodes(localNode.getRoutingTable().getAllNodes(ignoreStale));
@@ -92,7 +91,7 @@ public class FindNodeOperation implements Operation, Receiver {
     private void addNodes(List<Node> list) {
         for (Node node : list) {
             if (!nodes.containsKey(node)) {
-                nodes.put(node, Configuration.Status.NOT_QUERIED);
+                nodes.putIfAbsent(node, Configuration.Status.NOT_QUERIED);
             }
         }
     }
@@ -122,13 +121,12 @@ public class FindNodeOperation implements Operation, Receiver {
             Node n = notQueried.get(i);
 
             /* Don't message a node with the same IP address as the local node because it's stale  - mark it as unresponsive */
-            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
+            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress())) {
                 //logger.info("Not running find node operation against stale node");
                 localNode.getRoutingTable().setUnresponsiveContact(n);
-                nodes.put(n, Configuration.Status.QUERIED);
+                nodes.put(n, Configuration.Status.FAILED);
             } else {
                 int communicationId = server.sendMessage(n, lookupMessage, this);
-
                 nodes.put(n, Configuration.Status.AWAITING_REPLY);
                 messagesInTransit.put(communicationId, n);
             }
@@ -222,13 +220,8 @@ public class FindNodeOperation implements Operation, Receiver {
         }
 
         /* Mark this node as failed and inform the routing table that it is unresponsive */
-        if (!firstRun) {
-            nodes.put(n, Configuration.Status.FAILED);
-            localNode.getRoutingTable().setUnresponsiveContact(n);
-        } else {
-            nodes.put(n, Configuration.Status.NOT_QUERIED);
-        }
-
+        nodes.put(n, Configuration.Status.FAILED);
+        localNode.getRoutingTable().setUnresponsiveContact(n);
         messagesInTransit.remove(communicationId);
 
         /* Run the lookup again */

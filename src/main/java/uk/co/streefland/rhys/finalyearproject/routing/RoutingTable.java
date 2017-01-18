@@ -52,10 +52,11 @@ public class RoutingTable implements Serializable {
         isEmpty = false;
 
         for (Node existingNode : getAllNodes(false)) {
-            if (c.getNode().getPublicSocketAddress().equals((existingNode.getPublicSocketAddress())) || c.getNode().getNodeId().equals(existingNode.getNodeId())) {
-                /* Get the bucket of the node */
+            /* If node has same public+private address - replace it OR if nodeId has same nodeId replace it */
+            if ((c.getNode().getPublicInetAddress().equals(existingNode.getPublicInetAddress()) && c.getNode().getPrivateInetAddress().equals(existingNode.getPrivateInetAddress())) || c.getNode().getNodeId().equals(existingNode.getNodeId())) {
+                    /* Get the bucket of the node */
                 int bucketId = getBucketId(existingNode.getNodeId());
-                /* Force remove the contact from the bucket */
+                    /* Force remove the contact from the bucket */
                 buckets[bucketId].removeContact(existingNode, true);
                 buckets[getBucketId(c.getNode().getNodeId())].insert(c);
                 return false;
@@ -100,7 +101,9 @@ public class RoutingTable implements Serializable {
         buckets[bucketId].removeContact(n, false);
     }
 
-    /** Used to update a contact */
+    /**
+     * Used to update a contact
+     */
     public synchronized void refreshContact(Node n, boolean resetStaleCount) {
 
         if (!resetStaleCount) {
@@ -138,6 +141,7 @@ public class RoutingTable implements Serializable {
         }
         return null;
     }
+
     /**
      * @return A list of all Nodes in this RoutingTable
      */
@@ -196,6 +200,7 @@ public class RoutingTable implements Serializable {
 
     /**
      * Returns true if the routing table is empty, false if not
+     *
      * @return
      */
     public boolean isEmpty() {

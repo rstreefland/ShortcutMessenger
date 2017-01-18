@@ -36,7 +36,7 @@ public class RegisterUserOperation implements Operation, Receiver {
     private final User user;
     private Message message;
 
-    private boolean isRegisteredSuccessfully;
+    private volatile boolean isRegisteredSuccessfully;
     private final boolean ignoreStale;
 
     public RegisterUserOperation(LocalNode localNode, User user, boolean ignoreStale) {
@@ -60,8 +60,9 @@ public class RegisterUserOperation implements Operation, Receiver {
 
         isRegisteredSuccessfully = true; // true until disproved by a different node
 
-        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), ignoreStale, false);
+        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), ignoreStale);
         operation.execute();
+
         addNodes(operation.getClosestNodes());
 
         message = new StoreUserMessage(localNode.getNetworkId(), localNode.getNode(), user);
@@ -70,7 +71,7 @@ public class RegisterUserOperation implements Operation, Receiver {
             /* Runs until we've heard back (or not) from every node in the list */
             int timeInterval = 10;
             while (true) {
-                if (!iterativeQueryNodes()) {
+                if (!iterativeQueryNodes() && isRegisteredSuccessfully) {
                     wait(timeInterval);
                 } else {
                     break;
@@ -129,7 +130,7 @@ public class RegisterUserOperation implements Operation, Receiver {
 
             /* Don't message a node with the same IP address as the local node because it's stale  - mark it as unresponsive */
             if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
-                //logger.info("Not running find node operation against stale node");
+                logger.info("Not running find node operation against stale local node");
                 localNode.getRoutingTable().setUnresponsiveContact(n);
                 nodes.put(n, Configuration.Status.QUERIED);
             } else {

@@ -34,7 +34,7 @@ public class FindUserOperation implements Operation, Receiver {
     private final Map<Node, Integer> attempts;
     private final Map<Integer, Node> messagesInTransit;
     private final User searchUser;
-    private User foundUser;
+    private volatile User foundUser;
     private Message message;
     private List<Node> closestNodes;
 
@@ -64,7 +64,7 @@ public class FindUserOperation implements Operation, Receiver {
             return;
         }
 
-        FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId(), true, false);
+        FindNodeOperation fno = new FindNodeOperation(localNode, searchUser.getUserId(), true);
         fno.execute();
         closestNodes = fno.getClosestNodes();
 
@@ -77,7 +77,7 @@ public class FindUserOperation implements Operation, Receiver {
             int totalTimeWaited = 0;
             int timeInterval = 10;
             while (totalTimeWaited < config.getOperationTimeout()) {
-                if (!iterativeQueryNodes()) {
+                if (!iterativeQueryNodes() && foundUser == null) {
                     wait(timeInterval);
                     totalTimeWaited += timeInterval;
                 } else {
@@ -136,8 +136,7 @@ public class FindUserOperation implements Operation, Receiver {
             Node n = toQuery.get(i);
 
             /* Don't message a node with the same IP address as the local node because it's stale  - mark it as unresponsive */
-            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
-                //logger.info("Not running find node operation against stale node");
+            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress())) {
                 localNode.getRoutingTable().setUnresponsiveContact(n);
                 nodes.put(n, Configuration.Status.QUERIED);
             } else {
@@ -204,7 +203,7 @@ public class FindUserOperation implements Operation, Receiver {
         notify();
     }
 
-    public User getFoundUser() {
+    public synchronized User getFoundUser() {
         return foundUser;
     }
 

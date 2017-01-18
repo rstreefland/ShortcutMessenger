@@ -62,6 +62,14 @@ public class TextReceiver implements Receiver {
                 if (server.isRunning()) {
                     server.reply(msg.getSource(), ack, communicationId);
                 }
+            } else if (localNode.getNode().getPublicInetAddress().equals(msg.getRecipientUser().getAssociatedNode().getPublicInetAddress()) && localNode.getNode().getPrivateInetAddress().equals(msg.getRecipientUser().getAssociatedNode().getPrivateInetAddress())) {
+                logger.info("Discarding message intended for this IP+PORT but a different user");
+                Message ack = new AcknowledgeMessage(localNode.getNetworkId(), localNode.getNode(), false);
+
+                /* The server sends the reply */
+                if (server.isRunning()) {
+                    server.reply(msg.getSource(), ack, communicationId);
+                }
             } else {
                 forwardMessage(msg, communicationId);
             }

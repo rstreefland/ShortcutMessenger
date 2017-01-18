@@ -31,8 +31,6 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
@@ -324,8 +322,8 @@ public class HomeController {
         if (currentConversationUser != null) {
             if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
                 Platform.runLater(() -> {
-                    drawChatBubble(messageId, messageString, author, messageStatus);
-                    currentConversationMessages.add(messageId);
+                        drawChatBubble(messageId, messageString, author, messageStatus);
+                        currentConversationMessages.add(messageId);
                 });
             }
         }
@@ -348,7 +346,9 @@ public class HomeController {
          /* If the message is for the current conversation - add it to the conversation */
             if (currentConversationUser != null) {
                 if (currentConversationUser.equals(author) || currentConversationUser.equals(message.getRecipient())) {
-                    Platform.runLater(() -> drawChatBubble(messageId, messageString, author, messageStatus));
+                    Platform.runLater(() -> {
+                            drawChatBubble(messageId, messageString, author, messageStatus);
+                    });
                 }
             }
         }
@@ -693,7 +693,7 @@ public class HomeController {
      */
     public void handleKeyPressed(KeyEvent key) {
         if (key.getCode() == KeyCode.ENTER) {
-                sendMessage();
+            sendMessage();
         }
     }
 

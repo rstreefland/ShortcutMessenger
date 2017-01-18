@@ -50,7 +50,9 @@ public class SendMessageOperation implements Operation, Receiver {
     private final boolean forwarding;
     private Status messageStatus;
 
-    /** Default constructor */
+    /**
+     * Default constructor
+     */
     public SendMessageOperation(LocalNode localNode, User userToMessage, KeyId messageId, String messageString, long createdTime) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
@@ -66,7 +68,9 @@ public class SendMessageOperation implements Operation, Receiver {
         this.forwarding = false;
     }
 
-    /** This constructor is used to forward messages */
+    /**
+     * This constructor is used to forward messages
+     */
     public SendMessageOperation(LocalNode localNode, User userToMessage, TextMessage message) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
@@ -133,7 +137,7 @@ public class SendMessageOperation implements Operation, Receiver {
                 messageLoop();
 
                 long end = System.currentTimeMillis();
-                long time = end-start;
+                long time = end - start;
                 logger.info("DIRECT MESSSAGE LOOP TIME: " + time);
             }
 
@@ -156,7 +160,7 @@ public class SendMessageOperation implements Operation, Receiver {
                 /* then find node operation if the list is still empty */
                 if (closestNodes.size() == 0) {
                     logger.info("SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE");
-                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), true, false);
+                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), true);
                     fno.execute();
                     closestNodes = fno.getClosestNodes();
                 }
@@ -167,7 +171,7 @@ public class SendMessageOperation implements Operation, Receiver {
             long start = System.currentTimeMillis();
             messageLoop();
             long end = System.currentTimeMillis();
-            long time = end-start;
+            long time = end - start;
             logger.info("FORWARD MESSAGE LOOP TIME: " + time);
         }
 
@@ -246,40 +250,34 @@ public class SendMessageOperation implements Operation, Receiver {
         for (int i = 0; (messagesInTransit.size() < Configuration.MAX_CONCURRENCY) && (i < toQuery.size()); i++) {
 
             Node n = toQuery.get(i);
-
-            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
+            /* if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress()) && n.getPrivatePort() == localNode.getNode().getPrivatePort()) {
                 //logger.info("Not running find node operation against stale node");
                 localNode.getRoutingTable().setUnresponsiveContact(n);
-                nodes.put(n, Configuration.Status.QUERIED);
-            } else {
+                nodes.put(n, Configuration.Status.QUERIED); */
 
-                /* Handle a node sending a message to itself */
-                if (n.equals(localNode.getNode())) {
-
+            /* Handle a node sending a message to itself */
+            if (n.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress()) && n.getPrivateInetAddress().equals(localNode.getNode().getPrivateInetAddress())) {
                     /* Don't message yourself, this is a message for another user */
-                    if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
-                        message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
-                        localNode.getMessages().addForwardMessage(message);
-                    } else {
-                        /* this is a message for yourself */
-                        message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user, messageString, createdTime);
-                        localNode.getMessages().addReceivedMessage(message);
-                        messageStatus = Status.DELIVERED;
-                    }
-
-                    nodes.put(n, Configuration.Status.QUERIED);
-                } else {
+                if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
                     if (!forwarding) {
                         message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                        localNode.getMessages().addForwardMessage(message);
+                        nodes.put(n, Configuration.Status.QUERIED);
+                        localNode.getRoutingTable().setUnresponsiveContact(n);
                     }
-                    int communicationId = server.sendMessage(n, message, this);
-
-                    nodes.put(n, Configuration.Status.AWAITING_REPLY);
-                    attempts.put(n, attempts.get(n) + 1);
-                    messagesInTransit.put(communicationId, n);
                 }
+            } else {
+                if (!forwarding) {
+                    message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                }
+                int communicationId = server.sendMessage(n, message, this);
+
+                nodes.put(n, Configuration.Status.AWAITING_REPLY);
+                attempts.put(n, attempts.get(n) + 1);
+                messagesInTransit.put(communicationId, n);
             }
         }
+
         return false;
     }
 

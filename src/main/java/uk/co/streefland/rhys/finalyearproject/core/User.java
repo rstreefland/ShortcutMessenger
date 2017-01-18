@@ -176,6 +176,10 @@ public class User implements Serializable {
         return associatedNode;
     }
 
+    public void setAssociatedNode(Node associatedNode) {
+        this.associatedNode = associatedNode;
+    }
+
     @Override
     public String toString() {
         return userName;

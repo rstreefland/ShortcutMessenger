@@ -37,7 +37,7 @@ public class LoginUserOperation implements Operation, Receiver {
     private final Map<Node, Integer> attempts;
     private final Map<Integer, Node> messagesInTransit;
 
-    private boolean loggedIn;
+    private volatile boolean loggedIn;
 
     public LoginUserOperation(LocalNode localNode, User user, String plainTextPassword) {
         this.server = localNode.getServer();
@@ -70,7 +70,7 @@ public class LoginUserOperation implements Operation, Receiver {
         }
 
         /* Find nodes closest to the userId */
-        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), true, false);
+        FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), true);
         operation.execute();
         addNodes(operation.getClosestNodes());
 

@@ -1,22 +1,68 @@
-2017-01-12 11:48:38.385 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
-2017-01-12 11:48:38.959 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
-2017-01-12 11:48:39.510 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 134.225.30.98
-2017-01-12 11:48:39.512 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 10.30.69.7
-2017-01-12 11:48:45.066 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
-2017-01-12 11:48:45.087 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:EA7E295E337A4ED3D6E4880CD3951E439A6FDF08
-2017-01-12 11:48:45.087 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2017-01-12 11:48:45.088 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2017-01-12 11:48:45.089 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode C43A862C453C4A59D9987A4C9039F4355707B999 to node C43A862C453C4A59D9987A4C9039F4355707B999
-2017-01-12 11:48:45.106 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
-2017-01-12 11:48:47.513 [pool-3-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation - Received a corrected node object - replacing the localNode
-2017-01-12 11:49:23.322 [Thread-332] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 273
-2017-01-12 11:49:23.323 [Thread-332] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 277
-2017-01-12 11:50:58.777 [Thread-653] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2002ms
-2017-01-12 11:51:08.331 [Thread-654] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 21
-2017-01-12 11:51:08.332 [Thread-654] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 22
-2017-01-12 11:51:17.734 [Thread-655] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2000ms
-2017-01-12 11:51:34.025 [Thread-657] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 5
-2017-01-12 11:51:34.026 [Thread-657] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 6
-2017-01-12 11:51:34.760 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
-2017-01-12 11:51:34.761 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
-2017-01-12 11:51:34.762 [pool-3-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-18 20:08:10.025 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
+2017-01-18 20:08:10.304 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
+2017-01-18 20:08:10.599 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 82.24.92.147
+2017-01-18 20:08:10.649 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 192.168.0.7
+2017-01-18 20:08:16.576 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
+2017-01-18 20:08:16.586 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:ADF777624C8D4A7F4733982F3E735A3581EF455F
+2017-01-18 20:08:16.586 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2017-01-18 20:08:16.587 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-18 20:08:16.588 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 06D752F71D8FD7469619B5371EBF104B011C08F8 to node 06D752F71D8FD7469619B5371EBF104B011C08F8
+2017-01-18 20:08:19.916 [Thread-169] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:08:19.917 [Thread-169] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:08:19.945 [Thread-169] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 29ms
+2017-01-18 20:08:36.984 [pool-3-thread-15] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-18 20:08:37.013 [pool-3-thread-15] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-18 20:09:16.623 [pool-6-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:09:16.623 [pool-6-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:09:16.623 [pool-6-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:09:16.626 [pool-6-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:09:16.626 [pool-6-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:09:16.626 [pool-6-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:09:16.637 [pool-6-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:09:16.637 [pool-6-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:09:16.637 [pool-6-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:09:16.637 [pool-6-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:09:16.638 [pool-6-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:09:16.638 [pool-6-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:09:16.677 [pool-6-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 54ms
+2017-01-18 20:09:16.677 [pool-6-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 54ms
+2017-01-18 20:09:16.678 [pool-6-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 55ms
+2017-01-18 20:09:16.681 [pool-6-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 57ms
+2017-01-18 20:09:16.682 [pool-6-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 58ms
+2017-01-18 20:09:16.682 [pool-6-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 57ms
+2017-01-18 20:10:16.602 [pool-9-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:10:16.602 [pool-9-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:10:16.602 [pool-9-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:10:16.602 [pool-9-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:10:16.602 [pool-9-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:10:16.602 [pool-9-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:10:16.603 [pool-9-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:10:16.603 [pool-9-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:10:16.603 [pool-9-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:10:16.603 [pool-9-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:10:16.603 [pool-9-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:10:16.603 [pool-9-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:10:16.638 [pool-9-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:10:16.638 [pool-9-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 37ms
+2017-01-18 20:10:16.638 [pool-9-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:10:16.638 [pool-9-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:10:16.638 [pool-9-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:10:16.638 [pool-9-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:11:16.602 [pool-12-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:11:16.602 [pool-12-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:11:16.602 [pool-12-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:11:16.602 [pool-12-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:11:16.603 [pool-12-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:11:16.603 [pool-12-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:11:16.602 [pool-12-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:11:16.603 [pool-12-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:11:16.602 [pool-12-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:11:16.603 [pool-12-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:11:16.603 [pool-12-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 185.164.136.183LocalIP: 127.0.0.1 PORT: 12345
+2017-01-18 20:11:16.604 [pool-12-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation - Messaged IP: 52.56.100.131LocalIP: 172.31.5.30 PORT: 12345
+2017-01-18 20:11:16.637 [pool-12-thread-2] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 35ms
+2017-01-18 20:11:16.637 [pool-12-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 35ms
+2017-01-18 20:11:16.638 [pool-12-thread-6] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:11:16.638 [pool-12-thread-5] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:11:16.638 [pool-12-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 36ms
+2017-01-18 20:11:16.641 [pool-12-thread-4] INFO  uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperation - RUO FNO took: 39ms
