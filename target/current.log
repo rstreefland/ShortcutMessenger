@@ -1,4 +1,35 @@
-2017-01-15 19:36:57.807 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
-2017-01-15 19:36:58.045 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
-2017-01-15 19:36:58.317 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 82.24.92.147
-2017-01-15 19:36:58.369 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 192.168.0.7
+2017-01-19 18:51:16.205 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
+2017-01-19 18:51:16.430 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
+2017-01-19 18:51:16.732 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 82.24.92.147
+2017-01-19 18:51:16.782 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 192.168.0.7
+2017-01-19 18:51:23.275 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
+2017-01-19 18:51:23.286 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:9FA0870D5581076D3B84486DD5236F34089684FE
+2017-01-19 18:51:23.286 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2017-01-19 18:51:23.287 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode CDF1DE49FB731A299C50A2752C9CF981C1D5D3FB to node CDF1DE49FB731A299C50A2752C9CF981C1D5D3FB
+2017-01-19 18:51:23.287 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-19 18:51:37.770 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 179
+2017-01-19 18:51:37.773 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 184
+2017-01-19 18:51:44.201 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 38
+2017-01-19 18:51:44.201 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 38
+2017-01-19 18:51:45.186 [Thread-174] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 30
+2017-01-19 18:51:45.187 [Thread-174] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 30
+2017-01-19 18:51:45.731 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 25
+2017-01-19 18:51:45.731 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 25
+2017-01-19 18:51:46.153 [Thread-176] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 31
+2017-01-19 18:51:46.153 [Thread-176] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 31
+2017-01-19 18:51:46.493 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 23
+2017-01-19 18:51:46.494 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 24
+2017-01-19 18:52:05.358 [Thread-178] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2024ms
+2017-01-19 19:05:19.482 [Thread-2350] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 23
+2017-01-19 19:05:19.483 [Thread-2350] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 24
+2017-01-19 19:05:19.503 [pool-3-thread-131] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-19 19:05:19.503 [pool-3-thread-131] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-19 19:05:19.504 [pool-3-thread-131] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-19 19:05:20.552 [Thread-2351] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 21
+2017-01-19 19:05:20.553 [Thread-2351] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 22
+2017-01-19 19:05:20.678 [pool-3-thread-131] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-19 19:05:20.678 [pool-3-thread-131] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-19 19:05:20.679 [pool-3-thread-131] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-19 19:05:23.658 [pool-3-thread-133] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-19 19:05:28.080 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2017-01-19 19:05:28.081 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

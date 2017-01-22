@@ -369,15 +369,6 @@ public class HomeController {
 
         if (author.equals(localUser)) {
 
-            int index;
-
-            if (currentConversationMessages.contains(messageId)) {
-                index = currentConversationMessages.indexOf(messageId);
-                gridPane.getChildren().remove(index);
-            } else {
-                index = gridPane.getChildren().size();
-            }
-
             ChatBubble emojiConverter = new ChatBubble(ChatBubble.COLOUR_GREEN);
             output = emojiConverter.convert(messageString);
 
@@ -412,6 +403,14 @@ public class HomeController {
             }
 
             master.setAlignment(Pos.CENTER_RIGHT);
+
+            int index;
+            if (currentConversationMessages.contains(messageId)) {
+                index = currentConversationMessages.indexOf(messageId);
+                gridPane.getChildren().remove(index);
+            } else {
+                index = currentConversationMessages.size();
+            }
 
             gridPane.add(master, 1, index);
             GridPane.setHgrow(master, Priority.ALWAYS);
