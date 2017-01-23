@@ -456,7 +456,7 @@ public class HomeController {
             Task task = new Task() {
                 @Override
                 protected String call() throws Exception {
-                    localNode.getMessages().sendMessage(message, new User(currentConversationUser, ""));
+                    localNode.getMessages().sendMessage(message, new User(currentConversationUser));
                     this.succeeded();
                     return "";
                 }

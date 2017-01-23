@@ -7,6 +7,7 @@ import uk.co.streefland.rhys.finalyearproject.node.Node;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -135,7 +136,7 @@ class Main {
      *
      * @throws IOException
      */
-    private static void bootstrap() throws IOException, ClassNotFoundException {
+    private static void bootstrap() throws IOException, ClassNotFoundException, NoSuchAlgorithmException {
         if (!availableCommands.contains("bootstrap")) {
             return;
         }
@@ -197,7 +198,7 @@ class Main {
         }
 
         if (inputWords.length > 2) {
-            if (localNode.getUsers().registerUser(inputWords[1], inputWords[2])) {
+            if (localNode.getUsers().registerUser(inputWords[1])) {
                 System.out.println("User " + inputWords[1] + " registered successfully");
             } else {
                 System.err.println("User already exists");
@@ -211,7 +212,7 @@ class Main {
         }
 
         if (inputWords.length > 2) {
-            if (localNode.getUsers().loginUser(inputWords[1], inputWords[2])) {
+            if (localNode.getUsers().loginUser(inputWords[1])) {
                 System.out.println("Logged in as " + inputWords[1] + " successfully");
             } else {
                 System.err.println("Invalid username or password");
@@ -230,7 +231,7 @@ class Main {
             System.out.println("Enter a message:");
             String message = sc.nextLine();
 
-            localNode.getMessages().sendMessage(message, new User(recipient, ""));
+            localNode.getMessages().sendMessage(message, new User(recipient));
         }
     }
 
@@ -238,7 +239,6 @@ class Main {
         if (!availableCommands.contains("print")) {
             return;
         }
-
 
         if (inputWords.length > 1) {
 

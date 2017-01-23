@@ -21,6 +21,7 @@ import uk.co.streefland.rhys.finalyearproject.gui.controller.HomeController;
 
 import javax.swing.*;
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * The starting point for the JavaFX application
@@ -77,13 +78,12 @@ public class Main extends Application {
                     HomeController controller =
                             loader.getController();
                     controller.init(localNode);
-                } catch (IOException | ClassNotFoundException e) {
-                    localNode = null;
+                } catch (IOException | ClassNotFoundException | NoSuchAlgorithmException e) {
+                    localNode = null; // TODO: 23/01/2017 this is wrong
                     temp.delete();
                     root = showConnectScreen();
                     errorDialog();
                 }
-
             } else {
                 root = showConnectScreen();
             }

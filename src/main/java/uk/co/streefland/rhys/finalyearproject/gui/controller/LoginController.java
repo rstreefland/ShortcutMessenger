@@ -51,7 +51,7 @@ public class LoginController {
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
-                if (localNode.getUsers().registerUser(userNameField.getText(), passwordField.getText())) {
+                if (localNode.getUsers().registerUser(userNameField.getText())) {
                     this.succeeded();
                     return null;
                 } else {
@@ -89,7 +89,7 @@ public class LoginController {
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
-                if (localNode.getUsers().loginUser(userNameField.getText(), passwordField.getText())) {
+                if (localNode.getUsers().loginUser(userNameField.getText())) {
                     this.succeeded();
                     return null;
                 } else {

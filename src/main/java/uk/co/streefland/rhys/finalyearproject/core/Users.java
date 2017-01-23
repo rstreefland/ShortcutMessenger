@@ -24,7 +24,6 @@ public class Users implements Serializable {
     private final HashMap<String, User> cache;
     private transient LocalNode localNode;
     private User localUser;
-    private String localUserPassword;
 
     public Users(LocalNode localNode) {
         this.users = new HashMap<>();
@@ -46,9 +45,10 @@ public class Users implements Serializable {
      * @return True if the user was registered successfully
      * @throws IOException
      */
-    public boolean registerUser(String userName, String plainTextPassword) throws IOException {
+    public boolean registerUser(String userName) throws IOException {
+
         /* Create and prepare the user object */
-        User user = new User(userName, plainTextPassword);
+        User user = new User(userName, localNode.getEncryption().getPublicKey().getEncoded());
         user.addAssociatedNode(localNode.getNode()); // add the local node as an associated node
         user.setRegisterTime();
 
@@ -58,7 +58,6 @@ public class Users implements Serializable {
 
         /* Set the local user object */
         if (ruo.isRegisteredSuccessfully()) {
-            localUserPassword = plainTextPassword;
             localUser = user; // set the local user object
             users.put(userName, user); // add the local user to the list of users
         }
@@ -69,17 +68,16 @@ public class Users implements Serializable {
      * Invokes the login user operation to log an existing user into the network on this node
      *
      * @param userName
-     * @param plainTextPassword
      * @return
      * @throws IOException
      */
-    public boolean loginUser(String userName, String plainTextPassword) throws IOException {
+    public boolean loginUser(String userName) throws IOException {
 
         /* Create the user object */
-        User user = new User(userName, plainTextPassword);
+        User user = new User(userName, localNode.getEncryption().getPublicKey().getEncoded());
 
         /* Invoke LoginUserOperation */
-        LoginUserOperation luo = new LoginUserOperation(localNode, user, plainTextPassword);
+        LoginUserOperation luo = new LoginUserOperation(localNode, user);
         luo.execute();
 
         /* Update the rest of the nodes on the network with the last login time */
@@ -91,7 +89,6 @@ public class Users implements Serializable {
             RegisterUserOperation ruo = new RegisterUserOperation(localNode, user, true);
             ruo.execute();
 
-            localUserPassword = plainTextPassword;
             localUser = user; // set the local user object
             users.put(userName, user); // add the user to the list of users
         }
@@ -220,7 +217,7 @@ public class Users implements Serializable {
 
         /* Look on the network if not found locally */
         if (findUser(userName) == null) {
-            FindUserOperation fuo = new FindUserOperation(localNode, new User(userName, ""));
+            FindUserOperation fuo = new FindUserOperation(localNode, new User(userName));
             fuo.execute();
             user = fuo.getFoundUser();
             if (user != null) {
@@ -273,9 +270,5 @@ public class Users implements Serializable {
 
     public Map<String, User> getUsers() {
         return users;
-    }
-
-    public String getLocalUserPassword() {
-        return localUserPassword;
     }
 }

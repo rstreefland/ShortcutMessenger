@@ -12,6 +12,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
@@ -29,17 +30,20 @@ public class User implements Serializable {
 
     private KeyId userId;
     private String userName;
-    private byte[] passwordHash;
-    private byte[] passwordSalt;
+    private byte[] publicKey;
     private Node associatedNode;
     private long registerTime;
     private long lastActiveTime;
 
-    public User(String userName, String password) {
+    public User(String userName) {
         this.userId = new KeyId(userName);
         this.userName = userName;
-        this.passwordSalt = generateSalt();
-        this.passwordHash = generatePasswordHash(this.passwordSalt, password);
+    }
+
+    public User(String userName, byte[] publicKey) {
+        this.userId = new KeyId(userName);
+        this.userName = userName;
+        this.publicKey = publicKey;
     }
 
     public User(DataInputStream in) throws IOException {
@@ -52,8 +56,13 @@ public class User implements Serializable {
         out.writeUTF(userName);
 
         /* Add password hash and salt to stream */
-        out.write(passwordHash);
-        out.write(passwordSalt);
+        if (publicKey == null) {
+            out.writeBoolean(false);
+        } else {
+            out.writeBoolean(true);
+            out.writeInt(publicKey.length);
+            out.write(publicKey);
+        }
 
         /* Write associatedNode to the stream */
         if (associatedNode == null) {
@@ -73,10 +82,12 @@ public class User implements Serializable {
         userName = in.readUTF();
 
         /* Read in password hash and salt */
-        passwordHash = new byte[16];
-        in.readFully(passwordHash);
-        passwordSalt = new byte[16];
-        in.readFully(passwordSalt);
+        if (in.readBoolean()) {
+            int publicKeyLength = in.readInt();
+
+            publicKey = new byte[publicKeyLength];
+            in.readFully(publicKey);
+        }
 
         /* Read in associatedNode */
         if (in.readBoolean()) {
@@ -85,49 +96,6 @@ public class User implements Serializable {
 
         registerTime = in.readLong();
         lastActiveTime = in.readLong();
-    }
-
-    /**
-     * Generates a 16 byte salt randomly
-     *
-     * @return byte array containing the salt
-     */
-    private byte[] generateSalt() {
-        final Random r = new SecureRandom();
-        byte[] salt = new byte[16];
-        r.nextBytes(salt);
-        return salt;
-    }
-
-    /**
-     * Generates a secure 128bit password hash using the provided salt and password.
-     * Uses the PBEKeySpec method with 5000 passes
-     *
-     * @param salt     The salt to hash the password with
-     * @param password The plaintext password to hash
-     * @return The generated password hash
-     */
-    private byte[] generatePasswordHash(byte[] salt, String password) {
-        byte[] passwordHash = null;
-
-        try {
-            KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 5000, 128);
-            SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            passwordHash = f.generateSecret(spec).getEncoded();
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            logger.error("Error while generating password hash", e);
-        }
-        return passwordHash;
-    }
-
-    /**
-     * Compares a plaintext password with the hashed one stored in the object
-     *
-     * @param password The plaintext password to compare
-     * @return True if passwords match, false if not
-     */
-    public boolean doPasswordsMatch(String password) {
-        return Arrays.equals(generatePasswordHash(passwordSalt, password), passwordHash);
     }
 
     /**
@@ -148,8 +116,8 @@ public class User implements Serializable {
         return userName;
     }
 
-    public byte[] getPasswordHash() {
-        return passwordHash;
+    public byte[] getPublicKey() {
+        return publicKey;
     }
 
     public long getRegisterTime() {

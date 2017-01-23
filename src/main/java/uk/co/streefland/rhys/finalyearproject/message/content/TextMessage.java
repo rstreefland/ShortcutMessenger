@@ -3,6 +3,7 @@ package uk.co.streefland.rhys.finalyearproject.message.content;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import uk.co.streefland.rhys.finalyearproject.core.Encryption;
+import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.core.User;
 import uk.co.streefland.rhys.finalyearproject.message.Message;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
@@ -15,6 +16,7 @@ import java.io.*;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 /**
  * A simple text message - slowly getting more functional :)
@@ -32,44 +34,25 @@ public class TextMessage implements Message, Serializable {
     private User recipientUser;
     private KeyId messageId;
     private String message;
-    private byte[] encryptedMessage;
-    private byte[] iv;
+    private byte[][] encryptedData;
     private long createdTime;
-
-    /**
-     * Constructor for a node sending a message to itself
-     */
-    public TextMessage(KeyId networkId, KeyId messageId, Node origin, User authorUser, String message, long createdTime) {
-        this.networkId = networkId;
-        this.origin = origin;
-        this.source = origin;
-        this.target = origin;
-        this.authorUser = authorUser;
-        this.recipientUser = authorUser;
-        this.messageId = messageId;
-        this.createdTime = createdTime;
-
-        this.message = message;
-    }
 
     /**
      * Constructor for user to user messages
      */
-    public TextMessage(KeyId networkId, KeyId messageId, Node origin, Node target, User authorUser, User recipientUser, String message, long createdTime) {
-        this.networkId = networkId;
-        this.origin = origin;
+    public TextMessage(LocalNode localNode, KeyId messageId, Node target, User recipientUser, String message, long createdTime) {
+        this.networkId = localNode.getNetworkId();
+        this.origin = localNode.getNode();
         this.source = origin;
         this.target = target;
-        this.authorUser = authorUser;
+        this.authorUser = localNode.getUsers().getLocalUser();
         this.recipientUser = recipientUser;
         this.messageId = messageId;
         this.createdTime = createdTime;
 
         try {
-            Encryption enc = new Encryption();
-            iv = enc.generateIV();
-            encryptedMessage = enc.encryptString(recipientUser, iv, message);
-        } catch (IllegalBlockSizeException | InvalidKeyException | BadPaddingException | NoSuchPaddingException | NoSuchAlgorithmException | UnsupportedEncodingException | InvalidAlgorithmParameterException e) {
+            this.encryptedData = localNode.getEncryption().encrypt(message,recipientUser.getPublicKey());
+        } catch (NoSuchAlgorithmException | IllegalBlockSizeException | InvalidKeyException | BadPaddingException | NoSuchPaddingException | UnsupportedEncodingException | InvalidAlgorithmParameterException | InvalidKeySpecException e) {
             Logger logger = LoggerFactory.getLogger(this.getClass());
             logger.error("Failed to encrypt message with error", e);
         }
@@ -103,14 +86,17 @@ public class TextMessage implements Message, Serializable {
         createdTime = in.readLong();
 
         if (in.readBoolean()) {
-            /* Read in the initialisation vector */
-            iv = new byte[16];
-            in.readFully(iv);
+            /* Read in the encrypted session key */
+            int encryptedSessionKeyLength = in.readInt();
+            byte[] encryptedSessionKey = new byte[encryptedSessionKeyLength];
+            in.readFully(encryptedSessionKey);
 
-            /* Read in the encrypted message */
-            int encryptedMessageLength = in.readInt();
-            encryptedMessage = new byte[encryptedMessageLength];
-            in.readFully(encryptedMessage);
+            /* Read in the ciphertext */
+            int cipherTextLength = in.readInt();
+            byte[] cipherText = new byte[cipherTextLength];
+            in.readFully(cipherText);
+
+            encryptedData = new byte[][]{encryptedSessionKey, cipherText};
         } else {
             message = in.readUTF();
         }
@@ -148,11 +134,13 @@ public class TextMessage implements Message, Serializable {
         out.writeLong(createdTime);
 
         /* Write the initialisation vector and encrypted message to the stream */
-        if (encryptedMessage != null) {
+        if (encryptedData != null) {
             out.writeBoolean(true);
-            out.write(iv);
-            out.writeInt(encryptedMessage.length);
-            out.write(encryptedMessage);
+
+            out.writeInt(encryptedData[0].length);
+            out.write(encryptedData[0]);
+            out.writeInt(encryptedData[1].length);
+            out.write(encryptedData[1]);
         } else {
             out.writeBoolean(false);
             out.writeUTF(message);
@@ -201,12 +189,8 @@ public class TextMessage implements Message, Serializable {
         return message;
     }
 
-    public byte[] getIv() {
-        return iv;
-    }
-
-    public byte[] getEncryptedMessage() {
-        return encryptedMessage;
+    public byte[][] getEncryptedData() {
+        return encryptedData;
     }
 
     public void setMessage(String message) {

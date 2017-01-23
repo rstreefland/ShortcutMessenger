@@ -46,9 +46,7 @@ public class TextReceiver implements Receiver {
                 logger.info("Received a message intended for me");
                 try {
                     /* Decrypt the message */
-                    Encryption enc = new Encryption();
-                    String message = enc.decryptString(msg.getRecipientUser(), localNode.getUsers().getLocalUserPassword(), msg.getIv(), msg.getEncryptedMessage());
-                    msg.setMessage(message);
+                    msg.setMessage(localNode.getEncryption().decrypt(msg.getEncryptedData()));
 
                     /* Store the message */
                     localNode.getMessages().addReceivedMessage(msg);

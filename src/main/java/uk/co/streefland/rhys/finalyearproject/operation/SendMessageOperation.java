@@ -261,7 +261,7 @@ public class SendMessageOperation implements Operation, Receiver {
                     /* Don't message yourself, this is a message for another user */
                 if (!user.getUserId().equals(localNode.getUsers().getLocalUser().getUserId())) {
                     if (!forwarding) {
-                        message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                        message = new TextMessage(localNode, messageId, user.getAssociatedNode(), user, messageString, createdTime);
                         localNode.getMessages().addForwardMessage(message);
                         nodes.put(n, Configuration.Status.QUERIED);
                         localNode.getRoutingTable().setUnresponsiveContact(n);
@@ -269,7 +269,7 @@ public class SendMessageOperation implements Operation, Receiver {
                 }
             } else {
                 if (!forwarding) {
-                    message = new TextMessage(localNode.getNetworkId(), messageId, localNode.getNode(), user.getAssociatedNode(), localNode.getUsers().getLocalUser(), user, messageString, createdTime);
+                    message = new TextMessage(localNode, messageId, user.getAssociatedNode(), user, messageString, createdTime);
                 }
                 int communicationId = server.sendMessage(n, message, this);
 

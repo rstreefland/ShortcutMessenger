@@ -11,6 +11,7 @@ import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.security.NoSuchAlgorithmException;
 import java.util.Timer;
 
 /**
@@ -32,6 +33,7 @@ public class LocalNode {
     private MessageHandler messageHandler;
     private Users users;
     private Messages messages;
+    private Encryption encryption;
 
     /* Refresh operation objects */
     private Timer refreshOperationTimer;
@@ -43,7 +45,7 @@ public class LocalNode {
      *
      * @throws IOException
      */
-    public LocalNode(IPTools ipTools, int localPort) throws IOException, ClassNotFoundException {
+    public LocalNode(IPTools ipTools, int localPort) throws IOException, ClassNotFoundException, NoSuchAlgorithmException {
         logger.info("Shortcut Messenger build {}", BUILD_NUMBER);
 
         this.ipTools = ipTools;
@@ -83,6 +85,8 @@ public class LocalNode {
         } else {
             users.init(this);
         }
+
+        encryption = new Encryption();
 
         /* If we've managed to load a saved state from file - start the server */
         if (storageHandler.doesSavedStateExist()) {
@@ -314,5 +318,9 @@ public class LocalNode {
 
     public MessageHandler getMessageHandler() {
         return messageHandler;
+    }
+
+    public Encryption getEncryption() {
+        return encryption;
     }
 }

@@ -31,7 +31,6 @@ public class LoginUserOperation implements Operation, Receiver {
     private final Configuration config;
     private final LocalNode localNode;
     private final User user;
-    private final String plainTextPassword;
     private Message message;
     private final Map<Node, Configuration.Status> nodes;
     private final Map<Node, Integer> attempts;
@@ -39,12 +38,11 @@ public class LoginUserOperation implements Operation, Receiver {
 
     private volatile boolean loggedIn;
 
-    public LoginUserOperation(LocalNode localNode, User user, String plainTextPassword) {
+    public LoginUserOperation(LocalNode localNode, User user) {
         this.server = localNode.getServer();
         this.config = localNode.getConfig();
         this.localNode = localNode;
         this.user = user;
-        this.plainTextPassword = plainTextPassword;
         this.nodes = new HashMap<>();
         this.attempts = new HashMap<>();
         this.messagesInTransit = new HashMap<>();
@@ -58,16 +56,6 @@ public class LoginUserOperation implements Operation, Receiver {
     @Override
     public synchronized void execute() throws IOException {
         loggedIn = false; // not logged in until another node proves otherwise
-
-        /* Look for user on the local node first */
-        User localUser = localNode.getUsers().findUser(user.getUserName());
-
-        if (localUser != null) {
-            if (localUser.doPasswordsMatch(plainTextPassword)) {
-                loggedIn = true;
-                return;
-            }
-        }
 
         /* Find nodes closest to the userId */
         FindNodeOperation operation = new FindNodeOperation(localNode, user.getUserId(), true);
@@ -153,7 +141,7 @@ public class LoginUserOperation implements Operation, Receiver {
 
                     /* Terminate early if found on the local node */
                     if (existingUser != null) {
-                        if (existingUser.doPasswordsMatch(plainTextPassword)) {
+                        if (localNode.getEncryption().doPublicKeysMatch(user.getPublicKey())) {
                             loggedIn = true;
                             return true;
                         } else {
@@ -186,7 +174,7 @@ public class LoginUserOperation implements Operation, Receiver {
         /* Read the VerifyUserMessageReply */
         VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
 
-        loggedIn = msg.getExistingUser() != null && msg.getExistingUser().doPasswordsMatch(plainTextPassword);
+        loggedIn = msg.getExistingUser() != null && localNode.getEncryption().doPublicKeysMatch(msg.getExistingUser().getPublicKey());
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), Configuration.Status.QUERIED);
