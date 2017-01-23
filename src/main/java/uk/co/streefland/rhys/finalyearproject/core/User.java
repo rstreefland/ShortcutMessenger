@@ -26,7 +26,6 @@ import java.util.Random;
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     private KeyId userId;
     private String userName;

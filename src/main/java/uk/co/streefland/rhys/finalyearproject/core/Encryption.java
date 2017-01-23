@@ -11,25 +11,22 @@ import java.security.spec.InvalidKeySpecException;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.RSAPublicKeySpec;
 import java.security.spec.X509EncodedKeySpec;
+import java.util.Arrays;
 
 public class Encryption {
 
     public static final String PRIVATE_KEY_FILE = "private.smk";
     public static final String PUBLIC_KEY_FILE = "public.smk";
 
+    private String userName;
     private PublicKey publicKey;
     private PrivateKey privateKey;
 
     public Encryption() throws IOException, ClassNotFoundException, NoSuchAlgorithmException {
         loadOrCreateKeys();
-        System.out.println("BYTES: " + getPublicKey().getEncoded().length);
     }
 
     public byte[][] encrypt(String text, byte[] recipientPublicKeyBytes) throws NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchPaddingException, UnsupportedEncodingException, InvalidAlgorithmParameterException, InvalidKeySpecException {
-       // PublicKey recipientPublicKey =
-        //        KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(recipientPublicKeyBytes));
-        System.out.println("BYTES" + recipientPublicKeyBytes.length);
-
         KeyFactory kf = KeyFactory.getInstance("RSA"); // or "EC" or whatever
         PublicKey recipientPublicKey = kf.generatePublic(new X509EncodedKeySpec(recipientPublicKeyBytes));
 
@@ -64,6 +61,9 @@ public class Encryption {
 
         inputStream = new ObjectInputStream(new FileInputStream(PRIVATE_KEY_FILE));
         privateKey = (PrivateKey) inputStream.readObject();
+        if (inputStream.readBoolean()) {
+            userName = inputStream.readUTF();
+        }
 
         inputStream.close();
     }
@@ -113,6 +113,20 @@ public class Encryption {
         ObjectOutputStream privateKeyOS = new ObjectOutputStream(
                 new FileOutputStream(privateKeyFile));
         privateKeyOS.writeObject(key.getPrivate());
+        privateKeyOS.writeBoolean(false);
+        privateKeyOS.close();
+    }
+
+    public void updateUsername(String userName) throws IOException {
+        this.userName = userName;
+
+        File privateKeyFile = new File(PRIVATE_KEY_FILE);
+        // Saving the Private key in a file
+        ObjectOutputStream privateKeyOS = new ObjectOutputStream(
+                new FileOutputStream(privateKeyFile));
+        privateKeyOS.writeObject(privateKey);
+        privateKeyOS.writeBoolean(true);
+        privateKeyOS.writeUTF(userName);
         privateKeyOS.close();
     }
 
@@ -140,7 +154,6 @@ public class Encryption {
         IvParameterSpec ivSpec = new IvParameterSpec(new byte[16]);
         // get an RSA cipher object and print the provider
         final Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-        System.out.println("BLOCK SIZE: " + cipher.getBlockSize());
         // encrypt the plain text using the public key
         cipher.init(Cipher.ENCRYPT_MODE, sessionKey, ivSpec);
 
@@ -162,17 +175,33 @@ public class Encryption {
     }
 
     public boolean doPublicKeysMatch(byte[] publicKey) {
-        if (this.publicKey.getEncoded() == publicKey) {
+        if (Arrays.equals(this.publicKey.getEncoded(), publicKey)) {
             return true;
         }
         return false;
     }
 
-    public PrivateKey getPrivateKey() {
-        return privateKey;
-    }
-
     public PublicKey getPublicKey() {
         return publicKey;
+    }
+
+    public static String getUserName() throws IOException, ClassNotFoundException {
+
+        String userName = null;
+        ObjectInputStream inputStream;
+
+        File privateKey = new File(PRIVATE_KEY_FILE);
+        File publicKey = new File(PUBLIC_KEY_FILE);
+
+        if (privateKey.exists() && publicKey.exists()) {
+            inputStream = new ObjectInputStream(new FileInputStream(PRIVATE_KEY_FILE));
+            inputStream.readObject();
+            if (inputStream.readBoolean()) {
+                userName = inputStream.readUTF();
+            }
+            inputStream.close();
+        }
+
+        return userName;
     }
 }

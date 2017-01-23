@@ -61,6 +61,8 @@ public class Users implements Serializable {
             localUser = user; // set the local user object
             users.put(userName, user); // add the local user to the list of users
         }
+
+        localNode.getEncryption().updateUsername(userName);
         return ruo.isRegisteredSuccessfully();
     }
 

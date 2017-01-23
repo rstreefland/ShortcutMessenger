@@ -38,7 +38,11 @@
 
             <TextField fx:id="networkIpField" GridPane.columnIndex="2" GridPane.rowIndex="2" />
 
-            <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="3" fx:id="buttonBox">
+            <Label fx:id="userNameLabel" text="Choose a username:" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+            <TextField fx:id="userNameField" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+
+            <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="2" GridPane.rowIndex="4" fx:id="buttonBox">
                 <Button fx:id="connectButton" onAction="#handleConnectButtonAction" text="Connect" />
                 <Button fx:id="advancedButton" onAction="#handleAdvancedButtonAction" text="Advanced"/>
             </HBox>

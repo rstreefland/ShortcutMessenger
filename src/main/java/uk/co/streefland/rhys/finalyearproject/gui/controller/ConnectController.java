@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import uk.co.streefland.rhys.finalyearproject.core.Configuration;
+import uk.co.streefland.rhys.finalyearproject.core.Encryption;
 import uk.co.streefland.rhys.finalyearproject.core.IPTools;
 import uk.co.streefland.rhys.finalyearproject.core.LocalNode;
 import uk.co.streefland.rhys.finalyearproject.gui.Main;
@@ -52,11 +53,17 @@ public class ConnectController {
     private GridPane gridPane;
     @FXML
     private HBox buttonBox;
+    @FXML
+    private Label userNameLabel;
+    @FXML
+    private TextField userNameField;
 
     private final Label networkPort = new Label("Network port:");
     private final TextField networkPortField = new TextField();
     private final Label localPort = new Label("Local port:");
     private final TextField localPortField = new TextField();
+
+    private String userName;
 
     public void init(Main main) {
         this.main = main;
@@ -69,6 +76,18 @@ public class ConnectController {
 
         if (!ipTools.isConnected()) {
             internetError.setVisible(true);
+        }
+
+        try {
+            userName = Encryption.getUserName();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        if (userName != null) {
+            replaceUserNameField();
         }
     }
 
@@ -146,11 +165,21 @@ public class ConnectController {
             if (errorMessage != null) {
                 errorText.setText(errorMessage);
             } else {
-                showLoginScene();
+                if (userName != null) {
+                    login();
+                } else {
+                    register();
+                }
             }
 
             loader.setVisible(false);
+            main.setLocalNode(localNode);
         });
+    }
+
+    private void replaceUserNameField() {
+        userNameField.setDisable(true);
+        userNameField.setText(userName);
     }
 
     @FXML
@@ -161,25 +190,97 @@ public class ConnectController {
             localPortField.setPromptText("12345");
             networkPortField.setPromptText("12345");
 
-            gridPane.add(networkPort, 1, 3);
-            gridPane.add(networkPortField, 2, 3);
-            gridPane.add(localPort, 1, 4);
-            gridPane.add(localPortField, 2, 4);
+            gridPane.add(networkPort, 1, 4);
+            gridPane.add(networkPortField, 2, 4);
+            gridPane.add(localPort, 1, 5);
+            gridPane.add(localPortField, 2, 5);
 
-            gridPane.add(buttonBox, 2, 5);
+            gridPane.add(buttonBox, 2, 6);
             advancedButton.setText("Simple");
         } else {
             gridPane.getChildren().removeAll(buttonBox, localPort, localPortField, networkPort, networkPortField);
-            gridPane.add(buttonBox, 2, 3);
+            gridPane.add(buttonBox, 2, 4);
             advancedButton.setText("Advanced");
         }
     }
 
     /**
+     * Handles logging a user in on the network
+     */
+    protected void login() {
+        loader.setVisible(true);
+
+        Task task = new Task() {
+            @Override
+            protected String call() throws Exception {
+                if (localNode.getUsers().loginUser(userName)){
+                    this.succeeded();
+                    return null;
+                } else {
+                    this.succeeded();
+                    return "Invalid keyfile for username";
+                }
+            }
+        };
+
+        /* Run the task in a separate thread to avoid blocking the JavaFX thread */
+        final Thread thread = new Thread(task);
+        thread.setDaemon(true);
+        thread.start();
+
+        /* On task finish */
+        task.setOnSucceeded(event1 -> {
+            String errorMessage = (String) task.getValue(); // result of computation
+
+            if (errorMessage != null) {
+                errorText.setText(errorMessage);
+            } else {
+                showHomeScene();
+            }
+            loader.setVisible(false);
+        });
+    }
+
+    @FXML
+    protected void register() {
+        loader.setVisible(true);
+
+        Task task = new Task() {
+            @Override
+            protected String call() throws Exception {
+                if (localNode.getUsers().registerUser(userNameField.getText())) {
+                    this.succeeded();
+                    return null;
+                } else {
+                    this.succeeded();
+                    return "User already exists";
+                }
+            }
+        };
+
+        /* Run the task in a separate thread to avoid blocking the JavaFX thread */
+        final Thread thread = new Thread(task);
+        thread.setDaemon(true);
+        thread.start();
+
+        /* On task finish */
+        task.setOnSucceeded(event1 -> {
+            String errorMessage = (String) task.getValue(); // result of computation
+
+            if (errorMessage != null) {
+                errorText.setText(errorMessage);
+            } else {
+                showHomeScene();
+            }
+            loader.setVisible(false);
+        });
+    }
+
+    /**
      * Changes the current scene to the login scene
      */
-    private void showLoginScene() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+    private void showHomeScene() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/home.fxml"));
         Parent root = null;
 
         try {
@@ -188,11 +289,9 @@ public class ConnectController {
             e.printStackTrace();
         }
 
-        LoginController controller =
+        HomeController controller =
                 loader.getController();
         controller.init(localNode);
-
-        main.setLocalNode(localNode);
 
         Stage stage;
         stage = (Stage) connectButton.getScene().getWindow();
