@@ -86,7 +86,7 @@ public class Server {
                 /* Check if the node is part of this network - drop the packet if not
                    allow if message is connect message
                    allow if ack and local network ID is null
-                   allow if local network ID == remote network ID */ // TODO: 18/12/2016  think I've fixed the null pointer exception here - test it
+                   allow if local network ID == remote network ID */
                 if (messageCode == 0x02 || (messageCode == 0x01 && localNode.getNetworkId() == null) || msg.getNetworkId().equals(localNode.getNetworkId())) {
 
                     /* Check if IPs match - if not, ignore the message. Saves processing, future exceptions, and maintains security */
@@ -186,11 +186,10 @@ public class Server {
         byte[] data = bout.toByteArray();
 
         if (data.length > Configuration.PACKET_SIZE) {
-            // TODO: split large message into smaller datagram packets
             throw new IllegalStateException("Message is too large");
         }
 
-            /* Create the packet and send it */
+        /* Create the packet and send it */
         DatagramPacket pkt = new DatagramPacket(data, 0, data.length);
 
         if (destination.getPublicInetAddress().equals(localNode.getNode().getPublicInetAddress())) {

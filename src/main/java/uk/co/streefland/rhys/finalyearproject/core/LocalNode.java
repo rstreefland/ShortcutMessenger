@@ -51,7 +51,9 @@ public class LocalNode {
         this.ipTools = ipTools;
         this.storageHandler = new StorageHandler();
 
-        if (storageHandler.doesSavedStateExist()) {
+        boolean savedStateExists = storageHandler.doesSavedStateExist();
+
+        if (savedStateExists) {
             /* Read config, node, routingTable and users from file if possible; else create new objects */
             readState();
         } else {
@@ -88,8 +90,12 @@ public class LocalNode {
 
         encryption = new Encryption();
 
+        if (!encryption.areKeysPresent() && savedStateExists) {
+            throw new IOException("Public or private key is missing");
+        }
+
         /* If we've managed to load a saved state from file - start the server */
-        if (storageHandler.doesSavedStateExist()) {
+        if (savedStateExists) {
             server.startListener();
             /* Start the automatic refresh operation that runs every 60 seconds */
             startRefreshOperation();

@@ -74,7 +74,7 @@ public class StorageHandler {
         fis.close();
     }
 
-    public void delete() {
+    public static void delete() {
         File f = new File(Configuration.FILE_PATH);
         f.delete();
     }
@@ -82,7 +82,7 @@ public class StorageHandler {
     /**
      * @return True if the file exists, false if not
      */
-    public boolean doesSavedStateExist() {
+    public static boolean doesSavedStateExist() {
         File f = new File(Configuration.FILE_PATH);
         return f.exists() && !f.isDirectory();
     }

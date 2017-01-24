@@ -18,6 +18,12 @@ public class Configuration implements Serializable {
     public static final int DEFAULT_PORT = 12345;
     public static final String FILE_PATH = "shortcut_data.ser";
 
+    /* Encryption constants */
+    public static final String PRIVATE_KEY_FILE = "private.smk";
+    public static final String PUBLIC_KEY_FILE = "public.smk";
+    public static final int AES_BITS = 128;
+    public static final int RSA_BITS = 1024;
+
     /* Settings the program can change if needs be */
     private int maxConnectionAttempts = 5;
     private long operationTimeout = 2000;  // timeout for operation completion (2 seconds)

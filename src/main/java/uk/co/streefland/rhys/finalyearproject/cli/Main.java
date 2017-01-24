@@ -23,7 +23,7 @@ class Main {
     private static LocalNode localNode = null;
     private static final ArrayList<String> availableCommands = new ArrayList<>(); // stores a list of available commands
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         System.out.println("Shortcut Messenger CLI");
 
         availableCommands.add("bootstrap");
@@ -192,7 +192,7 @@ class Main {
         }
     }
 
-    private static void register() throws IOException {
+    private static void register() throws IOException, NoSuchAlgorithmException {
         if (!availableCommands.contains("register")) {
             return;
         }

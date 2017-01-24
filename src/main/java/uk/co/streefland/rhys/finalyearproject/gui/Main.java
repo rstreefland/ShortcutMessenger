@@ -60,14 +60,13 @@ public class Main extends Application {
         Font.loadFont(getClass().getResourceAsStream("/fonts/Roboto-Regular.ttf"), 14);
         Font.loadFont(getClass().getResourceAsStream("/fonts/Roboto-Light.ttf"), 14);
 
-        StorageHandler temp = new StorageHandler();
         Parent root;
 
         logger.info("Shortcut Messenger UI");
 
         try {
             /* Check if we can load the saved state from the file and show the relevant scene */
-            if (temp.doesSavedStateExist()) {
+            if (StorageHandler.doesSavedStateExist()) {
                 try {
                     IPTools ipTools = new IPTools();
                     localNode = new LocalNode(ipTools, Configuration.DEFAULT_PORT);
@@ -79,8 +78,8 @@ public class Main extends Application {
                             loader.getController();
                     controller.init(localNode);
                 } catch (IOException | ClassNotFoundException | NoSuchAlgorithmException e) {
-                    localNode = null; // TODO: 23/01/2017 this is wrong
-                    temp.delete();
+                    localNode = null;
+                    StorageHandler.delete(); // Delete the dodgy saved state file - the next run will take care of the encryption keys if needed
                     root = showConnectScreen();
                     errorDialog();
                 }
@@ -120,9 +119,9 @@ public class Main extends Application {
      */
     private void errorDialog() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
-        alert.setHeaderText("Failed to load saved data");
-        alert.setContentText("Please re-connect to the network and log in again");
+        alert.setTitle("Fatal Error");
+        alert.setHeaderText("Failed to load saved data or corresponding private key");
+        alert.setContentText("Please re-connect to the network");
 
         DialogPane dialogPane = alert.getDialogPane();
         dialogPane.getStylesheets().add(

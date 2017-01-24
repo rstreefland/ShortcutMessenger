@@ -8,6 +8,7 @@ import uk.co.streefland.rhys.finalyearproject.operation.user.RegisterUserOperati
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -45,7 +46,9 @@ public class Users implements Serializable {
      * @return True if the user was registered successfully
      * @throws IOException
      */
-    public boolean registerUser(String userName) throws IOException {
+    public boolean registerUser(String userName) throws IOException, NoSuchAlgorithmException {
+        /* Prepare a new public/private keypair */
+        localNode.getEncryption().generateKeyPair();
 
         /* Create and prepare the user object */
         User user = new User(userName, localNode.getEncryption().getPublicKey().getEncoded());

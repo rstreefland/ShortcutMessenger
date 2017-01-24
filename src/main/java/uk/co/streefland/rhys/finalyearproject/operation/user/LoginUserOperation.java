@@ -15,6 +15,8 @@ import uk.co.streefland.rhys.finalyearproject.operation.FindNodeOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.Operation;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -141,12 +143,18 @@ public class LoginUserOperation implements Operation, Receiver {
 
                     /* Terminate early if found on the local node */
                     if (existingUser != null) {
-                        if (localNode.getEncryption().doPublicKeysMatch(user.getPublicKey())) {
-                            loggedIn = true;
-                            return true;
-                        } else {
-                            loggedIn = false;
-                            return true;
+                        try {
+                            if (localNode.getEncryption().testKeypair(user.getPublicKey())) {
+                                loggedIn = true;
+                                return true;
+                            } else {
+                                loggedIn = false;
+                                return true;
+                            }
+                        } catch (InvalidKeySpecException e) {
+                            e.printStackTrace();
+                        } catch (NoSuchAlgorithmException e) {
+                            e.printStackTrace();
                         }
                     }
 
@@ -174,7 +182,13 @@ public class LoginUserOperation implements Operation, Receiver {
         /* Read the VerifyUserMessageReply */
         VerifyUserMessageReply msg = (VerifyUserMessageReply) incoming;
 
-        loggedIn = msg.getExistingUser() != null && localNode.getEncryption().doPublicKeysMatch(msg.getExistingUser().getPublicKey());
+        try {
+            loggedIn = msg.getExistingUser() != null && localNode.getEncryption().testKeypair(msg.getExistingUser().getPublicKey());
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
 
         /* Update the hashmap to show that we've finished messaging this node */
         nodes.put(msg.getOrigin(), Configuration.Status.QUERIED);

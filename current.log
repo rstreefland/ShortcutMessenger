@@ -1,12 +1,13 @@
-2017-01-23 22:02:14.293 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
-2017-01-23 22:02:14.580 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
-2017-01-23 22:02:14.865 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 82.24.92.147
-2017-01-23 22:02:14.914 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 192.168.0.7
-2017-01-23 22:02:42.174 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
-2017-01-23 22:02:42.185 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:744AF04BF1142B0CE3680125B23B1F0393B03C8C
-2017-01-23 22:02:42.185 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
-2017-01-23 22:02:42.186 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 0DE3665D36084EB4721665708435F8F91B947D39 to node 0DE3665D36084EB4721665708435F8F91B947D39
-2017-01-23 22:02:42.186 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
-2017-01-23 22:02:56.124 [Thread-170] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 26ms
-2017-01-23 22:03:32.850 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
-2017-01-23 22:03:32.853 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully
+2017-01-24 15:02:48.135 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
+2017-01-24 15:02:48.422 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
+2017-01-24 15:02:48.815 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 82.24.92.147
+2017-01-24 15:02:48.864 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 192.168.0.7
+2017-01-24 15:03:50.324 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
+2017-01-24 15:03:50.334 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:78092590FED22765CE1DE6346A2776F6294FCFF7
+2017-01-24 15:03:50.334 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2017-01-24 15:03:50.335 [Thread-7] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 0A022C0A84F21AB8660EB0859B0B40A698FC01AA to node 0A022C0A84F21AB8660EB0859B0B40A698FC01AA
+2017-01-24 15:03:50.335 [Thread-9] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-24 15:03:57.756 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 839
+2017-01-24 15:03:57.756 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 841
+2017-01-24 15:03:58.613 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 34
+2017-01-24 15:03:58.614 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 35

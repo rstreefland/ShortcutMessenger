@@ -33,10 +33,13 @@ import java.net.UnknownHostException;
  */
 public class ConnectController {
 
+    private final Label networkPort = new Label("Network port:");
+    private final TextField networkPortField = new TextField();
+    private final Label localPort = new Label("Local port:");
+    private final TextField localPortField = new TextField();
     private Main main;
     private LocalNode localNode;
     private IPTools ipTools;
-
     @FXML
     private HBox internetError;
     @FXML
@@ -57,12 +60,6 @@ public class ConnectController {
     private Label userNameLabel;
     @FXML
     private TextField userNameField;
-
-    private final Label networkPort = new Label("Network port:");
-    private final TextField networkPortField = new TextField();
-    private final Label localPort = new Label("Local port:");
-    private final TextField localPortField = new TextField();
-
     private String userName;
 
     public void init(Main main) {
@@ -100,81 +97,95 @@ public class ConnectController {
     private void handleConnectButtonAction() {
         loader.setVisible(true);
 
-        Task task = new Task() {
-            @Override
-            protected String call() throws Exception {
-                String networkIpString = networkIpField.getText();
-                int networkPort = Configuration.DEFAULT_PORT;
-                int localPort = Configuration.DEFAULT_PORT;
+        if (localNode != null) {
+            if (userName != null) {
+                login();
+            } else {
+                register();
+            }
+            main.setLocalNode(localNode);
+        } else {
 
-                try {
-                    networkPort = Integer.parseInt(networkPortField.getText());
-                } catch (NumberFormatException ignored) {}
+            Task task = new Task() {
+                @Override
+                protected String call() throws Exception {
 
-                try {
-                    localPort = Integer.parseInt(localPortField.getText());
-                } catch (NumberFormatException ignored) {}
+                    String networkIpString = networkIpField.getText();
+                    int networkPort = Configuration.DEFAULT_PORT;
+                    int localPort = Configuration.DEFAULT_PORT;
+
+                    try {
+                        networkPort = Integer.parseInt(networkPortField.getText());
+                    } catch (NumberFormatException ignored) {
+                    }
+
+                    try {
+                        localPort = Integer.parseInt(localPortField.getText());
+                    } catch (NumberFormatException ignored) {
+                    }
 
                 /* Special case for first node in the network */
-                if (networkIpString.equals("first")) {
-                    localNode = new LocalNode(ipTools, localPort);
-                    localNode.first();
-                    this.succeeded();
-                    return null;
-                }
+                    if (networkIpString.equals("first")) {
+                        localNode = new LocalNode(ipTools, localPort);
+                        localNode.first();
+                        this.succeeded();
+                        return null;
+                    }
 
                 /* Convert the network IP/URL into an InetAddress */
-                InetAddress networkIp = null;
-                try {
-                    networkIp = ipTools.validateAddress(networkIpString);
-                } catch (UnknownHostException ignored) {
-                }
+                    InetAddress networkIp = null;
+                    try {
+                        networkIp = ipTools.validateAddress(networkIpString);
+                    } catch (UnknownHostException ignored) {
+                    }
 
                 /* Create the localNode object */
-                if (networkIp != null) {
-                    localNode = new LocalNode(ipTools, localPort);
-                } else {
-                    this.succeeded();
-                    return "Invalid network address";
-                }
+                    if (networkIp != null) {
+                        localNode = new LocalNode(ipTools, localPort);
+                    } else {
+                        this.succeeded();
+                        return "Invalid network address";
+                    }
 
                 /* Attempt to bootstrap to the network */
-                boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, networkPort, networkPort));
+                    boolean error = localNode.bootstrap(new Node(new KeyId(), networkIp, networkIp, networkPort, networkPort));
 
-                if (error) {
-                    this.succeeded();
-                    localNode.shutdown(false);
-                    localNode = null;
-                    return "Failed to bootstrap to the specified network";
-                } else {
-                    this.succeeded();
-                    return null;
+                    if (error) {
+                        this.succeeded();
+                        localNode.shutdown(false);
+                        localNode = null;
+                        loader.setVisible(false);
+                        return "Failed to bootstrap to the specified network";
+                    } else {
+                        this.succeeded();
+                        return null;
+                    }
                 }
-            }
-        };
+            };
 
         /* Run the task in a separate thread to avoid blocking the JavaFX thread */
-        final Thread thread = new Thread(task);
-        thread.setDaemon(true);
-        thread.start();
+            final Thread thread = new Thread(task);
+            thread.setDaemon(true);
+            thread.start();
 
         /* On task finish */
-        task.setOnSucceeded(event1 -> {
-            String errorMessage = (String) task.getValue(); // result of computation
+            task.setOnSucceeded(event1 -> {
+                String errorMessage = (String) task.getValue(); // result of computation
 
-            if (errorMessage != null) {
-                errorText.setText(errorMessage);
-            } else {
-                if (userName != null) {
-                    login();
+                if (errorMessage != null) {
+                    loader.setVisible(false);
+                    errorText.setText(errorMessage);
                 } else {
-                    register();
+                    if (userName != null) {
+                        login();
+                    } else {
+                        register();
+                    }
                 }
-            }
 
-            loader.setVisible(false);
-            main.setLocalNode(localNode);
-        });
+                main.setLocalNode(localNode);
+            });
+        }
     }
 
     private void replaceUserNameField() {
@@ -208,12 +219,10 @@ public class ConnectController {
      * Handles logging a user in on the network
      */
     protected void login() {
-        loader.setVisible(true);
-
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
-                if (localNode.getUsers().loginUser(userName)){
+                if (localNode.getUsers().loginUser(userName)) {
                     this.succeeded();
                     return null;
                 } else {
@@ -233,17 +242,16 @@ public class ConnectController {
             String errorMessage = (String) task.getValue(); // result of computation
 
             if (errorMessage != null) {
+                loader.setVisible(false);
                 errorText.setText(errorMessage);
             } else {
                 showHomeScene();
             }
-            loader.setVisible(false);
         });
     }
 
     @FXML
     protected void register() {
-        loader.setVisible(true);
 
         Task task = new Task() {
             @Override
@@ -268,11 +276,12 @@ public class ConnectController {
             String errorMessage = (String) task.getValue(); // result of computation
 
             if (errorMessage != null) {
+                loader.setVisible(false);
+                localNode.getEncryption().deleteKeys();
                 errorText.setText(errorMessage);
             } else {
                 showHomeScene();
             }
-            loader.setVisible(false);
         });
     }
 

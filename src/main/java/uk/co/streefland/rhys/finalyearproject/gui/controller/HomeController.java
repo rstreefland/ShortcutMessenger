@@ -707,11 +707,22 @@ public class HomeController {
      * @throws IOException
      */
     @FXML
-    private void reset() throws IOException {
+    private void softReset() throws IOException {
         StorageHandler temp = new StorageHandler();
         temp.delete();
 
         localNode.shutdown(false);
         System.exit(0);
+    }
+
+    /**
+     * Deletes any existing saved state AND keypair and force shuts down the program
+     *
+     * @throws IOException
+     */
+    @FXML
+    private void hardReset() throws IOException {
+        localNode.getEncryption().deleteKeys();
+        softReset();
     }
 }
