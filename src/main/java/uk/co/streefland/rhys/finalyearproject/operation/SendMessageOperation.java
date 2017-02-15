@@ -161,7 +161,7 @@ public class SendMessageOperation implements Operation, Receiver {
                 /* then find node operation if the list is still empty */
                 if (closestNodes.size() == 0) {
                     logger.info("SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE");
-                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), true);
+                    FindNodeOperation fno = new FindNodeOperation(localNode, user.getAssociatedNode().getNodeId(), false); // TODO: 15/02/2017  check if this breaks anything 
                     fno.execute();
                     closestNodes = fno.getClosestNodes();
                 }

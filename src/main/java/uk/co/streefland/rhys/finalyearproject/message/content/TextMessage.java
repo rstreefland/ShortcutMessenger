@@ -19,7 +19,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 /**
- * A simple text message - slowly getting more functional :)
+ * A simple text message
  */
 public class TextMessage implements Message, Serializable {
 

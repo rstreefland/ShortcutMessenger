@@ -21671,3 +21671,291 @@ Caused by: java.security.InvalidKeyException: IOException: Detect premature EOF
 2017-01-24 15:03:57.756 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 841
 2017-01-24 15:03:58.613 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 34
 2017-01-24 15:03:58.614 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 35
+2017-01-24 15:17:30.046 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.gui.Main - Shortcut Messenger UI
+2017-01-24 15:17:30.327 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Internet connection is operational
+2017-01-24 15:17:30.619 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Public IP address is: 82.24.92.147
+2017-01-24 15:17:30.664 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.IPTools - Private IP address is: 192.168.0.7
+2017-01-24 15:17:40.327 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Shortcut Messenger build 1626
+2017-01-24 15:17:40.339 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - LocalNode ID:66350813D7CF579876703363B01C940E846915E7
+2017-01-24 15:17:40.339 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Starting server
+2017-01-24 15:17:40.340 [Thread-8] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Server is listening on port 12345
+2017-01-24 15:17:40.340 [Thread-6] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Bootstrapping localnode 004D49A92BA9792AEF841172B4097992160AC02F to node 004D49A92BA9792AEF841172B4097992160AC02F
+2017-01-24 15:18:01.024 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 2259
+2017-01-24 15:18:01.066 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:18:01.067 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:18:01.067 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:18:03.084 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 2059
+2017-01-24 15:18:03.084 [Thread-171] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 4321
+2017-01-24 15:18:04.601 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 24
+2017-01-24 15:18:04.602 [Thread-172] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 25
+2017-01-24 15:18:04.616 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:18:04.616 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:18:04.616 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:18:05.494 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 27
+2017-01-24 15:18:05.495 [Thread-173] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 28
+2017-01-24 15:18:05.496 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:18:05.496 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:18:05.496 [pool-3-thread-1] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:18:15.305 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 30
+2017-01-24 15:18:15.306 [Thread-175] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 32
+2017-01-24 15:18:19.352 [Thread-176] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2000ms
+2017-01-24 15:18:42.274 [Thread-177] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2001ms
+2017-01-24 15:18:56.291 [Thread-340] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2001ms
+2017-01-24 15:18:59.282 [Thread-341] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2001ms
+2017-01-24 15:19:51.487 [Thread-504] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2001ms
+2017-01-24 15:19:58.647 [Thread-505] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:19:58.647 [Thread-505] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:19:58.647 [Thread-505] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:19:59.736 [Thread-506] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:19:59.737 [Thread-506] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:19:59.737 [Thread-506] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:02.823 [Thread-507] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:02.824 [Thread-507] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:02.824 [Thread-507] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:03.529 [Thread-508] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:03.529 [Thread-508] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:03.530 [Thread-508] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:03.942 [Thread-509] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:03.942 [Thread-509] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:03.942 [Thread-509] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:04.217 [Thread-510] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:04.217 [Thread-510] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:04.217 [Thread-510] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:04.492 [Thread-511] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:04.492 [Thread-511] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:04.493 [Thread-511] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:04.735 [Thread-512] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:04.735 [Thread-512] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:04.735 [Thread-512] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:05.042 [Thread-513] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:05.043 [Thread-513] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:05.043 [Thread-513] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:12.666 [Thread-514] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:12.667 [Thread-514] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:12.667 [Thread-514] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:13.066 [Thread-515] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.067 [Thread-515] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.067 [Thread-515] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:13.192 [Thread-516] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.193 [Thread-516] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.193 [Thread-516] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:13.334 [Thread-517] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.335 [Thread-517] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.335 [Thread-517] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:13.468 [Thread-518] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.468 [Thread-518] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.468 [Thread-518] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:13.603 [Thread-519] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.603 [Thread-519] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.604 [Thread-519] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:13.723 [Thread-520] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.724 [Thread-520] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.724 [Thread-520] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:13.845 [Thread-521] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.846 [Thread-521] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.846 [Thread-521] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:13.971 [Thread-522] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:13.971 [Thread-522] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:13.971 [Thread-522] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:14.073 [Thread-523] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.074 [Thread-523] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.074 [Thread-523] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:14.199 [Thread-524] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.200 [Thread-524] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.200 [Thread-524] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:14.319 [Thread-525] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.320 [Thread-525] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.320 [Thread-525] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:14.445 [Thread-526] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.445 [Thread-526] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.446 [Thread-526] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:14.572 [Thread-527] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.572 [Thread-527] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.572 [Thread-527] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:14.698 [Thread-528] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.698 [Thread-528] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.698 [Thread-528] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:14.818 [Thread-529] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.819 [Thread-529] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.819 [Thread-529] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:14.941 [Thread-530] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:14.941 [Thread-530] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:14.941 [Thread-530] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:15.076 [Thread-531] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:15.077 [Thread-531] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:15.077 [Thread-531] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:15.208 [Thread-532] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:15.208 [Thread-532] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:15.209 [Thread-532] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:15.342 [Thread-533] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:15.343 [Thread-533] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:15.343 [Thread-533] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:15.461 [Thread-534] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:15.461 [Thread-534] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:15.461 [Thread-534] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:15.589 [Thread-535] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:15.589 [Thread-535] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:15.589 [Thread-535] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:15.718 [Thread-536] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:15.719 [Thread-536] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:15.719 [Thread-536] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:15.846 [Thread-537] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:15.847 [Thread-537] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:15.847 [Thread-537] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:16.072 [Thread-539] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:16.073 [Thread-539] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:16.073 [Thread-539] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:19.628 [Thread-540] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:19.628 [Thread-540] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:19.628 [Thread-540] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:20.667 [Thread-541] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:20.668 [Thread-541] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:20.668 [Thread-541] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:23.169 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:23.176 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:23.283 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:23.285 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:23.402 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:23.404 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:23.522 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:23.524 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:23.652 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:23.654 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:23.776 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:23.778 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:23.906 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:23.909 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:25.391 [Thread-542] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:25.391 [Thread-542] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:25.391 [Thread-542] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:25.542 [Thread-543] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:25.542 [Thread-543] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:25.542 [Thread-543] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:25.636 [Thread-544] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:25.636 [Thread-544] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:25.636 [Thread-544] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:25.762 [Thread-545] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:25.763 [Thread-545] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:25.763 [Thread-545] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:25.891 [Thread-546] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:25.892 [Thread-546] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:25.892 [Thread-546] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:26.613 [Thread-547] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:26.613 [Thread-547] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:26.614 [Thread-547] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:26.747 [Thread-548] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:26.747 [Thread-548] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:26.747 [Thread-548] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:26.868 [Thread-549] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:26.869 [Thread-549] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:26.869 [Thread-549] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:27.011 [Thread-550] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:27.012 [Thread-550] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:27.012 [Thread-550] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:27.147 [Thread-551] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:27.147 [Thread-551] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:27.147 [Thread-551] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:27.266 [Thread-552] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:27.266 [Thread-552] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:27.266 [Thread-552] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 0
+2017-01-24 15:20:27.388 [Thread-553] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:27.389 [Thread-553] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:27.389 [Thread-553] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:27.506 [Thread-554] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:27.506 [Thread-554] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:27.506 [Thread-554] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:27.616 [Thread-555] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - SMO COULDN'T FIND ANY CLOSE NODES - LOOKING ELSEWHERE
+2017-01-24 15:20:27.617 [Thread-555] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 0
+2017-01-24 15:20:27.617 [Thread-555] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 1
+2017-01-24 15:20:29.499 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:29.501 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:29.690 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:29.693 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:29.961 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:29.963 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:30.079 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:30.081 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:30.225 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:30.227 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:30.454 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:30.456 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:30.597 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:30.599 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:30.726 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:30.728 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:30.874 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:30.876 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:31.083 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:31.085 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:31.222 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:31.224 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:31.358 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:31.361 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:31.508 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:20:31.510 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:20:33.687 [Thread-556] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 21
+2017-01-24 15:20:33.687 [Thread-556] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 21
+2017-01-24 15:20:33.695 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:20:33.695 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:20:33.695 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:20:34.389 [Thread-557] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 19
+2017-01-24 15:20:34.390 [Thread-557] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 20
+2017-01-24 15:20:34.395 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:20:34.396 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:20:34.396 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:20:34.507 [Thread-558] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 19
+2017-01-24 15:20:34.507 [Thread-558] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 20
+2017-01-24 15:20:34.533 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:20:34.533 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:20:34.533 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:20:34.772 [Thread-560] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 19
+2017-01-24 15:20:34.772 [Thread-560] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 20
+2017-01-24 15:20:34.779 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:20:34.779 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:20:34.779 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:20:34.902 [Thread-561] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - FORWARD MESSAGE LOOP TIME: 21
+2017-01-24 15:20:34.902 [Thread-561] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 21
+2017-01-24 15:20:34.908 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.message.content.NotifySuccessReceiver - Received message success message :D :D
+2017-01-24 15:20:34.908 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - Updating message status to delivered
+2017-01-24 15:20:34.908 [pool-3-thread-12] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - New message status is: DELIVERED
+2017-01-24 15:20:39.751 [Thread-562] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 28
+2017-01-24 15:20:39.751 [Thread-562] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 28
+2017-01-24 15:20:40.557 [Thread-725] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 45
+2017-01-24 15:20:40.557 [Thread-725] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 45
+2017-01-24 15:20:41.064 [Thread-726] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 34
+2017-01-24 15:20:41.064 [Thread-726] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 34
+2017-01-24 15:20:41.484 [Thread-727] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 29
+2017-01-24 15:20:41.484 [Thread-727] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 30
+2017-01-24 15:20:41.870 [Thread-728] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 27
+2017-01-24 15:20:41.870 [Thread-728] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 27
+2017-01-24 15:20:42.192 [Thread-729] INFO  uk.co.streefland.rhys.finalyearproject.operation.SendMessageOperation - DIRECT MESSSAGE LOOP TIME: 26
+2017-01-24 15:20:42.192 [Thread-729] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - OUTGOING SMO TOOK: 26
+2017-01-24 15:20:45.836 [Thread-730] INFO  uk.co.streefland.rhys.finalyearproject.operation.NetworkTraversalOperation - NetworkTraversalOperation took: 2001ms
+2017-01-24 15:22:17.701 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:17.703 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:19.479 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:19.481 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:20.271 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:20.273 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:20.887 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:20.889 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:21.909 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:21.911 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:22.390 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:22.392 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:22.845 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:22.846 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:23.136 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:23.138 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:23.472 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:23.474 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:23.878 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:23.880 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:24.145 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:24.147 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:25.336 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:25.339 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:26.646 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.message.content.TextReceiver - Received a message intended for me
+2017-01-24 15:22:26.648 [pool-3-thread-3] INFO  uk.co.streefland.rhys.finalyearproject.core.Messages - THIS IS A FORWARDED MESSAGE
+2017-01-24 15:22:40.708 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.Server - Shutting down server
+2017-01-24 15:22:40.709 [JavaFX Application Thread] INFO  uk.co.streefland.rhys.finalyearproject.core.LocalNode - Server shut down successfully

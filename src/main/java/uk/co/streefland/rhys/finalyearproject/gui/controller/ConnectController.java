@@ -57,9 +57,8 @@ public class ConnectController {
     @FXML
     private HBox buttonBox;
     @FXML
-    private Label userNameLabel;
-    @FXML
     private TextField userNameField;
+
     private String userName;
 
     public void init(Main main) {
@@ -218,7 +217,7 @@ public class ConnectController {
     /**
      * Handles logging a user in on the network
      */
-    protected void login() {
+    private void login() {
         Task task = new Task() {
             @Override
             protected String call() throws Exception {
@@ -250,8 +249,7 @@ public class ConnectController {
         });
     }
 
-    @FXML
-    protected void register() {
+    private void register() {
 
         Task task = new Task() {
             @Override

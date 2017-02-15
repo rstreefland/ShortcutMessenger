@@ -6,7 +6,9 @@ import uk.co.streefland.rhys.finalyearproject.message.MessageHandler;
 import uk.co.streefland.rhys.finalyearproject.node.KeyId;
 import uk.co.streefland.rhys.finalyearproject.node.Node;
 import uk.co.streefland.rhys.finalyearproject.operation.ConnectOperation;
+import uk.co.streefland.rhys.finalyearproject.operation.refresh.BucketRefreshOperation;
 import uk.co.streefland.rhys.finalyearproject.operation.refresh.RefreshHandler;
+import uk.co.streefland.rhys.finalyearproject.routing.Bucket;
 import uk.co.streefland.rhys.finalyearproject.routing.RoutingTable;
 
 import java.io.IOException;
@@ -99,6 +101,8 @@ public class LocalNode {
             server.startListener();
             /* Start the automatic refresh operation that runs every 60 seconds */
             startRefreshOperation();
+
+            new BucketRefreshOperation(this); // TODO: 15/02/2017  check if this breaks anything
         }
         logger.info("LocalNode ID:" + node.getNodeId());
     }
