@@ -187,7 +187,7 @@ public class RoutingTable implements Serializable {
     private int getBucketId(KeyId nodeId) {
         int bucketId = localNode.getNodeId().getDistance(nodeId) - 1;
 
-        /* If we are trying to insert a node into it's own routing table, then the bucket ID will be -1, so let's just keep it in bucket 0 */
+        /* If we are trying to insert a node into it's own routing table, the bucket ID will be -1, so keep it in bucket 0 */
         return bucketId < 0 ? 0 : bucketId;
     }
 

@@ -75,7 +75,6 @@ public class FindNodeOperation implements Operation, Receiver {
                 }
             }
 
-            /* Now after we've finished, we would have an idea of offline nodes, lets update our routing table */
             localNode.getRoutingTable().setUnresponsiveContacts(getFailedNodes());
 
         } catch (InterruptedException e) {

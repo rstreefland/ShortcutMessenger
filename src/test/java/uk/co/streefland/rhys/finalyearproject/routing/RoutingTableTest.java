@@ -68,7 +68,7 @@ public class RoutingTableTest {
         KeyId zero = new KeyId(bytes);
         List<Node> sortedSet = routingTable.findClosest(zero, false);
 
-        assertEquals(sortedSet.size(), 7);
+        assertEquals(sortedSet.size(), 6);
 
         BigInteger previous = zero.getInt();
 
@@ -144,6 +144,6 @@ public class RoutingTableTest {
         routingTable.insert(node6);
         routingTable.insert(node7);
 
-        assertEquals(routingTable.getAllNodes(true).size(), 7);
+        assertEquals(routingTable.getAllNodes(true).size(), 6);
     }
 }

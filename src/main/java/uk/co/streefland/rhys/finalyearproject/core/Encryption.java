@@ -100,7 +100,7 @@ public class Encryption {
 
         /* Read the private key */
         ois = new ObjectInputStream(new FileInputStream(Configuration.PRIVATE_KEY_FILE));
-        privateKey = (PrivateKey) ois.readObject(); // TODO: 24/01/2017 potential error
+        privateKey = (PrivateKey) ois.readObject();
         if (ois.readBoolean()) {
             ois.readUTF();
         }

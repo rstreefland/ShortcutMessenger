@@ -197,7 +197,7 @@ class Main {
             return;
         }
 
-        if (inputWords.length > 2) {
+        if (inputWords.length > 1) {
             if (localNode.getUsers().registerUser(inputWords[1])) {
                 System.out.println("User " + inputWords[1] + " registered successfully");
             } else {
@@ -211,7 +211,7 @@ class Main {
             return;
         }
 
-        if (inputWords.length > 2) {
+        if (inputWords.length > 1) {
             if (localNode.getUsers().loginUser(inputWords[1])) {
                 System.out.println("Logged in as " + inputWords[1] + " successfully");
             } else {
