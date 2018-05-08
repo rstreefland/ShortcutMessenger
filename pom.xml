@@ -40,31 +40,6 @@
             </executions>
         </plugin>
 
-        <!--<plugin>
-            <artifactId>maven-assembly-plugin</artifactId>
-            <configuration>
-                <archive>
-                    <manifest>
-                        <mainClass>uk.co.streefland.rhys.finalyearproject.cli.Main</mainClass>
-                    </manifest>
-                </archive>
-                <descriptorRefs>
-                    <descriptorRef>jar-with-dependencies</descriptorRef>
-                </descriptorRefs>
-            </configuration>
-            <executions>
-                <execution>
-                    <id>make-assembly</id>
-                    <phase>package</phase>
-                    <goals>
-                        <goal>single</goal>
-                    </goals>
-                </execution>
-                <execution>
-                </execution>
-            </executions>
-        </plugin> -->
-
         <plugin>
             <artifactId>maven-assembly-plugin</artifactId>
             <configuration>
